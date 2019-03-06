@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <style>
+            .monitor {
+                border: solid 8px #444;
+                border-radius: 2px;
+                height: 518px;
+                width: 768px;
+                display: flex;
+                flex-direction: column;
+                counter-reset: pixel 0;
+            }
+            .bezel {
+                flex-basis: 64px;
+                background-color: #444;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+            .bezel .button {
+                height: 18px;
+                width: 18px;
+                border-radius: 9px;
+                background-color: silver;
+                margin: 0px 8px;
+            }
+            .viewport {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                flex-grow: 1;
+                grid-template-rows: repeat(4, 25%);
+            }
+            .viewport div {
+                border: solid 1px #ccc;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .viewport div::before {
+                counter-increment: pixel;
+                content: "Pixel: " counter(pixel);
+            }
+            .on {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="monitor">
+            <div class="viewport">
+                <div class="on"></div><div class="on"></div><div class="on"></div><div>           </div>
+                <div class="on"></div><div>           </div><div class="on"></div><div>           </div>
+                <div class="on"></div><div class="on"></div><div class="on"></div><div>           </div>
+                <div>           </div><div>           </div><div>           </div><div>           </div>
+            </div>
+            <div class="bezel">
+                <div class="button"></div>
+                <div class="button"></div>
+                <div class="button"></div>
+            </div>
+        </div>
+    </body>
+</html>
