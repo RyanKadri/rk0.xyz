@@ -13,13 +13,19 @@ const styles = createStyles({
     },
     viewportContainer: {
         height: "calc(100vh - 64px)",
+        width: "100%",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: "#999",
+        "&.fullscreen": {
+            height: "100vh",
+            backgroundColor: "#444"
+        },
     }
 })
 
-const _SlideViewport = ({ Slide, context, classes }: Props) => {
+const _SlideViewport = ({ Slide, context, isFullscreen, classes }: Props) => {
     const viewport = useRef<HTMLDivElement>(null);
     const viewportSize = useComponentSize(viewport);
 
@@ -34,7 +40,7 @@ const _SlideViewport = ({ Slide, context, classes }: Props) => {
     };
 
     return (
-        <div className={ classes.viewportContainer } ref={viewport}>
+        <div className={ `${classes.viewportContainer} ${isFullscreen ? 'fullscreen' : ""}` } ref={viewport}>
             <Paper className={ classes.viewportPaper } elevation={5} style={style}>
                 <Slide context={ context } />
             </Paper>
@@ -47,4 +53,5 @@ export const SlideViewport = withStyles(styles)(_SlideViewport)
 interface Props extends WithStyles<typeof styles> {
     Slide: ComponentType<{ context: PresentationContext}>;
     context: PresentationContext;
+    isFullscreen: boolean;
 }

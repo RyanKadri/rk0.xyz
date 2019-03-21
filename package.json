@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel lessons/lesson1/presentation/src/index.html",
+    "start": "parcel presenter/app/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
