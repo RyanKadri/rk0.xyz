@@ -1,4 +1,6 @@
-import { generateContentSlide, generateMessageSlide } from "../../../../../presenter/app/slides/generate-slide";
+import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../presenter/app/slides/generate-slide";
+
+export const TitleSlide = generateTitleSlide("Intro to Web Design", "Ryan Kadri");
 
 export const WhatIsCourse = generateContentSlide("What is this course?", [
     "For Beginners",

@@ -953,4 +953,4 @@ var t=arguments[3];Object.defineProperty(exports,"__esModule",{value:!0}),export
 },{"@material-ui/core":"ZYn6","react":"ccIB","react-router-dom":"ZTqG","./presentation-selector/presentation-selector":"Gfa0","./slides/slide-manager":"QcXP","./theme":"2Acz"}],"zo2T":[function(require,module,exports) {
 "use strict";var e=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0});var r=e(require("react")),t=require("react-dom"),s=require("../../lessons/lesson1/presentation/src/slides"),n=require("./app-root"),o=[s.lesson1];t.render(r.default.createElement(n.PresentationViewer,{presentations:o}),document.getElementById("app"));
 },{"react":"ccIB","react-dom":"x9tB","../../lessons/lesson1/presentation/src/slides":"IicS","./app-root":"N3yM"}]},{},["zo2T"], null)
-//# sourceMappingURL=/library-class/app.4d8b7752.js.map
+//# sourceMappingURL=/app.4d8b7752.js.map

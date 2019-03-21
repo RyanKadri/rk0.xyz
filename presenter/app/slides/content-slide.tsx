@@ -2,7 +2,7 @@ import { createStyles, Theme, Typography, WithStyles, withStyles } from "@materi
 import React, { ReactElement } from "react";
 import { titleDecorator } from "../services/style-chunks";
 import { PresentationContext } from "../services/types";
-import { InfoList } from "../slide-components/info-list";
+import { InfoList, NestedListInfo } from "../slide-components/info-list";
 import { PageNumber } from "../slide-components/page-number";
 
 const styles = (theme: Theme) => createStyles({
@@ -34,6 +34,6 @@ export const ContentSlide = withStyles(styles)(_ContentSlide)
 
 interface Props extends WithStyles<typeof styles> {
     Title: string | ReactElement;
-    Content: string[] | ReactElement;
+    Content: (string | NestedListInfo)[] | ReactElement;
     context: PresentationContext;
 }

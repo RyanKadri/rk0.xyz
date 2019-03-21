@@ -3,10 +3,11 @@ import React from "react";
 
 const styles = (theme: Theme) => createStyles({
     list: {
-
+        marginTop: 32
     },
     item: {
-        fontSize: theme.typography.h4.fontSize,
+        fontSize: "2.75rem",
+        fontWeight: 300,
         position: "relative",
         display: "block",
         marginBottom: 16,
@@ -17,16 +18,23 @@ const styles = (theme: Theme) => createStyles({
             backgroundColor: theme.palette.secondary.main,
             height: 12,
             width: 12,
-            top: "50%",
-            transform: "translate(-24px, -50%)"
+            top: 26,
+            transform: "translate(-32px, -50%)"
         }
     }
 })
 
 const _InfoList = ({ items, classes }: Props) => (
     <ul className={ classes.list }>
-        { items.map(item => (
-            <li key={item} className={classes.item}>{item}</li>
+        { items.map((item, i) => (
+            <li key={i} className={classes.item}>{
+                typeof item === "string"
+                    ? item
+                    :   <>
+                            {item.text}
+                            <_InfoList items={item.children} classes={classes} />
+                        </>
+            }</li>
         )) }
     </ul>
 )
@@ -34,5 +42,10 @@ const _InfoList = ({ items, classes }: Props) => (
 export const InfoList = withStyles(styles)(_InfoList)
 
 interface Props extends WithStyles<typeof styles> {
-    items: string[]
+    items: (string | NestedListInfo)[]
+}
+
+export interface NestedListInfo {
+    text: string;
+    children: (string | NestedListInfo)[];
 }
