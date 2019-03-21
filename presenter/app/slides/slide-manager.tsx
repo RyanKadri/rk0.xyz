@@ -1,34 +1,28 @@
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React, { ComponentType, useEffect } from "react";
+import { match, RouteComponentProps } from "react-router";
 import { PresentationContext } from "../services/types";
-import { IntroSlide } from "./intro-slide";
 import { SlideViewport } from "./slide-viewport";
-import { WhatIsCourseSlide } from "./what-is-course";
 
 const styles = createStyles({
 
 })
 
-const slides = [
-    IntroSlide,
-    WhatIsCourseSlide
-];
+const _SlideManager = ({ slides, history, match }: Props) => {
 
-const _SlideManager = ({}: Props) => {
-    const [ currentSlide, setCurrentSlide ] = useState(0);
-
+    const slideNum = parseInt(match.params.slideNum, 10);
     const updateSlidePos = (amt: number) => {
-        const next = currentSlide + amt;
+        const slideNum = parseInt(match.params.slideNum, 10);
         if(amt < 0) {
-            setCurrentSlide(Math.max(0, next))
+            history.push("/slides/" + Math.max(0, slideNum + amt));
         } else {
-            setCurrentSlide(Math.min(slides.length - 1, next));
+            history.push("/slides/" + Math.min(slides.length - 1, slideNum + amt));
         }
     }
 
     const context: PresentationContext = {
         numPages: slides.length,
-        pageNum: currentSlide + 1
+        pageNum: slideNum + 1
     }
 
     useEffect(() => {
@@ -44,14 +38,16 @@ const _SlideManager = ({}: Props) => {
         }
         document.addEventListener("keydown", updatePos);
         return () => document.removeEventListener("keydown", updatePos);
-    }, [])
+    }, [slideNum])
     return (
-        <SlideViewport Slide={ slides[currentSlide] } context={ context } />
+        <SlideViewport Slide={ slides[slideNum] } context={ context } />
     )
-}
+};
 
 export const SlideManager = withStyles(styles)(_SlideManager)
 
 interface Props extends WithStyles<typeof styles> {
-
+    slides: ComponentType<{context: PresentationContext}>[];
+    history: RouteComponentProps["history"];
+    match: match<any>;
 }

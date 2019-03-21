@@ -1,6 +1,6 @@
 import React from "react";
-import { PresentationContext } from "../services/types";
-import { TitleSlide } from "./title-slide";
+import { PresentationContext } from "../../../../../presenter/app/services/types";
+import { TitleSlide } from "../../../../../presenter/app/slides/title-slide";
 
 export function IntroSlide({ context }: Props) {
     return (
