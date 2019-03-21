@@ -6,7 +6,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const styles = createStyles({
-    title: {
+    title: { 
         flexGrow: 1
     },
     link: {
