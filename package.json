@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel presenter/app/index.html",
-    "build": "parcel build presenter/app/index.html -d docs",
+    "build": "rm -rf docs && parcel build presenter/app/index.html -d docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
