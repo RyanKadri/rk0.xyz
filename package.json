@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel presenter/app/index.html",
-    "build": "rm -rf docs && parcel build presenter/app/index.html -d docs",
+    "start": "parcel packages/site/src/index.html",
+    "build": "rm -rf dist/site && parcel build packages/site/src/index.html -d dist/site",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,14 +16,16 @@
     "highlight.js": "^9.15.6",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-hammerjs": "^1.0.1",
     "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
     "@types/highlight.js": "^9.12.3",
     "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.2",
+    "@types/react-hammerjs": "^1.0.1",
     "@types/react-router-dom": "^4.3.1",
-    "parcel-bundler": "^1.12.2",
+    "parcel-bundler": "^1.12.3",
     "sass": "^1.17.3",
     "typescript": "^3.3.3333"
   }

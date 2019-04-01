@@ -1,7 +1,4 @@
 version: 0.2
-env:
-  variables:
-    S3_BUCKET: "rk0-site"
 phases:
   install:
     commands:
@@ -14,5 +11,4 @@ phases:
 artifacts:
   files:
       - '**/*'
-  base-directory: 'docs*'
-  discard-paths: yes
+  base-directory: 'dist/site*'
