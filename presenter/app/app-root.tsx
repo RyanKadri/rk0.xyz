@@ -8,7 +8,7 @@ import { appTheme } from "./theme";
 
 export function PresentationViewer({ presentations }: Props) {
     return (
-        <Router>
+        <Router basename="/library-class">
             <MuiThemeProvider theme={ appTheme }>
                 <CssBaseline />
                 <Switch>
