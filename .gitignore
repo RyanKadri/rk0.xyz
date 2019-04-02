@@ -3,3 +3,7 @@ scratch/
 node_modules/
 .cache/
 dist/
+node_modules/
+*.pyc
+.vscode/.ropeproject/objectdb
+__pycache__/

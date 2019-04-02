@@ -3,7 +3,7 @@
     /* Basic Options */
     "target": "es2018",
     "module": "commonjs",
-    "lib": ["dom", "es2018"],
+    "lib": ["dom", "es2018", "esnext.array"],
     "jsx": "react",
     "sourceMap": true,
     "outDir": "./dist",

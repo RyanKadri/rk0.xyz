@@ -22,7 +22,7 @@ function _PresentationControls({ fullScreen, onFullScreen, title, classes }: Pro
             : ( <AppBar position="static">
                     <Toolbar>
                         <IconButton component={() => 
-                            <Link to="/presentations" className={classes.link}><Home /></Link>
+                            <Link to="/" className={classes.link}><Home /></Link>
                         } color="inherit" />
                         <Typography variant="h6" color="inherit" className={ classes.title }>
                             {title}
