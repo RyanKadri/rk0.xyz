@@ -4,7 +4,7 @@ import { BoardState } from "./types/shared-types";
 
 export const NextMoveApi = {
     ticTacToe(boardState: TicTacToeBoardState): Promise<TicTacToeMove> {
-        return fetchMove("https://1dsf262eg5.execute-api.us-east-1.amazonaws.com/prod/tic-tac-toe", boardState)
+        return fetchMove("https://kph1kyr2qd.execute-api.us-east-1.amazonaws.com/Prod/tic-tac-toe", boardState)
     },
     connectFour(boardState: ConnectFourBoardState): Promise<ConnectFourMove> {
         return fetchMove("/api/connect-4/nextMove", boardState)

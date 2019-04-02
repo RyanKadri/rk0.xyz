@@ -1,7 +1,7 @@
-import { TicTacToeBoardState, TicTacToeOwner, TicTacToeAction } from "../types/types";
-import { GameState, GameStatus } from "../../common/types/shared-types";
-import { saneDefaults, createBoard, addToken } from "../../common/utils";
 import { isFull } from "../../common/rules/board-full";
+import { GameState, GameStatus } from "../../common/types/shared-types";
+import { addToken, createBoard, saneDefaults } from "../../common/utils";
+import { TicTacToeAction, TicTacToeBoardState, TicTacToeOwner } from "../types/types";
 
 export const players = [ TicTacToeOwner.X, TicTacToeOwner.O ];
 
@@ -49,7 +49,7 @@ export const ticTacToeReducer = (state: GameState<TicTacToeOwner>, action: TicTa
 }
 
 function checkOutcome(board: TicTacToeBoardState): Pick<GameState<TicTacToeOwner>, 'status' | 'winner'> {
-    let winner = undefined;
+    let winner: TicTacToeOwner | undefined = undefined;
     
     winner = checkWinner(board[0][0], board[1][1], board[2][2])
         || checkWinner(board[0][2], board[1][1], board[2][0])       

@@ -1,15 +1,19 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Returns a valid move for Tic Tac Toe
+Globals:
+  Api:
+    EndpointConfiguration: REGIONAL
+    Cors: "'*'"
 Resources:
-  TimeFunction:
+  TicTacToeNextMove:
     Type: AWS::Serverless::Function
     Properties:
       Handler: calc-next-move.lambda_handler
       Runtime: python3.7
       CodeUri: ./packages/games-backend/src
       Events:
-        MyTimeApi:
+        GameApi:
           Type: Api
           Properties:
             Path: /tic-tac-toe
