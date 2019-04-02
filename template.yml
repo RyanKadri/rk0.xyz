@@ -4,7 +4,10 @@ Description: Returns a valid move for Tic Tac Toe
 Globals:
   Api:
     EndpointConfiguration: REGIONAL
-    Cors: "'*'"
+    Cors:
+      AllowMethods: "'GET,POST,OPTIONS'"
+      AllowHeaders: "'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range'"
+      AllowOrigin: "'*'"
 Resources:
   TicTacToeNextMove:
     Type: AWS::Serverless::Function
