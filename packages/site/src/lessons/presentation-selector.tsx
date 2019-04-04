@@ -1,8 +1,8 @@
 import { Card, CardActionArea, CardContent, createStyles, Link as MaterialLink, Typography, WithStyles, withStyles } from "@material-ui/core";
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Presentation } from "../../../presenter-core/src/services/types";
-import { AppBarContext } from "../root/app-bar-context";
+import { useAppBar } from "../common/use-app-bar";
 
 const styles = createStyles({
     card: {
@@ -17,10 +17,7 @@ const styles = createStyles({
 })
 
 const _PresentationSelector = ({ classes, presentations }: Props) => {
-    const appbarContext = useContext(AppBarContext);
-    useEffect(() => {
-        appbarContext.updateAppBar({ title: "Choose a class" })
-    }, []);
+    useAppBar("Choose a class");
 
     return (
         <>

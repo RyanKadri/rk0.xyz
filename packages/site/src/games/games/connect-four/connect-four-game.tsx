@@ -1,12 +1,12 @@
-import { createStyles, WithStyles, withStyles, Typography } from "@material-ui/core";
-import React, { useReducer, useEffect } from "react";
-import { GameHeader } from "../common/components/game-header";
+import { createStyles, Typography, WithStyles, withStyles } from "@material-ui/core";
+import React, { useEffect, useReducer } from "react";
 import { DefaultGameControls } from "../common/components/default-game-controls";
-import { initState, connectFourReducer, players } from "./rules/rules";
-import { ConnectFourBoard } from "./connect-four-board";
-import { MoveAction, ConnectFourOwner } from "./types/types";
-import { ResetAction, ToggleOpponent, GameStatus, ToggleWaiting, ErrorEffect } from "../common/types/shared-types";
+import { GameHeader } from "../common/components/game-header";
 import { NextMoveApi } from "../common/computer-opponent-service";
+import { ErrorEffect, GameStatus, ResetAction, ToggleOpponent, ToggleWaiting } from "../common/types/shared-types";
+import { ConnectFourBoard } from "./connect-four-board";
+import { connectFourReducer, initState, players } from "./rules/rules";
+import { ConnectFourOwner, MoveAction } from "./types/types";
 
 const styles = createStyles({
 })
@@ -39,6 +39,7 @@ const _ConnectFourGame = ({}: Props) => {
             <ConnectFourBoard 
                 boardState={ gameState.board } 
                 status={ gameState.status }
+                winningMove={ gameState.winningMove }
                 onColumnSelected={ (col) => dispatch(new MoveAction(col)) }
             />
             { gameState.error && <Typography color="error">{ gameState.error }</Typography> }

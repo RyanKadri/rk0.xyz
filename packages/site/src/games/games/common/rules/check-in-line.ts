@@ -17,14 +17,14 @@ export function findLine<T>(
     directions: Direction[],
     length: number,
     predicate: (a: T, b: T) => boolean
-) {
+): MatchedLine<T> | undefined {
     for(const direction of directions) {
         for(let startRow = 0; startRow < board.length; startRow ++) {
             const row = board[startRow];
             for(let startCol = 0; startCol < row.length; startCol++) {
                 const squareSet = extractLine(board, startRow, startCol, direction, length);
-                if(squareSet && checkLine(squareSet.map(sq => sq.token), predicate)) {
-                    return squareSet
+                if(squareSet.length > 0 && checkLine(squareSet, predicate)) {
+                    return { startRow, startCol, direction, length, token: squareSet[0] }
                 }
             }
         }
@@ -38,19 +38,20 @@ function extractLine<T>(
     startCol: number,
     direction: Direction,
     length: number
-) {
+): T[] {
     const endRow = startRow + direction.row * (length - 1);
     const endCol = startCol + direction.col * (length - 1);
     if(endRow >= 0 && endRow < board.length && endCol >= 0 && endCol < board[0].length) {
-        const res = [];
+        const res: any[] = [];
         for(let i = 0; i < length; i++) {
             const row = startRow + i * direction.row;
             const column = startCol + i * direction.col;
-            res.push({ row, column, token: board[row][column] })
+            res.push(board[row][column]);
         }
         return res;
+    } else {
+        return [];
     }
-    return undefined;
 }
 
 function checkLine<T>(line: T[], predicate: (a: T, b: T) => boolean) {
@@ -61,4 +62,12 @@ function checkLine<T>(line: T[], predicate: (a: T, b: T) => boolean) {
     }
 
     return true;
+}
+
+export interface MatchedLine<T> {
+    startRow: number;
+    startCol: number;
+    token: T;
+    direction: Direction;
+    length: number
 }

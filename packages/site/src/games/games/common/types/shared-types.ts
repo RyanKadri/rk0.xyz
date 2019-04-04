@@ -14,7 +14,7 @@ export enum GameStatus {
 
 export type BoardState<T> = T[][];
 
-export interface GameState<T> {
+export interface BasicGameState<T> {
     board: BoardState<T>;
     status: GameStatus;
     currentPlayer: number;

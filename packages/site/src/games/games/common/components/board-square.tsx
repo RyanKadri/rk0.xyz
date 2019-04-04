@@ -1,4 +1,4 @@
-import { createStyles, WithStyles, withStyles, Theme } from "@material-ui/core";
+import { createStyles, Theme, WithStyles, withStyles } from "@material-ui/core";
 import React, { ReactElement } from "react";
 import { noop } from "../utils";
 
@@ -10,11 +10,16 @@ const styles = (theme: Theme) => createStyles({
         border: `solid ${borderWidth}px #444`,
         marginRight: - borderWidth,
         marginBottom: - borderWidth,
+        display: "flex",
+        alignItems: "center",
         "&:hover:not(.selected):not(.disabled):not(.block-auto-hover)": {
             backgroundColor: "rgba(0,0,0,0.12)"
         },
         "&.highlight": {
             backgroundColor: "rgba(0,0,0,0.12)"
+        },
+        "& > *": {
+            width: "100%"
         }
     }
 })

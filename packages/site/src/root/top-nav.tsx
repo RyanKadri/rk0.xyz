@@ -7,39 +7,60 @@ import { ViewportInfo } from "./viewport-context";
 
 const styles = createStyles({
     title: { 
-        flexGrow: 1
+        marginRight: 16
+    },
+    customActionContainer: {
+        marginLeft: "auto"
+    },
+    homeIcon: {
+        marginRight: 8,
+        color: "white"
     },
     link: {
         color: "white",
-        marginRight: 8
+        padding: "0.5em",
+        textDecoration: "none",
+        "&:hover": {
+            backgroundColor: "rgba(255,255,255,0.1)"
+        }
+    },
+    navBar: {
+        overflowX: "auto"
     }
 })
 
 const links = [
+    { display: "Resume", link: "https://resume.rk0.xyz", external: true },
     { display: "Classes", link: "/web-design-class/" },
     { display: "Games", link: "/games/"}
-]
+];
 
 const _RootNav = ({ classes, settings, viewport }: Props) => {
     return (
         viewport.isFullscreen 
             ? null
-            : ( <AppBar position="static">
+            : ( <AppBar position="static" className={ classes.navBar }>
                     <Toolbar>
                         <IconButton component={() => 
-                            <Link to="/" className={classes.link}><Home /></Link>
+                            <Link to="/" className={classes.homeIcon}><Home /></Link>
                         } color="inherit" />
                         <Typography variant="h6" color="inherit" className={ classes.title }>
                             { settings.title }
                         </Typography>
                         {
-                            links.map(link => 
-                                <Link to={link.link} className={classes.link} key={link.link}>
-                                    {link.display}
-                                </Link>
+                            links.map(link =>
+                                link.external
+                                    ? <a href={link.link} className={classes.link} key={link.link} target="_blank">
+                                        {link.display}
+                                      </a>
+                                    : <Link to={link.link} className={classes.link} key={link.link}>
+                                            {link.display}
+                                      </Link>
                             )
                         }
-                        { settings.customAction }
+                        <div className={ classes.customActionContainer }>
+                            { settings.customAction }
+                        </div>
                     </Toolbar>
                 </AppBar>
             )

@@ -14,7 +14,7 @@ const styles = createStyles({
     viewportContainer: {
         width: "100%",
         flexGrow: 1,
-        maxHeight: "100vh",
+        maxHeight: "calc(100vh - 64px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

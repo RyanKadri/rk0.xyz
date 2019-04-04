@@ -1,4 +1,4 @@
-import { createStyles, WithStyles, withStyles, Typography, CircularProgress, Theme } from "@material-ui/core";
+import { CircularProgress, createStyles, Theme, Typography, WithStyles, withStyles } from "@material-ui/core";
 import React from "react";
 import { GameStatus } from "../types/shared-types";
 
@@ -8,7 +8,7 @@ const defaultWinMessage = (winner: number, playerStr: PlayerToString) =>
 const defaultCurrentPrompt = (player: number, playerStr: PlayerToString) => 
     `Current Player: ${ playerStr(player) }`;
 
-const defaultTieMessage = "Hmm. Tie game. Guess you both lose :(";
+const defaultTieMessage = "Tie game. Guess you both lose";
 
 const defaultPlayerStr = (player: number) => `Player ${player}`
 

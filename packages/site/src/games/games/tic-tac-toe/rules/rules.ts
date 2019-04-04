@@ -1,5 +1,5 @@
 import { isFull } from "../../common/rules/board-full";
-import { GameState, GameStatus } from "../../common/types/shared-types";
+import { BasicGameState, GameStatus } from "../../common/types/shared-types";
 import { addToken, createBoard, saneDefaults } from "../../common/utils";
 import { TicTacToeAction, TicTacToeBoardState, TicTacToeOwner } from "../types/types";
 
@@ -8,12 +8,12 @@ export const players = [ TicTacToeOwner.X, TicTacToeOwner.O ];
 export const NUM_ROWS = 3;
 export const NUM_COLS = 3;
 
-export const initState: GameState<TicTacToeOwner> = {
+export const initState: BasicGameState<TicTacToeOwner> = {
     ...saneDefaults,
     board: createBoard(NUM_ROWS, NUM_COLS, TicTacToeOwner._ ),
 }
 
-export const ticTacToeReducer = (state: GameState<TicTacToeOwner>, action: TicTacToeAction): GameState<TicTacToeOwner> => {
+export const ticTacToeReducer = (state: BasicGameState<TicTacToeOwner>, action: TicTacToeAction): BasicGameState<TicTacToeOwner> => {
     switch(action.type) {
         case "move":
             const currentPlayer = players[state.currentPlayer];
@@ -29,7 +29,10 @@ export const ticTacToeReducer = (state: GameState<TicTacToeOwner>, action: TicTa
                 error: null
             };
         case "reset":
-            return initState;
+            return {
+                ...initState,
+                computerOpponent: state.computerOpponent
+            }
         case "toggleOpponent":
             return {
                 ...state,
@@ -43,12 +46,13 @@ export const ticTacToeReducer = (state: GameState<TicTacToeOwner>, action: TicTa
         case "error":
             return {
                 ...state,
+                waiting: false,
                 error: action.error
             }
     }
 }
 
-function checkOutcome(board: TicTacToeBoardState): Pick<GameState<TicTacToeOwner>, 'status' | 'winner'> {
+function checkOutcome(board: TicTacToeBoardState): Pick<BasicGameState<TicTacToeOwner>, 'status' | 'winner'> {
     let winner: TicTacToeOwner | undefined = undefined;
     
     winner = checkWinner(board[0][0], board[1][1], board[2][2])

@@ -1,21 +1,21 @@
-import { GameState, GameStatus } from "../../common/types/shared-types";
-import { ConnectFourOwner, ConnectFourAction, ConnectFourBoardState } from "../types/types";
-import { saneDefaults, createBoard, addToken } from "../../common/utils";
-import { findLine, Directions } from "../../common/rules/check-in-line";
 import { isFull } from "../../common/rules/board-full";
+import { Directions, findLine } from "../../common/rules/check-in-line";
+import { GameStatus } from "../../common/types/shared-types";
+import { addToken, createBoard, saneDefaults } from "../../common/utils";
+import { Connect4State, ConnectFourAction, ConnectFourBoardState, ConnectFourOwner } from "../types/types";
 
 export const players = [ ConnectFourOwner.P1, ConnectFourOwner.P2 ]
 
 export const NUM_ROWS = 6;
 export const NUM_COLUMNS = 7;
 
-export const initState: GameState<ConnectFourOwner> = {
+export const initState: Connect4State = {
     ...saneDefaults,
     board: createBoard(NUM_ROWS, NUM_COLUMNS, ConnectFourOwner.EMPTY)
 }
 
-export const connectFourReducer = (state: GameState<ConnectFourOwner>, action: ConnectFourAction)
-    : GameState<ConnectFourOwner> => {
+export const connectFourReducer = (state: Connect4State, action: ConnectFourAction)
+    : Connect4State => {
 
     switch(action.type) {
         case "move":
@@ -32,7 +32,10 @@ export const connectFourReducer = (state: GameState<ConnectFourOwner>, action: C
                 error: null
             };
         case "reset":
-            return initState;
+            return {
+                ...initState,
+                computerOpponent: state.computerOpponent
+            };
         case "toggleOpponent":
             return {
                 ...state,
@@ -41,7 +44,8 @@ export const connectFourReducer = (state: GameState<ConnectFourOwner>, action: C
         case "error":
             return {
                 ...state,
-                error: action.error
+                error: action.error,
+                waiting: false
             }
         case "toggleWaiting":
             return {
@@ -71,7 +75,8 @@ const checkOutcome = (board: ConnectFourBoardState) => {
     if(line) {
         return { 
             status: GameStatus.WINNER,
-            winner: line[0].token
+            winner: line.token,
+            winningMove: line
         } 
     } else if(isFull(board, ConnectFourOwner.EMPTY)) {
         return {

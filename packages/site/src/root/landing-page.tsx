@@ -1,23 +1,37 @@
-import { createStyles, WithStyles, withStyles } from "@material-ui/core";
-import React, { useContext, useEffect } from "react";
-import { AppBarContext } from "./app-bar-context";
+import { createStyles, Theme, Typography, WithStyles, withStyles } from "@material-ui/core";
+import React from "react";
+import { useAppBar } from "../common/use-app-bar";
 
-const styles = createStyles({
+const styles = (theme: Theme) => createStyles({
     about: {
 
     },
     links: {
-
+        
+    },
+    container: {
+        padding: 16,
+        "& section": {
+            marginBottom: 16
+        }
+    },
+    splash: {
+        backgroundColor: theme.palette.primary.light,
+        padding: 16,
+        display: "flex",
+        justifyContent: "center",
+        color: "white"
     }
 })
 
 const _LandingPage = ({ classes }: Props) => {
-    const appbar = useContext(AppBarContext);
-    useEffect(() => {
-        appbar.updateAppBar({ title: "Ryan Kadri", customAction: null })
-    })
+    useAppBar("");
     return (
         <>
+        <header className={classes.splash}>
+            <Typography variant="h4" color="inherit">Ryan Kadri</Typography>
+        </header>
+        <div className={ classes.container }>
             <section className={ classes.about }>
                 Hi. I'm Ryan Kadri. I am a full-time software developer. I like working with web technologies and always
                 enjoy learning new things.
@@ -26,6 +40,7 @@ const _LandingPage = ({ classes }: Props) => {
                 I work on proprietary software for my full-time job but most of my side projects end up on Github eventually.
                 Check me out at <a href="https://github.com/RyanKadri">github.com/RyanKadri</a>
             </section>
+        </div>
         </>
     )
 }

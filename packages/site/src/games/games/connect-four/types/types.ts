@@ -1,4 +1,5 @@
-import { BoardState, ResetAction, ToggleOpponent, ErrorEffect, ToggleWaiting } from "../../common/types/shared-types";
+import { MatchedLine } from "../../common/rules/check-in-line";
+import { BasicGameState, BoardState, ErrorEffect, ResetAction, ToggleOpponent, ToggleWaiting } from "../../common/types/shared-types";
 
 export enum ConnectFourOwner {
     EMPTY,
@@ -15,4 +16,8 @@ export class MoveAction {
     constructor(
         public column: number
     ){ }
+}
+
+export type Connect4State = BasicGameState<ConnectFourOwner> & {
+    winningMove?: MatchedLine<ConnectFourOwner>;
 }

@@ -1,10 +1,8 @@
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import { Route, Switch } from "react-router";
-import { PresentationViewer } from "../../../presenter-core/src";
 import { GameSelector } from "../games/game-viewer";
-import { lesson1 } from "../lessons/lesson1/slides";
-import { lesson2 } from "../lessons/lesson2/slides";
+import { PresentationView } from "../lessons/presentation-view";
 import { AppBarContext, AppBarSettings } from "./app-bar-context";
 import { LandingPage } from "./landing-page";
 import { RootNav } from "./top-nav";
@@ -18,10 +16,8 @@ const styles = createStyles({
     }
 })
 
-const presentations = [
-    lesson1,
-    lesson2
-];
+let updateSettings: any;
+let updateViewport: any;
 
 const _SiteViewport = ({ classes }: Props) => {
     const [appbarSettings, setSettings ] = useState<AppBarSettings>({ 
@@ -29,19 +25,18 @@ const _SiteViewport = ({ classes }: Props) => {
         customAction: null
     });
     
-    const updateSettings = (update: Partial<AppBarSettings>) => { 
+    updateSettings = updateSettings || ((update: Partial<AppBarSettings>) => { 
         setSettings((old) => ({ ...old, ...update }))
-    };
+    });
 
     const [viewportSettings, setViewport] = useState<ViewportInfo>({
         isFullscreen: false,
         requestingFullscreen: false
     });
 
-    const updateViewport = (update: Partial<ViewportInfo>) => {
+    updateViewport = updateViewport || ((update: Partial<ViewportInfo>) => {
         setViewport(old => ({ ...old, ...update }))
-    }
-
+    });
 
     return (
         <AppBarContext.Provider value={ { settings: appbarSettings, updateAppBar: updateSettings  } }>
@@ -49,9 +44,7 @@ const _SiteViewport = ({ classes }: Props) => {
                 <div className={classes.container}>
                     <RootNav settings={ appbarSettings } viewport={viewportSettings} />
                     <Switch>
-                        <Route path="/web-design-class/" render={(props) => 
-                            <PresentationViewer routeProps={props} presentations={ presentations } />
-                        } />
+                        <Route path="/web-design-class/" component={ PresentationView } />
                         <Route path="/games/" component={GameSelector} />
                         <Route path="/" exact component={LandingPage} />
                     </Switch>

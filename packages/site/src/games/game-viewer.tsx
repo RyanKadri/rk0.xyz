@@ -1,9 +1,9 @@
 import { createStyles, IconButton, Link, Menu, MenuItem, Theme, WithStyles, withStyles } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import React, { SyntheticEvent, useContext, useEffect, useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import { Redirect, Route, RouteComponentProps, Switch } from "react-router";
 import { Link as RouterLink } from 'react-router-dom';
-import { AppBarContext } from "../root/app-bar-context";
+import { useAppBar } from "../common/use-app-bar";
 import { GameDefinition } from "./games/common/types/shared-types";
 import { ConnectFourGame } from "./games/connect-four/connect-four-game";
 import { TicTacToeGame } from "./games/tic-tac-toe/tic-tac-toe-game";
@@ -26,32 +26,10 @@ const games: GameDefinition[] = [
 ]
 
 const _GameSelector = ({ classes, match }: Props) => {
-    const appBar = useContext(AppBarContext);
-    const [anchorEl, setAnchor] = useState<HTMLElement | null>(null);
-    const onMenuOpen = (e: SyntheticEvent<HTMLElement>) => { setAnchor(e.currentTarget) };
-    const onMenuClose = () => { setAnchor(null) };
-    
-    useEffect(() => {
-        appBar.updateAppBar({ 
-            title: "Simple Web Games",
-            customAction: (
-                <>
-                    <IconButton onClick={onMenuOpen} color="inherit">
-                        <MenuIcon />
-                    </IconButton>
-                    <Menu open={!!anchorEl} onClose={onMenuClose} anchorEl={anchorEl}>{ 
-                        games.map(game => (
-                            <MenuItem key={game.link}>
-                                <Link component={RouterLink as any} { ...{ to: game.link }}>
-                                    { game.display }
-                                </Link>
-                            </MenuItem>
-                        ))
-                    }</Menu>
-                </>
-            ) })
-    }, [ anchorEl ]);
-
+    useAppBar(
+        "Games",
+        <GamesMenu />
+    )
     return (
         <>
             <main className={ classes.gameContainer }>
@@ -64,6 +42,28 @@ const _GameSelector = ({ classes, match }: Props) => {
                     <Route path={`${match.url}`} exact render={() => <Redirect to={`${match.url}tic-tac-toe`} />} />
                 </Switch>
             </main>
+        </>
+    )
+}
+
+function GamesMenu() {
+    const [anchorEl, setAnchor] = useState<HTMLElement | null>(null);
+    const onMenuOpen = (e: SyntheticEvent<HTMLElement>) => { setAnchor(e.currentTarget) };
+    const onMenuClose = () => { setAnchor(null) };
+    return (
+        <>
+            <IconButton onClick={onMenuOpen} color="inherit">
+                <MenuIcon />
+            </IconButton>
+            <Menu open={!!anchorEl} onClose={onMenuClose} anchorEl={anchorEl}>{ 
+                games.map(game => (
+                    <MenuItem key={game.link}>
+                        <Link component={RouterLink as any} { ...{ to: game.link }}>
+                            { game.display }
+                        </Link>
+                    </MenuItem>
+                ))
+            }</Menu>
         </>
     )
 }

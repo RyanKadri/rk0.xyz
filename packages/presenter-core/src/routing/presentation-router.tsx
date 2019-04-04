@@ -1,10 +1,9 @@
 import React from "react";
-import { Redirect, Route, RouteComponentProps, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { Presentation, SlideManager } from "..";
 import { PresentationSelector } from "../../../site/src/lessons/presentation-selector";
 
-export function PresentationViewer({ presentations, routeProps }: Props) {
-    const baseUrl = routeProps.match.url.replace(/\/$/, "");
+export function PresentationViewer({ presentations, baseUrl }: Props) {
     return (
         <Switch>
             <Route path={`${baseUrl}/presentations`} exact render={() => 
@@ -23,5 +22,5 @@ export function PresentationViewer({ presentations, routeProps }: Props) {
 
 interface Props {
     presentations: Presentation[]
-    routeProps: RouteComponentProps;
+    baseUrl: string;
 }
