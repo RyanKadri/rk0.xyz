@@ -7,3 +7,4 @@ node_modules/
 *.pyc
 .vscode/.ropeproject/objectdb
 __pycache__/
+.env*

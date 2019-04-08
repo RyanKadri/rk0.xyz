@@ -1,14 +1,16 @@
 from flask import Flask, jsonify, request
 
-from games.connect_four import connectFourMove
-from games.tic_tac_toe import calcNextMove
+from flask_cors import CORS
+from games.connect_four import calcNextMove as connectFourMove
+from games.tic_tac_toe import calcNextMove as ticTacToeMove
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/api/tic-tac-toe/nextMove", methods=["POST"])
 def calcMove():
     board = request.json
-    nextMove = calcNextMove(board)
+    nextMove = ticTacToeMove(board)
     return jsonify(nextMove)
 
 @app.route("/api/connect-4/nextMove", methods=["POST"])

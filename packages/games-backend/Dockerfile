@@ -4,5 +4,5 @@ RUN pip3 install pipenv
 COPY ./Pipfile* /app/
 RUN pipenv install
 EXPOSE 5000
-COPY src /app/backend
+COPY ./src/ /app/backend
 CMD ["pipenv", "run", "python", "./backend/main.py"]

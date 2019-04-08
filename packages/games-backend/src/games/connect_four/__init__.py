@@ -1,6 +1,6 @@
 from random import randint
 
-def connectFourMove(board):
+def calcNextMove(board):
     randCol = randint(0, len(board[0]) - 1)
     if not isFull(board, randCol):
         return { "column": randCol }
