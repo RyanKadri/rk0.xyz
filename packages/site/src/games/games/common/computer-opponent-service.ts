@@ -6,10 +6,10 @@ declare const process: any;
 
 export const NextMoveApi = {
     ticTacToe(boardState: TicTacToeBoardState): Promise<TicTacToeMove> {
-        return fetchMove(`${process.env.API_PATH}/api/tic-tac-toe/nextMove`, boardState)
+        return fetchMove(`${process.env.API_PATH}/api/tic-tac-toe/next-move`, boardState)
     },
     connectFour(boardState: ConnectFourBoardState): Promise<ConnectFourMove> {
-        return fetchMove(`${process.env.API_PATH}/api/connect-4/nextMove`, boardState)
+        return fetchMove(`${process.env.API_PATH}/api/connect-4/next-move`, boardState)
     }
 }
 

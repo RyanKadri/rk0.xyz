@@ -19,7 +19,7 @@ Resources:
         GameApi:
           Type: Api
           Properties:
-            Path: /tic-tac-toe
+            Path: /api/tic-tac-toe/next-move
             Method: POST
   ConnectFourNextMove:
     Type: AWS::Serverless::Function
@@ -31,5 +31,5 @@ Resources:
         GameApi:
           Type: Api
           Properties:
-            Path: /connect-four
+            Path: /api/connect-four/next-move
             Method: POST
