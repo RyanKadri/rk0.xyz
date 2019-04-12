@@ -1,0 +1,79 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: > 
+  Creates an S3 Bucket and Cloudfront Distribution to serve the static assets
+Parameters: 
+  EnvironmentName:
+    Description: "A unique prefix to include before resource names"
+    Type: String
+Resources: 
+  SiteDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: false
+        DefaultRootObject: "index.html"
+        IPV6Enabled: true
+        PriceClass: PriceClass_100
+        CacheBehaviors:
+          - AllowedMethods: ["GET", "HEAD"]
+            ForwardedValues:
+              QueryString: false
+            ViewerProtocolPolicy: "redirect-to-https"
+            PathPattern: index.html
+            TargetOriginId: "S3-Static"
+            MinTTL: 60
+            MaxTTL: 60
+            DefaultTTL: 60
+        DefaultCacheBehavior: 
+          AllowedMethods: ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+          TargetOriginId: "S3-Static"
+          ViewerProtocolPolicy: "redirect-to-https"
+          ForwardedValues:
+            QueryString: false
+        Origins:
+          - DomainName: !GetAtt "SiteBucket.DomainName"
+            Id: "S3-Static"
+            S3OriginConfig:
+              OriginAccessIdentity: !Join ["", ["origin-access-identity/cloudfront/", !Ref "SiteDistributionAccessId"]]
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: "/index.html"
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: "/index.html"
+  SiteDistributionAccessId:
+    Type: "AWS::CloudFront::CloudFrontOriginAccessIdentity"
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: ""
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties: 
+      AccessControl: Private
+      BucketName: !Join ["-", [!Ref "EnvironmentName", "static-asset-bucket"] ]
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      WebsiteConfiguration: 
+        ErrorDocument: "index.html"
+        IndexDocument: "index.html"
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument: 
+        Statement:
+          - Action: 
+              - "s3:GetObject"
+            Effect: "Allow"
+            Resource:
+              !Join ["", ["arn:aws:s3:::", !Ref SiteBucket, "/*"]]
+            Principal: 
+              AWS: !Join ["", ["arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ", !Ref "SiteDistributionAccessId"]]
+Outputs:
+  WebUrl:
+    Description: "The URL of the Cloudfront Distribution"
+    Value: !Join ["", ["https://", !GetAtt 'SiteDistribution.DomainName']]

@@ -1,0 +1,88 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  Creates a Fargate service
+Parameters: 
+  VPC:
+    Type: AWS::EC2::VPC::Id
+  Subnets:
+    Type: List<AWS::EC2::Subnet::Id>
+  # LoadBalancerRole:
+  #   Type: String
+  LogGroup:
+    Type: String
+  Cluster:
+    Type: String
+  Listener:
+    Type: String
+  SecurityGroup:
+    Type: AWS::EC2::SecurityGroup::Id
+Resources: 
+  GamesTaskDef:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      NetworkMode: awsvpc
+      RequiresCompatibilities: [FARGATE]
+      Memory: "512"
+      Cpu: "256"
+      ExecutionRoleArn: arn:aws:iam::307651132348:role/ecsTaskExecutionRole #Temp. Fix this later
+      TaskRoleArn: arn:aws:iam::307651132348:role/ecsTaskExecutionRole #Temp. Fix this later
+      ContainerDefinitions:
+        - Image: 307651132348.dkr.ecr.us-east-1.amazonaws.com/rk0-backend/games:1.0.0
+          Name: games-container
+          Memory: 512
+          Cpu: 256
+          PortMappings:
+            - ContainerPort: 5000
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref LogGroup
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: board-games
+  GamesService:
+    Type: "AWS::ECS::Service"
+    DependsOn: [ "ServiceListener" ]
+    Properties: 
+      ServiceName: "games-service"
+      Cluster: !Ref "Cluster"
+      TaskDefinition: !Ref "GamesTaskDef"
+      LaunchType: "FARGATE"
+      DesiredCount: 2
+      # Role: !Ref LoadBalancerRole
+      LoadBalancers:
+        - ContainerName: "games-container"
+          ContainerPort: 5000
+          TargetGroupArn: !Ref "BackendTargetGroup"
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          Subnets: !Ref Subnets
+          AssignPublicIp: ENABLED
+          SecurityGroups: 
+            - !Ref SecurityGroup
+  BackendTargetGroup: 
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Port: 5000
+      Protocol: HTTP
+      VpcId: !Ref "VPC"
+      TargetType: ip
+      Matcher:
+        HttpCode: 200-299
+      HealthCheckIntervalSeconds: 10
+      HealthCheckPath: "/api"
+      HealthCheckPort: "5000"
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
+  ServiceListener:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      ListenerArn: !Ref Listener
+      Priority: 2
+      Conditions: 
+        - Field: path-pattern
+          Values: 
+            - "/api"
+            - "/api/*"
+      Actions:
+        - TargetGroupArn: !Ref BackendTargetGroup
+          Type: forward

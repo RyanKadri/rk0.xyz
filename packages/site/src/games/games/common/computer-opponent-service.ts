@@ -9,7 +9,7 @@ export const NextMoveApi = {
         return fetchMove(`${process.env.API_PATH}/api/tic-tac-toe/next-move`, boardState)
     },
     connectFour(boardState: ConnectFourBoardState): Promise<ConnectFourMove> {
-        return fetchMove(`${process.env.API_PATH}/api/connect-4/next-move`, boardState)
+        return fetchMove(`${process.env.API_PATH}/api/connect-four/next-move`, boardState)
     }
 }
 

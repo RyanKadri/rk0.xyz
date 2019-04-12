@@ -1,0 +1,79 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  This master template creates a VPC with two subnets and the necessary internet gateways and routes
+  If deploys an ECS cluster with Fargate services that are published in ECR
+Parameters:
+  HostedZone:
+    Type: String
+    Default: "rk0.xyz."
+  Certificate:
+    Type: String
+    Default: arn:aws:acm:us-east-1:307651132348:certificate/cf7fe2a9-2bbd-4f5e-ac18-c4a72ac40a50
+    Description: A certificate for the created load balancer
+  ApiUrl:
+    Type: String
+    Default: "dev-api"
+    Description: The url for the backend api
+Resources: 
+  NetworkResources:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: ./infrastructure/networking.yml
+  LoadBalancer:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: ./infrastructure/load-balancer.yml
+      Parameters:
+        VPC: !GetAtt NetworkResources.Outputs.VPC
+        Subnets: !GetAtt NetworkResources.Outputs.PublicSubnets
+        SecurityGroup: !GetAtt SecurityGroups.Outputs.LoadBalancerSecurityGroup
+        EnvironmentName: !Ref AWS::StackName
+        Certificate: !Ref Certificate
+  SecurityGroups:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: ./infrastructure/security-groups.yml
+      Parameters:
+        VPC: !GetAtt NetworkResources.Outputs.VPC
+  StaticWeb:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: ./infrastructure/static-web.yml
+      Parameters:
+        EnvironmentName: !Ref AWS::StackName
+  GamesService: 
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: ./infrastructure/services/games-service.yml
+      Parameters:
+        Cluster: !GetAtt Cluster.Outputs.Cluster
+        VPC: !GetAtt NetworkResources.Outputs.VPC
+        Subnets: !GetAtt NetworkResources.Outputs.PublicSubnets
+        LogGroup: !GetAtt Logging.Outputs.LogGroup
+        Listener: !GetAtt LoadBalancer.Outputs.Listener
+        SecurityGroup: !GetAtt SecurityGroups.Outputs.ContainerSecurityGroup
+  Logging:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: ./infrastructure/logging.yml
+  Cluster: 
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: ./infrastructure/ecs-cluster.yml
+      Parameters:
+        EnvironmentName: !Ref AWS::StackName
+  DNS:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: ./infrastructure/dns.yml
+      Parameters:
+        HostedZone: !Ref HostedZone
+        ApiUrl: !Ref ApiUrl
+        LoadBalancerUrl: !GetAtt LoadBalancer.Outputs.DNSName
+Outputs:
+  WebUrl:
+    Description: "The URL of the Cloudfront Distribution"
+    Value: !GetAtt 'StaticWeb.Outputs.WebUrl'
+  BackendUrl:
+    Description: "The URL of the backend microservices"
+    Value: !Join ["", ["https://", !GetAtt DNS.Outputs.ApiUrl]]

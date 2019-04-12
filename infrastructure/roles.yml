@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  Roles used throughout the app
+Resources:
+  LoadBalancerServiceRole:
+    Type: AWS::IAM::ServiceLinkedRole
+    Properties: 
+      AWSServiceName: "ecs.amazonaws.com"
+Outputs:
+  LoadBalancerServiceRole:
+    Value: !Ref LoadBalancerServiceRole

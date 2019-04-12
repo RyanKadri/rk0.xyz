@@ -7,17 +7,21 @@ from games.tic_tac_toe import calcNextMove as ticTacToeMove
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/api/tic-tac-toe/nextMove", methods=["POST"])
+@app.route("/api/tic-tac-toe/next-move", methods=["POST"])
 def calcMove():
     board = request.json
     nextMove = ticTacToeMove(board)
     return jsonify(nextMove)
 
-@app.route("/api/connect-4/nextMove", methods=["POST"])
+@app.route("/api/connect-four/next-move", methods=["POST"])
 def calcMoveConnectFour():
     board = request.json
     nextMove = connectFourMove(board)
     return jsonify(nextMove)
+
+@app.route("/api", methods=["GET"])
+def rootRoute():
+    return "Hello friend! You made a request to: " + request.url
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
