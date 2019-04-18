@@ -32,7 +32,8 @@ const styles = createStyles({
 const links = [
     { display: "Resume", link: "https://resume.rk0.xyz", external: true },
     { display: "Classes", link: "/web-design-class/" },
-    { display: "Games", link: "/games/"}
+    { display: "Games", link: "/games/"},
+    { display: "Music", link: "/music/"}
 ];
 
 const _RootNav = ({ classes, settings, viewport }: Props) => {
@@ -59,7 +60,10 @@ const _RootNav = ({ classes, settings, viewport }: Props) => {
                             )
                         }
                         <div className={ classes.customActionContainer }>
-                            { settings.customAction }
+                            { settings.CustomAction
+                                ? <settings.CustomAction />
+                                : null 
+                            }
                         </div>
                     </Toolbar>
                 </AppBar>

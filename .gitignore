@@ -8,3 +8,4 @@ node_modules/
 .vscode/.ropeproject/objectdb
 __pycache__/
 .env*
+parameters.json

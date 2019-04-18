@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  This template describes storage resources for the pipeline
+Parameters:
+  PipelineBucketName:
+    Type: String
+Resources:
+  PipelineBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref PipelineBucketName
+Outputs:
+  ArtifactBucket: 
+    Value: !Ref PipelineBucket

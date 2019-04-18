@@ -1,0 +1,78 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  This stack describes the build projects
+Parameters:
+  CodeBuildRole:
+    Type: String
+  Repository:
+    Type: String
+Resources:
+  FrontendBuild:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Artifacts:
+        Type: CODEPIPELINE
+      Source:
+        Type: CODEPIPELINE
+        BuildSpec: |
+          version: 0.2
+          phases:
+            install:
+              commands:
+                  - echo Installing source NPM dependencies...
+                  - npm install
+            build:
+              commands:
+                  - echo Build started on `date`
+                  - npm run build
+          artifacts:
+            files:
+                - '**/*'
+            base-directory: 'dist/site*'
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/nodejs:10.14.1-1.7.0
+        Type: LINUX_CONTAINER
+      Name: !Sub ${AWS::StackName}-frontend-build
+      ServiceRole: !Ref CodeBuildRole
+  BackendBuild:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Artifacts:
+        Type: CODEPIPELINE
+      Source:
+        Type: CODEPIPELINE
+        BuildSpec: |
+          version: 0.2
+          phases:
+            pre_build:
+              commands:
+                - $(aws ecr get-login --no-include-email)
+                - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+                - IMAGE_URI="${REPOSITORY_URI}:${TAG}"
+            build:
+              commands:
+                - docker build -t "$IMAGE_URI" ./packages/games-backend
+            post_build:
+              commands:
+                - docker push "$IMAGE_URI"
+                - 'printf ''[{"name": "rk0-backend/games", "imageUri": "%s"}]'' "$IMAGE_URI" > games.json'
+          artifacts:
+            files:
+              - games.json
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/docker:17.09.0
+        Type: LINUX_CONTAINER
+        EnvironmentVariables:
+          - Name: AWS_DEFAULT_REGION
+            Value: !Ref AWS::Region
+          - Name: REPOSITORY_URI
+            Value: !Sub ${Repository}/games
+      Name: !Sub ${AWS::StackName}-backend-build
+      ServiceRole: !Ref CodeBuildRole
+Outputs:
+  FrontendBuild:
+    Value: !Ref FrontendBuild
+  BackendBuild:
+    Value: !Ref BackendBuild

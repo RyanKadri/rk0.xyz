@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Route, Switch } from "react-router";
 import { GameSelector } from "../games/game-viewer";
 import { PresentationView } from "../lessons/presentation-view";
+import { MusicPage } from "../music/music-page";
 import { AppBarContext, AppBarSettings } from "./app-bar-context";
 import { LandingPage } from "./landing-page";
 import { RootNav } from "./top-nav";
@@ -22,7 +23,7 @@ let updateViewport: any;
 const _SiteViewport = ({ classes }: Props) => {
     const [appbarSettings, setSettings ] = useState<AppBarSettings>({ 
         title: "Ryan Kadri",
-        customAction: null
+        CustomAction: null
     });
     
     updateSettings = updateSettings || ((update: Partial<AppBarSettings>) => { 
@@ -46,6 +47,7 @@ const _SiteViewport = ({ classes }: Props) => {
                     <Switch>
                         <Route path="/web-design-class/" component={ PresentationView } />
                         <Route path="/games/" component={GameSelector} />
+                        <Route path="/music/" component={MusicPage} />
                         <Route path="/" exact component={LandingPage} />
                     </Switch>
                 </div>

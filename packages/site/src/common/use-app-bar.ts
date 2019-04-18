@@ -1,16 +1,15 @@
-import { ReactElement, useContext, useEffect } from "react";
+import { ComponentType, useContext, useEffect } from "react";
 import { AppBarContext } from "../root/app-bar-context";
 
-export function useAppBar(title: string, customAction: ReactElement | null = null) {
+const defaultTitle = "Ryan Kadri"
+export function useAppBar(title: string, customAction: ComponentType<any> | null = null) {
     const appbar = useContext(AppBarContext);
-    const oldState = appbar.settings;
-    const oldTitle = document.title;
     useEffect(() => {
-        appbar.updateAppBar({ title, customAction });
-        document.title = title;
+        appbar.updateAppBar({ title, CustomAction: customAction });
+        document.title = title || defaultTitle;
         return () => {
-            appbar.updateAppBar(oldState);
-            document.title = oldTitle;
+            appbar.updateAppBar({ title: defaultTitle });
+            document.title = defaultTitle;
         }
     }, [title, customAction])
 }

@@ -1,16 +1,16 @@
-import React, { ReactElement } from "react";
+import React, { ComponentType } from "react";
 
 export const AppBarContext = React.createContext<IAppBarContext>({ 
     settings: {
         title: "Ryan Kadri",
-        customAction: null,
+        CustomAction: null,
     },
     updateAppBar: () => {},
 })
 
 export interface AppBarSettings {
     title: string;
-    customAction: ReactElement | null;
+    CustomAction: ComponentType | null;
 }
 
 export interface IAppBarContext {

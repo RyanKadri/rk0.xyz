@@ -6,8 +6,6 @@ Parameters:
     Type: AWS::EC2::VPC::Id
   Subnets:
     Type: List<AWS::EC2::Subnet::Id>
-  # LoadBalancerRole:
-  #   Type: String
   LogGroup:
     Type: String
   Cluster:
@@ -16,6 +14,10 @@ Parameters:
     Type: String
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup::Id
+  ImageVersion:
+    Type: String
+  Repository:
+    Type: String
 Resources: 
   GamesTaskDef:
     Type: AWS::ECS::TaskDefinition
@@ -24,10 +26,10 @@ Resources:
       RequiresCompatibilities: [FARGATE]
       Memory: "512"
       Cpu: "256"
-      ExecutionRoleArn: arn:aws:iam::307651132348:role/ecsTaskExecutionRole #Temp. Fix this later
-      TaskRoleArn: arn:aws:iam::307651132348:role/ecsTaskExecutionRole #Temp. Fix this later
+      ExecutionRoleArn: !Sub arn:aws:iam::${AWS::AccountId}:role/ecsTaskExecutionRole #Temp. Fix this later
+      TaskRoleArn: !Sub arn:aws:iam::${AWS::AccountId}:role/ecsTaskExecutionRole #Temp. Fix this later
       ContainerDefinitions:
-        - Image: 307651132348.dkr.ecr.us-east-1.amazonaws.com/rk0-backend/games:1.0.0
+        - Image: !Sub ${Repository}/games:${ImageVersion}
           Name: games-container
           Memory: 512
           Cpu: 256
@@ -86,3 +88,6 @@ Resources:
       Actions:
         - TargetGroupArn: !Ref BackendTargetGroup
           Type: forward
+Outputs:
+  GameService:
+    Value: !GetAtt GamesService.Name

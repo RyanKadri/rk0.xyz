@@ -5,15 +5,24 @@ Parameters:
   EnvironmentName:
     Description: "A unique prefix to include before resource names"
     Type: String
+  Certificate:
+    Type: String
+  Url:
+    Type: String
 Resources: 
   SiteDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        Enabled: false
+        Aliases:
+          - !Ref Url
+        Enabled: true
         DefaultRootObject: "index.html"
         IPV6Enabled: true
         PriceClass: PriceClass_100
+        ViewerCertificate: 
+          AcmCertificateArn: !Ref Certificate
+          SslSupportMethod: "sni-only"
         CacheBehaviors:
           - AllowedMethods: ["GET", "HEAD"]
             ForwardedValues:
@@ -74,6 +83,8 @@ Resources:
             Principal: 
               AWS: !Join ["", ["arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ", !Ref "SiteDistributionAccessId"]]
 Outputs:
-  WebUrl:
+  CloudFrontDomain:
     Description: "The URL of the Cloudfront Distribution"
-    Value: !Join ["", ["https://", !GetAtt 'SiteDistribution.DomainName']]
+    Value: !GetAtt SiteDistribution.DomainName
+  FrontendBucket: 
+    Value: !Ref SiteBucket

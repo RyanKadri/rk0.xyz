@@ -2,6 +2,7 @@ import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import React, { useContext, useEffect } from "react";
 import HammerComp from "react-hammerjs";
 import { match, RouteComponentProps } from "react-router";
+import { useAppBar } from "../../../site/src/common/use-app-bar";
 import { ViewportContext } from "../../../site/src/root/viewport-context";
 import { Presentation, PresentationContext } from "../services/types";
 import { SlideViewport } from "./slide-viewport";
@@ -68,9 +69,7 @@ const _SlideManager = ({ presentation, history, match }: Props) => {
         return () => document.removeEventListener("fullscreenchange", updateFullscreen);
     });
 
-    useEffect(() => {
-        document.title = presentation.title;
-    }, [ presentation.title ])
+    useAppBar(presentation.title)
     
     return (
         <HammerComp onSwipe={ e => e.direction === Hammer.DIRECTION_LEFT ? updateSlidePos(1) : updateSlidePos(-1) }>

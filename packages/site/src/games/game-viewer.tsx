@@ -28,7 +28,7 @@ const games: GameDefinition[] = [
 const _GameSelector = ({ classes, match }: Props) => {
     useAppBar(
         "Games",
-        <GamesMenu />
+        GamesMenu
     )
     return (
         <>

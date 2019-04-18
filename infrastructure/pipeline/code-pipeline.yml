@@ -1,0 +1,101 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  This stack describes the build projects
+Parameters:
+  PipelineRole:
+    Type: String
+  PipelineName:
+    Type: String
+  SourceOAuth:
+    Type: String
+    NoEcho: true
+  ArtifactBucket:
+    Type: String
+  FrontendBuild:
+    Type: String
+  BackendBuild:
+    Type: String
+  FrontendBucket:
+    Type: String
+  Cluster:
+    Type: String
+  GameService:
+    Type: String
+Resources:
+  Pipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      Name: !Ref PipelineName
+      RoleArn: !Ref PipelineRole
+      ArtifactStore: 
+        Type: S3
+        Location: !Ref ArtifactBucket
+      Stages:
+        - Name: Sources
+          Actions:
+            - Name: source
+              ActionTypeId: 
+                Category: Source
+                Owner: ThirdParty
+                Provider: GitHub
+                Version: "1"
+              OutputArtifacts:
+                - Name: "SourceArtifacts"
+              Configuration:
+                Owner: "RyanKadri"
+                Repo: "library-class"
+                PollForSourceChanges: false # TODO - Add a webhook resource?
+                Branch: "master"
+                OAuthToken: !Ref SourceOAuth
+              RunOrder: 1
+        - Name: Build
+          Actions:
+            - Name: build-frontend
+              InputArtifacts: 
+                - Name: SourceArtifacts
+              OutputArtifacts:
+                - Name: FrontendArtifacts
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Version: "1"
+                Provider: CodeBuild
+              Configuration: 
+                ProjectName: !Ref FrontendBuild
+            - Name: build-games
+              InputArtifacts:
+                - Name: SourceArtifacts
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Version: "1"
+                Provider: CodeBuild
+              Configuration:
+                ProjectName: !Ref BackendBuild
+              OutputArtifacts:
+                - Name: BackendArtifacts
+        - Name: Deploy
+          Actions: 
+            - Name: deploy-frontend
+              InputArtifacts:
+                - Name: FrontendArtifacts
+              ActionTypeId:
+                Category: Deploy
+                Owner: AWS
+                Version: "1"
+                Provider: S3
+              Configuration:
+                BucketName: !Ref FrontendBucket
+                Extract: true
+            - Name: deploy-games
+              ActionTypeId:
+                Category: Deploy
+                Owner: AWS
+                Version: "1"
+                Provider: ECS
+              Configuration:
+                ClusterName: !Ref Cluster
+                ServiceName: !Ref GameService
+                FileName: games.json
+              InputArtifacts:
+                - Name: BackendArtifacts

@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  Creates a CNAME for the load balancer
+Parameters:
+  HostedZone:
+    Type: String
+  SiteDomain:
+    Type: String
+  ApiDomain:
+    Type: String
+  LoadBalancerDomain:
+    Type: String
+  CloudFrontDomain:
+    Type: String
+Resources:
+  LoadBalancerCName:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneName: !Ref HostedZone
+      Name: !Ref ApiDomain
+      Type: CNAME
+      ResourceRecords: 
+        - !Ref LoadBalancerDomain
+      TTL: "300"
+  CDNAlias:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneName: !Ref HostedZone
+      Type: A
+      AliasTarget: 
+        DNSName: !Ref CloudFrontDomain
+        EvaluateTargetHealth: false
+        HostedZoneId: Z2FDTNDATAQYW2 # Hosted Zone ID for Cloudfront?
+      Name: !Ref SiteDomain
+Outputs:
+  ApiUrl:
+    Value: !Ref LoadBalancerCName
+  SiteUrl:
+    Value: !Ref CDNAlias

@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  This stack creates the app and pipeline portions for rk0.xyz
+Parameters:
+  HostedZoneName:
+    Type: String
+    Default: "rk0.xyz"
+  Certificate:
+    Type: String
+    Description: A certificate for the created load balancer
+  SitePrefix:
+    Type: String
+    Default: ""
+    Description: Used to create unique environment URLs in your hosted domain
+  GithubOAuth:
+    Type: String
+    NoEcho: true
+Resources:
+  App:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: "./infrastructure/app/main.yml"
+      Parameters:
+        HostedZoneName: !Ref HostedZoneName
+        Certificate: !Ref Certificate
+        SitePrefix: !Ref SitePrefix
+        EnvironmentName: !Ref AWS::StackName
+        Repository: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/rk0-backend
+  Pipeline:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: "./infrastructure/pipeline/main.yml"
+      Parameters:
+        PipelineName: !Sub rk0-${SitePrefix}-pipeline
+        FrontendBucket: !GetAtt App.Outputs.FrontendBucket
+        Cluster: !GetAtt App.Outputs.Cluster
+        GameService: !GetAtt App.Outputs.GameService
+        SourceOAuth: !Ref GithubOAuth
+        Repository: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/rk0-backend
+Outputs:
+  SiteUrl:
+    Description: "The URL of the Cloudfront Distribution"
+    Value: !GetAtt App.Outputs.SiteUrl
+  BackendUrl:
+    Description: "The URL of the backend microservices"
+    Value: !GetAtt App.Outputs.BackendUrl
