@@ -37,6 +37,7 @@ Resources:
         GameService: !GetAtt App.Outputs.GameService
         SourceOAuth: !Ref GithubOAuth
         Repository: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/rk0-backend
+        ApiUrl: !GetAtt App.Outputs.BackendUrl
 Outputs:
   SiteUrl:
     Description: "The URL of the Cloudfront Distribution"

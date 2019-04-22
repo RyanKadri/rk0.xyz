@@ -6,6 +6,8 @@ Parameters:
     Type: String
   Repository:
     Type: String
+  ApiUrl:
+    Type: String
 Resources:
   FrontendBuild:
     Type: AWS::CodeBuild::Project
@@ -33,6 +35,9 @@ Resources:
         ComputeType: BUILD_GENERAL1_SMALL
         Image: aws/codebuild/nodejs:10.14.1-1.7.0
         Type: LINUX_CONTAINER
+        EnvironmentVariables:
+          - Name: API_PATH
+            Value: !Ref ApiUrl
       Name: !Sub ${AWS::StackName}-frontend-build
       ServiceRole: !Ref CodeBuildRole
   BackendBuild:
@@ -56,7 +61,7 @@ Resources:
             post_build:
               commands:
                 - docker push "$IMAGE_URI"
-                - 'printf ''[{"name": "rk0-backend/games", "imageUri": "%s"}]'' "$IMAGE_URI" > games.json'
+                - 'printf ''[{"name": "games-service", "imageUri": "%s"}]'' "$IMAGE_URI" > games.json'
           artifacts:
             files:
               - games.json

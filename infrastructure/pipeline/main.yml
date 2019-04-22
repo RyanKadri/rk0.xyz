@@ -15,6 +15,8 @@ Parameters:
     Type: String
   Repository:
     Type: String
+  ApiUrl:
+    Type: String
 Resources:
   BuildProjects:
     Type: AWS::CloudFormation::Stack
@@ -23,6 +25,7 @@ Resources:
       Parameters:
         CodeBuildRole: !GetAtt Roles.Outputs.CodeBuildRole
         Repository: !Ref Repository
+        ApiUrl: !Ref ApiUrl
   Roles:
     Type: AWS::CloudFormation::Stack
     Properties:
