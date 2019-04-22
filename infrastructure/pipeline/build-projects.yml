@@ -61,7 +61,7 @@ Resources:
             post_build:
               commands:
                 - docker push "$IMAGE_URI"
-                - 'printf ''[{"name": "games-service", "imageUri": "%s"}]'' "$IMAGE_URI" > games.json'
+                - 'printf ''[{"name": "games-container", "imageUri": "%s"}]'' "$IMAGE_URI" > games.json'
           artifacts:
             files:
               - games.json

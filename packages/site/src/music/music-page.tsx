@@ -19,18 +19,19 @@ const _MusicPage = ({ classes }: Props) => {
     useEffect(() => {
         document.addEventListener("click", () => Tone.start());
         audio.current = {
-            synth: new Tone.Synth().toMaster()
+            synth: new Tone.PolySynth(4, Tone.Synth).toMaster()
         }
     }, []);
 
     const [heldKeys, setHeldKeys] = useState<Note[]>([]);
 
     const onNotePressed = (note: Note) => {
-            audio.current!.synth.triggerAttackRelease(note.freq, "8n")
+            audio.current!.synth.triggerAttack(note.freq)
             setHeldKeys(keys => Array.from(new Set([ ...keys, note])));
     }
 
     const onNoteReleased = (note: Note) => {
+        audio.current!.synth.triggerRelease(note.freq)
         setHeldKeys(old => old.filter(key => key.freq !== note.freq))
     }
 

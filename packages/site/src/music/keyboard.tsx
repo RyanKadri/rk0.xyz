@@ -56,7 +56,10 @@ const styles = createStyles({
         fontSize: "x-small"
     },
     keyIndicator: {
-        color: "#888"
+        color: "#888",
+        "@media (max-width: 500px)": {
+            display: 'none'
+        }
     },
     pressed: {
     }
