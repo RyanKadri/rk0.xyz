@@ -21,7 +21,7 @@ def calcMoveConnectFour():
 
 @app.route("/api", methods=["GET"])
 def rootRoute():
-    return "Hello friend! You made a request to: " + request.url
+    return "Hello friend!!!! You made a request to: " + request.url
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
