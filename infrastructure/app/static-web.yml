@@ -39,6 +39,7 @@ Resources:
           ViewerProtocolPolicy: "redirect-to-https"
           ForwardedValues:
             QueryString: false
+          Compress: true
         Origins:
           - DomainName: !GetAtt "SiteBucket.DomainName"
             Id: "S3-Static"

@@ -42,7 +42,7 @@ const _MusicPage = ({ classes }: Props) => {
     )
 }
 
-export const MusicPage = withStyles(styles)(_MusicPage)
+export default withStyles(styles)(_MusicPage)
 
 interface Props extends WithStyles<typeof styles> {
 

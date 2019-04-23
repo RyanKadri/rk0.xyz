@@ -9,6 +9,6 @@ const presentations = [
     lesson2
 ];
 
-export const PresentationView = ({ match }: RouteComponentProps) => (
+export default ({ match }: RouteComponentProps) => (
     <PresentationViewer presentations={ presentations } baseUrl={match.url.replace(/\/$/, "")} />
 )

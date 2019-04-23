@@ -18,6 +18,8 @@ const styles = createStyles({
         display: "inline-block",
         margin: 1,
         borderRadius: 2,
+        userSelect: "none",
+        touchAction: "manipulation",
         "&:hover, &$pressed": {
             borderBottom: "solid 3px"
         },
@@ -26,7 +28,7 @@ const styles = createStyles({
         },
         "&$pressed": {
             borderBottomColor: "hsla(82, 70%, 80%, 1)"
-        }
+        },
     },
     noteContent: {
         display: "flex",
@@ -128,7 +130,10 @@ const _Keyboard = ({ classes, onNotePressed, onNoteReleased, pressedKeys }: Prop
             { notes.map(note => 
                 <div className={`${classes.note} ${note.isBlackNote ? classes.blackNote : ""} ${pressedKeys.includes(note) ? classes.pressed : ""}`} 
                     key={ note.freq }
-                    onMouseDown={ () => onNotePressed(note) } onMouseUp={ () => onNoteReleased(note) }
+                    onMouseDown={ () => onNotePressed(note) }
+                    onMouseUp={ () => onNoteReleased(note) }
+                    onTouchStart={ (e) => { onNotePressed(note); e.preventDefault(); } }
+                    onTouchEnd={ (e) => { onNoteReleased(note); e.preventDefault(); } }
                 >
                     <div className={classes.noteContent}>
                         { note.key && <small className={ classes.keyIndicator }>({ note.key })</small> }
