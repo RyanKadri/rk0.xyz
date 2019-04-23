@@ -35,7 +35,7 @@ Resources:
       RegisterWithThirdParty: true
       Filters:
         - JsonPath: "$.ref"
-          MatchEquals: "refs/head/master"
+          MatchEquals: "refs/heads/master"
   Pipeline:
     Type: AWS::CodePipeline::Pipeline
     Properties:
