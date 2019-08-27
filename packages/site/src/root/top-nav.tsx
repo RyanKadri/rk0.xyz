@@ -1,5 +1,6 @@
-import { AppBar, createStyles, IconButton, Toolbar, Typography, WithStyles, withStyles } from "@material-ui/core";
-import Home from "@material-ui/icons/Home";
+import { faCode, faFile } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AppBar, createStyles, Toolbar, WithStyles, withStyles } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
 import { AppBarSettings } from "./app-bar-context";
@@ -8,9 +9,6 @@ import { ViewportInfo } from "./viewport-context";
 const styles = createStyles({
     title: { 
         marginRight: 16
-    },
-    customActionContainer: {
-        marginLeft: "auto"
     },
     homeIcon: {
         marginRight: 8,
@@ -26,44 +24,51 @@ const styles = createStyles({
     },
     navBar: {
         overflowX: "auto"
+    },
+    linkGroup: {
+        "& a": {
+            color: "white",
+            padding: 8,
+            borderRadius: 99
+        },
+        "& a:hover": {
+            backgroundColor: "rgba(255,255,255,0.15)"
+        }
+    },
+    externalLinks: {
+        marginLeft: "auto"
     }
 })
 
-const links = [
-    { display: "Resume", link: "https://resume.rk0.xyz", external: true },
-    { display: "Classes", link: "/web-design-class/" },
-    { display: "Games", link: "/games/"},
-    { display: "Music", link: "/music/"}
+const siteLinks = [
+    { description: "Home", link: "/" },
+    { description: "Courses", link: "/web-design-class/" }
 ];
 
-const _RootNav = ({ classes, settings, viewport }: Props) => {
+const externalLinks = [
+    { description: "Resume", icon: faFile, link: "https://resume.rk0.xyz" },
+    { description: "Code", icon: faCode, link: "https://github.com/RyanKadri" }
+]
+
+const _RootNav = ({ classes, viewport }: Props) => {
     return (
         viewport.isFullscreen 
             ? null
             : ( <AppBar position="static" className={ classes.navBar }>
                     <Toolbar>
-                        <IconButton component={() => 
-                            <Link to="/" className={classes.homeIcon}><Home /></Link>
-                        } color="inherit" />
-                        <Typography variant="h6" color="inherit" className={ classes.title }>
-                            { settings.title }
-                        </Typography>
-                        {
-                            links.map(link =>
-                                link.external
-                                    ? <a href={link.link} className={classes.link} key={link.link} target="_blank">
-                                        {link.display}
-                                      </a>
-                                    : <Link to={link.link} className={classes.link} key={link.link}>
-                                            {link.display}
-                                      </Link>
-                            )
-                        }
-                        <div className={ classes.customActionContainer }>
-                            { settings.CustomAction
-                                ? <settings.CustomAction />
-                                : null 
-                            }
+                        <div className={ classes.linkGroup }>
+                            { siteLinks.map(link => (
+                                <Link to={link.link} className={classes.link} key={link.link}>
+                                    { link.description }
+                                </Link>
+                            ))}
+                        </div>
+                        <div className={ `${classes.linkGroup} ${classes.externalLinks}` }>
+                            { externalLinks.map(link => (
+                                <a href={ link.link } aria-label={link.description} target="_blank" key={link.link}>
+                                    <FontAwesomeIcon icon={ link.icon } />
+                                </a>
+                            ))}
                         </div>
                     </Toolbar>
                 </AppBar>

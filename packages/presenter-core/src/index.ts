@@ -1,3 +1,4 @@
+export * from ".";
 export * from "./routing/presentation-router";
 export * from "./services/types";
 export * from "./slide-components/code-block";

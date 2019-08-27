@@ -4,4 +4,5 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
+    "python.pythonPath": "/home/ryan/.local/share/virtualenvs/library-class-GW3E1Q4O/bin/python",
 }

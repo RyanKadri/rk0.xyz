@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { PresentationContext } from "../services/types";
 import { NestedListInfo } from "../slide-components/info-list";
 import { CenterMessageSlide } from "./center-message-slide";
@@ -11,7 +11,7 @@ export function generateContentSlide(title: string, points: (string | NestedList
     }
 }
 
-export function generateMessageSlide(message: string) {
+export function generateMessageSlide(message: string | ReactElement) {
     return function({ context }: {context: PresentationContext}) {
         return <CenterMessageSlide Message={ message } context={ context } />
     }

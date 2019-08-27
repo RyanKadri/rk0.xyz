@@ -1,17 +1,20 @@
 import { Presentation } from "../../../../../presenter-core/src";
-import { CSSHTMLTogether } from "./css-html-together";
+import content from "../examples/rothfuss.html";
 import { OutlineToHtml } from "./outline-to-html";
 import { SimpleBrowserSlide } from "./simple-browser";
 import { SimpleMonitorSlide } from "./simple-monitor";
-import { CSSInfo, HTMLDef, LetsCode, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsCourse, WhatIsWebsite } from "./simple-slides";
+import { Expectations, GradingA, GradingB, HTMLDef, LetsCode, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./simple-slides";
 import { XMLSlide } from "./xml-slide";
 
 export const lesson1: Presentation = {
-    title: "Intro to Web Design",
-    description: "Learn about HTML, CSS, and web history",
+    title: "Hello World!",
+    description: "Course Expectations, Web Fundamentals, Developer Tools, HTML Basics",
     slides: [
         TitleSlide,
-        WhatIsCourse,
+        Expectations, 
+        GradingA,
+        GradingB,
+        Syllabus,
         WhatIsWebsite,
         WhatIsBrowser,
         SimpleBrowserSlide,
@@ -21,7 +24,8 @@ export const lesson1: Presentation = {
         XMLSlide,
         OutlineToHtml,
         LetsCode,
-        CSSInfo,
-        CSSHTMLTogether
+    ],
+    examples: [
+        { code: content, title: "Simple HTML" }
     ]
 }

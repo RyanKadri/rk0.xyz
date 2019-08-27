@@ -18,7 +18,7 @@ const styles = createStyles({
     }
 });
 
-const _CodeBlock = ({ classes, language, code }: Props) => {
+const _CodeBlock = ({ classes, language, code, className }: Props) => {
     const ref = useRef(null);
     useEffect(() => {
         const lang = languages[language];
@@ -26,7 +26,7 @@ const _CodeBlock = ({ classes, language, code }: Props) => {
         hljs.highlightBlock(ref.current)
     }, []);
     return (
-        <pre>
+        <pre className={className || ""}>
             <code ref={ref} className={`${language} ${classes.code}`}>                
                 { code.trim() }
             </code>
@@ -39,4 +39,5 @@ export const CodeBlock = withStyles(styles)(_CodeBlock)
 interface Props extends WithStyles<typeof styles> {
     code: string;
     language: string;
+    className?: string;
 }

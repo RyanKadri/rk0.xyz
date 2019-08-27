@@ -8,8 +8,6 @@ const styles = createStyles({
 
 })
 
-
-
 const _SiteRoot = ({}: Props) => (
     <Router>
         <MuiThemeProvider theme={ appTheme }>
@@ -21,5 +19,4 @@ const _SiteRoot = ({}: Props) => (
 
 export const SiteRoot = withStyles(styles)(_SiteRoot)
 
-interface Props extends WithStyles<typeof styles> {
-}
+interface Props extends WithStyles<typeof styles> { }

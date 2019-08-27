@@ -1,9 +1,7 @@
 import { AppBar, createStyles, IconButton, Toolbar, Typography, WithStyles, withStyles } from "@material-ui/core";
 import Fullscreen from "@material-ui/icons/Fullscreen";
 import FullscreenExit from "@material-ui/icons/FullscreenExit";
-import Home from "@material-ui/icons/Home";
 import React from "react";
-import { Link } from "react-router-dom";
 
 const styles = createStyles({
     title: { 
@@ -21,9 +19,6 @@ function _PresentationControls({ fullScreen, onFullScreen, title, classes }: Pro
             ? null
             : ( <AppBar position="static">
                     <Toolbar>
-                        <IconButton component={() => 
-                            <Link to="/" className={classes.link}><Home /></Link>
-                        } color="inherit" />
                         <Typography variant="h6" color="inherit" className={ classes.title }>
                             {title}
                         </Typography>

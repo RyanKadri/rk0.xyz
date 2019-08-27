@@ -31,6 +31,9 @@ const _SlideManager = ({ presentation, history, match }: Props) => {
 
     useEffect(() => {
         const updatePos = (e: KeyboardEvent) => {
+            if(e.target instanceof HTMLTextAreaElement || e.target instanceof HTMLInputElement) {
+                return;
+            }
             switch(e.key) {
                 case "ArrowRight":
                     return updateSlidePos(1);

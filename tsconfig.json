@@ -34,6 +34,5 @@
     /* Module Resolution Options */
     "moduleResolution": "node",
     "esModuleInterop": true
-
   }
 }

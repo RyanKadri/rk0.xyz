@@ -3,8 +3,8 @@ import { CssBox } from "./css-box";
 import { Agenda, CssFundamentalsDisplay, CssFundamentalsMisc, DevelopingTips, Hosting, HttpOverview, LetsCodeCSS, MainTitle, NetworkOverview, PageStructure, RecapSlide } from "./simple-slides";
 
 export const lesson2: Presentation = {
-    title: "Styling and Publishing",
-    description: "Dig further into CSS and internet technologies",
+    title: `Keeping it "classy"`,
+    description: "Deeper dive into HTML. Introducing CSS and styles",
     slides: [
         MainTitle,
         Agenda,
@@ -18,5 +18,6 @@ export const lesson2: Presentation = {
         LetsCodeCSS,
         DevelopingTips,
         Hosting
-    ]
+    ],
+    examples: []
 }
