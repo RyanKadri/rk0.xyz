@@ -1,6 +1,6 @@
-import { createStyles, WithStyles, withStyles } from "@material-ui/core";
-import React, { useState } from "react";
-import { ExampleDefinition } from "../../../presenter-core/src";
+import { createStyles, Fab, WithStyles, withStyles } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { CodeBlock, ExampleDefinition } from "../../../presenter-core/src";
 
 const styles = createStyles({
     container: {
@@ -16,27 +16,51 @@ const styles = createStyles({
         outline: "none"
     },
     editorContainer: {
-        backgroundColor: "rgba(0,0,0,0.08)",
+        backgroundColor: "rgba(0,0,0,0.03)",
         width: "50%",
         padding: 8,
+        position: "relative",
         "&:focus-within": {
             outline: "-webkit-focus-ring-color auto 1px"
-        }
+        },
+        display: "flex"
+    },
+    saveButton: {
+        top: 8,
+        right: 8
     },
     content: {
         width: "50%",
+        border: "none",
         borderLeft: "solid 1px #ccc",
-        padding: 8
     }
 })
 
 const _ExamplePlayground = ({ example, classes }: Props) => {
     
     const [ code, setCode ] = useState(example.code);
+    const [ readOnly, setReadonly ] = useState(true)
+
+    const onTextUpdate = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        const nextVal = e.target.value;
+        setCode(nextVal);
+    }
+
+    useEffect(() => {
+        setCode(example.code)
+    }, [example.code] )
+
     return (
         <div className={ classes.container }>
             <div className={ classes.editorContainer }>
-                <textarea className={ classes.editor } value={ code } onChange={ e => setCode(e.target.value ) }/>
+                { readOnly 
+                    ? <CodeBlock language="html" code={ code } className={ classes.editor }
+                        onDoubleClick={ () => setReadonly(false)} />
+                    : <>
+                        <textarea className={ classes.editor } value={ code } onChange={ onTextUpdate }/>
+                        <Fab className={ classes.saveButton } color="primary" onClick={ () => setReadonly(true) }>Save</Fab>
+                    </>
+                }
             </div>
             <iframe className={classes.content} srcDoc={ code } />
         </div>

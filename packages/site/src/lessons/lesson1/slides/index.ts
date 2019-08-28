@@ -1,11 +1,16 @@
 import { Presentation } from "../../../../../presenter-core/src";
-import content from "../examples/rothfuss.html";
+import controls from "../examples/controls.html";
+import lists from "../examples/lists.html";
+import media from "../examples/media.html";
+import tables from "../examples/tables.html";
+import textAndHeadings from "../examples/textAndHeadings.html";
 import { OutlineToHtml } from "./outline-to-html";
 import { SimpleBrowserSlide } from "./simple-browser";
 import { SimpleMonitorSlide } from "./simple-monitor";
 import { Expectations, GradingA, GradingB, HTMLDef, LetsCode, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./simple-slides";
 import { XMLSlide } from "./xml-slide";
 
+console.log(tables)
 export const lesson1: Presentation = {
     title: "Hello World!",
     description: "Course Expectations, Web Fundamentals, Developer Tools, HTML Basics",
@@ -26,6 +31,10 @@ export const lesson1: Presentation = {
         LetsCode,
     ],
     examples: [
-        { code: content, title: "Simple HTML" }
+        { code: textAndHeadings, title: "Text and Headings" },
+        { code: lists, title: "Lists" },
+        { code: media, title: "Media" },
+        { code: controls, title: "Controls" },
+        { code: tables, title: "Tables" }
     ]
 }

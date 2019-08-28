@@ -3,7 +3,9 @@ import React from "react";
 import { CodeBlock, ContentSlide, PresentationContext } from "../../../../../presenter-core/src";
 
 const styles = createStyles({
-    
+    code: {
+        fontSize: "2.5em"
+    }
 })
 
 const xmlExample = `
@@ -15,10 +17,10 @@ const xmlExample = `
     </Author>
 </Book>
 `
-const _XMLSlide = ({ context }: Props) => {
+const _XMLSlide = ({ context, classes }: Props) => {
     return (
         <ContentSlide Title="XML" context={context} Content={
-            <CodeBlock language="xml" code={ xmlExample } />
+            <CodeBlock language="xml" code={ xmlExample } className={ classes.code } />
         } />
     )
 }

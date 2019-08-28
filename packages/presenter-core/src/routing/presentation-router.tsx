@@ -20,11 +20,14 @@ export function PresentationViewer({ courses, baseUrl }: Props) {
             } />
             <Route path={`${baseUrl}/`} exact render={ () => <Redirect to={`${baseUrl}/presentations`} /> } />
             <Route path={`${baseUrl}/courses/:course/presentations/:presentation/examples`} exact
-                render={ ({ match }) => <ExampleViewer examples={ courses[match.params.course].lessons[match.params.presentation].examples } /> } />
+                render={ ({ match }) => 
+                    <ExampleViewer examples={ courses[match.params.course].lessons[match.params.presentation].examples }
+                                   baseUrl={ `${baseUrl}/courses/${match.params.course}/presentations/${match.params.presentation}/examples` } /> } />
             <Route path={`${baseUrl}/courses/:course/presentations/:presentation/examples/:example`}
                 render={ ({ match }) => 
                     <ExampleViewer examples={ courses[match.params.course].lessons[match.params.presentation].examples }
-                                   currExample={ match.params.example } /> } />    
+                                   currExample={ match.params.example } 
+                                   baseUrl={ `${baseUrl}/courses/${match.params.course}/presentations/${match.params.presentation}/examples` } /> } />    
         </Switch>
     )
 }

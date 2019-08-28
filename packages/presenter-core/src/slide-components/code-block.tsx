@@ -4,6 +4,7 @@ import css from "highlight.js/lib/languages/css";
 import xml from "highlight.js/lib/languages/xml";
 import "highlight.js/styles/lightfair.css";
 import React, { useEffect, useRef } from "react";
+import { noop } from "../../../site/src/games/games/common/utils";
 
 const languages = {
     "xml": xml,
@@ -13,20 +14,21 @@ const languages = {
 
 const styles = createStyles({
     code: {
-        fontSize: "2rem",
-        backgroundColor: "transparent"
+        fontSize: "1em",
+        backgroundColor: "transparent",
+        height: "100%"
     }
 });
 
-const _CodeBlock = ({ classes, language, code, className }: Props) => {
+const _CodeBlock = ({ classes, language, code, className, onDoubleClick }: Props) => {
     const ref = useRef(null);
     useEffect(() => {
         const lang = languages[language];
         hljs.registerLanguage(language, lang);
         hljs.highlightBlock(ref.current)
-    }, []);
+    }, [ code ]);
     return (
-        <pre className={className || ""}>
+        <pre className={className || ""} onDoubleClick={ onDoubleClick || noop }>
             <code ref={ref} className={`${language} ${classes.code}`}>                
                 { code.trim() }
             </code>
@@ -40,4 +42,5 @@ interface Props extends WithStyles<typeof styles> {
     code: string;
     language: string;
     className?: string;
+    onDoubleClick?(): void;
 }
