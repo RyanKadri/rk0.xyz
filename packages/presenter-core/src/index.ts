@@ -1,5 +1,5 @@
 export * from ".";
-export * from "./routing/presentation-router";
+export * from "../../site/src/lessons/views/course-router";
 export * from "./services/types";
 export * from "./slide-components/code-block";
 export * from "./slide-components/info-list";

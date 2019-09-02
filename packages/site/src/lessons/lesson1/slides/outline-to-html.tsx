@@ -9,7 +9,7 @@ const styles = createStyles({
         justifyContent: "space-between",
         alignItems: "center",
         fontFamily: "'Ubuntu Mono', monospace;",
-        fontSize: "3.5rem",
+        fontSize: "2.5rem",
         paddingTop: 32
     },
     article: {

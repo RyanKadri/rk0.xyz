@@ -1,8 +1,8 @@
-import { createStyles, Theme, Typography, WithStyles, withStyles } from "@material-ui/core";
+import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import React from "react";
 import { useAppBar } from "../common/use-app-bar";
 
-const styles = (theme: Theme) => createStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
     about: {
 
     },
@@ -22,9 +22,10 @@ const styles = (theme: Theme) => createStyles({
         justifyContent: "center",
         color: "white"
     }
-})
+}))
 
-const _LandingPage = ({ classes }: Props) => {
+export function LandingPage({ }: Props) {
+    const classes = useStyles();
     useAppBar("");
     return (
         <>
@@ -45,8 +46,6 @@ const _LandingPage = ({ classes }: Props) => {
     )
 }
 
-export const LandingPage = withStyles(styles)(_LandingPage)
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
 
 }

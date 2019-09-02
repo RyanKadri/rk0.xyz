@@ -1,6 +1,8 @@
 import { createStyles, Fab, WithStyles, withStyles } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import { CodeBlock, ExampleDefinition } from "../../../presenter-core/src";
+import ReactGA from "react-ga";
+import { CodeBlock, ExampleDefinition } from "../../../../presenter-core/src";
+import { TrackedActions, TrackedCategories } from "../../analytics";
 
 const styles = createStyles({
     container: {
@@ -46,6 +48,15 @@ const _ExamplePlayground = ({ example, classes }: Props) => {
         setCode(nextVal);
     }
 
+    const onDoubleClick = () => {
+        setReadonly(false);
+        ReactGA.event({
+            category: TrackedCategories.LEARNING_TOOLS,
+            action: TrackedActions.EDITED_PLAYGROUND,
+            label: example.title,
+        });
+    }
+
     useEffect(() => {
         setCode(example.code)
     }, [example.code] )
@@ -55,7 +66,7 @@ const _ExamplePlayground = ({ example, classes }: Props) => {
             <div className={ classes.editorContainer }>
                 { readOnly 
                     ? <CodeBlock language="html" code={ code } className={ classes.editor }
-                        onDoubleClick={ () => setReadonly(false)} />
+                        onDoubleClick={ onDoubleClick } />
                     : <>
                         <textarea className={ classes.editor } value={ code } onChange={ onTextUpdate }/>
                         <Fab className={ classes.saveButton } color="primary" onClick={ () => setReadonly(true) }>Save</Fab>

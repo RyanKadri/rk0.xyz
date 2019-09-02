@@ -1,10 +1,10 @@
-import { createStyles, List, ListItem, ListItemText, Paper, Typography, WithStyles, withStyles } from "@material-ui/core";
+import { createStyles, List, ListItem, ListItemText, makeStyles, Paper, Typography } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import { ExampleDefinition } from "../../../presenter-core/src";
-import { ExamplePlayground } from "./example-playground";
+import { ExampleDefinition } from "../../../../presenter-core/src";
+import { ExamplePlayground } from "../components/example-playground";
 
-const styles = createStyles({
+const useStyles = makeStyles(createStyles({
     container: {
         display: "flex",
         height: "calc(100vh - 64px)",
@@ -22,15 +22,16 @@ const styles = createStyles({
     sidebar: {
         minWidth: 240
     }
-})
+}))
 
-const _ExampleViewer = ({ classes, examples, currExample, baseUrl }: Props) => {
+export function ExampleViewer({ examples, currExample, baseUrl }: Props) {
+    const classes = useStyles();
     return (
         <div className={ classes.container }>
             <Paper className={ classes.sidebar }>
                 <List>
                     { examples.map((example, i) => (
-                        <ListItem key={ example.title } button component={ props => <Link { ...{ ...props, to: `${baseUrl}/${i}` } } />}>
+                        <ListItem key={ example.title } button component={ Link } to={`${baseUrl}/${i}`}>
                             <ListItemText primary={ example.title }></ListItemText>
                         </ListItem>
                     ))}
@@ -51,9 +52,7 @@ const _ExampleViewer = ({ classes, examples, currExample, baseUrl }: Props) => {
     )
 }
 
-export const ExampleViewer = withStyles(styles)(_ExampleViewer)
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
     examples: ExampleDefinition[];
     currExample?: number;
     baseUrl: string

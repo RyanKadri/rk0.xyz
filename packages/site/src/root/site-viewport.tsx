@@ -1,4 +1,4 @@
-import { createStyles, WithStyles, withStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import React, { Suspense, useState } from "react";
 import { Route, Switch } from "react-router";
 import { AppBarContext, AppBarSettings } from "./app-bar-context";
@@ -6,9 +6,9 @@ import { LandingPage } from "./landing-page";
 import { RootNav } from "./top-nav";
 import { ViewportContext, ViewportInfo } from "./viewport-context";
 
-const PresentationView = React.lazy(() => import("../lessons/presentation-view"));
+const CourseRouter = React.lazy(() => import("../lessons/views/course-router"));
 
-const styles = createStyles({
+const useStyles = makeStyles({
     container: {
         display: "flex",
         flexDirection: "column",
@@ -19,7 +19,10 @@ const styles = createStyles({
 let updateSettings: any;
 let updateViewport: any;
 
-const _SiteViewport = ({ classes }: Props) => {
+
+export function SiteViewport({ }: Props) {
+
+    const classes = useStyles();
     const [appbarSettings, setSettings ] = useState<AppBarSettings>({ 
         title: "Ryan Kadri",
         CustomAction: null
@@ -45,8 +48,8 @@ const _SiteViewport = ({ classes }: Props) => {
                     <RootNav settings={ appbarSettings } viewport={viewportSettings} />
                     <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
-                            <Route path="/web-design-class/" component={ PresentationView } />
-                            <Route path="/" exact component={LandingPage} />
+                            <Route path="/courses" component={ CourseRouter } />
+                            <Route path="/" exact component={ LandingPage } />
                         </Switch>
                     </Suspense>
                 </div>
@@ -55,8 +58,6 @@ const _SiteViewport = ({ classes }: Props) => {
     )
 }
 
-export const SiteViewport = withStyles(styles)(_SiteViewport)
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
 
 }

@@ -42,7 +42,7 @@ const styles = createStyles({
 
 const siteLinks = [
     { description: "Home", link: "/" },
-    { description: "Courses", link: "/web-design-class/" }
+    { description: "Courses", link: "/courses" }
 ];
 
 const externalLinks = [

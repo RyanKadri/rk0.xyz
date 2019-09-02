@@ -10,16 +10,15 @@ import { SimpleMonitorSlide } from "./simple-monitor";
 import { Expectations, GradingA, GradingB, HTMLDef, LetsCode, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./simple-slides";
 import { XMLSlide } from "./xml-slide";
 
-console.log(tables)
 export const lesson1: Presentation = {
     title: "Hello World!",
     description: "Course Expectations, Web Fundamentals, Developer Tools, HTML Basics",
     slides: [
         TitleSlide,
         Expectations, 
+        Syllabus,
         GradingA,
         GradingB,
-        Syllabus,
         WhatIsWebsite,
         WhatIsBrowser,
         SimpleBrowserSlide,
