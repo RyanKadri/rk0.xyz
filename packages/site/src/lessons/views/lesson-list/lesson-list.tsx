@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, CardActions, CardContent, CardHeader, createStyles, Link as MaterialLink, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, useMediaQuery, useTheme } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import { Presentation } from "../../../../../presenter-core/src";
+import { Presentation } from "../../../../../presenter-core/src/services/types";
 
 const useStyles = makeStyles(createStyles({
     tablePaper: {
@@ -32,13 +32,13 @@ function LessonCards({ lessons, baseUrl }: Props) {
     const classes = useStyles();
 
     return <>{
-        lessons.map((lesson, i) => (
+        lessons.map((lesson) => (
             <Card className={ classes.lessonCard } key={ lesson.title }>
                 <CardHeader title={ lesson.title } />
                 <CardContent>{ lesson.description }</CardContent>
                 <CardActions>
-                    <MaterialLink component={ Link } to={`${baseUrl}/${i}/examples`}>Examples</MaterialLink>
-                    <MaterialLink component={ Link } to={`${baseUrl}/${i}/slides/0`}>Slides</MaterialLink>
+                    <MaterialLink component={ Link } to={`${baseUrl}/${lesson.slug}/examples`}>Examples</MaterialLink>
+                    <MaterialLink component={ Link } to={`${baseUrl}/${lesson.slug}/slides/0`}>Slides</MaterialLink>
                 </CardActions>
             </Card>
     )) }</>;
@@ -58,19 +58,19 @@ function LessonTable({ lessons, baseUrl }: Props) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    { lessons.map((lesson, i) => (
+                    { lessons.map((lesson) => (
                         <TableRow key={ lesson.title }>
                             <TableCell>{ lesson.title }</TableCell>
                             <TableCell>{ lesson.description }</TableCell>
                             <TableCell>
-                                <MaterialLink component={ Link as any } { ...{ to: `${baseUrl}/${i}/slides/0`}}>
+                                <MaterialLink component={ Link } to={`${baseUrl}/${lesson.slug}/slides/0`}>
                                     <FontAwesomeIcon icon={ faDesktop } className={ classes.tableIcon } />
                                     ({ lesson.slides.length })
                                 </MaterialLink>
                             </TableCell>
                             { lesson.examples.length > 0 && (
                                 <TableCell>
-                                    <MaterialLink component={ Link } to={`${baseUrl}/${i}/examples`}>
+                                    <MaterialLink component={ Link } to={`${baseUrl}/${lesson.slug}/examples`}>
                                         <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
                                         ({ lesson.examples.length })
                                     </MaterialLink>

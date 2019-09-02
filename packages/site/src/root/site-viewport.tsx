@@ -1,12 +1,11 @@
 import { makeStyles } from "@material-ui/core";
-import React, { Suspense, useState } from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router";
+import { CourseRouter } from "../lessons/views/course-router";
 import { AppBarContext, AppBarSettings } from "./app-bar-context";
 import { LandingPage } from "./landing-page";
 import { RootNav } from "./top-nav";
 import { ViewportContext, ViewportInfo } from "./viewport-context";
-
-const CourseRouter = React.lazy(() => import("../lessons/views/course-router"));
 
 const useStyles = makeStyles({
     container: {
@@ -46,12 +45,10 @@ export function SiteViewport({ }: Props) {
             <ViewportContext.Provider value={{ current: viewportSettings, updateViewport }} >
                 <div className={classes.container}>
                     <RootNav settings={ appbarSettings } viewport={viewportSettings} />
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <Switch>
-                            <Route path="/courses" component={ CourseRouter } />
-                            <Route path="/" exact component={ LandingPage } />
-                        </Switch>
-                    </Suspense>
+                    <Switch>
+                        <Route path="/courses" component={ CourseRouter } />
+                        <Route path="/" exact component={ LandingPage } />
+                    </Switch>
                 </div>
             </ViewportContext.Provider>
         </AppBarContext.Provider>

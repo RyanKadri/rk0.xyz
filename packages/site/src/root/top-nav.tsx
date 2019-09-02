@@ -23,7 +23,7 @@ const styles = createStyles({
         }
     },
     navBar: {
-        overflowX: "auto"
+        overflowX: "auto",
     },
     linkGroup: {
         "& a": {

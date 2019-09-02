@@ -8,6 +8,7 @@ export interface PresentationContext {
 export interface Presentation {
     title: string;
     description: string;
+    slug: string;
     slides: ComponentType<{context: PresentationContext}>[];
     examples: ExampleDefinition[];
 }
@@ -16,6 +17,7 @@ export interface CourseDefinition {
     lessons: Presentation[];
     description: string;
     title: string;
+    slug: string;
 }
 
 export interface ExampleDefinition {

@@ -1,7 +1,7 @@
 import { Link as MaterialLink } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../presenter-core/src";
+import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../presenter-core/src/slides/generate-slide";
 
 export const TitleSlide = generateTitleSlide("Intro to Web Design", "Ryan Kadri");
 

@@ -1,4 +1,4 @@
-import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../presenter-core/src";
+import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../presenter-core/src/slides/generate-slide";
 
 export const MainTitle = generateTitleSlide("Web Design: Deeper Dive", "Ryan Kadri");
 

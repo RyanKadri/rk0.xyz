@@ -1,4 +1,4 @@
-import { createStyles, Paper, WithStyles, withStyles } from "@material-ui/core";
+import { createStyles, makeStyles, Paper, Theme } from "@material-ui/core";
 import React, { ComponentType, useRef } from "react";
 import { PresentationContext } from "../services/types";
 import { useComponentSize } from "../services/use-component-size";
@@ -6,7 +6,7 @@ import { useComponentSize } from "../services/use-component-size";
 const canonicalHeight = 918;
 const canonicalWidth = canonicalHeight * 16 / 9;
 
-const styles = createStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
     viewportPaper: {
         borderRadius: 0,
         transformOrigin: "center"
@@ -14,7 +14,8 @@ const styles = createStyles({
     viewportContainer: {
         width: "100%",
         flexGrow: 1,
-        maxHeight: "calc(100vh - 64px)",
+        maxHeight: `calc(100vh - ${theme.spacing(8)}px)`,
+        height: `calc(100vh - ${theme.spacing(8)}px)`,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -24,9 +25,10 @@ const styles = createStyles({
             backgroundColor: "#444"
         },
     }
-})
+}));
 
-const _SlideViewport = ({ Slide, context, isFullscreen, classes }: Props) => {
+export function SlideViewport({ Slide, context, isFullscreen }: Props) {
+    const classes = useStyles();
     const viewport = useRef<HTMLDivElement>(null);
     const viewportSize = useComponentSize(viewport);
 
@@ -54,9 +56,7 @@ const _SlideViewport = ({ Slide, context, isFullscreen, classes }: Props) => {
     )
 }
 
-export const SlideViewport = withStyles(styles)(_SlideViewport)
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
     Slide: ComponentType<{ context: PresentationContext}>;
     context: PresentationContext;
     isFullscreen: boolean;

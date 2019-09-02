@@ -1,7 +1,8 @@
 import { createStyles, Fab, WithStyles, withStyles } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga";
-import { CodeBlock, ExampleDefinition } from "../../../../presenter-core/src";
+import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
+import { CodeBlock } from "../../../../presenter-core/src/slide-components/code-block";
 import { TrackedActions, TrackedCategories } from "../../analytics";
 
 const styles = createStyles({

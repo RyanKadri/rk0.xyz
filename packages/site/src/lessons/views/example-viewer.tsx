@@ -1,7 +1,7 @@
 import { createStyles, List, ListItem, ListItemText, makeStyles, Paper, Typography } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import { ExampleDefinition } from "../../../../presenter-core/src";
+import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { ExamplePlayground } from "../components/example-playground";
 
 const useStyles = makeStyles(createStyles({

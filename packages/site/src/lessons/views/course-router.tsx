@@ -10,25 +10,25 @@ const courses: CourseDefinition[] = [
     { 
         title: "Introduction to Web Technology and Programming",
         description: "Web Programming for Beginners",
-        lessons: [ lesson1, lesson2 ] 
+        slug: "cis-1052",
+        lessons: [ lesson1, lesson2 ]
     }
-]
+];
 
 export function CourseRouter({ match }: Props) {
-
     return (
         <Switch>
             <Route path={[ `${ match.url }`, `${ match.url }/:course` ]} exact render={({ match: courseMatch }) => 
                 <LessonListView courses={ courses } 
-                            currCourse={ courseMatch.params.course }
+                            currCourse={ courses.find(course => course.slug === courseMatch.params.course) }
                             baseUrl={ `${match.url}` } /> }
             />
             <Route path={`${ match.url }/:course/lessons/:lesson`} render={ ({ match }) => {
                 const courseId = match.params.course;
-                const course = courses[courseId];
-                const presentation = course.lessons[match.params.lesson];
+                const course = courses.find(course => course.slug === courseId)!;
+                const lesson = course.lessons.find(lesson => lesson.slug === match.params.lesson)!;
                 return <PresentationResourceRouter course={ course }
-                                                   presentation={ presentation }
+                                                   lesson={ lesson }
                                                    baseUrl={ match.url } />
             } } />
         </Switch>
@@ -37,5 +37,3 @@ export function CourseRouter({ match }: Props) {
 
 interface Props extends RouteComponentProps<{ course: string }> {
 }
-
-export default CourseRouter;

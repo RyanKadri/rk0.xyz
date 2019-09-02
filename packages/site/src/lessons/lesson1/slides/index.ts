@@ -1,4 +1,3 @@
-import { Presentation } from "../../../../../presenter-core/src";
 import controls from "../examples/controls.html";
 import lists from "../examples/lists.html";
 import media from "../examples/media.html";
@@ -10,9 +9,10 @@ import { SimpleMonitorSlide } from "./simple-monitor";
 import { Expectations, GradingA, GradingB, HTMLDef, LetsCode, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./simple-slides";
 import { XMLSlide } from "./xml-slide";
 
-export const lesson1: Presentation = {
+export const lesson1 = {
     title: "Hello World!",
     description: "Course Expectations, Web Fundamentals, Developer Tools, HTML Basics",
+    slug: "hello-world",
     slides: [
         TitleSlide,
         Expectations, 

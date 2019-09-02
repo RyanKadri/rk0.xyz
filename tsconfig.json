@@ -11,9 +11,6 @@
     "removeComments": true,
     "allowJs": true,
     "baseUrl": "./",
-    "paths": {
-      "@presenter/core": ["./packages/presenter-core/src"]
-    },
 
     /* Strict Type-Checking Options */
     "strict": true,

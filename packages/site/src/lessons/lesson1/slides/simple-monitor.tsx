@@ -1,6 +1,6 @@
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import React from "react";
-import { PresentationContext } from "../../../../../presenter-core/src";
+import { PresentationContext } from "../../../../../presenter-core/src/services/types";
 
 const styles = createStyles({
     on: {
