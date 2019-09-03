@@ -21,6 +21,13 @@ export interface CourseDefinition {
 }
 
 export interface ExampleDefinition {
-    code: string;
+    code: ExampleCode;
     title: string;
+}
+
+export type ExampleCode = string | ComplexExample;
+
+export interface ComplexExample {
+    displayCode: string;
+    formCode?: (userCode: string) => string;
 }

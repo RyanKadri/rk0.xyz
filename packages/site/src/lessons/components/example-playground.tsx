@@ -1,9 +1,10 @@
-import { createStyles, Fab, WithStyles, withStyles } from "@material-ui/core";
+import { createStyles, Fab, Typography, WithStyles, withStyles } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga";
-import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
+import { ComplexExample, ExampleCode, ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { CodeBlock } from "../../../../presenter-core/src/slide-components/code-block";
 import { TrackedActions, TrackedCategories } from "../../analytics";
+import { identity } from "../../common/functional-utils";
 
 const styles = createStyles({
     container: {
@@ -26,9 +27,11 @@ const styles = createStyles({
         "&:focus-within": {
             outline: "-webkit-focus-ring-color auto 1px"
         },
-        display: "flex"
+        display: "flex",
+        flexDirection: "column"
     },
     saveButton: {
+        position: "absolute",
         top: 8,
         right: 8
     },
@@ -39,10 +42,14 @@ const styles = createStyles({
     }
 })
 
+function isSnippetExample(code: ExampleCode): code is ComplexExample {
+    return typeof code !== "string";
+}
+
 const _ExamplePlayground = ({ example, classes }: Props) => {
     
-    const [ code, setCode ] = useState(example.code);
-    const [ readOnly, setReadonly ] = useState(true)
+    const [ code, setCode ] = useState("");
+    const [ readOnly, setReadonly ] = useState(true);
 
     const onTextUpdate = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const nextVal = e.target.value;
@@ -59,22 +66,29 @@ const _ExamplePlayground = ({ example, classes }: Props) => {
     }
 
     useEffect(() => {
-        setCode(example.code)
-    }, [example.code] )
+        setCode(isSnippetExample(example.code) ? example.code.displayCode : example.code)
+    }, [example.code] );
+
+    const renderedCode = isSnippetExample(example.code)
+        ? (example.code.formCode || identity)(code)
+        : example.code;
 
     return (
         <div className={ classes.container }>
             <div className={ classes.editorContainer }>
                 { readOnly 
-                    ? <CodeBlock language="html" code={ code } className={ classes.editor }
-                        onDoubleClick={ onDoubleClick } />
+                    ? <>
+                        { isSnippetExample(example.code) && <Typography>This code may be abbreviated</Typography> }
+                        <CodeBlock language="html" code={ code } className={ classes.editor }
+                            onDoubleClick={ onDoubleClick } />
+                    </>
                     : <>
                         <textarea className={ classes.editor } value={ code } onChange={ onTextUpdate }/>
                         <Fab className={ classes.saveButton } color="primary" onClick={ () => setReadonly(true) }>Save</Fab>
                     </>
                 }
             </div>
-            <iframe className={classes.content} srcDoc={ code } />
+            <iframe className={classes.content} srcDoc={ renderedCode } />
         </div>
     )
 }

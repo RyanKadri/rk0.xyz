@@ -1,14 +1,15 @@
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../presenter-core/src/slides/generate-slide";
 
-export const MainTitle = generateTitleSlide("Web Design: Deeper Dive", "Ryan Kadri");
+export const MainTitle = generateTitleSlide(`HTML + CSS: Keeping it "Classy"`, "Ryan Kadri");
 
 export const Agenda = generateContentSlide("Agenda", [
-    "Recap",
-    "Internet / Networking Concepts",
-    "HTML / CSS Deeper Dive",
-    "Set Up Laptops",
-    "Set Up GitHub",
-    "Publish a Website!"
+    "Quiz",
+    "Sectioning Elements",
+    "Using styles",
+    "Composing a web page",
+    "CSS Selectors",
+    "Precedence / Ordering",
+    "Debugging Styles"
 ]);
 
 export const RecapSlide = generateContentSlide("Recap", [
@@ -16,6 +17,7 @@ export const RecapSlide = generateContentSlide("Recap", [
     { 
         text: "XML",
         children: [
+            "Data Serialization",
             "Tags",
             "Attributes"
         ]
@@ -23,32 +25,17 @@ export const RecapSlide = generateContentSlide("Recap", [
     {
         text: "HTML",
         children: [
-            "Basic Elements"
-        ]
-    },
-    {
-        text: "CSS",
-        children: [
-            "Selectors",
-            "Syntax"
+            "Basic Elements",
+            "HTML is for structure not style"
         ]
     }
 ]);
 
-export const HttpOverview = generateContentSlide("How do Browsers and Servers Talk?", [
-    "Requests and Responses",
-    "Initiated by Browser",
-    "Named Resources",
-    "Mostly Text-Based",
-    "HTTP"
-]);
-
-export const NetworkOverview = generateContentSlide("How do Browsers and Servers Talk?", [
-    "Names and Numbers",
-    "Ports",
-    "Standardized",
-    "Controlled by International Groups"
-]);
+export const ColorStyles = generateContentSlide("Styles: Color", [
+    "color, background-color, border-color",
+    "Colors can be described as named colors, hex colors, rgb(a), and hsl(a)",
+    `Uses the concept of "additive colors"`
+])
 
 export const PageStructure = generateContentSlide("Web Page Structure", [
     "Pages load resources recursively",
@@ -65,13 +52,6 @@ export const CssFundamentalsDisplay = generateContentSlide("CSS Fundamentals: Di
     "flex, grid"
 ]);
 
-export const CssFundamentalsMisc = generateContentSlide("CSS Fundamentals: Assorted", [
-    "color, background-color, border-color",
-    "font-family, font-size, font-weight",
-    "width, height, max-width, max-height",
-    "border, border-radius"
-]);
-
 export const LetsCodeCSS = generateMessageSlide("Let's Code!");
 
 export const DevelopingTips = generateContentSlide("Developing", [
@@ -79,11 +59,4 @@ export const DevelopingTips = generateContentSlide("Developing", [
     "Test locally",
     "Constantly reorganize (refactor)",
     "Learn the developer tools"
-]);
-
-export const Hosting = generateContentSlide("Hosting", [
-    "Static Hosting vs Dynamic App",
-    "What level of control do we want?",
-    "Are we secure?",
-    "How much does this cost?"
 ]);
