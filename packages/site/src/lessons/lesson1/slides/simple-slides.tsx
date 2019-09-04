@@ -35,8 +35,7 @@ export const GradingB = generateContentSlide("Grading (Option B)", [
 ]);
 
 export const Syllabus = generateMessageSlide(
-    <MaterialLink component={ Link as any } variant="h1"
-                  { ...{ to: "https://templeu.instructure.com/courses/64482", target:"_blank" }}>
+    <MaterialLink component={ Link } variant="h1" to="https://templeu.instructure.com/courses/64482" target="_blank">
         Syllabus
     </MaterialLink>
 )

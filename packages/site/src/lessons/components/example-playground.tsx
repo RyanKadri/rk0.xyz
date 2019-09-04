@@ -39,6 +39,7 @@ const styles = createStyles({
         width: "50%",
         border: "none",
         borderLeft: "solid 1px #ccc",
+        borderTop: "solid 1px #ccc"
     }
 })
 
