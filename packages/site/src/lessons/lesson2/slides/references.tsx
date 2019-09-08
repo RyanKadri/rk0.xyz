@@ -27,7 +27,7 @@ export function References({ context }: Props) {
         <ContentSlide Title="References" context={ context } Content={
             <ul className={ classes.referenceList }>{
                 links.map(link => (
-                    <li>
+                    <li key={link.url}>
                         <Typography className={ classes.referenceList }>{ link.label } </Typography> 
                         <MaterialLink href={link.url} target="_blank">{ link.url }</MaterialLink>
                     </li>

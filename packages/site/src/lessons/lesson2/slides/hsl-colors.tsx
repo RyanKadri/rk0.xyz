@@ -36,7 +36,7 @@ export function HslColors({ context }: Props) {
     const classes = useStyles();
     const [color, setColor] = useState({
         h: 1,
-        s: 0,
+        s: 50,
         l: 50
     });
 

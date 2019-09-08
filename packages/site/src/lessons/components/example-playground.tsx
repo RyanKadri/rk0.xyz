@@ -17,7 +17,8 @@ const styles = createStyles({
         backgroundColor: "transparent",
         height: "100%",
         width: "100%",
-        outline: "none"
+        outline: "none",
+        fontSize: "1.25rem"
     },
     editorContainer: {
         backgroundColor: "rgba(0,0,0,0.03)",

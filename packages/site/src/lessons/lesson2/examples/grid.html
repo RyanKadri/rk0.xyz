@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <style>
+            body {
+                min-height: 100vh;
+                display: grid;
+                grid-template-columns: 200px 1fr;
+                grid-template-areas: 'appbar appbar'
+                                     'navbar content'
+                                     'footer footer';
+            }
+            body > * {
+                border: solid 2px green;
+            }
+            header {
+                grid-area: appbar;
+            }
+            nav {
+                grid-area: navbar;
+                display: flex;
+                flex-direction: column;
+            }
+            nav a {
+                margin: 8px;
+            }
+            main {
+                grid-area: content;
+            }
+            footer {
+                grid-area: footer;
+            }
+            @media (max-width: 500px) {
+                body {
+                    grid-template-columns: 1fr;
+                    grid-template-areas: 'appbar'
+                                         'navbar'
+                                         'content'
+                                         'footer';
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>My super cool responsive app</header>
+        <nav>
+            <a href="#">About the developers</a>
+            <a href="#">Buy lootboxes</a>
+            <a href="#">Upgrade to pro!</a>
+        </nav>
+        <main>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia illum ullam nam ut voluptas beatae, impedit pariatur soluta! Corrupti dolore sequi eum odio asperiores itaque ipsam nam, mollitia natus maxime.</main>
+        <footer>
+            Copyright 2019. Every single right reserved. Don't try anything
+        </footer>
+    </body>
+</html>
