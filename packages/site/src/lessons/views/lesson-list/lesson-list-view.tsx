@@ -83,7 +83,7 @@ export function LessonListView({ courses, currCourse, baseUrl }: Props) {
                             </Paper>
                         </>
                     )
-                    : <LessonList lessons={ currCourse.lessons } baseUrl={ `${baseUrl}/${currCourse.slug}/lessons` } />
+                    : <LessonList lessons={ currCourse.lessons } baseUrl={ `${baseUrl}/${currCourse.slug}` } />
                 }
             </div>
         </div>

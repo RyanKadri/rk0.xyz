@@ -9,6 +9,7 @@ import fonts from "../examples/fonts.html";
 import mediaQuery from "../examples/media-query.html";
 import position from "../examples/position.html";
 import spacing from "../examples/spacing.html";
+import { HtmlCssLabView } from "../lab/html-css-lab";
 import { CssBox } from "./css-box";
 import { HexColors } from "./hex-colors";
 import { HslColors } from "./hsl-colors";
@@ -53,5 +54,10 @@ export const lesson2: Presentation = {
         bodyExample("Flex Directions", flexDirections, `<style>div { border: solid 1px; margin: 8px } </style>`),
         bodyExample("Flex Children", flexChildren, `<style>div { border: solid 1px; margin: 8px } </style>`),
         { code: mediaQuery, title: "Media Query" }
-    ]
+    ],
+    lab: {
+        title: "HTML + CSS Basics",
+        slug: "html-css-basics",
+        LabView: HtmlCssLabView
+    }
 }

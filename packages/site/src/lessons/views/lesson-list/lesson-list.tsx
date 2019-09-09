@@ -35,10 +35,15 @@ function LessonCards({ lessons, baseUrl }: Props) {
         lessons.map((lesson) => (
             <Card className={ classes.lessonCard } key={ lesson.title }>
                 <CardHeader title={ lesson.title } />
-                <CardContent>{ lesson.description }</CardContent>
+                <CardContent>
+                    { lesson.description }
+                    { lesson.lab && (
+                        <MaterialLink component={ Link } to={`${baseUrl}/labs/${lesson.lab.slug}`}>Lab: { lesson.lab.title }</MaterialLink>
+                    )}
+                </CardContent>
                 <CardActions>
-                    <MaterialLink component={ Link } to={`${baseUrl}/${lesson.slug}/examples`}>Examples</MaterialLink>
-                    <MaterialLink component={ Link } to={`${baseUrl}/${lesson.slug}/slides/0`}>Slides</MaterialLink>
+                    <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/examples`}>Examples</MaterialLink>
+                    <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/slides/0`}>Slides</MaterialLink>
                 </CardActions>
             </Card>
     )) }</>;
@@ -55,6 +60,7 @@ function LessonTable({ lessons, baseUrl }: Props) {
                         <TableCell>Description</TableCell>
                         <TableCell>Slides</TableCell>
                         <TableCell>Examples</TableCell>
+                        <TableCell>Lab</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -63,19 +69,26 @@ function LessonTable({ lessons, baseUrl }: Props) {
                             <TableCell>{ lesson.title }</TableCell>
                             <TableCell>{ lesson.description }</TableCell>
                             <TableCell>
-                                <MaterialLink component={ Link } to={`${baseUrl}/${lesson.slug}/slides/0`}>
+                                <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/slides/0`}>
                                     <FontAwesomeIcon icon={ faDesktop } className={ classes.tableIcon } />
                                     ({ lesson.slides.length })
                                 </MaterialLink>
                             </TableCell>
-                            { lesson.examples.length > 0 && (
-                                <TableCell>
-                                    <MaterialLink component={ Link } to={`${baseUrl}/${lesson.slug}/examples`}>
+                            <TableCell>
+                                { lesson.examples.length > 0 && (
+                                    <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/examples`}>
                                         <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
                                         ({ lesson.examples.length })
                                     </MaterialLink>
-                                </TableCell>
-                            )}
+                                )}
+                            </TableCell>
+                            <TableCell>
+                                { lesson.lab && (
+                                    <MaterialLink component={ Link } to={ `${baseUrl}/labs/${lesson.lab.slug}`}>
+                                        { lesson.lab.title }
+                                    </MaterialLink>
+                                )}
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

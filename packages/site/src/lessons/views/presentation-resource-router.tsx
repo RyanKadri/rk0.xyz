@@ -5,7 +5,7 @@ import { SlideManager } from "../../../../presenter-core/src/slides/slide-manage
 import { ExampleViewer } from "./example-viewer";
 
 
-export function PresentationResourceRouter({ lesson, baseUrl }: Props ) {
+export function LessonResourceRouter({ lesson, baseUrl }: Props ) {
     return (
         <Switch>
             <Route path={`${baseUrl}/slides/:slideNum`}

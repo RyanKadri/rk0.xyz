@@ -11,6 +11,7 @@ export interface Presentation {
     slug: string;
     slides: ComponentType<{context: PresentationContext}>[];
     examples: ExampleDefinition[];
+    lab?: LabDefinition
 }
 
 export interface CourseDefinition {
@@ -23,6 +24,12 @@ export interface CourseDefinition {
 export interface ExampleDefinition {
     code: ExampleCode;
     title: string;
+}
+
+export interface LabDefinition {
+    title: string;
+    slug: string;
+    LabView: ComponentType<{ lab: LabDefinition }>;
 }
 
 export type ExampleCode = string | ComplexExample;

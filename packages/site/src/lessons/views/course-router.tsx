@@ -1,10 +1,11 @@
 import React from "react";
 import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
+import { assertExists } from "../../common/functional-utils";
 import { lesson1 } from "../lesson1/slides";
 import { lesson2 } from "../lesson2/slides";
 import { LessonListView } from "./lesson-list/lesson-list-view";
-import { PresentationResourceRouter } from "./presentation-resource-router";
+import { LessonResourceRouter } from "./presentation-resource-router";
 
 const courses: CourseDefinition[] = [
     { 
@@ -25,15 +26,31 @@ export function CourseRouter({ match }: Props) {
             />
             <Route path={`${ match.url }/:course/lessons/:lesson`} render={ ({ match }) => {
                 const courseId = match.params.course;
-                const course = courses.find(course => course.slug === courseId)!;
+                const course = assertExists(
+                    courses.find(course => course.slug === courseId),
+                    `Expected course with slug ${ courseId } but could not find it`
+                );
                 const lesson = course.lessons.find(lesson => lesson.slug === match.params.lesson)!;
-                return <PresentationResourceRouter course={ course }
+                return <LessonResourceRouter course={ course }
                                                    lesson={ lesson }
                                                    baseUrl={ match.url } />
             } } />
+            <Route path={`${ match.url }/:course/labs/:lab`} render={({ match: innerMatch }) => {
+                const course = assertExists(
+                    courses.find(course => course.slug === innerMatch.params.course),
+                    `Expected course with slug ${ innerMatch.params.course } but couldn't find it`
+                );
+                const lab = assertExists(
+                    course.lessons.filter(lesson => lesson.lab)
+                        .map(lesson => lesson.lab!)
+                        .find(lab => lab.slug === innerMatch.params.lab),
+                    `Could not find lab with slug ${ innerMatch.params.lab }`
+                );
+                return <lab.LabView lab={lab} />;
+            }}/>
         </Switch>
     )
 }
 
-interface Props extends RouteComponentProps<{ course: string }> {
+interface Props extends RouteComponentProps {
 }

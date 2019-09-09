@@ -26,3 +26,11 @@ export function bodyExample(title: string, body: string, head = ""): ExampleDefi
         }
     }
 }
+
+export function assertExists<T>(obj: T | undefined | null, failMessage: string): T {
+    if(obj === undefined || obj === null) {
+        throw new Error(failMessage);
+    } else {
+        return obj;
+    }
+}
