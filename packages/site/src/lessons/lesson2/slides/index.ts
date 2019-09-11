@@ -16,7 +16,7 @@ import { HslColors } from "./hsl-colors";
 import { NamedColors } from "./named-colors";
 import { References } from "./references";
 import { RgbaColors } from "./rgba-colors";
-import { Agenda, ColorStyles, CssFundamentalsDisplay, HowCSS, LetsGetSelective, LetsGetStylish, LinksAndLoading, MainTitle, MediaQueries, RecapSlide, Selectors, StyleConcepts, ThinkingCSS, WhyCSS } from "./simple-slides";
+import { Agenda, ColorStyles, CssFundamentalsDisplay, HowCSS, LetsGetSelective, LetsGetStylish, LinksAndLoading, MainTitle, RecapSlide, Selectors, StyleConcepts, ThinkingCSS, WhyCSS } from "./simple-slides";
 
 export const lesson2: Presentation = {
     title: `Keeping it "classy"`,
@@ -41,7 +41,6 @@ export const lesson2: Presentation = {
         Selectors,
         LetsGetSelective,
         LinksAndLoading,
-        MediaQueries,
         References
     ],
     examples: [

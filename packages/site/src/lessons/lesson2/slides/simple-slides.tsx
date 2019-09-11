@@ -91,21 +91,4 @@ export const LinksAndLoading = generateContentSlide("External Style Sheets", [
     "<link> tags let you reference external CSS files and fonts",
     "This is nice for reusing styles and organizing code",
     "Need to consider document loading order"
-])
-
-export const MediaQueries = generateContentSlide("Media Queries", [
-    "Media queries apply styles based on the media used to display a page",
-    "Usually used with device size for responsive design",
-    { text: "Can also query...", children: [
-        "print vs screen vs other",
-        "Color quality of the media",
-        "Ambient light in the environment",
-        "Much more"
-    ]}
-]);
-
-export const CSSGrid = generateContentSlide("CSS Grid", [
-    "A new display property for creating responsive, 2D layouts",
-    "Combines nicely with media queries",
-    "More complex than flexbox but also more powerful"
 ]);
