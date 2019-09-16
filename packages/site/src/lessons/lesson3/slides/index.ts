@@ -3,6 +3,7 @@ import { bodyExample } from "../../../common/functional-utils";
 import flexChildren from "../../lesson2/examples/flex-children.html";
 import flexDirections from "../../lesson2/examples/flex-directions.html";
 import mediaQuery from "../../lesson2/examples/media-query.html";
+import { MobileDesignLabView } from "../lab/responsive-design-lab";
 import * as simple from "./simple-slides";
 
 export const lesson3Tagline = "Resize Doesn't Matter"
@@ -36,5 +37,10 @@ export const lesson3: Presentation = {
         bodyExample("Flex Directions", flexDirections, `<style>div { border: solid 1px; margin: 8px } </style>`),
         bodyExample("Flex Children", flexChildren, `<style>div { border: solid 1px; margin: 8px } </style>`),
         { code: mediaQuery, title: "Media Query" }
-    ]
+    ],
+    lab: {
+        title: "A Responsive Resume",
+        slug: "responsive-resume",
+        LabView: MobileDesignLabView
+    }
 }

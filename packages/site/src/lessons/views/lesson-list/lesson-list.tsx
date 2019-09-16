@@ -1,4 +1,5 @@
-import { faCode, faDesktop } from "@fortawesome/free-solid-svg-icons";
+import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
+import { faDesktop } from "@fortawesome/free-solid-svg-icons/faDesktop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, CardActions, CardContent, CardHeader, createStyles, Link as MaterialLink, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, useMediaQuery, useTheme } from "@material-ui/core";
 import React from "react";

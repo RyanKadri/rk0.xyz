@@ -34,3 +34,7 @@ export function assertExists<T>(obj: T | undefined | null, failMessage: string):
         return obj;
     }
 }
+
+export function wrap(str: string) {
+    return str.replace(/\s+/g, " ");
+}

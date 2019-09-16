@@ -1,4 +1,4 @@
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons/faCaretDown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, createStyles, List, ListItem, ListItemText, ListSubheader, makeStyles, Menu, MenuItem, Paper, Theme, Typography } from "@material-ui/core";
 import React, { useState } from "react";

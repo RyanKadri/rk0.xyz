@@ -1,40 +1,12 @@
-import { Link as MaterialLink, Theme, Typography } from "@material-ui/core";
-import { createStyles, makeStyles } from "@material-ui/styles";
+import { Link as MaterialLink, Typography } from "@material-ui/core";
 import React from "react";
 import { LabDefinition } from "../../../../../presenter-core/src/services/types";
 import { CodeBlock } from "../../../../../presenter-core/src/slide-components/code-block";
+import { wrap } from "../../../common/functional-utils";
+import { useLabStyles } from "../../shared/lab";
 import bookreads from "./bookreads.html";
 import sketch from "./bookreads.png";
 import lab1 from "./lab1.zip";
-
-const useStyles = makeStyles((theme: Theme) => createStyles({
-    container: {
-        padding: theme.spacing(2),
-        maxWidth: 1200
-    },
-    sectionLabel: {
-    },
-    title: {
-        marginBottom: 24
-    },
-    section: {
-        marginBottom: 40
-    },
-    startCode: {
-        marginTop: 32
-    },
-    code: {
-        height: "auto"
-    },
-    sketch: {
-        width: 900,
-        display: "block"
-    }
-}));
-
-function wrap(str: string) {
-    return str.replace(/\s+/g, " ");
-}
 
 const overview = wrap(`
 In this lab, you will learn to apply the basics of HTML and CSS that we have learned in class so far. The first section of the lab
@@ -118,11 +90,11 @@ const layout = `
 `
 
 export function HtmlCssLabView({}: Props) {
-    const classes = useStyles();
+    const classes = useLabStyles();
 
     return (
         <div className={classes.container}>
-            <Typography variant="h3" className={ classes.title }>Lab 1: Introduction to HTML and CSS</Typography>
+            <Typography variant="h4" className={ classes.title }>Lab 1: Introduction to HTML and CSS</Typography>
             <section className={ classes.section }>
                 <Typography variant="h5" className={ classes.sectionLabel }>Overview</Typography>
                 <Typography variant="body1">{ overview }</Typography>
