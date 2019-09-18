@@ -1,6 +1,7 @@
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import hljs from "highlight.js/lib/highlight";
 import css from "highlight.js/lib/languages/css";
+import js from "highlight.js/lib/languages/javascript";
 import xml from "highlight.js/lib/languages/xml";
 import "highlight.js/styles/lightfair.css";
 import React, { useEffect, useRef } from "react";
@@ -9,7 +10,8 @@ import { noop } from "../../../site/src/games/games/common/utils";
 const languages = {
     "xml": xml,
     "html": xml,
-    "css": css
+    "css": css,
+    "js": js
 }
 
 const styles = createStyles({

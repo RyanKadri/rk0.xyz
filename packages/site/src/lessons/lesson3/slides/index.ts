@@ -6,8 +6,6 @@ import mediaQuery from "../../lesson2/examples/media-query.html";
 import { MobileDesignLabView } from "../lab/responsive-design-lab";
 import * as simple from "./simple-slides";
 
-export const lesson3Tagline = "Resize Doesn't Matter"
-
 export const lesson3: Presentation = {
     title: "The Mainstream Media Queries",
     description: "Making your site work on (m)any devices",
