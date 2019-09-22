@@ -16,7 +16,6 @@ const useStyles = makeStyles(createStyles({
 const slideItems = [
     "Operators let you transform values",
     "Operators work with 1-3 values",
-    "Operators sometimes allow coercion"
 ];
 
 const code = `
@@ -28,6 +27,9 @@ const d = "The answer is: " + c;
 const e = true;
 const f = !e;
 const g = f ? a : b
+const h = c > b
+const i = { first: "Bob" };
+const j = "last" in i;
 `.trim();
 
 export function Operators({ context }: Props) {

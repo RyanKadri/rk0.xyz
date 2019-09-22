@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { ExploringJSLab } from "../lab/exploring-js";
 import { ConditionalsExample } from "./conditionals";
 import { ForLoops } from "./for-loops";
 import { FunctionsExample } from "./functions";
@@ -30,5 +31,10 @@ export const lesson4: Presentation = {
     ],
     examples: [
         
-    ]
+    ],
+    lab: {
+        title: "Exploring Javascript",
+        slug: "exploring-javascript",
+        LabView: ExploringJSLab
+    }
 }
