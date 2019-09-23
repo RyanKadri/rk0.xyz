@@ -1,31 +1,34 @@
-import { FunctionExecutionParams } from "../../shared/code-playground"
+import { ProblemDefinition } from "./exploring-js"
 
-export const palindromityCode = `function isPalindrome(str) {
+export const checkPalindromity: ProblemDefinition = {
+    explanation: `For this problem, you will determine if a given string is a palindrome. A string
+is a palindrome if it reads the same backwards and forwards. For instance, "aba" and "baab" are
+palindromes but "bba" is not.
+    `,
+    code: `function isPalindrome(str) {
     // Determine if the string is a palindrome
-}`
-
-export const palindromityExpectations: FunctionExecutionParams = {
-    functionToCall: "isPalindrome",
-    expectations: [
-        {
-            params: ["abc"],
-            expectedResults: false
-        },
-        {
-            params: ["aba"],
-            expectedResults: true
-        },
-        {
-            params: [""],
-            expectedResults: true
-        },
-        {
-            params: ["a"],
-            expectedResults: true
-        },
-        {
-            params: ["a man a plan a canal panama"],
-            expectedResults: true
-        },
-    ]
+}`,
+    savePrefix: "exploring-js.palindromity",
+    editorHeight: 250,
+    expectations: {
+        functionToCall: "isPalindrome",
+        expectations: [
+            {
+                params: ["abc"],
+                expectedResults: false
+            },
+            {
+                params: ["aba"],
+                expectedResults: true
+            },
+            {
+                params: ["a"],
+                expectedResults: true
+            },
+            {
+                params: ["racecar"],
+                expectedResults: true
+            },
+        ]
+    }
 }

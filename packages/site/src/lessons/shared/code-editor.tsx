@@ -12,6 +12,7 @@ interface Props {
     className?: string;
     editorRef: MutableRefObject<monaco.editor.IStandaloneCodeEditor | null>;
     saveKey?: string;
+    height?: number;
 }
 
 self.MonacoEnvironment = {
@@ -58,6 +59,8 @@ export function CodeEditor(props: Props) {
     }, [ ])
 
     return (
-        <div className={ props.className || "" } ref={ editorContainer } />
+        <div className={ props.className || "" } 
+             style={ { height: props.height || 400 }} 
+             ref={ editorContainer } />
     )
 }

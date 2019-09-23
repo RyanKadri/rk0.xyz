@@ -8,7 +8,7 @@
     "start:backend": "npm run build:docker && npm run run:docker",
     "build:docker": "docker build -t rk0-backend/games ./packages/games-backend",
     "run:docker": "docker run -p 5000:5000 -it rk0-backend/games",
-    "build": "rm -rf dist/site && parcel build packages/site/src/index.html -d dist/site",
+    "build": "rm -rf dist/site && parcel build packages/site/src/index.html -d dist/site && ./scripts/monaco.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
     "validate:cfn:template": "aws cloudformation validate-template --template-body file://./template.main.yml",
     "package:template": "aws cloudformation package --template-file ./template.main.yml --output-template-file ./dist/output.template.yml --s3-bucket cf-templates-k8vby7iizoq8-us-east-1",
