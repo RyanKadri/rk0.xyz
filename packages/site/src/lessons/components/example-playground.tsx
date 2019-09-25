@@ -21,7 +21,6 @@ const styles = createStyles({
         fontSize: "1.25rem"
     },
     editorContainer: {
-        backgroundColor: "rgba(0,0,0,0.03)",
         width: "50%",
         padding: 8,
         position: "relative",

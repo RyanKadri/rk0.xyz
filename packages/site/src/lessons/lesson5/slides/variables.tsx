@@ -8,36 +8,32 @@ import { ContentSlide } from "../../../../../presenter-core/src/slides/content-s
 
 const useStyles = makeStyles(createStyles({
     code: {
-        fontSize: 26,
+        fontSize: 32,
         userSelect: "text"
     }
 }))
 
 const slideItems = [
-    "Functions let us group and name a series of operations",
-    "Functions take parameters and return a result",
-    "Functions can be called elsewhere in your code",
-    "You can call your function like myFunction(param1, param2)"
+    "A variable can be assigned to any type of data",
+    "Variables can be reassigned to other values (and types)",
+    "Variables use keywords let, const, and var",
+    "let and const are block scoped",
+    "var is function scoped"
 ];
 
 const code = `
-function sayHello() {
-    console.log("Hello");
-}
-
-function doMath(a, b) {
-    return a + b;
-}
-
-function printMath(a,b) {
-    console.log(doMath(a,b))
-}
+let data = "Ryan";
+data = 123;
+data = false;
+data = null;
+const something = 456;
+something = 123 // TypeError
 `.trim();
 
-export function FunctionsExample({ context }: Props) {
+export function VariablesRedux({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Functions" context={context} Content={
+        <ContentSlide Title="Variables" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
                 <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>

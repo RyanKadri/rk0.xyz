@@ -17,7 +17,8 @@ const languages = {
 const styles = createStyles({
     code: {
         fontSize: "1em",
-        backgroundColor: "transparent"
+        backgroundColor: "rgba(0,0,0,0.04)",
+        borderRadius: 4
     }
 });
 

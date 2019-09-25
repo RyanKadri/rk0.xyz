@@ -10,37 +10,50 @@ const useStyles = makeStyles(createStyles({
     code: {
         fontSize: 26,
         userSelect: "text"
+    },
+    arrayExample: {
+        fontSize: 32,
+        display: "flex",
+        position: "absolute",
+        border: "solid 4px black",
+        "& div": {
+            padding: 16,
+            "&:not(:last-child)": {
+                borderRight: "solid 4px black"
+            }
+        }
     }
 }))
 
 const slideItems = [
-    "Functions let us group and name a series of operations",
-    "Functions take parameters and return a result",
-    "Functions can be called elsewhere in your code",
-    "You can call your function like myFunction(param1, param2)"
+    "Arrays hold ordered lists of values",
+    "Adding elements to an array is easy",
+    "Positions start at 0"
 ];
 
 const code = `
-function sayHello() {
-    console.log("Hello");
+const myFavoriteNumbers = [1,2,3];
+const names = ["Alice", "Bob", "Eve"];
+const mixed = ["Alice", 2, false];
+
+for(const element of mixed) {
+    console.log(element);
 }
 
-function doMath(a, b) {
-    return a + b;
-}
-
-function printMath(a,b) {
-    console.log(doMath(a,b))
-}
+console.log(mixed[0]);
+mixed[3] = "something";
 `.trim();
 
-export function FunctionsExample({ context }: Props) {
+export function ArraysExample({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Functions" context={context} Content={
+        <ContentSlide Title="Arrays" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
                 <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <div className={ classes.arrayExample }>
+                    <div>"Alice"</div><div>2</div><div>false</div><div>"something"</div>
+                </div>
             </>
         } />
     );

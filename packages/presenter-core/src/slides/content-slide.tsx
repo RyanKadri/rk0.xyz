@@ -7,7 +7,7 @@ import { PageNumber } from "../slide-components/page-number";
 
 const styles = (theme: Theme) => createStyles({
     container: {
-        padding: "48px 128px"
+        padding: "48px 128px 0px 128px"
     },
     titleContainer: {
         ...titleDecorator(theme)

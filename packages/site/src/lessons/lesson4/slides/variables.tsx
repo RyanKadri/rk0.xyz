@@ -17,7 +17,7 @@ const useStyles = makeStyles(createStyles({
 }))
 
 const slideItems = [
-    "Data can be associated with a variable",
+    "Variables Store Data",
     { text: "Data has a type", children: [
         "Strings",
         "Numbers",

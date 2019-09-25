@@ -8,36 +8,32 @@ import { ContentSlide } from "../../../../../presenter-core/src/slides/content-s
 
 const useStyles = makeStyles(createStyles({
     code: {
-        fontSize: 26,
+        fontSize: 28,
         userSelect: "text"
     }
 }))
 
 const slideItems = [
-    "Functions let us group and name a series of operations",
-    "Functions take parameters and return a result",
-    "Functions can be called elsewhere in your code",
-    "You can call your function like myFunction(param1, param2)"
+    "Objects can be associated with functions",
+    "These functions are called methods",
+    `Refers to special keyword "this"`,
+    "Called with dot operator"
 ];
 
 const code = `
-function sayHello() {
-    console.log("Hello");
-}
+const ryan = { 
+    firstName: "Ryan", lastName: "Kadri", age: 26,
+    getFullName() { return this.firstName + " " + this.lastName },
+    birthdayParty() { this.age ++ }
+};
 
-function doMath(a, b) {
-    return a + b;
-}
-
-function printMath(a,b) {
-    console.log(doMath(a,b))
-}
+console.log(ryan.getFullName());
 `.trim();
 
-export function FunctionsExample({ context }: Props) {
+export function Methods({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Functions" context={context} Content={
+        <ContentSlide Title="Methods" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
                 <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>

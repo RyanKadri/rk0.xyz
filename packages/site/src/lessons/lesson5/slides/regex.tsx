@@ -14,30 +14,28 @@ const useStyles = makeStyles(createStyles({
 }))
 
 const slideItems = [
-    "Functions let us group and name a series of operations",
-    "Functions take parameters and return a result",
-    "Functions can be called elsewhere in your code",
-    "You can call your function like myFunction(param1, param2)"
+    "Used for validating strings, extracting values, and more",
+    "Has a weird syntax",
+    "Fairly consistent across languages"
 ];
 
 const code = `
-function sayHello() {
-    console.log("Hello");
-}
+const usernameChecker = /^[a-z][a-zA-Z0-9_]*$/;
+usernameChecker.test("rjk123"); // true
+usernameChecker.test("rjk.xyz"); // false
+usernameChecker.test("rjk_xyz"); // true
+usernameChecker.test("") // false
+usernameChecker.test("123") // false
 
-function doMath(a, b) {
-    return a + b;
-}
-
-function printMath(a,b) {
-    console.log(doMath(a,b))
-}
+const longString = "My name is Ryan Kadri. Who are you?";
+const matches = longString.match(/My name is (.*?)\./);
+console.log(matches[1]); // Ryan Kadri
 `.trim();
 
-export function FunctionsExample({ context }: Props) {
+export function RegularExpressions({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Functions" context={context} Content={
+        <ContentSlide Title="Regular Expressions" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
                 <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>

@@ -14,30 +14,28 @@ const useStyles = makeStyles(createStyles({
 }))
 
 const slideItems = [
-    "Functions let us group and name a series of operations",
-    "Functions take parameters and return a result",
-    "Functions can be called elsewhere in your code",
-    "You can call your function like myFunction(param1, param2)"
+    "Objects can store related information about a thing",
+    "Properties can be added (and removed) over time",
+    "Objects can also be a lookup table",
+    "Be careful with storing in multiple places"
 ];
 
 const code = `
-function sayHello() {
-    console.log("Hello");
-}
+const ryan = { name: "Ryan", age: 26, job: "Developer", id: "abc123" };
+person.age ++;
+delete person.name;
+person.firstName = "Ryan";
+person.lastName = "Kadri";
 
-function doMath(a, b) {
-    return a + b;
-}
-
-function printMath(a,b) {
-    console.log(doMath(a,b))
-}
+const employees = {};
+employees[ryan.id] = ryan;
+employees["abc123"] === ryan;
 `.trim();
 
-export function FunctionsExample({ context }: Props) {
+export function Objects({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Functions" context={context} Content={
+        <ContentSlide Title="Objects" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
                 <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
