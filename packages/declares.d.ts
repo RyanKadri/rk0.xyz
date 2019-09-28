@@ -12,3 +12,8 @@ declare module "*.zip" {
     const content2: any;
     export default content2;
 }
+
+declare module "*.md" {
+    const content3: any;
+    export default content3;
+}

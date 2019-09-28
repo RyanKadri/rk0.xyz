@@ -9,10 +9,16 @@ const useStyles = makeStyles(createStyles({
         padding: "16px 0"
     },
     select: {
-        fontSize: 24
+        fontSize: 32
     },
     tabIndicator: {
         display: "none"
+    },
+    table: {
+        fontSize: 32
+    },
+    tabs: {
+        marginBottom: 16
     }
 }))
 
@@ -71,31 +77,31 @@ export function OperatorsTable({ context }: Props) {
     return (
         <ContentSlide Title="Operators" context={context} Content={
             <div className={ classes.container }>
-                <AppBar position="static" color="primary">
+                <AppBar position="static" color="primary" className={ classes.tabs }>
                     <Tabs value={ currCategory }
                           onChange={ (_, newvalue) => setCategory(newvalue) }
                           classes={{ indicator: classes.tabIndicator }}>
                         { operatorInfo.map(group => (
-                            <Tab key={ group.category } label={ group.category } />
+                            <Tab key={ group.category } label={ group.category } className={ classes.table } />
                         )) }
                     </Tabs>
                 </AppBar>
-                <Table>
+                <Table className={ classes.table }>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Operator</TableCell>
-                            <TableCell>Description</TableCell>
-                            <TableCell>Example</TableCell>
-                            <TableCell>Result</TableCell>
+                            <TableCell className={ classes.table }>Operator</TableCell>
+                            <TableCell className={ classes.table }>Description</TableCell>
+                            <TableCell className={ classes.table }>Example</TableCell>
+                            <TableCell className={ classes.table }>Result</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         { currentGroup.operators.map(op => (
                             <TableRow key={ op.symbol }>
-                                <TableCell>{ op.symbol }</TableCell>
-                                <TableCell>{ op.description }</TableCell>
-                                <TableCell>{ op.example || "" }</TableCell>
-                                <TableCell>{ op.result || "" }</TableCell>
+                                <TableCell className={ classes.table }>{ op.symbol }</TableCell>
+                                <TableCell className={ classes.table }>{ op.description }</TableCell>
+                                <TableCell className={ classes.table }>{ op.example || "" }</TableCell>
+                                <TableCell className={ classes.table }>{ op.result || "" }</TableCell>
                             </TableRow>
                         )) }
                     </TableBody>

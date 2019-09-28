@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            document.body.children[1].innerHTML = `<span>Hello World!</span>`;
+            const myDiv = document.body.children[1];
+            myDiv.style.color = "red";
+
+            const newSpan = document.createElement("p");
+            newSpan.innerText = "Something";
+            document.body.appendChild(newSpan);
+
+            for(let i = 1; i <= 5; i++) {
+                const listSpan = document.createElement("p");
+                listSpan.innerText = "Thing: " + i;
+                document.body.appendChild(listSpan);
+            }
+
+            
+            let itemNum = 1;
+            function addItem() {
+                const anotherSpan = document.createElement("p");
+                anotherSpan.innerText = "New Thing: " + itemNum;
+                document.body.appendChild(anotherSpan);
+                itemNum += 1;
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="addItem()">Add a list item</button>
+        <div></div>
+    </body>
+</html>

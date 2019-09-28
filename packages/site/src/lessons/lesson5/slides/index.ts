@@ -3,6 +3,7 @@ import { ConditionalsExample } from "../../lesson4/slides/conditionals";
 import { ForLoops } from "../../lesson4/slides/for-loops";
 import { FunctionsExample } from "../../lesson4/slides/functions";
 import { WhileLoops } from "../../lesson4/slides/while-loops";
+import { FormControlLab } from "../lab/form-control-lab";
 import { ArraysExample } from "./arrays";
 import { Methods } from "./methods";
 import { Objects } from "./objects";
@@ -34,11 +35,14 @@ export const lesson5: Presentation = {
         simple.TheProblem,
         simple.EnterDOM,
         simple.WhatCanItDo,
-        simple.HowRun,
-        simple.BetterWayQuestion,
-        simple.LocatingElements
+        simple.HowRun
     ],
     examples: [
         
     ],
+    lab: {
+        title: "String Manipulation and Forms",
+        slug: "strings-and-forms",
+        LabView: FormControlLab
+    }
 }
