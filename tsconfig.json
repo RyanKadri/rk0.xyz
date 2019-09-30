@@ -28,6 +28,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
 
+    "skipLibCheck": true,
+
     /* Module Resolution Options */
     "moduleResolution": "node",
     "esModuleInterop": true
