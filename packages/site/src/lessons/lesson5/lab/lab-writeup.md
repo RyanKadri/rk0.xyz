@@ -1,5 +1,7 @@
 # Lab 4: String Manipulation and Forms
 
+<article>
+
 ## Overview
 
 In this lab, you will be learning to validate strings and numbers in JavaScript. You will also learn
@@ -10,6 +12,9 @@ strings for certain tasks. Finally, you will create a web page sign up form that
 last two sections to validate user input and provide quick feedback if they typed something wrong.
 This was one of the earliest use cases for having JavaScript in the browser. Hopefully this lab will
 bring you closer to our shared programming ancestors.
+</article>
+
+<article>
 
 ## Part One - Input Validation
 
@@ -58,6 +63,9 @@ Please write a function that takes four parameters:
 You should return a boolean value that says whether or not the string is a valid password.
 
 </section>
+</article>
+
+<article>
 
 ## Part Two
 
@@ -116,6 +124,9 @@ as inputs and returns a boolean for whether or not it is valid. A username is va
 a letter, contains only letters and numbers and optionally ends with a !
 
 </section>
+</article>
+
+<article>
 
 ## Part Three
 
@@ -133,14 +144,21 @@ you should give feedback about whether they have entered a valid value for the f
 either the oninput or onchange attribute of your input elements to link up to each of the functions
 you wrote above. You can also use the addEventListener function we talked about last class.
 
+
 If the user provides an invalid value, please display red text under the matching input explaining
 that they have made an error. The error message should of course also go away when they fix their mistake.
 There should only one version of a given error message at a time. If a user makes the same mistake
 multiple times, the page should not show duplicate errors.
 
-You can manage error messages with CSS or by adding/removing elements from the page.
+
+You can manage error messages with CSS or by adding/removing elements from the page. I added some sample
+code at the bottom of this lab to get started with the layout and style of the form.
+You can use or modify it as you see fit.
+
 
 *Extra credit will be awarded if you can provide a more detailed error message about exactly what was wrong with the first / last name and password.*
+</article>
+<article>
 
 ## Submitting
 
@@ -161,6 +179,9 @@ or in the `signup.html` file. Do whatever helps you organize your code best. I h
 about this but decide for yourself what seems cleanest. Make sure to include any additional files
 in your final zip file!
 
+</article>
+<article>
+
 ## Grading
 
 The main things I am looking for in this lab are:
@@ -168,3 +189,5 @@ The main things I am looking for in this lab are:
 - Validation functions are linked to your sign up form and trigger when the user changes the input
 - Error messages are added to the page and removed from the page in response to user input.
   - Duplicate errors are not shown. Errors are not shown once the response is correct.
+
+</article>

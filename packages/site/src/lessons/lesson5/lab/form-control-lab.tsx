@@ -1,6 +1,8 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import React from "react";
+import { CodeBlock } from "../../../../../presenter-core/src/slide-components/code-block";
 import writeup from "./lab-writeup.md";
+import template from "./template.html";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     container: {
@@ -20,6 +22,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             ...theme.typography.body1,
             margin: 0,
         },
+        "& p+p": {
+            marginTop: 8
+        },
         "& section": {
             marginLeft: 16
         },
@@ -29,6 +34,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 export function FormControlLab() {
     const classes = useStyles();
     return (
-        <div className={ classes.container } dangerouslySetInnerHTML={{ __html: writeup }}></div>
+        <div className={ classes.container }>
+            <div dangerouslySetInnerHTML={{ __html: writeup }} />
+            <h2>Sample Code</h2>
+            <CodeBlock code={ template } language="html" />
+        </div>
+        
     )
 }
