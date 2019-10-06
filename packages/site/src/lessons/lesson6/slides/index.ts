@@ -1,5 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { RegularExpressions } from "../../lesson5/slides/regex";
+import { TicTacToeLab } from "../lab/tic-tac-toe-apis";
 import { Timeouts } from "./async-callback-examples";
 import { BlockingCode } from "./blocking-code";
 import { SyncCallbackUseCase } from "./decision-points";
@@ -42,4 +43,9 @@ export const lesson6: Presentation = {
     examples: [
         
     ],
+    lab: {
+        slug: "async-and-apis",
+        title: "Let's Play a Game",
+        LabView: TicTacToeLab
+    }
 }
