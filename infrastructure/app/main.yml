@@ -23,7 +23,7 @@ Resources:
     Type: AWS::CloudFormation::Stack
     Properties:
       TemplateURL: ./networking.yml
-  LoadBalancer:
+  LoadBalancerV2:
     Type: AWS::CloudFormation::Stack
     Properties:
       TemplateURL: ./load-balancer.yml
@@ -50,7 +50,7 @@ Resources:
           - HasSitePrefix
           - !Join ["", [!Ref SitePrefix, ".", !Ref "HostedZoneName"]]
           - !Ref HostedZoneName
-  GamesService: 
+  GamesServiceV2: 
     Type: AWS::CloudFormation::Stack
     Properties:
       TemplateURL: ./services/games-service.yml
@@ -59,7 +59,7 @@ Resources:
         VPC: !GetAtt NetworkResources.Outputs.VPC
         Subnets: !GetAtt NetworkResources.Outputs.PublicSubnets
         LogGroup: !GetAtt Logging.Outputs.LogGroup
-        Listener: !GetAtt LoadBalancer.Outputs.Listener
+        Listener: !GetAtt LoadBalancerV2.Outputs.Listener
         SecurityGroup: !GetAtt SecurityGroups.Outputs.ContainerSecurityGroup
         ImageVersion: !FindInMap [ServiceVersions, "Games", "Value"]
         Repository: !Ref Repository
@@ -80,7 +80,7 @@ Resources:
       Parameters:
         HostedZone: !Join ["", [!Ref HostedZoneName, "."]]
         CloudFrontDomain: !GetAtt StaticWeb.Outputs.CloudFrontDomain
-        LoadBalancerDomain: !GetAtt LoadBalancer.Outputs.DNSName
+        LoadBalancerDomain: !GetAtt LoadBalancerV2.Outputs.DNSName
         SiteDomain: !If
           - HasSitePrefix
           - !Join ["", [!Ref SitePrefix, ".", !Ref "HostedZoneName", "."]]
@@ -101,4 +101,4 @@ Outputs:
   Cluster:
     Value: !GetAtt Cluster.Outputs.Cluster
   GameService:
-    Value: !GetAtt GamesService.Outputs.GameService
+    Value: !GetAtt GamesServiceV2.Outputs.GameService

@@ -1,0 +1,29 @@
+{
+    "name": "games-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/games.ts",
+    "scripts": {
+      "start:backend": "npm run build:docker && npm run run:docker",
+      "build:docker": "docker build -t rk0-backend/games ./packages/games-backend",
+      "run:docker": "docker run -p 5000:5000 -it rk0-backend/games",
+      "package:template": "aws cloudformation package --template-file ./template.main.yml --output-template-file ./dist/output.template.yml --s3-bucket cf-templates-k8vby7iizoq8-us-east-1",
+      "deploy:template": "aws cloudformation deploy --template-file ./dist/output.template.yml --stack-name rk0-site --capabilities CAPABILITY_NAMED_IAM",
+      "deploy:template:full": "npm run package:template && npm run deploy:template",
+      "create:changeset": "aws cloudformation create-change-set --stack-name rk0-site --template-body file://./dist/output.template.yml --change-set-name rando --parameters file://./parameters.json --capabilities CAPABILITY_NAMED_IAM",
+      "update:stack": "npm run package:template && aws cloudformation update-stack --stack-name rk0-site --template-body file://./dist/output.template.yml --capabilities CAPABILITY_NAMED_IAM --parameters file://./parameters.json"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "@types/express": "^4.17.1",
+      "cors": "^2.8.5",
+      "express": "^4.17.1"
+    },
+    "devDependencies": {
+      "@types/cors": "^2.8.6",
+      "ts-node-dev": "^1.0.0-pre.43",
+      "typescript": "^3.6.3"
+    }
+  }
+  
