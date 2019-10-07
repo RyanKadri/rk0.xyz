@@ -19,7 +19,7 @@ export function nextMoveTic(board: Board) {
     } else {
         return { 
             error: "Error: Can't find the next move for this board. Are you sure you have"
-                + " a valid starting board?"
+                + " a valid starting board and there is not already a winner?"
         }
     }
 }
@@ -31,7 +31,7 @@ const initBoard: Board = [
     [CellStates.EMPTY, CellStates.EMPTY, CellStates.EMPTY]
 ];
 
-export function calcBoard(currentPlayer: Player = CellStates.OPPONENT, board: Board = initBoard,): number {
+export function calcBoard(currentPlayer: Player = CellStates.OPPONENT, board: Board = initBoard): number {
     const hash = hashBoard(board);
     const cachedVal = moveCache.get(hash);
     if(cachedVal) {

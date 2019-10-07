@@ -46,7 +46,7 @@ an external "AI" API. Please create a web site that allows a user to play Tic Ta
 When they launch the page, they should see a Tic Tac Toe board and a message asking them
 to make a move by clicking on a square on the board. When they click on a square, your page 
 should fill in the square with a marker showing that they clicked. It should then make an
-API call to -- Insert API --. The API will act as a computer player and will give the browser
+API call to the Tic Tac Toe AI described below. The API will act as a computer player and will give the browser
 the coordinates of the square that the computer player wants to select.
 
 After each move, your code should check if the game has ended (with a win or a tie). If the
@@ -54,7 +54,45 @@ game has ended, please display a message congratulating the winner or telling th
 that the game was a tie. Please also check that when a player tries to make a move, they are
 only allowed to make a legal move (not on top of a taken square). 
 
-The user should have an option to restart the game at any time.
+The user should have an option to restart the game at any time by pressing a button and
+should always go first.
+
+### Tic Tac Toe API
+
+You can use the Tic Tac Toe AI API by making a call to 
+https://api.rk0.xyz/api/games/tic-tac-toe/next-move. You must provide a query parameter along
+with the URL that expresses the current state of the game board. To do that, you can
+pass an array of arrays. This is easiest to show in an example. If your board looks like
+this:
+
+```
+x |   | o
+x | x | o  
+  |   |   
+```
+
+and it is the computer (o's) turn, you would call the api as follows:  
+`fetch("https://api.rk0.xyz/api/games/tic-tac-toe/next-move?board=[[1,0,2][1,1,2][0,0,0]]")`.
+
+The API will probably respond to tell you the next computer move (o) is { row: 2, column: 2 }.
+
+In the API call, the 1s indicate that player 1 (the human) has selected that space.
+The 2s indicate that the computer has selected the space. If you take the 
+three inner arrays in the call and stick them on top of each other, you get:
+
+```
+[1,0,2],
+[1,1,2],
+[0,0,0]
+```
+
+If the ones were X's and the twos were O's, the array of arrays would match up perfectly
+with the board state. Therefore, the outer array represents the whole board, the inner
+arrays are each rows, and the elements of the arrays are columns within a row.
+In your code, you should keep track of the state of the board in an array of arrays.
+You might start it as `const board = [[0,0,0],[0,0,0],[0,0,0]]` and then you can change
+a stored cell by doing something like `board[row][col] = <new_val>`.
+
 </article>
 
 <article>
