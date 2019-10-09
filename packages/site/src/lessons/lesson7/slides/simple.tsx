@@ -1,4 +1,7 @@
+import { generateTitleSlide } from "../../../../../presenter-core/src/slides/generate-slide";
 import { generateQuestionSlide } from "../../shared/formal-question-slide";
+
+export const TitleSlide = generateTitleSlide("Midterm Review", "Ryan Kadri");
 
 export const FunctionTerminology = generateQuestionSlide("Please write a function that takes"
     + " two numbers as inputs and returns the sum as an output."
