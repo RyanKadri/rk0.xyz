@@ -1,5 +1,6 @@
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { faDesktop } from "@fortawesome/free-solid-svg-icons/faDesktop";
+import { faVideo } from "@fortawesome/free-solid-svg-icons/faVideo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, CardActions, CardContent, CardHeader, createStyles, Link as MaterialLink, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, useMediaQuery, useTheme } from "@material-ui/core";
 import React from "react";
@@ -45,6 +46,12 @@ function LessonCards({ lessons, baseUrl }: Props) {
                 <CardActions>
                     <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/examples`}>Examples</MaterialLink>
                     <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/slides/0`}>Slides</MaterialLink>
+                    { lesson.recording
+                        ? <MaterialLink href={lesson.recording.link} target="_blank">
+                            Recording
+                        </MaterialLink>
+                        : null 
+                    }
                 </CardActions>
             </Card>
     )) }</>;
@@ -61,6 +68,7 @@ function LessonTable({ lessons, baseUrl }: Props) {
                         <TableCell>Description</TableCell>
                         <TableCell>Slides</TableCell>
                         <TableCell>Examples</TableCell>
+                        <TableCell>Recording</TableCell>
                         <TableCell>Lab</TableCell>
                     </TableRow>
                 </TableHead>
@@ -82,6 +90,14 @@ function LessonTable({ lessons, baseUrl }: Props) {
                                         ({ lesson.examples.length })
                                     </MaterialLink>
                                 )}
+                            </TableCell>
+                            <TableCell>
+                                { lesson.recording
+                                    ? <MaterialLink href={ lesson.recording.link }>
+                                        <FontAwesomeIcon icon={ faVideo } className={ classes.tableIcon } />
+                                    </MaterialLink>
+                                    : null
+                                }
                             </TableCell>
                             <TableCell>
                                 { lesson.lab && (

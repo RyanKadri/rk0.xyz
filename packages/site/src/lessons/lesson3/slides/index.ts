@@ -36,6 +36,11 @@ export const lesson3: Presentation = {
         bodyExample("Flex Children", flexChildren, `<style>div { border: solid 1px; margin: 8px } </style>`),
         { code: mediaQuery, title: "Media Query" }
     ],
+    recording: {
+        link: "https://youtu.be/r2TzBLehaB8",
+        comment: "I started the recording a bit late for this class so the video starts "
+            + "in the middle."
+    },
     lab: {
         title: "A Responsive Resume",
         slug: "responsive-resume",

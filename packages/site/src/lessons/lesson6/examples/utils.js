@@ -1,12 +1,10 @@
-function waitBlocking(seconds) {
-    const end = Date.now() + (seconds * 1000);
+function wait(milliseconds) {
+    const end = Date.now() + (milliseconds);
     let curr = Date.now();
     while(curr < end) {
         curr = Date.now()
     }
-    const doneAlert = document.createElement("p");
-    doneAlert.innerText = "Done Waiting!";
-    document.body.appendChild(doneAlert);
+    console.log("Done");
 }
 
 function delay(n) {

@@ -11,6 +11,7 @@ export interface Presentation {
     slug: string;
     slides: ComponentType<{context: PresentationContext}>[];
     examples: ExampleDefinition[];
+    recording?: RecordingDefinition;
     lab?: LabDefinition
 }
 
@@ -24,6 +25,11 @@ export interface CourseDefinition {
 export interface ExampleDefinition {
     code: ExampleCode;
     title: string;
+}
+
+export interface RecordingDefinition {
+    link: string;
+    comment?: string;
 }
 
 export interface LabDefinition {

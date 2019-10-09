@@ -43,6 +43,9 @@ export const lesson6: Presentation = {
     examples: [
         
     ],
+    recording: {
+        link: "https://youtu.be/P9FwclG79so"
+    },
     lab: {
         slug: "async-and-apis",
         title: "Let's Play a Game",

@@ -40,6 +40,9 @@ export const lesson5: Presentation = {
     examples: [
         
     ],
+    recording: {
+        link: "https://youtu.be/yawjhPb2WxE"
+    },
     lab: {
         title: "String Manipulation and Forms",
         slug: "strings-and-forms",
