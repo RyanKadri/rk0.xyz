@@ -1,5 +1,5 @@
 ROOT=$PWD/node_modules/monaco-editor/esm/vs
-OPTS="--no-source-maps --log-level 1"        # Parcel options - See: https://parceljs.org/cli.html
+OPTS="--no-source-maps --log-level 1 -d dist/site"        # Parcel options - See: https://parceljs.org/cli.html
 
 npx parcel build $ROOT/language/json/json.worker.js $OPTS
 npx parcel build $ROOT/language/css/css.worker.js $OPTS
