@@ -1,0 +1,29 @@
+HTML
+*    XML - Terms, Structure, JSON
+    HTML - More Structure than style
+    <html>, <body>, <head>
+*    Standard Elements
+
+CSS
+    Specific Styles - Colors, borders, margin, padding, layout
+    Font stuff
+*    CSS Selectors - Classes, ids, parents, siblings, :nth-child
+
+Responsive CSS
+**    Flexbox
+**    Grid
+**    Media Queries
+    Responsive Units (%)
+
+JavaScript
+** Data Types, Operators, Variables, Conditions, Loops, Functions, Arrays, Objects
+
+** Regular Expressions
+
+** Async Javascript
+    Callbacks
+    Timeouts
+    Fetch
+    Promises
+
+Programming Practical Stuff

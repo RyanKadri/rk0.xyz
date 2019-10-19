@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+            .container {
+                height: 600px;
+                width: 600px;
+                border: solid 4px blue;
+                display: grid;
+                grid-template-columns: 150px 1fr;
+                grid-template-rows: 100px 1fr;
+                grid-template-areas: "header header"
+                                     "sidebar content";
+            }
+
+            header {
+                grid-area: header;
+                border: dashed 2px green;
+            }
+
+            aside {
+                grid-area: sidebar;
+                border: dashed 2px red;
+            }
+
+            main {
+                grid-area: content;
+                border: dashed 2px grey;
+            }
+
+            @media print and (max-width: 600px) {
+                .container {
+                    grid-template-areas: "header"
+                                        "sidebar"
+                                        "content";
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 100px 100px 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>Header</header>
+            <aside>Sidebar</aside>
+            <main>Content</main>
+        </div>
+    </body>
+</html>

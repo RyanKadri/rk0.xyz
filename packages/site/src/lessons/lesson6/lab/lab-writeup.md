@@ -72,7 +72,7 @@ x | x | o
 ```
 
 and it is the computer (o's) turn, you would call the api as follows:  
-`fetch("https://api.rk0.xyz/api/games/tic-tac-toe/next-move?board=[[1,0,2][1,1,2][0,0,0]]")`.
+`fetch("https://api.rk0.xyz/api/games/tic-tac-toe/next-move?board=[[1,0,2],[1,1,2],[0,0,0]]")`.
 
 The API will probably respond to tell you the next computer move (o) is { row: 2, column: 2 }.
 
