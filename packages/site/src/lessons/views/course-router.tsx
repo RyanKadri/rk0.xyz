@@ -9,6 +9,7 @@ import { lesson4 } from "../lesson4/slides";
 import { lesson5 } from "../lesson5/slides";
 import { lesson6 } from "../lesson6/slides";
 import { lesson7 } from "../lesson7/slides";
+import { lesson9 } from "../lesson9/slides";
 import { LessonListView } from "./lesson-list/lesson-list-view";
 import { LessonResourceRouter } from "./presentation-resource-router";
 
@@ -17,7 +18,7 @@ const courses: CourseDefinition[] = [
         title: "Introduction to Web Technology and Programming",
         description: "Web Programming for Beginners",
         slug: "cis-1052",
-        lessons: [ lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7 ]
+        lessons: [ lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson9 ]
     }
 ];
 
