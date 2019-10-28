@@ -11,8 +11,8 @@ export const AgendaSlide = generateContentSlide("Agenda", [
 ]);
 
 export const Attribution = generateContentSlide("Code Ownership / Attribution", [
-    "How much code can you take from the internet?",
-    "What is plagiarism in code?",
+    "How do developers share code?",
+    // "What is plagiarism in code?",
     "How does Open Source fit in?",
     "What can you do?"
 ]);
@@ -29,12 +29,12 @@ export const Licensing = generateContentSlide("Code Licensing", [
     "Others are funny but not legally binding (WTFPL, Beerware)"
 ]);
 
-export const Plagiarism = generateContentSlide("Plagiarism in Code", [
-    "If code is given away for free, can you plagiarize it?",
-    "What if there is no license?",
-    "What if you are in class?",
-    "But learning from other people's code is important!"
-]);
+// export const Plagiarism = generateContentSlide("Plagiarism in Code", [
+//     "If code is given away for free, can you plagiarize it?",
+//     "What if there is no license?",
+//     "What if you are in class?",
+//     "But learning from other people's code is important!"
+// ]);
 
 export const VersionControlIntro = generateMessageSlide("So how do I control versions?");
 

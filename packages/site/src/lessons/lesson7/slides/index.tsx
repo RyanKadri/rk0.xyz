@@ -16,5 +16,5 @@ export const lesson7: Presentation = {
         title: "Something Old, Something New",
         slug: "animations-and-dom",
         LabView: AnimationsAndDOM
-    }
+    },
 }

@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { StaticHostingLab } from "../lab/static-hosting-lab";
 import * as simple from "./simple";
 
 export const lesson9: Presentation = {
@@ -11,4 +12,12 @@ export const lesson9: Presentation = {
     examples: [
         
     ],
+    lab: {
+        title: "Going Public",
+        slug: "hosting-static",
+        LabView: StaticHostingLab
+    },
+    recording: {
+        link: "https://www.youtube.com/watch?v=nvise91MpiM"
+    }
 }
