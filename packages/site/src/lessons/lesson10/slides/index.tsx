@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { JSLibraries } from "../lab/js-libraries-lab";
 import { slides } from "./simple";
 
 export const lesson10: Presentation = {
@@ -8,5 +9,13 @@ export const lesson10: Presentation = {
     slides,
     examples: [
         
-    ]
+    ],
+    lab: {
+        slug: "libraries-imports",
+        title: "Using libraries",
+        LabView: JSLibraries
+    },
+    recording: {
+        link: "https://youtu.be/yxEZRyXxGiM"
+    }
 }

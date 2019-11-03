@@ -1,3 +1,5 @@
-import { a, add, b } from "./es6-b.js";
+import * as random from "./es6-b.js";
+import "./jQuery-lib.js";
 
-document.body.innerText = add(a,b);
+document.body.innerText = random.add(random.a,random.b);
+console.log(jQuery);
