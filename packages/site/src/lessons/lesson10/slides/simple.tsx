@@ -70,11 +70,5 @@ export const slides = [
         "Sending over a lot of small separate files is slow",
         "Bundlers put many files together",
         "May also do transformations"
-    ]),
-    generateContentSlide("Testing", [
-        "How do you know your code is working?",
-        "Run functions with a lot of parameters?",
-        "Copy and paste code around?",
-        "Is there a way to do it automatically?"
     ])
 ];

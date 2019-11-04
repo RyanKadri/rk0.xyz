@@ -1,4 +1,4 @@
-# Lab 8: The Whole Package
+# Lab 8: The Whole Package Manager
 
 <article>
 
@@ -7,9 +7,9 @@
 In this lab, you will be learning how to better modularize and organize your code. You will also learn
 a more modern way to include Open Source Javascript libraries in your projects. In Part One,
 you will get a chance to write some practical JQuery. In Part Two, you will improve that code
-by breaking it into more manageable pieces with ES6 imports and Parcel. Finally, in Part Three, you will
+by breaking it into more manageable pieces with ES6 imports and Parcel. Finally, in Part 3, you will
 use the skills you learned in Parts 1 and 2 to adapt your Final Project site to use the Parcel bundler.
-Doing so will give you the freedom to use an open source graphing / data visualization library to
+Doing this will give you the freedom to use an open source graphing / data visualization library to
 add charts to your site.
 
 </article>
@@ -49,14 +49,14 @@ it seems to be true. Famous mathematician Paul Erdős said about the lack of a p
 For this part of the lab, you will create a website to visualize the Collatz conjecture for different
 values of `n`:
 
-The website should have a single numer input. The user can enter a number for `n`. There are two buttons
-below the input. One button generates the next number in the sequence and adds it to a running list (or table)
+The website should have a single numeric input. The user can enter a number for `n`. There should be
+two buttons below the input. One button generates the next number in the sequence and adds it to a running list (or table)
 on the page. The user can click this button multiple times to add new values one by one to
 the list. There is also a second button that adds the rest of the values to the list (regardless of
 what step the user is on).
 
-Once the sequence has hit one (by either button), all of the even numbers should change color to blue and all the odd numbers
-should change to red. The number one at the end should become green. Before hitting 1, all numbers should
+Once the sequence has hit 1 (by either button), all of the even numbers should change color to blue and all the odd numbers
+should change to red. The number 1 at the end should become green. Before hitting 1, all numbers should
 be black. All operations that change the page should be done through JQuery. Mathematical functions
 do not need to use JQuery
 
@@ -187,7 +187,7 @@ Please include a link to your private GitHub repo as well as either:
 ## Grading
 
 For Part One, I care about the following:
-- Did you use JQuery to accomplish the requested effects? You should use JQuery for **all** DOM
+- Did you use JQuery to accomplish the requested goals? You should use JQuery for **all** DOM
 manipulations on this part of the lab
 - Does your visualization of the Collatz Conjecture properly capture the mathematical pattern?
 - Do both of the requested buttons exist and do what they are supposed to?
@@ -202,5 +202,6 @@ For Part Three, it is important that:
 - You used NPM to install a graphing library, as well as Parcel
 - You correctly used the graphing library to render **two different types** of graphs on your site
 - The graphs you created have all of the characteristics requested above.
+It is not important that you use JQuery on your final project.
 
 </article>
