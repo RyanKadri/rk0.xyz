@@ -1,33 +1,51 @@
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../presenter-core/src/slides/generate-slide";
 
-export const slides = [
-    generateTitleSlide("Node.JS and Scripting", "Ryan Kadri"),
-    generateMessageSlide("Is JavaScript a useful general purpose programming language?"),
-    generateContentSlide("Programming Languages", [
-        "Can it efficiently make decisions and calculations?",
-        "Can it model a broad range of concepts?",
-        "Can it make use of most of your computer's resources?",
-        "Can it interact with the outside world?",
-        "Can it express results in flexible ways?"
-    ]),
-    generateContentSlide("Browser JavaScript?", [
-        "Web pages cannot read and write files",
-        "JavaScript is single-threaded",
-        "The results of calculations are hard to consume",
-        "Reliant on a server for long-term storage",
-        'Programs "must" be graphically oriented'
-    ]),
-    generateMessageSlide("How do non-graphical programs work?"),
-    generateContentSlide("Command-Line Programs", [
-        "Some programming problems don't need a GUI",
-        "GUIs didn't always exist",
-        "You can run programs through the OS shell",
-        "Inputs are text and outputs are text"
-    ]),
-    generateContentSlide("Testing", [
-        "How do you know your code is working?",
-        "Run functions with a lot of parameters?",
-        "Copy and paste code around?",
-        "Is there a way to do it automatically?"
-    ])
-]
+export const Title = generateTitleSlide("Node.JS and Scripting", "Ryan Kadri");
+export const IsJavaScriptUseful = generateMessageSlide(
+    "Is JavaScript a useful general purpose programming language?"
+);
+export const WhatIsProgrammingLanguage = generateContentSlide("Programming Languages", [
+    "Can it process varied data?",
+    "Can it model a broad range of concepts?",
+    "Can it make use of most of your computer's resources?",
+    "Can it interact with the outside world?",
+    "Can it express results in flexible ways?"
+]);
+
+export const BrowserLimitations = generateContentSlide("Browser Limitations", [
+    "Web pages cannot read and write files",
+    "It is hard to string programs together",
+    'Programs "must" be graphically oriented',
+    "Optimized for distrust and security",
+]);
+
+export const HowDoCommandLine = generateMessageSlide("How do non-graphical programs work?");
+export const CommandLinePrograms = generateContentSlide("Command-Line Programs", [
+    "Some programming problems don't need a GUI",
+    "GUIs weren't always a thing",
+    "You can run programs through the OS shell",
+    "Inputs are text and outputs are text",
+    "Faster to develop text-based tools than GUIs"
+]);
+
+export const WorkingWithShell = generateContentSlide("Working with the Shell", [
+    "The OS shell runs in the context of a folder",
+    "The cd command changes the folder",
+    'Call programs like "myProgram --option1 arg1 arg2"',
+    "Path determines where to find programs"
+]);
+
+export const HowDoCommandLineJs = generateMessageSlide(
+    "How do I write these kinds of programs in JavaScript?"
+);
+
+export const EnterNode = generateContentSlide("Enter NodeJS", [
+    "NodeJS is a JavaScript runtime",
+    'node myfile.js',
+    "Same language, different libraries"
+]);
+
+export const NodeTools = generateContentSlide("NPM in Node", [
+    "NPM was originally made for Node - Not browsers",
+    "More natural to use in local code"
+]);

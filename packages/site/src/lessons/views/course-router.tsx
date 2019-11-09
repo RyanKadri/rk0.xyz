@@ -4,6 +4,8 @@ import { CourseDefinition } from "../../../../presenter-core/src/services/types"
 import { assertExists } from "../../common/functional-utils";
 import { lesson1 } from "../lesson1/slides";
 import { lesson10 } from "../lesson10/slides";
+import { lesson11 } from "../lesson11/slides";
+import { lesson12 } from "../lesson12/slides";
 import { lesson2 } from "../lesson2/slides";
 import { lesson3 } from "../lesson3/slides";
 import { lesson4 } from "../lesson4/slides";
@@ -19,7 +21,10 @@ const courses: CourseDefinition[] = [
         title: "Introduction to Web Technology and Programming",
         description: "Web Programming for Beginners",
         slug: "cis-1052",
-        lessons: [ lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson9, lesson10 ]
+        lessons: [ lesson1, lesson2, lesson3, lesson4,
+                   lesson5, lesson6, lesson7, lesson9,
+                   lesson10, lesson11, lesson12
+        ]
     }
 ];
 
