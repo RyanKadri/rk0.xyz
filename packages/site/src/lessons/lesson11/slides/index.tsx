@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { NodeScripting } from "../lab/node-lab";
 import { ConsoleLogging } from "./console-logging";
 import { NodeErrorHandling } from "./node-error-cb";
 import { NodeFileOps } from "./node-file-ops";
@@ -31,5 +32,10 @@ export const lesson11: Presentation = {
     ],
     recording: {
         link: "https://youtu.be/DxqsWefhAQw"
+    },
+    lab: {
+        title: "Node.JS - Scripting and Servers",
+        slug: "node-scripting",
+        LabView: NodeScripting
     }
 }
