@@ -124,7 +124,16 @@ that looks like:
 
 For now, you do not need to have a way for the user to retrieve their post after the initial request.
 You can test your server by using fetch requests like this:
-`fetch("/post", { method: "POST", body: "Some markdown you want to test" })`
+`fetch("/post", { method: "POST", body: "Some markdown you want to test" })`.
+
+One other point: To read the body of the post request in express, you need to install the `body-parser`
+library. For the purpose of this lab, you can use it as follows:
+```
+const parser = require("body-parser")
+
+const app = express();
+app.use(parser.text());
+```
 
 </article>
 
