@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { ApiLab } from "../lab/api-lab";
 import { DynamicServer } from "./dynamic-server";
 import * as simple from "./simple";
 import { StaticServer } from "./static-server-example";
@@ -32,4 +33,12 @@ export const lesson12: Presentation = {
     examples: [
         
     ],
+    recording: {
+        link: "https://youtu.be/dRdTwOuUF1k"
+    },
+    lab: {
+        title: "Practicing REST",
+        slug: "practice-rest",
+        LabView: ApiLab
+    }
 }
