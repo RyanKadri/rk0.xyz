@@ -57,7 +57,7 @@ Resources:
                 - Name: "SourceArtifacts"
               Configuration:
                 Owner: "RyanKadri"
-                Repo: "library-class"
+                Repo: "rk0.xyz"
                 PollForSourceChanges: false # TODO - Add a webhook resource?
                 Branch: "master"
                 OAuthToken: !Ref SourceOAuth
