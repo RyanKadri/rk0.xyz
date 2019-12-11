@@ -1,29 +1,61 @@
 HTML
-*    XML - Terms, Structure, JSON
+    XML - Terms, Structure, JSON
     HTML - More Structure than style
     <html>, <body>, <head>
-*    Standard Elements
+    Standard Elements
 
 CSS
     Specific Styles - Colors, borders, margin, padding, layout
     Font stuff
-*    CSS Selectors - Classes, ids, parents, siblings, :nth-child
+    CSS Selectors - Classes, ids, parents, siblings, :nth-child
+    Animations & Pseudo Selectors
 
 Responsive CSS
-**    Flexbox
-**    Grid
-**    Media Queries
+    Flexbox
+    Grid
+    Media Queries
     Responsive Units (%)
 
 JavaScript
-** Data Types, Operators, Variables, Conditions, Loops, Functions, Arrays, Objects
+    Data Types, Operators, Variables, Conditions, Loops, Functions, Arrays, Objects
+    Regular Expressions
 
-** Regular Expressions
-
-** Async Javascript
+Async Javascript
     Callbacks
     Timeouts
     Fetch
     Promises
 
-Programming Practical Stuff
+Git
+Hosting
+
+Common JS Libraries
+    How are they packaged? Why?
+    NPM - Command line vs website vs backend. How does npm install work?
+    JQuery / Chart.js
+    imports, exports, and Parcel
+
+NodeJS
+    Using the command line
+    Writing command line programs
+    Creating a server with express
+    File Operations & Callbacks
+
+HTTP
+    Request / Response Structure
+REST
+    Resources and Nouns
+    API Organization
+
+Quizzes
+
+Problems:
+    Is a number prime?
+    Make a todo list
+    Read a file and do something with the text content
+    Write a function that adds numbers from 1 to n
+    Multiplication Table?
+    Array contains
+    Return odd positioned elements in a list
+    Interweave Lists
+    Handle parts of a server request

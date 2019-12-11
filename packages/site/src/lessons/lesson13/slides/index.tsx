@@ -32,6 +32,6 @@ export const lesson13: Presentation = {
         
     ],
     recording: {
-        link: "https://youtu.be/MvDKpsABKVc"
+        link: "https://youtu.be/WoE5qSAcd4s"
     }
 }
