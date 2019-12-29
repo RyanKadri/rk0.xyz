@@ -45,8 +45,8 @@
     "express": "^4.17.1",
     "jest": "^24.9.0",
     "marked": "^0.7.0",
-    "parcel": "^1.12.3",
-    "parcel-bundler": "^1.12.3",
+    "parcel": "^1.12.4",
+    "parcel-bundler": "^1.12.4",
     "parcel-plugin-bundle-visualiser": "github:gregtillbrook/parcel-plugin-bundle-visualiser#master",
     "sass": "^1.22.12",
     "typescript": "^3.6.3"

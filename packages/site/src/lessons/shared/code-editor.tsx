@@ -16,7 +16,7 @@ interface Props {
 }
 
 self.MonacoEnvironment = {
-    getWorkerUrl: function(moduleId, label) {
+    getWorkerUrl: function(_, label) {
         if (label === 'json') {
         return '/json.worker.js';
         }

@@ -38,3 +38,7 @@ export function assertExists<T>(obj: T | undefined | null, failMessage: string):
 export function wrap(str: string) {
     return str.replace(/\s+/g, " ");
 }
+
+export function noop() {
+    
+}

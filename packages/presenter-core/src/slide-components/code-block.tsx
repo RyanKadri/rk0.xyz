@@ -5,7 +5,6 @@ import js from "highlight.js/lib/languages/javascript";
 import xml from "highlight.js/lib/languages/xml";
 import "highlight.js/styles/lightfair.css";
 import React, { useEffect, useRef } from "react";
-import { noop } from "../../../site/src/games/games/common/utils";
 
 const languages = {
     "xml": xml,
