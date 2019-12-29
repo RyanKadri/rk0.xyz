@@ -6,6 +6,7 @@ import { CodeEditor } from "./code-editor";
 interface Props {
     intialCode: string;
     mode: "function";
+    language?: "javascript" | "html" | "css";
     executionParams: ExecutionParams;
     savePrefix?: string;
     editorHeight?: number;
@@ -75,7 +76,8 @@ export function CodePlayground(props: Props) {
 
     return (
         <div className={ classes.container }>
-            <CodeEditor className={ classes.editor }
+            <CodeEditor language={ props.language || "javascript"}
+                        className={ classes.editor }
                         height={ props.editorHeight }
                         initialCode={ props.intialCode } 
                         editorRef={ editorRef } 

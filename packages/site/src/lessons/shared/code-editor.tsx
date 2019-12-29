@@ -13,6 +13,7 @@ interface Props {
     editorRef: MutableRefObject<monaco.editor.IStandaloneCodeEditor | null>;
     saveKey?: string;
     height?: number;
+    language: "javascript" | "html" | "css" | "json"
 }
 
 self.MonacoEnvironment = {
@@ -40,15 +41,20 @@ export function CodeEditor(props: Props) {
             const saveKey = props.saveKey;
             const storedCode = saveKey ? localStorage.getItem(saveKey) : null;
 
+            if(props.editorRef.current) {
+                props.editorRef.current.dispose();
+            }
+
             const editor = monaco.editor.create(editorContainer.current, {
                 value: storedCode ? JSON.parse(storedCode) : props.initialCode,
-                language: 'javascript',
+                language: props.language,
                 scrollBeyondLastLine: false,
                 codeLens: false,
                 minimap: {
                     enabled: false
                 }
             });
+
             props.editorRef.current = editor;
             if(saveKey) {
                 editor.getModel()!.onDidChangeContent(() => {
@@ -56,7 +62,7 @@ export function CodeEditor(props: Props) {
                 })
             }
         }
-    }, [ ])
+    }, [ props.initialCode, props.language ])
 
     return (
         <div className={ props.className || "" } 

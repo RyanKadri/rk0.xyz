@@ -7,7 +7,7 @@ import { ExamplePlayground } from "../components/example-playground";
 const useStyles = makeStyles(createStyles({
     container: {
         display: "flex",
-        height: "calc(100vh - 64px)",
+        minHeight: "calc(100vh - 64px)",
         maxWidth: "100vw"
     },
     codeContainer: {

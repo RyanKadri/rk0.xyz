@@ -1,10 +1,9 @@
 import { createStyles, Fab, Typography, WithStyles, withStyles } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
-import ReactGA from "react-ga";
+import * as monaco from "monaco-editor";
+import React, { useEffect, useRef, useState } from "react";
 import { ComplexExample, ExampleCode, ExampleDefinition } from "../../../../presenter-core/src/services/types";
-import { CodeBlock } from "../../../../presenter-core/src/slide-components/code-block";
-import { TrackedActions, TrackedCategories } from "../../analytics";
 import { identity } from "../../common/functional-utils";
+import { CodeEditor } from "../shared/code-editor";
 
 const styles = createStyles({
     container: {
@@ -49,22 +48,8 @@ function isSnippetExample(code: ExampleCode): code is ComplexExample {
 
 const _ExamplePlayground = ({ example, classes }: Props) => {
     
-    const [ code, setCode ] = useState("");
-    const [ readOnly, setReadonly ] = useState(true);
-
-    const onTextUpdate = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const nextVal = e.target.value;
-        setCode(nextVal);
-    }
-
-    const onDoubleClick = () => {
-        setReadonly(false);
-        ReactGA.event({
-            category: TrackedCategories.LEARNING_TOOLS,
-            action: TrackedActions.EDITED_PLAYGROUND,
-            label: example.title,
-        });
-    }
+    const [ code, setCode ] = useState(isSnippetExample(example.code) ? example.code.displayCode : example.code);
+    const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
     useEffect(() => {
         setCode(isSnippetExample(example.code) ? example.code.displayCode : example.code)
@@ -72,22 +57,14 @@ const _ExamplePlayground = ({ example, classes }: Props) => {
 
     const renderedCode = isSnippetExample(example.code)
         ? (example.code.formCode || identity)(code)
-        : example.code;
+        : code;
 
     return (
         <div className={ classes.container }>
             <div className={ classes.editorContainer }>
-                { readOnly 
-                    ? <>
-                        { isSnippetExample(example.code) && <Typography>This code may be abbreviated</Typography> }
-                        <CodeBlock language="html" code={ code } className={ classes.editor }
-                            onDoubleClick={ onDoubleClick } />
-                    </>
-                    : <>
-                        <textarea className={ classes.editor } value={ code } onChange={ onTextUpdate }/>
-                        <Fab className={ classes.saveButton } color="primary" onClick={ () => setReadonly(true) }>Save</Fab>
-                    </>
-                }
+                { isSnippetExample(example.code) && <Typography>This code may be abbreviated</Typography> }
+                <CodeEditor language="html" initialCode={ code } editorRef={ editorRef }/>
+                <Fab className={ classes.saveButton } color="primary" onClick={ () => setCode(editorRef.current!.getValue()) }>Save</Fab>
             </div>
             <iframe className={classes.content} srcDoc={ renderedCode } />
         </div>
