@@ -36,7 +36,9 @@ const _SlideManager = ({ presentation, history, match }: Props) => {
             }
             switch(e.key) {
                 case "ArrowRight":
+                case "PageDown":
                     return updateSlidePos(1);
+                case "PageUp":
                 case "ArrowLeft":
                     return updateSlidePos(-1);
                 case "Home":
