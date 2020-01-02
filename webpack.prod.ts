@@ -6,9 +6,11 @@ import common from './webpack.common';
 
 const config: webpack.Configuration = merge(common, {
     mode: 'production',
-    plugins: [
-        new bundle.BundleAnalyzerPlugin()
-    ]
+    plugins: process.env.CICD 
+        ? []
+        : [
+            new bundle.BundleAnalyzerPlugin()
+        ]
 });
 
 export default config;
