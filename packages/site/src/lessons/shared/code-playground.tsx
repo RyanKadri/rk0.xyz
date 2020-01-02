@@ -1,7 +1,7 @@
 import { Button, createStyles, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, Typography } from "@material-ui/core";
-import * as monaco from "monaco-editor";
-import React, { useRef, useState } from "react";
-import { CodeEditor } from "./code-editor";
+// import { editor } from 'monaco-editor/esm/vs/editor/editor.api';
+import React, { Suspense, useRef, useState } from "react";
+const CodeEditor = React.lazy(() => import("./code-editor"))
 
 interface Props {
     intialCode: string;
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 export function CodePlayground(props: Props) {
 
-    const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
+    const editorRef = useRef<any | null>(null);
     const classes = useStyles();
     const [latestResults, updateResults] = useState<any[] | undefined>();
     const [globalError, setGlobalError] = useState<string | null>(null)
@@ -76,12 +76,14 @@ export function CodePlayground(props: Props) {
 
     return (
         <div className={ classes.container }>
-            <CodeEditor language={ props.language || "javascript"}
-                        className={ classes.editor }
-                        height={ props.editorHeight }
-                        initialCode={ props.intialCode } 
-                        editorRef={ editorRef } 
-                        saveKey={ props.savePrefix ? `${props.savePrefix}.code` : undefined } />
+            <Suspense fallback="Loading...">
+                <CodeEditor language={ props.language || "javascript"}
+                            className={ classes.editor }
+                            height={ props.editorHeight }
+                            initialCode={ props.intialCode } 
+                            editorRef={ editorRef } 
+                            saveKey={ props.savePrefix ? `${props.savePrefix}.code` : undefined } />
+            </Suspense>
             { globalError && 
                 <Typography variant="body2" color="error">{ globalError }</Typography>
             }

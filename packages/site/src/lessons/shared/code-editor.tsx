@@ -1,4 +1,4 @@
-import * as monaco from "monaco-editor";
+import { editor as mEditor } from 'monaco-editor/esm/vs/editor/editor.api';
 import React, { MutableRefObject, useEffect, useRef } from "react";
 
 declare global {
@@ -10,7 +10,7 @@ declare global {
 interface Props {
     initialCode: string;
     className?: string;
-    editorRef: MutableRefObject<monaco.editor.IStandaloneCodeEditor | null>;
+    editorRef: MutableRefObject<mEditor.IStandaloneCodeEditor | null>;
     saveKey?: string;
     height?: number;
     language: "javascript" | "html" | "css" | "json"
@@ -34,7 +34,7 @@ self.MonacoEnvironment = {
     },
 };
 
-export function CodeEditor(props: Props) {
+function CodeEditor(props: Props) {
     const editorContainer = useRef<HTMLDivElement>(null); 
     useEffect(() => {
         if(editorContainer.current) {
@@ -45,7 +45,7 @@ export function CodeEditor(props: Props) {
                 props.editorRef.current.dispose();
             }
 
-            const editor = monaco.editor.create(editorContainer.current, {
+            const editor = mEditor.create(editorContainer.current, {
                 value: storedCode ? JSON.parse(storedCode) : props.initialCode,
                 language: props.language,
                 scrollBeyondLastLine: false,
@@ -70,3 +70,5 @@ export function CodeEditor(props: Props) {
              ref={ editorContainer } />
     )
 }
+
+export default CodeEditor; 

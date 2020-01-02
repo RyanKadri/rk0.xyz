@@ -1,9 +1,9 @@
 import { createStyles, Fab, Typography, WithStyles, withStyles } from "@material-ui/core";
-import * as monaco from "monaco-editor";
-import React, { useEffect, useRef, useState } from "react";
+// import { editor } from "monaco-editor/esm/vs/editor/editor.api";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { ComplexExample, ExampleCode, ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { identity } from "../../common/functional-utils";
-import { CodeEditor } from "../shared/code-editor";
+const CodeEditor = React.lazy(() => import("../shared/code-editor"))
 
 const styles = createStyles({
     container: {
@@ -49,7 +49,7 @@ function isSnippetExample(code: ExampleCode): code is ComplexExample {
 const _ExamplePlayground = ({ example, classes }: Props) => {
     
     const [ code, setCode ] = useState(isSnippetExample(example.code) ? example.code.displayCode : example.code);
-    const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
+    const editorRef = useRef<any | null>(null);
 
     useEffect(() => {
         setCode(isSnippetExample(example.code) ? example.code.displayCode : example.code)
@@ -63,7 +63,9 @@ const _ExamplePlayground = ({ example, classes }: Props) => {
         <div className={ classes.container }>
             <div className={ classes.editorContainer }>
                 { isSnippetExample(example.code) && <Typography>This code may be abbreviated</Typography> }
-                <CodeEditor language="html" initialCode={ code } editorRef={ editorRef }/>
+                <Suspense fallback="Loading...">
+                    <CodeEditor language="html" initialCode={ code } editorRef={ editorRef }/>
+                </Suspense>
                 <Fab className={ classes.saveButton } color="primary" onClick={ () => setCode(editorRef.current!.getValue()) }>Save</Fab>
             </div>
             <iframe className={classes.content} srcDoc={ renderedCode } />

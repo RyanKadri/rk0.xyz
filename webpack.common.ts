@@ -1,10 +1,12 @@
-const path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
+import path from 'path';
+import webpack from "webpack";
 
-module.exports = {
+
+const config: webpack.Configuration = {
     entry: './packages/site/src/index.tsx',
-    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -57,14 +59,23 @@ module.exports = {
         publicPath: "/"
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({ 
             template: "./packages/site/src/index.html"
         }),
         new MonacoWebpackPlugin({
-            languages: ["html", "css", "javascript", "typescript"]
+            languages: ["html", "css", "javascript", "typescript"],
+            features: ['accessibilityHelp', 'bracketMatching',
+             'clipboard', 'codeAction', 'colorDetector', 'comment',
+             'contextmenu', 'coreCommands', 'cursorUndo', 'dnd', 'find', 'folding',
+             'fontZoom', 'format', 'hover',
+             'linesOperations',
+             'links', 'parameterHints',
+             'rename', 'suggest',
+             'transpose'
+            ]
         })
-    ],
-    devServer: {
-        historyApiFallback: true
-    }
+    ]
 };
+
+export default config;
