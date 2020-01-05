@@ -65,7 +65,7 @@ const _RootNav = ({ classes, viewport }: Props) => {
                         </div>
                         <div className={ `${classes.linkGroup} ${classes.externalLinks}` }>
                             { externalLinks.map(link => (
-                                <a href={ link.link } aria-label={link.description} target="_blank" key={link.link}>
+                                <a href={ link.link } aria-label={link.description} target="_blank" key={link.link} rel="noopener">
                                     <FontAwesomeIcon icon={ link.icon } />
                                 </a>
                             ))}

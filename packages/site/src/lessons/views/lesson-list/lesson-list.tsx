@@ -47,7 +47,7 @@ function LessonCards({ lessons, baseUrl }: Props) {
                     <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/examples`}>Examples</MaterialLink>
                     <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/slides/0`}>Slides</MaterialLink>
                     { lesson.recording
-                        ? <MaterialLink href={lesson.recording.link} target="_blank">
+                        ? <MaterialLink href={lesson.recording.link} target="_blank" rel="noopener">
                             Recording
                         </MaterialLink>
                         : null 

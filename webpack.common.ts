@@ -1,4 +1,5 @@
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
 import path from 'path';
@@ -63,6 +64,9 @@ const config: webpack.Configuration = {
         new HtmlWebpackPlugin({ 
             template: "./packages/site/src/index.html"
         }),
+        new CopyWebpackPlugin([
+            { from: "robots.txt", to: "./"}
+        ]),
         new MonacoWebpackPlugin({
             languages: ["html", "css", "javascript", "typescript"],
             features: ['accessibilityHelp', 'bracketMatching',
