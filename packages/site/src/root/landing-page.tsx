@@ -33,14 +33,7 @@ export function LandingPage({ }: Props) {
             <Typography variant="h4" color="inherit">Ryan Kadri</Typography>
         </header>
         <div className={ classes.container }>
-            <section className={ classes.about }>
-                Hi. I'm Ryan Kadri. I am a full-time software developer. I like working with web technologies and always
-                enjoy learning new things.
-            </section>
-            <section className={ classes.links }>
-                I work on proprietary software for my full-time job but most of my side projects end up on Github eventually.
-                Check me out at <a href="https://github.com/RyanKadri">github.com/RyanKadri</a>
-            </section>
+            
         </div>
         </>
     )

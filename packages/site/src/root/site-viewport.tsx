@@ -1,19 +1,19 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Theme } from "@material-ui/core";
 import React, { useState } from "react";
-import { Route, Switch } from "react-router";
+import { Redirect, Route, Switch } from "react-router";
 import { CourseRouter } from "../lessons/views/course-router";
 import { AppBarContext, AppBarSettings } from "./app-bar-context";
-import { LandingPage } from "./landing-page";
 import { RootNav } from "./top-nav";
 import { ViewportContext, ViewportInfo } from "./viewport-context";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((_: Theme) => ({
     container: {
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh"
+        minHeight: "100vh",
+        backgroundColor: "#f0f0f0"
     }
-})
+}))
 
 let updateSettings: any;
 let updateViewport: any;
@@ -47,7 +47,9 @@ export function SiteViewport({ }: Props) {
                     <RootNav settings={ appbarSettings } viewport={viewportSettings} />
                     <Switch>
                         <Route path="/courses" component={ CourseRouter } />
-                        <Route path="/" exact component={ LandingPage } />
+                        <Route path="/" exact>
+                            <Redirect to="/courses" />
+                        </Route>
                     </Switch>
                 </div>
             </ViewportContext.Provider>
