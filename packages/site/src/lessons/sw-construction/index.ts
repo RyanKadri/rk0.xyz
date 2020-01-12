@@ -1,3 +1,4 @@
+import { faHammer } from "@fortawesome/free-solid-svg-icons/faHammer";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
 import { lesson1 } from "./lesson1";
 
@@ -7,5 +8,6 @@ export const practicumInSoftwareConstruction: CourseDefinition = {
     slug: "cis-4360",
     lessons: [
         lesson1
-    ]
+    ],
+    icon: faHammer
 }

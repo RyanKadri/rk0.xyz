@@ -1,14 +1,14 @@
-import { createStyles, List, ListItem, ListItemText, makeStyles, Paper, Typography } from "@material-ui/core";
+import { createStyles, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
-import { saveCourseSelection } from "../../../root/user-settings-service";
+import { CourseCard } from "./course-card";
 
 const useStyles = makeStyles(createStyles({
     listContainer: {
         padding: 16,
         flexGrow: 1,
-        maxWidth: "100vw"
+        width: "100%",
+        maxWidth: "1300px",
     },
 }))
 
@@ -21,19 +21,9 @@ export function CourseSelector({ courses, baseUrl }: Props) {
                 and an adjunct professor at Temple University. Below are the courses I have taught or that I 
                 am currently teaching.
             </Typography>
-            <Paper>
-                <List>
-                    { courses.map((course) => (
-                        <ListItem button 
-                                    key={course.slug} 
-                                    component={ Link } 
-                                    to={`${baseUrl}/${course.slug}`} 
-                                    onClick={ () => saveCourseSelection(course.slug) }>
-                            <ListItemText primary={ course.title } secondary={ course.description } />
-                        </ListItem>
-                    ))}
-                </List>
-            </Paper>
+            { courses.map((course) => (
+                <CourseCard key={course.slug} course={course} baseUrl={baseUrl} />
+            ))}
         </div>
     );
 }

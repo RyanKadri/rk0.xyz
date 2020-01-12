@@ -1,3 +1,4 @@
+import { faNetworkWired } from "@fortawesome/free-solid-svg-icons/faNetworkWired";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
 import { lesson1 } from "./lesson1/slides";
 import { lesson10 } from "./lesson10/slides";
@@ -19,5 +20,6 @@ export const introToWebProgramming: CourseDefinition = {
     lessons: [ lesson1, lesson2, lesson3, lesson4,
                lesson5, lesson6, lesson7, lesson9,
                lesson10, lesson11, lesson12, lesson13
-    ]
+    ],
+    icon: faNetworkWired
 };

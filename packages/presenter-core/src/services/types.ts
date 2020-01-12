@@ -1,3 +1,4 @@
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { ComponentType } from "react";
 
 export interface PresentationContext {
@@ -20,6 +21,7 @@ export interface CourseDefinition {
     description: string;
     title: string;
     slug: string;
+    icon?: IconDefinition;
 }
 
 export interface ExampleDefinition {
