@@ -34,6 +34,6 @@ export const ContentSlide = withStyles(styles)(_ContentSlide)
 
 interface Props extends WithStyles<typeof styles> {
     Title: string | ReactElement;
-    Content: (string | NestedListInfo)[] | ReactElement;
+    Content: (string | NestedListInfo | ReactElement)[] | ReactElement;
     context: PresentationContext;
 }

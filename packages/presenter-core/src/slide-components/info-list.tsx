@@ -1,5 +1,5 @@
 import { createStyles, Theme, WithStyles, withStyles } from "@material-ui/core";
-import React from "react";
+import React, { ReactElement } from "react";
 
 const styles = (theme: Theme) => createStyles({
     list: {
@@ -30,10 +30,12 @@ const _InfoList = ({ items, classes }: Props) => (
             <li key={i} className={classes.item}>{
                 typeof item === "string"
                     ? item
-                    :   <>
+                    : "text" in item
+                        ? (<>
                             {item.text}
                             <_InfoList items={item.children} classes={classes} />
-                        </>
+                        </>)
+                        : item
             }</li>
         )) }
     </ul>
@@ -42,7 +44,7 @@ const _InfoList = ({ items, classes }: Props) => (
 export const InfoList = withStyles(styles)(_InfoList)
 
 interface Props extends WithStyles<typeof styles> {
-    items: (string | NestedListInfo)[]
+    items: (string | NestedListInfo | ReactElement)[]
 }
 
 export interface NestedListInfo {

@@ -6,7 +6,7 @@ import { ContentSlide } from "./content-slide";
 import { FullSlide } from "./embed-slide";
 import { TitleSlide } from "./title-slide";
 
-export function generateContentSlide(title: string, points: (string | NestedListInfo)[]) {
+export function generateContentSlide(title: string, points: (string | NestedListInfo | ReactElement)[]) {
     return function({ context }: {context: PresentationContext}) {
         return <ContentSlide Title={ title } Content={ points } context={ context } />
     }

@@ -1,11 +1,6 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
-    "python.linting.lintOnSave": false,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
-    "python.pythonPath": "/home/ryan/.local/share/virtualenvs/library-class-GW3E1Q4O/bin/python",
-    "liveServer.settings.multiRootWorkspaceName": "library-class",
-    "liveServer.settings.root": "/dist",
-    "liveServer.settings.file": "index.html",
 }
