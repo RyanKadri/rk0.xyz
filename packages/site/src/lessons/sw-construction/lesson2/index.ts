@@ -1,7 +1,7 @@
-import { Agenda, IntroJvm, IntroJvmClassLoading, InversionOfControl, JavaHasMagic, Maven, PackageManagementJava, PackageManagementNode1, PackageManagementNode2, ProjectManagement, References, Title } from "./slides/simple";
+import { Agenda, IntroJvm, IntroJvmClassLoading, InversionOfControl, JavaHasMagic, Maven, PackageManagementJava, PackageManagementNode1, PackageManagementNode2, ProjectManagement, References, Spring, Title } from "./slides/simple";
 
 export const lesson2 = {
-    title: "The jar as a door",
+    title: 'The jar is a "door"',
     description: "Managing Dependencies. Introducing Spring",
     slug: "dependencies-spring",
     slides: [
@@ -16,6 +16,7 @@ export const lesson2 = {
         PackageManagementJava,
         Maven, 
         InversionOfControl,
+        Spring,
         References
     ],
     examples: [

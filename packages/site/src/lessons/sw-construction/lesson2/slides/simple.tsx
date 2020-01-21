@@ -98,10 +98,11 @@ export const Spring = generateContentSlide("Spring", [
     "Has tons of sub-projects for different tasks",
     "Large integrated ecosystem",
     "Tries to reduce lock-in sometimes"
-])
+]);
+
+
 
 export const References = generateReferencesSlide([
-    { label: "Open Source Defintion", url: "https://opensource.org/osd" },
-    { label: "Free Software Definition", url: "https://www.gnu.org/philosophy/free-sw.en.html" },
-    { label: "License tl;dr", url: "https://tldrlegal.com/" }
+    { label: "Maven 30 Minute Guide", url: "https://maven.apache.org/guides/getting-started/index.html" },
+    { label: "Spring Rest Getting Started", url: "https://spring.io/guides/gs/rest-service/" },
 ])
