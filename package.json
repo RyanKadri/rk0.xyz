@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:web": "TS_NODE_PROJECT=./tsconfig.webpack.json webpack-dev-server --config=./webpack.dev.ts",
+    "start:web": "cross-env TS_NODE_PROJECT=./tsconfig.webpack.json webpack-dev-server --config=./webpack.dev.ts",
     "start:backend": "npm run build:docker && npm run run:docker",
     "build:docker": "docker build -t rk0-backend/games ./packages/games-backend",
     "run:docker": "docker run -p 8080:8080 -it rk0-backend/games",
