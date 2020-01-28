@@ -1,9 +1,9 @@
-import { createStyles, Typography, WithStyles, withStyles } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import React, { ReactElement } from "react";
 import { PresentationContext } from "../services/types";
 import { PageNumber } from "../slide-components/page-number";
 
-const styles = createStyles({
+const useStyles = makeStyles({
     message: {
         position: "absolute",
         top: "50%",
@@ -12,7 +12,9 @@ const styles = createStyles({
     }
 })
 
-const _CenterMessageSlide = ({classes, context, Message }: Props) => (
+export function CenterMessageSlide({ context, Message }: Props) {
+    const classes = useStyles();
+    return (
     <>
         <span className={classes.message}>
             { 
@@ -23,11 +25,10 @@ const _CenterMessageSlide = ({classes, context, Message }: Props) => (
         </span>
         <PageNumber context={context} />
     </>
-)
+    )
+}
 
-export const CenterMessageSlide = withStyles(styles)(_CenterMessageSlide)
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
     context: PresentationContext;
     Message: string | ReactElement
 }

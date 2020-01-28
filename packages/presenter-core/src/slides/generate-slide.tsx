@@ -4,6 +4,7 @@ import { NestedListInfo } from "../slide-components/info-list";
 import { CenterMessageSlide } from "./center-message-slide";
 import { ContentSlide } from "./content-slide";
 import { FullSlide } from "./embed-slide";
+import { MediaSlide } from "./media-slide";
 import { TitleSlide } from "./title-slide";
 
 export function generateContentSlide(title: string, points: (string | NestedListInfo | ReactElement)[]) {
@@ -26,6 +27,14 @@ export function generateTitleSlide(title: string, subtitle: string) {
 
 export function generateFullSlide(content: ReactElement) {
     return function({ context }: { context: PresentationContext }) {
-        return <FullSlide context={ context } Content={ content }></FullSlide>
+        return <FullSlide context={ context } Content={ content } />
+    }
+}
+
+export function generateMediaSlide(
+    media: ReactElement, credit?: ReactElement | string, title?: ReactElement | string,
+) {
+    return function({ context }: { context: PresentationContext }) {
+        return <MediaSlide context={context} Media={media} Title={title} Credit={ credit } />
     }
 }
