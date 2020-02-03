@@ -4,10 +4,10 @@ import { generateContentSlide, generateMediaSlide, generateMessageSlide, generat
 import { generateReferencesSlide } from "../../../shared/references-slide";
 import testingPyramid from "./testingPyramid.jpg";
 
-export const Title = generateTitleSlide("Project Management and Spring", "Ryan Kadri");
+export const Title = generateTitleSlide("Automated Testing", "Ryan Kadri");
 
 export const Agenda = generateContentSlide("Agenda", [
-    "Review Spring",
+    "Review last class",
     "Quiz",
     "Why do we test?",
     "What do we test?",
