@@ -1,5 +1,6 @@
 import React from "react";
 import { generateContentSlide, generateMediaSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateReferencesSlide } from "../../../shared/references-slide";
 import bookreads from "../../lesson1/slides/bookreads.png";
 
 export const Title = generateTitleSlide("Full Stack Development: Frontend", "Ryan Kadri");
@@ -11,8 +12,7 @@ export const Agenda = generateContentSlide("Agenda", [
     "Web Basics",
     "HTML",
     "The DOM",
-    "JavaScript",
-    "Fetching Data"
+    "JavaScript"
 ]);
 
 export const ModernApps = generateContentSlide('Complex Applications', [
@@ -68,3 +68,8 @@ export const DOM = generateContentSlide("DOM", [
     "HTML is like having a book. The DOM is what you have after you've read it.",
     "JavaScript will manipulate the DOM to create dynamic behavior on an app"
 ]);
+
+export const References = generateReferencesSlide([
+    { label: "MDN (General Web Reference)", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element" },
+    { label: "DOM Explanation (It's long. Feel free to skim)", url: "https://eloquentjavascript.net/14_dom.html"}
+])
