@@ -19,7 +19,7 @@ export function CenterMessageSlide({ context, Message }: Props) {
         <span className={classes.message}>
             { 
                 typeof Message === "string"
-                    ? <Typography variant="h2">{Message}</Typography>
+                    ? <Typography variant="h4" component="p">{Message}</Typography>
                     : Message
             }
         </span>

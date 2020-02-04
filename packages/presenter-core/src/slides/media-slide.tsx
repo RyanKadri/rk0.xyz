@@ -34,7 +34,7 @@ export function MediaSlide({ context, Media, Title, Credit }: Props) {
     return (
         <div className={ classes.container }>
             { typeof Title === "string"
-                ? <Typography variant="h3">{ Title }</Typography>
+                ? <Typography variant="h4">{ Title }</Typography>
                 : <div>{ Title }</div>
             }
             <div className={ classes.media }>
@@ -42,7 +42,7 @@ export function MediaSlide({ context, Media, Title, Credit }: Props) {
             </div>
             { typeof Credit === "string"
                 ? <Typography className={ classes.credit }
-                              variant="h4">
+                              variant="caption">
                     { Credit }
                 </Typography>
                 : <div className={ classes.credit }>{ Credit }</div> 

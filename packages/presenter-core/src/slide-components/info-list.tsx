@@ -6,7 +6,7 @@ const styles = (theme: Theme) => createStyles({
         marginTop: 32
     },
     item: {
-        fontSize: "2.75rem",
+        fontSize: "1.35rem",
         fontWeight: 300,
         position: "relative",
         display: "block",

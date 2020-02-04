@@ -8,14 +8,11 @@ const useStyles = makeStyles(createStyles({
     container: {
         padding: "16px 0"
     },
-    select: {
-        fontSize: 32
-    },
     tabIndicator: {
         display: "none"
     },
     table: {
-        fontSize: 32
+        fontSize: "1rem"
     },
     tabs: {
         marginBottom: 16

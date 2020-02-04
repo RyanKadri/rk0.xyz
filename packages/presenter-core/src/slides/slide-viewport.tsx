@@ -1,5 +1,5 @@
 import { createStyles, makeStyles, Paper, Theme } from "@material-ui/core";
-import React, { ComponentType, useRef } from "react";
+import React, { ComponentType, useEffect, useRef } from "react";
 import { PresentationContext } from "../services/types";
 import { useComponentSize } from "../services/use-component-size";
 
@@ -46,6 +46,11 @@ export function SlideViewport({ Slide, context, isFullscreen }: Props) {
         maxWidth: canonicalWidth,
         transform: `scale(${ scale })`
     };
+
+    useEffect(() => {
+        document.documentElement.style.fontSize = "28px";
+        return () => { document.documentElement.style.fontSize = "" }
+    }, [])
 
     return (
         <div className={ `${classes.viewportContainer} ${isFullscreen ? 'fullscreen' : ""}` } ref={viewport}>

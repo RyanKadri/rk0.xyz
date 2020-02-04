@@ -26,7 +26,7 @@ while(counter < 5) {
 
 let test = "blahh"
 while(test) {
-    // Never runs
+    // Runs forever
 }
 `.trim();
 

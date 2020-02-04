@@ -1,21 +1,16 @@
-import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import React, { useContext, useEffect } from "react";
-import HammerComp from "react-hammerjs";
 import { match, RouteComponentProps } from "react-router";
 import { useAppBar } from "../../../site/src/common/use-app-bar";
 import { ViewportContext } from "../../../site/src/root/viewport-context";
 import { Presentation, PresentationContext } from "../services/types";
 import { SlideViewport } from "./slide-viewport";
 
-const styles = createStyles({
-    
-})
-
-const _SlideManager = ({ presentation, history, match }: Props) => {
+export function SlideManager({ presentation, history, match }: Props) {
 
     const slides = presentation.slides;
     const slideNum = parseInt(match.params.slideNum, 10);
     const { current: viewport, updateViewport } = useContext(ViewportContext);
+
     const updateSlidePos = (amt: number) => {
         if(amt < 0) {
             history.push("" + Math.max(0, slideNum + amt));
@@ -77,17 +72,13 @@ const _SlideManager = ({ presentation, history, match }: Props) => {
     useAppBar(presentation.title)
     
     return (
-        <HammerComp onSwipe={ e => e.direction === Hammer.DIRECTION_LEFT ? updateSlidePos(1) : updateSlidePos(-1) }>
-            <div>
-                <SlideViewport Slide={ slides[slideNum] } context={ context } isFullscreen={ viewport.isFullscreen } />
-            </div>
-        </HammerComp>
+        <div>
+            <SlideViewport Slide={ slides[slideNum] } context={ context } isFullscreen={ viewport.isFullscreen } />
+        </div>
     )
 };
 
-export const SlideManager = withStyles(styles)(_SlideManager)
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
     presentation: Presentation;
     history: RouteComponentProps["history"];
     match: match<any>;

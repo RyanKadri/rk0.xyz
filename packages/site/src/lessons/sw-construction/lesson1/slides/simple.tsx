@@ -31,7 +31,7 @@ export const CourseFeatures = generateContentSlide("Course Features", [
 
 export const Syllabus = generateMessageSlide(
     <Link href="https://templeu.instructure.com/courses/70178"
-          variant="h1">
+          variant="h2">
         Syllabus
     </Link>
 );

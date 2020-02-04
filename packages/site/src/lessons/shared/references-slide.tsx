@@ -1,11 +1,10 @@
 import { Link, makeStyles, Typography } from "@material-ui/core";
 import React, { ReactElement } from "react";
-import type { PresentationContext } from "../../../../presenter-core/src/services/types";
+import { PresentationContext } from "../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../presenter-core/src/slides/content-slide";
 
 const useStyles = makeStyles({
     referenceList: {
-        fontSize: "2rem",
         "& li": {
             marginBottom: 16
         }

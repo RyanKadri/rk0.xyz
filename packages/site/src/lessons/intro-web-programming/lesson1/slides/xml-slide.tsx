@@ -1,12 +1,12 @@
-import { createStyles, WithStyles, withStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
 
-const styles = createStyles({
+const useStyles = makeStyles({
     code: {
-        fontSize: "2.5em"
+        fontSize: "1.25em"
     }
 })
 
@@ -19,7 +19,8 @@ const xmlExample = `
     </Author>
 </Book>
 `
-const _XMLSlide = ({ context, classes }: Props) => {
+export function XMLSlide({ context }: Props) {
+    const classes = useStyles()
     return (
         <ContentSlide Title="XML" context={context} Content={
             <CodeBlock language="xml" code={ xmlExample } className={ classes.code } />
@@ -27,8 +28,6 @@ const _XMLSlide = ({ context, classes }: Props) => {
     )
 }
 
-export const XMLSlide = withStyles(styles)(_XMLSlide)
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
     context: PresentationContext
 }

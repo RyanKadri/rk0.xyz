@@ -1,16 +1,16 @@
-import { createStyles, WithStyles, withStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+import { PresentationContext } from "packages/presenter-core/src/services/types";
 import React from "react";
-import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
 
-const styles = createStyles({
+const useStyles = makeStyles({
     container: {
         display: "flex",
         position: "relative",
         justifyContent: "space-between",
         alignItems: "center",
         fontFamily: "'Ubuntu Mono', monospace;",
-        fontSize: "2.5rem",
+        fontSize: "1.25rem",
         paddingTop: 32
     },
     article: {
@@ -37,58 +37,59 @@ const styles = createStyles({
     }
 })
 
-const _OutlineToHtml = ({ classes, context }: Props) => (
-    <ContentSlide Title="HTML" context={context} Content={
-        <div className={classes.container}>
-            <section className={classes.article}>
-                Article
-                <section className={classes.section1}>
-                    Section
-                    <section className={classes.sectionContent}>
-                        <ul>
-                            <li>Header</li>
-                            <li>Paragraph</li>
-                            <li>Paragraph</li>
-                        </ul>
+export function OutlineToHtml({ context }: Props) {
+    const classes = useStyles();
+    return (
+        <ContentSlide Title="HTML" context={context} Content={
+            <div className={classes.container}>
+                <section className={classes.article}>
+                    Article
+                    <section className={classes.section1}>
+                        Section
+                        <section className={classes.sectionContent}>
+                            <ul>
+                                <li>Header</li>
+                                <li>Paragraph</li>
+                                <li>Paragraph</li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section className={classes.section2}>
+                        Section
+                        <section className={classes.sectionContent}>
+                            <ul>
+                                <li>Header</li>
+                                <li>...</li>
+                            </ul>
+                        </section>
                     </section>
                 </section>
-                <section className={classes.section2}>
-                    Section
-                    <section className={classes.sectionContent}>
-                        <ul>
-                            <li>Header</li>
-                            <li>...</li>
-                        </ul>
+                <section className={classes.article}>
+                    {"<article>"}
+                    <section className={classes.section1}>
+                        {"<section>"}
+                        <section className={classes.sectionContent}>
+                            <p>{"<header>...</header>"}</p>
+                            <p>{"<p>...</p>"}</p>
+                            <p>{"<p>...</p>"}</p>
+                        </section>
+                        {"</section>"}
                     </section>
-                </section>
-            </section>
-            <section className={classes.article}>
-                {"<article>"}
-                <section className={classes.section1}>
-                    {"<section>"}
-                    <section className={classes.sectionContent}>
-                        <p>{"<header>...</header>"}</p>
-                        <p>{"<p>...</p>"}</p>
-                        <p>{"<p>...</p>"}</p>
+                    <section className={classes.section2}>
+                        {"<section>"}
+                        <section className={classes.sectionContent}>
+                            <p>{"<header>...</header>"}</p>
+                            <p>...</p>
+                        </section>
+                        {"</section>"}
                     </section>
-                    {"</section>"}
+                    {"</article>"}
                 </section>
-                <section className={classes.section2}>
-                    {"<section>"}
-                    <section className={classes.sectionContent}>
-                        <p>{"<header>...</header>"}</p>
-                        <p>...</p>
-                    </section>
-                    {"</section>"}
-                </section>
-                {"</article>"}
-            </section>
-        </div>
-    } />
-)
+            </div>
+        } />
+    )
+}
 
-export const OutlineToHtml = withStyles(styles)(_OutlineToHtml)
-
-interface Props extends WithStyles<typeof styles> {
-    context: PresentationContext
+interface Props {
+    context: PresentationContext;
 }

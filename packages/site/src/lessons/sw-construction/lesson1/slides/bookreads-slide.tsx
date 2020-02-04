@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
-import type { PresentationContext } from "../../../../../../presenter-core/src/services/types";
+import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
 import preview from "./bookreads.png";
 

@@ -1,4 +1,4 @@
-import { createStyles, Theme, Typography, WithStyles, withStyles } from "@material-ui/core";
+import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import React, { ReactElement } from "react";
 import { titleDecorator } from "../services/style-chunks";
 import { PresentationContext } from "../services/types";
@@ -7,7 +7,7 @@ import { PageNumber } from "../slide-components/page-number";
 const containerPadding = 128;
 const subTitleSpacing = containerPadding / 2;
 
-const styles = (theme: Theme) => createStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
     container: {
         height: "100%",
         padding: containerPadding,
@@ -21,21 +21,28 @@ const styles = (theme: Theme) => createStyles({
     },
     subtitleContainer: {
         marginTop: subTitleSpacing
+    },
+    title: {
+        fontSize: "2.5rem",
+    },
+    subTitle: {
+        fontSize: "2.0rem"
     }
-})
+}))
 
-const _TitleSlide = ({ Title, Subtitle, classes, context }: Props) => {
+export function TitleSlide({ Title, Subtitle, context }: Props) {
+    const classes = useStyles();
     return (
         <div className={classes.container}>
             <div className={ classes.titleContainer }>
                 { typeof Title === "string"
-                    ? <Typography variant="h2">{ Title }</Typography>
+                    ? <Typography variant="h3" component="h1" className={ classes.title }>{ Title }</Typography>
                     : Title
                 }
             </div>
             <div className={ classes.subtitleContainer }>
                 { typeof Subtitle === "string"
-                    ? <Typography variant="h3">{ Subtitle }</Typography>
+                    ? <Typography variant="h4" component="h2" className={ classes.subTitle}>{ Subtitle }</Typography>
                     : Subtitle
                 }
             </div>
@@ -44,9 +51,7 @@ const _TitleSlide = ({ Title, Subtitle, classes, context }: Props) => {
     )
 }
 
-export const TitleSlide = withStyles(styles)(_TitleSlide)
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
     Title: string | ReactElement;
     Subtitle: string | ReactElement;
     context: PresentationContext

@@ -8,7 +8,7 @@ import { ContentSlide } from "../../../../../../presenter-core/src/slides/conten
 
 const useStyles = makeStyles(createStyles({
     code: {
-        fontSize: 32,
+        fontSize: "1rem",
         userSelect: "text"
     }
 }))

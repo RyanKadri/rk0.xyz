@@ -7,5 +7,14 @@ export const appTheme = createMuiTheme({
       secondary: red,
     },
     typography: {
+      h3: {
+        fontWeight: 100
+      },
+      h4: {
+        fontWeight: 100
+      },
+      h5: {
+        fontWeight: 100
+      }
     }
 });

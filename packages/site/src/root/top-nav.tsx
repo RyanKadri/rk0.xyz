@@ -24,6 +24,7 @@ const styles = createStyles({
         }
     },
     navBar: {
+        fontSize: 16,
         overflowX: "auto",
     },
     linkGroup: {
