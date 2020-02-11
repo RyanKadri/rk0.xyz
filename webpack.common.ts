@@ -1,10 +1,11 @@
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import marked from "marked";
 import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
 import path from 'path';
 import webpack from "webpack";
-
+const renderer = new marked.Renderer();
 
 const config: webpack.Configuration = {
     entry: './packages/site/src/index.tsx',
@@ -24,7 +25,8 @@ const config: webpack.Configuration = {
                     {
                         loader: "markdown-loader",
                         options: {
-                            pedantic: true
+                            pedantic: true,
+                            renderer
                         }
                     }
                 ]

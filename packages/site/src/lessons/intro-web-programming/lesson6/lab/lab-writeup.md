@@ -1,7 +1,5 @@
 # Lab 5: Asynchronous JavaScript and APIs
 
-<article>
-
 ## Overview
 
 In this lab, you will be learning about asynchronous JavaScript and how to call APIs. In the
@@ -9,9 +7,6 @@ first section of the lab, you will be directly calling a public API and adding s
 result data to a web page. In the second section, you will be creating a Tic Tac Toe game
 and providing a computer player by calling an API I wrote. Both of these labs should give
 you some real-world experience with handling asynchronous JavaScript and calling APIs. 
-</article>
-
-<article>
 
 ## Part One - The Pokedex
 
@@ -33,11 +28,6 @@ the screen. Please use the documentation on the API's site to figure out how to 
 it. There is a URL you can use to directly look up information about a pokemon based
 on its exact name. You should make sure that searching with different capitalizations
 also works for the user of your site. 
-
-
-</article>
-
-<article>
 
 ## Part 2: Tic Tac Toe
 
@@ -93,18 +83,11 @@ In your code, you should keep track of the state of the board in an array of arr
 You might start it as `const board = [[0,0,0],[0,0,0],[0,0,0]]` and then you can change
 a stored cell by doing something like `board[row][col] = <new_val>`.
 
-</article>
-
-<article>
-
 ## Submitting
 
 To submit this lab, please create a single zip file and upload it to Canvas under the appropriate assignment.
 The zip file should contain two sub folders, one for part one and one for part two. Each folder
 should contain your HTML file and all files referenced within.
-
-</article>
-<article>
 
 ## Grading
 
@@ -122,8 +105,6 @@ The main things I am looking for in this lab are:
      - Do you detect the right win and loss conditions?
      - Do you stop the player from making illegal moves?
      - Do you provide messages to the user informing them that they have won, lost, or tied?
-
-</article>
 
 ## Extra Credit Opportunity (25 Points)
 
