@@ -16,7 +16,7 @@ export const Agenda = generateContentSlide("Agenda", [
 ]);
 
 export const FunctionalProgrammingIntro = generateMessageSlide(
-    <div>
+    <div style={{ textAlign: "center", fontSize: "1.5rem" }}>
         Functional Programming == <br /> 
         Thinking about your program in terms of mathematical functions
     </div>

@@ -1,4 +1,4 @@
-import { Agenda, FunctionalProgramming1, Title } from "./slides/simple";
+import { Agenda, FunctionalJava, FunctionalJava2, FunctionalJavaScript, FunctionalProgramming1, FunctionalProgrammingAvoids, FunctionalProgrammingBenefits, FunctionalProgrammingIntro, FunctionalProgrammingLikes, ImmutableJava, ImmutableProgramming, Title } from "./slides/simple";
 
 export const lesson6 = {
     title: 'Putting the fun in functional',
@@ -7,7 +7,16 @@ export const lesson6 = {
     slides: [
         Title,
         Agenda,
-        FunctionalProgramming1
+        FunctionalProgrammingIntro,
+        FunctionalProgramming1,
+        FunctionalProgrammingLikes,
+        FunctionalProgrammingAvoids,
+        FunctionalProgrammingBenefits,
+        FunctionalJavaScript,
+        FunctionalJava,
+        FunctionalJava2,
+        ImmutableProgramming,
+        ImmutableJava
     ],
     examples: [
     ]
