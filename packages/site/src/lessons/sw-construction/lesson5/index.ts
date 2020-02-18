@@ -29,11 +29,11 @@ export const lesson5 = {
         Timeouts,
         NonBlockingProsCons,
         TimeoutWaitWhat,
+        PromisesExample,
         HTTPDetails,
         HttpRequest,
         HttpResponse,
         HttpHeaders,
-        PromisesExample
     ],
     examples: [
     ]
