@@ -3,7 +3,7 @@ import { generateContentSlide, generateMediaSlide, generateMessageSlide, generat
 import gollum from "./gollum.jpg";
 
 export const Title = generateTitleSlide(
-    "Software Design Patterns: Functional and Immutable Programming",
+    "Production Code: Deployments and Debugging",
     "Ryan Kadri"
 );
 
