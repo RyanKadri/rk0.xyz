@@ -11,3 +11,4 @@ __pycache__/
 parameters.json
 *.secret.*
 *.personal.*
+secrets
