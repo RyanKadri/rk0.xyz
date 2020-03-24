@@ -9,7 +9,7 @@
     "build:docker": "docker build -t rk0-backend/games ./packages/games-backend",
     "run:docker": "docker run -p 8080:8080 -it rk0-backend/games",
     "build": "cross-env TS_NODE_PROJECT=./tsconfig.webpack.json webpack --config=./webpack.prod.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "validate:cfn:template": "aws cloudformation validate-template --template-body file://./template.main.yml",
     "package:template": "aws cloudformation package --template-file ./template.main.yml --output-template-file ./dist/output.template.yml --s3-bucket cf-templates-k8vby7iizoq8-us-east-1",
     "deploy:template": "aws cloudformation deploy --template-file ./dist/output.template.yml --stack-name rk0-site --capabilities CAPABILITY_NAMED_IAM",
