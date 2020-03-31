@@ -83,16 +83,11 @@ export const RestContinued = generateContentSlide("REST Theory", [
 ]);
 
 export const RestDownsides = generateContentSlide("REST in Real Life", [
-    { text: "Requests to collection URLs are supposed to return links", children: [
-        "Too slow. Sometimes flaky"
-    ]},
-    { text: "Requests should always be to resource URLs", children: [
-        "Most of the time yes",
-        "But sometimes that doesn't make sense"
-    ]},
-    { text: "What if I want to do a batch deletion?", children: [
-        "You might need to make something custom"
-    ]}
+    "Rest is really nice. Tons of projects use REST successfully",
+    "REST gets pretty opinionated (HATEOAS). Not everyone follows every rule",
+    "REST is not great when you want to fetch only some fields",
+    "May need multiple round trips to collect all the data you need",
+    "Some features are hard (eg batch deletion)"
 ]);
 
 export const LetsCode = generateMessageSlide("Let's Code!");

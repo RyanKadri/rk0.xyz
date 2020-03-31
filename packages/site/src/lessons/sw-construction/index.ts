@@ -1,6 +1,7 @@
 import { faHammer } from "@fortawesome/free-solid-svg-icons/faHammer";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
 import { lesson1 } from "./lesson1";
+import { lesson10 } from "./lesson10";
 import { lesson2 } from "./lesson2";
 import { lesson3 } from "./lesson3";
 import { lesson4 } from "./lesson4";
@@ -23,7 +24,8 @@ export const practicumInSoftwareConstruction: CourseDefinition = {
         lesson6,
         lesson7,
         lesson8,
-        lesson9
+        lesson9,
+        lesson10,
     ],
     icon: faHammer
 }
