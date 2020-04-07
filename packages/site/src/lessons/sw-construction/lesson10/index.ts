@@ -1,8 +1,9 @@
+import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { HttpHeaders, HttpRequest, HttpResponse, RestDownsides, RestIntro } from "../../intro-web-programming/lesson12/slides/simple";
 import { BadRequest, OkayRequest, RequestTemplate, RestRequest } from "./slides/request-examples";
-import { Agenda, APIComesWith, ApiCommunication, ApiConsiderations, ApiIs, EnterRest, HowDoTest, HumanSide, Title, WhatIsApi } from "./slides/simple";
+import { Agenda, APIComesWith, ApiCommunication, ApiConsiderations, ApiIs, EnterRest, GraphQLDownsides, GraphQLPreview, HowDoTest, HumanSide, References, Title, WhatIsApi } from "./slides/simple";
 
-export const lesson10 = {
+export const lesson10: Presentation = {
     title: 'The Pursuit of APIness',
     description: 'API Design',
     slug: "api-design",
@@ -26,8 +27,13 @@ export const lesson10 = {
         RestRequest,
         RestDownsides,
         HowDoTest,
-
+        GraphQLPreview,
+        GraphQLDownsides,
+        References
     ],
     examples: [
-    ]
+    ],
+    recording: {
+        link: "https://temple.zoom.us/rec/share/yd0qJZ7Qq15ITYXC6XiCY64FOZ7EX6a81iFM-PRbn05ZApiz07cGTNkQzE_w19P6"
+    }
 }
