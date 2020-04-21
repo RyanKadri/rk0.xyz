@@ -1,9 +1,9 @@
 import { faHammer } from "@fortawesome/free-solid-svg-icons/faHammer";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
-import { lesson13 } from "../intro-web-programming/lesson13/slides";
 import { lesson1 } from "./lesson1";
 import { lesson10 } from "./lesson10";
 import { lesson11 } from "./lesson11";
+import { lesson13 } from "./lesson13";
 import { lesson2 } from "./lesson2";
 import { lesson3 } from "./lesson3";
 import { lesson4 } from "./lesson4";
