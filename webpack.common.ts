@@ -66,9 +66,11 @@ const config: webpack.Configuration = {
         new HtmlWebpackPlugin({ 
             template: "./packages/site/src/index.html"
         }),
-        new CopyWebpackPlugin([
-            { from: "robots.txt", to: "./"}
-        ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: "robots.txt", to: "./"}
+            ]
+        }),
         new MonacoWebpackPlugin({
             languages: ["html", "css", "javascript", "typescript"],
             features: ['accessibilityHelp', 'bracketMatching',
