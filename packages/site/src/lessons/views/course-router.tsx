@@ -2,7 +2,7 @@ import React from "react";
 import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
 import { assertExists } from "../../common/functional-utils";
-import { introToWebProgramming } from "../intro-web-programming";
+import { introToWebProgramming } from "../archived/intro-web-programming";
 import { practicumInSoftwareConstruction } from "../sw-construction";
 import { CourseSelector } from "./lesson-list/course-selector";
 import { LessonListView } from "./lesson-list/lesson-list-view";

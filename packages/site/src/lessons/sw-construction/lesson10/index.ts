@@ -1,5 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
-import { HttpHeaders, HttpRequest, HttpResponse, RestDownsides, RestIntro } from "../../intro-web-programming/lesson12/slides/simple";
+import { HttpHeaders, HttpRequest, HttpResponse, RestDownsides, RestIntro } from "../../archived/intro-web-programming/lesson12/slides/simple";
 import { BadRequest, OkayRequest, RequestTemplate, RestRequest } from "./slides/request-examples";
 import { Agenda, APIComesWith, ApiCommunication, ApiConsiderations, ApiIs, EnterRest, GraphQLDownsides, GraphQLPreview, HowDoTest, HumanSide, References, Title, WhatIsApi } from "./slides/simple";
 
