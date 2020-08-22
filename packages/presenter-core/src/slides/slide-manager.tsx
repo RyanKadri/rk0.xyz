@@ -1,12 +1,23 @@
+import { createStyles, makeStyles } from "@material-ui/core";
 import React, { useContext, useEffect } from "react";
 import { match, RouteComponentProps } from "react-router";
 import { useAppBar } from "../../../site/src/common/use-app-bar";
 import { ViewportContext } from "../../../site/src/root/viewport-context";
 import { Presentation, PresentationContext } from "../services/types";
+import { SlideControls } from "./slide-controls";
 import { SlideViewport } from "./slide-viewport";
+
+const useStyles = makeStyles(theme => createStyles({
+    controls: {
+        position: "absolute",
+        bottom: theme.spacing(2),
+        right: theme.spacing(2)
+    }
+}));
 
 export function SlideManager({ presentation, history, match }: Props) {
 
+    const classes = useStyles();
     const slides = presentation.slides;
     const slideNum = parseInt(match.params.slideNum, 10);
     const { current: viewport, updateViewport } = useContext(ViewportContext);
@@ -73,7 +84,12 @@ export function SlideManager({ presentation, history, match }: Props) {
     
     return (
         <div>
-            <SlideViewport Slide={ slides[slideNum] } context={ context } isFullscreen={ viewport.isFullscreen } />
+            <SlideViewport Slide={ slides[slideNum] } 
+                           context={ context } 
+                           isFullscreen={ viewport.isFullscreen } />
+            <SlideControls onPreviousSlide={ () => updateSlidePos(-1) } 
+                           onNextSlide={ () => updateSlidePos(1) } 
+                           className={ classes.controls } />
         </div>
     )
 };
