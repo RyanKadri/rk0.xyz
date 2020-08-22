@@ -16,6 +16,12 @@ export interface Presentation {
     lab?: LabDefinition
 }
 
+export interface CourseGroup {
+    groupName: string;
+    courses: CourseDefinition[];
+    startExpanded: boolean;
+}
+
 export interface CourseDefinition {
     lessons: Presentation[];
     description: string;

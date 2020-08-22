@@ -16,7 +16,7 @@ import { lesson9 } from "./lesson9/slides";
 export const introToWebProgramming: CourseDefinition = { 
     title: "Introduction to Web Technology and Programming",
     description: "Web Programming for Beginners",
-    slug: "cis-1052",
+    slug: "cis-1052-archive",
     lessons: [ lesson1, lesson2, lesson3, lesson4,
                lesson5, lesson6, lesson7, lesson9,
                lesson10, lesson11, lesson12, lesson13

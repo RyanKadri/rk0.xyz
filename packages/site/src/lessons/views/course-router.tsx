@@ -3,13 +3,14 @@ import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
 import { assertExists } from "../../common/functional-utils";
 import { introToWebProgramming } from "../archived/intro-web-programming";
+import { introToWebProgrammingFall2020 } from "../intro-web-programming";
 import { practicumInSoftwareConstruction } from "../sw-construction";
 import { CourseSelector } from "./lesson-list/course-selector";
 import { LessonListView } from "./lesson-list/lesson-list-view";
 import { LessonResourceRouter } from "./presentation-resource-router";
 
-
 const courses: CourseDefinition[] = [
+    introToWebProgrammingFall2020,
     introToWebProgramming,
     practicumInSoftwareConstruction
 ];
@@ -22,7 +23,7 @@ export function CourseRouter({ match }: Props) {
                             baseUrl={ `${match.url}` } /> }
             />
             <Route path={ `${ match.url }/` } exact>
-                <CourseSelector courses={ courses } baseUrl={ match.url } />
+                <CourseSelector />
             </Route>
             <Route path={`${ match.url }/:course/lessons/:lesson`} render={ ({ match }) => {
                 const courseId = match.params.course;
