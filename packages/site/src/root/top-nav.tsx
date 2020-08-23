@@ -1,5 +1,4 @@
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
-import { faFile } from "@fortawesome/free-solid-svg-icons/faFile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AppBar, createStyles, Toolbar, WithStyles, withStyles } from "@material-ui/core";
 import React from "react";
@@ -47,7 +46,6 @@ const siteLinks = [
 ];
 
 const externalLinks = [
-    { description: "Resume", icon: faFile, link: "https://resume.rk0.xyz" },
     { description: "Code", icon: faCode, link: "https://github.com/RyanKadri" }
 ]
 

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
 }))
 
-export function ContentSlide({ Title, Content, context, classes = {} }: Props) {
+export function ContentSlide({ Title, Content, context, classes = {}, options = { } }: Props) {
     const ownClasses = useStyles();
     return (
         <div className={ `${ownClasses.container} ${classes.viewport || ""}` }>
@@ -27,7 +27,7 @@ export function ContentSlide({ Title, Content, context, classes = {} }: Props) {
             </div>
             { !Array.isArray(Content) 
                 ? Content
-                : <InfoList items={ Content } />
+                : <InfoList items={ Content } useOrderedLists={ options.useOrderedLists ?? false } />
             }
             <PageNumber context={context} />
         </div>
@@ -41,4 +41,9 @@ interface Props {
     classes?: {
         viewport?: string;
     }
+    options?: ContentSlideOptions;
+}
+
+export interface ContentSlideOptions {
+    useOrderedLists?: boolean;
 }

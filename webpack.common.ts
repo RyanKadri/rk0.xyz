@@ -68,7 +68,8 @@ const config: webpack.Configuration = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: "robots.txt", to: "./"}
+                { from: "robots.txt", to: "./"},
+                { from: "packages/site/src/assets/favicon.png", to: "./"}
             ]
         }),
         new MonacoWebpackPlugin({

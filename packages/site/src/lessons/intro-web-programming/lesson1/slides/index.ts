@@ -6,7 +6,7 @@ import textAndHeadings from "../examples/textAndHeadings.html";
 import { OutlineToHtml } from "./outline-to-html";
 import { SimpleBrowserSlide } from "./simple-browser";
 import { SimpleMonitorSlide } from "./simple-monitor";
-import { Expectations, GradingA, GradingB, HTMLDef, LetsCode, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./simple-slides";
+import { AboutMe, AboutMePicture, CourseNonTopics, CourseTopics, Expectations, HTMLDef, LetsCode, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./simple-slides";
 import { XMLSlide } from "./xml-slide";
 
 export const lesson1 = {
@@ -15,10 +15,12 @@ export const lesson1 = {
     slug: "hello-world",
     slides: [
         TitleSlide,
+        AboutMePicture,
+        AboutMe,
+        CourseTopics,
+        CourseNonTopics,
         Expectations, 
         Syllabus,
-        GradingA,
-        GradingB,
         WhatIsWebsite,
         WhatIsBrowser,
         SimpleBrowserSlide,

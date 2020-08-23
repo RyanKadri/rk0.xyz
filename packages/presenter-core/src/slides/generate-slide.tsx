@@ -2,14 +2,14 @@ import React, { ReactElement } from "react";
 import { PresentationContext } from "../services/types";
 import { NestedListInfo } from "../slide-components/info-list";
 import { CenterMessageSlide } from "./center-message-slide";
-import { ContentSlide } from "./content-slide";
+import { ContentSlide, ContentSlideOptions } from "./content-slide";
 import { FullSlide } from "./embed-slide";
 import { MediaSlide } from "./media-slide";
 import { TitleSlide } from "./title-slide";
 
-export function generateContentSlide(title: string, points: (string | NestedListInfo | ReactElement)[]) {
+export function generateContentSlide(title: string, points: (string | NestedListInfo | ReactElement)[], options?: ContentSlideOptions) {
     return function({ context }: {context: PresentationContext}) {
-        return <ContentSlide Title={ title } Content={ points } context={ context } />
+        return <ContentSlide Title={ title } Content={ points } context={ context } options={ options } />
     }
 }
 

@@ -1,41 +1,51 @@
 import { Link as MaterialLink } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
-import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import myPicture from "./about-me-picture-web.jpg";
 
-export const TitleSlide = generateTitleSlide("Intro to Web Design", "Ryan Kadri");
+export const TitleSlide = generateTitleSlide("Introduction to Web Technology and Programming", "Ryan Kadri");
+
+export const AboutMePicture = generateMediaSlide(
+    <img src={ myPicture } alt="Me at Smith Rock" />,
+    "Smith Rock 2019",
+    "About Me"
+)
 
 export const AboutMe = generateContentSlide("About Me", [
-    "Grew up in NJ",
-    "Studied at Rutgers University",
-    "Worked at SEI",
-    "Worked for myself",
-    "Work at Capital One"
+    "Grew up in New Jersey",
+    "I like hiking and coding (not at the same time)",
+    "Studied at Rutgers",
+    "Currently work at Capital One"
 ]);
 
-export const Expectations = generateContentSlide("Course Expectations", [
-    "Coursework will consist of Labs, a Final Project, Quizzes, a Midterm, and a Final Exam",
+export const CourseTopics = generateContentSlide("Course Structure", [
+    "Structuring basic HTML websites",
+    "Using CSS to style your page",
+    "Making your static page interactive with JavaScript",
+    "Hosting your site on the Internet",
+    "Writing server-side code that your site can talk to"
+], { useOrderedLists: true });
+
+export const CourseNonTopics = generateContentSlide("What is this Course NOT?", [
+    "How to use Content Management Services",
+    "WYSIWYG Editors",
+    "Hosting Services"
+]);
+
+export const Expectations = generateContentSlide("Course Work", [
+    { text: "Coursework will consist of:", children: [
+        "Labs",
+        "Final Project",
+        "Quizzes",
+        "Midterm",
+        "Final Exam"
+    ] },
     "Unless on a team, all submitted work must be your own",
     "Homework should not be overwhelming",
 ])
 
-export const GradingA = generateContentSlide("Grading (Option A)", [
-    "25% Labs",
-    "25% Final Exam",
-    "25% Final Project",
-    "25% Midterm"
-]);
-
-export const GradingB = generateContentSlide("Grading (Option B)", [
-    "20% Labs",
-    "20% Final Exam",
-    "20% Final Project",
-    "20% Midterm",
-    "20% Quizzes"
-]);
-
 export const Syllabus = generateMessageSlide(
-    <MaterialLink component={ Link } variant="h1" to="https://templeu.instructure.com/courses/64482" target="_blank">
+    <MaterialLink variant="h2" href="https://templeu.instructure.com/courses/81125" target="_blank">
         Syllabus
     </MaterialLink>
 )

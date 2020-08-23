@@ -39,7 +39,7 @@ export function FunctionsRedux({ context }: Props) {
     return (
         <ContentSlide Title="Functions" context={context} Content={
             <>
-                <InfoList items={ slideItems }></InfoList>
+                <InfoList items={ slideItems } />
                 <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
             </>
         } />

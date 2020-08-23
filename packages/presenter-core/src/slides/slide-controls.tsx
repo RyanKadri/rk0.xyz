@@ -9,7 +9,13 @@ const useStyles = makeStyles(_ => createStyles({
         fontSize: 16
     },
     button: {
-        fontSize: 20
+        fontSize: 20,
+        "&:first-of-type": {
+            marginRight: 8
+        },
+        "&:last-of-type": {
+            marginLeft: 8
+        }
     }
 }));
 
