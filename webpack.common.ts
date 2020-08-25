@@ -18,6 +18,7 @@ const config: webpack.Configuration = {
             },
             {
                 test: /\.md$/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: "html-loader"
@@ -37,6 +38,7 @@ const config: webpack.Configuration = {
             },
             {
                 test: /\.html$/,
+                exclude: /node_modules/,
                 use: ["raw-loader"]
             },
             {

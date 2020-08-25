@@ -1,6 +1,6 @@
 import { faNetworkWired } from "@fortawesome/free-solid-svg-icons/faNetworkWired";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
-import { lesson1 } from "./lesson1/slides";
+import { lesson1 } from "./lesson1";
 
 export const introToWebProgrammingFall2020: CourseDefinition = { 
     title: "Introduction to Web Technology and Programming",
