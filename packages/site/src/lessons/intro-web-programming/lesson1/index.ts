@@ -8,7 +8,7 @@ import { IntroToHtmlLab } from "./lab/intro-to-html-lab";
 import { OutlineToHtml } from "./slides/outline-to-html";
 import { SimpleBrowserSlide } from "./slides/simple-browser";
 import { SimpleMonitorSlide } from "./slides/simple-monitor";
-import { AboutMe, AboutMePicture, CourseNonTopics, CourseTopics, Expectations, HtmlAsStructure, HTMLDef, LetsCode, References, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./slides/simple-slides";
+import { AboutMe, AboutMePicture, CourseNonTopics, CourseTools, CourseTopics, Expectations, HtmlAsStructure, HTMLDef, LetsCode, References, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./slides/simple-slides";
 import { XMLSlide } from "./slides/xml-slide";
 
 export const lesson1: Presentation = {
@@ -21,6 +21,7 @@ export const lesson1: Presentation = {
         AboutMe,
         CourseTopics,
         CourseNonTopics,
+        CourseTools,
         Expectations, 
         Syllabus,
         WhatIsWebsite,

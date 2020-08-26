@@ -33,6 +33,23 @@ export const CourseNonTopics = generateContentSlide("What is this Course NOT?", 
     "Hosting Services"
 ]);
 
+export const CourseTools = generateContentSlide("Course Tools", [
+    { text: "Visual Studio Code", children: [
+        "My IDE for HTML, CSS and JS"
+    ]},
+    { text: "Slack", children: [
+        "One channel per class",
+        "Use reactions to give feedback"
+    ]},
+    { text: "Email", children: [
+        "For longer discussions / attachments"
+    ]},
+    { text: "GitHub", children: [
+        "For sharing code examples"
+    ]},
+    "Zoom",
+])
+
 export const Expectations = generateContentSlide("Course Work", [
     { text: "Coursework will consist of:", children: [
         "Labs",

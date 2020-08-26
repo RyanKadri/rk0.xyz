@@ -3,7 +3,7 @@ import React, { ReactElement } from "react";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     list: {
-        marginTop: 32
+        marginTop: 16
     },
     item: {
         fontSize: "1.35rem",
