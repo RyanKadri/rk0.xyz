@@ -1,22 +1,22 @@
-import { Presentation } from "../../../../../../presenter-core/src/services/types";
-import { bodyExample } from "../../../../common/functional-utils";
-import borders from "../examples/borders.html";
-import colors from "../examples/colors.html";
-import display1 from "../examples/display1.html";
-import flexChildren from "../examples/flex-children.html";
-import flexDirections from "../examples/flex-directions.html";
-import fonts from "../examples/fonts.html";
-import mediaQuery from "../examples/media-query.html";
-import position from "../examples/position.html";
-import spacing from "../examples/spacing.html";
-import { HtmlCssLabView } from "../lab/html-css-lab";
-import { CssBox } from "./css-box";
-import { HexColors } from "./hex-colors";
-import { HslColors } from "./hsl-colors";
-import { NamedColors } from "./named-colors";
-import { References } from "./references";
-import { RgbaColors } from "./rgba-colors";
-import { Agenda, ColorStyles, CssFundamentalsDisplay, HowCSS, LetsGetSelective, LetsGetStylish, LinksAndLoading, MainTitle, RecapSlide, Selectors, StyleConcepts, ThinkingCSS, WhyCSS } from "./simple-slides";
+import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { bodyExample } from "../../../common/functional-utils";
+import borders from "./examples/borders.html";
+import colors from "./examples/colors.html";
+import display1 from "./examples/display1.html";
+import flexChildren from "./examples/flex-children.html";
+import flexDirections from "./examples/flex-directions.html";
+import fonts from "./examples/fonts.html";
+import mediaQuery from "./examples/media-query.html";
+import position from "./examples/position.html";
+import spacing from "./examples/spacing.html";
+import { HtmlCssLabView } from "./lab/html-css-lab";
+import { CssBox } from "./slides/css-box";
+import { HexColors } from "./slides/hex-colors";
+import { HslColors } from "./slides/hsl-colors";
+import { NamedColors } from "./slides/named-colors";
+import { References } from "./slides/references";
+import { RgbaColors } from "./slides/rgba-colors";
+import { Agenda, ColorStyles, CssFundamentalsDisplay, HowCSS, LetsGetSelective, LetsGetStylish, LinksAndLoading, MainTitle, RecapSlide, Selectors, StyleConcepts, ThinkingCSS, WhyCSS } from "./slides/simple-slides";
 
 export const lesson2: Presentation = {
     title: `Keeping it "classy"`,

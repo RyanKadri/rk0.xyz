@@ -1,6 +1,7 @@
 import { Link as MaterialLink } from "@material-ui/core";
 import React from "react";
 import { generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateReferencesSlide } from "../../../shared/references-slide";
 import myPicture from "./about-me-picture-web.jpg";
 
 export const TitleSlide = generateTitleSlide("Introduction to Web Technology and Programming", "Ryan Kadri");
@@ -87,11 +88,20 @@ export const HTMLDef = generateContentSlide("HTML", [
     'Not a programming language',
 ]);
 
+export const HtmlAsStructure = generateContentSlide("HTML", [
+    'HTML is not meant to describe presentation',
+    'Tags describe the purpose of content',
+    '<strong> means "strong importance". Not bold',
+    '<h1> means "highest level organizational header" not "biggest text"',
+    'Each tag can be made to look like any other',
+    'Picking the right element is important for accessibility, among other things'
+]);
+
 export const LetsCode = generateMessageSlide("Let's Code!")
 
-export const CSSInfo = generateContentSlide("CSS", [
-    "Adds styles to a web app / site",
-    "Identifies elements using selectors",
-    "More specific rules override less specific rules",
-    "Not a programming language",
-]);
+export const References = generateReferencesSlide([
+    { label: "HTML Element Reference", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element" },
+    { label: "Class Examples", url: "https://github.com/RyanKadri/cis1052-fall2020-examples" },
+    { label: "HTML Tutorials", url: "https://www.w3schools.com/html/default.asp" },
+    { label: "Class Examples", url: "https://github.com/RyanKadri/cis1052-fall2020-examples" }
+])
