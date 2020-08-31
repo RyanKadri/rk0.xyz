@@ -9,7 +9,8 @@ const canonicalWidth = canonicalHeight * 16 / 9;
 const useStyles = makeStyles((theme: Theme) => createStyles({
     viewportPaper: {
         borderRadius: 0,
-        transformOrigin: "center"
+        transformOrigin: "center",
+        overflow: "hidden"
     },
     viewportContainer: {
         width: "100%",

@@ -1,4 +1,5 @@
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateReferencesSlide } from "../../../shared/references-slide";
 
 export const TitleSlide = generateTitleSlide(`Responsive Design and Component Libraries`, "Ryan Kadri");
 
@@ -110,3 +111,7 @@ export const MediaQueries = generateContentSlide("Media Queries", [
     ]}
 ]);
 
+export const References = generateReferencesSlide([
+    { label: "Flexbox Froggy", url: "https://flexboxfroggy.com/" },
+    { label: "Media Query Reference", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" }
+])

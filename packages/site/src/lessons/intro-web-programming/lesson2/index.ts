@@ -14,9 +14,9 @@ import { CssBox } from "./slides/css-box";
 import { HexColors } from "./slides/hex-colors";
 import { HslColors } from "./slides/hsl-colors";
 import { NamedColors } from "./slides/named-colors";
-import { References } from "./slides/references";
 import { RgbaColors } from "./slides/rgba-colors";
-import { Agenda, ColorStyles, CssFundamentalsDisplay, HowCSS, LetsGetSelective, LetsGetStylish, LinksAndLoading, MainTitle, RecapSlide, Selectors, StyleConcepts, ThinkingCSS, WhyCSS } from "./slides/simple-slides";
+import { Agenda, ColorStyles, CssFundamentalsDisplay, HowCSS, LetsGetSelective, LetsGetStylish, LinksAndLoading, MainTitle, RecapSlide, References, Selectors, StyleConcepts, ThinkingCSS, WhyCSS } from "./slides/simple-slides";
+import { Sizes } from "./slides/sizes";
 
 export const lesson2: Presentation = {
     title: `Keeping it "classy"`,
@@ -24,9 +24,10 @@ export const lesson2: Presentation = {
     slug: "css-and-html",
     slides: [
         MainTitle,
-        Agenda,
         RecapSlide,
+        Agenda,
         StyleConcepts,
+        Sizes,
         ColorStyles,
         NamedColors,
         HexColors,

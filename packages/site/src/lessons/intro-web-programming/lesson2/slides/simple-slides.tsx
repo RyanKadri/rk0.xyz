@@ -1,11 +1,10 @@
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateReferencesSlide } from "../../../shared/references-slide";
 
 export const MainTitle = generateTitleSlide(`HTML + CSS: Keeping it "Classy"`, "Ryan Kadri");
 
 export const Agenda = generateContentSlide("Agenda", [
-    "Quiz",
     "Exploring Styles",
-    "Composing a web page",
     "CSS Selectors",
     "Precedence / Ordering",
     "Debugging Styles"
@@ -16,7 +15,6 @@ export const RecapSlide = generateContentSlide("Recap", [
     { 
         text: "XML",
         children: [
-            "Data Serialization",
             "Tags",
             "Attributes"
         ]
@@ -25,6 +23,7 @@ export const RecapSlide = generateContentSlide("Recap", [
         text: "HTML",
         children: [
             "Basic Elements",
+            "Declarative Language - Not a programming language",
             "HTML is for structure not style"
         ]
     }
@@ -33,13 +32,15 @@ export const RecapSlide = generateContentSlide("Recap", [
 export const StyleConcepts = generateContentSlide("Style Concepts", [
     "Styles are applied to individual elements",
     "Some styles can be inherited",
-    "Any style can be applied to any element",
-    `Styles should eventually be "stable"`
+    "Styles are declarative (like HTML)",
+    "Styles can make (almost) any element look like (almost) any other",
+    'Try to make your HTML as "correct" as possible and then apply styles to achieve your look'
 ]);
 
 export const ColorStyles = generateContentSlide("Styles: Color", [
+    "Colors show up everywhere (fonts, borders, backgrounds, outlines, etc)",
     "color, background-color, border-color",
-    "Colors can be described as named colors, hex colors, rgb(a), and hsl(a)",
+    "Colors can be described as named colors, hex colors, rgb(a), and hsl(a), etc",
     `Uses the concept of "additive colors"`
 ]);
 
@@ -91,4 +92,11 @@ export const LinksAndLoading = generateContentSlide("External Style Sheets", [
     "<link> tags let you reference external CSS files and fonts",
     "This is nice for reusing styles and organizing code",
     "Need to consider document loading order"
+]);
+
+export const References = generateReferencesSlide([
+    { label: "CSS Selector Target Practice", url: "https://flukeout.github.io/" },
+    { label: "CSS Selector Cheat Sheet", url: "https://adam-marsden.co.uk/css-cheat-sheet" },
+    { label: "Palette Builder", url: "https://material-ui.com/customization/color/#color-tool" },
+    { label: "Weird CSS Named Colors", url: "https://www.impressivewebs.com/weird-css-color-names/" }
 ]);

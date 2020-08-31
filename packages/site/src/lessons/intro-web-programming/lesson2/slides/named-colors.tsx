@@ -1,5 +1,5 @@
 import { createStyles, makeStyles } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
 
@@ -15,10 +15,9 @@ const colors = [
 const useStyles = makeStyles(createStyles({
     colorContainer: {
         display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr",
-        gridTemplateRows: "1fr 1fr 1fr",
+        gridTemplateColumns: "33% 33% 33%",
         gridGap: 16,
-        height: "80%"
+        marginTop: 32
     },
     colorBlock: {
         borderRadius: 8,
@@ -26,15 +25,28 @@ const useStyles = makeStyles(createStyles({
         justifyContent: "center",
         alignItems: "center",
         border: "solid 4px #ccc",
-        fontSize: "2.5rem"
+        fontSize: "2.5rem",
+        padding: 16
+    },
+    colorInput: {
+        fontSize: "inherit",
+        backgroundColor: "rgba(255,255,255,0.6)",
+        width: "100%",
+        borderColor: "transparent"
+    },
+    customBlock: {
+        gridColumnStart: 2,
+        marginTop: 64
     }
 }))
 export function NamedColors({ context }: Props) {
 
     const classes = useStyles();
+    const [ customColor, setCustomColor ] = useState("lightgreen");
 
     return (
         <ContentSlide Title="Named Colors" context={ context } Content={
+            <>
             <div className={ classes.colorContainer}>
                 { colors.map(color => (
                     <div key={color} style={{ backgroundColor: color }} className={classes.colorBlock}>
@@ -42,6 +54,14 @@ export function NamedColors({ context }: Props) {
                     </div>
                 )) }
             </div>
+            <div className={ classes.colorContainer }>
+                <div style={ { backgroundColor: customColor } } className={ `${classes.colorBlock} ${ classes.customBlock }` }>
+                    <input onInput={ e => setCustomColor(e.currentTarget.value )} 
+                           value={ customColor }
+                           className={ classes.colorInput } />
+                </div>
+            </div>
+            </>
         }/>
     )
 }
