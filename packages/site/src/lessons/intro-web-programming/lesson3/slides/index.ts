@@ -3,7 +3,7 @@ import { bodyExample } from "../../../../common/functional-utils";
 import flexChildren from "../../lesson2/examples/flex-children.html";
 import flexDirections from "../../lesson2/examples/flex-directions.html";
 import mediaQuery from "../../lesson2/examples/media-query.html";
-import { MobileDesignLabView } from "../lab/responsive-design-lab";
+import { HtmlCssLabView } from "../lab/html-css-lab";
 import * as simple from "./simple-slides";
 
 export const lesson3: Presentation = {
@@ -42,8 +42,8 @@ export const lesson3: Presentation = {
             + "in the middle."
     },
     lab: {
-        title: "A Responsive Resume",
-        slug: "responsive-resume",
-        LabView: MobileDesignLabView
+        title: "HTML + CSS Basics",
+        slug: "html-css-basics",
+        LabView: HtmlCssLabView
     }
 }

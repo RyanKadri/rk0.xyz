@@ -1,5 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { bodyExample } from "../../../common/functional-utils";
+import { HtmlCssLabView } from "../lesson3/lab/html-css-lab";
 import borders from "./examples/borders.html";
 import colors from "./examples/colors.html";
 import display1 from "./examples/display1.html";
@@ -9,7 +10,6 @@ import fonts from "./examples/fonts.html";
 import mediaQuery from "./examples/media-query.html";
 import position from "./examples/position.html";
 import spacing from "./examples/spacing.html";
-import { HtmlCssLabView } from "./lab/html-css-lab";
 import { CssBox } from "./slides/css-box";
 import { HexColors } from "./slides/hex-colors";
 import { HslColors } from "./slides/hsl-colors";

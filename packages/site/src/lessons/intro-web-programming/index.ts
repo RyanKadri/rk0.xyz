@@ -2,6 +2,7 @@ import { faNetworkWired } from "@fortawesome/free-solid-svg-icons/faNetworkWired
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
 import { lesson1 } from "./lesson1";
 import { lesson2 } from "./lesson2";
+import { lesson3 } from "./lesson3/slides";
 
 export const introToWebProgrammingFall2020: CourseDefinition = { 
     title: "Introduction to Web Technology and Programming",
@@ -9,7 +10,8 @@ export const introToWebProgrammingFall2020: CourseDefinition = {
     slug: "cis-1052",
     lessons: [ 
         lesson1,
-        lesson2
+        lesson2,
+        lesson3
     ],
     icon: faNetworkWired
 };
