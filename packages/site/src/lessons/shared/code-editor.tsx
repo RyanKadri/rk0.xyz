@@ -52,7 +52,8 @@ function CodeEditor(props: Props) {
                 codeLens: false,
                 minimap: {
                     enabled: false
-                }
+                },
+                automaticLayout: true
             });
 
             props.editorRef.current = editor;

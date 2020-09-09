@@ -1,10 +1,13 @@
-import { Presentation } from "../../../../../../presenter-core/src/services/types";
-import { bodyExample } from "../../../../common/functional-utils";
-import flexChildren from "../../lesson2/examples/flex-children.html";
-import flexDirections from "../../lesson2/examples/flex-directions.html";
-import mediaQuery from "../../lesson2/examples/media-query.html";
-import { HtmlCssLabView } from "../lab/html-css-lab";
-import * as simple from "./simple-slides";
+import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { bodyExample } from "../../../common/functional-utils";
+import flexChildren from "../lesson2/examples/flex-children.html";
+import flexDirections from "../lesson2/examples/flex-directions.html";
+import mediaQuery from "../lesson2/examples/media-query.html";
+import { HtmlCssLabView } from "./lab/html-css-lab";
+import { DetectBrowser } from "./slides/DetectBrowser";
+import { ResponsiveCSS } from "./slides/ResponsiveCss";
+import * as simple from "./slides/simple-slides";
+import { UseMultipleSites } from "./slides/UsingMultipleSites";
 
 export const lesson3: Presentation = {
     title: "The Mainstream Media Queries",
@@ -15,11 +18,14 @@ export const lesson3: Presentation = {
         simple.Agenda,
         simple.GoalsOfResponsiveDesign,
         simple.GoalsOfResponsiveDesignMore,
+        simple.AccessibilityAndResponsiveness,
         simple.HowToResponsive,
-        simple.UseDifferentSite,
-        simple.UseDifferentCode,
-        simple.CompletelyResponsive,
+        UseMultipleSites,
+        DetectBrowser,
+        ResponsiveCSS,
         simple.ResponsiveIsHard,
+        simple.EnterMedia,
+        simple.MediaQueries,
         simple.MixMatchApproach,
         simple.FlexBox,
         simple.EnterFlexbox,
@@ -27,20 +33,14 @@ export const lesson3: Presentation = {
         simple.FlexboxMissing,
         simple.EnterGrid,
         simple.GridOverview,
-        simple.HowToRearrange,
-        simple.EnterMedia,
-        simple.MediaQueries
+        simple.CombineItAll,
+        simple.References
     ],
     examples: [
         bodyExample("Flex Directions", flexDirections, `<style>div { border: solid 1px; margin: 8px } </style>`),
         bodyExample("Flex Children", flexChildren, `<style>div { border: solid 1px; margin: 8px } </style>`),
         { code: mediaQuery, title: "Media Query" }
     ],
-    recording: {
-        link: "https://youtu.be/r2TzBLehaB8",
-        comment: "I started the recording a bit late for this class so the video starts "
-            + "in the middle."
-    },
     lab: {
         title: "HTML + CSS Basics",
         slug: "html-css-basics",

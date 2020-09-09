@@ -1,6 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { bodyExample } from "../../../common/functional-utils";
-import { HtmlCssLabView } from "../lesson3/lab/html-css-lab";
 import borders from "./examples/borders.html";
 import colors from "./examples/colors.html";
 import display1 from "./examples/display1.html";
@@ -54,10 +53,5 @@ export const lesson2: Presentation = {
         bodyExample("Flex Directions", flexDirections, `<style>div { border: solid 1px; margin: 8px } </style>`),
         bodyExample("Flex Children", flexChildren, `<style>div { border: solid 1px; margin: 8px } </style>`),
         { code: mediaQuery, title: "Media Query" }
-    ],
-    lab: {
-        title: "HTML + CSS Basics",
-        slug: "html-css-basics",
-        LabView: HtmlCssLabView
-    }
+    ]
 }
