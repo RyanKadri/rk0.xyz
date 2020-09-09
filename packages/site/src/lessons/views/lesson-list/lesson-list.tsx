@@ -17,6 +17,9 @@ const useStyles = makeStyles(createStyles({
     },
     lessonCard: {
         margin: "16px 0"
+    },
+    labLink: {
+        display: "block"
     }
 }))
 
@@ -40,7 +43,7 @@ function LessonCards({ lessons, baseUrl }: Props) {
                 <CardContent>
                     { lesson.description }
                     { lesson.lab && (
-                        <MaterialLink component={ Link } to={`${baseUrl}/labs/${lesson.lab.slug}`}>Lab: { lesson.lab.title }</MaterialLink>
+                        <MaterialLink component={ Link } to={`${baseUrl}/labs/${lesson.lab.slug}`} className={ classes.labLink }>Lab: { lesson.lab.title }</MaterialLink>
                     )}
                 </CardContent>
                 <CardActions>
