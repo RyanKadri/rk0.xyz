@@ -15,7 +15,7 @@ export const Agenda = generateContentSlide("Agenda", [
 ]);
 
 export const GoalsOfResponsiveDesign = generateContentSlide("Goals of Responsive Design", [
-    "Make the site work on smart phones",
+    "Make the site work on smartphones",
     "Profit?"
 ]);
 
@@ -23,7 +23,6 @@ export const GoalsOfResponsiveDesignMore = generateContentSlide("Goals of Respon
     "Work on small screens",
     "Work on huge screens",
     "Work on a watch?",
-    "Work without a screen (screen reader)",
     "Work in different browsers",
     "Add features progressively"
 ]);
@@ -35,13 +34,6 @@ export const AccessibilityAndResponsiveness = generateContentSlide("Responsivene
 ]);
 
 export const HowToResponsive = generateMessageSlide("How do we make a site look good on multiple devices?")
-
-export const UseDifferentCode = generateContentSlide("Approach 2: Send Back Different Content", [
-    "Uses the same URLs and backend logic but sends back different content",
-    "Links work again",
-    "Features are often still missing",
-    "Code and design scheme often became more unified though"
-]);
 
 export const ResponsiveIsHard = generateMessageSlide("But responsive design is hard!");
 

@@ -24,9 +24,9 @@ export const lesson3: Presentation = {
         DetectBrowser,
         ResponsiveCSS,
         simple.ResponsiveIsHard,
+        simple.MixMatchApproach,
         simple.EnterMedia,
         simple.MediaQueries,
-        simple.MixMatchApproach,
         simple.FlexBox,
         simple.EnterFlexbox,
         simple.FlexboxOverview,
@@ -45,5 +45,8 @@ export const lesson3: Presentation = {
         title: "HTML + CSS Basics",
         slug: "html-css-basics",
         LabView: HtmlCssLabView
+    },
+    recording: {
+        link: "https://temple.zoom.us/rec/share/LBlOi9yVa9mD-OBi4MY9VNBGbPY9TOfaYXNn1tyFXKE0ru6V_jSG8IgRAO4V0cj0.qYuJERaC6jmdaD3p",
     }
 }
