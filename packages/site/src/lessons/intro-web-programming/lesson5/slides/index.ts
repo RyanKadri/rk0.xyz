@@ -1,8 +1,8 @@
 import { Presentation } from "../../../../../../presenter-core/src/services/types";
-import { ConditionalsExample } from "../../lesson4/slides/conditionals";
-import { ForLoops } from "../../lesson4/slides/for-loops";
-import { FunctionsExample } from "../../lesson4/slides/functions";
-import { WhileLoops } from "../../lesson4/slides/while-loops";
+import { ConditionalsExample } from "../../js-1/slides/conditionals";
+import { ForLoops } from "../../js-1/slides/for-loops";
+import { FunctionsExample } from "../../js-1/slides/functions";
+import { WhileLoops } from "../../js-1/slides/while-loops";
 import { FormControlLab } from "../lab/form-control-lab";
 import { ArraysExample } from "./arrays";
 import { Methods } from "./methods";
