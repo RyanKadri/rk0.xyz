@@ -1,16 +1,10 @@
 # Lab 6: Something Old, Something New
 
-<article>
-
 ## Overview
 
 For this lab, you will be learning about a few features of CSS that we never got a chance to work
 on in class. Once you are done with that, you will get a chance to practice more on-page JavaScript
 in the form of a simple To Do List application.
-
-</article>
-
-<article>
 
 ## Part One - CSS Pseudo Classes
 
@@ -49,23 +43,20 @@ this lab.
 1. A text `<input>` that has red text while a user is typing but turns back to black otherwise
 1. A button that, while it is being clicked, changes its text to stay "Stop that!"
 1. A link that grows to twice the original size when hovered
-1. Given the following HTML: 
-```
-    <div class="user-form">
-        <label>
-            Name:
-            <input type="text" placeholder="Type here...">
-        </label>
-        <strong>
-            Hey you! You should enter your name. You can do it in that form up above!
-        </strong>
-    </div>
-```
-please make the "Hey you!" text show up whenever the user is not typing in the textbox.
+1. Given the following HTML, please make the "Hey you!" text show up whenever the user is not typing in the textbox:
 
-</article>
+```
+<div class="user-form">
+    <label>
+        Name:
+        <input type="text" placeholder="Type here...">
+    </label>
+    <strong>
+        Hey you! You should enter your name. You can do it in that form up above!
+    </strong>
+</div>
+```
 
-<article>
 
 ## Part 2: Animations - Transitions
 
@@ -75,11 +66,12 @@ the browser to look for changes in `margin-left` and `height`, and when they cha
 from the original value to the next value. The `margin-left` has 4 seconds to make that transition and
 the `height` has 1 second. The `ease-in` and `linear` refer to how gradually the changes start and end.
 You can read this article for more specifics about exactly how transitions work: 
-https://developer.mozilla.org/en-US/docs/Web/CSS/transition
+<https://developer.mozilla.org/en-US/docs/Web/CSS/transition>
 
 These transitions occur whether styles are changed via CSS and JavaScript. They combine nicely with
 some of the pseudo classes above. Please create the following effects with CSS transitions and 
 pseudo-classes:
+
 - A 64x64 square that starts as green and transitions to red as you hover over it.
 - A 64x64 square that follows your mouse across the screen as long as you hover over it.
 - A button that, as long as you hold it down, causes a red square to grow to twice its original size,
@@ -87,11 +79,8 @@ then rotate 360 degrees, and then gradually change color to green.
 
 Changing styles with JavaScript allows you to accomplish some pretty interesting effects in a more
 flexible way than CSS pseudo classes. Please use JavaScript to make:
+
 - A textbox that, when you type in a CSS color, causes a square to transition to that color
-
-</article>
-
-<article>
 
 ## Part 3 - To-Do List
 
@@ -101,10 +90,6 @@ typing into a textbox and clicking a submit button. Once they have typed somethi
 button, the text they entered should show up at the top of their to-do list. Once there, they should
 have a button that they can click to mark the item as done. Marking an item as done should remove it
 from the list.
-
-</article>
-
-<article>
 
 ## Submitting
 
@@ -118,9 +103,6 @@ which requested demonstration.
 The second folder in your zip file should contain the HTML page and linked CSS/Javascript for your To-Do 
 list application.
 
-</article>
-<article>
-
 ## Grading
 
 I am not too picky about the appearance of the page(s) that contain your Part 1 and 2 answers.
@@ -132,4 +114,3 @@ In part 3, I am also not super concerned with the art/design of the application.
 - If the user does not type anything but tries to add a list item, nothing happens
 - If the user clicks the button to remove an item from the list, the item should be removed from the
 position they selected and all the other items should remain in their previous ordering
-</article>

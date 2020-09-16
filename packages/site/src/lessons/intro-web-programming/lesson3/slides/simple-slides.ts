@@ -1,7 +1,7 @@
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { generateReferencesSlide } from "../../../shared/references-slide";
 
-export const TitleSlide = generateTitleSlide(`Responsive Design and Component Libraries`, "Ryan Kadri");
+export const TitleSlide = generateTitleSlide(`Responsive Design`, "Ryan Kadri");
 
 export const Agenda = generateContentSlide("Agenda", [
     "Review Quiz 1",

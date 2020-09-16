@@ -56,6 +56,9 @@ export const useMarkdownLabStyles = makeStyles((theme: Theme) => createStyles({
         "& img": {
             width: "100%",
             maxWidth: 900
+        },
+        "& code": {
+            whiteSpace: "pre-wrap"
         }
     }
 }));

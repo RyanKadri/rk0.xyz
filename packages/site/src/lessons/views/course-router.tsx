@@ -48,7 +48,7 @@ export function CourseRouter({ match }: Props) {
                     `Could not find lab with slug ${ innerMatch.params.lab }`
                 );
                 return <lab.LabView lab={lab} />;
-            }}/>
+            }} />
         </Switch>
     )
 }
