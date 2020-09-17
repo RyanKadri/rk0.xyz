@@ -99,5 +99,6 @@ export const References = generateReferencesSlide([
     { label: "Specificity Calculator", url: "https://specificity.keegan.st/" },
     { label: "Bootstrap", url: "https://getbootstrap.com/" },
     { label: "MUI", url: "https://www.muicss.com/docs/v1/getting-started/introduction" },
-    { label: "Water.css", url: "https://watercss.netlify.app/" }
+    { label: "Water.css", url: "https://watercss.netlify.app/" },
+    { label: "Code from this class", url: "https://github.com/RyanKadri/cis1052-fall2020-examples/tree/master/c4-css-frameworks" }
 ])

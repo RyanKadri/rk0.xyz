@@ -1,4 +1,4 @@
-# Lab 1: Introduction to HTML
+# Lab 3: Responsive Resume
 
 ## Overview
 In this lab, you will practice creating responsive websites using some of the techniques we learned in class. For the first section of the lab, you will look for responsive design features in real web sites / applications. For second and third parts, you will work on creating a responsive resume with HTML and CSS. This should give you some practice with creating interesting page layouts in HTML and CSS.

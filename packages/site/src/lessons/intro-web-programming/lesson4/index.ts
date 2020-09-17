@@ -31,5 +31,7 @@ export const lesson4: Presentation = {
         slug: "responsive-resume",
         LabView: ResponsiveResumeLab
     },
-    recording: undefined
+    recording: {
+        link: "https://temple.zoom.us/rec/share/HKJpNfKSFFYVvgduROt0JmFJcZIdsxSiliZ6wKN9roHkbGNEsp2Hzl6UxfQjwWo0.Fj95pJBmjLUm3rkf"
+    }
 }

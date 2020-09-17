@@ -94,7 +94,7 @@ export function HtmlCssLabView({}: Props) {
 
     return (
         <div className={classes.container}>
-            <Typography variant="h4" className={ classes.title }>Lab 1: Introduction to HTML and CSS</Typography>
+            <Typography variant="h4" className={ classes.title }>Lab 2: Introduction to HTML and CSS</Typography>
             <section className={ classes.section }>
                 <Typography variant="h5" className={ classes.sectionLabel }>Overview</Typography>
                 <Typography variant="body1">{ overview }</Typography>
