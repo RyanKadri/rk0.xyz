@@ -37,17 +37,17 @@ Please use 2 or more vertical columns (either with a sidebar or in the body of y
 ## Part Three - Responsive Resume
 
 Since recruiters will view your resume on a number of different types of devices, it should be responsive. You should consider at least 3 viewing possibilities: 
+- A large screen.
 - A printed page
 - A small screen (width between 400 and 700 px)
-- A large screen.
 
 There are a few things you should consider for these different media:
+
+**Large Screens:** This is the "default view" most users will get if they visit your resume site on a laptop / desktop and corresponds to the view you designed in part 2.
 
 **Printed Page:** For a printed page, users will not want to print out a ton of color. Anything with a color background should switch to have a white background (and maybe a border to remain distinct?). Also, the resume **must** fit on one page.
 
 **Small Screens:** For a small screen, users do not want to scroll horizontally. All content should fit horizontally on the screen. That means parts of the layout that have two columns should merge together to only have one.
-
-**Large Screens:** The view users see in a large screen should match up with what they get when they print (minus color potentially). For this project, make your resume look like an 8.5 x 11 sheet of paper centered in the page. It should look exactly the same as it would when printed.
 
 Please use media queries to include styles that apply specifically to the different media above. CSS grid is your friend here. Think about how you laid out the BookReads site from the last lab and try to combine that approach with how we used media queries in lesson 3 to include both a 2-column and 1-column view in one site.
 
@@ -68,3 +68,5 @@ I am not grading this assignment as a work of art. The aesthetics of your resume
 **Hint 3:** In order to get your resume fitting on one page, check out the "max-width" CSS property and remember that you can give lengths in inches in CSS (this is a good use-case for why)
 
 **Hint 4:** This is the first project where you are writing all the code yourself. It can feel a bit intimidating. To get started, I would recommend the following approach: Hand-draw your page for print and mobile. Think about where content will go and what will be grouped. Look at some PDFs of sample resumes for inspiration. Dump most/all the content you have in an HTML file. Don't worry about making it look pretty but think about what gets grouped together. Start styling the page from the "outside" in. Figure out the overall page layout before jumping into the details. Keep your page layout flexible and think about how it will change for the different media. Try adding media queries that get the overall layout to behave the way you want it. Tweak your design over time to get the finishing touches done. Do broad layout-affecting features before small tweaks.
+
+**Hint 5:** This is a suggestion you can take or leave. One way to keep consistency between your printer view and your "desktop" view, is by making your resume look like an 8.5 x 11 sheet of paper centered in the page. It should look exactly the same as it would when printed. Maybe take inspiration from how Google Docs shows you the document you're editing in the middle of the screen, surrounded by a grey background.
