@@ -1,17 +1,17 @@
-import { Presentation } from "../../../../../../presenter-core/src/services/types";
-import { ConditionalsExample } from "../../js-1/slides/conditionals";
-import { ForLoops } from "../../js-1/slides/for-loops";
-import { FunctionsExample } from "../../js-1/slides/functions";
-import { WhileLoops } from "../../js-1/slides/while-loops";
-import { FormControlLab } from "../lab/form-control-lab";
-import { ArraysExample } from "./arrays";
-import { Methods } from "./methods";
-import { Objects } from "./objects";
-import { OperatorsTable } from "./operators";
-import { RegularExpressions } from "./regex";
-import * as simple from "./simple";
-import { StringsPart2 } from "./strings";
-import { VariablesRedux } from "./variables";
+import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { ConditionalsExample } from "../lesson5/slides/conditionals";
+import { ForLoops } from "../lesson5/slides/for-loops";
+import { FunctionsExample } from "../lesson5/slides/functions";
+import { WhileLoops } from "../lesson5/slides/while-loops";
+import { FormControlLab } from "./lab/form-control-lab";
+import { ArraysExample } from "./slides/arrays";
+import { Methods } from "./slides/methods";
+import { Objects } from "./slides/objects";
+import { OperatorsTable } from "./slides/operators";
+import { RegularExpressions } from "./slides/regex";
+import * as simple from "./slides/simple";
+import { StringsPart2 } from "./slides/strings";
+import { VariablesRedux } from "./slides/variables";
 
 export const lesson5: Presentation = {
     title: `A Quarter Mile at a Time`,

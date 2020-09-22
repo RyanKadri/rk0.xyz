@@ -1,5 +1,5 @@
 import { Presentation } from "../../../../../../presenter-core/src/services/types";
-import { RegularExpressions } from "../../lesson5/slides/regex";
+import { RegularExpressions } from "../../js-dom/slides/regex";
 import { TicTacToeLab } from "../lab/tic-tac-toe-apis";
 import { Timeouts } from "./async-callback-examples";
 import { BlockingCode } from "./blocking-code";

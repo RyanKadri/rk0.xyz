@@ -8,29 +8,37 @@ import { ContentSlide } from "../../../../../../presenter-core/src/slides/conten
 
 const useStyles = makeStyles(createStyles({
     code: {
+        position: "absolute",
+        right: 32,
+        top: 266,
         fontSize: 32,
         userSelect: "text"
     }
 }))
 
 const slideItems = [
-    "A variable can be assigned to any type of data",
-    "Variables can be reassigned to other values (and types)",
-    "Variables use keywords let, const, and var",
-    "let and const are block scoped",
-    "var is function scoped"
+    "Variables Store Data",
+    { text: "Data has a type", children: [
+        "Strings",
+        "Numbers",
+        "Booleans",
+        "Functions",
+        "Objects",
+        "null / undefined",
+        "etc"
+    ]}
 ];
 
 const code = `
-let data = "Ryan";
-data = 123;
-data = false;
-data = null;
-const something = 456;
-something = 123 // TypeError
+const str = "Test";
+let num = 123;
+const bool = true;
+const obj = 
+    { firstName: "Ryan", lastName: "Kadri" };
+const nothing = null;
 `.trim();
 
-export function VariablesRedux({ context }: Props) {
+export function VariablesExamples({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Variables" context={context} Content={
