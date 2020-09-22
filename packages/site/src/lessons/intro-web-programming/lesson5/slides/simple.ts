@@ -1,51 +1,40 @@
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
-export const TitleSlide = generateTitleSlide("JavaScript Basics", "Ryan Kadri");
+export const TitleSlide = generateTitleSlide("Introduction to JavaScript", "Ryan Kadri");
+
+export const JavascriptVsCSS = generateContentSlide("HTML and CSS vs JavaScript", [
+    "We're moving onto JavaScript from HTML and CSS",
+    "HTML and CSS are tricky because you have tons of tools",
+    "JavaScript has a much smaller set of tools but you have to combine them right",
+    'JavaScript is a "real" programming language'
+]);
 
 export const WhatIsAProgrammingLanguage = generateContentSlide("What is a Programming Language?", [
-    "A way to precisely define a series of computer operations",
-    "An abstraction layer",
-    "Can be high or low level and is targeted to a specific task"
+    "A way to precisely define a series of computer operations in text",
+    "Gives you control and flexibility over execution",
+    "Should be able to solve a wide range of problems",
+    "Usually has logic for making decisions and repeating operations"
 ]);
 
-export const HowDoesComputerWorkParts = generateContentSlide("How does a computer work?", [
-    "The CPU processes main instructions",
-    "Memory stores large amounts of information temporarily",
-    "GPU speeds up certain graphics tasks",
-    "The hard drive stores things long-term",
-]);
-
-export const HowDoesAComputerWorkScience = generateContentSlide("How does a computer work?", [
-    "Physics!",
-    "Chemistry!",
-    "Love!"
-]);
-
-export const ComputerConstraints = generateContentSlide("What are the constraints?", [
-    "Data has to fit in the processor for operations",
-    "Data has to be expressed in binary",
-    "The CPU has a fixed (small) set of operations"
-]);
-
-export const WhyConstraintsImportant = generateContentSlide("Why is this important?", [
-    "Programming languages try to hide operational details",
-    { text: "They sometimes don't stay hidden", children: [
-        "Floating point math",
-        "Overflow / underflow",
-        "Data type coercion"
+export const JavaScriptProgrammingType = generateContentSlide("What is JavaScript?", [
+    "JavaScript is a very flexible language",
+    { text: "JavaScript is (often):", children: [
+        "Imperative: Normal lines of code run in order and loops / conditions give control flow",
+        "High Level: You don't need to know that much about computer internals",
+        "Dynamically Typed: You don't need to think about variable types as much as some other languages",
     ]}
 ]);
 
-export const EnterJavascript = generateContentSlide("What is JavaScript?", [
-    "A high-level, (mostly) single threaded language",
-    "Styled similarly to Java / C++",
-    "Originally built for the web but growing"
-]);
-
-export const WhyJavascript = generateContentSlide("Javascript: What is it good for?", [
-    "Older websites treated every action as a complete navigation",
-    "Decisions and logic had to run on the server",
-    "Browsers have more information than the server"
+export const DataTypes = generateContentSlide("Thinking about Data", [
+    { text: "JavaScript work with different types of data", children: [
+        "Numbers",
+        "Strings",
+        '"Booleans"',
+        "null / undefined",
+        'Objects - Collections of related fields',
+        "Arrays (a list for 0+ pieces of data)",
+        "A few others"
+    ] }
 ]);
 
 export const LetsGetStarted = generateMessageSlide("Let's Get Started");

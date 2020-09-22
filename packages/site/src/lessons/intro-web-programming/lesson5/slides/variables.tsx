@@ -8,31 +8,23 @@ import { ContentSlide } from "../../../../../../presenter-core/src/slides/conten
 
 const useStyles = makeStyles(createStyles({
     code: {
-        position: "absolute",
-        right: 32,
-        top: 266,
         fontSize: 32,
         userSelect: "text"
     }
 }))
 
 const slideItems = [
-    "Variables Store Data",
-    { text: "Data has a type", children: [
-        "Strings",
-        "Numbers",
-        "Booleans",
-        "Functions",
-        "Objects",
-        "null / undefined",
-        "etc"
-    ]}
+    "Variables give a label for data",
+    'Variables are assigned with "const", "let", or "var"',
+    'var is discouraged (obsolete?)',
+    'The label can be re-pointed to new data if you use "let"',
+    'The label can be re-pointed to different types of data if you use "let"'
 ];
 
 const code = `
-const str = "Test";
-let num = 123;
-const bool = true;
+const myName = "Ryan";
+let myAge = 28;
+const isATeacher = true;
 const obj = 
     { firstName: "Ryan", lastName: "Kadri" };
 const nothing = null;

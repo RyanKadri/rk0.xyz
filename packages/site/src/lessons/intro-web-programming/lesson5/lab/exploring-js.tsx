@@ -6,7 +6,6 @@ import { CodePlayground, FunctionExecutionParams } from "../../../shared/code-pl
 import { useLabStyles } from "../../../shared/lab";
 import { createCalculator } from "./create-calculator";
 import { checkPalindromity } from "./isPalindrome";
-import { numberOfVowels } from "./number-of-vowels";
 import { simpleExamples } from "./simpleExamples";
 import { sumOfPrimes } from "./sum-of-primes";
 
@@ -46,7 +45,7 @@ will be graded fairly harshly. Therefore, please try to always write code that r
 get the answer correct for all inputs.
 `)
 
-const useStyles = makeStyles((_: Theme) => createStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
     editor: {
         minHeight: 400,
         border: "solid 1px #ccc"
@@ -57,6 +56,13 @@ const useStyles = makeStyles((_: Theme) => createStyles({
     explanation: {
         marginTop: 8,
         marginBottom: 16
+    },
+    warning: {
+        color: theme.palette.warning.dark,
+        fontWeight: 500,
+        fontSize: "1.25rem",
+        marginBottom: 16,
+        display: "block"
     }
 }))
 
@@ -66,6 +72,7 @@ export function ExploringJSLab({}: Props) {
 
     return (
         <div className={classes.container}>
+            <strong className={ localClasses.warning }>Notice: This is a preview of the next lab. Some questions may change.</strong>
             <Typography variant="h4" className={ classes.title }>Lab 3: Exploring Javascript</Typography>
             <section className={ classes.section }>
                 <Typography variant="h5" className={ classes.sectionLabel }>Overview</Typography>
@@ -94,10 +101,6 @@ export function ExploringJSLab({}: Props) {
             <section className={ classes.section }>
                 <Typography variant="h5" className={ classes.sectionLabel }>Section 4: Sum of Primes</Typography>
                 <ProblemPlayground def={ sumOfPrimes } />
-            </section>
-            <section className={ classes.section }>
-                <Typography variant="h5" className={ classes.sectionLabel }>Section 5: Number of vowels</Typography>
-                <ProblemPlayground def={ numberOfVowels } />
             </section>
             <section className={ classes.section }>
                 <Typography variant="h5" className={ classes.sectionLabel }>Submitting this lab</Typography>

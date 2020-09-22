@@ -15,7 +15,8 @@ const useStyles = makeStyles(createStyles({
 
 const slideItems = [
     "Javascript has conditional statements",
-    `Cares about "truthiness" of a value`,
+    "Normal JavaScript runs line-by-line",
+    "Conditionals allow you to make a decision and either run one code block or another"
 ];
 
 const code = `

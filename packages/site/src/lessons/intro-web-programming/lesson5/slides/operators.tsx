@@ -14,8 +14,9 @@ const useStyles = makeStyles(createStyles({
 }))
 
 const slideItems = [
-    "Operators let you transform values",
-    "Operators work with 1-3 values",
+    "Operators let you create expressions",
+    "Operators take 1-3 values",
+    "JavaScript allows you to build large, complex expressions with operators (and order of operations)"
 ];
 
 const code = `
