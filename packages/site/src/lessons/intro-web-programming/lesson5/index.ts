@@ -1,11 +1,14 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { ExploringJSLab } from "./lab/exploring-js";
+import { ArraysExample } from "./slides/arrays";
 import { ConditionalsExample } from "./slides/conditionals";
 import { ForLoops } from "./slides/for-loops";
 import { FunctionsExample } from "./slides/functions";
+import { Objects } from "./slides/objects";
 import { Operators } from "./slides/operators";
 import { OperatorsTable } from "./slides/operators-table";
 import * as simple from "./slides/simple";
+import { StringsPart2 as Strings } from "./slides/strings";
 import { VariablesExamples } from "./slides/variables";
 import { WhileLoops } from "./slides/while-loops";
 
@@ -25,7 +28,10 @@ export const lesson5: Presentation = {
         ConditionalsExample,
         WhileLoops,
         ForLoops,
-        FunctionsExample
+        FunctionsExample,
+        ArraysExample,
+        Objects,
+        Strings
     ],
     examples: [
         

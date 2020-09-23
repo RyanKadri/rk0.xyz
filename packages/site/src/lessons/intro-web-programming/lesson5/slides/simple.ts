@@ -26,13 +26,11 @@ export const JavaScriptProgrammingType = generateContentSlide("What is JavaScrip
 ]);
 
 export const DataTypes = generateContentSlide("Thinking about Data", [
-    { text: "JavaScript work with different types of data", children: [
+    { text: 'JavaScript work with different "primitive" types of data', children: [
         "Numbers",
         "Strings",
         '"Booleans"',
         "null / undefined",
-        'Objects - Collections of related fields',
-        "Arrays (a list for 0+ pieces of data)",
         "A few others"
     ] }
 ]);
