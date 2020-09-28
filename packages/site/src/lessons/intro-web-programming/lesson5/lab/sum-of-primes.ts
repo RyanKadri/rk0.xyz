@@ -1,8 +1,7 @@
 import { ProblemDefinition } from "./exploring-js"
 
 export const sumOfPrimes: ProblemDefinition = {
-    explanation: `For this problem, I will pass an array to your function. Please return the sum
-of all the prime numbers in the array. (Hint: it may be helpful to write a second function here)`,
+    explanation: `For this problem, I will pass an array to your function. Please return the sum of all the prime numbers in the array. Remember that a prime number is a number that is not divisible by any number other than itself and 1. You probably want to break this function into two parts. For the first part, can you write a function that takes an array of numbers and returns the sum? Can you write a function that checks if a number is prime? How can you combine these two functions together to come up with the desired result?`,
     code: `function sumOfPrimes(numbers) {
     // Find the sum. Maybe call isPrime somewhere to help
 }

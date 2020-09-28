@@ -19,8 +19,7 @@ export const simpleExamples: ProblemDefinition[] = [
     {
         title: "Calculate Sum",
         savePrefix: "exploring-js.addNumbers",
-        explanation: `Please write a function that accepts two numeric parameters and returns the
-sum of them.
+        explanation: `Please write a function that accepts two numbers and returns the sum of them.
         `,
         code: `function addNumbers(a,b) {
     // Return the sum
@@ -36,11 +35,7 @@ sum of them.
     },
     {
         title: "Calculate Grade",
-        explanation: `Please write a function that takes a number between 0 and 100 and returns
-the class grade that would be associated with each score (90 - 100 = A, 80 - 89 = B, 70 - 79 = C, 60 - 69 = D)
-Remember that for each range, grades from x0 to x2 are given a "minus" grade and grades from x7-max are
-given a "plus" grade
-        `,
+        explanation: `Please write a function that takes a number between 0 and 100 and returns the class grade that would be associated with each score (90 - 100 = A, 80 - 89 = B, 70 - 79 = C, 60 - 69 = D). Please include grades with a + or -. For two examples, a 90-92 is an A- while a grade from 87-89, is a B+. All letter grades follow the same scale. Anything below a 60 is an F. Note: this is not necessarily the grade scaling I will use for this class!`,
         savePrefix: "exploring-js.returnGrade",
         code: `function calcGrade(score) {
     // Return the grade as a string

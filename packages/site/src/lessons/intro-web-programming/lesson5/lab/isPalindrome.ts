@@ -1,10 +1,7 @@
 import { ProblemDefinition } from "./exploring-js"
 
 export const checkPalindromity: ProblemDefinition = {
-    explanation: `For this problem, you will determine if a given string is a palindrome. A string
-is a palindrome if it reads the same backwards and forwards. For instance, "aba" and "baab" are
-palindromes but "bba" is not.
-    `,
+    explanation: `A string is a palindrome if it is the same when you read it forward or backward. For instance, if you read "racecar" from right to left, it is still "racecar". Please write a function that takes a string parameter and returns true if the string is a palindrome`,
     code: `function isPalindrome(str) {
     // Determine if the string is a palindrome
 }`,
