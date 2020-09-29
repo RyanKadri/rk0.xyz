@@ -13,7 +13,7 @@ import * as simple from "./slides/simple";
 import { StringsPart2 } from "./slides/strings";
 import { VariablesRedux } from "./slides/variables";
 
-export const lesson5: Presentation = {
+export const lesson6: Presentation = {
     title: `A Quarter Mile at a Time`,
     description: "JavaScript and the DOM",
     slug: "js-and-dom",

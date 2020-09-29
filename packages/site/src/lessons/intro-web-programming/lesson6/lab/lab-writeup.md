@@ -1,129 +1,167 @@
-# Lab 5: Asynchronous JavaScript and APIs
+# Lab 4: String Manipulation and Forms
 
 ## Overview
 
-In this lab, you will be learning about asynchronous JavaScript and how to call APIs. In the
-first section of the lab, you will be directly calling a public API and adding some of the
-result data to a web page. In the second section, you will be creating a Tic Tac Toe game
-and providing a computer player by calling an API I wrote. Both of these labs should give
-you some real-world experience with handling asynchronous JavaScript and calling APIs. 
+In this lab, you will be learning to validate strings and numbers in JavaScript. You will also learn
+to accept user input on a web page and give visual feedback when they enter an invalid value.
+You will start the lab by writing functions that accept strings / numbers as inputs and validate their correctness.
+You will then get a bit of practice with Regular Expressions to learn about a faster/simpler way to work with
+strings for certain tasks. Finally, you will create a web page sign up form that uses the techniques from the
+last two sections to validate user input and provide quick feedback if they typed something wrong.
+This was one of the earliest use cases for having JavaScript in the browser. Hopefully this lab will
+bring you closer to our shared programming ancestors.
 
-## Part One - The Pokedex
+## Part One - Input Validation
 
-For the first part of the lab, you will be making a page that displays some information based
-on a public API. The API you will be using is described here: https://pokeapi.co/. You can
-call it to get information about the world of Pokemon. What I would like you to build is
-a simple site with an input box that accepts the name of a Pokemon and returns the following
-data about the Pokemon:
+For the first part of the lab, you will be writing a number of Javascript functions that will determine
+if a given input is valid. 
 
-- Height
-- Weight
-- Type
-- Starting Stats (in a table)
-- An image of the pokemon.
+Please skim through this page: https://www.w3schools.com/js/js_string_methods.asp
+for an overview of the important methods that exist on strings. These will help a lot with the problems
+below. 
 
-After the user searches for their first Pokemon, they should still be able to search for
-other pokemon and have their following searches overwrite the data from the original on
-the screen. Please use the documentation on the API's site to figure out how to call
-it. There is a URL you can use to directly look up information about a pokemon based
-on its exact name. You should make sure that searching with different capitalizations
-also works for the user of your site. 
+You can name the functions below whatever you would like.
 
-## Part 2: Tic Tac Toe
+### Age
 
-For the second part of this lab, you will be creating a Tic Tac Toe game with the help of
-an external "AI" API. Please create a web site that allows a user to play Tic Tac Toe.
-When they launch the page, they should see a Tic Tac Toe board and a message asking them
-to make a move by clicking on a square on the board. When they click on a square, your page 
-should fill in the square with a marker showing that they clicked. It should then make an
-API call to the Tic Tac Toe AI described below. The API will act as a computer player and will give the browser
-the coordinates of the square that the computer player wants to select.
+Please write a function that takes a numeric age as an input and determines if the age is reasonable
+for a user of your site. An age is reasonable if:
+- The user is at least 13 years old
+- The user is no older than the oldest human alive today
 
-After each move, your code should check if the game has ended (with a win or a tie). If the
-game has ended, please display a message congratulating the winner or telling the players
-that the game was a tie. Please also check that when a player tries to make a move, they are
-only allowed to make a legal move (not on top of a taken square). 
+### First/Last Name
 
-The user should have an option to restart the game at any time by pressing a button and
-should always go first.
+Please write a function that takes a single string as an input and returns a boolean for whether or not
+the string is a valid first / last name. A name is valid if:
+- It starts with a capital letter
+- All other letters are lowercase
+- It does not contain any numbers or special characters (other than an optional single hyphen)
+- It is only one word (no spaces)
 
-### Tic Tac Toe API
+### Password
 
-You can use the Tic Tac Toe AI API by making a call to 
-https://api.rk0.xyz/api/games/tic-tac-toe/next-move. You must provide a query parameter along
-with the URL that expresses the current state of the game board. To do that, you can
-pass an array of arrays. This is easiest to show in an example. If your board looks like
-this:
+A user must supply a strong password to the site. It cannot:
+- Have less than 6 characters
+- Have the same character repeated at every single position
+- Be purely an incrementing or decrementing series of numbers (1234, 9876, etc.)
+- Include the first or last name
+- Be in a list of most commonly used passwords
 
-```
-x |   | o
-x | x | o  
-  |   |   
-```
+Please write a function that takes four parameters:
+- The password (string)
+- The first name (string)
+- The last name (string)
+- The most commonly used passwords (array of strings)
 
-and it is the computer (o's) turn, you would call the api as follows:  
-`fetch("https://api.rk0.xyz/api/games/tic-tac-toe/next-move?board=[[1,0,2],[1,1,2],[0,0,0]]")`.
+You should return a boolean value that says whether or not the string is a valid password.
 
-The API will probably respond to tell you the next computer move (o) is { row: 2, column: 2 }.
+## Part Two
 
-In the API call, the 1s indicate that player 1 (the human) has selected that space.
-The 2s indicate that the computer has selected the space. If you take the 
-three inner arrays in the call and stick them on top of each other, you get:
+In this part of the lab, you will be using Regular Expressions. Regular expressions are a
+way to work with strings without needing to write a lot of code. Regular expressions look like a series
+of letters and symbols and are a way of defining a type of string. Strings can either match a regular
+expression or not. For instance, this is a regular expression `/My name is [a-zA-Z]+/`, and it matches 
+strings that start with "My name is " and end with one or more alphabetical character. JavaScript
+lets you use regular expressions to test if strings have a certain format. To test a string against
+the above regular expression, I could write the following code: 
 
-```
-[1,0,2],
-[1,1,2],
-[0,0,0]
+```javascript 
+const regex = /My name is [a-zA-Z]+/;
+regex.test("My name is Ryan") // true
+regex.test("Something something") //false
 ```
 
-If the ones were X's and the twos were O's, the array of arrays would match up perfectly
-with the board state. Therefore, the outer array represents the whole board, the inner
-arrays are each rows, and the elements of the arrays are columns within a row.
-In your code, you should keep track of the state of the board in an array of arrays.
-You might start it as `const board = [[0,0,0],[0,0,0],[0,0,0]]` and then you can change
-a stored cell by doing something like `board[row][col] = <new_val>`.
+The forward slashes after the = and before the ; tell JavaScript that a regular expression is starting
+(and ending) but do not have any meaning on their own.
+
+The trick with Regular Expressions is just knowing what special characters you can use.
+Here are the most common and what they mean:
+- **`.`** (*period*) - Represents any character. For instance `/Ry.n/` matches `Ryan` or `Rybn` but not `Ryaan`
+- **`*`** (*asterisk*) - The previous character repeats 0 or more times. `/a*/` matches `a` or `aaaaa` but not `b`
+- **`+`** (*plus*) - The previous character repeats 1 or more times.
+- **`()`** (*parens*) - Starts a group. `(abc)+` matches `abcabc` but not `ab` or `a`
+- **`[]`** (*square brackets*) - Describes a group of legal characters for a position. Can use hyphens for a range. For
+instance, `/[0-9]+/` matches `123` but not `1b3`.
+- **`{#}`** (*curly brackets with a number inside*) - The previous character / group is repeated # times. For
+instance `/a{3}/` matches `aaa` but not `aa`
+- **`\`** (*backslash*) - Takes away any special meaning of the following character. For instance `/Stop\./` matches
+`Stop.` but not `Stop!`. Any of the above characters must be preceeded by a backslash to be matched as themselves
+- Most other characters represent only themselves. For instance, `/Test/` matches `Test`
+
+You can combine these characters to test for pretty complicated conditions. For instance, a regular expression
+that matches phone numbers might look like this: `/\([0-9]{3}\)-[0-9]{3}-[0-9]{4}/` and would 
+match numbers that look like (610)-867-5309. The expression looks for
+"3 numbers in parens followed by a dash and then 3 numbers, another dash, and 4 numbers". 
+
+Please feel free to look at this site https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+for some additional info or for a better explanation. We will also do some regular expressions
+examples in class so have no fear!  
+
+### Phone Number
+
+Please write a function that takes a single phone number (string) as an input and returns a boolean for whether or
+not the phone number is valid. You are expecting phone numbers in the format: "###.###_#### ext ####". The extension
+part is optional.
+
+### Username
+
+Please write a function that takes a username (string) and a list of taken usernames (array of strings)
+as inputs and returns a boolean for whether or not it is valid. A username is valid if it starts with
+a letter, contains only letters and numbers and optionally ends with a !
+
+## Part Three
+
+For this part of the lab, you will be creating a little HTML and CSS page that will act as a sign-up
+form for another website. You must collect at least the following information about the user:
+- First Name
+- Last Name
+- Age
+- Phone number
+- Username
+- Password
+
+You also must make sure the data they enter is valid. Therefore, as soon as a user starts typing,
+you should give feedback about whether they have entered a valid value for the field. You can use
+either the oninput or onchange attribute of your input elements to link up to each of the functions
+you wrote above. You can also use the addEventListener function we talked about last class.
+
+
+If the user provides an invalid value, please display red text under the matching input explaining
+that they have made an error. The error message should of course also go away when they fix their mistake.
+There should only one version of a given error message at a time. If a user makes the same mistake
+multiple times, the page should not show duplicate errors.
+
+
+You can manage error messages with CSS or by adding/removing elements from the page. I added some sample
+code at the bottom of this lab to get started with the layout and style of the form.
+You can use or modify it as you see fit.
+
+
+*Extra credit will be awarded if you can provide a more detailed error message about exactly what was wrong with the first / last name and password.*
 
 ## Submitting
 
 To submit this lab, please create a single zip file and upload it to Canvas under the appropriate assignment.
-The zip file should contain two sub folders, one for part one and one for part two. Each folder
-should contain your HTML file and all files referenced within.
+The zip file should contain a single javascript file for Parts One and Two called `validations.js`. It
+should also contain an HTML file called `signup.html`. 
+
+Your HTML file should use mostly the same functions as you wrote in `validations.js`. 
+These functions **may** need a bit of tweaking to work if called directly from the page.
+If you decide to tweak these functions, please maintain a separate copy of `validations.js` from part
+one and link a new file, `validations-html.js` in your HTML. Note that you do not necessarily need to
+create separate versions of these functions but you may need to be smart about how you call them if you
+do not.
+
+You will also need to write up a bit of JavaScript to show error messages on the page if your
+validations fail. This code can be in the `validations.js` file, another file altogether,
+or in the `signup.html` file. Do whatever helps you organize your code best. I have opinions
+about this but decide for yourself what seems cleanest. Make sure to include any additional files
+in your final zip file!
 
 ## Grading
 
-I am not too picky about the appearance of these two sites. I am more concerned that they
-meet all of the requirements listed above and behave properly.
-
 The main things I am looking for in this lab are:
-- In Part One:
-    - Do you fetch and display all of the appropriate data from the Pokemon API
-    - Does the user have the option to 
-    - Is the site friendly (can the user enter different capitalizations of a pokemon name)?
-    Can they enter spaces before and after the name?
-- In Part Two:
-     - Does the Tic Tac Toe game flow like a normal game of Tic Tac Toe?
-     - Do you detect the right win and loss conditions?
-     - Do you stop the player from making illegal moves?
-     - Do you provide messages to the user informing them that they have won, lost, or tied?
-
-## Extra Credit Opportunity (25 Points)
-
-You can get up to 25 points of extra credit if you create an option to play the game with
-another human player. The player should be able to select something on the UI at the
-beginning of the game to decide whether they want to play against a computer or a person.
-
-In two-player mode, there should also be a message telling the players whose turn it is.
-
-## Hints
-
-- For both parts of this lab, you should be using the `fetch` API. Here are some
-instructions on how to use it: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-It gets a bit complicated / outside of what we've learned but the simple example at the top
-of the page mostly covers what we need.
-- For part two, you may want to keep track of the position of the Xs and Os on the board
-in a single variable and then worry about making the grid on the page line up with what's
-in your variable. To store the grid data, maybe you could use arrays in arrays (which you
-could access with coordinates like `const board = [[0,0,0], [0,0,0], [0,0,0]]; board[0][1]`). 
-Make sure not to get your rows and columns flipped around though!
-- `display: grid` is your friend here for displaying the Tic Tac Toe board. Remember how that
-works? If not, here's a quick article: https://learncssgrid.com/
+- Correctness of validation functions
+- Validation functions are linked to your sign up form and trigger when the user changes the input
+- Error messages are added to the page and removed from the page in response to user input.
+  - Duplicate errors are not shown. Errors are not shown once the response is correct.
