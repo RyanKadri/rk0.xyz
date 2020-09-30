@@ -8,10 +8,10 @@ import { ArraysExample } from "./slides/arrays";
 import { Methods } from "./slides/methods";
 import { Objects } from "./slides/objects";
 import { OperatorsTable } from "./slides/operators";
-import { RegularExpressions } from "./slides/regex";
 import * as simple from "./slides/simple";
-import { StringsPart2 } from "./slides/strings";
+import { UpdatingArrays } from "./slides/updating-arrays";
 import { VariablesRedux } from "./slides/variables";
+import { VariablesAsLabels } from "./slides/variables-as-labels";
 
 export const lesson6: Presentation = {
     title: `A Quarter Mile at a Time`,
@@ -27,22 +27,21 @@ export const lesson6: Presentation = {
         WhileLoops,
         FunctionsExample,
         ArraysExample,
+        UpdatingArrays,
         Objects,
         Methods,
-        StringsPart2,
-        RegularExpressions,
+        VariablesAsLabels,
+        simple.MapArray,
+        simple.MapArrayImmutable,
+        simple.FizzBuzz,
         simple.HowConnect,
         simple.TheProblem,
-        simple.EnterDOM,
         simple.WhatCanItDo,
-        simple.HowRun
     ],
     examples: [
         
     ],
-    recording: {
-        link: "https://youtu.be/yawjhPb2WxE"
-    },
+    recording: undefined,
     lab: {
         title: "String Manipulation and Forms",
         slug: "strings-and-forms",

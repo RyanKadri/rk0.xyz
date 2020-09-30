@@ -13,6 +13,11 @@ declare module "*.jpg" {
     export default content1;
 }
 
+declare module "*.svg" {
+    const content1: any;
+    export default content1;
+}
+
 declare module "*.zip" {
     const content2: any;
     export default content2;

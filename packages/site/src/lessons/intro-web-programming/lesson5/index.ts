@@ -36,7 +36,9 @@ export const lesson5: Presentation = {
     examples: [
         
     ],
-    recording: undefined,
+    recording: {
+        link: "https://temple.zoom.us/rec/share/An6vZXmFpTp8cQWJPBfdEzku2uNxEFSrnSdkwoURlnF3vlUQZ_6cLkh_qfC8TvMX.7pTgDL86_GORvSOb"
+    },
     lab: {
         title: "Exploring Javascript",
         slug: "exploring-javascript",

@@ -14,11 +14,9 @@ const useStyles = makeStyles(createStyles({
 }))
 
 const slideItems = [
-    "A variable can be assigned to any type of data",
-    "Variables can be reassigned to other values (and types)",
-    "Variables use keywords let, const, and var",
-    "let and const are block scoped",
-    "var is function scoped"
+    "Variables are defined with let and const",
+    "They label a piece of data",
+    'Variables defined with "let" can be reassigned. "const" variables cannot',
 ];
 
 const code = `

@@ -5,35 +5,40 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import variableDiagram from "./variables.svg";
 
 const useStyles = makeStyles(createStyles({
     code: {
         fontSize: 26,
         userSelect: "text"
+    },
+    diagram: {
+        width: 425,
+        margin: "0 auto",
+        display: "block"
     }
 }))
 
 const slideItems = [
-    "Objects can store related information about a thing",
-    "Properties can be added (and removed) over time",
-    "You can access properties with a dot (.)"
+    'Variables "label" a piece of data',
+    "This means that you can update one object using two different variables",
+    "JavaScript does not copy values when setting variables"
 ];
 
 const code = `
 const ryan = { name: "Ryan", age: 26, job: "Developer", id: "abc123" };
-person.age ++;
-delete person.name;
-person.firstName = "Ryan";
-person.lastName = "Kadri";
+const evilTwin = ryan;
+evilTwin.isEvil = true;
 `.trim();
 
-export function Objects({ context }: Props) {
+export function VariablesAsLabels({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Objects" context={context} Content={
+        <ContentSlide Title="Variables are Labels" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
                 <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <img className={ classes.diagram } src={ variableDiagram } />
             </>
         } />
     );

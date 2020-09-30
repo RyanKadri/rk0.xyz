@@ -14,10 +14,10 @@ const useStyles = makeStyles(createStyles({
 }))
 
 const slideItems = [
-    "Objects can be associated with functions",
+    "Objects can have functions that operate on their data",
     "These functions are called methods",
-    `Refers to special keyword "this"`,
-    "Called with dot operator"
+    `Methods use the special keyword "this"`,
+    "Use the dot operator to call them"
 ];
 
 const code = `
