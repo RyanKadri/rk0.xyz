@@ -41,7 +41,9 @@ export const lesson6: Presentation = {
     examples: [
         
     ],
-    recording: undefined,
+    recording: {
+        link: "https://temple.zoom.us/rec/play/xkR4NPUU0b6hMECYrUikbbsymPM1yIfSxk2LkdtlBc9qxX3BFC2OXdmuysUZDkR6CAjyQ1qlNUY6sE0j.EUzTgXxcm-Tphj7W?autoplay=true"
+    },
     lab: {
         title: "String Manipulation and Forms",
         slug: "strings-and-forms",
