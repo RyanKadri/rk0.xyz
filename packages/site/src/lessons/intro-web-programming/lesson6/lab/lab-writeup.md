@@ -1,20 +1,18 @@
-**Note: This lab is still a draft and may change before the lab session**
-
 # Lab 4: String Manipulation and Forms
 
 ## Overview
 
-If you have ever filled in a form on a website and gotten immediate feedback when you made a mistake, the website was probably correcting you with JavaScript. If you compare that to an experience where you could only see your errors after submitting the form, you can probably see how JavaScript improves your experience. In this lab, you will be learning to achieve a similar form validation effect. As a part of learning form validation, you will also learn more broadly how to handle user input on a web page. 
+If you have ever filled in a form on a website and gotten immediate feedback when you made a mistake, the website was probably running those validations with JavaScript. In pages without JavaScript validation, you can generally only see your errors after submitting the form and waiting for the next page to load. In this lab, you will be learning to write similar form validations. As a part of that work, you will also learn more broadly how to handle user input on a web page. 
 
-You will start the lab by writing functions that accept strings and numbers as inputs and check them against a set of conditions. You will then get a bit of practice with Regular Expressions to learn about a faster/simpler way to work with strings for certain tasks. Finally, you will create a web page sign up form that uses the techniques from the last two sections to validate user input and provide quick feedback if they typed something wrong. 
+You will start the lab by writing functions that accept strings and numbers as inputs and check them against a set of conditions. In part two, there are a couple validation functions that are a little bit trickier. Finally, you will create a web page sign up form that uses the techniques from the first two sections to validate user input and provide quick feedback if they typed something wrong. 
 
 Form validation was one of the earliest use-cases for having JavaScript in the browser. Hopefully this lab will bring you closer to our shared programming ancestors. 
 
 ## Part One - Input Validation
 
-For the first part of the lab, you will be writing a number of Javascript functions that will determine if a given input is "valid". For the questions in this part, you can name your functions whatever you want but try to pick a name that describes what they do. These functions should return a boolean value.
+For the first part of the lab, you will be writing a number of Javascript functions that will determine if a given input parameter is "valid". For the questions in this part, you can name your functions whatever you want, but try to pick a name that describes what they do. These functions should all return a boolean value (true if the input is "valid", false otherwise).
 
-*Hint: Skimming through this page: https://www.w3schools.com/js/js_string_methods.asp for an overview of the important methods that exist on strings. These will help a lot with the problems below.* 
+*Hint: Try skimming through this page: https://www.w3schools.com/js/js_string_methods.asp for an overview of the important methods that exist on strings. These will help a lot with the problems below.* 
 
 ### Age
 
@@ -33,7 +31,7 @@ Please write a function that takes a single string as an input and returns a boo
 
 A user must supply a strong password to the site. It cannot:
 - Have less than 6 characters
-- Have the same character repeated at every single position
+- Be a single character repeated forever (eg "aaaaaaaaa")
 - Include the first or last name
 - Be in a list of most commonly used passwords
 
@@ -41,45 +39,25 @@ Please write a function that takes four parameters:
 - The password (string)
 - The first name (string)
 - The last name (string)
-- The most commonly used passwords (array of strings)
+- An array of commonly used passwords (array of strings)
+
+Remember that you should not hardcode values for any of these parameters when defining your function. The person who calls your function might call it like ("toaster123", "Bob", "Jones", ["password", "test"]) and you would check that "toaster123" does not include "Bob" or "Jones" and is not "password" or "test"
 
 ## Part Two
 
-In this part of the lab, you will be using Regular Expressions. Regular expressions are a way to work with strings without needing to write a lot of code. Regular expressions look like a series of letters and symbols and are a way of defining a type of string. Strings can either match a regular expression or not. For instance, this is a regular expression `/My name is [a-zA-Z]+/`, and it matches strings that start with "My name is " and end with one or more alphabetical character. JavaScript lets you use regular expressions to test if strings have a certain format. To test a string against the above regular expression, I could write the following code: 
-
-``` 
-const regex = /My name is [a-zA-Z]+/;
-regex.test("My name is Ryan") // true
-regex.test("Something something") //false
-```
-
-The forward slashes after the = and before the ; tell JavaScript that a regular expression is starting (and ending) but do not have any meaning on their own.
-
-The trick with Regular Expressions is just knowing what special characters you can use. Here are the most common and what they mean:
-
-- **`.`** (*period*) - Represents any character. For instance `/Ry.n/` matches `Ryan` or `Rybn` but not `Ryaan`
-- **`*`** (*asterisk*) - The previous character repeats 0 or more times. `/a*/` matches `a` or `aaaaa` but not `b`
-- **`+`** (*plus*) - The previous character repeats 1 or more times.
-- **`()`** (*parens*) - Starts a group. `(abc)+` matches `abcabc` but not `ab` or `a`
-- **`[]`** (*square brackets*) - Describes a group of legal characters for a position. Can use hyphens for a range. For instance, `/[0-9]+/` matches `123` but not `1b3`.
-- **`{#}`** (*curly brackets with a number inside*) - The previous character / group is repeated # times. For instance `/a{3}/` matches `aaa` but not `aa`
-- **`\`** (*backslash*) - Takes away any special meaning of the following character. For instance `/Stop\./` matches
-`Stop.` but not `Stop!`. Any of the above characters must be preceeded by a backslash to be matched as themselves
-- Most other characters represent only themselves. For instance, `/Test/` matches `Test`
-
-You can combine these characters to test for pretty complicated conditions. For instance, a regular expression that matches phone numbers might look like this: `/\([0-9]{3}\)-[0-9]{3}-[0-9]{4}/` and would match numbers that look like (610)-867-5309. The expression looks for "3 numbers in parens followed by a dash and then 3 numbers, another dash, and 4 numbers". 
-
-Please feel free to look at this site <https://www.w3schools.com/jsref/jsref_obj_regexp.asp> for some additional info on Regular Expressions.
-
 ### Phone Number
 
-Please write a function that takes a single phone number (string) as an input and returns a boolean for whether or not the phone number is valid. You are expecting phone numbers in the format: "###.###_#### ext ####". The extension part is optional.
+*There is feature in many programming languages called regular expressions. It can make this section a lot easier but requires a bit more upfront reading / research. <https://regexone.com/> has a quick Regular Expressions game if you want to learn. You do not need Regular Expressions to finish this part of the lab though so also feel free to solve this section with what we already know*
+
+Please write a function that takes a single phone number (string) as an input and returns a boolean for whether or not the phone number is valid. You are expecting phone numbers in the format: "###-###-#### ext ####". The extension part is optional.
 
 ### Username
 
 Please write a function that takes a username (string) and a list of taken usernames (array of strings) as inputs and returns a boolean for whether or not it is valid. A username is valid if it starts with a letter, contains only letters and numbers and optionally ends with a !
 
 ## Part Three
+
+*Note: We have not yet covered how to handle user input. I plan to cover that in class on Wednesday. You can certainly try to figure it out in this lab session but if you're confused for this part, maybe just put together the HTML page and don't worry about hooking in the user inputs quite yet*
 
 For this part of the lab, you will be creating a little HTML and CSS page that will act as a sign-up form for another website. You must collect at least the following information about the user:
 - First Name

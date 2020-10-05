@@ -36,6 +36,7 @@ export const lesson6: Presentation = {
         simple.FizzBuzz,
         simple.HowConnect,
         simple.TheProblem,
+        simple.DOM,
         simple.WhatCanItDo,
     ],
     examples: [

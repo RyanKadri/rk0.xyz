@@ -19,7 +19,7 @@ export const useLabStyles = makeStyles((theme: Theme) => createStyles({
     code: {
     },
     sketch: {
-        maxWidth: 900,
+        maxWidth: 1200,
         width: "100%",
         display: "block"
     },
