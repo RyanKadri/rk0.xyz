@@ -3,4 +3,5 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
+    "liveServer.settings.port": 5501,
 }
