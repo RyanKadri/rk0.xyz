@@ -11,6 +11,8 @@ export const lesson7: Presentation = {
     slug: "reacting-to-input",
     slides: [
         simple.TitleSlide,
+        simple.JavaScriptInHTML,
+        simple.DocumentParseOrder,
         simple.HowConnect,
         simple.TheProblem,
         simple.DOM,

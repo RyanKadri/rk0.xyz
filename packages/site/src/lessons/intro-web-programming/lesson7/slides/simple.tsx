@@ -2,6 +2,20 @@ import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "
 
 export const TitleSlide = generateTitleSlide("JavaScript: User Input", "Ryan Kadri");
 
+export const JavaScriptInHTML = generateContentSlide("JavaScript in HTML", [
+    "You can include JavaScript in your HTML files via <script> tags",
+    "<script> tags can reference another file",
+    "Variables that you define outside functions become global",
+    "You can access global variables in the console"
+]);
+
+export const DocumentParseOrder = generateContentSlide("Document Parse Order", [
+    "When you navigate your browser to a URL, the server will send back HTML",
+    "Browser reads the HTML from the top to the bottom",
+    "When it hits <script> tags or links, it runs them right away",
+    "This affects where you can put your <script> tags depending on what your page does"
+])
+
 export const HowConnect = generateMessageSlide("How does JavaScript interact with HTML?");
 
 export const TheProblem = generateContentSlide("JavaScript / Web Page Interactions", [
