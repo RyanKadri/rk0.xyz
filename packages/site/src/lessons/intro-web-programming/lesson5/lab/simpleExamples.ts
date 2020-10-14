@@ -29,7 +29,8 @@ export const simpleExamples: ProblemDefinition[] = [
             functionToCall: "addNumbers",
             expectations: [
                 { params: [1, 2], expectedResults: 3 },
-                { params: [1, -1], expectedResults: 0 }
+                { params: [1, -1], expectedResults: 0 },
+                { params: [100, -1], expectedResults: 99 }
             ]
         }
     },
@@ -46,7 +47,10 @@ export const simpleExamples: ProblemDefinition[] = [
             expectations: [
                 { params: [93], expectedResults: "A" },
                 { params: [88], expectedResults: "B+" },
-                { params: [61], expectedResults: "D-" }
+                { params: [61], expectedResults: "D-" },
+                { params: [73], expectedResults: "C" },
+                { params: [50], expectedResults: "F" },
+                { params: [100], expectedResults: "A+" },
             ]
         }
     }

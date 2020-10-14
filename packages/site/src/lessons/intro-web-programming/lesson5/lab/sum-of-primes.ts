@@ -24,6 +24,10 @@ function isPrime(num) {
             {
                 params: [[100, 102, 104, 106]],
                 expectedResults: 0
+            },
+            {
+                params: [[2,5,7,9,11]],
+                expectedResults: 25
             }
         ]
     }

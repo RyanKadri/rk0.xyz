@@ -26,6 +26,10 @@ export const checkPalindromity: ProblemDefinition = {
                 params: ["racecar"],
                 expectedResults: true
             },
+            {
+                params: ["tacocat"],
+                expectedResults: true
+            }
         ]
     }
 }
