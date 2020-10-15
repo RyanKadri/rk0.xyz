@@ -10,7 +10,8 @@ import { Presentation } from "../../../../../presenter-core/src/services/types";
 const useStyles = makeStyles(createStyles({
     tablePaper: {
         overflowX: "auto",
-        fontSize: 12
+        fontSize: 12,
+        gridColumn: "1/3"
     },
     tableIcon: {
         marginRight: 8
@@ -20,6 +21,11 @@ const useStyles = makeStyles(createStyles({
     },
     labLink: {
         display: "block"
+    },
+    tableViewParent: {
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "16px"
     }
 }))
 
@@ -29,11 +35,11 @@ export function LessonList(props: Props) {
     const isSmall = useMediaQuery(theme.breakpoints.down("md"));
 
     return isSmall
-        ? <LessonCards {...props} />
-        : <LessonTable {...props} />
+        ? <LessonCardView {...props} />
+        : <LessonTableView {...props} />
 }
 
-function LessonCards({ lessons, baseUrl }: Props) {
+function LessonCardView({ lessons, baseUrl }: Props) {
     const classes = useStyles();
 
     return <>{
@@ -57,64 +63,82 @@ function LessonCards({ lessons, baseUrl }: Props) {
                     }
                 </CardActions>
             </Card>
-    )) }</>;
+        )) }
+        <ConsolidatedReferencesCard baseUrl={ baseUrl } />
+    </>;
 }
 
-function LessonTable({ lessons, baseUrl }: Props) {
+function LessonTableView({ lessons, baseUrl }: Props) {
     const classes = useStyles();
     return (
-        <Paper className={ classes.tablePaper }>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Class Name</TableCell>
-                        <TableCell>Description</TableCell>
-                        <TableCell>Slides</TableCell>
-                        <TableCell>Examples</TableCell>
-                        <TableCell>Recording</TableCell>
-                        <TableCell>Lab</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    { lessons.map((lesson) => (
-                        <TableRow key={ lesson.title }>
-                            <TableCell>{ lesson.title }</TableCell>
-                            <TableCell>{ lesson.description }</TableCell>
-                            <TableCell>
-                                <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/slides/0`}>
-                                    <FontAwesomeIcon icon={ faDesktop } className={ classes.tableIcon } />
-                                    ({ lesson.slides.length })
-                                </MaterialLink>
-                            </TableCell>
-                            <TableCell>
-                                { lesson.examples.length > 0 && (
-                                    <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/examples`}>
-                                        <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
-                                        ({ lesson.examples.length })
-                                    </MaterialLink>
-                                )}
-                            </TableCell>
-                            <TableCell>
-                                { lesson.recording
-                                    ? <MaterialLink href={ lesson.recording.link }>
-                                        <FontAwesomeIcon icon={ faVideo } className={ classes.tableIcon } />
-                                    </MaterialLink>
-                                    : null
-                                }
-                            </TableCell>
-                            <TableCell>
-                                { lesson.lab && (
-                                    <MaterialLink component={ Link } to={ `${baseUrl}/labs/${lesson.lab.slug}`}>
-                                        { lesson.lab.title }
-                                    </MaterialLink>
-                                )}
-                            </TableCell>
+        <div className={ classes.tableViewParent }>
+            <Paper className={ classes.tablePaper }>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Class Name</TableCell>
+                            <TableCell>Description</TableCell>
+                            <TableCell>Slides</TableCell>
+                            <TableCell>Examples</TableCell>
+                            <TableCell>Recording</TableCell>
+                            <TableCell>Lab</TableCell>
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </Paper>
+                    </TableHead>
+                    <TableBody>
+                        { lessons.map((lesson) => (
+                            <TableRow key={ lesson.title }>
+                                <TableCell>{ lesson.title }</TableCell>
+                                <TableCell>{ lesson.description }</TableCell>
+                                <TableCell>
+                                    <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/slides/0`}>
+                                        <FontAwesomeIcon icon={ faDesktop } className={ classes.tableIcon } />
+                                        ({ lesson.slides.length })
+                                    </MaterialLink>
+                                </TableCell>
+                                <TableCell>
+                                    { lesson.examples.length > 0 && (
+                                        <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/examples`}>
+                                            <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
+                                            ({ lesson.examples.length })
+                                        </MaterialLink>
+                                    )}
+                                </TableCell>
+                                <TableCell>
+                                    { lesson.recording
+                                        ? <MaterialLink href={ lesson.recording.link }>
+                                            <FontAwesomeIcon icon={ faVideo } className={ classes.tableIcon } />
+                                        </MaterialLink>
+                                        : null
+                                    }
+                                </TableCell>
+                                <TableCell>
+                                    { lesson.lab && (
+                                        <MaterialLink component={ Link } to={ `${baseUrl}/labs/${lesson.lab.slug}`}>
+                                            { lesson.lab.title }
+                                        </MaterialLink>
+                                    )}
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </Paper>
+            <ConsolidatedReferencesCard baseUrl={ baseUrl } />
+        </div>
     );
+}
+
+function ConsolidatedReferencesCard({ baseUrl }: { baseUrl: string }) {
+    return (
+        <Card>
+            <CardHeader title="Consolidated References" />
+            <CardContent>
+                <MaterialLink component={ Link } to={`${baseUrl}/references`}>
+                    View Consolidated References
+                </MaterialLink>
+            </CardContent>
+        </Card>
+    )
 }
 
 interface Props {

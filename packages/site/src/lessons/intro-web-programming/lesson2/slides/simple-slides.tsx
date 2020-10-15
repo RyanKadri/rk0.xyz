@@ -1,5 +1,5 @@
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
-import { generateReferencesSlide } from "../../../shared/references-slide";
 
 export const MainTitle = generateTitleSlide(`HTML + CSS: Keeping it "Classy"`, "Ryan Kadri");
 
@@ -94,9 +94,9 @@ export const LinksAndLoading = generateContentSlide("External Style Sheets", [
     "Need to consider document loading order"
 ]);
 
-export const References = generateReferencesSlide([
+export const references: Reference[] = [
     { label: "CSS Selector Target Practice", url: "https://flukeout.github.io/" },
     { label: "CSS Selector Cheat Sheet", url: "https://adam-marsden.co.uk/css-cheat-sheet" },
     { label: "Palette Builder", url: "https://material-ui.com/customization/color/#color-tool" },
     { label: "Weird CSS Named Colors", url: "https://www.impressivewebs.com/weird-css-color-names/" }
-]);
+];

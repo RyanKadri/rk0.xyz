@@ -1,6 +1,7 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { generateReferencesSlide } from "../../shared/references-slide";
 import { ResponsiveResumeLab } from "./lab/responsive-resume-lab";
-import { BrandingExample, ConsistentStyling, CSSPrecedence, CSSSpecificity, CSSSpecificityExceptions, CssTransition, CssVisibility, EnterCSSFrameworks, PositionStyle, References, TitleSlide, WhatArePseudoClasses, WhatIfYouWantEasyBranding } from "./slides/simple";
+import { BrandingExample, ConsistentStyling, CSSPrecedence, CSSSpecificity, CSSSpecificityExceptions, CssTransition, CssVisibility, EnterCSSFrameworks, PositionStyle, references, TitleSlide, WhatArePseudoClasses, WhatIfYouWantEasyBranding } from "./slides/simple";
 import { SpecificityComparison } from "./slides/specificity-calculator";
 
 export const lesson4: Presentation = {
@@ -21,7 +22,7 @@ export const lesson4: Presentation = {
         PositionStyle,
         CssTransition,
         CssVisibility,
-        References
+        generateReferencesSlide(references)
     ],
     examples: [
         
@@ -33,5 +34,6 @@ export const lesson4: Presentation = {
     },
     recording: {
         link: "https://temple.zoom.us/rec/share/HKJpNfKSFFYVvgduROt0JmFJcZIdsxSiliZ6wKN9roHkbGNEsp2Hzl6UxfQjwWo0.Fj95pJBmjLUm3rkf"
-    }
+    },
+    references
 }

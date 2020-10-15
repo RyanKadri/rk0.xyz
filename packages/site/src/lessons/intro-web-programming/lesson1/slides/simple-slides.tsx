@@ -1,7 +1,7 @@
 import { Link as MaterialLink } from "@material-ui/core";
 import React from "react";
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
-import { generateReferencesSlide } from "../../../shared/references-slide";
 import myPicture from "./about-me-picture-web.jpg";
 
 export const TitleSlide = generateTitleSlide("Introduction to Web Technology and Programming", "Ryan Kadri");
@@ -116,9 +116,8 @@ export const HtmlAsStructure = generateContentSlide("HTML", [
 
 export const LetsCode = generateMessageSlide("Let's Code!")
 
-export const References = generateReferencesSlide([
+export const references: Reference[] = [
     { label: "HTML Element Reference", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element" },
     { label: "Class Examples", url: "https://github.com/RyanKadri/cis1052-fall2020-examples" },
     { label: "HTML Tutorials", url: "https://www.w3schools.com/html/default.asp" },
-    { label: "Class Examples", url: "https://github.com/RyanKadri/cis1052-fall2020-examples" }
-])
+];

@@ -1,3 +1,4 @@
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const TitleSlide = generateTitleSlide("JavaScript and the DOM", "Ryan Kadri");
@@ -49,3 +50,15 @@ export const WhatCanItDo = generateContentSlide("What can it do?", [
     "Add / Remove classes / attributes"
 ]);
 
+export const references: Reference[] = [
+    { 
+        label: "DOM Tutorial", 
+        url: "https://www.javascripttutorial.net/javascript-dom/",
+        note: "This is a good reference but covers more than what we've learned in class so far"
+    },
+    { 
+        label: "MDN DOM Reference", 
+        url: "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction",
+        note: "This guide is a bit long-winded but try to power through it. If you're getting confused, don't worry too much"
+    }
+];

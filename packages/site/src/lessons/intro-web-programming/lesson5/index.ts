@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { generateReferencesSlide } from "../../shared/references-slide";
 import { ExploringJSLab } from "./lab/exploring-js";
 import { ArraysExample } from "./slides/arrays";
 import { ConditionalsExample } from "./slides/conditionals";
@@ -31,7 +32,8 @@ export const lesson5: Presentation = {
         FunctionsExample,
         ArraysExample,
         Objects,
-        Strings
+        Strings,
+        generateReferencesSlide(simple.references)
     ],
     examples: [
         
@@ -43,5 +45,6 @@ export const lesson5: Presentation = {
         title: "Exploring Javascript",
         slug: "exploring-javascript",
         LabView: ExploringJSLab
-    }
+    },
+    references: simple.references
 }

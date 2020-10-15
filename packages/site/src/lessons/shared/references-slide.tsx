@@ -1,6 +1,6 @@
 import { Link, makeStyles, Typography } from "@material-ui/core";
 import React, { ReactElement } from "react";
-import { PresentationContext } from "../../../../presenter-core/src/services/types";
+import { PresentationContext, Reference } from "../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../presenter-core/src/slides/content-slide";
 
 const useStyles = makeStyles({
@@ -8,6 +8,11 @@ const useStyles = makeStyles({
         "& li": {
             marginBottom: 16
         }
+    },
+    noteCaption: {
+        display: "block",
+        marginLeft: 64,
+        marginTop: 8,
     }
 });
 
@@ -20,6 +25,12 @@ export function ReferencesSlide({ Title = "References", references, context }: P
                     <li key={link.url}>
                         <Typography className={ classes.referenceList }>{ link.label } </Typography> 
                         <Link href={link.url} target="_blank">{ link.url }</Link>
+                        { link.note && (
+                            <Typography variant="caption" 
+                                        className={ classes.noteCaption }>
+                                { link.note }
+                            </Typography>
+                        ) }
                     </li>
                 ))
             }</ul>
@@ -35,11 +46,6 @@ export function generateReferencesSlide(references: Reference[], title = "Refere
                             context={ context }/>
         )
     }
-}
-
-interface Reference {
-    url: string;
-    label: string;
 }
 
 interface Props {

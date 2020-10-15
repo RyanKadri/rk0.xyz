@@ -1,5 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { bodyExample } from "../../../common/functional-utils";
+import { generateReferencesSlide } from "../../shared/references-slide";
 import borders from "./examples/borders.html";
 import colors from "./examples/colors.html";
 import display1 from "./examples/display1.html";
@@ -14,7 +15,7 @@ import { HexColors } from "./slides/hex-colors";
 import { HslColors } from "./slides/hsl-colors";
 import { NamedColors } from "./slides/named-colors";
 import { RgbaColors } from "./slides/rgba-colors";
-import { Agenda, ColorStyles, CssFundamentalsDisplay, HowCSS, LetsGetSelective, LetsGetStylish, LinksAndLoading, MainTitle, RecapSlide, References, Selectors, StyleConcepts, ThinkingCSS, WhyCSS } from "./slides/simple-slides";
+import { Agenda, ColorStyles, CssFundamentalsDisplay, HowCSS, LetsGetSelective, LetsGetStylish, LinksAndLoading, MainTitle, RecapSlide, references, Selectors, StyleConcepts, ThinkingCSS, WhyCSS } from "./slides/simple-slides";
 import { Sizes } from "./slides/sizes";
 
 export const lesson2: Presentation = {
@@ -41,7 +42,7 @@ export const lesson2: Presentation = {
         Selectors,
         LetsGetSelective,
         LinksAndLoading,
-        References
+        generateReferencesSlide(references)
     ],
     examples: [
         { code: colors, title: "Colors" },
@@ -53,5 +54,6 @@ export const lesson2: Presentation = {
         bodyExample("Flex Directions", flexDirections, `<style>div { border: solid 1px; margin: 8px } </style>`),
         bodyExample("Flex Children", flexChildren, `<style>div { border: solid 1px; margin: 8px } </style>`),
         { code: mediaQuery, title: "Media Query" }
-    ]
+    ],
+    references
 }

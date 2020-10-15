@@ -1,7 +1,7 @@
 import { Link } from "@material-ui/core";
 import React from "react";
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
-import { generateReferencesSlide } from "../../../shared/references-slide";
 
 export const TitleSlide = generateTitleSlide("CSS Frameworks and Intermediate CSS", "Ryan Kadri");
 
@@ -93,7 +93,7 @@ export const CssVisibility = generateContentSlide("CSS: Visibility", [
     ] }
 ]);
 
-export const References = generateReferencesSlide([
+export const references: Reference[] = [
     { label: "CSS Specificity", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity" },
     { label: "Pseudo-Classes", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" },
     { label: "Specificity Calculator", url: "https://specificity.keegan.st/" },
@@ -101,4 +101,4 @@ export const References = generateReferencesSlide([
     { label: "MUI", url: "https://www.muicss.com/docs/v1/getting-started/introduction" },
     { label: "Water.css", url: "https://watercss.netlify.app/" },
     { label: "Code from this class", url: "https://github.com/RyanKadri/cis1052-fall2020-examples/tree/master/c4-css-frameworks" }
-])
+];

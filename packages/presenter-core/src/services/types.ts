@@ -13,7 +13,8 @@ export interface Presentation {
     slides: ComponentType<{context: PresentationContext}>[];
     examples: ExampleDefinition[];
     recording?: RecordingDefinition;
-    lab?: LabDefinition
+    lab?: LabDefinition;
+    references?: Reference[]
 }
 
 export interface CourseGroup {
@@ -51,4 +52,10 @@ export type ExampleCode = string | ComplexExample;
 export interface ComplexExample {
     displayCode: string;
     formCode?: (userCode: string) => string;
+}
+
+export interface Reference {
+    url: string;
+    label: string;
+    note?: string;
 }

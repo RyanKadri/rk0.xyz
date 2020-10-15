@@ -1,3 +1,4 @@
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const TitleSlide = generateTitleSlide("Introduction to JavaScript", "Ryan Kadri");
@@ -36,3 +37,9 @@ export const DataTypes = generateContentSlide("Thinking about Data", [
 ]);
 
 export const LetsGetStarted = generateMessageSlide("Let's Get Started");
+
+export const references: Reference[] = [
+    { label: "MDN JavaScript Reference", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+    { label: "Learn Programming Online", url: "https://learnprogramming.online/" },
+    { label: "Learn JavaScript Online", url: "https://learnjavascript.online/" }
+];

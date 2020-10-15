@@ -1,5 +1,5 @@
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
-import { generateReferencesSlide } from "../../../shared/references-slide";
 
 export const TitleSlide = generateTitleSlide(`Responsive Design`, "Ryan Kadri");
 
@@ -96,8 +96,8 @@ export const GridOverview = generateContentSlide("CSS Grid", [
 
 export const CombineItAll = generateMessageSlide("Let's combine it all together!");
 
-export const References = generateReferencesSlide([
+export const references: Reference[] = [
     { label: "Flexbox Froggy", url: "https://flexboxfroggy.com/" },
     { label: "Grid Garden", url: "https://codepip.com/games/grid-garden/" },
     { label: "Media Query Reference", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" }
-])
+]

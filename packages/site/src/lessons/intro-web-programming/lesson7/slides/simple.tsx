@@ -1,3 +1,4 @@
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const TitleSlide = generateTitleSlide("JavaScript: User Input", "Ryan Kadri");
@@ -49,4 +50,20 @@ export const HowToInteract = generateContentSlide("Reacting to Input", [
     ] }
 ]);
 
-export const LetsCode = generateMessageSlide("Let's do some examples")
+export const LetsCode = generateMessageSlide("Let's do some examples");
+
+export const references: Reference[] = [
+    { 
+        label: "Class Examples", 
+        url: "https://github.com/RyanKadri/cis1052-fall2020-examples/tree/master/c7-reacting-to-input" 
+    },
+    { 
+        label: "W3Schools Examples", 
+        url: "https://www.w3schools.com/js/js_htmldom_events.asp" 
+    },
+    { 
+        label: "Another JavaScript Events Tutorial", 
+        url: "https://www.javascripttutorial.net/javascript-dom/javascript-events/" ,
+        note: "This page goes into some detail we haven't covered in class yet. You don't need to know addEventListener or Event Bubbling yet"
+    }
+]

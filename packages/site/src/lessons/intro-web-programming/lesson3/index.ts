@@ -1,5 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { bodyExample } from "../../../common/functional-utils";
+import { generateReferencesSlide } from "../../shared/references-slide";
 import flexChildren from "../lesson2/examples/flex-children.html";
 import flexDirections from "../lesson2/examples/flex-directions.html";
 import mediaQuery from "../lesson2/examples/media-query.html";
@@ -34,7 +35,7 @@ export const lesson3: Presentation = {
         simple.EnterGrid,
         simple.GridOverview,
         simple.CombineItAll,
-        simple.References
+        generateReferencesSlide(simple.references)
     ],
     examples: [
         bodyExample("Flex Directions", flexDirections, `<style>div { border: solid 1px; margin: 8px } </style>`),
@@ -48,5 +49,6 @@ export const lesson3: Presentation = {
     },
     recording: {
         link: "https://temple.zoom.us/rec/share/LBlOi9yVa9mD-OBi4MY9VNBGbPY9TOfaYXNn1tyFXKE0ru6V_jSG8IgRAO4V0cj0.qYuJERaC6jmdaD3p",
-    }
+    },
+    references: simple.references
 }

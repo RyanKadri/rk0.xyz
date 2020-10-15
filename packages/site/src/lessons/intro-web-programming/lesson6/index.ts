@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { generateReferencesSlide } from "../../shared/references-slide";
 import { ConditionalsExample } from "../lesson5/slides/conditionals";
 import { ForLoops } from "../lesson5/slides/for-loops";
 import { FunctionsExample } from "../lesson5/slides/functions";
@@ -38,6 +39,7 @@ export const lesson6: Presentation = {
         simple.TheProblem,
         simple.DOM,
         simple.WhatCanItDo,
+        generateReferencesSlide(simple.references)
     ],
     examples: [
         
@@ -49,5 +51,6 @@ export const lesson6: Presentation = {
         title: "String Manipulation and Forms",
         slug: "strings-and-forms",
         LabView: FormControlLab
-    }
+    },
+    references: simple.references
 }

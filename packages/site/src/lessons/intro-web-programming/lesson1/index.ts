@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { generateReferencesSlide } from "../../shared/references-slide";
 import controls from "./examples/controls.html";
 import lists from "./examples/lists.html";
 import media from "./examples/media.html";
@@ -8,7 +9,7 @@ import { IntroToHtmlLab } from "./lab/intro-to-html-lab";
 import { OutlineToHtml } from "./slides/outline-to-html";
 import { SimpleBrowserSlide } from "./slides/simple-browser";
 import { SimpleMonitorSlide } from "./slides/simple-monitor";
-import { AboutMe, AboutMePicture, CourseNonTopics, CourseTools, CourseTopics, Expectations, HtmlAsStructure, HTMLDef, LetsCode, References, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./slides/simple-slides";
+import { AboutMe, AboutMePicture, CourseNonTopics, CourseTools, CourseTopics, Expectations, HtmlAsStructure, HTMLDef, LetsCode, references, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./slides/simple-slides";
 import { XMLSlide } from "./slides/xml-slide";
 
 export const lesson1: Presentation = {
@@ -34,7 +35,7 @@ export const lesson1: Presentation = {
         OutlineToHtml,
         HtmlAsStructure,
         LetsCode,
-        References,
+        generateReferencesSlide(references),
     ],
     examples: [
         { code: textAndHeadings, title: "Text and Headings" },
@@ -50,5 +51,6 @@ export const lesson1: Presentation = {
     },
     recording: {
         link: "https://temple.zoom.us/rec/play/uMV8cLr6qzk3HtzGsgSDCvEvW47pLq6s1iQY__QKzB28WnkLNQKvYLIQY-Q-7ngAemACtemQEwONf1Q4?continueMode=true"
-    }
+    },
+    references
 }

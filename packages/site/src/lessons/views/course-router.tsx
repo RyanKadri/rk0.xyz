@@ -5,6 +5,7 @@ import { assertExists } from "../../common/functional-utils";
 import { introToWebProgramming } from "../archived/intro-web-programming";
 import { introToWebProgrammingFall2020 } from "../intro-web-programming";
 import { practicumInSoftwareConstruction } from "../sw-construction";
+import { ConsolidatedReferences } from "./lesson-list/consolidated-references";
 import { CourseSelector } from "./lesson-list/course-selector";
 import { LessonListView } from "./lesson-list/lesson-list-view";
 import { LessonResourceRouter } from "./presentation-resource-router";
@@ -20,7 +21,13 @@ export function CourseRouter({ match }: Props) {
         <Switch>
             <Route path={ `${ match.url }/:course` } exact render={({ match: courseMatch }) => 
                 <LessonListView currCourse={ courses.find(course => course.slug === courseMatch.params.course) }
-                            baseUrl={ `${match.url}` } /> }
+                            baseUrl={ match.url } /> }
+            />
+            <Route path={ `${ match.url }/:course/references` } exact render={({ match: courseMatch }) => 
+                <ConsolidatedReferences 
+                    course={ courses.find(course => course.slug === courseMatch.params.course)! }
+                    baseUrl={ match.url }
+                /> }
             />
             <Route path={ `${ match.url }/` } exact>
                 <CourseSelector />
