@@ -30,7 +30,7 @@ export function ConsolidatedReferences({ course, baseUrl }: Props) {
     const classes = useStyles();
     return (
         <div className={ classes.container }>
-            <MaterialLink component={ Link } to={`${ baseUrl }/${course.slug}`}>Back to Course</MaterialLink>
+            <MaterialLink component={ Link } to={`${ baseUrl }`}>Back to Course</MaterialLink>
             <Typography variant="h4">
                 Consolidated References: { course.title }
             </Typography>

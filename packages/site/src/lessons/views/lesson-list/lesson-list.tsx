@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, CardActions, CardContent, CardHeader, createStyles, Link as MaterialLink, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, useMediaQuery, useTheme } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 
 const useStyles = makeStyles(createStyles({
     tablePaper: {
         overflowX: "auto",
         fontSize: 12,
-        gridColumn: "1/3"
+        gridColumn: "1/4"
     },
     tableIcon: {
         marginRight: 8
@@ -24,10 +24,10 @@ const useStyles = makeStyles(createStyles({
     },
     tableViewParent: {
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
+        gridTemplateColumns: "1fr 1fr 1fr",
         gap: "16px"
     }
-}))
+}));
 
 export function LessonList(props: Props) {
 
@@ -39,11 +39,11 @@ export function LessonList(props: Props) {
         : <LessonTableView {...props} />
 }
 
-function LessonCardView({ lessons, baseUrl }: Props) {
+function LessonCardView({ course, baseUrl }: Props) {
     const classes = useStyles();
 
     return <>{
-        lessons.map((lesson) => (
+        course.lessons.map((lesson) => (
             <Card className={ classes.lessonCard } key={ lesson.title }>
                 <CardHeader title={ lesson.title } />
                 <CardContent>
@@ -64,11 +64,13 @@ function LessonCardView({ lessons, baseUrl }: Props) {
                 </CardActions>
             </Card>
         )) }
-        <ConsolidatedReferencesCard baseUrl={ baseUrl } />
+        { (course.courseExtras || []).map(extra => (
+            <LinkCard baseUrl={ baseUrl } title={ extra.title } relativeLink={ extra.route } key={ extra.route } />
+        ))}
     </>;
 }
 
-function LessonTableView({ lessons, baseUrl }: Props) {
+function LessonTableView({ course, baseUrl }: Props) {
     const classes = useStyles();
     return (
         <div className={ classes.tableViewParent }>
@@ -85,7 +87,7 @@ function LessonTableView({ lessons, baseUrl }: Props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        { lessons.map((lesson) => (
+                        { course.lessons.map((lesson) => (
                             <TableRow key={ lesson.title }>
                                 <TableCell>{ lesson.title }</TableCell>
                                 <TableCell>{ lesson.description }</TableCell>
@@ -123,18 +125,26 @@ function LessonTableView({ lessons, baseUrl }: Props) {
                     </TableBody>
                 </Table>
             </Paper>
-            <ConsolidatedReferencesCard baseUrl={ baseUrl } />
+            { (course.courseExtras || []).map(extra => (
+                <LinkCard baseUrl={ baseUrl } title={ extra.title } relativeLink={ extra.route } key={ extra.route } />
+            ))}
         </div>
     );
 }
 
-function ConsolidatedReferencesCard({ baseUrl }: { baseUrl: string }) {
+interface LinkCardProps {
+    baseUrl: string;
+    title: string;
+    relativeLink: string;
+}
+
+function LinkCard({ baseUrl, title, relativeLink }: LinkCardProps) {
     return (
         <Card>
-            <CardHeader title="Consolidated References" />
+            <CardHeader title={ title } />
             <CardContent>
-                <MaterialLink component={ Link } to={`${baseUrl}/references`}>
-                    View Consolidated References
+                <MaterialLink component={ Link } to={`${baseUrl}/${ relativeLink }`}>
+                    View { title }
                 </MaterialLink>
             </CardContent>
         </Card>
@@ -142,6 +152,6 @@ function ConsolidatedReferencesCard({ baseUrl }: { baseUrl: string }) {
 }
 
 interface Props {
-    lessons: Presentation[];
+    course: CourseDefinition;
     baseUrl: string;
 }

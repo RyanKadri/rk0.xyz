@@ -1,5 +1,6 @@
 import { faNetworkWired } from "@fortawesome/free-solid-svg-icons/faNetworkWired";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
+import { ConsolidatedReferences } from "../views/lesson-list/consolidated-references";
 import { lesson1 } from "./lesson1";
 import { lesson2 } from "./lesson2";
 import { lesson3 } from "./lesson3";
@@ -7,6 +8,7 @@ import { lesson4 } from "./lesson4";
 import { lesson5 } from "./lesson5";
 import { lesson6 } from "./lesson6";
 import { lesson7 } from "./lesson7";
+import { MidtermStudyGuide } from "./midterm-prep/study-guide";
 
 export const introToWebProgrammingFall2020: CourseDefinition = { 
     title: "Introduction to Web Technology and Programming",
@@ -21,5 +23,9 @@ export const introToWebProgrammingFall2020: CourseDefinition = {
         lesson6,
         lesson7
     ],
-    icon: faNetworkWired
+    icon: faNetworkWired,
+    courseExtras: [
+        { title: "Consolidated References", route: "references", View: ConsolidatedReferences },
+        { title: "Midterm Study Guide", route: "midterm-study-guide", View: MidtermStudyGuide }
+    ]
 };

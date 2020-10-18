@@ -80,12 +80,12 @@ export function Sizes({ context }: Props) {
                 <label>Width: 
                     <input className={ `${ classes.input}` } 
                             value={ width } 
-                            onInput={ e => setWidth(parseInt(e.currentTarget.value || "0", 10)) } />
+                            onChange={ e => setWidth(parseInt(e.currentTarget.value || "0", 10)) } />
                 </label>
                 <label>Height:
                     <input className={ `${ classes.input}` } 
                             value={ height } 
-                            onInput={ e => setHeight(parseInt(e.currentTarget.value || "0", 10)) } />
+                            onChange={ e => setHeight(parseInt(e.currentTarget.value || "0", 10)) } />
                 </label>
             </div>
             </>

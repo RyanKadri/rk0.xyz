@@ -56,7 +56,7 @@ export function NamedColors({ context }: Props) {
             </div>
             <div className={ classes.colorContainer }>
                 <div style={ { backgroundColor: customColor } } className={ `${classes.colorBlock} ${ classes.customBlock }` }>
-                    <input onInput={ e => setCustomColor(e.currentTarget.value )} 
+                    <input onChange={ e => setCustomColor(e.currentTarget.value )} 
                            value={ customColor }
                            className={ classes.colorInput } />
                 </div>

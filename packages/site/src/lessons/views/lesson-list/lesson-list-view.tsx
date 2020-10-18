@@ -1,5 +1,6 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import React from "react";
+import { useRouteMatch } from "react-router-dom";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 import { LessonList } from "./lesson-list";
 
@@ -10,13 +11,14 @@ const useStyles = makeStyles((_: Theme) => createStyles({
     },
 }));
 
-export function LessonListView({ currCourse, baseUrl }: Props) {
+export function LessonListView({ currCourse }: Props) {
     const classes = useStyles();
+    const baseUrl = useRouteMatch();
 
     return (
         <div className={ classes.container }>
             { currCourse
-                ? <LessonList lessons={ currCourse.lessons } baseUrl={ `${baseUrl}/${currCourse.slug}` } />
+                ? <LessonList course={ currCourse } baseUrl={ baseUrl.url } />
                 : "This course does not seem to exist"
             }
         </div>
@@ -25,5 +27,4 @@ export function LessonListView({ currCourse, baseUrl }: Props) {
 
 interface Props {
     currCourse: CourseDefinition | undefined;
-    baseUrl: string;
 }

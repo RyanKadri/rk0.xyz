@@ -29,6 +29,7 @@ export interface CourseDefinition {
     title: string;
     slug: string;
     icon?: IconDefinition;
+    courseExtras?: CourseExtra[];
 }
 
 export interface ExampleDefinition {
@@ -58,4 +59,16 @@ export interface Reference {
     url: string;
     label: string;
     note?: string;
+}
+
+export interface CourseExtra {
+    title: string;
+    description?: string;
+    route: string;
+    View: React.ComponentType<CourseExtraProps>;
+}
+
+export interface CourseExtraProps {
+    baseUrl: string;
+    course: CourseDefinition;
 }
