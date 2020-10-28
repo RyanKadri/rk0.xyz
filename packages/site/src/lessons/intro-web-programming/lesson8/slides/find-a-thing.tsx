@@ -7,29 +7,41 @@ import { ContentSlide } from "../../../../../../presenter-core/src/slides/conten
 
 const useStyles = makeStyles(createStyles({
     code: {
-        fontSize: 28,
+        fontSize: 22,
         userSelect: "text"
     }
 }))
 
 const code = `
-async function printHello() {
-    console.log("Hello.");
-    delay(1000)()
-        .then(() => console.log("My"))
-        .then(delay(1000))
-        .then(() => console.log("name"))
-        .then(delay(1000))
-        .then(() => console.log("is"))
-        .then(delay(1000))
-        .then(() => console.log("Ryan"));
+function findFirstGreaterThan10(numbers) {
+    for(const num of numbers) {
+        if(num > 10) {
+            return num;
+        }
+    }
+}
+
+function findFirstStartsWithS(names) {
+    for(const name of names) {
+        if(name.startsWith("S")) {
+            return name;
+        }
+    }
+}
+
+function findFirstPrime(numbers) {
+    for(const num of numbers) {
+        if(isPrime(num)) {
+            return el;
+        }
+    }
 }
 `.trim();
 
-export function PromisesExample({ context }: Props) {
+export function FindThing({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Promises To The Rescue!" context={context} Content={
+        <ContentSlide Title="Find a Thing" context={context} Content={
             <CodeBlock language="js" code={ code } className={ classes.code } />
         } />
     );

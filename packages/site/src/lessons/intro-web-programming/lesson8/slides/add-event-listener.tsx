@@ -8,36 +8,40 @@ import { ContentSlide } from "../../../../../../presenter-core/src/slides/conten
 
 const useStyles = makeStyles(createStyles({
     code: {
-        fontSize: 28,
-        userSelect: "text"
+        fontSize: 26,
+        userSelect: "text",
+        border: "solid #444 2px",
+        marginTop: 16
     }
 }))
 
 const slideItems = [
-    "Timers in JS call a callback when they are done",
-    "Time is set in milliseconds"
+    'You can "listen" for events in JavaScript like you can in HTML',
+    "Similar to adding an onclick event handler in HTML"
 ];
 
+const myHTML = `
+<div class="my-panel">
+    <header>Panel Title</header>
+</div>
+`
+
 const code = `
-function printHello() {
-    console.log("Hello!")
-}
+const myPanelHeader = document.querySelector(".my-panel header");
+myPanel.addEventListener("click", changeColor);
 
-function printGoodbye(timerId) {
-    console.log("Goodbye");
-    clearTimeout(timerId);
+function changeColor() {
+    myPanelHeader.style.color = "red"
 }
-
-const intervalTimeout = setInterval(printHello, 1000);
-setTimeout(printGoodbye, 5500, intervalTimeout);
 `.trim();
 
-export function Timeouts({ context }: Props) {
+export function AddEventListener({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Timers" context={context} Content={
+        <ContentSlide Title="addEventListener" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
+                <CodeBlock language="html" code={ myHTML } className={ classes.code }></CodeBlock>
                 <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
             </>
         } />

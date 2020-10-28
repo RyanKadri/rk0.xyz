@@ -13,28 +13,24 @@ const useStyles = makeStyles(createStyles({
 }))
 
 const code = `
-async function printHello() {
-    console.log("Hello.");
-    
-    await delay(1000)
-    console.log("My")
-    
-    await delay(1000)
-    console.log("name")
-
-    await delay(1000)
-    console.log("is")
-
-    await delay(1000)
-    console.log("Ryan")
+function sayHi() {
+    console.log("Hi")
 }
+
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
 `.trim();
 
-export function AwaitExample({ context }: Props) {
+export function TimeoutWaitWhat({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Async/Await To The Rescue!" context={context} Content={
-            <CodeBlock language="js" code={ code } className={ classes.code } />
+        <ContentSlide Title="What Happens?" context={context} Content={
+            <>
+                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+            </>
         } />
     );
 }

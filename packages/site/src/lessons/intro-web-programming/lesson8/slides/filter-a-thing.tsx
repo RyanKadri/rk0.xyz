@@ -7,25 +7,38 @@ import { ContentSlide } from "../../../../../../presenter-core/src/slides/conten
 
 const useStyles = makeStyles(createStyles({
     code: {
-        fontSize: 32,
+        fontSize: 26,
         userSelect: "text"
     }
 }))
 
 const code = `
-function processFile() {
-    const fileData = readFile("budget.txt");
-    const largestExpense = determineLargestExpense(fileData);
-    updateNetwork(largestExpense);
-    console.log("Done processing.")
+function removeEvents(numbers) {
+    const result = [];
+    for(const num of numbers) {
+        if(num % 2 !== 0) {
+            result.push(num);
+        }
+    }
+    return result;
+}
+
+function cancelJanice(people) {
+    const result = [];
+    for(const person of people) {
+        if(person.includes("Janice")) {
+            result.push(person);
+        }
+    }
+    return result;
 }
 `.trim();
 
-export function BlockingCode({ context }: Props) {
+export function FilterThings({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Blocking Code" context={context} Content={
-            <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+        <ContentSlide Title="Find a Thing" context={context} Content={
+            <CodeBlock language="js" code={ code } className={ classes.code } />
         } />
     );
 }

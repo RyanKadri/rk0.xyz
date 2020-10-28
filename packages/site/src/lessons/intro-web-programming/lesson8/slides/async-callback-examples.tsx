@@ -14,32 +14,29 @@ const useStyles = makeStyles(createStyles({
 }))
 
 const slideItems = [
-    "Functions are just like other data types",
-    "They can be assigned, returned, and passed as parameters"
+    "You can use the setTimeout function to do things after a certain delay",
+    "Pass a function (for what to do) and a delay time (in ms)"
 ];
 
 const code = `
-function add(a, b) {
-    return a+b;
+function printHello() {
+    console.log("Hello!");
 }
 
-function addOne() {
-    return function(a) {
-        return add(a,1);
-    }
+function annoying() {
+    console.log("Is this annoying?");
 }
 
-function doSomething(arg) {
-    return arg(2);
-}
+setTimeout(printHello, 1000);
+setInterval(annoying, 1000);
 `.trim();
 
-export function FunctionsRedux({ context }: Props) {
+export function Timeouts({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Functions" context={context} Content={
+        <ContentSlide Title="Timers" context={context} Content={
             <>
-                <InfoList items={ slideItems } />
+                <InfoList items={ slideItems }></InfoList>
                 <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
             </>
         } />

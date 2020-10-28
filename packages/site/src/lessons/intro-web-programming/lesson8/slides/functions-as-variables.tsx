@@ -3,6 +3,7 @@ import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
+import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
 
 const useStyles = makeStyles(createStyles({
@@ -12,29 +13,30 @@ const useStyles = makeStyles(createStyles({
     }
 }))
 
+const slideItems = [
+    "Whole functions can even be passed as parameters to or returned from other functions",
+    "This is what happens in addEventListener"
+];
+
 const code = `
-setTimeout(function() {
-    console.log("Hello!")
-}, 1000);
+function sayHello() {
+    console.log("Hello")
+}
 
-setTimeout(function() {
-    console.log("Hello!")
-}, 1000);
+function doSomethingTwice(something) {
+    something();
+    something();
+}
 
-setTimeout(function() {
-    console.log("Hello!")
-}, 1000);
-
-setTimeout(function() {
-    console.log("Hello!")
-}, 1000);
+doSomethingTwice(sayHello)
 `.trim();
 
-export function TimeoutWaitWhat({ context }: Props) {
+export function FunctionsAsVariablesPart2({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Wait what?" context={context} Content={
+        <ContentSlide Title="Functions" context={context} Content={
             <>
+                <InfoList items={ slideItems } />
                 <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
             </>
         } />

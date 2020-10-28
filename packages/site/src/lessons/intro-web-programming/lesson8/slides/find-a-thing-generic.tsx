@@ -7,37 +7,37 @@ import { ContentSlide } from "../../../../../../presenter-core/src/slides/conten
 
 const useStyles = makeStyles(createStyles({
     code: {
-        fontSize: 26,
+        fontSize: 22,
         userSelect: "text"
     }
 }))
 
 const code = `
-function findFirstGreaterThanN(array, n) {
-    for(const el of array) {
-        if(el > n) {
-            return el;
+function findAThing(myArray, decisionPoint) {
+    for(const num of numbers) {
+        if(decisionPoint(num)) {
+            return num;
         }
     }
 }
 
-function findFirstStartsWith(array, letter) {
-    for(const el of array) {
-        if(el.startsWith(letter)) {
-            return el;
-        }
-    }
+function isLessThan10(number) {
+    return number < 10;
 }
 
-function find(array, elMatches) {
-    // ???
+function startsWithS(name) {
+    return name.startsWith("S")
 }
+
+findAThing([1,2,5,7,11,14], isLessThan10);
+findAThing(["Adelaide", "Nathan", "Sky", "Sarah"], startsWithS);
+
 `.trim();
 
-export function SyncCallbackUseCase({ context }: Props) {
+export function FindAThingGeneric({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Synchronous Callbacks" context={context} Content={
+        <ContentSlide Title="Find a Thing" context={context} Content={
             <CodeBlock language="js" code={ code } className={ classes.code } />
         } />
     );
