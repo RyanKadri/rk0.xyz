@@ -48,5 +48,8 @@ export const lesson8: Presentation = {
         LabView: CallbacksLab,
         slug: "callbacks",
         title: "Exploring Callbacks"
+    },
+    recording: {
+        link: "https://temple.zoom.us/rec/play/SUyDcTEetDiC9gqb7sW7eKUo4pRYOqjmPK_Jt5C3GuZYXyWFmzj0NYTk9f8zXiW8dcjC6cCQk4h8x-4L.EWvXQpvyd65ZCAZ5?autoplay=true&startTime=1603920369000"
     }
 }
