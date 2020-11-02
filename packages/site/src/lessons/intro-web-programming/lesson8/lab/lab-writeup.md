@@ -1,21 +1,19 @@
-**Note: This lab is not 100% set in stone. I may update it a bit more in the next few days for clarity and difficulty. Other than section 2, the content / main idea should mostly be the same**
-
 # Lab 5: Callbacks and Timers
 
 ## Overview
 
-In this lab, you will be learning about callbacks. Callbacks are functions that are passed as parameters to another function and called zero or more times to help customize a task. JavaScript has some built-in functions/methods that take a callback as a parameter and can help you simplify some tasks. In some other cases, callbacks can be used to allow JavaScript to do things asynchronously (wait 5 seconds before calling a function, make a request to a server and do something with the result). This lab will give you a chance to work with multiple types of callbacks to simplify and enhance your web applications.
+In this lab, you will be learning about callbacks. Callbacks are functions that are passed as parameters to another function and called zero or more times to help customize some aspect of the function being called. JavaScript has some built-in functions/methods that take a callback as a parameter and can help you simplify some tasks. In some other cases, callbacks can be used to allow JavaScript to do things asynchronously (wait 5 seconds before calling a function, make a request to a server and do something with the result). This lab will give you a chance to work with multiple types of callbacks to simplify and enhance your web applications.
 
 ## Part One - Synchronous Callbacks
 
 JavaScript has a few built-in methods that accept a callback and can help simplify certain array operations:
 
 - [Array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - Takes a function as an input. Calls the function once on every element in the array in order. The result of each operation is returned as a new array.
-  - For instance, `[1,2,3].map(doubleNumber)` returns `[2,4,6]` if doubleNumber is a function that accepts a single number and returns twice that input number.
+  - For instance, `[1,2,3].map(doubleNumber)` returns `[2,4,6]` if `doubleNumber` is a function that accepts a single number and returns twice that input number.
 - [Array.filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) - Takes a function as an input. Calls the function once on every element in the array in order. If the function returns true for a given element, that element will be part of a new returned array.
-  - For instance, `[2,3,4,5].filter(isEven)` returns `[2,4]` if isEven is a function that accepts a single number and returns true if it is even.
+  - For instance, `[2,3,4,5].filter(isEven)` returns `[2,4]` if `isEven` is a function that accepts a single number and returns true if it is even.
 - [Array.find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) - Takes a function as an input. Calls the function once on every element in the array in order. If the function returns true for a given element, that element will immediately be returned and the method will stop running.
-  - For instance, `[9,10,14,15].filter(isGreaterThan10)` returns `14` if isGreaterThan10 is a function that accepts a single number and returns true if it is bigger than 10.
+  - For instance, `[9,10,14,15].filter(isGreaterThan10)` returns `14` if `isGreaterThan10` is a function that accepts a single number and returns true if it is bigger than 10.
 
 Please use these methods to write functions that do each of the following:
 
@@ -23,7 +21,7 @@ Please use these methods to write functions that do each of the following:
 1. Takes in an array of strings. Returns a new array that contains the uppercase version of the strings
 1. Takes an array of strings. Returns a new array with the lengths of strings that are palindromes (in order).
   - eg. `lengthsOfPalindromes(["a", "ab", "aba", "racecar", "cat"])` returns `[1,3,7]`
-  - Hint: You probably want to reuse your old isPalindrome code and you may need to use two of the methods above
+  - Hint: You probably want to reuse your old `isPalindrome` code and you may need to use two of the methods above
 
 ## Part 2: Writing your own callback-accepting functions
 
@@ -31,6 +29,8 @@ Occasionally, it is useful to write functions that accept a callback. Imagine if
 
 - A function `separate` that accepts an array and a function that returns true or false. It should run the function for every element in the array. Your `separate` function should return an array that itself contains two arrays. The first array should contain every element for which the callback function returned true. The second array should contain every element for which the callback function returned false.
   - Example: `separate([1,2,3,4,5,6], isEven)` returns `[[2,4,6], [1,2,3]]`
+- A function `bestOfBothWorlds` that accepts two arrays of equal length with any kind of elements (numbers, strings, etc) as well as a function. Your function should pass corresponding elements from each array (1st element of each, 2nd element of each, etc) into the parameter function and it should decide which of the two elements is "better". Your function should return an array with the better element at each position.
+  - Example: `bestOfBothWorlds([1,11,2], [15, 7, 5], biggerIsBetter)` returns `[15,11,5]` if `biggerIsBetter` is a function that takes two numbers and returns the bigger one.
 
 ## Part 3: Analog Clock
 

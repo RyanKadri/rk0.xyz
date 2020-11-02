@@ -17,12 +17,14 @@ For the first part of the lab, you will be writing a number of Javascript functi
 ### Age
 
 Please write a function that takes a numeric age as an input and checks if the age is acceptable for a user of your site. An age is acceptable if:
+
 - The user is at least 13 years old
 - The user is no older than the oldest human alive today
 
 ### First/Last Name
 
 Please write a function that takes a single string as an input and returns a boolean for whether or not the string is a valid first or last name. A name is valid if:
+
 - It starts with a capital letter
 - All other letters are lowercase
 - It is only one word (no spaces)
@@ -30,12 +32,14 @@ Please write a function that takes a single string as an input and returns a boo
 ### Password
 
 A user must supply a strong password to the site. It cannot:
+
 - Have less than 6 characters
 - Be a single character repeated forever (eg "aaaaaaaaa")
 - Include the first or last name
 - Be in a list of most commonly used passwords
 
 Please write a function that takes four parameters:
+
 - The password (string)
 - The first name (string)
 - The last name (string)
@@ -57,9 +61,8 @@ Please write a function that takes a username (string) and a list of taken usern
 
 ## Part Three
 
-*Note: We have not yet covered how to handle user input. I plan to cover that in class on Wednesday. You can certainly try to figure it out in this lab session but if you're confused for this part, maybe just put together the HTML page and don't worry about hooking in the user inputs quite yet*
-
 For this part of the lab, you will be creating a little HTML and CSS page that will act as a sign-up form for another website. You must collect at least the following information about the user:
+
 - First Name
 - Last Name
 - Age

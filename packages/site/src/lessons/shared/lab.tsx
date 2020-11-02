@@ -33,6 +33,7 @@ export const useMarkdownLabStyles = makeStyles((theme: Theme) => createStyles({
     container: {
         padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
         maxWidth: 1200,
+        fontSize: "1rem",
         "& h1": theme.typography.h4,
         "& h2": theme.typography.h5,
         "& h3": {
@@ -58,7 +59,12 @@ export const useMarkdownLabStyles = makeStyles((theme: Theme) => createStyles({
             maxWidth: 900
         },
         "& code": {
-            whiteSpace: "pre-wrap"
+            whiteSpace: "pre-wrap",
+            fontSize: "1.15rem",
+            backgroundColor: "rgba(0,0,0,0.08)",
+            padding: 2,
+            borderRadius: 4,
+            color: "maroon"
         }
     }
 }));
