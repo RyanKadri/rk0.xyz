@@ -44,7 +44,7 @@ export const CodeBlock = withStyles(styles)(_CodeBlock)
 
 interface Props extends WithStyles<typeof styles> {
     code: string;
-    language: string;
+    language: keyof typeof languages;
     className?: string;
     onDoubleClick?(): void;
 }

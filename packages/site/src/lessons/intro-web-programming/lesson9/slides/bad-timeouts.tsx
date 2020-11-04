@@ -14,17 +14,23 @@ const useStyles = makeStyles(createStyles({
 
 const code = `
 function processFile() {
-    const fileData = readFile("budget.txt");
+    const fileData = readFile("budget.txt", checkExpenses);
+}
+
+function checkExpenses() {
     const largestExpense = determineLargestExpense(fileData);
-    updateNetwork(largestExpense);
+    updateNetwork(largestExpense, printSuccess);
+}
+
+function printSuccess() {
     console.log("Done processing.")
 }
 `.trim();
 
-export function BlockingCodeExample({ context }: Props) {
+export function NonBlockingMoreExamples({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Blocking Code" context={context} Content={
+        <ContentSlide Title="More Non-Blocking Code" context={context} Content={
             <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
         } />
     );

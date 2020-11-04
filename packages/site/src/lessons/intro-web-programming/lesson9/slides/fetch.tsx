@@ -13,27 +13,26 @@ const useStyles = makeStyles(createStyles({
     }
 }))
 
-const code = `{
-    "name": "Ryan",
-    "age": 28,
-    "isProfessor": true
-}`.trim();
+const code = `
+fetch("https://some-url.com")
+    .then(response => { return response.json() })
+    .then(response => { console.log(response) })
+`.trim();
 
 const items = [
-    "JSON is another way (along with XML) for formatting data",
-    "JSON is (probably) the most common way to talk to servers these days",
-    "Follows a simple format similar to normal JavaScript object (with slightly stricter quoting rules)",
-    "You can create a JavaScript object from JSON easily",
-    "Commonly -- Send a request with some JSON data and get JSON data in response"
+    "fetch lets you make requests to a server",
+    "Lets you specify URL, method, request body, headers, etc.",
+    'Gives back the response in terms of a "Promise"',
+    "It is a low-level function so you have to manually parse the request"
 ];
 
-export function JSONExample({ context }: Props) {
+export function FetchExample({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="JSON" context={context} Content={
+        <ContentSlide Title="fetch" context={context} Content={
             <>
                 <InfoList items={ items } />
-                <CodeBlock language="json" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

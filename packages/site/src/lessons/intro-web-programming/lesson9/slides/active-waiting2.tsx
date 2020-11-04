@@ -17,7 +17,7 @@ const useStyles = makeStyles(createStyles({
     }
 }))
 
-export function ActiveWaiting2({ context }: Props) {
+export function ActiveWaiting({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Types of Tasks" context={context} Content={
@@ -34,8 +34,8 @@ export function ActiveWaiting2({ context }: Props) {
                         <td className={ classes.contentCell }>
                             <strong>Synchronous</strong>
                             <ul>
-                                <li>Human: Easy Mental Math</li>
-                                <li>Computer: Arithmetic</li>
+                                <li>Human: Writing in a notebook</li>
+                                <li>Computer: Simple Arithmetic</li>
                             </ul>
                         </td>
                         <td className={ classes.contentCell }>
@@ -47,7 +47,7 @@ export function ActiveWaiting2({ context }: Props) {
                         </td>
                     </tr>
                     <tr>
-                        <td>Waiting Around</td>
+                        <td>Involve Waiting</td>
                         <td className={ classes.contentCell }>
                             <strong>Synchronous</strong>
                             <ul>

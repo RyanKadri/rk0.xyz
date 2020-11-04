@@ -7,24 +7,39 @@ import { ContentSlide } from "../../../../../../presenter-core/src/slides/conten
 
 const useStyles = makeStyles(createStyles({
     code: {
-        fontSize: 32,
+        fontSize: 24,
         userSelect: "text"
     }
 }))
 
 const code = `
-function processFile() {
-    const fileData = readFile("budget.txt");
-    const largestExpense = determineLargestExpense(fileData);
-    updateNetwork(largestExpense);
-    console.log("Done processing.")
+function part1() {
+    console.log("Hi.");
+    setTimeout(part2, 1000);
+}
+
+function part2() {
+    console.log("My")
+    setTimeout(part3, 1000);
+}
+
+function part3() {
+    console.log("name")
+    setTimeout(part4, 1000);
+}
+
+function part4() {
+    console.log("is")
+    setTimeout(function() {
+        console.log("Ryan")
+    }, 1000);
 }
 `.trim();
 
-export function BlockingCodeExample({ context }: Props) {
+export function NestedTimeouts({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Blocking Code" context={context} Content={
+        <ContentSlide Title="Nested Timers?" context={context} Content={
             <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
         } />
     );

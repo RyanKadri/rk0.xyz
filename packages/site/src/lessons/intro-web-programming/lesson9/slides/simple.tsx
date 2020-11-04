@@ -7,7 +7,7 @@ export const Title = generateTitleSlide("Lesson 9: Asynchonous JavaScript", "Rya
 export const WhatIsAsynchronous = generateContentSlide("Asynchronous (async) JavaScript", [
     "An asynchronous action is one where you kick a process off and don't wait around for a result",
     'Also called "non-blocking" sometimes',
-    "A phone call is synchronous",
+    "Talking on the phone is synchronous (other than actually )",
     "Text messages are asynchronous",
     "Everything you write in pure JavaScript is synchronous",
     "The environment takes care of background (async) work"
@@ -77,12 +77,20 @@ export const HowDoUseServers = generateContentSlide("Interacting with a server (
     "You interact with a server by making an HTTP request",
     'You identify a "resource" on a server with a URL',
     "You can send the server some data (the main content of your request)",
-    "You can also send metadata (how to handle the request)",
+    'You can also send metadata "headers" (how to handle the request)',
     'Requests to servers are associated with a request "method"',
     "The server will send back some data"
 ]);
 
 export const ShowExample = generateMessageSlide("Let's see some examples!");
+
+export const WhatArePromises = generateContentSlide(".then?", [
+    "fetch returns a Promise",
+    "Promises collapse a callback into a .then method",
+    "Instead of calling like setTimeout, you put your callback in a .then method",
+    ".then returns another Promise so you can chain .then calls",
+    "If the callback in .then returns a promise, it gets absorbed into the first Promise"
+]);
 
 export const HttpRequest = generateContentSlide("HTTP Request", [
     "The client makes a request to a URL",

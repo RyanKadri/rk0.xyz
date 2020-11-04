@@ -1,8 +1,11 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { PokedexLab } from "./lab/pokedex-lab";
-import { ActiveWaiting2 as ActiveWaiting } from "./slides/active-waiting2";
-import { BlockingCode as BlockingCodeExample } from "./slides/blocking-code";
+import { ActiveWaiting } from "./slides/active-waiting2";
+import { BlockingCodeExample } from "./slides/blocking-code";
+import { FetchExample } from "./slides/fetch";
+import { PromisesExample } from "./slides/introduce-promises";
 import { JSONExample } from "./slides/json";
+import { NestedTimeouts } from "./slides/nested-timers";
 import { NonBlockingMoreExamples } from "./slides/nonblocking-code";
 import { RequestTemplate } from "./slides/request-examples";
 import * as simple from "./slides/simple";
@@ -30,10 +33,14 @@ export const lesson9: Presentation = {
         simple.HowDoUseServers,
         JSONExample,
         simple.ShowExample,
+        FetchExample,
+        simple.WhatArePromises,
+        NestedTimeouts,
+        PromisesExample,
         simple.HttpRequest,
         simple.HttpResponse,
         simple.HttpHeaders,
-        RequestTemplate
+        RequestTemplate,
     ],
     examples: [
         
@@ -42,8 +49,5 @@ export const lesson9: Presentation = {
         LabView: PokedexLab,
         slug: "using-apis",
         title: "Building a Pokedex"
-    },
-    recording: {
-        link: "https://temple.zoom.us/rec/play/SUyDcTEetDiC9gqb7sW7eKUo4pRYOqjmPK_Jt5C3GuZYXyWFmzj0NYTk9f8zXiW8dcjC6cCQk4h8x-4L.EWvXQpvyd65ZCAZ5?autoplay=true&startTime=1603920369000"
     }
 }

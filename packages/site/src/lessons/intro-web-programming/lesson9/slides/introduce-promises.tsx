@@ -15,6 +15,7 @@ const useStyles = makeStyles(createStyles({
 const code = `
 async function printHello() {
     console.log("Hello.");
+    // Delay is not a built-in function. But it's one you can write'
     delay(1000)()
         .then(() => console.log("My"))
         .then(delay(1000))
@@ -29,7 +30,7 @@ async function printHello() {
 export function PromisesExample({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title=".then?" context={context} Content={
+        <ContentSlide Title="Promises in Action" context={context} Content={
             <CodeBlock language="js" code={ code } className={ classes.code } />
         } />
     );
