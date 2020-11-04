@@ -1,138 +1,111 @@
+import { Link } from "@material-ui/core";
+import React from "react";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
-export const TitleSlide = generateTitleSlide("Version Control and Hosting", "Ryan Kadri");
+export const Title = generateTitleSlide("Lesson 9: Asynchonous JavaScript", "Ryan Kadri");
 
-export const AgendaSlide = generateContentSlide("Agenda", [
-    "Code Ownership and Attribution",
-    "Version Control - How and Why",
-    "GitHub and Open Source",
-    "Internet Architecture",
-    "Static Hosting Solutions"
+export const WhatIsAsynchronous = generateContentSlide("Asynchronous (async) JavaScript", [
+    "An asynchronous action is one where you kick a process off and don't wait around for a result",
+    'Also called "non-blocking" sometimes',
+    "A phone call is synchronous",
+    "Text messages are asynchronous",
+    "Everything you write in pure JavaScript is synchronous",
+    "The environment takes care of background (async) work"
 ]);
 
-export const Attribution = generateContentSlide("Code Ownership / Attribution", [
-    "How do developers share code?",
-    // "What is plagiarism in code?",
-    "How does Open Source fit in?",
-    "What can you do?"
-]);
-
-export const Licensing = generateContentSlide("Code Licensing", [
-    "Big open source projects usually have licenses",
-    "There are a lot of common licenses that most projects use",
-    { text: "Licenses state:", children: [
-        "What you can/cannot do with code (sell it, change it, distribute it)",
-        "What you must do in order to use it (give credit, include source)"
-    ]},
-    "Companies like some licenses (MIT, Apache 2, BSD 2-Clause)",
-    "And don't like others (GPL, AGPL)",
-    "Others are funny but not legally binding (WTFPL, Beerware)"
-]);
-
-// export const Plagiarism = generateContentSlide("Plagiarism in Code", [
-//     "If code is given away for free, can you plagiarize it?",
-//     "What if there is no license?",
-//     "What if you are in class?",
-//     "But learning from other people's code is important!"
-// ]);
-
-export const VersionControlIntro = generateMessageSlide("So how do I control versions?");
-
-export const VersionControl = generateContentSlide("With Version Control!", [
-    "Imagine your boss tells you to add a page to the company website",
-    "As you are working on that page, the boss asks if you could take a break and add some links to the header",
-    "You finish the links but then your boss wants you to wait a week to release the change",
-    "You end up finishing the new page before the week is over and release it",
-    "The next week comes around and you are able to release your change"
-]);
-
-export const HandleWithoutVC = generateMessageSlide("How do you manage that?");
-
-export const PossibleVCStrats = generateContentSlide("Keeping Track", [
-    "Maybe you copy the original project folder",
-    "When you have to switch tasks, maybe you make a copy",
-    "Maybe you make a backup if you are trying something new",
-    'Maybe you make a backup for important "checkpoints"',
-    "But what do you make a backup of?"
-]);
-
-export const Difficulties = generateContentSlide("Difficulties", [
-    "How do you remember what each change did?",
-    "How do you remember what changed between each change?",
-    "Can you reverse some changes but not all?",
-    "What if you want to work on multiple parts at once?"
-]);
-
-export const EnterGit = generateContentSlide("Enter Git", [
-    "Git makes a graph out of your code changes",
-    "Moving between nodes gives you different snapshots of your code",
-    "You can experiment with a number of things safely",
-    "You can work with a team and share your code easily"
-]);
-
-export const GitExamples = generateMessageSlide("Let's see some examples");
-
-export const EnterGithub = generateContentSlide("Enter Github", [
-    "Github is the largest hosting site for git-managed projects",
-    "Tons of open source projects are on Github",
-    "Users review each others' work, track bugs, and manage projects"
-]);
-
-export const StaticHosting = generateTitleSlide("Static Hosting", "Ryan Kadri");
-
-export const HostingSoFar = generateContentSlide("HostingSoFar", [
-    "So far, we have only created sites for our own browser",
-    "We used the file protocol and an HTTP server",
-    "What exactly is a Server?",
-    "What exactly is HTTP?",
-]);
-
-export const Servers = generateContentSlide("What is a Server?", [
-    "Depends on the context",
-    "Can be hardware or software",
-    "Nothing too special"
-]);
-
-export const HttpOverview = generateContentSlide("What is HTTP?", [
-    "HTTP is a way to transfer web pages",
-    "Makes requests to URLs",
-    { text: `Has a number of request "methods"`, children: [
-        "GET - Read",
-        "PUT - Create or Replace",
-        "POST - Create a Subresource",
-        "DELETE - Like it sounds"
-    ] },
-    "When you go to a site, the browser does a GET",
-    "Requests return responses and response codes"
-]);
-
-export const URL = generateContentSlide("URLs", [
-    "URLs identify a resource on a network",
-    { text: "Composed of a few parts: ", children: [
-        "Protocol",
-        "Host / Port",
-        "Path",
-        "Query"
+export const AsyncCallback = generateContentSlide("Async Callbacks", [
+    "Async callbacks are called when another operation finishes",
+    "The first operation decides what parameters (if any) to pass",
+    { text: "The JavaScript runtime manages waiting for certain operations", children: [
+        "Reading files",
+        "Calling the network",
+        "Waiting for the user to do something",
+        "Timers"
     ]}
 ]);
 
-export const ServersTalk = generateContentSlide("How Do Computers Talk?", [
-    'URLs "resolve" to IP addresses using DNS',
-    "There are public and private IPs",
-    "We all have private IPs right now",
-    "To be an internet server, you just need a public IP"
+export const WhatIsBlocking = generateMessageSlide("So if that's non-blocking, what's non-non-blocking code?");
+
+export const BlockingCodeCharacteristics = generateContentSlide("Blocking Code", [
+    "Blocking code waits for each operation to finish before running the next",
+    "Slow operations will hold up your code",
+    "Hopefully you can do multiple things at the same time."
 ]);
 
-export const GettingStarted = generateContentSlide("Self Hosting is Hard", [
-    "No power/internet outages",
-    `Need to run "real" server software`,
-    "Easy to screw up security"
+export const ConcurrencyModel = generateContentSlide("Concurrency", [
+    "Concurrency == Doing two things at the same time",
+    "JavaScript can't do that",
+    `It is "single-threaded"`,
+    "Long computations will freeze the page",
 ]);
 
-export const WhoHosts = generateContentSlide("So who will host me?", [
-    "Tons of people!",
-    "AWS (Amazon)",
-    "GitHub (Microsoft)",
-    "Netlify",
-    "Firebase (Google)"
+export const NotAHugeProblem = generateContentSlide("No Concurrency? No problem!", [
+    "Most web pages aren't doing computations all that often",
+    "JavaScript spends a lot of time waiting around",
+    "When there's something to do, JavaScript works until that task is done",
+    "JavaScript can kick back some tasks to the browser and request to be notified when they're done"
+]);
+
+export const EventLoop = generateContentSlide("Event Loop", [
+    "Sometimes JavaScript can delegate tasks to the browser",
+    "When they are done, the browser pushes them into a pile (queue) of new work",
+    "If nothing is going on, JavaScript will pull things out of the callback queue",
+    <Link href="http://latentflip.com/loupe/" target="_blank">http://latentflip.com/loupe/</Link>
+]);
+
+export const RequestsResponses = generateContentSlide("Interacting with Servers", [
+    { text: "The Road So Far:", children: [
+        "Load an HTML file from a server",
+        "Parse the HTML and load any linked CSS and JS files",
+        "Clicking links repeats the process with new links"
+    ]},
+    { text: "What else can we use servers for?", children: [
+        "Storing user data",
+        "Running computations",
+        "Providing a centralized trusted party"
+    ]}
+]);
+
+export const WhatIsAServer = generateContentSlide("What is a Server?", [
+    "Partially hardware: The actual computer(s) that run some software remotely",
+    "Partially software: The software that allows a server to respond to requests",
+    'Servers handle "request" from clients',
+    "You can run multiple servers (software) on your computer at once",
+]);
+
+export const HowDoUseServers = generateContentSlide("Interacting with a server (abbreviated)", [
+    "You interact with a server by making an HTTP request",
+    'You identify a "resource" on a server with a URL',
+    "You can send the server some data (the main content of your request)",
+    "You can also send metadata (how to handle the request)",
+    'Requests to servers are associated with a request "method"',
+    "The server will send back some data"
+]);
+
+export const ShowExample = generateMessageSlide("Let's see some examples!");
+
+export const HttpRequest = generateContentSlide("HTTP Request", [
+    "The client makes a request to a URL",
+    "The request has a method (GET / POST / PUT / DELETE)",
+    "Some requests have bodies",
+    "Most requests have headers",
+]);
+
+export const HttpResponse = generateContentSlide("HTTP Response", [
+    "The server returns a response",
+    "The response has a numerical status code",
+    "Most responses have bodies (text, html, xml, json)",
+    "Most responses have headers",
+]);
+
+export const HttpHeaders = generateContentSlide("HTTP Headers", [
+    "Contain metadata about the request",
+    "Uppercase words separated by dashes",
+    { text: "Examples include", children: [
+        "Authorization",
+        "Expires / Age / Cache-Control",
+        "Cookie",
+        "Accept / Content-Type",
+        "Many more"
+    ]}
 ]);

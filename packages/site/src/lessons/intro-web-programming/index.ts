@@ -10,6 +10,7 @@ import { lesson5 } from "./lesson5";
 import { lesson6 } from "./lesson6";
 import { lesson7 } from "./lesson7";
 import { lesson8 } from "./lesson8";
+import { lesson9 } from "./lesson9";
 import { MidtermStudyGuide } from "./midterm-prep/study-guide";
 
 export const introToWebProgrammingFall2020: CourseDefinition = { 
@@ -24,7 +25,8 @@ export const introToWebProgrammingFall2020: CourseDefinition = {
         lesson5,
         lesson6,
         lesson7,
-        lesson8
+        lesson8,
+        lesson9
     ],
     icon: faNetworkWired,
     courseExtras: [

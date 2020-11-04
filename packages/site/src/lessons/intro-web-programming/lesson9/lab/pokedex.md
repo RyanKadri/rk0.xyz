@@ -1,0 +1,48 @@
+# Lab 7: Using APIs
+
+## Overview
+
+In this lab, you will be learning about asynchronous JavaScript and how to call APIs. To practice this skill, you will be making a web application that fetches and displays information about Pokémen based on user input. The user will have an option to search for a Pokéman by name and then, based on the information that shows up, will have the option to dig further into specifics about their attacks / stats.
+
+## The Pokédex - Basic Information
+
+For the first part of the lab, you will be making a page that displays information based on a public API. The first API you will be using is described here: <https://pokeapi.co/docs/v2.html#pokemon>. You can call it to get general information about a specific Pokemon. What I would like you to build is a simple site with an input box that accepts the name of a Pokemon and a submit button. When the user types the Pokemon name and hits submit, the page should be updated to contain the following information with appropriate labels:
+
+- Name
+- An image of the Pokemon
+- Height
+- Weight
+- Type(s)
+- Starting Stats (in a table)
+
+After the user searches for their first Pokemon, they should still be able to search for other Pokemon and have their following searches overwrite the data from the original on the screen. Please use the documentation on the API's site to figure out how to call it. There is a URL you can use to directly look up information about a Pokemon based on its exact name. You should make sure that searching with different capitalizations also works for the user of your site.
+
+## The Pokedex - Attack Drilldown
+
+For this part of the lab, you will be using another ajax call to fetch additional information about an attack that the user selects. Among the list of attacks for the Pokemon, a user should be able to click a "show details" link / button to get more information about the specific attack. This additional information should include: 
+
+- Attack name
+- The "flavor text"
+- Accuracy
+- PP
+- Power
+- Type
+
+Please display this information somewhere on your page when the user clicks the show details link. After clicking this link, your user should still be able to click into other attacks and see those details in place of the curent ones.
+
+## Submitting
+
+As usual, please upload your submission to the appropriate Canvas assignment as a zip file. Your zip file should include any HTML, CSS and JavaScript you wrote to complete the lab
+
+## Grading
+I am not too picky about the appearance of your site. I am more concerned that it meets all of the requirements listed above and behaves properly.
+
+The main things I am looking for in this lab are: 
+
+- Do you fetch and display all of the appropriate data from the Pokemon API
+- Can the user enter different capitalizations of a pokemon name?
+- Can they enter spaces before and after the name?
+- Does the site display reasonable error messages if something goes wrong with the API request?
+
+## Hints
+For this lab, you should be using the fetch API. Here are some instructions on how to use it: <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch>. Fetch can handle a number of complex request scenarios but you should only need the basic functionality. The simple example at the top of the page should get you where you need to be.

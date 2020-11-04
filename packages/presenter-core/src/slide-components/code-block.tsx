@@ -2,6 +2,7 @@ import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import hljs from "highlight.js/lib/highlight";
 import css from "highlight.js/lib/languages/css";
 import js from "highlight.js/lib/languages/javascript";
+import json from "highlight.js/lib/languages/json";
 import xml from "highlight.js/lib/languages/xml";
 import "highlight.js/styles/lightfair.css";
 import React, { useEffect, useRef } from "react";
@@ -11,7 +12,8 @@ const languages = {
     "xml": xml,
     "html": xml,
     "css": css,
-    "js": js
+    "js": js,
+    "json": json
 }
 
 const styles = createStyles({
