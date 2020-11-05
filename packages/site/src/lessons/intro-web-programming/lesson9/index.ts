@@ -49,5 +49,8 @@ export const lesson9: Presentation = {
         LabView: PokedexLab,
         slug: "using-apis",
         title: "Building a Pokedex"
+    },
+    recording: {
+        link: "https://temple.zoom.us/rec/play/BV2LlKHeN9IWiPG5xm0s0JuontmHRkQ6pfpTSc8FII20g7Nt938HAcF-ds5v2AO4iv7IyqXWFskKSKon.n87Irpk8mkOF5lM5?continueMode=true"
     }
 }
