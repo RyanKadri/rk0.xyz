@@ -6,6 +6,7 @@
 ## JS
 
 - JS is not Java
+- Cover different for-loops early. Hammer home for-each
 
 ## Lab 4
 
@@ -23,3 +24,8 @@
 
 - Be careful about super unambiguous wording
 - List problems must give sort order
+
+## Quizzes
+
+- Explain terminology -- Print == console.log
+- Explicitly say when you don't need code
