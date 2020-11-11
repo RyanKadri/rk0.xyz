@@ -10,6 +10,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         fontWeight: 300,
         position: "relative",
         marginBottom: 16,
+        "& code": {
+            fontFamily: "monospace",
+            backgroundColor: "rgba(0,0,0,0.08)",
+            padding: 2,
+            borderRadius: 4,
+            color: "maroon"
+        }
     },
     bulletListItem: {
         display: "block",

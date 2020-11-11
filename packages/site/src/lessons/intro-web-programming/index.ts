@@ -3,6 +3,7 @@ import { CourseDefinition } from "../../../../presenter-core/src/services/types"
 import { ConsolidatedReferences } from "../views/lesson-list/consolidated-references";
 import { FinalProject } from "./final-project/final-project";
 import { lesson1 } from "./lesson1";
+import { lesson10 } from "./lesson10";
 import { lesson2 } from "./lesson2";
 import { lesson3 } from "./lesson3";
 import { lesson4 } from "./lesson4";
@@ -26,7 +27,8 @@ export const introToWebProgrammingFall2020: CourseDefinition = {
         lesson6,
         lesson7,
         lesson8,
-        lesson9
+        lesson9,
+        lesson10
     ],
     icon: faNetworkWired,
     courseExtras: [
