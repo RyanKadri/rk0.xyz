@@ -22,9 +22,9 @@ function delay(nMillis) {
 `.trim();
 
 const items = [
-    "You can define your own promises from scratch",
-    'Can "wrap" asynchronous functions with a callback',
-    "More useful in server-side JavaScript than browser JavaScript"
+    "You can define your own Promises from scratch",
+    'Can "wrap" asynchronous operations with a Promise',
+    'Call a "resolve" function with the result of your operation (if any)'
 ];
 
 export function PromisesFromScratch({ context }: Props) {

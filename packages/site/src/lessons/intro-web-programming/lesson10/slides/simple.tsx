@@ -1,11 +1,15 @@
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
-export const Title = generateTitleSlide("Lesson 10: Interacting with Servers", "Ryan Kadri");
+export const Title = generateTitleSlide("Lesson 10: Asynchronous JavaScript - Part 2", "Ryan Kadri");
 
 export const PromiseErrorQuestion = generateMessageSlide(
-    "You mentioned that promises can fail. How does that work?"
+    "You mentioned that Promises can fail. How does that work?"
 );
+
+export const Networking = generateMessageSlide(
+    "Talking to Servers"
+)
 
 export const RequestMethod = generateContentSlide("Request Method", [
     'Requests have a "method" to define how you want to interact with a resource',

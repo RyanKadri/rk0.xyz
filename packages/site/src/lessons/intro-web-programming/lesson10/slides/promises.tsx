@@ -16,15 +16,16 @@ const useStyles = makeStyles(createStyles({
 const code = `
 const myPromise = fetch("https://some-url.com");
 
-myPromise.then(response => { return response.json() })
+myPromise
+    .then(response => { return response.json() })
     .then(response => { console.log(response) })
 `.trim();
 
 const items = [
-    "Promises are a way to keep track of asynchronous operation",
+    "Promises are a way to keep track of an asynchronous operation",
     'A "promise" that something will happen in the future',
-    "Promises can complete or fail",
-    "You can tack on callbacks that will happen when a promise completes or fails",
+    "Promises can complete or fail (resolve or reject)",
+    "Promises allow callbacks to be set up for when a promise completes or fails",
 ];
 
 export function Promises({ context }: Props) {

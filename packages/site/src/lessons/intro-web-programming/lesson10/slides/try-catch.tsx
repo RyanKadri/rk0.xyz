@@ -24,7 +24,7 @@ try {
 const items = [
     "Sometimes operations fail",
     "It would be nice to be able to handle errors gracefully",
-    <>Errors immediately exit the current function and keep bubbling up until something<code>catch</code>es them</>,
+    <>Errors immediately exit the current function and keep bubbling up until something <code>catch</code>es them</>,
     "try / catch in JavaScript lets you do this",
     <>You can <code>catch</code> an error and handle it</>
 ];

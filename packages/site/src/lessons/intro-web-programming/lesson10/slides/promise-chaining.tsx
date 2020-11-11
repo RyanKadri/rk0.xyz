@@ -24,7 +24,7 @@ delay(1000)
 
 const items = [
     <><code>.then</code> callbacks can be synchronous or return another Promise</>,
-    <>If the <code>.then</code> callback returns a Promise, the next <code>.then</code> will wait until it finishes</>,
+    <>If the <code>.then</code> callback returns a Promise, the next <code>.then</code> will wait until the <em>returned promise</em> finishes</>,
     "This collapsing helps make asynchronous code much easier to follow",
     "You don't need nested callbacks. Can orchestrate everything in one place"
 ];

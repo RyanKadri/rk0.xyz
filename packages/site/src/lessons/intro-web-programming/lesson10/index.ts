@@ -15,7 +15,7 @@ import { TryCatchWithHandling } from "./slides/try-catch-with-handling";
 import { UrlParts } from "./slides/url-parts";
 
 export const lesson10: Presentation = {
-    title: `Talking to Servers`,
+    title: `Asynchronous JavaScript - Part 2`,
     description: "Promises, async functions, and servers",
     slug: "more-async",
     slides: [
