@@ -1,0 +1,63 @@
+**Note: This lab has not been 100% finalized. It is mostly complete but some details may change before the lab session**
+
+# Lab 8: Interacting with the Network
+
+## Overview
+
+In this lab, you will be continuing to learn about how to interact with servers. In part 1, you will be learning how to extract information about browser requests and responses using the developer tools. In part 2, you will have a chance to build the first part of your final project. This will give you a chance to work with multiple different types of operations on APIs
+
+## Part 1 - Using the Developer Tools' Network Tab
+
+Please use the Network tab in the Developer Tools to answer the following questions. Please check the "Disable cache" box before answering these questions. It should help you get more consistent results.
+
+1. When you browse to <https://rk0.xyz/courses>, how many requests does the page make on its own (before you start interacting with things)?
+1. What is the domain name of the server(s) where the fonts are located?
+1. What other domain names are requested?
+1. When you create a new note on the <https://spy-notes.rk0.xyz> sample app, what kind of fields does it respond with?
+1. What server software is being used to handle the note creation request? *Hint: Look at the response headers*
+1. What happens on <https://wikipedia.org> when you navigate to an article and mouse-over an internal link on a page. Note: you'll need JavaScript enabled to see this. Also, I don't need a ton of detail. Just the high level (What request method is used? To what URL? What is returned?)
+
+## Note Taking Prototype
+
+For this part of the lab, please create a single web page that allows users to take notes using the same API from the final project. A user should be able to:
+
+- Create notes that have at least a title and some content
+- Delete notes that they have previously created
+- Load the user's currently saved notes and display them when the user loads the page
+
+You can use the following types of requests to perform the above actions (assuming a user with an ID of abc-123):
+
+- `POST https://spy-notes-api.rk0.xyz/users/abc-123/notes`
+    - A POST request to this URL creates a new note
+    - The body of the request should be a JSON string of a JavaScript object that has a "title" property and a "content" property. Remember to use JSON.stringify() when setting up the request body
+    - You'll also need to pass the `Content-Type` header as `application/json`
+- `DELETE https://spy-notes-api.rk0.xyz/users/abc-123/notes/bcd-234`
+    - This will delete a note given a user ID and a note ID
+    - Assumes there is already an existing note with an ID of `bcd-234`
+    - You don't need to pass a request body or any headers
+- `GET https://spy-notes-api.rk0.xyz/users/abc-123/notes`
+    - This will fetch all the notes for the given user ID (abc-123)
+
+For all of this to work, you will need to create a user. To do that, you should make the following request:
+
+- `POST https://spy-notes-api.rk0.xyz/users`
+    - No request body is needed
+    - No headers are needed
+
+To build this user, you can build a small UI for user registration. Alternatively, you can manually make this call and keep track of your user ID.
+
+Since your final project will include mulitple pages, I suggest storing the user ID in the query string of your page. If you are using Live Server, that will look like you requesting `http://localhost:5050/index.html?userId=abc-123`. At the top of your JavaScript, while the page is loading, you can read that userId from the URL and store it in a variable for future API calls. Check out the global `location` variable on MDN for an example of how to do that.
+
+## Submitting
+
+As usual, please upload your submission to the appropriate Canvas assignment as a zip file. Your zip file should include any HTML, CSS and JavaScript you wrote to complete the lab as well as a text file (.txt) for the answers from Part 1.
+
+## Grading
+I am not too picky about the appearance of your site. I am more concerned that it meets all of the requirements listed above and behaves properly.
+
+The main things I am looking for in this lab are: 
+
+- Are the answers to part 1 correct?
+- Can users create new notes?
+- Can they view them later? Is the data persistent?
+- Can they delete their notes?

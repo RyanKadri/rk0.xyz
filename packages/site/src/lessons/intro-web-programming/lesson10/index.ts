@@ -1,5 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
+import { AsyncLab } from "./lab/async-lab";
 import { AsyncFunctions } from "./slides/async-functions";
 import { AsyncErrorHandling } from "./slides/async-functions-error-handling";
 import { PromiseChaining } from "./slides/promise-chaining";
@@ -47,7 +48,12 @@ export const lesson10: Presentation = {
         
     ],
     recording: {
-        link: "https://temple.zoom.us/rec/play/BV2LlKHeN9IWiPG5xm0s0JuontmHRkQ6pfpTSc8FII20g7Nt938HAcF-ds5v2AO4iv7IyqXWFskKSKon.n87Irpk8mkOF5lM5?continueMode=true"
+        link: "https://temple.zoom.us/rec/play/zDe3yKHU-aQa9qbhh1t1s0WoUqiQufZt14u4bUKAI9-FDjt__3uAsfXoOP1p7tQU_TrIAApHbkcLIA.dcNs54dBMGkbsKAs?continueMode=true"
+    },
+    lab: {
+        LabView: AsyncLab,
+        slug: "network-actions",
+        title: "Interacting with the Network"
     },
     references: simple.references
 }
