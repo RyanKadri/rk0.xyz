@@ -7,6 +7,8 @@
 
 - JS is not Java
 - Cover different for-loops early. Hammer home for-each
+- Really hammer in what parameters are all about
+- Emphasize console as sandbox
 
 ## Lab 4
 

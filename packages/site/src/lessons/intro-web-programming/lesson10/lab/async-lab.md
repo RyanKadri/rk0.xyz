@@ -1,5 +1,3 @@
-**Note: This lab has not been 100% finalized. It is mostly complete but some details may change before the lab session**
-
 # Lab 8: Interacting with the Network
 
 ## Overview
@@ -24,6 +22,8 @@ For this part of the lab, please create a single web page that allows users to t
 - Create notes that have at least a title and some content
 - Delete notes that they have previously created
 - Load the user's currently saved notes and display them when the user loads the page
+
+The user interface can look however you want. You should probably at least have an input element for the note's title, a textarea for the note's content, and some button / element for the user to interact with to save/delete the note. Notes must persist across page refreshes (using the server API below will store them on the server)
 
 You can use the following types of requests to perform the above actions (assuming a user with an ID of abc-123):
 
