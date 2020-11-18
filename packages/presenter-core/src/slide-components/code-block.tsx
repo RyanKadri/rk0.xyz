@@ -8,7 +8,7 @@ import "highlight.js/styles/lightfair.css";
 import React, { useEffect, useRef } from "react";
 import { noop } from "../../../site/src/common/functional-utils";
 
-const languages = {
+export const languages = {
     "xml": xml,
     "html": xml,
     "css": css,
