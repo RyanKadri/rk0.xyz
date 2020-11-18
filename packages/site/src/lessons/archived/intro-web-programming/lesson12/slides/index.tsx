@@ -33,9 +33,6 @@ export const lesson12: Presentation = {
     examples: [
         
     ],
-    recording: {
-        link: "https://youtu.be/dRdTwOuUF1k"
-    },
     lab: {
         title: "Practicing REST",
         slug: "practice-rest",

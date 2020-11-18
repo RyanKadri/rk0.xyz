@@ -15,7 +15,4 @@ export const lesson10: Presentation = {
         title: "Using libraries",
         LabView: JSLibraries
     },
-    recording: {
-        link: "https://youtu.be/yxEZRyXxGiM"
-    }
 }

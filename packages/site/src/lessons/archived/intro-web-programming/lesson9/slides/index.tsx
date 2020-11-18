@@ -16,8 +16,5 @@ export const lesson9: Presentation = {
         title: "Going Public",
         slug: "hosting-static",
         LabView: StaticHostingLab
-    },
-    recording: {
-        link: "https://www.youtube.com/watch?v=nvise91MpiM"
     }
 }

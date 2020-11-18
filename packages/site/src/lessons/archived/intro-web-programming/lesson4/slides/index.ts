@@ -32,9 +32,6 @@ export const lesson4: Presentation = {
     examples: [
         
     ],
-    recording: {
-        link: "https://youtu.be/aiNBZbZOIes"
-    },
     lab: {
         title: "Exploring Javascript",
         slug: "exploring-javascript",

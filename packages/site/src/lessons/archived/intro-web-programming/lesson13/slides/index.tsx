@@ -31,7 +31,4 @@ export const lesson13: Presentation = {
     examples: [
         
     ],
-    recording: {
-        link: "https://youtu.be/WoE5qSAcd4s"
-    }
 }

@@ -30,9 +30,6 @@ export const lesson11: Presentation = {
     examples: [
         
     ],
-    recording: {
-        link: "https://youtu.be/DxqsWefhAQw"
-    },
     lab: {
         title: "Node.JS - Scripting and Servers",
         slug: "node-scripting",
