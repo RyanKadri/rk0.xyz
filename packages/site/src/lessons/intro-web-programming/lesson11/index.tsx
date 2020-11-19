@@ -35,6 +35,6 @@ export const lesson11: Presentation = {
         
     ],
     recording: {
-        link: "https://youtu.be/yxEZRyXxGiM"
-    }
+        link: "https://temple.zoom.us/rec/play/sw7W4H_A4SalJwkFs5pGBLHk3BeKpdprtsqTt7xflTWHHhMAu6FG13D2FzOFraN1WA304n_Feia7BpWA.gZ9qpMfiRpy67pHe?continueMode=true"
+    },
 }
