@@ -4,7 +4,7 @@ import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 import myPicture from "./about-me-picture-web.jpg";
 
-export const TitleSlide = generateTitleSlide("Introduction to Web Technology and Programming", "Ryan Kadri");
+export const TitleSlide = generateTitleSlide("Course Expectations and Intro to HTML", "Ryan Kadri");
 
 export const AboutMePicture = generateMediaSlide(
     <img src={ myPicture } alt="Me at Smith Rock" />,

@@ -1,7 +1,7 @@
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
-export const Title = generateTitleSlide("Lesson 10: Asynchronous JavaScript - Part 2", "Ryan Kadri");
+export const Title = generateTitleSlide("Promises and the Network", "Ryan Kadri");
 
 export const PromiseErrorQuestion = generateMessageSlide(
     "You mentioned that Promises can fail. How does that work?"

@@ -32,3 +32,7 @@
 
 - Explain terminology -- Print == console.log
 - Explicitly say when you don't need code
+
+## Labs
+
+- Suggest method names where it makes sense. Makes things easier to grade

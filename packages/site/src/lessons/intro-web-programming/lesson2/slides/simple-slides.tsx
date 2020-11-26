@@ -1,7 +1,7 @@
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
-export const MainTitle = generateTitleSlide(`HTML + CSS: Keeping it "Classy"`, "Ryan Kadri");
+export const MainTitle = generateTitleSlide(`Styling HTML with CSS`, "Ryan Kadri");
 
 export const Agenda = generateContentSlide("Agenda", [
     "Exploring Styles",

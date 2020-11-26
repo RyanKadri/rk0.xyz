@@ -33,7 +33,7 @@ export const lesson4: Presentation = {
         LabView: ResponsiveResumeLab
     },
     recording: {
-        link: "https://temple.zoom.us/rec/share/HKJpNfKSFFYVvgduROt0JmFJcZIdsxSiliZ6wKN9roHkbGNEsp2Hzl6UxfQjwWo0.Fj95pJBmjLUm3rkf"
+        link: "https://youtu.be/gUq_lTEMnIQ"
     },
     references
 }

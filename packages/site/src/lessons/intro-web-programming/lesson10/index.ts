@@ -48,7 +48,7 @@ export const lesson10: Presentation = {
         
     ],
     recording: {
-        link: "https://temple.zoom.us/rec/play/zDe3yKHU-aQa9qbhh1t1s0WoUqiQufZt14u4bUKAI9-FDjt__3uAsfXoOP1p7tQU_TrIAApHbkcLIA.dcNs54dBMGkbsKAs?continueMode=true"
+        link: "https://youtu.be/uZddhTaGH4Y"
     },
     lab: {
         LabView: AsyncLab,

@@ -2,7 +2,7 @@ import { Link } from "@material-ui/core";
 import React from "react";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
-export const Title = generateTitleSlide("Lesson 9: Asynchonous JavaScript", "Ryan Kadri");
+export const Title = generateTitleSlide("Asynchonous JavaScript", "Ryan Kadri");
 
 export const WhatIsAsynchronous = generateContentSlide("Asynchronous (async) JavaScript", [
     "An asynchronous action is one where you kick a process off and don't wait around for a result",

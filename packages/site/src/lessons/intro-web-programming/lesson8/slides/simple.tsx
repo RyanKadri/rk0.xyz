@@ -1,6 +1,6 @@
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
-export const Title = generateTitleSlide("Lesson 8: Functions and Callbacks", "Ryan Kadri");
+export const Title = generateTitleSlide("Functions and Callbacks", "Ryan Kadri");
 
 export const AddEventListenerExplanation = generateContentSlide("Functions as parameters", [
     "Passing the name of a variable into addEventListener tells addEventListener what function to call",

@@ -50,7 +50,7 @@ export const lesson1: Presentation = {
         LabView: IntroToHtmlLab
     },
     recording: {
-        link: "https://temple.zoom.us/rec/play/uMV8cLr6qzk3HtzGsgSDCvEvW47pLq6s1iQY__QKzB28WnkLNQKvYLIQY-Q-7ngAemACtemQEwONf1Q4?continueMode=true"
+        link: "https://youtu.be/nBgOvwrMpuU"
     },
     references
 }

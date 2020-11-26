@@ -48,7 +48,7 @@ export const lesson3: Presentation = {
         LabView: HtmlCssLabView
     },
     recording: {
-        link: "https://temple.zoom.us/rec/share/LBlOi9yVa9mD-OBi4MY9VNBGbPY9TOfaYXNn1tyFXKE0ru6V_jSG8IgRAO4V0cj0.qYuJERaC6jmdaD3p",
+        link: "https://youtu.be/T91H_N5iuWg"
     },
     references: simple.references
 }

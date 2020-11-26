@@ -1,7 +1,7 @@
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
-export const TitleSlide = generateTitleSlide("JavaScript: User Input", "Ryan Kadri");
+export const TitleSlide = generateTitleSlide("Responding to User Input", "Ryan Kadri");
 
 export const JavaScriptInHTML = generateContentSlide("JavaScript in HTML", [
     "You can include JavaScript in your HTML files via <script> tags",
