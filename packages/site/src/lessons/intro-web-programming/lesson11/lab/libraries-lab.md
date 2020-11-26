@@ -1,0 +1,78 @@
+**Note: This lab is not yet 100% finalized. The overall assignment will mostly stay the same but I may make small edits to clarify what I am asking for**
+
+# Lab 9: Using JavaScript Libraries
+
+## Overview
+
+In this lab, you will get a chance to work with a few interesting JavaScript libraries. In part 1, you will use [Chart.js](https://www.chartjs.org/) to replace the table of Pokemon stats in your Pokedex lab with a bar chart of different stats. In part 3, you will get a chance to set up the QR Code reader portion of your final project. Overall, being able to use JavaScript libraries in your projects gives you a huge boost in productivity and in the complexity of what you will be able to build.
+
+## Part 1: Adding a chart to your Pokedex
+
+For this part of the lab, you will be using the Chart.js library to add a bar chart to the Pokedex app you built in Lab 7. Please create a bar chart with:
+
+- A title
+- A labeled horizontal and vertical axis where the horizontal axis shows the name of each stat and the vertical axis shows its value
+- A different color for each bar
+
+This bar chart should go into the page of your old Pokedex lab and should update when the user searches a new Pokemon.
+
+*Hint: If updating the bar chart in-place is proving tricky, you should be able to clear the old chart by setting its parent's innerHTML to an empty string and then recreating the chart. Maybe make a function that takes a Pokemon's stats data and creates a new Chart*
+
+You can find documentation on how to use the library on this page: <https://www.chartjs.org/docs/latest/getting-started/installation.html>
+
+Remember that you should be using the CDN installation method. In other words, you should be including a `<script>` tag on your page. Probably something like:
+
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" crossorigin="anonymous"></script>
+```
+
+It is important that this script tag comes before any script tag where you are trying to use the library.
+
+The most relevant documentation for how to use this library are on this page:
+<https://www.chartjs.org/docs/latest/getting-started/usage.html>
+
+and this page: <https://www.chartjs.org/docs/latest/charts/bar.html>
+
+Honestly though, the documentation on the main site is complete but pretty dense and hard to read. I'd recommend starting from the "Usage" example, figuring out what you can tweak from the Bar Chart documentation, and then just googling for some Stack Overflow suggestions on how to do anything that you can't figure out.
+
+## Part 2: Setting up the Webcam QR Code Scanner
+
+For this part of the lab and the next part, you will be working on parts of your final project. I personally think the best resource for both of these parts is the code from the example page on the QR Code scanning library you will be using. The page for the QR Code library is here:
+<https://github.com/cozmo/jsQR> and the demo page is linked right at the top of the page (or here: <https://cozmo.github.io/jsQR/>).
+
+For the first part of the lab, please create a page that prompts the user to allow access to their webcam and then shows them a playback of their webcam's video. You should be able to open up the developer tools and see how the example site linked above does it. All of their code is included in the page in a `<script>` tag at the bottom. Please try to take out the unnecessary parts of their code and create a minimal page for this part. Their example tries to draw a red rectangle around any QR code held up to the webcam and shows the code value in a box below the video. Your site does not need to do that. Please strip those parts out of the code. Experimenting with taking bits out of their code should also give you a better sense for how their library works.
+
+If you have a hard time reading the code on the example site using the developer tools, you can also find it reproduced here:
+<https://github.com/RyanKadri/cis1052-fall2020-examples/blob/master/c11-libraries/qr/index.html>
+
+One thing you will have to modify is where the QR code library is being read from. You'll want to download the file from here: <https://raw.githubusercontent.com/cozmo/jsQR/8851ab5cc5fecd646be668ccd34612ccc236d9c3/dist/jsQR.js> and place the .js in your web site directory. You can include it with a `<script>` tag in your HTML before any other `<script>` tag that uses it
+
+## Part 3: Extracting the QR Code
+
+Please adapt the QR Code scanning logic in the example site above so that instead of displaying the code value on the screen when a QR Code is detected, the site will redirect the user to your note-taking site from the previous lab. For example, if in the previous lab, you generated a user with an id of `abc-123`, when you scan that user's QR Code, your site should redirect the user to your note-taking site with `abc-123` as a query parameter. If your note-taking site is at http://localhost:5500/notes.html when using the Live Server extension, you should redirect the user to http://localhost:550/notes.html?userId=abc-123.
+
+You can get a user's QR code by going to a special URL on the server I created for the final project. For instance, one user I created has an ID of `bf3b1bd5-ceeb-4b0f-b972-9af632972a51`. If you navigate to <https://spy-notes-api.rk0.xyz/users/bf3b1bd5-ceeb-4b0f-b972-9af632972a51/qr>, you should be able to see their QR code. To make this lab work, you can navigate to that site on your phone and hold the QR code up to your webcam. You can also print the QR code if you prefer. You can use the same process to see the QR code for the user ID you generated in the previous lab.
+
+For this specific lab, you do not have to do anything special on your notes page once you redirect the user. For your final project, your note-taking page should read the user's ID from the URL and use that to load notes (rather than just using a hardcoded value). If you want, now would be a great time to integrate those two pages together and see how they interact. I will not take off points for anything on the note page not working but I'll give you feedback if you try to integrate the two pages.
+
+## Submitting
+
+This assignment will be submitted in the same way as previous labs but has a few more moving parts. Please submit a single zip file to Canvas as usual. This time though, please include the following:
+- A folder with **all** of the code for your improved Pokedex site from part 1. Please include any relevant code from the old Pokedex lab even if it has not changed. That will make this part of the assignment easier to grade
+- A folder with your code from parts 2 and 3. Please also include your note-taking page and JavaScript from the previous lab in the same folder (so I can see the linking part).
+
+## Grading
+
+This lab has a few more moving parts than past labs have had. It references previous labs and external libraries. I know for some of you, past labs have been difficult to complete 100% of the way. I do not plan to re-grade any portions of past labs in this lab except where they are necessary for the completion of this lab. For instance:
+
+- I will not grade any part of your Pokedex lab except for the new stats bar graph and the ability to search for Pokemon (since that is needed for the graphing part)
+- I will not grade any portion of your note-taking page from the previous lab. I only care that **something** loads when you redirect to the note-taking page with the appropriate URL
+
+The things I am mainly looking for in this lab are:
+
+- For part 1, does your graph load and display the appropriate information
+- Less importantly, in part 1, does your graph load when the user searches for a Pokemon and updates when the user searches for a new one
+    - If you can't get the searching part working, you can fall back to always fetching a specific Pokemon (for a few points off)
+    - If you can't get the fetching part working, you can fall back to just showing **some** graph with the requested characteristics (for a few points off)
+- For part 2, does your page show the video that is coming in through my webcam when I test it? Has some of the unnecessary stuff been taken out (no red box, no displaying the QR code value)
+- For part 3, does your page properly read a QR code? Does it redirect the user properly?

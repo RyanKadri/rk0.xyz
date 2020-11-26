@@ -41,6 +41,7 @@ export function ExploringJSLab({}: Props) {
 
     return (
         <div className={classes.container}>
+            <Typography variant="h4">Lab 4: Exploring JavaScript</Typography>
             <section className={ classes.section }>
                 <Typography variant="h5" className={ classes.sectionLabel }>Overview</Typography>
                 <Typography variant="body1">{ overview }</Typography>

@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { LibrariesLab } from "./lab/libraries-lab";
 import { DNSLookup } from "./slides/finding-server";
 import * as simple from "./slides/simple";
 
@@ -37,4 +38,9 @@ export const lesson11: Presentation = {
     recording: {
         link: "https://youtu.be/zAx2rTP5T6E"
     },
+    lab: {
+        LabView: LibrariesLab,
+        slug: "javascript-libraries",
+        title: "Using JavaScript Libraries"
+    }
 }

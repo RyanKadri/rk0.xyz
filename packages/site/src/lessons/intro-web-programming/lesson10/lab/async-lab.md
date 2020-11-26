@@ -4,7 +4,7 @@
 
 In this lab, you will be continuing to learn about how to interact with servers. In part 1, you will be learning how to extract information about browser requests and responses using the developer tools. In part 2, you will have a chance to build the first part of your final project. This will give you a chance to work with multiple different types of operations on APIs
 
-## Part 1 - Using the Developer Tools' Network Tab
+## Part 1: Using the Developer Tools' Network Tab
 
 Please use the Network tab in the Developer Tools to answer the following questions. Please check the "Disable cache" box before answering these questions. It should help you get more consistent results.
 
@@ -15,7 +15,7 @@ Please use the Network tab in the Developer Tools to answer the following questi
 1. What server software is being used to handle the note creation request? *Hint: Look at the response headers*
 1. What happens on <https://wikipedia.org> when you navigate to an article and mouse-over an internal link on a page. Note: you'll need JavaScript enabled to see this. Also, I don't need a ton of detail. Just the high level (What request method is used? To what URL? What is returned?)
 
-## Note Taking Prototype
+## Part 2: Note Taking Prototype
 
 For this part of the lab, please create a single web page that allows users to take notes using the same API from the final project. A user should be able to:
 
