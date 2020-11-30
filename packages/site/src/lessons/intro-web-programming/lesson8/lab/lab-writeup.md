@@ -4,7 +4,7 @@
 
 In this lab, you will be learning about callbacks. Callbacks are functions that are passed as parameters to another function and called zero or more times to help customize some aspect of the function being called. JavaScript has some built-in functions/methods that take a callback as a parameter and can help you simplify some tasks. In some other cases, callbacks can be used to allow JavaScript to do things asynchronously (wait 5 seconds before calling a function, make a request to a server and do something with the result). This lab will give you a chance to work with multiple types of callbacks to simplify and enhance your web applications.
 
-## Part 1 - Synchronous Callbacks
+## Part 1: Synchronous Callbacks
 
 JavaScript has a few built-in methods that accept a callback and can help simplify certain array operations:
 
