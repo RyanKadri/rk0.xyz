@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { generateReferencesSlide } from "../../shared/references-slide";
 import { CallbacksLab } from "./lab/callbacks";
 import { AddEventListener } from "./slides/add-event-listener";
 import { AddEventListenerQuestions } from "./slides/add-event-listener-questions";
@@ -40,6 +41,7 @@ export const lesson8: Presentation = {
 
         simple.CanWeSolve,
         NestedTimeouts,
+        generateReferencesSlide(simple.references)
     ],
     examples: [
         
@@ -51,5 +53,6 @@ export const lesson8: Presentation = {
     },
     recording: {
         link: "https://youtu.be/ySD1ynculJ4"
-    }
+    },
+    references: simple.references
 }

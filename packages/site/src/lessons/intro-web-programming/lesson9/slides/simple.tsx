@@ -1,5 +1,6 @@
 import { Link } from "@material-ui/core";
 import React from "react";
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const Title = generateTitleSlide("Asynchonous JavaScript", "Ryan Kadri");
@@ -117,3 +118,8 @@ export const HttpHeaders = generateContentSlide("HTTP Headers", [
         "Many more"
     ]}
 ]);
+
+export const references: Reference[] = [
+    { label: "An interesting blocking vs non-blocking analogy", url: "https://blog.codecentric.de/en/2019/04/explain-non-blocking-i-o-like-im-five/" },
+    { label: "Event loop visualization", url: "http://latentflip.com/loupe/" }
+]

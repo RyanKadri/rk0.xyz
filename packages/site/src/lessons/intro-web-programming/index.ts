@@ -1,10 +1,12 @@
 import { faNetworkWired } from "@fortawesome/free-solid-svg-icons/faNetworkWired";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
 import { ConsolidatedReferences } from "../views/lesson-list/consolidated-references";
+import { FinalStudyGuide } from "./final-prep/study-guide";
 import { FinalProject } from "./final-project/final-project";
 import { lesson1 } from "./lesson1";
 import { lesson10 } from "./lesson10";
 import { lesson11 } from "./lesson11";
+import { lesson12 } from "./lesson12";
 import { lesson2 } from "./lesson2";
 import { lesson3 } from "./lesson3";
 import { lesson4 } from "./lesson4";
@@ -31,11 +33,13 @@ export const introToWebProgrammingFall2020: CourseDefinition = {
         lesson9,
         lesson10,
         lesson11,
+        lesson12
     ],
     icon: faNetworkWired,
     courseExtras: [
         { title: "Consolidated References", route: "references", View: ConsolidatedReferences },
         { title: "Midterm Study Guide", route: "midterm-study-guide", View: MidtermStudyGuide },
-        { title: "Final Project", route: "final-project", View: FinalProject }
+        { title: "Final Project", route: "final-project", View: FinalProject },
+        { title: "Final Study Guide", route: "final-study-guide", View: FinalStudyGuide }
     ]
 };

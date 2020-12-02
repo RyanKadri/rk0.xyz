@@ -1,3 +1,4 @@
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const Title = generateTitleSlide("Functions and Callbacks", "Ryan Kadri");
@@ -51,4 +52,9 @@ export const ConcurrencyModel = generateContentSlide("Can JavaScript Do Two Thin
     "JavaScript is Single-Threaded",
 ]);
 
-export const CanWeSolve = generateMessageSlide("How do we make timeouts run in order?")
+export const CanWeSolve = generateMessageSlide("How do we make timeouts run in order?");
+
+export const references: Reference[] = [
+    { label: "A short callback summary", url: "https://developer.mozilla.org/en-US/docs/Glossary/Callback_function" },
+    { label: "More in-depth callback explanation (sync and async)", url: "https://www.javascripttutorial.net/javascript-callback/" }
+]

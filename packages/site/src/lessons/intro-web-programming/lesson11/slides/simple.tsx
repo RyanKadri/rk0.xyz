@@ -1,4 +1,5 @@
 import React from "react";
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const TitleSlide = generateTitleSlide("Using JavaScript Libraries", "Ryan Kadri");
@@ -216,3 +217,21 @@ export const WhoHosts = generateContentSlide("So who will host me?", [
     "Firebase (Google)",
     "GoDaddy"
 ]);
+
+export const references: Reference[] = [
+    { 
+        label: "JQuery Documentation", 
+        url: "https://learn.jquery.com/about-jquery/how-jquery-works/", 
+        note: "You can read this if you're interested but don't try to learn it all unless you really want to"
+    },
+    { 
+        label: "ChartJS Documentation",
+        url: "https://www.chartjs.org/docs/latest/getting-started/",
+        note: "Also don't try to memorize this"
+    },
+    {
+        label: "Self-Hosting from the Ground Up",
+        url: "https://fuzzytek.ml/tutorials/selfhostingguide/",
+        note: "Probably not worth jumping through all these hoops for a web site. But interesting and informative if you're curious"
+    }
+]

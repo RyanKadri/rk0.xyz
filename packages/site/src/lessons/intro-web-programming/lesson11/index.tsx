@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { generateReferencesSlide } from "../../shared/references-slide";
 import { LibrariesLab } from "./lab/libraries-lab";
 import { DNSLookup } from "./slides/finding-server";
 import * as simple from "./slides/simple";
@@ -30,7 +31,8 @@ export const lesson11: Presentation = {
         simple.HostingIsHard,
         simple.BetterWay,
         simple.HostingProviders,
-        simple.WhoHosts
+        simple.WhoHosts,
+        generateReferencesSlide(simple.references)
     ],
     examples: [
         
@@ -42,5 +44,6 @@ export const lesson11: Presentation = {
         LabView: LibrariesLab,
         slug: "javascript-libraries",
         title: "Using JavaScript Libraries"
-    }
+    },
+    references: simple.references
 }

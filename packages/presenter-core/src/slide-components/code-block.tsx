@@ -3,6 +3,7 @@ import hljs from "highlight.js/lib/highlight";
 import css from "highlight.js/lib/languages/css";
 import js from "highlight.js/lib/languages/javascript";
 import json from "highlight.js/lib/languages/json";
+import typescript from "highlight.js/lib/languages/typescript";
 import xml from "highlight.js/lib/languages/xml";
 import "highlight.js/styles/lightfair.css";
 import React, { useEffect, useRef } from "react";
@@ -13,7 +14,8 @@ export const languages = {
     "html": xml,
     "css": css,
     "js": js,
-    "json": json
+    "json": json,
+    "ts": typescript
 }
 
 const styles = createStyles({
