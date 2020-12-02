@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { generateReferencesSlide } from "../../shared/references-slide";
 import * as simple from "./slides/simple";
 
 export const lesson12: Presentation = {
@@ -14,10 +15,12 @@ export const lesson12: Presentation = {
         simple.ImproveJavaScript,
         simple.TypeScript,
         simple.Imports,
-        simple.Frameworks
+        simple.Frameworks,
+        generateReferencesSlide(simple.references)
     ],
     examples: [
         
     ],
-    recording: undefined
+    recording: undefined,
+    references: simple.references
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const TitleSlide = generateTitleSlide("What Comes Next?", "Ryan Kadri");
@@ -106,4 +107,8 @@ export function Header({ name }) {
         <header>Hello { name }. Welcome to InstaFace</header>
     )
 }`
-})
+});
+
+export const references: Reference[] = [
+    { label: "This makes me feel bad at web development", url: "https://x.dustinbrett.com/" }
+]
