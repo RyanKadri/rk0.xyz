@@ -21,6 +21,8 @@ export const lesson12: Presentation = {
     examples: [
         
     ],
-    recording: undefined,
+    recording: {
+        link: "https://temple.zoom.us/rec/play/iwmd8Er2cufFZvhirrn2fxS8OrChelUZBu4geDBJz82Ji1_SfYnm9GOzhTnTeDdmvw-jUboIuuHau5sp.JcqHLI5h7yXnBhN5?autoplay=true&startTime=1606947921000"
+    },
     references: simple.references
 }
