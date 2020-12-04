@@ -1,4 +1,5 @@
-import { editor as mEditor } from 'monaco-editor/esm/vs/editor/editor.api';
+// import { editor as mEditor } from 'monaco-editor/esm/vs/editor/editor.api';
+import { editor as mEditor } from "monaco-editor";
 import React, { MutableRefObject, useEffect, useRef } from "react";
 
 declare global {
@@ -10,9 +11,10 @@ declare global {
 interface Props {
     initialCode: string;
     className?: string;
-    editorRef: MutableRefObject<mEditor.IStandaloneCodeEditor | null>;
+    editorRef?: MutableRefObject<mEditor.IStandaloneCodeEditor | null>;
+    onCodeChanged?: (code: string) => void;
     saveKey?: string;
-    height?: number;
+    height?: number | string;
     language: "javascript" | "html" | "css" | "json"
 }
 
@@ -34,15 +36,16 @@ self.MonacoEnvironment = {
     },
 };
 
-function CodeEditor(props: Props) {
-    const editorContainer = useRef<HTMLDivElement>(null); 
+export default function CodeEditor(props: Props) {
+    const editorContainer = useRef<HTMLDivElement>(null);
+    const internalEditor = useRef<mEditor.IStandaloneCodeEditor>();
     useEffect(() => {
         if(editorContainer.current) {
             const saveKey = props.saveKey;
             const storedCode = saveKey ? localStorage.getItem(saveKey) : null;
 
-            if(props.editorRef.current) {
-                props.editorRef.current.dispose();
+            if(internalEditor.current) {
+                internalEditor.current.dispose();
             }
 
             const editor = mEditor.create(editorContainer.current, {
@@ -56,10 +59,17 @@ function CodeEditor(props: Props) {
                 automaticLayout: true
             });
 
-            props.editorRef.current = editor;
-            if(saveKey) {
+            internalEditor.current = editor;
+            if(props.editorRef) {
+                props.editorRef.current = editor;
+            }
+            if(saveKey || props.onCodeChanged) {
                 editor.getModel()!.onDidChangeContent(() => {
-                    localStorage.setItem(saveKey, JSON.stringify(editor.getValue()));
+                    const text = editor.getValue();
+                    if(saveKey) {
+                        localStorage.setItem(saveKey, JSON.stringify(editor.getValue()));
+                    }
+                    props.onCodeChanged?.(text);
                 })
             }
         }
@@ -71,5 +81,3 @@ function CodeEditor(props: Props) {
              ref={ editorContainer } />
     )
 }
-
-export default CodeEditor; 

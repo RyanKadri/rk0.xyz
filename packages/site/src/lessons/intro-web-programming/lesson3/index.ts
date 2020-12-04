@@ -1,9 +1,9 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
-import { bodyExample } from "../../../common/functional-utils";
 import { generateReferencesSlide } from "../../shared/references-slide";
 import flexChildren from "../lesson2/examples/flex-children.html";
 import flexDirections from "../lesson2/examples/flex-directions.html";
 import mediaQuery from "../lesson2/examples/media-query.html";
+import simpleJS from "../lesson2/examples/simple-functions.js.txt";
 import { HtmlCssLabView } from "./lab/html-css-lab";
 import { DetectBrowser } from "./slides/DetectBrowser";
 import { ResponsiveCSS } from "./slides/ResponsiveCss";
@@ -38,9 +38,10 @@ export const lesson3: Presentation = {
         generateReferencesSlide(simple.references)
     ],
     examples: [
-        bodyExample("Flex Directions", flexDirections, `<style>div { border: solid 1px; margin: 8px } </style>`),
-        bodyExample("Flex Children", flexChildren, `<style>div { border: solid 1px; margin: 8px } </style>`),
-        { code: mediaQuery, title: "Media Query" }
+        { code: flexDirections, title: "Flex Directions", language: "html" },
+        { code: flexChildren, title: "Flex Children", language: "html" },
+        { code: mediaQuery, title: "Media Query", language: "html" },
+        { code: simpleJS, title: "Some simple JS", language: "javascript" }
     ],
     lab: {
         title: "HTML + CSS Basics",

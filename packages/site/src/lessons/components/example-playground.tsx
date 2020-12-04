@@ -1,15 +1,17 @@
-import { createStyles, Fab, Typography, WithStyles, withStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 // import { editor } from "monaco-editor/esm/vs/editor/editor.api";
-import React, { Suspense, useEffect, useRef, useState } from "react";
-import { ComplexExample, ExampleCode, ExampleDefinition } from "../../../../presenter-core/src/services/types";
-import { identity } from "../../common/functional-utils";
+import React, { Suspense, useEffect, useState } from "react";
+import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
+import { HTMLExampleOutput } from "./html-example-output";
+import { JSExampleOutput } from "./js-example";
 const CodeEditor = React.lazy(() => import("../shared/code-editor"))
 
-const styles = createStyles({
+const useStyles = makeStyles({
     container: {
-        display: "flex",
-        flexDirection: "row",
-        height: '100%'
+        display: "grid",
+        height: '100%',
+        gridTemplateColumns: "1fr 1fr",
+        gap: "4px"
     },
     editor: {
         border: "none",
@@ -20,7 +22,6 @@ const styles = createStyles({
         fontSize: "1.25rem"
     },
     editorContainer: {
-        width: "50%",
         padding: 8,
         position: "relative",
         "&:focus-within": {
@@ -28,53 +29,32 @@ const styles = createStyles({
         },
         display: "flex",
         flexDirection: "column"
-    },
-    saveButton: {
-        position: "absolute",
-        top: 8,
-        right: 8
-    },
-    content: {
-        width: "50%",
-        border: "none",
-        borderLeft: "solid 1px #ccc",
-        borderTop: "solid 1px #ccc"
     }
 })
 
-function isSnippetExample(code: ExampleCode): code is ComplexExample {
-    return typeof code !== "string";
+interface Props {
+    example: ExampleDefinition
 }
-
-const _ExamplePlayground = ({ example, classes }: Props) => {
+export function ExamplePlayground({ example }: Props) {
     
-    const [ code, setCode ] = useState(isSnippetExample(example.code) ? example.code.displayCode : example.code);
-    const editorRef = useRef<any | null>(null);
+    const classes = useStyles();
+    const [ currCode, setCurrCode ] = useState(example.code);
 
     useEffect(() => {
-        setCode(isSnippetExample(example.code) ? example.code.displayCode : example.code)
+        setCurrCode(example.code)
     }, [example.code] );
-
-    const renderedCode = isSnippetExample(example.code)
-        ? (example.code.formCode || identity)(code)
-        : code;
 
     return (
         <div className={ classes.container }>
             <div className={ classes.editorContainer }>
-                { isSnippetExample(example.code) && <Typography>This code may be abbreviated</Typography> }
                 <Suspense fallback="Loading...">
-                    <CodeEditor language="html" initialCode={ code } editorRef={ editorRef }/>
+                    <CodeEditor language={example.language} initialCode={ example.code } onCodeChanged={ updated => setCurrCode(updated) } height="100%" />
                 </Suspense>
-                <Fab className={ classes.saveButton } color="primary" onClick={ () => setCode(editorRef.current!.getValue()) }>Save</Fab>
             </div>
-            <iframe className={classes.content} srcDoc={ renderedCode } />
+            { example.language === "html"
+                ? <HTMLExampleOutput code={ currCode } />
+                : <JSExampleOutput code={ currCode } />
+            }
         </div>
     )
-}
-
-export const ExamplePlayground = withStyles(styles)(_ExamplePlayground)
-
-interface Props extends WithStyles<typeof styles> {
-    example: ExampleDefinition
 }

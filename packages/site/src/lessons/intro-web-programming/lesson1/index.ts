@@ -38,11 +38,11 @@ export const lesson1: Presentation = {
         generateReferencesSlide(references),
     ],
     examples: [
-        { code: textAndHeadings, title: "Text and Headings" },
-        { code: lists, title: "Lists" },
-        { code: media, title: "Media" },
-        { code: controls, title: "Controls" },
-        { code: tables, title: "Tables" }
+        { code: textAndHeadings, title: "Text and Headings", language: "html" },
+        { code: lists, title: "Lists", language: "html" },
+        { code: media, title: "Media", language: "html" },
+        { code: controls, title: "Controls", language: "html" },
+        { code: tables, title: "Tables", language: "html" }
     ],
     lab: {
         slug: "intro-to-html",

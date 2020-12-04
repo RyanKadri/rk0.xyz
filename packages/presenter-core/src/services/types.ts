@@ -33,8 +33,9 @@ export interface CourseDefinition {
 }
 
 export interface ExampleDefinition {
-    code: ExampleCode;
+    code: string;
     title: string;
+    language: "html" | "javascript";
 }
 
 export interface RecordingDefinition {
@@ -46,13 +47,6 @@ export interface LabDefinition {
     title: string;
     slug: string;
     LabView: ComponentType<{ lab: LabDefinition }>;
-}
-
-export type ExampleCode = string | ComplexExample;
-
-export interface ComplexExample {
-    displayCode: string;
-    formCode?: (userCode: string) => string;
 }
 
 export interface Reference {

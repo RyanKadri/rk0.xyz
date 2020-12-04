@@ -1,0 +1,11 @@
+function doAThing() {
+    sayHi();
+}
+
+function sayHi() {
+    console.log(`Hello ${addNumbers(1,2)}`)
+}
+
+function addNumbers(a,b) {
+    return a + b;
+}

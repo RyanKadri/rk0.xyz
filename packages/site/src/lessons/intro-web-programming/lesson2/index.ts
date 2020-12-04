@@ -1,5 +1,4 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
-import { bodyExample } from "../../../common/functional-utils";
 import { generateReferencesSlide } from "../../shared/references-slide";
 import borders from "./examples/borders.html";
 import colors from "./examples/colors.html";
@@ -45,15 +44,15 @@ export const lesson2: Presentation = {
         generateReferencesSlide(references)
     ],
     examples: [
-        { code: colors, title: "Colors" },
-        { code: fonts, title: "Fonts" },
-        bodyExample("Borders", borders, `<style>div { padding: 8px; margin: 16px; }</style>`),
-        bodyExample("Spacing", spacing, `<style> div { display: inline-block; border: solid 1px; } </style>`),
-        bodyExample("Position", position,  `<style>div{ border: solid 2px green }</style>`),
-        { code: display1, title: "Display (Part One)" },
-        bodyExample("Flex Directions", flexDirections, `<style>div { border: solid 1px; margin: 8px } </style>`),
-        bodyExample("Flex Children", flexChildren, `<style>div { border: solid 1px; margin: 8px } </style>`),
-        { code: mediaQuery, title: "Media Query" }
+        { code: colors, title: "Colors", language: "html" },
+        { code: fonts, title: "Fonts", language: "html" },
+        { code: borders, title: "Borders", language: "html" },
+        { code: spacing, title: "Spacing", language: "html" },
+        { code: position, title: "Position", language: "html" },
+        { code: display1, title: "Display (Part One)", language: "html" },
+        { code: flexDirections, title: "Flex Directions", language: "html" },
+        { code: flexChildren, title: "Flex Children", language: "html" },
+        { code: mediaQuery, title: "Media Query", language: "html" }
     ],
     references
 }

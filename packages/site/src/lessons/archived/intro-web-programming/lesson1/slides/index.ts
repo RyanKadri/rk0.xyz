@@ -1,3 +1,4 @@
+import { Presentation } from "../../../../../../../presenter-core/src/services/types";
 import controls from "../examples/controls.html";
 import lists from "../examples/lists.html";
 import media from "../examples/media.html";
@@ -9,7 +10,7 @@ import { SimpleMonitorSlide } from "./simple-monitor";
 import { Expectations, GradingA, GradingB, HTMLDef, LetsCode, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./simple-slides";
 import { XMLSlide } from "./xml-slide";
 
-export const lesson1 = {
+export const lesson1: Presentation = {
     title: "Hello World!",
     description: "Course Expectations, Web Fundamentals, Developer Tools, HTML Basics",
     slug: "hello-world",
@@ -30,10 +31,10 @@ export const lesson1 = {
         LetsCode,
     ],
     examples: [
-        { code: textAndHeadings, title: "Text and Headings" },
-        { code: lists, title: "Lists" },
-        { code: media, title: "Media" },
-        { code: controls, title: "Controls" },
-        { code: tables, title: "Tables" }
+        { code: textAndHeadings, title: "Text and Headings", language: "html" },
+        { code: lists, title: "Lists", language: "html" },
+        { code: media, title: "Media", language: "html" },
+        { code: controls, title: "Controls", language: "html" },
+        { code: tables, title: "Tables", language: "html" }
     ]
 }

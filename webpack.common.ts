@@ -37,7 +37,7 @@ const config: webpack.Configuration = {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.html$/,
+                test: /\.(html|txt)$/,
                 exclude: /node_modules/,
                 use: ["raw-loader"]
             },
