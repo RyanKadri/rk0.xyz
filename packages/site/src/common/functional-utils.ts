@@ -17,3 +17,15 @@ export function wrap(str: string) {
 export function noop() {
     
 }
+
+export function arrayReplace<T>(arr: T[], i: number, replacement: T): T[] {
+    const newArray = arr.slice();
+    newArray[i] = replacement;
+    return newArray
+}
+
+export function arrayRemove<T>(arr: T[], i: number): T[] {
+    const newArray = arr.slice();
+    newArray.splice(i, 1);
+    return newArray;
+}

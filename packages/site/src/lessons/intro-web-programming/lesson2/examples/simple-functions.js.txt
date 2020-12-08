@@ -3,7 +3,7 @@ function doAThing() {
 }
 
 function sayHi() {
-    console.log(`Hello ${addNumbers(1,2)}`)
+    console.log(`Hello`)
 }
 
 function addNumbers(a,b) {

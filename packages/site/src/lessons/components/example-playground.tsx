@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import React, { Suspense, useEffect, useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { HTMLExampleOutput } from "./html-example-output";
-import { JSExampleOutput } from "./js-example";
+import { JSExampleRunner } from "./js-example";
 const CodeEditor = React.lazy(() => import("../shared/code-editor"))
 
 const useStyles = makeStyles({
@@ -53,7 +53,7 @@ export function ExamplePlayground({ example }: Props) {
             </div>
             { example.language === "html"
                 ? <HTMLExampleOutput code={ currCode } />
-                : <JSExampleOutput code={ currCode } />
+                : <JSExampleRunner code={ currCode } />
             }
         </div>
     )
