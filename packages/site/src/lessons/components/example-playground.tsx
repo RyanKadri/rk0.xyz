@@ -53,7 +53,7 @@ export function ExamplePlayground({ example }: Props) {
             </div>
             { example.language === "html"
                 ? <HTMLExampleOutput code={ currCode } />
-                : <JSExampleRunner code={ currCode } />
+                : <JSExampleRunner code={ currCode } testCases={ example.testCases } />
             }
         </div>
     )

@@ -3,7 +3,6 @@ import { generateReferencesSlide } from "../../shared/references-slide";
 import flexChildren from "../lesson2/examples/flex-children.html";
 import flexDirections from "../lesson2/examples/flex-directions.html";
 import mediaQuery from "../lesson2/examples/media-query.html";
-import simpleJS from "../lesson2/examples/simple-functions.js.txt";
 import { HtmlCssLabView } from "./lab/html-css-lab";
 import { DetectBrowser } from "./slides/DetectBrowser";
 import { ResponsiveCSS } from "./slides/ResponsiveCss";
@@ -40,8 +39,7 @@ export const lesson3: Presentation = {
     examples: [
         { code: flexDirections, title: "Flex Directions", language: "html" },
         { code: flexChildren, title: "Flex Children", language: "html" },
-        { code: mediaQuery, title: "Media Query", language: "html" },
-        { code: simpleJS, title: "Some simple JS", language: "javascript" }
+        { code: mediaQuery, title: "Media Query", language: "html" }
     ],
     lab: {
         title: "HTML + CSS Basics",

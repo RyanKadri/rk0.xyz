@@ -1,11 +1,11 @@
+function addNumbers(a,b) {
+    return a + b;
+}
+
 function doAThing() {
     sayHi();
 }
 
 function sayHi() {
     console.log(`Hello`)
-}
-
-function addNumbers(a,b) {
-    return a + b;
 }

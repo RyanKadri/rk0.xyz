@@ -1,5 +1,6 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { ComponentType } from "react";
+import { EvalResult, LoggedConsoleMessage } from "./js-execution";
 
 export interface PresentationContext {
     pageNum: number;
@@ -32,10 +33,29 @@ export interface CourseDefinition {
     courseExtras?: CourseExtra[];
 }
 
-export interface ExampleDefinition {
+export type ExampleDefinition = HTMLExample | JSExample;
+
+interface HTMLExample {
     code: string;
     title: string;
-    language: "html" | "javascript";
+    language: "html";
+}
+
+interface JSExample {
+    code: string;
+    title: string;
+    language: "javascript";
+    testCases: TestCaseMapping;
+}
+
+export type TestCaseMapping = { [functionName: string]: TestCase[] }
+
+export interface TestCase {
+    paramString?: string;
+    expectedResult: string;
+    parsingError?: boolean;
+    actualResult?: EvalResult;
+    messages?: LoggedConsoleMessage[];
 }
 
 export interface RecordingDefinition {

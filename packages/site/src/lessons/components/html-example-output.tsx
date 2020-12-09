@@ -1,5 +1,5 @@
-import { Button, makeStyles } from "@material-ui/core";
-import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core";
+import React from "react";
 
 const useStyles = makeStyles({
     content: {
@@ -24,17 +24,10 @@ interface Props {
 
 export function HTMLExampleOutput({ code }: Props) {
     const classes = useStyles();
-    const [ activeCode, setActiveCode ] = useState(code);
 
     return (
         <div className={ classes.resultContainer }>
-            <Button className={ classes.saveButton } 
-                    color="primary" 
-                    variant="contained"
-                    onClick={ () => setActiveCode(code) }>
-                Update
-            </Button>
-            <iframe className={classes.content} srcDoc={ activeCode } />
+            <iframe className={classes.content} srcDoc={ code } />
         </div>
     )
 }

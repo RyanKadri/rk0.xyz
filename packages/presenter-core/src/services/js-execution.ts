@@ -66,3 +66,11 @@ export function executeFunction(code: string, targetFunction: string, paramStrin
         })()`)
     ))
 }
+
+export function handledEval(code: string) {
+    try {
+        return [true, eval(code)];
+    } catch {
+        return [false, null];
+    }
+}

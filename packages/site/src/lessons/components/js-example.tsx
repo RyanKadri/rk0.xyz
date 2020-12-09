@@ -1,12 +1,17 @@
 import { Button, makeStyles } from "@material-ui/core";
 import { parse } from "acorn";
 import { FunctionDeclaration, Identifier, Node } from "estree";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { executeFunction } from "../../../../presenter-core/src/services/js-execution";
+import { TestCaseMapping } from "../../../../presenter-core/src/services/types";
 import { JSExampleConsole } from "./js-example-console";
-import { JSExampleTestCases, TestCase } from "./js-example-inputs";
-import { executeFunction } from "./js-execution";
+import { JSExampleTestCases } from "./js-example-inputs";
 
-function extractFunctionInfo(code: string) {
+export interface FunctionInfo {
+    name: string;
+    parameters: string[]
+}
+function extractFunctionInfo(code: string): FunctionInfo[] | null {
     try {
         const ast = parse(code, { ecmaVersion: "latest", }) as Node;
         if(ast.type !== "Program") {
@@ -42,39 +47,45 @@ const useStyles = makeStyles({
 
 interface Props {
     code: string;
+    testCases: TestCaseMapping;
 }
-export function JSExampleRunner({ code }: Props) {
+export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
     const classes = useStyles();
     const functions = extractFunctionInfo(code);
-    const [ targetFunction, setTargetFunction ] = useState(0);
-    const [ testCases, setTestCases ] = useState<TestCase[]>([]);
+    const [ targetFunction, setTargetFunction ] = useState<string | null>(functions?.[0].name ?? null);
+    const [ testCaseMap, setTestCaseMap ] = useState<TestCaseMapping>({ ...initTestCases });
     const [ selectedTestCaseInd, setSelectedTestCaseInd ] = useState<number | null>(null);
-    const selectedFunction = functions?.[targetFunction];
-    const selectedTestCase = selectedTestCaseInd !== null ? testCases[selectedTestCaseInd] : null;
+    const selectedFunction = functions?.find(func => func.name === targetFunction);
+    const testCases = !!targetFunction
+        ? testCaseMap[targetFunction] ?? []
+        : []
+
+    const selectedTestCase = (selectedTestCaseInd !== null && selectedTestCaseInd < testCases.length)
+        ? testCases[selectedTestCaseInd] 
+        : null;
+
+    useEffect(() => {
+        if(!(functions ?? []).some(func => func.name === targetFunction)) {
+            setTargetFunction(functions?.[0].name ?? null)
+        }
+    }, [code])
 
     const onRunTests = () => {
-        if(testCases.length === 0 && selectedFunction && selectedFunction.parameters.length === 0) {
-            const { result, consoleMessages } = executeFunction(code, selectedFunction.name);
-            setTestCases([{ paramString: "", expectedResult: "", actualResult: result, messages: consoleMessages }]);
-            setSelectedTestCaseInd(0);
-        } else {
-            const completedTests = testCases.map(testCase => { 
-                const { result, consoleMessages } = executeFunction(code, selectedFunction!.name, testCase.paramString);
-                return {
-                    ...testCase, 
-                    actualResult: result,
-                    messages: consoleMessages
-                }
-            });
-            setTestCases(completedTests)
-            setSelectedTestCaseInd(0);
-        }
+        const completedTests = testCases.map(testCase => { 
+            const { result, consoleMessages } = executeFunction(code, selectedFunction!.name, testCase.paramString);
+            return {
+                ...testCase, 
+                actualResult: result,
+                messages: consoleMessages
+            }
+        });
+        setTestCaseMap(old => ({...old, [selectedFunction!.name]: completedTests}));
+        setSelectedTestCaseInd(0);
     }
 
     const onSelectFunction = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setTargetFunction(functions!.findIndex(f => f.name === e.target.value)!);
-        setTestCases([]);
-        setSelectedTestCaseInd(null);
+        setTargetFunction(e.target.value);
+        setSelectedTestCaseInd(0);
     }
 
     return (
@@ -100,14 +111,14 @@ export function JSExampleRunner({ code }: Props) {
                             </Button>
                         ) }
                     </header>
-                    { (selectedFunction && selectedFunction.parameters.length > 0) && (
-                        <JSExampleTestCases functionName={ selectedFunction?.name ?? "<unknown>"}
+                    { !!selectedFunction && (
+                        <JSExampleTestCases functionInfo={ selectedFunction }
                                             testCases={ testCases } 
-                                            onUpdateTestCases={ (testCases) => setTestCases(testCases) }
+                                            onUpdateTestCases={ (testCases) => setTestCaseMap(old => ({ ...old, [selectedFunction.name]: testCases})) }
                                             onRunTests={ onRunTests }
                                             onSelectTestCase={ setSelectedTestCaseInd } />
                     ) }
-                    { selectedFunction !== null && (
+                    { !!selectedFunction && (
                         <JSExampleConsole consoleMessages={ selectedTestCase?.messages } 
                                           result={ selectedTestCase?.actualResult } />
                     )}     
