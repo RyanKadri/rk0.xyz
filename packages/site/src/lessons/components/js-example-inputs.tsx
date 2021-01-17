@@ -123,17 +123,19 @@ function TestCaseLine({ functionInfo, testCase, onUpdate, onSelect }: TestCaseLi
                         onClick={ onSelect }>{ functionInfo.name }</button>
                 (
                 <input value={ testCase.paramString || "" }
+                       size={ (testCase.paramString || "").length + 1 }
                        disabled={ functionInfo.parameters.length === 0 }
                        placeholder="Tested Parameters"
                        onChange={ e => onUpdate({ ...testCase, paramString: e.target.value })} />
                 )
             </TableCell>
             <TableCell>
-                ===
+                <code>===</code>
             </TableCell>
             <TableCell>
                 <Tooltip title={ testCase.parsingError ? "Sure you typed that right?" : "" }>
                     <input className={ testCase.parsingError ? classes.warning : "" }
+                        size={ (testCase.expectedResult || "").length + 1 }
                         value={ testCase.expectedResult } 
                         placeholder="Expected return value"
                         onChange={ onUpdateExpected } />
