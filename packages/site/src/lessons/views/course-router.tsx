@@ -4,13 +4,15 @@ import { Route, Switch, useRouteMatch } from "react-router-dom";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
 import { assertExists } from "../../common/functional-utils";
 import { introToWebProgramming } from "../archived/intro-web-programming";
+import { practicumInSoftwareConstruction } from "../archived/sw-construction";
 import { introToWebProgrammingFall2020 } from "../intro-web-programming";
-import { practicumInSoftwareConstruction } from "../sw-construction";
+import { practicumInSW2021 } from "../sw-construction";
 import { LessonListView } from "./lesson-list/lesson-list-view";
 import { LessonResourceRouter } from "./presentation-resource-router";
 
 const courses: CourseDefinition[] = [
     introToWebProgrammingFall2020,
+    practicumInSW2021,
     introToWebProgramming,
     practicumInSoftwareConstruction
 ];
