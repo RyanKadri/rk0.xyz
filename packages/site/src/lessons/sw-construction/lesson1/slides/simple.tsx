@@ -1,9 +1,23 @@
 import { Link } from "@material-ui/core";
 import React from "react";
-import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { generateReferencesSlide } from "../../../shared/references-slide";
+import myPicture from "./about-me-picture-web.jpg";
 
 export const Title = generateTitleSlide("Practicum in Software Construction", "Ryan Kadri");
+
+export const AboutMePicture = generateMediaSlide(
+    <img src={ myPicture } alt="Me at Smith Rock" />,
+    "Smith Rock 2019",
+    "About Me"
+)
+
+export const AboutMe = generateContentSlide("About Me", [
+    "Grew up in New Jersey",
+    "I like hiking and coding (not at the same time)",
+    "Studied at Rutgers",
+    "Currently work at Capital One"
+]);
 
 export const CourseGoals = generateContentSlide("My Goals", [
     "Teach practical skills you might otherwise miss",

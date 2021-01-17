@@ -1,5 +1,4 @@
-import { BookreadsSlide } from "./slides/bookreads-slide";
-import { Assignment, CourseFeatures, CourseGoals, CourseOverviewP1, FairUse, FreeSoftware, Licensing, OpenSourceP1, OpenSourceP2, OpenSourceP3, References, Syllabus, Title } from "./slides/simple";
+import { AboutMe, AboutMePicture, CourseFeatures, Title } from "./slides/simple";
 
 export const lesson1 = {
     title: "Hello World!",
@@ -7,19 +6,20 @@ export const lesson1 = {
     slug: "hello-world",
     slides: [
         Title,
-        CourseGoals,
+        AboutMePicture,
+        AboutMe,
         CourseFeatures,
-        CourseOverviewP1,
-        Syllabus,
-        OpenSourceP1,
-        OpenSourceP2,
-        OpenSourceP3,
-        FreeSoftware,
-        Licensing,
-        FairUse,
-        Assignment,
-        BookreadsSlide,
-        References
+        // CourseOverviewP1,
+        // Syllabus,
+        // OpenSourceP1,
+        // OpenSourceP2,
+        // OpenSourceP3,
+        // FreeSoftware,
+        // Licensing,
+        // FairUse,
+        // Assignment,
+        // BookreadsSlide,
+        // References
     ],
     examples: [
     ]
