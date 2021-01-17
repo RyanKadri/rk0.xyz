@@ -44,19 +44,19 @@ const config: webpack.Configuration = {
             {
                 test: /\.(png|svg|jpg|gif|zip)$/,
                 use: [
-                'file-loader',
+                    'file-loader',
                 ],
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: [
-                'file-loader',
+                    'file-loader',
                 ],
             },
         ],
     },
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ],
+        extensions: [ '.tsx', '.ts', '.js', ".mjs" ],
     },
     output: {
         filename: 'bundle.js',
