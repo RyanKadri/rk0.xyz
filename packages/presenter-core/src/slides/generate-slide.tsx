@@ -1,9 +1,10 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, ReactNode } from "react";
 import { PresentationContext } from "../services/types";
 import { CodeBlock, languages } from "../slide-components/code-block";
 import { InfoList, NestedListInfo } from "../slide-components/info-list";
 import { CenterMessageSlide } from "./center-message-slide";
 import { ContentSlide, ContentSlideOptions } from "./content-slide";
+import { DefinitionSlide } from "./definition-slide";
 import { FullSlide } from "./embed-slide";
 import { MediaSlide } from "./media-slide";
 import { TitleSlide } from "./title-slide";
@@ -62,5 +63,11 @@ export function generateCodeSlide(title: string, bullets: (string | NestedListIn
                     <CodeBlock language={ codeBlock.language } code={ codeBlock.code } />
                   </>
          } />
+    }
+}
+
+export function generateDefinitionSlide(term: ReactNode, definition: ReactNode) {
+    return function({ context }: { context: PresentationContext }) {
+        return <DefinitionSlide context={context} Term={term} Definition={ definition } />
     }
 }

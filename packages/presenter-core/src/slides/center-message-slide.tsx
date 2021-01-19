@@ -4,27 +4,27 @@ import { PresentationContext } from "../services/types";
 import { PageNumber } from "../slide-components/page-number";
 
 const useStyles = makeStyles({
-    message: {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)"
+    container: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        padding: 96
     }
 })
 
 export function CenterMessageSlide({ context, Message }: Props) {
     const classes = useStyles();
     return (
-    <>
-        <span className={classes.message}>
-            { 
-                typeof Message === "string"
-                    ? <Typography variant="h4" component="p">{Message}</Typography>
-                    : Message
-            }
-        </span>
+    <div className={ classes.container }>
+        { 
+            typeof Message === "string"
+                ? <Typography variant="h4" component="p">{Message}</Typography>
+                : Message
+        }
         <PageNumber context={context} />
-    </>
+    </div>
     )
 }
 
