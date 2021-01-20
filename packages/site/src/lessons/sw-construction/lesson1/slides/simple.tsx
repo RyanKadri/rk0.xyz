@@ -20,7 +20,7 @@ export const AboutMe = generateContentSlide("About Me", [
 ]);
 
 export const Syllabus = generateMessageSlide(
-    <Link href="https://templeu.instructure.com/courses/70178"
+    <Link href="https://templeu.instructure.com/courses/92392"
           variant="h2">
         Syllabus
     </Link>
