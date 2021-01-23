@@ -1,5 +1,5 @@
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
-import hljs from "highlight.js/lib/highlight";
+import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
 import js from "highlight.js/lib/languages/javascript";
 import json from "highlight.js/lib/languages/json";

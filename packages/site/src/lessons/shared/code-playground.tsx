@@ -1,5 +1,4 @@
 import { Button, createStyles, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, Typography } from "@material-ui/core";
-// import { editor } from 'monaco-editor/esm/vs/editor/editor.api';
 import React, { Suspense, useRef, useState } from "react";
 const CodeEditor = React.lazy(() => import("./code-editor"))
 

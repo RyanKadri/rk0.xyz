@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-// import { editor } from "monaco-editor/esm/vs/editor/editor.api";
 import React, { Suspense, useEffect, useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { HTMLExampleOutput } from "./html-example-output";

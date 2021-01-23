@@ -1,5 +1,5 @@
-// import { editor as mEditor } from 'monaco-editor/esm/vs/editor/editor.api';
-import { editor as mEditor } from "monaco-editor";
+import { editor as mEditor } from 'monaco-editor/esm/vs/editor/editor.api';
+// import { editor as mEditor } from "monaco-editor";
 import React, { MutableRefObject, useEffect, useRef } from "react";
 
 declare global {
