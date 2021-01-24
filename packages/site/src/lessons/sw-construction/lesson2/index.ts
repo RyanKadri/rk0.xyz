@@ -1,5 +1,5 @@
 import { SemanticVersioning } from "./slides/semantic-versioning";
-import { DependencyDive, EnterPackageManagers, IntroJvm, IntroJvmClassLoading, InversionOfControl, JavaHasMagic, Maven, MavenDependencies, NaiveDownsides, PackageManagementJava, PossibilitiesForOpenSource, ProjectManagement, References, Spring, Title } from "./slides/simple";
+import { DependencyDive, EnterPackageManagers, Maven, MavenDependencies, NaiveDownsides, PackageManagementJava, PossibilitiesForOpenSource, ProjectManagement, References, Title } from "./slides/simple";
 
 export const lesson2 = {
     title: 'The jar is a "door"',
@@ -16,11 +16,11 @@ export const lesson2 = {
         MavenDependencies,
         DependencyDive,
         SemanticVersioning,
-        IntroJvm,
-        IntroJvmClassLoading,
-        JavaHasMagic,
-        InversionOfControl,
-        Spring,
+        // IntroJvm,
+        // IntroJvmClassLoading,
+        // JavaHasMagic,
+        // InversionOfControl,
+        // Spring,
         References
     ],
     examples: [
