@@ -1,4 +1,5 @@
-import { Agenda, IntroJvm, IntroJvmClassLoading, InversionOfControl, JavaHasMagic, Maven, PackageManagementJava, PackageManagementNode1, PackageManagementNode2, ProjectManagement, References, Spring, Title } from "./slides/simple";
+import { SemanticVersioning } from "./slides/semantic-versioning";
+import { DependencyDive, EnterPackageManagers, IntroJvm, IntroJvmClassLoading, InversionOfControl, JavaHasMagic, Maven, MavenDependencies, NaiveDownsides, PackageManagementJava, PossibilitiesForOpenSource, ProjectManagement, References, Spring, Title } from "./slides/simple";
 
 export const lesson2 = {
     title: 'The jar is a "door"',
@@ -6,15 +7,18 @@ export const lesson2 = {
     slug: "dependencies-spring",
     slides: [
         Title,
-        Agenda,
+        PossibilitiesForOpenSource,
+        NaiveDownsides,
+        ProjectManagement,
+        EnterPackageManagers,
+        PackageManagementJava,
+        Maven, 
+        MavenDependencies,
+        DependencyDive,
+        SemanticVersioning,
         IntroJvm,
         IntroJvmClassLoading,
         JavaHasMagic,
-        ProjectManagement,
-        PackageManagementNode1,
-        PackageManagementNode2,
-        PackageManagementJava,
-        Maven, 
         InversionOfControl,
         Spring,
         References
