@@ -163,7 +163,7 @@ export const FairUse = generateMessageSlide(
 
 export const references: Reference[] = [
     { label: "Git Manual", url: "https://git-scm.com/book/en/v2" },
-    { label: "Open Source Defintion", url: "https://opensource.org/osd" },
+    { label: "Open Source Definition", url: "https://opensource.org/osd" },
     { label: "Free Software Definition", url: "https://www.gnu.org/philosophy/free-sw.en.html" },
     { label: "License tl;dr", url: "https://tldrlegal.com/" }
 ]

@@ -1,3 +1,4 @@
+import React from "react";
 import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { generateReferencesSlide } from "../../../shared/references-slide";
 
@@ -106,47 +107,56 @@ export const ExampleTime = generateMessageSlide(
     "Example Time!"
 );
 
-export const IntroJvm = generateContentSlide("Java Compilation", [
-    "Java is a compiled language",
-    "Java binaries run on the JVM",
-    "The JVM startup process can be tricky",
-    "Built-in java compiler is not user-friendly",
-    "The JVM is not language-specific"
+export const WhatIsAJavaLibrary = generateContentSlide("What is a Java Library?", [
+    "Java libraries are packaged as JAR files",
+    "JARs are zip compressed archives",
+    "Inside, they have class files and metadata",
+    "Java is compiled into bytecode (not machine code)",
+    "Some JAR files are runnable. Libraries generally are not",
+    <>Often installs to <code>~/.m2/</code></>
 ]);
 
-export const IntroJvmClassLoading = generateContentSlide("JVM Class Loading", [
-    "Java loads compiled binaries lazily",
-    "Often uses a built-in ClassLoader",
-    "Lets you provide your own",
-    "(You can even write adhoc compiler plugins)",
-    "Bytecode retains information about the source code"
-]);
-
-export const JavaHasMagic = generateMessageSlide(
-    "Java has room for magic"
+export const PartTwo = generateTitleSlide("Part 2: Distributed Systems",
+    "Less scary than they sound!"
 );
 
-export const InversionOfControl = generateContentSlide("Inversion of Control", [
-    "IoC frameworks flip the normal library-project relationship",
-    "Normal: Custom code calls shared libraries",
-    "IoC: Shared container calls custom code",
-    "Helps decouple systems and reduces need for configuration"
+export const DistributedSystems = generateContentSlide("Distributed Systems", [
+    "Distributed Systems are systems that run on multiple machines",
+    "They sound scary but aren't too bad. Come with some new mental models",
+    "Communication protocols become important",
+    "Components can be written in different languages",
+    'Network communication can always fail. No remote operation is totally "safe"'
 ]);
 
-export const DependencyInjection = generateContentSlide("Dependency Injection", [
-    "Pass dependencies explicitly rather than implicitly",
-    "Makes code easier to follow and analyze",
-    "Can help decouple systems",
-    "Improves testability"
+export const DistributedSystemsApproaches = generateContentSlide("Messaging Approaches", [
+    "Distributed components need a communication contract",
+    { text: <><b>Approach A:</b> Send standardized, readable messages between systems</>, children: [
+        "Messages are in standard parsable formats",
+        "Somewhat human-readable and language-independent",
+        "HTTP APIs take this approach"
+    ] },
+    { text: <><b>Approach B:</b> Use the programming model to hide messaging details</>, children: [
+        "Fast but harder to debug / inter-operate",
+        "Remote Procedure Calls use this model",
+    ] },
 ]);
 
-export const Spring = generateContentSlide("Spring", [
-    "Spring is an IoC container that supports Dependency Injection",
+export const DistributedSystemsInClass = generateContentSlide("Messaging Approaches", [
+    "We're going to use Approach A in class",
+    "We are going to write a number of HTTP services",
+    'These servers are going to "speak" JSON',
+    'At many companies, all internal systems communicate with JSON (over HTTP)',
+    "Sometimes called a Service Oriented Architecture"
+]);
+
+export const Spring = generateContentSlide("Java Spring", [
+    "Java Spring is an open source framework for building Java Apps",
     "Has tons of sub-projects for different tasks",
-    "Large integrated ecosystem",
-    "Tries to reduce lock-in sometimes"
+    "Great for building microservices (with Spring Boot)",
+    "Makes it easy to build and package your app",
+    "One of the most popular Java Frameworks around",
+    "The framework on which we will build most of our projects"
 ]);
-
 
 export const References = generateReferencesSlide([
     { label: "Maven 30 Minute Guide", url: "https://maven.apache.org/guides/getting-started/index.html" },

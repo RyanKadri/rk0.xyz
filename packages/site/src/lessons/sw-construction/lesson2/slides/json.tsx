@@ -20,11 +20,10 @@ const code = `{
 }`.trim();
 
 const items = [
-    "JSON is another way (along with XML) for formatting data",
-    "JSON is (probably) the most common way to talk to servers these days",
-    "Based on JavaScript object definitions",
-    "You can create a JavaScript object from JSON easily",
-    "Commonly -- Send a request with some JSON data and get JSON data in response"
+    "JSON is a standard way to format data",
+    "Similar to JavaScript object definition",
+    "Probably the most common server messaging format these days",
+    "Send a request with some JSON data and get JSON data in response"
 ];
 
 export function JSONExample({ context }: Props) {

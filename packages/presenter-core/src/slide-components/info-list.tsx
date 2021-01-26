@@ -59,6 +59,6 @@ interface Props {
 }
 
 export interface NestedListInfo {
-    text: string;
+    text: string | ReactElement;
     children: (string | ReactElement | NestedListInfo)[];
 }

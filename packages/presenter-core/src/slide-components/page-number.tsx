@@ -11,6 +11,9 @@ const useStyles = makeStyles({
     },
 })
 
+interface Props {
+    context: PresentationContext
+}
 export function PageNumber({ context }: Props) {
     const classes = useStyles();
     return (
@@ -19,8 +22,4 @@ export function PageNumber({ context }: Props) {
             { context.pageNum } / { context.numPages }
         </Typography>
     )
-}
-
-interface Props {
-    context: PresentationContext
 }

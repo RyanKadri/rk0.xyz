@@ -18,7 +18,21 @@ export const Agenda = generateContentSlide("Agenda", [
     "BDD and Cucumber",
 ]);
 
-export const WhyTestQuestion = generateMessageSlide("Why do we write automated tests?")
+export const WhyTestQuestion = generateMessageSlide("Why do we write automated tests?");
+
+export const InversionOfControl = generateContentSlide("Inversion of Control", [
+    "IoC frameworks flip the normal library-project relationship",
+    "Normal: Custom code calls shared libraries",
+    "IoC: Shared container calls custom code",
+    "Helps decouple systems and reduces need for configuration"
+]);
+
+export const DependencyInjection = generateContentSlide("Dependency Injection", [
+    "Pass dependencies explicitly rather than implicitly",
+    "Makes code easier to follow and analyze",
+    "Can help decouple systems",
+    "Improves testability"
+]);
 
 export const WhyTestAnswers = generateContentSlide("Why do we test?", [
     "Prevent new bugs before launch",

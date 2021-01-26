@@ -4,7 +4,6 @@ import { Presentation } from "../../../../presenter-core/src/services/types";
 import { SlideManager } from "../../../../presenter-core/src/slides/slide-manager";
 import { ExampleViewer } from "./example-viewer";
 
-
 export function LessonResourceRouter({ lesson }: Props ) {
     const match = useRouteMatch();
     return (

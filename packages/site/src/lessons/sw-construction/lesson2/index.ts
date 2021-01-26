@@ -1,5 +1,6 @@
+import { JSONExample } from "./slides/json";
 import { SemanticVersioning } from "./slides/semantic-versioning";
-import { DependencyDive, EnterPackageManagers, Maven, MavenDependencies, NaiveDownsides, PackageManagementJava, PossibilitiesForOpenSource, ProjectManagement, References, Title } from "./slides/simple";
+import { DependencyDive, DistributedSystems, DistributedSystemsApproaches, DistributedSystemsInClass, EnterPackageManagers, ExampleTime, Maven, MavenDependencies, NaiveDownsides, PackageManagementJava, PartTwo, PossibilitiesForOpenSource, ProjectManagement, References, Spring, Title, WhatIsAJavaLibrary } from "./slides/simple";
 
 export const lesson2 = {
     title: 'The jar is a "door"',
@@ -16,11 +17,14 @@ export const lesson2 = {
         MavenDependencies,
         DependencyDive,
         SemanticVersioning,
-        // IntroJvm,
-        // IntroJvmClassLoading,
-        // JavaHasMagic,
-        // InversionOfControl,
-        // Spring,
+        ExampleTime,
+        WhatIsAJavaLibrary,
+        PartTwo,
+        DistributedSystems,
+        DistributedSystemsApproaches,
+        DistributedSystemsInClass,
+        JSONExample,
+        Spring,
         References
     ],
     examples: [

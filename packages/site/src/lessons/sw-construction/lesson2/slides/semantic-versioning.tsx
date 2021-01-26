@@ -57,7 +57,7 @@ export function SemanticVersioning({ context }: Props) {
                         <span className={ classes.minor }>Minor: </span> 
                         Gets incremented for new features
                         <ul>
-                            <li>Update but test your code</li>
+                            <li>Update at some point but test your code</li>
                         </ul>
                     </li>
                     <li>
