@@ -30,7 +30,8 @@ const styles = createStyles({
         "& a": {
             color: "white",
             padding: 8,
-            borderRadius: 99
+            borderRadius: 99,
+            marginRight: 8
         },
         "& a:hover": {
             backgroundColor: "rgba(255,255,255,0.15)"

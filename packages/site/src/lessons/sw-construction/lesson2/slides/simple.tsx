@@ -1,6 +1,6 @@
 import React from "react";
-import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
-import { generateReferencesSlide } from "../../../shared/references-slide";
+import { Reference } from "../../../../../../presenter-core/src/services/types";
+import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const Title = generateTitleSlide("Project Management and Spring", "Ryan Kadri");
 
@@ -158,7 +158,34 @@ export const Spring = generateContentSlide("Java Spring", [
     "The framework on which we will build most of our projects"
 ]);
 
-export const References = generateReferencesSlide([
+export const SpringCode = generateCodeSlide("Spring Example", [
+    "Spring uses a lot of annotations to define behavior",
+    "Uses Reflection, proxies, and all sorts of magic to make your code work",
+    "You shouldn't need to know the internals to work with Spring"
+], {
+    language: "java",
+    code: `
+@RestController
+public class HelloWorldRestController {
+
+    @GetMapping("/hello/{name}")
+    public HelloResponse sayHello(@PathVariable(value = "name") String name) {
+        return new HelloResponse("Ryan", 28, true);
+    }
+    
+}`
+});
+
+export const InversionOfControl = generateDefinitionSlide("Inversion of Control",
+    "Rather than writing a lot of custom code that calls into libraries (traditional development), " +
+    "Inversion of Control frameworks let you hand control over to the framework and it decides when " +
+    "to call your code"
+)
+
+export const references: Reference[] = [
     { label: "Maven 30 Minute Guide", url: "https://maven.apache.org/guides/getting-started/index.html" },
     { label: "Spring Rest Getting Started", url: "https://spring.io/guides/gs/rest-service/" },
-])
+    { label: "Semantic Versioning", url: "https://semver.org/", 
+        note:  "The formal definition is a bit stuffy. Points up 8 are important to understand though"
+    }
+]

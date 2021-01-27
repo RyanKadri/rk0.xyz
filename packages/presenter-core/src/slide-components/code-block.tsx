@@ -1,7 +1,7 @@
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
-import js from "highlight.js/lib/languages/javascript";
+import java from "highlight.js/lib/languages/java";
 import json from "highlight.js/lib/languages/json";
 import typescript from "highlight.js/lib/languages/typescript";
 import xml from "highlight.js/lib/languages/xml";
@@ -13,9 +13,10 @@ export const languages = {
     "xml": xml,
     "html": xml,
     "css": css,
-    "js": js,
+    "js": typescript,
     "json": json,
-    "ts": typescript
+    "ts": typescript,
+    "java": java
 }
 
 const styles = createStyles({

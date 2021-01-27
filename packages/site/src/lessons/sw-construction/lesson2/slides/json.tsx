@@ -21,7 +21,7 @@ const code = `{
 
 const items = [
     "JSON is a standard way to format data",
-    "Similar to JavaScript object definition",
+    "Similar to JavaScript object initialization format",
     "Probably the most common server messaging format these days",
     "Send a request with some JSON data and get JSON data in response"
 ];
