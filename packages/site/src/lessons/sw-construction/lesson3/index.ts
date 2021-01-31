@@ -1,26 +1,32 @@
-import { Agenda, BadUnitTestExample, BddTesting, FunctionalTests, IntegrationTests, References, TddTesting, TestingGoals, TestingPyramid, Title, TypesOfTests, UnitTests, WhatToTest, WhoIsClient, WhyTestAnswers, WhyTestQuestion } from "./slides/simple";
+import { RequestTemplate } from "./slides/request-example";
+import { ResponseTemplate } from "./slides/response-example";
+import { BookstoreBadModel, BookstoreModel, DependencyInjection, HowDoNetworking, HttpApis, HttpBasics, HttpDesigns, InstanceMethodApproach, InstanceMethodProsCons, LoggerProblemStatement, MultiFileProjects, NetworkingBasics, NetworkingPart2, SpringApproach, SpringPart, StaticMethodApproach, StaticMethodApproachProsCons, Title } from "./slides/simple";
 
 export const lesson3 = {
-    title: 'Automated Testing',
-    description: "Automated Testing with Cucumber and JUnit",
-    slug: "automated-testing",
+    title: 'Network Services',
+    description: "Using Java Spring to write HTTP Services",
+    slug: "network-services",
     slides: [
         Title,
-        Agenda,
-        WhyTestQuestion,
-        WhyTestAnswers,
-        WhatToTest,
-        TestingGoals,
-        WhoIsClient,
-        TypesOfTests,
-        UnitTests,
-        BadUnitTestExample,
-        IntegrationTests,
-        FunctionalTests,
-        TestingPyramid,
-        TddTesting,
-        BddTesting,
-        References,
+        HowDoNetworking,
+        NetworkingBasics,
+        NetworkingPart2,
+        HttpBasics,
+        RequestTemplate,
+        ResponseTemplate,
+        HttpApis,
+        HttpDesigns,
+        BookstoreModel,
+        BookstoreBadModel,
+        SpringPart,
+        MultiFileProjects,
+        LoggerProblemStatement,
+        StaticMethodApproach,
+        StaticMethodApproachProsCons,
+        InstanceMethodApproach,
+        InstanceMethodProsCons,
+        DependencyInjection,
+        SpringApproach
     ],
     examples: [
     ]
