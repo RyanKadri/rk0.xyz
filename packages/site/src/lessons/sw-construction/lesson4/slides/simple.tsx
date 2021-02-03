@@ -1,75 +1,95 @@
+import { Link } from "@material-ui/core";
 import React from "react";
-import { generateContentSlide, generateMediaSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
-import { generateReferencesSlide } from "../../../shared/references-slide";
-import bookreads from "../../lesson1/slides/bookreads.png";
+import { Reference } from "../../../../../../presenter-core/src/services/types";
+import { generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import testingPyramid from "./testing-pyramid.png";
 
 export const Title = generateTitleSlide("Full Stack Development: Frontend", "Ryan Kadri");
 
-export const Agenda = generateContentSlide("Agenda", [
-    "Review (with more code examples)",
-    "Quiz",
-    "Complex Applications - General Thoughts",
-    "Web Basics",
-    "HTML",
-    "The DOM",
-    "JavaScript"
+export const WhyTestQuestion = generateMessageSlide("Why do we write automated tests?")
+
+export const WhyTestAnswers = generateContentSlide("Why do we test?", [
+    "Prevent new bugs before launch",
+    "Find bugs in old code",
+    "Develop faster and with more confidence",
+    "Create verifiable documentation",
+    "It's more fun",
 ]);
 
-export const ModernApps = generateContentSlide('Complex Applications', [
-    { text: "Complex Apps:", children: [
-        "Have layers (a tech stack)",
-        "Are worked on by team(s) of developers",
-        "May have networked components",
-        "Persist data",
-        "May run in a cluster"
-    ]}
+export const WhatToTest = generateContentSlide("What do we test?", [
+    "New code",
+    "Critical code",
+    "Happy path",
+    "Edge cases",
+    "Old code",
 ]);
 
-export const CrudApps = generateContentSlide("CRUD Apps", [
-    "CRUD = Create, Read, Update, Delete",
-    "The core of many apps is CRUD",
-    "Pure CRUD apps are fairly straightforward and can be very useful",
-    "Lots of data-moving, validation, and presentation",
+export const TestingGoals = generateContentSlide("Testing #goals", [
+    "Actually tests system",
+    "Easy to read",
+    "Stable",
+    "Runs fast",
+    "Doesn't change too often",
 ]);
 
-export const WebTechPurposes = generateContentSlide("Web Basics", [
-    "Core web technologies are HTML, CSS, and JavaScript",
-    "HTML defines the structure of your page / app",
-    "CSS handles styling",
-    "JS makes your page dance"
+export const TypesOfTests = generateContentSlide("Types of Tests", [
+    'Unit Tests: Test a single thing in isolation',
+    'Integration Tests: Test a few components together',
+    'Functional / E2E Tests: Test large portions of your system',
+    "Black Box: Test your system only through defined interface"
 ]);
 
-export const HTML = generateContentSlide("HTML", [
-    "HTML is a subset of XML",
-    "Expresses structure of apps as a tree",
-    "You can break apps into boxes inside of boxes",
-    "Best for text-based informational content and rectangle-y apps",
-    "Tag names based on publishing terminology sort of"
+export const UnitTests = generateContentSlide("Unit Tests", [
+    "Test components in isolation",
+    "Replace dependencies (explicit and implicit)",
+    "Advantage: Runs fast and accurately pinpoints errors",
+    "Disadvantage: Does not guarantee that pieces work together"
 ]);
 
-export const Bookreads = generateMediaSlide(
-    <img src={ bookreads } style={ { border: "solid 2px black", padding: 2 } }/>,
-    undefined,
-    "BookReads.com"
+export const BadUnitTestExample = generateMessageSlide(
+    <Link href="https://twitter.com/i/status/1148986961207730176"
+          target="_blank" 
+          variant="h4">
+        https://twitter.com/i/status/1148986961207730176
+    </Link>
 )
 
-
-export const JavaScript = generateContentSlide("JavaScript", [
-    "JavaScript: Not related to Java",
-    "Dynamically typed",
-    "Interpreted",
-    "Functional Components",
-    "Weird Language: Easy to do Super Weird Stuff ®"
+export const IntegrationTests = generateContentSlide("Integration Tests", [
+    "Work with a couple components together",
+    "Replace some but not all dependencies",
+    "Mock up representative input data",
+    "Advantage: More certainty that things work",
+    "Disadvantage: A bit flakier and harder to set up"
 ]);
 
-export const DOM = generateContentSlide("DOM", [
-    "DOM = Document Object Model",
-    "The browser's programmatic representation of document structure",
-    "HTML is like having a book. The DOM is what you have after you've read it.",
-    "JavaScript will manipulate the DOM to create dynamic behavior on an app"
+export const FunctionalTests = generateContentSlide("Functional Tests", [
+    "Test large slices of a system",
+    "May use an automated browser to test app",
+    "Advantage: Uses your app the same way a user would",
+    "Disadvantage: Flaky, slow, and brittle"
 ]);
 
-export const References = generateReferencesSlide([
-    { label: "MDN (General Web Reference)", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element" },
-    { label: "DOM Explanation (It's long. Feel free to skim)", url: "https://eloquentjavascript.net/14_dom.html"}
-])
+export const TestingPyramid = generateMediaSlide(
+    <img src={ testingPyramid } alt="Testing Pyramid" />,
+    "Credit: Martin Fowler - Test Pyramid"
+);
+
+export const TddTesting = generateContentSlide("Test Driven Development", [
+    "In Test Driven Development (TDD), tests are as important as the main code",
+    "Write tests first and then write code",
+    "Tests start out failing and eventually pass (red-green)",
+    "Get simple tests to pass. Then more complicated"
+]);
+
+export const BddTesting = generateContentSlide("Behavior Driven Testing", [
+    "A philosophy that amps up the idea of tests as documentation",
+    "Tests are written in engl(ish) by the business",
+    "Test definitions and results are as readable as possible",
+    "Given / When / Then syntax",
+    "Cucumber is a common BDD tool in Java"
+]);
+
+export const references: Reference[] = [
+    { label: "Kent C Dodds - Testing", url: "https://kentcdodds.com/blog/write-tests" },
+    { label: "Cucumber", url: "https://cucumber.io/docs/guides/" },
+];

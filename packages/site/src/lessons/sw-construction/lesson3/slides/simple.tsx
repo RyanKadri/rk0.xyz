@@ -1,10 +1,10 @@
 import React from "react";
 import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
-export const Title = generateTitleSlide("Java Spring and Servers", "Ryan Kadri");
+export const Title = generateTitleSlide("Java Spring and Networked Services", "Ryan Kadri");
 
 export const HowDoNetworking = generateMessageSlide(
-    "How do programs communicate across the network?"
+    "How do programs communicate across a network?"
 );
 
 export const NetworkingBasics = generateContentSlide("Networking", [
@@ -36,12 +36,66 @@ export const HttpBasics = generateContentSlide("HTTP", [
     "HTTP is a pretty non-opinionated tool",
 ]);
 
+export const RequestMethod = generateContentSlide("Request Method", [
+    'Requests have a "method" to define how you want to interact with a resource',
+    "Common methods include GET, POST, PUT, DELETE",
+    "They correspond (usually) to Read, Create, Update, Delete, respectively",
+    "Server can interpret how it wants",
+    "Browser uses GET by default when you browse to a page",
+    "May also see OPTIONS, PATCH, HEAD and others less frequently",
+]);
+
+export const HttpHeaders = generateContentSlide("HTTP Headers", [
+    "Contain metadata about the request / response",
+    "Uppercase words separated by dashes",
+    { text: "Examples include", children: [
+        "Authorization",
+        "Expires / Age / Cache-Control",
+        "Cookie",
+        "Accept / Content-Type"
+    ]}
+]);
+
+export const HttpBody = generateContentSlide("HTTP Request / Response Body", [
+    "Main request / response data",
+    "In a request, this usually pairs with POST / PUT requests and some user-initiated interaction",
+    "Most (but not all) responses have a body",
+    "Can be HTML, JSON, XML, Text, etc depending on the URL requested (and some headers)"
+]);
+
+export const ResponseCodes = generateContentSlide("HTTP Response Codes", [
+    "A 3 digit numerical value that describes succinctly how the request went",
+    "Somewhat standardized and agreed upon",
+    { text: "200-299 means the request was successful", children: [
+        "200: OK - This is the most common response. Means everything went ok",
+        "201: Created - Something was created on the server"
+    ]},
+    { text: "300-399 means the request is being redirected", children: [
+        "301: Moved Permanently",
+        "302: Found (Moved Temporarily)",
+        "304: Not Modified"
+    ]}
+]);
+
+export const ResponseCodesContinued = generateContentSlide("Response Codes Continued", [
+    { text: "400-499 means the client did something wrong", children: [
+        "400: Bad Request - The server can't understand the request",
+        "404: Not Found - The requested resource does not exist",
+        "418: I'm a teapot - The server refuses the attempt to brew coffee with a teapot."
+    ]},
+    { text: "500-599 means there was an error on the server", children: [
+        "500: Internal Server Error - Something went wrong",
+        "503: The server is not ready to handle the request",
+        "504: Another server behind the one you are talking to timed out"
+    ]}
+]);
+
 export const HttpApis = generateMessageSlide(
     "Are there standard ways to make an HTTP API?"
 );
 
 export const HttpDesigns = generateContentSlide('"REST" APIs', [
-    "One way to use it is REST",
+    "One way to structure HTTP APIs is REST",
     "REST thinks about the world in terms of resources and nouns",
     "Tries to enforce proper headers and standard response codes",
     'REST suggests using URLs in your responses to "link" your data model',

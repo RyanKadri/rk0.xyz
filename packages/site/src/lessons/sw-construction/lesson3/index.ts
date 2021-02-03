@@ -1,6 +1,7 @@
 import { RequestTemplate } from "./slides/request-example";
 import { ResponseTemplate } from "./slides/response-example";
-import { BookstoreBadModel, BookstoreModel, DependencyInjection, HowDoNetworking, HttpApis, HttpBasics, HttpDesigns, InstanceMethodApproach, InstanceMethodProsCons, LoggerProblemStatement, MultiFileProjects, NetworkingBasics, NetworkingPart2, SpringApproach, SpringPart, StaticMethodApproach, StaticMethodApproachProsCons, Title } from "./slides/simple";
+import { BookstoreBadModel, BookstoreModel, DependencyInjection, HowDoNetworking, HttpApis, HttpBasics, HttpBody, HttpDesigns, HttpHeaders, InstanceMethodApproach, InstanceMethodProsCons, LetsLookAtApi, LoggerProblemStatement, MultiFileProjects, NetworkingBasics, NetworkingPart2, RequestMethod, ResponseCodes, ResponseCodesContinued, SpringApproach, SpringPart, StaticMethodApproach, StaticMethodApproachProsCons, Title } from "./slides/simple";
+import { UrlParts } from "./slides/url-parts";
 
 export const lesson3 = {
     title: 'Network Services',
@@ -12,12 +13,19 @@ export const lesson3 = {
         NetworkingBasics,
         NetworkingPart2,
         HttpBasics,
+        UrlParts,
         RequestTemplate,
         ResponseTemplate,
+        RequestMethod,
+        HttpHeaders,
+        HttpBody,
+        ResponseCodes,
+        ResponseCodesContinued,
         HttpApis,
         HttpDesigns,
         BookstoreModel,
         BookstoreBadModel,
+        LetsLookAtApi,
         SpringPart,
         MultiFileProjects,
         LoggerProblemStatement,
