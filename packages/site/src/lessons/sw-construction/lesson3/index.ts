@@ -1,9 +1,10 @@
+import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { RequestTemplate } from "./slides/request-example";
 import { ResponseTemplate } from "./slides/response-example";
 import { BookstoreBadModel, BookstoreModel, DependencyInjection, HowDoNetworking, HttpApis, HttpBasics, HttpBody, HttpDesigns, HttpHeaders, InstanceMethodApproach, InstanceMethodProsCons, LetsLookAtApi, LoggerProblemStatement, MultiFileProjects, NetworkingBasics, NetworkingPart2, RequestMethod, ResponseCodes, ResponseCodesContinued, SpringApproach, SpringPart, StaticMethodApproach, StaticMethodApproachProsCons, Title } from "./slides/simple";
 import { UrlParts } from "./slides/url-parts";
 
-export const lesson3 = {
+export const lesson3: Presentation = {
     title: 'Network Services',
     description: "Using Java Spring to write HTTP Services",
     slug: "network-services",
@@ -37,5 +38,8 @@ export const lesson3 = {
         SpringApproach
     ],
     examples: [
-    ]
+    ],
+    recording: {
+        link: "https://temple.zoom.us/rec/play/eykQgAlwkwZh48_XbPfCOm-vhWjsJtBxS9TI04-5E69oHK0ZiZVMR9YWBGuvISUcZyPEEw3WVyp4mi6d.pdcUZvjf0aQHPNTb?continueMode=true"
+    }
 }
