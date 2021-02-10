@@ -1,5 +1,5 @@
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { BadUnitTestExample, BddTesting, FunctionalTests, IntegrationTests, references, TddTesting, TestingGoals, TestingPyramid, Title, TypesOfTests, UnitTests, WhatToTest, WhyTestAnswers, WhyTestQuestion } from "./slides/simple";
+import { AssignmentTestExample, BadUnitTestExample, BddTesting, ClassQuestion, CucumberTesting, FunctionalTests, IntegrationTests, JUnitAnnotations, JUnitAssertions, JUnitTesting, ManualTestingApproach, ManualTestingDownsides, references, TddTesting, TestingPortions, TestingPyramid, Title, TypesOfTests, UnitTests, WriteAnExpressionEngine } from "./slides/simple";
 
 export const lesson4 = {
     title: 'Automated Testing',
@@ -7,18 +7,24 @@ export const lesson4 = {
     slug: "automated-testing",
     slides: [
         Title,
-        WhyTestQuestion,
-        WhyTestAnswers,
-        WhatToTest,
-        TestingGoals,
+        ClassQuestion,
+        ManualTestingApproach,
+        ManualTestingDownsides,
+        TestingPortions,
         TypesOfTests,
         UnitTests,
         BadUnitTestExample,
         IntegrationTests,
         FunctionalTests,
         TestingPyramid,
+        JUnitTesting,
+        JUnitAnnotations,
+        JUnitAssertions,
         TddTesting,
+        WriteAnExpressionEngine,
         BddTesting,
+        CucumberTesting,
+        AssignmentTestExample,
         generateReferencesSlide(references)
     ],
     references,

@@ -1,6 +1,7 @@
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
+import gherkin from "highlight.js/lib/languages/gherkin";
 import java from "highlight.js/lib/languages/java";
 import json from "highlight.js/lib/languages/json";
 import typescript from "highlight.js/lib/languages/typescript";
@@ -16,7 +17,8 @@ export const languages = {
     "js": typescript,
     "json": json,
     "ts": typescript,
-    "java": java
+    "java": java,
+    "gherkin": gherkin
 }
 
 const styles = createStyles({
