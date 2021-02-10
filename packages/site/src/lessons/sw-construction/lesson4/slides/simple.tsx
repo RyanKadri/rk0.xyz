@@ -159,6 +159,34 @@ Feature: Operation history is managed properly
     `
 });
 
+export const CucumberDependencies = generateCodeSlide("Reference: Cucumber and JUnit Dependencies", [], {
+    language: "xml",
+    code: `
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.7.1</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.junit.vintage</groupId>
+    <artifactId>junit-vintage-engine</artifactId>
+    <version>5.7.1</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>6.9.1</version>
+</dependency>
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>6.9.1</version>
+</dependency>
+    `
+});
+
 export const references: Reference[] = [
     { label: "Kent C Dodds - Testing", url: "https://kentcdodds.com/blog/write-tests" },
     { label: "JUnit 5", url: "https://junit.org/junit5/docs/current/user-guide/" },

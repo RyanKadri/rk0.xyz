@@ -1,5 +1,5 @@
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { AssignmentTestExample, BadUnitTestExample, BddTesting, ClassQuestion, CucumberTesting, FunctionalTests, IntegrationTests, JUnitAnnotations, JUnitAssertions, JUnitTesting, ManualTestingApproach, ManualTestingDownsides, references, TddTesting, TestingPortions, TestingPyramid, Title, TypesOfTests, UnitTests, WriteAnExpressionEngine } from "./slides/simple";
+import { AssignmentTestExample, BadUnitTestExample, BddTesting, ClassQuestion, CucumberDependencies, CucumberTesting, FunctionalTests, IntegrationTests, JUnitAnnotations, JUnitAssertions, JUnitTesting, ManualTestingApproach, ManualTestingDownsides, references, TddTesting, TestingPortions, TestingPyramid, Title, TypesOfTests, UnitTests, WriteAnExpressionEngine } from "./slides/simple";
 
 export const lesson4 = {
     title: 'Automated Testing',
@@ -25,6 +25,7 @@ export const lesson4 = {
         BddTesting,
         CucumberTesting,
         AssignmentTestExample,
+        CucumberDependencies,
         generateReferencesSlide(references)
     ],
     references,
