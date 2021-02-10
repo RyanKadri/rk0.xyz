@@ -147,12 +147,12 @@ Feature: Operation history is managed properly
     the operation details. There is also an option to clear the operation
     history
 
-    Scenario 1: Capturing math operation history
+    Scenario: Capturing math operation history
         Given that I have not run any previous operations
         When I call the endpoint to add 2 and 3
         Then there should be 1 history item with a first operand of 2 and a second operand of 3
 
-    Scenario 2: Deleting operation history
+    Scenario: Deleting operation history
         Given that I have 3 operations stored in the history
         When I call the delete endpoint
         Then there should be 0 operations in the history
