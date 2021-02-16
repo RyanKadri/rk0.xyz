@@ -18,9 +18,10 @@ const useStyles = makeStyles({
     },
     container: {
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
-        padding: 32
+        padding: 32,
+        background: "#eee",
+        height: "100%"
     },
     credit: {
         position: "absolute",
