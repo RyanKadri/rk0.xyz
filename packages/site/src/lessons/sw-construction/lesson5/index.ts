@@ -1,4 +1,4 @@
-import { CarefulWithReferences, CaseStudyGetters, CaseStudySetters, ConstructorsAreBetter, DataIsDangerous, FunctionalProgramming1, FunctionalProgrammingIntro, PossibleLocations, PureFunctions, ReducingState, Title, UnsafeSharing, UseDataRightAway, UseDataRightAway2, UseLocals, WhereData } from "./slides/simple";
+import { CarefulWithReferences, CaseStudyGetters, CaseStudySetters, ConstructorsAreBetter, DataIsDangerous, FunctionalJava, FunctionalJava2, FunctionalProgramming1, FunctionalProgrammingIntro, IsAPureFunction, NotAPureFunction, PossibleLocations, PureFunctions, ReducingState, Title, UnsafeSharing, UseDataRightAway, UseDataRightAway2, UseLocals, WhereData } from "./slides/simple";
 import { VariablesAsLabels } from "./slides/variables-as-labels";
 
 export const lesson5 = {
@@ -23,10 +23,10 @@ export const lesson5 = {
         FunctionalProgrammingIntro,
         FunctionalProgramming1,
         PureFunctions,
-        // FunctionalJava,
-        // FunctionalJava2,
-        // ImmutableProgramming,
-        // ImmutableJava
+        IsAPureFunction,
+        NotAPureFunction,
+        FunctionalJava,
+        FunctionalJava2,
     ],
     examples: [
     ]

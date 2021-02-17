@@ -205,12 +205,75 @@ export const PureFunctions = generateContentSlide("A Pure Function", [
     "Is always thread-safe",
 ]);
 
-export const FunctionalJava = generateContentSlide("Functional Java", [
-    "Java does not have functions exactly",
-    "Everything being a class makes FP harder",
-    '"Functional Interfaces" get us close',
-    "Java closures help with the syntax but are not perfect",
-    'Method references are nice "syntax sugar"'
+export const IsAPureFunction = generateCodeSlide("Pure Functions", [
+    
+], {
+    language: "java",
+    code: `
+public int addNumbers(int a, int b) {
+    return a + b;
+}
+
+public int countUnique(List<String> names) {
+    Set<String> nameSet = new HashSet<>(names);
+    return nameSet.size();
+}
+
+public List<String> filterANames(List<String> names) {
+    List<String> result = new ArrayList<>();
+    for(String name : names) {
+        if(name.startsWith("A")) {
+            result.add(name);
+        }
+    }
+    return result;
+}
+    `
+});
+
+export const NotAPureFunction = generateCodeSlide("Impure Functions", [
+    
+], {
+    language: "java",
+    code: `
+public void doSomething(int a, int b) { ... } // void methods must have side-effects
+
+public boolean flipACoin() { // A no-argument pure function can be a constant?
+    double result = Math.random(); // Produces output based on randomness
+}
+
+public int countUnique(List<String> names) {
+    Set<String> nameSet = new HashSet<>(names);
+    this.numUniqueNames = nameSet.size(); // Uh oh. Side effects detected
+    return this.numUniqueNames;
+}
+
+public void filterANames(List<String> names) {
+    for(int i = names.size() - 1; i >= 0; i --) {
+        if(names.get(i).startsWith("A")) {
+            result.remove(i); // This looks dangerous
+        }
+    }
+    return result;
+}
+
+    `
+});
+
+export const JavaAsFunctionalLanguage = generateContentSlide("Functional Java", [
+    'Java is not a "Functional Programming Language"',
+    "Java gives you freedom to manage state and have side effects",
+    "Java does not really have the concept of Pure Functions",
+    "The fact that everything is a class means that Java does not really have functions either",
+    "static methods come the closest to plain functions"
+]);
+
+export const FunctionalJava = generateContentSlide("Higher Order Functions", [
+    'In functional programming languages, there are "Higher Order Functions"',
+    "Functions that take another function as a parameter",
+    "Functions that return functions",
+    "Higher order functions treat functions like they are normal data types",
+    "But why?!"
 ]);
 
 export const FunctionalJava2 = generateContentSlide("Functional Java", [
@@ -221,20 +284,5 @@ export const FunctionalJava2 = generateContentSlide("Functional Java", [
         "Method References - Shorthand for extracting functional bits",
         'Built-In Function Types - Most common "function" types'
     ] }
-]);
-
-export const ImmutableProgramming = generateContentSlide("Immutable Programming", [
-    'A variable / object is "mutable" if it can be changed after being created',
-    "Mutability should be limited when possible",
-    "Functions should return new versions of objects rather than changing them",
-    "Copying can be done efficiently"
-]);
-
-export const ImmutableJava = generateContentSlide("Immutable Java and JS", [
-    "Opinion - Immutability is easier to enforce in Java but easier to write in JS",
-    "Java has final fields and final classes",
-    "JS has easy object and array copying syntax",
-    "JS has built-in immutable methods for strings, arrays, etc",
-    "Immutability reduces the need for defensive copying and similar approaches"
 ]);
 
