@@ -18,4 +18,7 @@ export const lesson6: Presentation = {
     ],
     examples: [
     ],
+    recording:{
+        link: "https://temple.zoom.us/rec/play/cgRR1AlEg0AG79rByrdHz7P6WLDiaudUJmrk_sJi_IhZo7aZFB3uFfzcerBJ5LG9OKqLbnIMUhW4ywM.nbSBymVyhq_HE0W2?continueMode=true"
+    }
 }
