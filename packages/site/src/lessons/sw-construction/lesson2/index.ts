@@ -35,5 +35,6 @@ export const lesson2: Presentation = {
     ],
     recording: {
         link: "https://temple.zoom.us/rec/play/Eydnbvf4KcXvQrzhZrHy3NdZmR3qXRS0U0PuMleRvsW8kyANVEy1Nb8tgr5FTRwU864_m_0CB8nLCAWO.WoQlXN2kU6g4Dga3?autoplay=true&startTime=1611786459000"
-    }
+    },
+    references
 }

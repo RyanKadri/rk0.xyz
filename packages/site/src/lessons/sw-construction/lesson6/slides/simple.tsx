@@ -1,3 +1,4 @@
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const Title = generateTitleSlide(
@@ -73,3 +74,9 @@ export const ApiShape = generateContentSlide("API Shape", [
 export const ThatBringsUsTo = generateMessageSlide(
     "That brings us to our next assignment..."
 );
+
+export const references: Reference[] = [
+    { label: "Example Solution: Assignment 3", url: "https://github.com/RyanKadri/spring2021-practicum-examples/tree/main/6-apis/housing-data-example" },
+    { label: "Jeff Bezos API Mandate", url: "https://nordicapis.com/the-bezos-api-mandate-amazons-manifesto-for-externalization/", note: "You won't be directly tested on this but it's " },
+    { label: "Stevey's Platform Rant", url: "https://gist.github.com/chitchcock/1281611", note: "You also won't be tested on this but it's pretty famous and pretty entertaining"}
+]

@@ -1,0 +1,63 @@
+# Practicum in Software Construction - Midterm Study Guide
+
+## Midterm Format
+
+The midterm will be administered through Canvas on Wednesday March 3rd. It will be available all day but you will have **2.5 hours** to complete the exam once you start. It is open book and open computer but all work must be completed independently. It will contain a mix of freeform concept questions, "find the bug" type problems, and a couple short coding exercises.
+
+## What is not on the test?
+
+- The libraries and tools I bring up in the first 5 minutes of class. Those are just for fun. That includes Lombok, Spring-Data
+- Maven libraries as a general concept are fair game but I would not expect you to study any of the specific libraries we've used so far other than Spring and JUnit
+- We only brushed over Cucumber so I won't ask you to write Cucumber tests. The *concept* of Behavior Driven Development is fair game though
+- I'm not expecting you to know any specific open source licenses.
+- Art History will not be on the Midterm
+
+## Topics
+
+This may not be a 100% complete list of topics but it should get you most of the way to what you need. The slides are your friends and some of the interactive slides / code examples might be really helpful.
+
+- Git topics
+    - What is a commit?
+    - How do you make a commit?
+    - What are branches?
+    - What does checking out a branch or a commit do?
+    - What is a merge? What is a merge conflict?
+    - Remote commands like clone, pull, push
+    - Relationship between Git and GitHub
+- Licenses
+    - What is open source code? What are the boundaries on how you can restrict use?
+    - What is a copyleft license?
+- Package Managers
+    - What is a package manager? Why do we use them?
+    - How does Maven help keep your Java project organized?
+    - What is a JAR file?
+    - Semantic Versioning
+- Http
+    - Parts of an HTTP Request and Response
+    - General networking concepts (IP addresses, public / private / local IP)
+    - General info in a URL
+    - The general idea of what REST is all about
+- Spring
+    - What is Dependency Injection? Why is it helpful?
+    - HTTP annotations for making a Spring server
+        - @RestController
+        - @GetMapping / @PostMapping / etc
+        - @PathVariable / @RequestBody / @RequestParam
+    - How to do dependency Injection
+- Automated Testing
+    - How to write JUnit Tests?
+    - What is the structure of a test?
+    - Purpose of Test Driven Development
+    - Purpose of Behavior Driven Development
+- State Management & Functional Programming
+    - What is a pure function?
+    - The state management errors we talked about in class
+- APIs
+    - What is an API?
+    - What are some of the things to think about when making an API?
+
+## Tips
+
+- Get good at setting up a setting up a basic Spring project in your IDE. Maybe set up one ahead of time. Don't waste time futzing with IDE settings.
+- Make sure you know how to start a Spring server how to test your @GetMapping / @PostMapping / etc methods. If you haven't figured out Postman yet, now is the time.
+- Make sure you know how to include a new library in your project from Maven

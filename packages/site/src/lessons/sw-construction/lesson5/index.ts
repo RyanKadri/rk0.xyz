@@ -1,5 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
-import { CarefulWithReferences, CaseStudyGetters, CaseStudySetters, ConstructorsAreBetter, DataIsDangerous, FunctionalJava, FunctionalJava2, FunctionalProgramming1, FunctionalProgrammingIntro, IsAPureFunction, NotAPureFunction, PossibleLocations, PureFunctions, ReducingState, Title, UnsafeSharing, UseDataRightAway, UseDataRightAway2, UseLocals, WhereData } from "./slides/simple";
+import { generateReferencesSlide } from "../../shared/references-slide";
+import { CarefulWithReferences, CaseStudyGetters, CaseStudySetters, ConstructorsAreBetter, DataIsDangerous, FunctionalJava, FunctionalJava2, FunctionalProgramming1, FunctionalProgrammingIntro, IsAPureFunction, NotAPureFunction, PossibleLocations, PureFunctions, ReducingState, references, Title, UnsafeSharing, UseDataRightAway, UseDataRightAway2, UseLocals, WhereData } from "./slides/simple";
 import { VariablesAsLabels } from "./slides/variables-as-labels";
 
 export const lesson5: Presentation = {
@@ -28,10 +29,12 @@ export const lesson5: Presentation = {
         NotAPureFunction,
         FunctionalJava,
         FunctionalJava2,
+        generateReferencesSlide(references)
     ],
     examples: [
     ],
     recording: {
         link: "https://temple.zoom.us/rec/play/2kaKpoF4SNS-nhl9JhKp1aBrXD7wMBW3jrAbtc9jJPMizw2rr0uoN1JGXQkwWbRNUMQuFm_J6dKrcPO5.9ieBiB1_8V0cZ8LT?continueMode=true"
-    }
+    },
+    references
 }

@@ -1,5 +1,6 @@
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import React from "react";
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const Title = generateTitleSlide(
@@ -286,3 +287,8 @@ export const FunctionalJava2 = generateContentSlide("Functional Java", [
     ] }
 ]);
 
+export const references: Reference[] = [
+    { label: "Why Immutability Matters", url: "https://debugged.it/blog/why-immutability-matters/" },
+    { label: "Pure Functions Definition", url: "https://en.wikipedia.org/wiki/Pure_function" },
+    
+]

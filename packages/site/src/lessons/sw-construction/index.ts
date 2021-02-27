@@ -1,11 +1,13 @@
 import { faHammer } from "@fortawesome/free-solid-svg-icons/faHammer";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
+import { ConsolidatedReferences } from "../views/lesson-list/consolidated-references";
 import { lesson1 } from "./lesson1";
 import { lesson2 } from "./lesson2";
 import { lesson3 } from "./lesson3";
 import { lesson4 } from "./lesson4";
 import { lesson5 } from "./lesson5";
 import { lesson6 } from "./lesson6";
+import { MidtermStudyGuide } from "./midterm-prep/study-guide";
 
 export const practicumInSW2021: CourseDefinition = {
     title: "Practicum in Software Construction",
@@ -19,5 +21,9 @@ export const practicumInSW2021: CourseDefinition = {
         lesson5,
         lesson6
     ],
-    icon: faHammer
+    icon: faHammer,
+    courseExtras: [
+        { title: "Consolidated References", route: "references", View: ConsolidatedReferences },
+        { title: "Midterm Study Guide", route: "midterm-study-guide", View: MidtermStudyGuide }
+    ]
 }

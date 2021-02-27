@@ -1,4 +1,5 @@
 import React from "react";
+import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 
 export const Title = generateTitleSlide("Java Spring and Networked Services", "Ryan Kadri");
@@ -231,3 +232,10 @@ public class StandardOutLogger implements Logger {
 }
     `
 });
+
+export const references: Reference[] = [
+    { label: "HTTP Basics", url: "https://devqa.io/http-basics/" },
+    { label: "Dependency Injection Approach", url: "https://www.codementor.io/@olotintemitope/dependency-injection-explained-in-plain-english-b24hippx7",
+        note: "I like this explanation but one part it doesn't totally hit is that using a dependency injection like Spring " +
+              "ends up meaning that another system builds your dependencies for you. They build the flashlight and pick the tires for the car" },
+]
