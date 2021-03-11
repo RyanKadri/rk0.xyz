@@ -140,4 +140,13 @@ export const SecurityGroups = generateContentSlide("Security Groups", [
     "For now, you just need to allow traffic in on the SSH port and the app port"
 ]);
 
-export const references: Reference[] = [];
+export const references: Reference[] = [
+    { label: "SSH Basics", url: "https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys" },
+    { label: "Installing Maven", url: "https://maven.apache.org/install.html" },
+    { label: "SSH on Windows", url: "https://www.howtogeek.com/336775/how-to-enable-and-use-windows-10s-built-in-ssh-commands/", 
+        note: "It sounds like ssh is included by default with Windows now as long as you're reasonably updated. This link might help if it's still not there"
+    },
+    { label: "EC2 Reference", url: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-mate.html",
+        note: "Definitely not something to read 100% cover to cover. But if you're curious or need details on a specific bit"
+    }
+];
