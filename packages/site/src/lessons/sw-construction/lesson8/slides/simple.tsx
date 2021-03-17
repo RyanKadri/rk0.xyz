@@ -12,7 +12,8 @@ export const Downtime = generateContentSlide("Downtime", [
     "Downtime is time that your server is down (tricky right?)",
     "Downtime can be caused by many things (server is literally offline, network issues, app crashed)",
     "In this class we care about the problems outside your code",
-    "An app is not always fully up or fully down. It's a rough metric"
+    "An app is not always fully up or fully down. It's a rough metric",
+    "Losing data is almost always way worse than just being offline"
 ]);
 
 export const Nines = generateContentSlide("# of 9's", [
@@ -83,25 +84,27 @@ export const OnAws = generateContentSlide("Resiliency on AWS (EC2)", [
     { text: "We are shopping for:", children: [
         "A way to automate EC2 instance setup",
         "A way to provision multiple EC2 instances",
-        "A way to spread load between a number of EC2 instances"
+        "A way to spread load between a number of EC2 instances",
+        "A way to know when/if things break"
     ] }
 ]);
 
-export const ManageLaunchWithAws = generateContentSlide("Launch Templates", [
+export const LaunchTemplates = generateContentSlide("Launch Templates", [
     "EC2 servers are not bulletproof. Expect them to fail occasionally",
-    "They can be configured with startup scripts",
-    "The startup scripts can be configured as launch templates",
-    "When the servers start, they are created according to a template",
-    "This should run with no human intervention"
+    "Remaking EC2 instances should be as fast as possible (automated)",
+    "This should run with no human intervention",
+    "Instance setup can be bundled into a Launch Template",
+    "When a replacement server is needed, stamp a new one out with a Launch Template",
+    "Also just a nice way to reduce manual setup work"
 ]);
 
 export const ManageScalingWithAws = generateContentSlide("Autoscaling Groups", [
-    "Rather than just launching one server, you can tell AWS to launch a group",
-    "Servers are created with a Launch Template",
-    "Servers can be registered with a load balancer automatically",
-    "Can set the min and max number created",
+    "Rather than just launching one server, you can tell AWS to launch a group of servers",
+    "Use a Launch Template to easily create each server",
     "If a server dies, AWS will automatically create a new one",
-    "You can do complex scaling based on metrics but don't need to"
+    "Spin up new servers when you need more compute power or do the reverse",
+    "You can do complex scaling based on metrics but don't need to",
+    "Traffic can be balanced between servers in the group with the help of...",
 ]);
 
 export const ManageTargetGroups = generateContentSlide("Target Groups", [
@@ -109,16 +112,17 @@ export const ManageTargetGroups = generateContentSlide("Target Groups", [
     "Target groups organize traffic to a service on a specific port",
     "Defines a health check to determine if a server is healthy",
     '"Healthy" might mean "finished starting up" or "not crashed"',
-    "Traffic is only routed to healthy servers"
+    "Traffic is only routed to healthy servers",
+    "Why do we need another group? Isn't the Autoscaling group enough?"
 ]);
 
 export const ManageLoadBalancer = generateContentSlide("Load Balancer", [
-    "Doorway into your app",
+    "Doorway into your app. Actually handles requests",
     "Forwards requests to hosts that will process them",
     "Can forward to multiple target groups based on rules",
     "In simple cases, all requests go to one target group",
     "Can handle encryption for your app",
-    "With Security Groups, can protect against Denial of Service"
+    "Can help protect against certain types of attacks"
 ]);
 
 export const LetsBuildResilient = generateMessageSlide(

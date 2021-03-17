@@ -1,6 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { AlertingIssues, Downtime, HowDoManage, HowDoWeFixIt2, HowToFix, JavaLogging, Logging, ManageLaunchWithAws, ManageLoadBalancer, ManageScalingWithAws, ManageTargetGroups, Nines, OnAws, references, SplittingUpAService, Title, WhatCanGoWrong2, WhatCanGoWrongQuestion } from "./slides/simple";
+import { AlertingIssues, Downtime, HowDoManage, HowDoWeFixIt2, HowToFix, JavaLogging, LaunchTemplates, Logging, ManageLoadBalancer, ManageScalingWithAws, ManageTargetGroups, Nines, OnAws, references, SplittingUpAService, Title, WhatCanGoWrong2, WhatCanGoWrongQuestion } from "./slides/simple";
 
 export const lesson8: Presentation = {
     title: 'Resiliency, Logging, and Monitoring',
@@ -17,7 +17,7 @@ export const lesson8: Presentation = {
         SplittingUpAService,
         HowDoManage,
         OnAws,
-        ManageLaunchWithAws,
+        LaunchTemplates,
         ManageScalingWithAws,
         ManageTargetGroups,
         ManageLoadBalancer,
