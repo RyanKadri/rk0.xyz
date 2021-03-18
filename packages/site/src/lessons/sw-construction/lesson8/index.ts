@@ -29,7 +29,7 @@ export const lesson8: Presentation = {
     examples: [
     ],
     recording: {
-        link: "https://temple.zoom.us/rec/play/2D7vi7aFO6KItPW3ajWdV5MmD6AP872qi3Zm4zwKkwR895LMHkK33y-9RHYGrEbyW9kWRHeenHMqSik.Ca00UBvBwHALwP5-?continueMode=true",
+        link: "https://temple.zoom.us/rec/play/fWaiOTIXJZnOlTh9rWZYys1s7h4oi_YxrtK_tqMGpAH-xFdAK0-X-vL2NdU1LxplCUBH17cQzqGEXtlP.QnQEikhVjxfAipfO?continueMode=true",
     },
     references
 }
