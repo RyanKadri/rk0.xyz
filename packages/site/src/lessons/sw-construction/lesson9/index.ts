@@ -1,6 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { AccessControl, AllowingAccess, AwsEntities, AwsManagedServices, AwsSecurity, AwsServicesIntro, BucketPricing, HowDoSecure, IamIntro, IamPolicies, LetsMakeUsers, ProgrammaticActions, references, S3Buckets, S3Overview, SamplePolicy, StorageSection, Title, UserSecurity, UsingS3 } from "./slides/simple";
+import { AccessControl, AllowingAccess, AwsEntities, AwsManagedServices, AwsSecurity, AwsServicesIntro, BucketPricing, HowDoSecure, IamIntro, IamPolicies, LetsMakeUsers, ProgrammaticActions, references, S3Buckets, S3Client, S3GetExample, S3Overview, S3PutExample, SamplePolicy, StorageSection, Title, UserSecurity, UsingS3 } from "./slides/simple";
 
 export const lesson9: Presentation = {
     title: 'AWS Security and Data Storage',
@@ -26,6 +26,9 @@ export const lesson9: Presentation = {
         BucketPricing,
         AllowingAccess,
         UsingS3,
+        S3Client,
+        S3PutExample,
+        S3GetExample,
         generateReferencesSlide(references)
     ],
     examples: [

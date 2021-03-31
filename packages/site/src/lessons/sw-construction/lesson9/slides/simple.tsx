@@ -92,6 +92,9 @@ export const AwsEntities = generateContentSlide("Core AWS Concepts", [
     ] },
     { text: "Amazon Resource Name (ARN) - Almost all resources get an identifier called an ARN", children: [
         "Can be used in policies when specifying which resource a rule applies to"
+    ] },
+    { text: "Tags - Most major resources in AWS can be tagged for organizational purposes", children: [
+        "Tags are key-value pairs and you are free to define them"
     ] }
 ])
 
@@ -185,6 +188,56 @@ export const UsingS3 = generateContentSlide("Using S3 in Java", [
     </>,
     "Create your credentials file"
 ]);
+
+export const S3Client = generateCodeSlide("Configuring S3", [
+    "Many AWS Services require configuration before you can use them",
+    <>Different services are defined differently but 
+        <a>here</a> 
+    is a guide</>,
+    "Spring Dependency Injection may be a good call here",
+], {
+    language: "java",
+    code: `
+@Bean
+public AmazonS3 createS3Client() {
+    return AmazonS3ClientBuilder.standard()
+        .withRegion(Regions.US_EAST_1)
+        .build();
+}    
+    `
+});
+
+export const S3PutExample = generateCodeSlide("Writing to S3", [
+    "Use the previously client to upload items to S3"
+], {
+    language: "java",
+    code: `
+PutObjectRequest request = PutObjectRequest.builder()
+    .bucket("rk0")
+    .key("hello.txt")
+    .build();
+
+var body = RequestBody.fromString(message);
+this.s3Client.putObject(request, body);
+    `
+});
+
+export const S3GetExample = generateCodeSlide("Reading from S3", [
+    "Reading from S3 looks similar",
+    "You'll need to read the file as an input stream which may be annoying if you want a String"
+], {
+    language: "java",
+    code: `
+GetObjectRequest request = GetObjectRequest.builder()
+    .bucket("rk0")
+    .key("hello.txt")
+    .build();
+var inputStream = this.s3Client.getObject(request);
+Scanner s = new Scanner(inputStream).useDelimiter("\\A");
+String result = s.hasNext() ? s.next() : "";
+return result;
+    `
+});
 
 export const references: Reference[] = [
     
