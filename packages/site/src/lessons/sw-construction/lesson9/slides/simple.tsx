@@ -199,11 +199,11 @@ export const S3Client = generateCodeSlide("Configuring S3", [
     language: "java",
     code: `
 @Bean
-public AmazonS3 createS3Client() {
-    return AmazonS3ClientBuilder.standard()
-        .withRegion(Regions.US_EAST_1)
+public S3Client createS3Client() {
+    return S3Client.builder()
+        .region(Region.US_EAST_1)
         .build();
-}    
+}
     `
 });
 
@@ -240,5 +240,6 @@ return result;
 });
 
 export const references: Reference[] = [
-    
+    { label: "AWS S3 Client Reference", url: "https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html", 
+      note: "It looks like the quick start section of this documentation has a good starter for S3" },
 ];
