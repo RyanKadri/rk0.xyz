@@ -247,9 +247,11 @@ for(Page<UserModel> user: iterable) {
 });
 
 export const SecretNotesWithDynamo = generateMessageSlide(
-    "Refactoring Secret Notes to use Dynamo"
+    "Can we set up Secret Notes to use DynamoBD?"
 );
 
 export const references: Reference[] = [
-    { label: "Dynamo Examples (GitHub)", url: "https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/dynamodb" }
+    { label: "Dynamo Examples (GitHub)", url: "https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/dynamodb" },
+    { label: "AWS Documentation - IAM Roles", url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html",
+        note: "AWS Docs can be very verbose. I'd recommend maybe reading the linked session and one or two sub-sections underneath" }
 ]
