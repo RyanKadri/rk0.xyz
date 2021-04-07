@@ -6,6 +6,7 @@ import { CenterMessageSlide } from "./center-message-slide";
 import { ContentSlide, ContentSlideOptions } from "./content-slide";
 import { DefinitionSlide } from "./definition-slide";
 import { FullSlide } from "./embed-slide";
+import { MediaAssistSlide } from "./media-assist-slide";
 import { MediaSlide } from "./media-slide";
 import { TitleSlide } from "./title-slide";
 
@@ -69,5 +70,13 @@ export function generateCodeSlide(title: string, bullets: (string | NestedListIn
 export function generateDefinitionSlide(term: ReactNode, definition: ReactNode) {
     return function({ context }: { context: PresentationContext }) {
         return <DefinitionSlide context={context} Term={term} Definition={ definition } />
+    }
+}
+
+export function generateMediaAssistSlide(
+    title: string, bullets: (string | NestedListInfo | ReactElement)[], media: ReactElement
+) {
+    return function({ context }: { context: PresentationContext }) {
+        return <MediaAssistSlide Title={ title } context={ context } info={ bullets } Media={ media } />
     }
 }
