@@ -247,7 +247,7 @@ for(Page<UserModel> user: iterable) {
 });
 
 export const SecretNotesWithDynamo = generateMessageSlide(
-    "Can we set up Secret Notes to use DynamoBD?"
+    "Can we set up Secret Notes to use DynamoDB?"
 );
 
 export const references: Reference[] = [
