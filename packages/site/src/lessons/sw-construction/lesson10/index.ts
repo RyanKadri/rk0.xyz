@@ -33,7 +33,7 @@ export const lesson10: Presentation = {
     examples: [
     ],
     recording: {
-        link: "https://temple.zoom.us/rec/play/EdZTGZ9y3ly2YXghriU8pvOE6JmcljucoaJ3PafFvlPr_TQe15OT7vyhuzglFfVHumLVhMocqOTsexPA.rWUmS2s4URkVXswH?continueMode=true"
+        link: "https://temple.zoom.us/rec/play/V71cTBYukP6DtX89vH8xgEPrarSSoLt_iFKLL7x38JEA1JPvzN-7XA-vAYMFiLu90qORsMuWuKqpcs4v.gxJO2Ck-qtR6g316?autoplay=true&startTime=1617830714000"
     },
     references
 }

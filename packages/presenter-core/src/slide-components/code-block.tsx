@@ -4,6 +4,7 @@ import css from "highlight.js/lib/languages/css";
 import gherkin from "highlight.js/lib/languages/gherkin";
 import java from "highlight.js/lib/languages/java";
 import json from "highlight.js/lib/languages/json";
+import plain from "highlight.js/lib/languages/plaintext";
 import typescript from "highlight.js/lib/languages/typescript";
 import xml from "highlight.js/lib/languages/xml";
 import "highlight.js/styles/lightfair.css";
@@ -18,7 +19,8 @@ export const languages = {
     "json": json,
     "ts": typescript,
     "java": java,
-    "gherkin": gherkin
+    "gherkin": gherkin,
+    "hcl": plain
 }
 
 const styles = createStyles({
