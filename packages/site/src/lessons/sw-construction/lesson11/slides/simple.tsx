@@ -6,6 +6,31 @@ import terraform from "./terraform.png";
 
 export const Title = generateTitleSlide("Infrastructure as Code", "Ryan Kadri");
 
+export const Debugger = generateContentSlide("Using the Debugger", [
+    "The debugger lets you troubleshoot the execution of your program",
+    "Most IDEs (and languages) come with a debugger",
+    "One of the biggest time-savers for certain issues",
+    { text: "Almost all debuggers will...", children: [
+        "Let you check the value of variables",
+        'Let you put a "breakpoint" in your code and pause at a spot',
+        "Walk line by line after you debug",
+        "Watch the value of certain expressions"
+    ] }
+]);
+
+export const AdvancedFeatures = generateContentSlide("Advanced Debugger Features", [
+    { text: "Some debuggers have a harder time with", children: [
+        "Library code (sometimes precompiled)",
+        "Pausing at the end of a loop",
+        "Debugging a remote system"
+    ] },
+    { text: "Some debuggers will", children: [
+        'Try to "decompile" compiled libraries',
+        "Let you pause based on a code condition",
+        "Let you debug a running system"
+    ] }
+]);
+
 export const ScriptableActions = generateContentSlide("Scripting in AWS", [
     "The AWS API/SDK lets you use code to interact with AWS",
     { text: 'You can use it to do "app tasks"', children: [
@@ -93,10 +118,86 @@ resource "aws_s3_bucket" "storage-bucket" {
             }
         }
     }
+}`});
+
+export const TerraformResources = generateContentSlide("Terraform Resources", [
+    'In terraform, "resources" are components that you want to manage',
+    "For instance you can define an S3 bucket resource or an IAM user resource",
+    "Different resources have different configuration parameters",
+    "Some AWS components have more resources than you would think",
+    { text: "For instance, am IAM user with permissions might have:", children: [
+        "A policy document",
+        "A policy",
+        "A user",
+        "A policy user attachment"
+    ] }
+]);
+
+export const TerraformReferences = generateCodeSlide("Terraform References", [
+    "Resources can reference attributes of other resources (name, ARN, etc)",
+    "References can be interpolated into other values",
+    "Terraform uses these references to determine build order"
+], {
+    language: "hcl",
+    code: `
+    statement {
+        effect = "Allow"
+        actions = [
+          "s3:PutObject",
+          "s3:GetObject",
+        ]
+        resources = [
+          aws_s3_bucket.storage-bucket.arn,
+          "\${aws_s3_bucket.storage-bucket.arn}/*"
+        ]    
+    `
+});
+
+export const TerraformData = generateCodeSlide("Terraform Data", [
+    "Terraform can read data about resources in your environment",
+    "This is good for hooking a new component into an existing system",
+    "Can also be used for importing secrets and dynamic values"
+], {
+    language: "hcl",
+    code: `
+resource "aws_rds_cluster" "xsrt-main" {
+    engine = "aurora-postgresql"
+    engine_mode = "serverless"
+    engine_version = "10.7"
+    database_name = "xyz"
+    master_username = "postgres"
+    master_password = data.aws_ssm_parameter.db-master-pass.value
+}`})
+
+export const TerraformProviders = generateCodeSlide("Terraform Providers", [
+    "AWS supports a ton of different types of infrastructure",
+    'Manages complexity with "providers" (they\'re like plugins)',
+    "Providers define how Terraform works with a type of infrastructure"
+], {
+    language: "hcl",
+    code: `
+provider "aws" {
+    version = "~> 3.0"
+    region = "us-east-1"
+    alias = "us-east-1"
+}`})
+
+export const TerraformState = generateCodeSlide("Terraform State", [
+    "Terraform needs to store some data about what it's done so far",
+    "Uses the concept of a state file",
+    "Can be stored on your machine or in a remote (often shared) location"
+], {
+    language: "hcl",
+    code: `
+terraform {
+    backend "s3" {
+        bucket = "xsrt-iac"
+        key = "terraform/terraform.tfstate"
+        region = "us-east-2"
+    }
 }`})
 
 export const references: Reference[] = [
-    { label: "Terraform AWS Reference", url: "https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/dynamodb" },
-    { label: "AWS Documentation - IAM Roles", url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html",
-        note: "AWS Docs can be very verbose. I'd recommend maybe reading the linked session and one or two sub-sections underneath" }
+    { label: "Terraform AWS Reference", url: "https://registry.terraform.io/providers/hashicorp/aws/latest/docs" },
+    { label: "Installing Terraform", url: "https://learn.hashicorp.com/tutorials/terraform/install-cli" }
 ]

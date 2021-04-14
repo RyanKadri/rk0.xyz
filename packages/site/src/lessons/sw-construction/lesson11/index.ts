@@ -1,6 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { CodeReview, CodingEnvironments, DiffChanges, EnterTerraform, ImmutableInfrastructure, InfrastructureVsCode, IsThereABetterWay, references, ScriptableActions, TerraformExample, Title } from "../lesson11/slides/simple";
+import { AdvancedFeatures, CodeReview, CodingEnvironments, Debugger, DiffChanges, EnterTerraform, ImmutableInfrastructure, InfrastructureVsCode, IsThereABetterWay, references, ScriptableActions, TerraformData, TerraformExample, TerraformProviders, TerraformReferences, TerraformResources, TerraformState, Title } from "../lesson11/slides/simple";
 
 export const lesson11: Presentation = {
     title: 'Infrastructure as Code',
@@ -8,6 +8,8 @@ export const lesson11: Presentation = {
     slug: "infrastructure-as-code",
     slides: [
         Title,
+        Debugger,
+        AdvancedFeatures,
         ScriptableActions,
         InfrastructureVsCode,
         CodingEnvironments,
@@ -17,6 +19,11 @@ export const lesson11: Presentation = {
         IsThereABetterWay,
         EnterTerraform,
         TerraformExample,
+        TerraformResources,
+        TerraformReferences,
+        TerraformData,
+        TerraformProviders,
+        TerraformState,
         generateReferencesSlide(references)
     ],
     recording: {
