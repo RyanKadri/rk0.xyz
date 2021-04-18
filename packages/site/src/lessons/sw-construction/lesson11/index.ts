@@ -27,7 +27,7 @@ export const lesson11: Presentation = {
         generateReferencesSlide(references)
     ],
     recording: {
-        link: "https://temple.zoom.us/rec/play/V71cTBYukP6DtX89vH8xgEPrarSSoLt_iFKLL7x38JEA1JPvzN-7XA-vAYMFiLu90qORsMuWuKqpcs4v.gxJO2Ck-qtR6g316?autoplay=true&startTime=1617830714000"
+        link: "https://temple.zoom.us/rec/play/Gxje5TkyDLQKED3yxiRkT7JJmX7lQWUOkoGuNqhPMTKJ_rgQfiesa2B1nm4_B7rgNm4u5D2-bZZhjwnM.g5Was6aAGx3z5kcD?autoplay=true&startTime=1618435610000"
     },
     examples: [
     ],
