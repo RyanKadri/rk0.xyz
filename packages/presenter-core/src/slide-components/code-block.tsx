@@ -1,6 +1,7 @@
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
+import docker from "highlight.js/lib/languages/dockerfile";
 import gherkin from "highlight.js/lib/languages/gherkin";
 import java from "highlight.js/lib/languages/java";
 import json from "highlight.js/lib/languages/json";
@@ -20,7 +21,9 @@ export const languages = {
     "ts": typescript,
     "java": java,
     "gherkin": gherkin,
-    "hcl": plain
+    "hcl": plain,
+    "docker": docker,
+    "plaintext": plain
 }
 
 const styles = createStyles({

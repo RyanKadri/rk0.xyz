@@ -1,6 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { references, Title } from "./slides/simple";
+import { BuildingImages, Containers, Disclaimer, Docker, ImageLayers, Images, ImageSharing, InstallingSoftware, Lambdas, references, ShrekMeme, Title } from "./slides/simple";
 
 export const lesson12: Presentation = {
     title: 'Containers, Functions, and Final Exam Review',
@@ -8,6 +8,16 @@ export const lesson12: Presentation = {
     slug: "containers-and-functions",
     slides: [
         Title,
+        InstallingSoftware,
+        Docker,
+        Disclaimer,
+        Containers,
+        Images,
+        BuildingImages,
+        ShrekMeme,
+        ImageLayers,
+        ImageSharing,
+        Lambdas,
         generateReferencesSlide(references)
     ],
     examples: [

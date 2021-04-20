@@ -1,7 +1,95 @@
+import { Link } from "@material-ui/core";
+import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateMediaAssistSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import dockerMeme from "./docker-layers.jpg";
+import docker from "./docker.png";
 
 export const Title = generateTitleSlide("Containers and Cloud Functions", "Ryan Kadri");
+
+export const InstallingSoftware = generateContentSlide("Setting up Complex Software", [
+    "Setting up complex software can be tricky",
+    "Some software is installed with a one-click installer",
+    "Other software takes more work",
+    { text: "Among other things, you need to:", children: [
+        "Install the right dependencies",
+        "Compile the code",
+        "Copy around some files",
+        "Set up users and permissions",
+        "Set up environment variables"
+    ] },
+]);
+
+export const Docker = generateMediaAssistSlide("Enter Docker", [
+    <><Link href="https://www.docker.com/">Docker</Link> is a tool for OS-level virtualization</>,
+    "Can be installed on Linux, Mac, and Windows (with some hoops)",
+    "Lets you define a full VM-like operating environment for your software",
+    'You can bundle your app up into "containers" for isolation and easy deployment',
+    'You can manage "images" that act like a template for containers',
+    "You can share your images with others",
+], <img src={ docker } />);
+
+export const Disclaimer = generateMessageSlide(
+    "Disclaimer: Containers are a big concept. Docker is very " + 
+    "popular but is not the only approach"
+);
+
+export const Containers = generateContentSlide("Docker Containers", [
+    "Containers create a well-defined environment for an application to run",
+    "Containers behave a lot like a full virtual machine",
+    "You can often start a shell, run commands, run code, read files, etc",
+    "You can run (multiple) Containers from a single machine...",
+    "... but they are mostly isolated from your host operating system",
+    "... except at a few interface points",
+    "Much lighter weight than Virtual Machines. Not quite as flexible"
+]);
+
+export const Images = generateCodeSlide("Container Images", [
+    "When building a container, you first define a Docker image",
+    "The definitions usually goes in a Dockerfile",
+    "Define the starting point for where to build from",
+    "Use sequential commands to define the desired environment state"
+], {
+    language: "docker",
+    code: `
+FROM maven:3.8.1-jdk-11 as builder
+
+WORKDIR /app
+COPY ./pom.xml /app
+COPY src /app/src
+RUN mvn package`
+});
+
+export const BuildingImages = generateContentSlide("Building Images", [
+    'Docker images will build in the context of the "FROM" environment',
+    "Builds run with only the information you share (via COPY)",
+    'Builds should run "from scratch"',
+    "Builds should be deterministic and reproducible anywhere",
+    "Builds can be slow and images can be very large"
+]);
+
+export const ShrekMeme = generateMediaSlide(<img src={ dockerMeme } />)
+
+export const ImageLayers = generateContentSlide("Image Layers", [
+    'Each step in the Docker build creates a "layer"',
+    "Docker looks for changes before starting from a specific build line",
+    "Starts from the earliest line with a change",
+    "Need to be strategic about the order of commands",
+    "Downloads will only pull updated layers",
+    "This is really nice for updating a container"
+]);
+
+export const ImageSharing = generateContentSlide("Sharing Images", [
+    "Docker makes it very easy to share images",
+    "Good way to play around with some development software",
+    <>Many images are hosted on <Link href="https://hub.docker.com">Docker Hub</Link></>,
+    <>Trying a new database is as easy as <code>docker run -e POSTGRES_PASSWORD=mysecretpassword -p "5432:5432" postgres</code></>,
+    "Makes it easy to make sure the same code goes to each environment (just deploy images)"
+]);
+
+export const Lambdas = generateContentSlide("AWS Lambdas", [
+    ""
+])
 
 export const references: Reference[] = [
     { label: "Terraform AWS Reference", url: "https://registry.terraform.io/providers/hashicorp/aws/latest/docs" },
