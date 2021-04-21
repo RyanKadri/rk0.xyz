@@ -1,9 +1,11 @@
 import { faHammer } from "@fortawesome/free-solid-svg-icons/faHammer";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
+import { FinalStudyGuide } from "../intro-web-programming/final-prep/study-guide";
 import { ConsolidatedReferences } from "../views/lesson-list/consolidated-references";
 import { lesson1 } from "./lesson1";
 import { lesson10 } from "./lesson10";
 import { lesson11 } from "./lesson11";
+import { lesson12 } from "./lesson12";
 import { lesson2 } from "./lesson2";
 import { lesson3 } from "./lesson3";
 import { lesson4 } from "./lesson4";
@@ -30,11 +32,12 @@ export const practicumInSW2021: CourseDefinition = {
         lesson9,
         lesson10,
         lesson11,
-        // lesson12
+        lesson12
     ],
     icon: faHammer,
     courseExtras: [
         { title: "Consolidated References", route: "references", View: ConsolidatedReferences },
-        { title: "Midterm Study Guide", route: "midterm-study-guide", View: MidtermStudyGuide }
+        { title: "Midterm Study Guide", route: "midterm-study-guide", View: MidtermStudyGuide },
+        { title: "Final Study Guide", route: "final-study-guide", View: FinalStudyGuide }
     ]
 }
