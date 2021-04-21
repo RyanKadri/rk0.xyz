@@ -1,7 +1,7 @@
 import { faHammer } from "@fortawesome/free-solid-svg-icons/faHammer";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
-import { FinalStudyGuide } from "../intro-web-programming/final-prep/study-guide";
 import { ConsolidatedReferences } from "../views/lesson-list/consolidated-references";
+import { FinalStudyGuide } from "./final-prep/study-guide";
 import { lesson1 } from "./lesson1";
 import { lesson10 } from "./lesson10";
 import { lesson11 } from "./lesson11";

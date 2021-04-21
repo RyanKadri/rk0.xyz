@@ -8,7 +8,7 @@ interface Props {
     baseUrl: string;
 }
 
-export function MidtermStudyGuide({ baseUrl }: Props) {
+export function FinalStudyGuide({ baseUrl }: Props) {
     const classes = useMarkdownLabStyles();
     return (
         <div className={ classes.container }>
