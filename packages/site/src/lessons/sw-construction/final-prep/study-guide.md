@@ -1,6 +1,6 @@
 # Practicum in Software Construction - Final Study Guide
 
-## Midterm Format
+## Final Exam Format
 
 The final will be administered through Canvas on Wednesday May 5th. It will be available all day but you will have **2.5 hours** to complete the exam once you start. It is open book and open computer but all work must be completed independently. It will contain a mix of freeform concept questions, "find the bug" type problems, a couple "build this in AWS" questions and a couple short coding exercises.
 
