@@ -20,6 +20,7 @@
     "@types/react-ga": "^2.3.0",
     "acorn": "^8.0.4",
     "highlight.js": "^10.5.0",
+    "monaco-editor": "^0.25.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-ga": "^3.3.0",
