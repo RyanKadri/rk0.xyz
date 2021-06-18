@@ -28,7 +28,7 @@ export const lesson4: Presentation = {
         { 
             code: simpleJS, 
             title: "Some simple JS", 
-            language: "javascript", 
+             
             testCases: {
                 addNumbers: [
                     { paramString: "1,2", expectedResult: "3" },

@@ -51,7 +51,7 @@ export const Images = generateCodeSlide("Container Images", [
     "Define the starting point for where to build from",
     "Use sequential commands to define the desired environment state"
 ], {
-    language: "docker",
+    
     code: `
 FROM maven:3.8.1-jdk-11 as builder
 

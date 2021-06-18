@@ -37,7 +37,7 @@ export const PublicApisAreHard = generateContentSlide("Public APIs", [
 export const ExampleBadApi = generateCodeSlide("Dangerous API Example", [
     "Opening up too much functionality is a bad idea"
 ], {
-    language: "java",
+    
     code: `
 public class ExpressionEvaluator {
 

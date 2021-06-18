@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./promises.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -12,14 +13,6 @@ const useStyles = makeStyles(createStyles({
         userSelect: "text"
     }
 }))
-
-const code = `
-const myPromise = fetch("https://some-url.com");
-
-myPromise
-    .then(response => { return response.json() })
-    .then(response => { console.log(response) })
-`.trim();
 
 const items = [
     "Promises are a way to keep track of an asynchronous operation",
@@ -34,7 +27,7 @@ export function Promises({ context }: Props) {
         <ContentSlide Title="Promises" context={context} Content={
             <>
                 <InfoList items={ items } />
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

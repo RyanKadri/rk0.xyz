@@ -147,6 +147,7 @@ Sample `layout.css`
 ```
 
 BookReads Mockup:
+
 ![Bookreads Site](/courses/cis1052/bookreads.png)
 
 

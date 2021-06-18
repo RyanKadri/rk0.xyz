@@ -43,7 +43,7 @@ export const UseLocals = generateCodeSlide("Use Local Variables", [
     "Wherever reasonable, try to pick the right scope for your data",
     "If data is only needed in a method call, make it local"
 ], {
-    language: "java",
+    
     code: `
 // Using member variables
 private List<Song> favoriteSongs;
@@ -75,7 +75,7 @@ export const ConstructorsAreBetter = generateCodeSlide("Maybe Constructors are N
     'If you use setters to "set up" an object after creation, constructors may be better',
     'The object can be built "all at once" using a constructor'
 ], {
-    language: "java",
+    
     code: `
 // Using setters. Can be modified later
 Employee ryan = new Employee();
@@ -104,7 +104,7 @@ export const UseDataRightAway = generateCodeSlide("Can you use the data right aw
     "Maybe return values are a better fit than getters",
     "If you need multiple values as a result, maybe an object is helpful?"
 ], { 
-    language: "java",
+    
     code: `
 // With getters
 payrollManager.fetchEmployeeInfo(2020);
@@ -122,7 +122,7 @@ export const UseDataRightAway2 = generateCodeSlide("How is that any different?",
     "A new EmployeeInfo is returned for each lookup",
     "PayrollManager does not store any state"
 ], {
-    language: "java",
+    
     code: `
 // Shared by all classes who need employee info
 public class PayrollManager {
@@ -152,7 +152,7 @@ export const UnsafeSharing = generateCodeSlide("Unsafe Sharing", [
     "Sharing references to data can be dangerous",
     "Making copies is sometimes preferable"
 ], {
-    language: "java",
+    
     code: `
 public void setupEmployees() {
     List<Product> products = Inventory.fetchProducts();
@@ -209,7 +209,7 @@ export const PureFunctions = generateContentSlide("A Pure Function", [
 export const IsAPureFunction = generateCodeSlide("Pure Functions", [
     
 ], {
-    language: "java",
+    
     code: `
 public int addNumbers(int a, int b) {
     return a + b;
@@ -235,7 +235,7 @@ public List<String> filterANames(List<String> names) {
 export const NotAPureFunction = generateCodeSlide("Impure Functions", [
     
 ], {
-    language: "java",
+    
     code: `
 public void doSomething(int a, int b) { ... } // void methods must have side-effects
 

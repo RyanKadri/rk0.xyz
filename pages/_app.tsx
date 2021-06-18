@@ -5,6 +5,7 @@ import React from "react";
 import { GAWrapper } from "../packages/site/src/analytics";
 import { RootNav } from "../packages/site/src/root/top-nav";
 import { appTheme } from "../packages/site/src/theme";
+import "../public/prism.css";
 
 const useStyles = makeStyles((_: Theme) => ({
     container: {

@@ -141,7 +141,7 @@ export const StaticMethodApproach = generateCodeSlide("Approach 1: Static method
     "The logger has a static method",
     "Classes that use the logger call the static method"
 ], {
-    language: "java",
+    
     code: `
 public class ImportantProcessHandler {
     public static void handleImportantProcess() {
@@ -172,7 +172,7 @@ export const InstanceMethodApproach = generateCodeSlide("Approach 2: Instance Me
     "The logger can be constructed",
     "Classes that call the logger use an instance method",
 ], {
-    language: "java",
+    
     code: `
 public class ImportantProcessHandler {
     private final Logger myLogger;
@@ -211,7 +211,7 @@ export const SpringApproach = generateCodeSlide("Approach 3: Dependency Injectio
     "Use annotations to indicate that a class can be injected",
     "Spring will pass you an instance of a class",
 ], {
-    language: "java",
+    
     code: `
 public class ImportantProcessHandler {
 

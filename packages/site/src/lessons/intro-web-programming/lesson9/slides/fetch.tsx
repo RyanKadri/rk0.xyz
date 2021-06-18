@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./fetch.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -12,12 +13,6 @@ const useStyles = makeStyles(createStyles({
         userSelect: "text"
     }
 }))
-
-const code = `
-fetch("https://some-url.com")
-    .then(response => { return response.json() })
-    .then(response => { console.log(response) })
-`.trim();
 
 const items = [
     "fetch lets you make requests to a server",
@@ -32,7 +27,7 @@ export function FetchExample({ context }: Props) {
         <ContentSlide Title="fetch" context={context} Content={
             <>
                 <InfoList items={ items } />
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

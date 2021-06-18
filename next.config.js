@@ -1,3 +1,6 @@
+const RemarkHTML = require("remark-html")
+const RemarkPrism = require("remark-prism")
+
 module.exports = {
     webpack: (config) => {
         config.module.rules.push(
@@ -11,7 +14,12 @@ module.exports = {
                         }
                     },
                     {
-                        loader: "markdown-loader",
+                        loader: "remark-loader",
+                        options: {
+                            remarkOptions: {
+                                plugins: [RemarkHTML, RemarkPrism]
+                            }
+                        }
                     }
                 ]
             },

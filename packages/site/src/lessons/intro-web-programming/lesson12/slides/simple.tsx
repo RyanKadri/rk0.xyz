@@ -27,7 +27,7 @@ export const NodeJS = generateCodeSlide("NodeJS", [
     "NodeJS can read files, interact with other programs, and act as a server",
 ], 
 {
-    language: "js",
+    
     code: `
 const fs = require("fs");
 fs.readFile("/home/ryan/Documents/hello.txt", "utf-8", (err, data) => {
@@ -62,7 +62,7 @@ export const TypeScript = generateCodeSlide("Typescript", [
     "When it compiles, it checks that your declared types match your code",
     "Lets IDEs provide suggestions for your code"
 ], {
-    language: "ts",
+    
     code: `
 function addNumbers(a: number, b: number): number {
     return a + b;
@@ -80,7 +80,7 @@ export const Imports = generateCodeSlide("Imports and Modules", [
     'Modules make sure that variables and functions from one file don\'t "leak"',
     'Let you write bigger projects without worrying about "collisions"'
 ], {
-    language: "js",
+    
     code: `
 // file a.js
 import { addNumbers } from "./b"
@@ -100,7 +100,7 @@ export const Frameworks = generateCodeSlide("Web Frameworks", [
     "They often help bind JavaScript data into the DOM",
     "... and much more",
 ], {
-    language: "js",
+    
     code: `
 export function Header({ name }) {
     return (

@@ -5,6 +5,8 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import myHTML from "./inputs-html.md";
+import code from "./inputs.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -21,31 +23,14 @@ const slideItems = [
     "JavaScript can read the value of inputs"
 ];
 
-const myHTML = `
-<input type="text" id="my-textbox">
-<input type="checkbox" id="my-checkbox">
-`
-
-const code = `
-const myTextbox = document.querySelector("#my-textbox");
-const myCheckbox = document.querySelector("#my-checkbox");
-
-const userInputText = myTextbox.value;
-const isCheckboxChecked = myCheckbox.checked;
-
-if(isCheckboxChecked) {
-    // ...
-}
-`.trim();
-
 export function UserInputElements({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="User Inputs" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="html" code={ myHTML } className={ classes.code }></CodeBlock>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ myHTML } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

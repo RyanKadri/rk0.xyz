@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./async-callbacks.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -18,29 +19,13 @@ const slideItems = [
     "They can be assigned, returned, and passed as parameters"
 ];
 
-const code = `
-function add(a, b) {
-    return a+b;
-}
-
-function addOne() {
-    return function(a) {
-        return add(a,1);
-    }
-}
-
-function doSomething(arg) {
-    return arg(2);
-}
-`.trim();
-
 export function FunctionsRedux({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Functions" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

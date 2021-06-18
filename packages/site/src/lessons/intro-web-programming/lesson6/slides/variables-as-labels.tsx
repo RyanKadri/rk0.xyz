@@ -6,6 +6,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./variables-as-labels.md";
 import variableDiagram from "./variables.svg";
 
 const useStyles = makeStyles(createStyles({
@@ -26,19 +27,13 @@ const slideItems = [
     "JavaScript does not copy values when setting variables"
 ];
 
-const code = `
-const ryan = { name: "Ryan", age: 26, job: "Developer", id: "abc123" };
-const evilTwin = ryan;
-evilTwin.isEvil = true;
-`.trim();
-
 export function VariablesAsLabels({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Variables are Labels" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
                 <Image className={ classes.diagram } src={ variableDiagram } />
             </>
         } />

@@ -83,7 +83,7 @@ export const JUnitTesting = generateCodeSlide("JUnit Testing", [
     'Allows you to write small snippets of test code that "drive" your real code',
     "Provides assertion functions to verify that your code worked right"
 ], {
-    language: "java",
+    
     code: `
 @Test
 public void testMyCode() {
@@ -141,7 +141,7 @@ export const CucumberTesting = generateContentSlide("Cucumber and Gherkin", [
 ]);
 
 export const AssignmentTestExample = generateCodeSlide("Example Cucumber Spec", [], {
-    language: "gherkin",
+    
     code: `
 Feature: Operation history is managed properly
     As operations are calculated, the server will store a record of
@@ -161,7 +161,7 @@ Feature: Operation history is managed properly
 });
 
 export const CucumberDependencies = generateCodeSlide("Reference: Cucumber and JUnit Dependencies", [], {
-    language: "xml",
+    
     code: `
 <dependency>
     <groupId>org.junit.jupiter</groupId>

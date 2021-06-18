@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./add-event-listener-questions.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -14,15 +15,6 @@ const useStyles = makeStyles(createStyles({
         marginTop: 16
     }
 }))
-
-const code = `
-const myPanelHeader = document.querySelector(".my-panel header");
-myPanel.addEventListener("click", changeColor);
-
-function changeColor() {
-    myPanelHeader.style.color = "red"
-}
-`.trim();
 
 const slideItems = [
     "What just happened there?",
@@ -34,7 +26,7 @@ export function AddEventListenerQuestions({ context }: Props) {
     return (
         <ContentSlide Title="addEventListener" context={context} Content={
             <>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
                 <InfoList items={ slideItems }></InfoList>
             </>
         } />
