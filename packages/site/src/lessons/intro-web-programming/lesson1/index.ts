@@ -1,11 +1,10 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import controls from "./examples/controls.html";
-import lists from "./examples/lists.html";
-import media from "./examples/media.html";
-import tables from "./examples/tables.html";
-import textAndHeadings from "./examples/textAndHeadings.html";
-import { IntroToHtmlLab } from "./lab/intro-to-html-lab";
+import controls from "./examples/controls";
+import lists from "./examples/lists";
+import media from "./examples/media";
+import tables from "./examples/tables";
+import textAndHeadings from "./examples/textAndHeadings";
 import { OutlineToHtml } from "./slides/outline-to-html";
 import { SimpleBrowserSlide } from "./slides/simple-browser";
 import { SimpleMonitorSlide } from "./slides/simple-monitor";
@@ -47,7 +46,7 @@ export const lesson1: Presentation = {
     lab: {
         slug: "intro-to-html",
         title: "Intro to HTML",
-        LabView: IntroToHtmlLab
+        path: "./packages/site/src/lessons/intro-web-programming/lesson1/lab/intro-to-html-lab.md"
     },
     recording: {
         link: "https://youtu.be/nBgOvwrMpuU"

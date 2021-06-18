@@ -53,3 +53,4 @@ As usual, to submit this lab, please create a single zip file and upload it to C
 For parts 1 and 2, I am mostly concerned with the correctness of your functions and whether or not you used callbacks correctly. For part 3, please make sure your clock starts at the right time and runs accurately (more or less). Your minute hand and hour hand should work.
 
 ## Assets
+[Analog Clock Starter](/courses/cis1052/time.zip)

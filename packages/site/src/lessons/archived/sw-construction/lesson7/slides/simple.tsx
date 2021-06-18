@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../../presenter-core/src/slides/generate-slide";
 import gollum from "./gollum.jpg";
@@ -64,7 +65,7 @@ export const SpeedupNetworkTricks = generateContentSlide("Page Load Tricks", [
     "So does this mean our code has to look ugly?"
 ]);
 
-export const GollumSlide = generateMediaSlide(<img src={gollum} />);
+export const GollumSlide = generateMediaSlide(<Image src={gollum} />);
 
 export const HowDoProductionize = generateContentSlide("Building Front End Code", [
     <span>Concatenation is easy -- <code>cat *.js</code></span>,

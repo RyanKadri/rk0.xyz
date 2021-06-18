@@ -1,6 +1,5 @@
 import { Link as MaterialLink } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
 import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../../presenter-core/src/slides/generate-slide";
 
 export const TitleSlide = generateTitleSlide("Intro to Web Design", "Ryan Kadri");
@@ -35,7 +34,7 @@ export const GradingB = generateContentSlide("Grading (Option B)", [
 ]);
 
 export const Syllabus = generateMessageSlide(
-    <MaterialLink component={ Link } variant="h1" to="https://templeu.instructure.com/courses/64482" target="_blank">
+    <MaterialLink variant="h1" href="https://templeu.instructure.com/courses/64482" target="_blank">
         Syllabus
     </MaterialLink>
 )

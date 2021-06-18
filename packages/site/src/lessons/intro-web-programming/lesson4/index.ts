@@ -1,7 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import simpleJS from "./examples/simple-functions.js.txt";
-import { ResponsiveResumeLab } from "./lab/responsive-resume-lab";
+import simpleJS from "./examples/simple-functions";
 import { BrandingExample, ConsistentStyling, CSSPrecedence, CSSSpecificity, CSSSpecificityExceptions, CssTransition, CssVisibility, EnterCSSFrameworks, PositionStyle, references, TitleSlide, WhatArePseudoClasses, WhatIfYouWantEasyBranding } from "./slides/simple";
 import { SpecificityComparison } from "./slides/specificity-calculator";
 
@@ -41,7 +40,7 @@ export const lesson4: Presentation = {
     lab: {
         title: "Responsive Resume",
         slug: "responsive-resume",
-        LabView: ResponsiveResumeLab
+        path: "./packages/site/src/lessons/intro-web-programming/lesson4/lab/responsive-resume.md"
     },
     recording: {
         link: "https://youtu.be/gUq_lTEMnIQ"

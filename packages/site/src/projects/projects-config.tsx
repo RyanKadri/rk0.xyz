@@ -1,13 +1,13 @@
 import { Link, Typography } from "@material-ui/core";
 import React, { ReactNode } from "react";
-import bingo from "./bingo.png";
-import mandelbrot from "./mandelbrot.png";
-import resume from "./resume.png";
+import bingo from "../../../../public/projects/bingo.png";
+import mandelbrot from "../../../../public/projects/mandelbrot.png";
+import resume from "../../../../public/projects/resume.png";
 
 export interface ProjectConfig {
     name: string;
     link: string;
-    image: string;
+    image: StaticImageData;
     imageAlt: string;
     description: ReactNode
 }

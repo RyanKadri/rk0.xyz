@@ -1,6 +1,7 @@
 import { Button, createStyles, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, Typography } from "@material-ui/core";
+import dynamic from "next/dynamic";
 import React, { Suspense, useRef, useState } from "react";
-const CodeEditor = React.lazy(() => import("./code-editor"))
+const CodeEditor = dynamic(() => import("./code-editor"), { ssr: false })
 
 interface Props {
     intialCode: string;

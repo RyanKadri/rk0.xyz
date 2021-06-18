@@ -1,0 +1,27 @@
+export const example = `
+<html>
+    <head>
+        <style>
+            div { 
+                border: solid 1px; 
+                margin: 8px
+            } 
+        </style>
+    </head>
+    <body>
+        <div style="display: flex; border: dashed 2px grey; padding: 4px">
+            <section style="width: 30%; border: solid 2px green">This takes some space</section>
+            <section style="flex-grow: 1; border: solid 2px red">This takes the rest</section>
+        </div>
+        <div style="display: flex; border: dashed 2px grey; padding: 4px">
+            <section style="width: 100px; border: solid 2px green">This takes some space</section>
+            <section style="border: solid 2px red; flex-grow: 1">This takes half the leftover</section>
+            <section style="border: solid 2px blue; flex-grow: 1">This takes the remaining half</section>
+        </div>
+        <div style="display: flex; border: dashed 2px grey; padding: 4px">
+            <section style="border: solid 2px red; flex-grow: 1">Proportions</section>
+            <section style="border: solid 2px blue; flex-grow: 3">Are cool!!!</section>
+        </div>
+    </body>
+</html>`
+export default example;

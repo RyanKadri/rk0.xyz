@@ -1,0 +1,17 @@
+export const example = `
+<html>
+    <head>
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body>
+        <p>Hi my name is ryan</p>
+        <p>I like HTML</p>
+        <p class="special">I am special</p>
+        <p class="special">I am special</p>
+        <p class="special">I am special</p>
+        <p class="special">I am special</p>
+        <p class="special">I am special</p>
+        <p id="something" class="special">I am more specific</p>
+    </body>
+</html>`
+export default example;

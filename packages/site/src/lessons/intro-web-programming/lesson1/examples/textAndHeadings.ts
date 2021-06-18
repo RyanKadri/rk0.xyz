@@ -1,0 +1,20 @@
+const example = `
+<html>
+    <head></head>
+    <body>
+        <h1>This is an h1</h1>
+        <h2>This is an h2</h2>
+        <h6>It goes up to h6</h6>
+        <p>Paragraphs go on their own line</p>
+        <p>and look like this</p>
+        <span>Spans</span>
+        <span>can</span>
+        <span>all</span>
+        <span>go</span>
+        <span>on</span>
+        <span>one</span>
+        <span>line</span>
+    </body>
+</html>`;
+
+export default example;

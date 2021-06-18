@@ -3,8 +3,8 @@ import { faDesktop } from "@fortawesome/free-solid-svg-icons/faDesktop";
 import { faVideo } from "@fortawesome/free-solid-svg-icons/faVideo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, CardActions, CardContent, CardHeader, createStyles, Link as MaterialLink, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, useMediaQuery, useTheme } from "@material-ui/core";
+import Link from "next/link";
 import React from "react";
-import { Link } from "react-router-dom";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 
 const useStyles = makeStyles(createStyles({
@@ -49,12 +49,20 @@ function LessonCardView({ course, baseUrl }: Props) {
                 <CardContent>
                     { lesson.description }
                     { lesson.lab && (
-                        <MaterialLink component={ Link } to={`${baseUrl}/labs/${lesson.lab.slug}`} className={ classes.labLink }>Lab: { lesson.lab.title }</MaterialLink>
+                        <Link href={`${baseUrl}/labs/${lesson.lab.slug}`} passHref>
+                            <MaterialLink className={ classes.labLink }>
+                                Lab: { lesson.lab.title }
+                            </MaterialLink>
+                        </Link>
                     )}
                 </CardContent>
                 <CardActions>
-                    <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/examples`}>Examples</MaterialLink>
-                    <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/slides/0`}>Slides</MaterialLink>
+                    <Link href={`${baseUrl}/lessons/${lesson.slug}/examples`} passHref>
+                        <MaterialLink>Examples</MaterialLink>
+                    </Link>
+                    <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>
+                        <MaterialLink>Slides</MaterialLink>
+                    </Link>
                     { lesson.recording
                         ? <MaterialLink href={lesson.recording.link} target="_blank" rel="noopener">
                             Recording
@@ -92,17 +100,21 @@ function LessonTableView({ course, baseUrl }: Props) {
                                 <TableCell>{ lesson.title }</TableCell>
                                 <TableCell>{ lesson.description }</TableCell>
                                 <TableCell>
-                                    <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/slides/0`}>
-                                        <FontAwesomeIcon icon={ faDesktop } className={ classes.tableIcon } />
-                                        ({ lesson.slides.length })
-                                    </MaterialLink>
+                                    <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>
+                                        <MaterialLink>
+                                            <FontAwesomeIcon icon={ faDesktop } className={ classes.tableIcon } />
+                                            ({ lesson.slides.length })
+                                        </MaterialLink>
+                                    </Link>
                                 </TableCell>
                                 <TableCell>
                                     { lesson.examples.length > 0 && (
-                                        <MaterialLink component={ Link } to={`${baseUrl}/lessons/${lesson.slug}/examples`}>
-                                            <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
-                                            ({ lesson.examples.length })
-                                        </MaterialLink>
+                                        <Link href={`${baseUrl}/lessons/${lesson.slug}/examples`} passHref>
+                                            <MaterialLink>
+                                                <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
+                                                ({ lesson.examples.length })
+                                            </MaterialLink>
+                                        </Link>
                                     )}
                                 </TableCell>
                                 <TableCell>
@@ -115,9 +127,11 @@ function LessonTableView({ course, baseUrl }: Props) {
                                 </TableCell>
                                 <TableCell>
                                     { lesson.lab && (
-                                        <MaterialLink component={ Link } to={ `${baseUrl}/labs/${lesson.lab.slug}`}>
-                                            { lesson.lab.title }
-                                        </MaterialLink>
+                                        <Link href={ `${baseUrl}/labs/${lesson.lab.slug}`} passHref>
+                                            <MaterialLink>
+                                                { lesson.lab.title }
+                                            </MaterialLink>
+                                        </Link>
                                     )}
                                 </TableCell>
                             </TableRow>
@@ -143,9 +157,11 @@ function LinkCard({ baseUrl, title, relativeLink }: LinkCardProps) {
         <Card>
             <CardHeader title={ title } />
             <CardContent>
-                <MaterialLink component={ Link } to={`${baseUrl}/${ relativeLink }`}>
-                    View { title }
-                </MaterialLink>
+                <Link href={`${baseUrl}/${ relativeLink }`} passHref>
+                    <MaterialLink>
+                        View { title }
+                    </MaterialLink>
+                </Link>
             </CardContent>
         </Card>
     )

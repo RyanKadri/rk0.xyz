@@ -1,9 +1,10 @@
 import { makeStyles } from "@material-ui/core";
-import React, { Suspense, useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import React, { useEffect, useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { HTMLExampleOutput } from "./html-example-output";
 import { JSExampleRunner } from "./js-example";
-const CodeEditor = React.lazy(() => import("../shared/code-editor"))
+const CodeEditor = dynamic(() => import("../shared/code-editor"), { ssr: false })
 
 const useStyles = makeStyles({
     container: {
@@ -46,9 +47,7 @@ export function ExamplePlayground({ example }: Props) {
     return (
         <div className={ classes.container }>
             <div className={ classes.editorContainer }>
-                <Suspense fallback="Loading...">
-                    <CodeEditor language={example.language} initialCode={ example.code } onCodeChanged={ updated => setCurrCode(updated) } height="100%" />
-                </Suspense>
+                <CodeEditor language={example.language} initialCode={ example.code } onCodeChanged={ updated => setCurrCode(updated) } height="100%" />
             </div>
             { example.language === "html"
                 ? <HTMLExampleOutput code={ currCode } />

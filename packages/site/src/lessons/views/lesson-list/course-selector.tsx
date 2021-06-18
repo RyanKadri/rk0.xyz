@@ -3,7 +3,6 @@ import { faChevronUp } from "@fortawesome/free-solid-svg-icons/faChevronUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { createStyles, makeStyles, Typography } from "@material-ui/core";
 import React, { useState } from "react";
-import { useRouteMatch } from "react-router-dom";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 import { introToWebProgramming } from "../../archived/intro-web-programming";
 import { practicumInSoftwareConstruction } from "../../archived/sw-construction";
@@ -59,7 +58,6 @@ interface GroupProps {
 
 export function CourseGroupAccordion({ group }: GroupProps) {
     const [expanded, setExpanded] = useState(group.startExpanded);
-    const baseUrl = useRouteMatch();
     const classes = useStyles();
 
     return (
@@ -71,7 +69,7 @@ export function CourseGroupAccordion({ group }: GroupProps) {
             { expanded && (
                 <div>
                     { group.courses.map(course => (
-                        <CourseCard key={course.slug} course={course} baseUrl={baseUrl.url} />
+                        <CourseCard key={course.slug} course={course} baseUrl={ "/courses" } />
                     ))}
                 </div> 
             )}

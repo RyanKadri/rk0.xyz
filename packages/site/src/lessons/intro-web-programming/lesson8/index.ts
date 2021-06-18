@@ -1,6 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { CallbacksLab } from "./lab/callbacks";
 import { AddEventListener } from "./slides/add-event-listener";
 import { AddEventListenerQuestions } from "./slides/add-event-listener-questions";
 import { Timeouts } from "./slides/async-callback-examples";
@@ -47,9 +46,9 @@ export const lesson8: Presentation = {
         
     ],
     lab: {
-        LabView: CallbacksLab,
         slug: "callbacks",
-        title: "Exploring Callbacks"
+        title: "Exploring Callbacks",
+        path: "./packages/site/src/lessons/intro-web-programming/lesson8/lab/lab-writeup.md"
     },
     recording: {
         link: "https://youtu.be/ySD1ynculJ4"

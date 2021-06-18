@@ -1,7 +1,9 @@
 import { RefObject, useEffect, useState } from "react";
 
 export function useComponentSize(componentRef: RefObject<HTMLElement>) {
-    const [size, setSize] = useState({ height: window.innerHeight, width: window.innerWidth });
+    const height = typeof window === "undefined" ? 1000 : window.innerHeight;
+    const width = typeof window === "undefined" ? 1000 : window.innerWidth;
+    const [size, setSize] = useState({ height, width });
     const cb = () => {
         const bb = componentRef.current
             ? componentRef.current.getBoundingClientRect()

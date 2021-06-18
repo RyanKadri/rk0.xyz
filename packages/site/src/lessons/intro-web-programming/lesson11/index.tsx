@@ -1,6 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { LibrariesLab } from "./lab/libraries-lab";
 import { DNSLookup } from "./slides/finding-server";
 import * as simple from "./slides/simple";
 
@@ -41,9 +40,9 @@ export const lesson11: Presentation = {
         link: "https://youtu.be/zAx2rTP5T6E"
     },
     lab: {
-        LabView: LibrariesLab,
         slug: "javascript-libraries",
-        title: "Using JavaScript Libraries"
+        title: "Using JavaScript Libraries",
+        path: "./packages/site/src/lessons/intro-web-programming/lesson11/lab/libraries-lab.md"
     },
     references: simple.references
 }

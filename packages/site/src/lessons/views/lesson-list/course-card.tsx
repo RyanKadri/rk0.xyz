@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Avatar, createStyles, ListItemAvatar, ListItemText, makeStyles, Paper } from "@material-ui/core";
+import { useRouter } from "next/router";
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 
 const useStyles = makeStyles(createStyles({
@@ -18,14 +18,14 @@ const useStyles = makeStyles(createStyles({
 
 export function CourseCard({ course, baseUrl }: Props) {
     const classes = useStyles();
-    const history = useHistory();
+    const router = useRouter();
 
     const numExamples = course.lessons.reduce((acc, el) => acc + (el.examples || []).length, 0);
     const numLabs = course.lessons.filter(lesson => !!lesson.lab).length
     const desc = `${course.lessons.length} lessons - ${ numExamples } examples - ${ numLabs } labs`
 
     return (
-        <Paper onClick={ () => history.push(`${baseUrl}/${course.slug}`) } 
+        <Paper onClick={ () => router.push(`${baseUrl}/${course.slug}`) } 
                className={classes.card}>
             <ListItemAvatar>
                 <Avatar color="primary">

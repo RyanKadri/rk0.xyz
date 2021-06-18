@@ -1,9 +1,9 @@
 import { createStyles, makeStyles } from "@material-ui/core";
-import React, { useContext, useEffect } from "react";
-import { match, RouteComponentProps } from "react-router";
-import { useAppBar } from "../../../site/src/common/use-app-bar";
-import { ViewportContext } from "../../../site/src/root/viewport-context";
-import { Presentation, PresentationContext } from "../services/types";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import { useTitle } from "../../../site/src/common/use-app-bar";
+import { activeCourses } from "../../../site/src/lessons/views/activeCourses";
+import { PresentationContext } from "../services/types";
 import { SlideControls } from "./slide-controls";
 import { SlideViewport } from "./slide-viewport";
 
@@ -15,18 +15,20 @@ const useStyles = makeStyles(theme => createStyles({
     }
 }));
 
-export function SlideManager({ presentation, history, match }: Props) {
+export function SlideManager({ courseSlug, lessonSlug, slideNum }: Props) {
 
     const classes = useStyles();
-    const slides = presentation.slides;
-    const slideNum = parseInt(match.params.slideNum, 10);
-    const { current: viewport, updateViewport } = useContext(ViewportContext);
+    const router = useRouter();
+    const course = activeCourses.find(course => course.slug === courseSlug);
+    const lesson = course.lessons.find(lesson => lesson.slug === lessonSlug);
+    const slides = lesson.slides;
+    const baseUrl = `/courses/${courseSlug}/lessons/${lessonSlug}/slides/`;
 
     const updateSlidePos = (amt: number) => {
         if(amt < 0) {
-            history.push("" + Math.max(0, slideNum + amt));
+            router.push(baseUrl + Math.max(0, slideNum + amt));
         } else {
-            history.push("" + Math.min(slides.length - 1, slideNum + amt));
+            router.push(baseUrl + Math.min(slides.length - 1, slideNum + amt));
         }
     }
 
@@ -59,34 +61,12 @@ export function SlideManager({ presentation, history, match }: Props) {
         return () => document.removeEventListener("keydown", updatePos);
     }, [slideNum]);
 
-    useEffect(() => {
-        if(viewport.requestingFullscreen && !viewport.isFullscreen) {
-            document.body.requestFullscreen()
-                .then(() => updateViewport({ isFullscreen: true }))
-                .catch(e => console.log(`Failed to launch fullscreen`, e));
-        } else if(!viewport.requestingFullscreen && viewport.isFullscreen) {
-            document.exitFullscreen()
-                .then(() => updateViewport({ isFullscreen: false }))
-        }
-    }, [viewport.isFullscreen, viewport.requestingFullscreen]);
-
-    useEffect(() => {
-        const updateFullscreen = () => {
-            if(!document["fullscreenElement"]) {
-                updateViewport({ isFullscreen: false, requestingFullscreen: false })
-            }
-        }
-        document.addEventListener("fullscreenchange", updateFullscreen);
-        return () => document.removeEventListener("fullscreenchange", updateFullscreen);
-    });
-
-    useAppBar(presentation.title)
+    useTitle(course.title)
     
     return (
         <div>
             <SlideViewport Slide={ slides[slideNum] } 
-                           context={ context } 
-                           isFullscreen={ viewport.isFullscreen } />
+                           context={ context } />
             <SlideControls onPreviousSlide={ () => updateSlidePos(-1) } 
                            onNextSlide={ () => updateSlidePos(1) } 
                            className={ classes.controls } />
@@ -95,7 +75,7 @@ export function SlideManager({ presentation, history, match }: Props) {
 };
 
 interface Props {
-    presentation: Presentation;
-    history: RouteComponentProps["history"];
-    match: match<any>;
+    courseSlug: string
+    lessonSlug: string;
+    slideNum: number;
 }

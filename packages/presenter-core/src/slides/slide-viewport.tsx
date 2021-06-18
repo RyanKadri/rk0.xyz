@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
 }));
 
-export function SlideViewport({ Slide, context, isFullscreen }: Props) {
+export function SlideViewport({ Slide, context }: Props) {
     const classes = useStyles();
     const viewport = useRef<HTMLDivElement>(null);
     const viewportSize = useComponentSize(viewport);
@@ -54,7 +54,7 @@ export function SlideViewport({ Slide, context, isFullscreen }: Props) {
     }, [])
 
     return (
-        <div className={ `${classes.viewportContainer} ${isFullscreen ? 'fullscreen' : ""}` } ref={viewport}>
+        <div className={ `${classes.viewportContainer}` } ref={viewport}>
             <Paper className={ classes.viewportPaper } elevation={5} style={style}>
                 <Slide context={ context } />
             </Paper>
@@ -65,5 +65,4 @@ export function SlideViewport({ Slide, context, isFullscreen }: Props) {
 interface Props {
     Slide: ComponentType<{ context: PresentationContext}>;
     context: PresentationContext;
-    isFullscreen: boolean;
 }

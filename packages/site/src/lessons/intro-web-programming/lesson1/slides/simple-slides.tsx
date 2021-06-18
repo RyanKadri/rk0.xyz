@@ -1,13 +1,14 @@
 import { Link as MaterialLink } from "@material-ui/core";
+import Image from "next/image";
 import React from "react";
+import aboutMe from "../../../../../../../public/images/about-me-picture-web.jpg";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
-import myPicture from "./about-me-picture-web.jpg";
 
 export const TitleSlide = generateTitleSlide("Course Expectations and Intro to HTML", "Ryan Kadri");
 
 export const AboutMePicture = generateMediaSlide(
-    <img src={ myPicture } alt="Me at Smith Rock" />,
+    <Image src={ aboutMe } alt="Me at Smith Rock" />,
     "Smith Rock 2019",
     "About Me"
 )

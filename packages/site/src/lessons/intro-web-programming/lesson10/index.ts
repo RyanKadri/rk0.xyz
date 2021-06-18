@@ -1,6 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { AsyncLab } from "./lab/async-lab";
 import { AsyncFunctions } from "./slides/async-functions";
 import { AsyncErrorHandling } from "./slides/async-functions-error-handling";
 import { PromiseChaining } from "./slides/promise-chaining";
@@ -51,9 +50,9 @@ export const lesson10: Presentation = {
         link: "https://youtu.be/uZddhTaGH4Y"
     },
     lab: {
-        LabView: AsyncLab,
         slug: "network-actions",
-        title: "Interacting with the Network"
+        title: "Interacting with the Network",
+        path: "./packages/site/src/lessons/intro-web-programming/lesson10/lab/async-lab.md"
     },
     references: simple.references
 }

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
@@ -85,7 +86,7 @@ export const DataCenters = generateContentSlide("Data Centers", [
 ]);
 
 export const DataCenterImage = generateMediaSlide(
-    <img src={ dataCenter } alt="A data center aisle with server cabinets on each side" />,
+    <Image src={ dataCenter } alt="A data center aisle with server cabinets on each side" />,
     "https://www.missioncriticalmagazine.com/articles/92746-driving-improvements-for-efficient-data-center-cooling",
     'Data Center "Hot Aisle"'
 );
