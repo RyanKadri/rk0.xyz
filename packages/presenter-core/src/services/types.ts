@@ -66,7 +66,7 @@ export interface RecordingDefinition {
 export interface LabDefinition {
     title: string;
     slug: string;
-    path?: string;
+    content?: string;
 }
 
 export interface Reference {

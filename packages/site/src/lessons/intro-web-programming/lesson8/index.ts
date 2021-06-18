@@ -1,5 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
+import labContent from "./lab/lab-writeup.md";
 import { AddEventListener } from "./slides/add-event-listener";
 import { AddEventListenerQuestions } from "./slides/add-event-listener-questions";
 import { Timeouts } from "./slides/async-callback-examples";
@@ -48,7 +49,7 @@ export const lesson8: Presentation = {
     lab: {
         slug: "callbacks",
         title: "Exploring Callbacks",
-        path: "./packages/site/src/lessons/intro-web-programming/lesson8/lab/lab-writeup.md"
+        content: labContent
     },
     recording: {
         link: "https://youtu.be/ySD1ynculJ4"

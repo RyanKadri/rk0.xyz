@@ -17,7 +17,10 @@ module.exports = {
                         loader: "remark-loader",
                         options: {
                             remarkOptions: {
-                                plugins: [RemarkHTML, RemarkPrism]
+                                plugins: [
+                                    RemarkPrism,
+                                    RemarkHTML, 
+                                ]
                             }
                         }
                     }
@@ -35,7 +38,6 @@ module.exports = {
                 ],
             },
         )
-
         return config
     },
     async redirects() {

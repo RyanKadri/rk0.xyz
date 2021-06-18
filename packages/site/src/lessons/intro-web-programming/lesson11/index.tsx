@@ -1,5 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
+import labContent from "./lab/libraries-lab.md";
 import { DNSLookup } from "./slides/finding-server";
 import * as simple from "./slides/simple";
 
@@ -42,7 +43,7 @@ export const lesson11: Presentation = {
     lab: {
         slug: "javascript-libraries",
         title: "Using JavaScript Libraries",
-        path: "./packages/site/src/lessons/intro-web-programming/lesson11/lab/libraries-lab.md"
+        content: labContent
     },
     references: simple.references
 }
