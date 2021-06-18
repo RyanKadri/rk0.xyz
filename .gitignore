@@ -13,3 +13,4 @@ parameters.json
 *.personal.*
 secrets
 .next/
+out/

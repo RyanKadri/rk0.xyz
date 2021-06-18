@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
                 courseId: course.slug
             } 
         })),
-        fallback: true
+        fallback: false
     }
 }
 

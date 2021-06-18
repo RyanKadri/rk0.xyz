@@ -36,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
                 labId: lesson.lab?.slug
             } 
         }))).filter(path => path.params.labId),
-        fallback: true
+        fallback: false
     }
 }
 

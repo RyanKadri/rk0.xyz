@@ -34,5 +34,6 @@ module.exports = {
         return [
             { source: "/", destination: "/courses", permanent: true }
         ]
-    }
+    },
+    target: "serverless"
 }
