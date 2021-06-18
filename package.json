@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env TS_NODE_PROJECT=./tsconfig.webpack.json webpack serve --config=./webpack.dev.ts",
-    "build": "cross-env TS_NODE_PROJECT=./tsconfig.webpack.json webpack --config=./webpack.prod.ts",
-    "test": "jest"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "author": "",
   "license": "ISC",
