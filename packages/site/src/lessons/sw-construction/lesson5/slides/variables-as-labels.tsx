@@ -1,5 +1,6 @@
 
 import { createStyles, makeStyles } from "@material-ui/core";
+import Image from "next/image";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
@@ -37,7 +38,7 @@ export function VariablesAsLabels({ context }: Props) {
             <>
                 <InfoList items={ slideItems }></InfoList>
                 <CodeBlock language="java" code={ code } className={ classes.code }></CodeBlock>
-                <img className={ classes.diagram } src={ variableDiagram } />
+                <Image className={ classes.diagram } src={ variableDiagram } />
             </>
         } />
     );

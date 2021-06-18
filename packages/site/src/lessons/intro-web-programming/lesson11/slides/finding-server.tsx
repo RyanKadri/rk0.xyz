@@ -1,5 +1,6 @@
 
 import { createStyles, makeStyles } from "@material-ui/core";
+import Image from "next/image";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
@@ -31,7 +32,7 @@ export function DNSLookup({ context }: Props) {
     return (
         <ContentSlide Title="Finding a Server" context={context} Content={<>
             <InfoList items={ items } />
-            <img src={ dnsImage } className={ classes.image } />
+            <Image src={ dnsImage } className={ classes.image } />
         </>} />
     );
 }

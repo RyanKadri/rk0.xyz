@@ -1,4 +1,5 @@
 import { Link } from "@material-ui/core";
+import Image from "next/image";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaAssistSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
@@ -27,7 +28,7 @@ export const Docker = generateMediaAssistSlide("Enter Docker", [
     'You can bundle your app up into "containers" for isolation and easy deployment',
     'You can manage "images" that act like a template for containers',
     "You can share your images with others",
-], <img src={ docker } />);
+], <Image src={ docker } />);
 
 export const Disclaimer = generateMessageSlide(
     "Disclaimer: Containers are a big concept. Docker is very " + 
@@ -68,7 +69,7 @@ export const BuildingImages = generateContentSlide("Building Images", [
     "Builds can be slow and images can be very large"
 ]);
 
-export const ShrekMeme = generateMediaSlide(<img src={ dockerMeme } />)
+export const ShrekMeme = generateMediaSlide(<Image src={ dockerMeme } />)
 
 export const ImageLayers = generateContentSlide("Image Layers", [
     'Each step in the Docker build creates a "layer"',

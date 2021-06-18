@@ -1,4 +1,5 @@
 import { Link } from "@material-ui/core";
+import Image from "next/image";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
@@ -73,7 +74,7 @@ export const FunctionalTests = generateContentSlide("Functional Tests", [
 ]);
 
 export const TestingPyramid = generateMediaSlide(
-    <img src={ testingPyramid } alt="Testing Pyramid" />,
+    <Image src={ testingPyramid } alt="Testing Pyramid" />,
     "Credit: Martin Fowler - Test Pyramid"
 );
     

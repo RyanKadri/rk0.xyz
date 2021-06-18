@@ -1,4 +1,5 @@
 import { Link } from "@material-ui/core";
+import Image from "next/image";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaAssistSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
@@ -101,7 +102,7 @@ export const EnterTerraform = generateMediaAssistSlide("Enter Terraform", [
     "Generates the appropriate changes to get you there",
     <>Terraform can work with <Link href="https://registry.terraform.io/browse/providers">most infrastructure providers</Link> (Google, Azure, AWS)</>,
     "Manages dependencies between resources"
-], <img src={ terraform } style={{ width: 512 }} />);
+], <Image src={ terraform } width={ 512 } />);
 
 export const TerraformExample = generateCodeSlide("Terraform", [
     'Uses HCL or JSON syntax to define infrastructure as "resources"',

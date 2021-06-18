@@ -40,7 +40,9 @@
     "isolatedModules": true
   },
   "include": [
-    "packages, pages"
+    "packages",
+    "pages",
+    "next-env.d.ts"
   ],
   "exclude": [
     "node_modules"

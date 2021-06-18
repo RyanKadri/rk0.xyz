@@ -20,8 +20,8 @@ export function SlideManager({ courseSlug, lessonSlug, slideNum }: Props) {
     const classes = useStyles();
     const router = useRouter();
     const course = activeCourses.find(course => course.slug === courseSlug);
-    const lesson = course.lessons.find(lesson => lesson.slug === lessonSlug);
-    const slides = lesson.slides;
+    const lesson = course?.lessons.find(lesson => lesson.slug === lessonSlug);
+    const slides = lesson?.slides ?? [];
     const baseUrl = `/courses/${courseSlug}/lessons/${lessonSlug}/slides/`;
 
     const updateSlidePos = (amt: number) => {
@@ -61,7 +61,7 @@ export function SlideManager({ courseSlug, lessonSlug, slideNum }: Props) {
         return () => document.removeEventListener("keydown", updatePos);
     }, [slideNum]);
 
-    useTitle(course.title)
+    useTitle(course?.title ?? "Unknown")
     
     return (
         <div>

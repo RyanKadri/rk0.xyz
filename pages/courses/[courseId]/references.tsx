@@ -81,8 +81,8 @@ function LessonReferences({ lesson }: LessonReferencesProps) {
     )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const currCourse = activeCourses.find(course => course.slug === context.params.courseId) ?? null;
+export const getStaticProps: GetStaticProps = async ({ params = {}}) => {
+    const currCourse = activeCourses.find(course => course.slug === params.courseId) ?? null;
     return {
         props: {
             currCourse: JSON.parse(JSON.stringify(currCourse))

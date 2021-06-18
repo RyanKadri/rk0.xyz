@@ -32,7 +32,7 @@ export default function CodeEditor(props: Props) {
             }
 
             const cancellable = loader.init().then(monaco => {
-                return monaco.editor.create(editorContainer.current, {
+                return monaco.editor.create(editorContainer.current!, {
                     value: storedCode ? JSON.parse(storedCode) : props.initialCode,
                     language: props.language,
                     scrollBeyondLastLine: false,

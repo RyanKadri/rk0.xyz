@@ -4,15 +4,15 @@ import { ExampleViewer } from "../../../../../packages/site/src/lessons/views/ex
 
 export default ExampleViewer;
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const currCourse = activeCourses.find(course => course.slug === context.params.courseId) ?? null;
-    const currLab = currCourse.lessons.find(lesson => lesson.slug === context.params.lessonId);
+export const getStaticProps: GetStaticProps = async ({ params = {}}) => {
+    const currCourse = activeCourses.find(course => course.slug === params.courseId) ?? null;
+    const currLab = currCourse?.lessons.find(lesson => lesson.slug === params.lessonId);
 
     return {
         props: {
             examples: currLab?.examples ?? [],
             currExample: null,
-            baseUrl: `/courses/${context.params.courseId}/lessons/${context.params.lessonId}/examples`
+            baseUrl: `/courses/${params.courseId}/lessons/${params.lessonId}/examples`
         }
     }
 }

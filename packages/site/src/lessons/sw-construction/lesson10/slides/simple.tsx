@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaAssistSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
@@ -114,7 +115,7 @@ export const DynamoPrimaryKey = generateContentSlide("Dynamo Primary Key", [
 export const CreatingDynamoTable = generateMediaAssistSlide("Creating a Dynamo Table", [
     "When creating a dynamo table, you need a name and a key",
     "There are other setting for scaling and resources but you can ignore"
-], <img src={ dynamoCreation } />)
+], <Image src={ dynamoCreation } />)
 
 export const SettingUpDynamo = generateCodeSlide("Dynamo Dependency", [
     "Remember: using AWS dependency management lets you skip version numbers",

@@ -1,6 +1,5 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
 import React from "react";
 import { CourseDefinition } from "../../packages/presenter-core/src/services/types";
 import { activeCourses } from "../../packages/site/src/lessons/views/activeCourses";
@@ -18,7 +17,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 export default function LessonListView({ currCourse }: Props) {
     const classes = useStyles();
-    const router = useRouter();
 
     return (
         <div className={ classes.container }>
@@ -35,8 +33,8 @@ export default function LessonListView({ currCourse }: Props) {
     )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const currCourse = activeCourses.find(course => course.slug === context.params.courseId) ?? null;
+export const getStaticProps: GetStaticProps = async ({ params = {}}) => {
+    const currCourse = activeCourses.find(course => course.slug === params.courseId) ?? null;
     return {
         props: {
             currCourse: JSON.parse(JSON.stringify(currCourse))

@@ -56,6 +56,6 @@ export function ExampleViewer({ examples, currExample, baseUrl }: Props) {
 
 interface Props {
     examples: ExampleDefinition[];
-    currExample?: number;
+    currExample: number | null;
     baseUrl: string
 }

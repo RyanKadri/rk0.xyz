@@ -1,10 +1,10 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import controls from "./examples/controls";
-import lists from "./examples/lists";
-import media from "./examples/media";
-import tables from "./examples/tables";
-import textAndHeadings from "./examples/textAndHeadings";
+import controls from "./examples/controls.html";
+import lists from "./examples/lists.html";
+import media from "./examples/media.html";
+import tables from "./examples/tables.html";
+import textAndHeadings from "./examples/textAndHeadings.html";
 import { OutlineToHtml } from "./slides/outline-to-html";
 import { SimpleBrowserSlide } from "./slides/simple-browser";
 import { SimpleMonitorSlide } from "./slides/simple-monitor";

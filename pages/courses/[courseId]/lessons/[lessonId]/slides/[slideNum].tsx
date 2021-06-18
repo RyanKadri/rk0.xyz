@@ -8,12 +8,12 @@ export default function _SlideManager({ courseSlug, lessonSlug, slideNum }) {
     )
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async ({ params = {}}) => {
     return {
         props: {
-            courseSlug: context.params.courseId,
-            lessonSlug: context.params.lessonId,
-            slideNum: parseInt(context.params.slideNum as string, 10)
+            courseSlug: params.courseId,
+            lessonSlug: params.lessonId,
+            slideNum: parseInt(params.slideNum as string, 10)
         }
     }
 }
