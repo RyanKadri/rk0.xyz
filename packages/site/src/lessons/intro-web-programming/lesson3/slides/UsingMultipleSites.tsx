@@ -1,6 +1,5 @@
 
 import { makeStyles } from "@material-ui/core";
-import Image from "next/image";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
@@ -34,8 +33,8 @@ export function UseMultipleSites({ context }: Props) {
             <>
                 <InfoList items={ bullets } />
                 <div className={ classes.container }>
-                    <Image src={ defaultSite } />
-                    <Image src={ mobileSite } />
+                    <img src={ defaultSite.src } />
+                    <img src={ mobileSite.src } />
                 </div>
             </>
         } />

@@ -40,10 +40,11 @@ module.exports = {
         )
         return config
     },
-    async redirects() {
-        return [
-            { source: "/", destination: "/courses", permanent: true }
-        ]
-    },
+    // TODO - Enable the following if switching to vercel
+    // async redirects() {
+    //     return [
+    //         { source: "/", destination: "/courses", permanent: true }
+    //     ]
+    // },
     target: "serverless"
 }

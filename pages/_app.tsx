@@ -42,18 +42,3 @@ function SiteViewport({ Component, pageProps }: AppProps) {
 }
 
 export default SiteViewport;
-
-/* <Switch>
-    <Route path="/courses/:course">
-        <CourseRouter />
-    </Route>
-    <Route path="/courses" exact>
-        <CourseSelector />
-    </Route>
-    <Route path="/projects">
-        <ProjectView />
-    </Route>
-    <Route path="/" exact>
-        <Redirect to="/courses" />
-    </Route>
-</Switch> */

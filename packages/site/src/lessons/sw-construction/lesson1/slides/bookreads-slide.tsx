@@ -1,5 +1,4 @@
 import { createStyles, makeStyles } from "@material-ui/core";
-import Image from "next/image";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
@@ -17,7 +16,7 @@ export function BookreadsSlide({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="I want it to look like this" context={ context } Content={
-            <Image src={ preview }
+            <img src={ preview.src }
                  alt="Bookreads Preview"
                  className={ classes.preview } />
         } />

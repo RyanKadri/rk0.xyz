@@ -2,18 +2,15 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { SlideManager } from "../../../../../../packages/presenter-core/src/slides/slide-manager";
 import { activeCourses } from "../../../../../../packages/site/src/lessons/views/activeCourses";
 
-export default function _SlideManager({ courseSlug, lessonSlug, slideNum }) {
+export default function _SlideManager() {
     return (
-        <SlideManager courseSlug={ courseSlug } lessonSlug={ lessonSlug } slideNum={ slideNum } /> 
+        <SlideManager /> 
     )
 };
 
-export const getStaticProps: GetStaticProps = async ({ params = {}}) => {
+export const getStaticProps: GetStaticProps = async () => {
     return {
         props: {
-            courseSlug: params.courseId,
-            lessonSlug: params.lessonId,
-            slideNum: parseInt(params.slideNum as string, 10)
         }
     }
 }

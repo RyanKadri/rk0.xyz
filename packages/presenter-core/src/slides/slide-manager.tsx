@@ -15,21 +15,30 @@ const useStyles = makeStyles(theme => createStyles({
     }
 }));
 
-export function SlideManager({ courseSlug, lessonSlug, slideNum }: Props) {
+export function SlideManager() {
 
     const classes = useStyles();
     const router = useRouter();
+    const courseSlug = router.query.courseId;
+    const lessonSlug = router.query.lessonId;
+    const slideNum = parseInt(router.query.slideNum as string, 10);
     const course = activeCourses.find(course => course.slug === courseSlug);
     const lesson = course?.lessons.find(lesson => lesson.slug === lessonSlug);
     const slides = lesson?.slides ?? [];
     const baseUrl = `/courses/${courseSlug}/lessons/${lessonSlug}/slides/`;
+        
+    const toNextSlide = () => {
+        const nextSlide = baseUrl + Math.min(slides.length - 1, slideNum + 1);
+        router.replace(nextSlide, undefined, { shallow: true });
+    }
+    
+    const toPrevSlide = () => {
+        const prevSlide = baseUrl + Math.max(0, slideNum + 1);
+        router.replace(prevSlide, undefined, { shallow: true });
+    }
 
-    const updateSlidePos = (amt: number) => {
-        if(amt < 0) {
-            router.push(baseUrl + Math.max(0, slideNum + amt));
-        } else {
-            router.push(baseUrl + Math.min(slides.length - 1, slideNum + amt));
-        }
+    const toSlide = (pos: number) => {
+        router.replace(baseUrl + pos, undefined, { shallow: true })
     }
 
     const context: PresentationContext = {
@@ -45,14 +54,14 @@ export function SlideManager({ courseSlug, lessonSlug, slideNum }: Props) {
             switch(e.key) {
                 case "ArrowRight":
                 case "PageDown":
-                    return updateSlidePos(1);
+                    return toNextSlide();
                 case "PageUp":
                 case "ArrowLeft":
-                    return updateSlidePos(-1);
+                    return toPrevSlide();
                 case "Home":
-                    return updateSlidePos(-slideNum);
+                    return toSlide(0);
                 case "End":
-                    return updateSlidePos(slides.length - 1 - slideNum)
+                    return toSlide(slides.length - 1)
                 default:
                     return;
             }
@@ -67,15 +76,9 @@ export function SlideManager({ courseSlug, lessonSlug, slideNum }: Props) {
         <div>
             <SlideViewport Slide={ slides[slideNum] } 
                            context={ context } />
-            <SlideControls onPreviousSlide={ () => updateSlidePos(-1) } 
-                           onNextSlide={ () => updateSlidePos(1) } 
+            <SlideControls onPreviousSlide={ toPrevSlide } 
+                           onNextSlide={ toNextSlide } 
                            className={ classes.controls } />
         </div>
     )
 };
-
-interface Props {
-    courseSlug: string
-    lessonSlug: string;
-    slideNum: number;
-}

@@ -1,6 +1,5 @@
 
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
-import Image from "next/image";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
@@ -18,7 +17,7 @@ const styles = createStyles({
 const _CssBox = ({ context, classes }: Props) => (
     <ContentSlide Title="CSS Fundamentals: Box Model" context={context} Content={
         <div className={ classes.container }>
-            <Image src={img}/>
+            <img src={img.src}/>
         </div>
     } />
 )

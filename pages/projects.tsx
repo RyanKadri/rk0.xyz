@@ -1,5 +1,4 @@
 import { Card, CardContent, Link, makeStyles, Typography } from "@material-ui/core";
-import Image from "next/image";
 import React from "react";
 import { projects } from "../packages/site/src/projects/projects-config";
 
@@ -46,7 +45,7 @@ export default function ProjectView() {
                         { project.description }
                     </CardContent>
                     <a href={ project.link } target="_blank" rel="noopener">
-                        <Image src={ project.image } className={ classes.screenshot }
+                        <img src={ project.image.src } className={ classes.screenshot }
                              alt={ project.imageAlt } />
                     </a>
                 </Card>
