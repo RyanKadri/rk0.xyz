@@ -85,7 +85,7 @@ export const DataCenters = generateContentSlide("Data Centers", [
 ]);
 
 export const DataCenterImage = generateMediaSlide(
-    <img src={ dataCenter } alt="A data center aisle with server cabinets on each side" />,
+    <img src={ dataCenter.src } alt="A data center aisle with server cabinets on each side" />,
     "https://www.missioncriticalmagazine.com/articles/92746-driving-improvements-for-efficient-data-center-cooling",
     'Data Center "Hot Aisle"'
 );

@@ -101,13 +101,13 @@ export const EnterTerraform = generateMediaAssistSlide("Enter Terraform", [
     "Generates the appropriate changes to get you there",
     <>Terraform can work with <Link href="https://registry.terraform.io/browse/providers">most infrastructure providers</Link> (Google, Azure, AWS)</>,
     "Manages dependencies between resources"
-], <img src={ terraform } style={{ width: 512 }} />);
+], <img src={ terraform.src } width={ 512 } />);
 
 export const TerraformExample = generateCodeSlide("Terraform", [
     'Uses HCL or JSON syntax to define infrastructure as "resources"',
     "HCL is more human readable (but is a new thing to learn)"
 ], {
-    language: "hcl",
+    
     code: `
 resource "aws_s3_bucket" "storage-bucket" {
     bucket = "xsrt-storage-\${var.env}"
@@ -138,7 +138,7 @@ export const TerraformReferences = generateCodeSlide("Terraform References", [
     "References can be interpolated into other values",
     "Terraform uses these references to determine build order"
 ], {
-    language: "hcl",
+    
     code: `
     statement {
         effect = "Allow"
@@ -158,7 +158,7 @@ export const TerraformData = generateCodeSlide("Terraform Data", [
     "This is good for hooking a new component into an existing system",
     "Can also be used for importing secrets and dynamic values"
 ], {
-    language: "hcl",
+    
     code: `
 resource "aws_rds_cluster" "xsrt-main" {
     engine = "aurora-postgresql"
@@ -174,7 +174,7 @@ export const TerraformProviders = generateCodeSlide("Terraform Providers", [
     'Manages complexity with "providers" (they\'re like plugins)',
     "Providers define how Terraform works with a type of infrastructure"
 ], {
-    language: "hcl",
+    
     code: `
 provider "aws" {
     version = "~> 3.0"
@@ -187,7 +187,7 @@ export const TerraformState = generateCodeSlide("Terraform State", [
     "Uses the concept of a state file",
     "Can be stored on your machine or in a remote (often shared) location"
 ], {
-    language: "hcl",
+    
     code: `
 terraform {
     backend "s3" {

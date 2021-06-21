@@ -114,14 +114,14 @@ export const DynamoPrimaryKey = generateContentSlide("Dynamo Primary Key", [
 export const CreatingDynamoTable = generateMediaAssistSlide("Creating a Dynamo Table", [
     "When creating a dynamo table, you need a name and a key",
     "There are other setting for scaling and resources but you can ignore"
-], <img src={ dynamoCreation } />)
+], <img src={ dynamoCreation.src } />)
 
 export const SettingUpDynamo = generateCodeSlide("Dynamo Dependency", [
     "Remember: using AWS dependency management lets you skip version numbers",
     "AWS released an enhanced Dynamo Client to make certain operations easier",
     "We're going to use that one"
 ], {
-    language: "xml",
+    
     code: `
 <dependencies>
     <dependency>
@@ -142,7 +142,7 @@ export const CreatingDynamoClient = generateCodeSlide("Creating Dynamo Client", 
     'The "enhanced" client lets you convert Java objects to a storable format',
     "Create a Dynamo table object in Java to be able to use your table",
 ], {
-    language: "java",
+    
     code: `
 DynamoDbClient client = DynamoDbClient.builder()
     .region(Region.US_EAST_1)
@@ -159,7 +159,7 @@ DynamoDbTable<UserModel> table =
 export const RecordModel = generateCodeSlide("Creating a Record Model", [
     "You can annotate a Java class to let Dynamo work with it easily",
 ], {
-    language: "java",
+    
     code: `
 private String id;
 private String name;
@@ -187,7 +187,7 @@ export const CreatingInDynamo = generateCodeSlide("Creating Records", [
     "putItem will either create an object if it doesn't exist or replace it",
     "This is sometimes called an upsert"
 ], {
-    language: "java",
+    
     code: `
 public void saveUser(UserModel model) {
     userTable.putItem(model);
@@ -199,7 +199,7 @@ export const FetchingInDynamo = generateCodeSlide("Fetching a Record", [
     "To fetch a record, you need its primary key",
     "You should get back an item of the type you defined in Java"
 ], {
-    language: "java",
+    
     code: `
 public UserModel fetchUser(String userId) {
     Key key = Key.builder()
@@ -232,7 +232,7 @@ export const UsingAnIndex = generateCodeSlide("Using an Index", [
     "Queries may return a huge number of items. This makes for a weird API",
     "You get back a bunch of Pages and you read results from the Pages"
 ], {
-    language: "java",
+    
     code: `
 QueryConditional query = QueryConditional
     .keyEqualTo(Key.builder().partitionValue(name).build());

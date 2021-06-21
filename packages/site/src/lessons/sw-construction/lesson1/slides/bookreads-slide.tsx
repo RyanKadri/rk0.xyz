@@ -16,7 +16,7 @@ export function BookreadsSlide({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="I want it to look like this" context={ context } Content={
-            <img src={ preview }
+            <img src={ preview.src }
                  alt="Bookreads Preview"
                  className={ classes.preview } />
         } />

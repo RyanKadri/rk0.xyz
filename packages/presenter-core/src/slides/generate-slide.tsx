@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from "react";
 import { PresentationContext } from "../services/types";
-import { CodeBlock, languages } from "../slide-components/code-block";
+import { CodeBlock } from "../slide-components/code-block";
 import { InfoList, NestedListInfo } from "../slide-components/info-list";
 import { CenterMessageSlide } from "./center-message-slide";
 import { ContentSlide, ContentSlideOptions } from "./content-slide";
@@ -44,7 +44,6 @@ export function generateMediaSlide(
 
 interface SlideCode {
     code: string;
-    language: keyof typeof languages;
 }
 
 interface CodeSlideOptions {
@@ -56,12 +55,12 @@ export function generateCodeSlide(title: string, bullets: (string | NestedListIn
         return <ContentSlide Title={ title } context={ context } Content={ 
             codeFirst
                 ? <>
-                    <CodeBlock language={ codeBlock.language } code={ codeBlock.code } />
+                    <CodeBlock code={ codeBlock.code } />
                     <InfoList items={ bullets } />
                   </>
                 : <>
                     <InfoList items={ bullets } />
-                    <CodeBlock language={ codeBlock.language } code={ codeBlock.code } />
+                    <CodeBlock code={ codeBlock.code } />
                   </>
          } />
     }

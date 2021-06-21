@@ -1,7 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
-import { EnterGit } from "../../archived/intro-web-programming/lesson9/slides/simple";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { AboutMe, AboutMePicture, BasicCommands, FairUse, FreeSoftware, GitHub, ImagineAlmostDone, ImagineATeam, ImagineChangingProjects, ItWouldBeNice, Licensing, OpenSourceP1, OpenSourceP2, OpenSourceP3, PlayingWithHistory, references, Syllabus, Terms, Title, VersionControlDef, WhyVersionControl, WorkingWithOthers } from "./slides/simple";
+import { AboutMe, AboutMePicture, BasicCommands, EnterGit, FairUse, FreeSoftware, GitHub, ImagineAlmostDone, ImagineATeam, ImagineChangingProjects, ItWouldBeNice, Licensing, OpenSourceP1, OpenSourceP2, OpenSourceP3, PlayingWithHistory, references, Syllabus, Terms, Title, VersionControlDef, WhyVersionControl, WorkingWithOthers } from "./slides/simple";
 
 export const lesson1: Presentation = {
     title: "Hello World!",

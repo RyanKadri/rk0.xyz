@@ -1,12 +1,10 @@
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AppBar, createStyles, Toolbar, WithStyles, withStyles } from "@material-ui/core";
+import { AppBar, createStyles, makeStyles, Toolbar } from "@material-ui/core";
+import Link from "next/link";
 import React from "react";
-import { Link } from "react-router-dom";
-import { AppBarSettings } from "./app-bar-context";
-import { ViewportInfo } from "./viewport-context";
 
-const styles = createStyles({
+const useStyles = makeStyles(createStyles({
     title: { 
         marginRight: 16
     },
@@ -40,7 +38,7 @@ const styles = createStyles({
     externalLinks: {
         marginLeft: "auto"
     }
-})
+}))
 
 const siteLinks = [
     { description: "Courses", link: "/courses" },
@@ -51,35 +49,28 @@ const externalLinks = [
     { description: "Code", icon: faCode, link: "https://github.com/RyanKadri" }
 ]
 
-const _RootNav = ({ classes, viewport }: Props) => {
+export function RootNav() {
+    const classes = useStyles()
     return (
-        viewport.isFullscreen 
-            ? null
-            : ( <AppBar position="static" className={ classes.navBar }>
-                    <Toolbar>
-                        <div className={ classes.linkGroup }>
-                            { siteLinks.map(link => (
-                                <Link to={link.link} className={classes.link} key={link.link}>
-                                    { link.description }
-                                </Link>
-                            ))}
-                        </div>
-                        <div className={ `${classes.linkGroup} ${classes.externalLinks}` }>
-                            { externalLinks.map(link => (
-                                <a href={ link.link } aria-label={link.description} target="_blank" key={link.link} rel="noopener">
-                                    <FontAwesomeIcon icon={ link.icon } />
-                                </a>
-                            ))}
-                        </div>
-                    </Toolbar>
-                </AppBar>
-            )
+        <AppBar position="static" className={ classes.navBar }>
+            <Toolbar>
+                <div className={ classes.linkGroup }>
+                    { siteLinks.map(link => (
+                        <Link href={link.link} key={link.link} passHref>
+                            <a className={classes.link}>
+                                { link.description }
+                            </a>
+                        </Link>
+                    ))}
+                </div>
+                <div className={ `${classes.linkGroup} ${classes.externalLinks}` }>
+                    { externalLinks.map(link => (
+                        <a href={ link.link } aria-label={link.description} target="_blank" key={link.link} rel="noopener">
+                            <FontAwesomeIcon icon={ link.icon } />
+                        </a>
+                    ))}
+                </div>
+            </Toolbar>
+        </AppBar>
     )
-}
-
-export const RootNav = withStyles(styles)(_RootNav)
-
-interface Props extends WithStyles<typeof styles> {
-    settings: AppBarSettings;
-    viewport: ViewportInfo;
 }

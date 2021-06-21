@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./promise-error-handling.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -18,20 +19,13 @@ const info = [
     "This cannot be done in a normal try / catch block because the code has moved on"
 ]
 
-const code = `
-fetch("https://some-site.com")
-    .then(resp => resp.json())
-    .then(data => console.log(data))
-    .catch(e => console.error("Oh no! There was an error!"))
-`.trim();
-
 export function PromiseErrorHandling({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Promise Error Handling" context={context} Content={
             <>
                 <InfoList items={ info }></InfoList>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

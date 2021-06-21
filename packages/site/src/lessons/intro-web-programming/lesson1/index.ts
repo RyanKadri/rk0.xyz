@@ -5,7 +5,7 @@ import lists from "./examples/lists.html";
 import media from "./examples/media.html";
 import tables from "./examples/tables.html";
 import textAndHeadings from "./examples/textAndHeadings.html";
-import { IntroToHtmlLab } from "./lab/intro-to-html-lab";
+import labContent from "./lab/intro-to-html-lab.md";
 import { OutlineToHtml } from "./slides/outline-to-html";
 import { SimpleBrowserSlide } from "./slides/simple-browser";
 import { SimpleMonitorSlide } from "./slides/simple-monitor";
@@ -47,7 +47,7 @@ export const lesson1: Presentation = {
     lab: {
         slug: "intro-to-html",
         title: "Intro to HTML",
-        LabView: IntroToHtmlLab
+        content: labContent
     },
     recording: {
         link: "https://youtu.be/nBgOvwrMpuU"

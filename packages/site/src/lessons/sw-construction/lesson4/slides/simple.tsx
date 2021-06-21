@@ -73,7 +73,7 @@ export const FunctionalTests = generateContentSlide("Functional Tests", [
 ]);
 
 export const TestingPyramid = generateMediaSlide(
-    <img src={ testingPyramid } alt="Testing Pyramid" />,
+    <img src={ testingPyramid.src } alt="Testing Pyramid" />,
     "Credit: Martin Fowler - Test Pyramid"
 );
     
@@ -82,7 +82,7 @@ export const JUnitTesting = generateCodeSlide("JUnit Testing", [
     'Allows you to write small snippets of test code that "drive" your real code',
     "Provides assertion functions to verify that your code worked right"
 ], {
-    language: "java",
+    
     code: `
 @Test
 public void testMyCode() {
@@ -140,7 +140,7 @@ export const CucumberTesting = generateContentSlide("Cucumber and Gherkin", [
 ]);
 
 export const AssignmentTestExample = generateCodeSlide("Example Cucumber Spec", [], {
-    language: "gherkin",
+    
     code: `
 Feature: Operation history is managed properly
     As operations are calculated, the server will store a record of
@@ -160,7 +160,7 @@ Feature: Operation history is managed properly
 });
 
 export const CucumberDependencies = generateCodeSlide("Reference: Cucumber and JUnit Dependencies", [], {
-    language: "xml",
+    
     code: `
 <dependency>
     <groupId>org.junit.jupiter</groupId>

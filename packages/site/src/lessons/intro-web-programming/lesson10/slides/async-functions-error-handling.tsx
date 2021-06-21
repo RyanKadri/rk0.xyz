@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./server-call.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -12,18 +13,6 @@ const useStyles = makeStyles(createStyles({
         userSelect: "text"
     }
 }))
-
-const code = `
-async function serverCall() {
-    try {
-        const resp = await fetch("https://some-server.com")
-        const data = await resp.json();
-        console.log(data);
-    } catch(e) {
-        console.log("Something went wrong with your request!")
-    }
-}
-`.trim();
 
 const items = [
     "async functions allow you to use normal try / catch with Promises",
@@ -36,7 +25,7 @@ export function AsyncErrorHandling({ context }: Props) {
         <ContentSlide Title="Async Error Handling" context={context} Content={
             <>
                 <InfoList items={ items } />
-                <CodeBlock language="js" code={ code } className={ classes.code } />
+                <CodeBlock code={ code } className={ classes.code } />
             </>
         } />
     );

@@ -31,7 +31,7 @@ export function DNSLookup({ context }: Props) {
     return (
         <ContentSlide Title="Finding a Server" context={context} Content={<>
             <InfoList items={ items } />
-            <img src={ dnsImage } className={ classes.image } />
+            <img src={ dnsImage.src } className={ classes.image } />
         </>} />
     );
 }

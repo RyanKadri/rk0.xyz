@@ -33,8 +33,8 @@ export function UseMultipleSites({ context }: Props) {
             <>
                 <InfoList items={ bullets } />
                 <div className={ classes.container }>
-                    <img src={ defaultSite } />
-                    <img src={ mobileSite } />
+                    <img src={ defaultSite.src } />
+                    <img src={ mobileSite.src } />
                 </div>
             </>
         } />

@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./methods.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -20,23 +21,13 @@ const slideItems = [
     "Use the dot operator to call them"
 ];
 
-const code = `
-const ryan = { 
-    firstName: "Ryan", lastName: "Kadri", age: 26,
-    getFullName() { return this.firstName + " " + this.lastName },
-    birthdayParty() { this.age ++ }
-};
-
-console.log(ryan.getFullName());
-`.trim();
-
 export function Methods({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Methods" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

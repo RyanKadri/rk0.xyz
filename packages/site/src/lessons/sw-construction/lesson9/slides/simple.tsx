@@ -68,7 +68,7 @@ export const SamplePolicy = generateCodeSlide("Sample policy", [
     "The example below is a default available policy on all new accounts",
     'AmazonS3ReadOnlyAccess - Allows "read" actions on S3 resources'
 ], {
-    language: "json",
+    
     code: `
 {
     "Version": "2012-10-17",
@@ -196,7 +196,7 @@ export const S3Client = generateCodeSlide("Configuring S3", [
     is a guide</>,
     "Spring Dependency Injection may be a good call here",
 ], {
-    language: "java",
+    
     code: `
 @Bean
 public S3Client createS3Client() {
@@ -210,7 +210,7 @@ public S3Client createS3Client() {
 export const S3PutExample = generateCodeSlide("Writing to S3", [
     "Use the previously client to upload items to S3"
 ], {
-    language: "java",
+    
     code: `
 PutObjectRequest request = PutObjectRequest.builder()
     .bucket("rk0")
@@ -226,7 +226,7 @@ export const S3GetExample = generateCodeSlide("Reading from S3", [
     "Reading from S3 looks similar",
     "You'll need to read the file as an input stream which may be annoying if you want a String"
 ], {
-    language: "java",
+    
     code: `
 GetObjectRequest request = GetObjectRequest.builder()
     .bucket("rk0")

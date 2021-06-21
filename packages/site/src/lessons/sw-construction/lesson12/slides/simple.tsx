@@ -27,7 +27,7 @@ export const Docker = generateMediaAssistSlide("Enter Docker", [
     'You can bundle your app up into "containers" for isolation and easy deployment',
     'You can manage "images" that act like a template for containers',
     "You can share your images with others",
-], <img src={ docker } />);
+], <img src={ docker.src } />);
 
 export const Disclaimer = generateMessageSlide(
     "Disclaimer: Containers are a big concept. Docker is very " + 
@@ -50,7 +50,7 @@ export const Images = generateCodeSlide("Container Images", [
     "Define the starting point for where to build from",
     "Use sequential commands to define the desired environment state"
 ], {
-    language: "docker",
+    
     code: `
 FROM maven:3.8.1-jdk-11 as builder
 
@@ -68,7 +68,7 @@ export const BuildingImages = generateContentSlide("Building Images", [
     "Builds can be slow and images can be very large"
 ]);
 
-export const ShrekMeme = generateMediaSlide(<img src={ dockerMeme } />)
+export const ShrekMeme = generateMediaSlide(<img src={ dockerMeme.src } />)
 
 export const ImageLayers = generateContentSlide("Image Layers", [
     'Each step in the Docker build creates a "layer"',

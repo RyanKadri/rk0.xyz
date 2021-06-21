@@ -66,7 +66,7 @@ export interface RecordingDefinition {
 export interface LabDefinition {
     title: string;
     slug: string;
-    LabView: ComponentType<{ lab: LabDefinition }>;
+    content?: string;
 }
 
 export interface Reference {
@@ -79,7 +79,6 @@ export interface CourseExtra {
     title: string;
     description?: string;
     route: string;
-    View: React.ComponentType<CourseExtraProps>;
 }
 
 export interface CourseExtraProps {

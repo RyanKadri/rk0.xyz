@@ -1,9 +1,8 @@
-import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import React from "react";
 import { LabDefinition } from "../../../../../../presenter-core/src/services/types";
 import { wrap } from "../../../../common/functional-utils";
 import { CodePlayground, FunctionExecutionParams } from "../../../shared/code-playground";
-import { useLabStyles } from "../../../shared/lab";
 import { createCalculator } from "./create-calculator";
 import { checkPalindromity } from "./isPalindrome";
 import { simpleExamples } from "./simpleExamples";
@@ -21,61 +20,44 @@ To submit this assignment, please create a single zip file and upload it to Canv
 const grading = wrap(`
 This assignment is a bit different from what you have done before in that all answers will either be objectively correct or incorrect for each input. I will run each of your functions for the inputs shown in the corresponding table. I will also test your function with a few inputs that are not shown. I will grade this assignment mostly based on the correctness of your responses. As a secondary factor, I will grade based on the quality of your code and your thought process. JavaScript is more picky about syntax so please make sure your code at least does something, even if it is not perfectly correct.`)
 
-const useStyles = makeStyles((_: Theme) => createStyles({
-    editor: {
-        minHeight: 400,
-        border: "solid 1px #ccc"
-    },
-    simpleSection: {
-        paddingLeft: 32
-    },
-    explanation: {
-        marginTop: 8,
-        marginBottom: 16
-    },
-}))
-
 export function ExploringJSLab({}: Props) {
-    const classes = useLabStyles();
-    const localClasses = useStyles();
-
     return (
-        <div className={classes.container}>
+        <div>
             <Typography variant="h4">Lab 4: Exploring JavaScript</Typography>
-            <section className={ classes.section }>
-                <Typography variant="h5" className={ classes.sectionLabel }>Overview</Typography>
+            <section>
+                <Typography variant="h5">Overview</Typography>
                 <Typography variant="body1">{ overview }</Typography>
             </section>
-            <section className={ classes.section }>
-                <Typography variant="h5" className={ classes.sectionLabel }>Using This Page</Typography>
+            <section>
+                <Typography variant="h5">Using This Page</Typography>
                 <Typography variant="body1">{ usingLab }</Typography>
             </section>
-            <section className={ classes.section }>
-                <Typography variant="h5" className={ classes.sectionLabel }>Section 1: JavaScript Syntax</Typography>
-                <div className={ localClasses.simpleSection }>
+            <section>
+                <Typography variant="h5">Section 1: JavaScript Syntax</Typography>
+                <div>
                     { simpleExamples.map(simple => 
                         <ProblemPlayground key={ simple.savePrefix } def={simple} />
                     )}
                 </div>
             </section>
-            <section className={ classes.section }>
-                <Typography variant="h5" className={ classes.sectionLabel }>Section 2: Checking Palindromity</Typography>
+            <section>
+                <Typography variant="h5">Section 2: Checking Palindromity</Typography>
                 <ProblemPlayground def={ checkPalindromity } />
             </section>
-            <section className={ classes.section }>
-                <Typography variant="h5" className={ classes.sectionLabel }>Section 3: Create a Calculator</Typography>
+            <section>
+                <Typography variant="h5">Section 3: Create a Calculator</Typography>
                 <ProblemPlayground def={ createCalculator } />
             </section>
-            <section className={ classes.section }>
-                <Typography variant="h5" className={ classes.sectionLabel }>Section 4: Sum of Primes</Typography>
+            <section>
+                <Typography variant="h5">Section 4: Sum of Primes</Typography>
                 <ProblemPlayground def={ sumOfPrimes } />
             </section>
-            <section className={ classes.section }>
-                <Typography variant="h5" className={ classes.sectionLabel }>Submitting this lab</Typography>
+            <section>
+                <Typography variant="h5">Submitting this lab</Typography>
                 <Typography variant="body1">{ submitting }</Typography>
             </section>
-            <section className={ classes.section }>
-                <Typography variant="h5" className={ classes.sectionLabel }>Grading</Typography>
+            <section>
+                <Typography variant="h5">Grading</Typography>
                 <Typography variant="body1">{ grading }</Typography>
             </section>
         </div>
@@ -83,11 +65,10 @@ export function ExploringJSLab({}: Props) {
 }
 
 function ProblemPlayground({ def }: { def: ProblemDefinition }) {
-    const classes = useStyles();
     return (
         <>
             { def.title && <Typography variant="h6">{ def.title }</Typography>} 
-            <Typography variant="body1" className={ classes.explanation }>{ def.explanation }</Typography>
+            <Typography variant="body1">{ def.explanation }</Typography>
             <CodePlayground mode="function"
                             intialCode={ def.code } 
                             executionParams={ def.expectations }

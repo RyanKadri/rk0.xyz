@@ -7,7 +7,7 @@ import myPicture from "./about-me-picture-web.jpg";
 export const Title = generateTitleSlide("Practicum in Software Construction", "Ryan Kadri");
 
 export const AboutMePicture = generateMediaSlide(
-    <img src={ myPicture } alt="Me at Smith Rock" />,
+    <img src={ myPicture.src } alt="Me at Smith Rock" />,
     "Smith Rock 2019",
     "About Me"
 )

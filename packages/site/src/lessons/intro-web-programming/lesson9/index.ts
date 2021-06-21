@@ -1,5 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
-import { PokedexLab } from "./lab/pokedex-lab";
+import labContent from "./lab/pokedex.md";
 import { ActiveWaiting } from "./slides/active-waiting2";
 import { BlockingCodeExample } from "./slides/blocking-code";
 import { FetchExample } from "./slides/fetch";
@@ -46,9 +46,9 @@ export const lesson9: Presentation = {
         
     ],
     lab: {
-        LabView: PokedexLab,
         slug: "using-apis",
-        title: "Building a Pokedex"
+        title: "Building a Pokedex",
+        content: labContent
     },
     recording: {
         link: "https://youtu.be/TrtHIFMIL6M"

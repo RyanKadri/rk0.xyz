@@ -65,7 +65,7 @@ export const MavenDependencies = generateCodeSlide("Maven Example", [
     "pom.xml configures dependencies, language version, build process, etc",
     "Fairly verbose"
 ], {
-    language: "xml",
+    
     code: `
 <!-- omitted -->
 <properties>
@@ -92,7 +92,7 @@ export const DependencyDive = generateCodeSlide("Maven Dependency", [
     "version: Which version of the library?",
     "scope: How will it be used?"
 ], {
-    language: "xml",
+    
     code: `
 <dependency>
     <groupId>com.google.guava</groupId>
@@ -163,7 +163,7 @@ export const SpringCode = generateCodeSlide("Spring Example", [
     "Uses Reflection, proxies, and all sorts of magic to make your code work",
     "You shouldn't need to know the internals to work with Spring"
 ], {
-    language: "java",
+    
     code: `
 @RestController
 public class HelloWorldRestController {

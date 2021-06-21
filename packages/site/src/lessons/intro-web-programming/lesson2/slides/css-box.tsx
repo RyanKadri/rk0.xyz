@@ -17,7 +17,7 @@ const styles = createStyles({
 const _CssBox = ({ context, classes }: Props) => (
     <ContentSlide Title="CSS Fundamentals: Box Model" context={context} Content={
         <div className={ classes.container }>
-            <img src={img}/>
+            <img src={img.src}/>
         </div>
     } />
 )

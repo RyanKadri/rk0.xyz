@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./arrays.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -31,26 +32,13 @@ const slideItems = [
     "Positions start at 0"
 ];
 
-const code = `
-const myFavoriteNumbers = [1,2,3];
-const names = ["Alice", "Bob", "Eve"];
-const mixed = ["Alice", 2, false];
-
-for(const element of mixed) {
-    console.log(element);
-}
-
-console.log(mixed[0]);
-mixed[3] = "something";
-`.trim();
-
 export function ArraysExample({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Arrays" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
                 <div className={ classes.arrayExample }>
                     <div>"Alice"</div><div>2</div><div>false</div><div>"something"</div>
                 </div>

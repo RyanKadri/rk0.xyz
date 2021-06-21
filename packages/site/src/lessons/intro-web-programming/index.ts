@@ -1,8 +1,5 @@
 import { faNetworkWired } from "@fortawesome/free-solid-svg-icons/faNetworkWired";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
-import { ConsolidatedReferences } from "../views/lesson-list/consolidated-references";
-import { FinalStudyGuide } from "./final-prep/study-guide";
-import { FinalProject } from "./final-project/final-project";
 import { lesson1 } from "./lesson1";
 import { lesson10 } from "./lesson10";
 import { lesson11 } from "./lesson11";
@@ -15,7 +12,6 @@ import { lesson6 } from "./lesson6";
 import { lesson7 } from "./lesson7";
 import { lesson8 } from "./lesson8";
 import { lesson9 } from "./lesson9";
-import { MidtermStudyGuide } from "./midterm-prep/study-guide";
 
 export const introToWebProgrammingFall2020: CourseDefinition = { 
     title: "Introduction to Web Technology and Programming",
@@ -37,9 +33,9 @@ export const introToWebProgrammingFall2020: CourseDefinition = {
     ],
     icon: faNetworkWired,
     courseExtras: [
-        { title: "Consolidated References", route: "references", View: ConsolidatedReferences },
-        { title: "Midterm Study Guide", route: "midterm-study-guide", View: MidtermStudyGuide },
-        { title: "Final Project", route: "final-project", View: FinalProject },
-        { title: "Final Study Guide", route: "final-study-guide", View: FinalStudyGuide }
+        { title: "Consolidated References", route: "references" },
+        { title: "Midterm Study Guide", route: "midterm-study-guide" },
+        { title: "Final Project", route: "final-project" },
+        { title: "Final Study Guide", route: "final-study-guide" }
     ]
 };

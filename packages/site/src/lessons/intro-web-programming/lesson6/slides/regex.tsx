@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./regex.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -19,26 +20,13 @@ const slideItems = [
     "Fairly consistent across languages"
 ];
 
-const code = `
-const usernameChecker = /^[a-z][a-zA-Z0-9_]*$/;
-usernameChecker.test("rjk123"); // true
-usernameChecker.test("rjk.xyz"); // false
-usernameChecker.test("rjk_xyz"); // true
-usernameChecker.test("") // false
-usernameChecker.test("123") // false
-
-const longString = "My name is Ryan Kadri. Who are you?";
-const matches = longString.match(/My name is (.*?)\./);
-console.log(matches[1]); // Ryan Kadri
-`.trim();
-
 export function RegularExpressions({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Regular Expressions" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

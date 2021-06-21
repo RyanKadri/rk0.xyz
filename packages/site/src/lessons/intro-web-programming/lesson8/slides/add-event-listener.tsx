@@ -5,6 +5,8 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import myHTML from "./add-event-listener-html.md";
+import code from "./add-event-listener.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -20,29 +22,14 @@ const slideItems = [
     "Similar to adding an onclick event handler in HTML"
 ];
 
-const myHTML = `
-<div class="my-panel">
-    <header>Panel Title</header>
-</div>
-`
-
-const code = `
-const myPanelHeader = document.querySelector(".my-panel header");
-myPanel.addEventListener("click", changeColor);
-
-function changeColor() {
-    myPanelHeader.style.color = "red"
-}
-`.trim();
-
 export function AddEventListener({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="addEventListener" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="html" code={ myHTML } className={ classes.code }></CodeBlock>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ myHTML } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

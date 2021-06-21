@@ -5,6 +5,8 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import myHTML from "./selectors-html.md";
+import code from "./selectors.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -23,27 +25,14 @@ const slideItems = [
     "You can call methods to get additional info"
 ];
 
-const myHTML = `
-<div class="my-panel">
-    <header>Panel Title</header>
-</div>
-`
-
-const code = `
-const myPanelHeader = document.querySelector(".my-panel header");
-const panelTitle = myPanelHeader.innerText;
-myPanelHeader.innerText = panelTitle.toUpperCase();
-myPanelHeader.parentElement.getAttribute("class")
-`.trim();
-
 export function QuerySelector({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="document.querySelector" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="html" code={ myHTML } className={ classes.code }></CodeBlock>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ myHTML } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

@@ -1,6 +1,6 @@
 import { createStyles, List, ListItem, ListItemText, makeStyles, Paper, Typography } from "@material-ui/core";
+import Link from "next/link";
 import React from "react";
-import { Link } from "react-router-dom";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { ExamplePlayground } from "../components/example-playground";
 
@@ -31,14 +31,16 @@ export function ExampleViewer({ examples, currExample, baseUrl }: Props) {
             <Paper className={ classes.sidebar }>
                 <List>
                     { examples.map((example, i) => (
-                        <ListItem key={ example.title } button component={ Link } to={`${baseUrl}/${i}`}>
-                            <ListItemText primary={ example.title }></ListItemText>
-                        </ListItem>
+                        <Link href={`${baseUrl}/${i}`} passHref key={ example.title }>
+                            <ListItem button component="a">
+                                <ListItemText primary={ example.title }></ListItemText>
+                            </ListItem>
+                        </Link>
                     ))}
                 </List>
             </Paper>
             <div className={ classes.codeContainer }>
-                { currExample === undefined
+                { currExample === null
                     ? <Typography>Please choose an example</Typography>
                     : (
                         <>
@@ -54,6 +56,6 @@ export function ExampleViewer({ examples, currExample, baseUrl }: Props) {
 
 interface Props {
     examples: ExampleDefinition[];
-    currExample?: number;
+    currExample: number | null;
     baseUrl: string
 }

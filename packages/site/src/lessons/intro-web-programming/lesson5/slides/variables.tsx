@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./variables.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -21,22 +22,13 @@ const slideItems = [
     'The label can be re-pointed to different types of data if you use "let"'
 ];
 
-const code = `
-const myName = "Ryan";
-let myAge = 28;
-const isATeacher = true;
-const obj = 
-    { firstName: "Ryan", lastName: "Kadri" };
-const nothing = null;
-`.trim();
-
 export function VariablesExamples({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Variables" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

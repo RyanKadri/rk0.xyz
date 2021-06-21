@@ -3,7 +3,7 @@ import { generateReferencesSlide } from "../../shared/references-slide";
 import flexChildren from "../lesson2/examples/flex-children.html";
 import flexDirections from "../lesson2/examples/flex-directions.html";
 import mediaQuery from "../lesson2/examples/media-query.html";
-import { HtmlCssLabView } from "./lab/html-css-lab";
+import labContent from "./lab/html-css-lab.md";
 import { DetectBrowser } from "./slides/DetectBrowser";
 import { ResponsiveCSS } from "./slides/ResponsiveCss";
 import * as simple from "./slides/simple-slides";
@@ -44,7 +44,7 @@ export const lesson3: Presentation = {
     lab: {
         title: "HTML + CSS Basics",
         slug: "html-css-basics",
-        LabView: HtmlCssLabView
+        content: labContent
     },
     recording: {
         link: "https://youtu.be/T91H_N5iuWg"

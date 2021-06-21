@@ -1,6 +1,7 @@
 import { Button, createStyles, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, Typography } from "@material-ui/core";
-import React, { Suspense, useRef, useState } from "react";
-const CodeEditor = React.lazy(() => import("./code-editor"))
+import dynamic from "next/dynamic";
+import React, { useRef, useState } from "react";
+const CodeEditor = dynamic(() => import("./code-editor"), { ssr: false })
 
 interface Props {
     intialCode: string;
@@ -76,14 +77,12 @@ export function CodePlayground(props: Props) {
 
     return (
         <div className={ classes.container }>
-            <Suspense fallback="Loading...">
-                <CodeEditor language={ props.language || "javascript"}
-                            className={ classes.editor }
-                            height={ props.editorHeight }
-                            initialCode={ props.intialCode } 
-                            editorRef={ editorRef } 
-                            saveKey={ props.savePrefix ? `${props.savePrefix}.code` : undefined } />
-            </Suspense>
+            <CodeEditor language={ props.language || "javascript"}
+                        className={ classes.editor }
+                        height={ props.editorHeight }
+                        initialCode={ props.intialCode } 
+                        editorRef={ editorRef } 
+                        saveKey={ props.savePrefix ? `${props.savePrefix}.code` : undefined } />
             { globalError && 
                 <Typography variant="body2" color="error">{ globalError }</Typography>
             }

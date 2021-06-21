@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./document.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -21,19 +22,13 @@ const slideItems = [
     "Gives methods to access elements on the page"
 ];
 
-const code = `
-const tabTitle = document.title;
-const currentUrl = document.location.href;
-const newHeading = document.createElement("h1");
-`.trim();
-
 export function DocumentObject({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Document Object" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

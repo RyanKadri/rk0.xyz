@@ -161,7 +161,7 @@ export const JavaLogging = generateCodeSlide("Logging in Java", [
     "A common logging framework built into Spring is SLF4J",
     "Features include configurable log format, different log levels, and different output strategies"
 ],{
-    language: "java",
+    
     code: `
 public class SomeClass {
 

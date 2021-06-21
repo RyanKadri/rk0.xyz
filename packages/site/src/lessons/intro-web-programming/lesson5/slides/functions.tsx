@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./functions.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -20,27 +21,13 @@ const slideItems = [
     "You can call your function like myFunction(param1, param2)"
 ];
 
-const code = `
-function sayHello() {
-    console.log("Hello");
-}
-
-function doMath(a, b) {
-    return a + b;
-}
-
-function printMath(a,b) {
-    console.log(doMath(a,b))
-}
-`.trim();
-
 export function FunctionsExample({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Functions" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

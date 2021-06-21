@@ -1,34 +1,5 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 
-export const useLabStyles = makeStyles((theme: Theme) => createStyles({
-    container: {
-        padding: `${theme.spacing(3)}px ${theme.spacing(2)}px`,
-        maxWidth: 1200
-    },
-    sectionLabel: {
-    },
-    title: {
-        marginBottom: 24
-    },
-    section: {
-        marginBottom: 40
-    },
-    startCode: {
-        marginTop: 32
-    },
-    code: {
-    },
-    sketch: {
-        maxWidth: 1200,
-        width: "100%",
-        display: "block"
-    },
-    sideNote: {
-        marginLeft: "2em",
-        marginTop: "1em"
-    }
-}));
-
 export const useMarkdownLabStyles = makeStyles((theme: Theme) => createStyles({
     container: {
         padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
@@ -56,9 +27,10 @@ export const useMarkdownLabStyles = makeStyles((theme: Theme) => createStyles({
         },
         "& img": {
             width: "100%",
-            maxWidth: 900
+            maxWidth: 900,
+            display: "block"
         },
-        "& code": {
+        "& code:not([class^=language])": {
             whiteSpace: "pre-wrap",
             fontSize: "1.15rem",
             backgroundColor: "rgba(0,0,0,0.08)",

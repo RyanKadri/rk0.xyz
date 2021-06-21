@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./operators.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -19,27 +20,13 @@ const slideItems = [
     "JavaScript allows you to build large, complex expressions with operators (and order of operations)"
 ];
 
-const code = `
-const a = 1;
-const b = a + 2;
-let c = a * 3 - b;
-c++;
-const d = "The answer is: " + c;
-const e = true;
-const f = !e;
-const g = f ? a : b
-const h = c > b
-const i = { first: "Bob" };
-const j = "last" in i;
-`.trim();
-
 export function Operators({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Operators" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

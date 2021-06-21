@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./await-print.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -12,17 +13,6 @@ const useStyles = makeStyles(createStyles({
         userSelect: "text"
     }
 }))
-
-const code = `
-async function printSomeStuff() {
-    await delay(1000);
-    console.log("Hi");
-    await delay(1000);
-    console.log("I'm");
-    await delay(1000);
-    console.log("Ryan")
-}
-`.trim();
 
 const items = [
     "Recently, JavaScript added support for async functions",
@@ -38,7 +28,7 @@ export function AsyncFunctions({ context }: Props) {
         <ContentSlide Title="Async Functions" context={context} Content={
             <>
                 <InfoList items={ items } />
-                <CodeBlock language="js" code={ code } className={ classes.code } />
+                <CodeBlock code={ code } className={ classes.code } />
             </>
         } />
     );

@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import code from "./functions-as-variables.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -18,26 +19,13 @@ const slideItems = [
     "This is what happens in addEventListener"
 ];
 
-const code = `
-function sayHello() {
-    console.log("Hello")
-}
-
-function doSomethingTwice(something) {
-    something();
-    something();
-}
-
-doSomethingTwice(sayHello)
-`.trim();
-
 export function FunctionsAsVariablesPart2({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Functions" context={context} Content={
             <>
                 <InfoList items={ slideItems } />
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

@@ -5,6 +5,8 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import myHTML from "./reacting-to-input-html.md";
+import code from "./reacting-to-input.md";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -21,26 +23,14 @@ const slideItems = [
     "The function needs to be defined somewhere"
 ];
 
-const myHTML = `
-<p id="detonate-paragraph">Detonate</p>
-<button onclick="detonate()">Don't click me!</button>
-`
-
-const code = `
-function detonate() {
-    const paragraph = document.querySelector("#detonate-paragraph");
-    paragraph.innerText = "Boom"
-}
-`.trim();
-
 export function ReactingToInput({ context }: Props) {
     const classes = useStyles();
     return (
         <ContentSlide Title="Reacting to Inputs" context={context} Content={
             <>
                 <InfoList items={ slideItems }></InfoList>
-                <CodeBlock language="html" code={ myHTML } className={ classes.code }></CodeBlock>
-                <CodeBlock language="js" code={ code } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ myHTML } className={ classes.code }></CodeBlock>
+                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
             </>
         } />
     );

@@ -1,24 +1,21 @@
-import { History } from "history";
+import { useRouter } from "next/router";
 import React, { ReactNode, useEffect } from "react";
 import ReactGA from "react-ga";
-import { withRouter } from "react-router";
 
 interface GAProps {
-    history: History;
     children?: ReactNode;
 }
 
-function _GAWrapper({ history, children }: GAProps) {
+export function GAWrapper({ children }: GAProps) {
+    const { pathname, events } = useRouter();
     useEffect(() => {
         ReactGA.initialize("UA-146806194-1");
-        ReactGA.pageview(location.pathname);
-        history.listen(entry => ReactGA.pageview(entry.pathname));
+        ReactGA.pageview(pathname);
+        events.on("routeChangeComplete", url => ReactGA.pageview(url));
     }, [])
 
     return <>{children}</>;
 }
-
-export const GAWrapper = withRouter(_GAWrapper)
 
 export enum TrackedCategories {
     LEARNING_TOOLS = "Learning Tools",
