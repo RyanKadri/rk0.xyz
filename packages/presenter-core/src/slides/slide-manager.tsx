@@ -33,7 +33,7 @@ export function SlideManager() {
     }
     
     const toPrevSlide = () => {
-        const prevSlide = baseUrl + Math.max(0, slideNum + 1);
+        const prevSlide = baseUrl + Math.max(0, slideNum - 1);
         router.replace(prevSlide, undefined, { shallow: true });
     }
 
