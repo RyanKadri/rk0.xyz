@@ -2,6 +2,7 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, createStyles, IconButton, makeStyles } from "@material-ui/core";
+import Link from "next/link";
 import React from "react";
 
 const useStyles = makeStyles(_ => createStyles({
@@ -21,20 +22,24 @@ const useStyles = makeStyles(_ => createStyles({
 
 interface Props {
     className?: string;
-    onPreviousSlide(): void;
-    onNextSlide(): void;
+    previousSlide: string | null;
+    nextSlide: string | null;
 }
 
-export function SlideControls({ className, onPreviousSlide, onNextSlide }: Props) {
+export function SlideControls({ className, previousSlide, nextSlide }: Props) {
     const classes = useStyles();
     return (
         <Card className={ `${className} ${ classes.controlsContainer }` }>
-            <IconButton className={ classes.button } onClick={ onPreviousSlide }>
-                <FontAwesomeIcon icon={ faChevronLeft } />
-            </IconButton>
-            <IconButton className={ classes.button } onClick={ onNextSlide }>
-                <FontAwesomeIcon icon={ faChevronRight } />
-            </IconButton>
+            <Link href={ previousSlide ?? "" } passHref replace>
+                <IconButton className={ classes.button } disabled={ previousSlide === null }>
+                    <FontAwesomeIcon icon={ faChevronLeft } />
+                </IconButton>
+            </Link>
+            <Link href={ nextSlide ?? "" } passHref replace>
+                <IconButton className={ classes.button } disabled={ nextSlide === null }>
+                    <FontAwesomeIcon icon={ faChevronRight } />
+                </IconButton>
+            </Link>
         </Card>
     )
 }

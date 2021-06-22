@@ -3,6 +3,7 @@ import React from "react";
 import { LabDefinition } from "../../../../../../presenter-core/src/services/types";
 import { wrap } from "../../../../common/functional-utils";
 import { CodePlayground, FunctionExecutionParams } from "../../../shared/code-playground";
+import { useMarkdownLabStyles } from "../../../shared/lab";
 import { createCalculator } from "./create-calculator";
 import { checkPalindromity } from "./isPalindrome";
 import { simpleExamples } from "./simpleExamples";
@@ -21,45 +22,35 @@ const grading = wrap(`
 This assignment is a bit different from what you have done before in that all answers will either be objectively correct or incorrect for each input. I will run each of your functions for the inputs shown in the corresponding table. I will also test your function with a few inputs that are not shown. I will grade this assignment mostly based on the correctness of your responses. As a secondary factor, I will grade based on the quality of your code and your thought process. JavaScript is more picky about syntax so please make sure your code at least does something, even if it is not perfectly correct.`)
 
 export function ExploringJSLab({}: Props) {
+    const classes = useMarkdownLabStyles();
     return (
-        <div>
-            <Typography variant="h4">Lab 4: Exploring JavaScript</Typography>
-            <section>
-                <Typography variant="h5">Overview</Typography>
+        <div className={ classes.container }>
+            <Typography variant="h1">Lab 4: Exploring JavaScript</Typography>
+                <Typography variant="h2">Overview</Typography>
                 <Typography variant="body1">{ overview }</Typography>
-            </section>
-            <section>
-                <Typography variant="h5">Using This Page</Typography>
+
+                <Typography variant="h2">Using This Page</Typography>
                 <Typography variant="body1">{ usingLab }</Typography>
-            </section>
-            <section>
-                <Typography variant="h5">Section 1: JavaScript Syntax</Typography>
+                <Typography variant="h2">Section 1: JavaScript Syntax</Typography>
                 <div>
                     { simpleExamples.map(simple => 
                         <ProblemPlayground key={ simple.savePrefix } def={simple} />
                     )}
                 </div>
-            </section>
-            <section>
-                <Typography variant="h5">Section 2: Checking Palindromity</Typography>
+                <Typography variant="h2">Section 2: Checking Palindromity</Typography>
                 <ProblemPlayground def={ checkPalindromity } />
-            </section>
-            <section>
-                <Typography variant="h5">Section 3: Create a Calculator</Typography>
+
+                <Typography variant="h2">Section 3: Create a Calculator</Typography>
                 <ProblemPlayground def={ createCalculator } />
-            </section>
-            <section>
-                <Typography variant="h5">Section 4: Sum of Primes</Typography>
+
+                <Typography variant="h2">Section 4: Sum of Primes</Typography>
                 <ProblemPlayground def={ sumOfPrimes } />
-            </section>
-            <section>
-                <Typography variant="h5">Submitting this lab</Typography>
+
+                <Typography variant="h2">Submitting this lab</Typography>
                 <Typography variant="body1">{ submitting }</Typography>
-            </section>
-            <section>
-                <Typography variant="h5">Grading</Typography>
+                
+                <Typography variant="h2">Grading</Typography>
                 <Typography variant="body1">{ grading }</Typography>
-            </section>
         </div>
     )
 }

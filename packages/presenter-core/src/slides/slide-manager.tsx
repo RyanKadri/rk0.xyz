@@ -25,16 +25,26 @@ export function SlideManager() {
     const course = activeCourses.find(course => course.slug === courseSlug);
     const lesson = course?.lessons.find(lesson => lesson.slug === lessonSlug);
     const slides = lesson?.slides ?? [];
+
     const baseUrl = `/courses/${courseSlug}/lessons/${lessonSlug}/slides/`;
+    const nextSlide = slideNum < slides.length - 1 
+        ? baseUrl + (slideNum + 1)
+        : null;
+
+    const previousSlide = slideNum > 0 
+        ? baseUrl + (slideNum - 1)
+        : null;
         
     const toNextSlide = () => {
-        const nextSlide = baseUrl + Math.min(slides.length - 1, slideNum + 1);
-        router.replace(nextSlide, undefined, { shallow: true });
+        if(nextSlide) {
+            router.replace(nextSlide, undefined, { shallow: true });
+        }
     }
     
     const toPrevSlide = () => {
-        const prevSlide = baseUrl + Math.max(0, slideNum - 1);
-        router.replace(prevSlide, undefined, { shallow: true });
+        if(previousSlide) {
+            router.replace(previousSlide, undefined, { shallow: true });
+        }
     }
 
     const toSlide = (pos: number) => {
@@ -76,8 +86,8 @@ export function SlideManager() {
         <div>
             <SlideViewport Slide={ slides[slideNum] } 
                            context={ context } />
-            <SlideControls onPreviousSlide={ toPrevSlide } 
-                           onNextSlide={ toNextSlide } 
+            <SlideControls previousSlide={ previousSlide } 
+                           nextSlide={ nextSlide } 
                            className={ classes.controls } />
         </div>
     )
