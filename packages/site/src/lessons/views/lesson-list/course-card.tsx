@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Avatar, createStyles, Link, ListItemAvatar, ListItemText, makeStyles, Paper } from "@material-ui/core";
+import { Avatar, createStyles, ListItemAvatar, ListItemText, makeStyles, Paper } from "@material-ui/core";
+import Link from "next/link";
 import React from "react";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 
@@ -26,21 +27,23 @@ export function CourseCard({ course, baseUrl }: Props) {
     const desc = `${course.lessons.length} lessons - ${ numExamples } examples - ${ numLabs } labs`
 
     return (
-        <Link href={ `${baseUrl}/${course.slug}` } style={{ textDecoration: "none", display: "block" }}>
-            <Paper className={classes.card}>
-                <ListItemAvatar>
-                    <Avatar color="primary">
-                        { course.icon
-                            ? <FontAwesomeIcon icon={ course.icon } />
-                            : course.title[0]
-                        }
-                    </Avatar>
-                </ListItemAvatar>
-                <section className={ classes.desc }>
-                    <ListItemText primary={ course.title } secondary={ course.description } />
-                    <ListItemText secondary={ desc } />
-                </section>
-            </Paper>
+        <Link href={ `${baseUrl}/${course.slug}` } passHref>
+            <a style={{ textDecoration: "none", display: "block" }}>
+                <Paper className={classes.card}>
+                    <ListItemAvatar>
+                        <Avatar color="primary">
+                            { course.icon
+                                ? <FontAwesomeIcon icon={ course.icon } />
+                                : course.title[0]
+                            }
+                        </Avatar>
+                    </ListItemAvatar>
+                    <section className={ classes.desc }>
+                        <ListItemText primary={ course.title } secondary={ course.description } />
+                        <ListItemText secondary={ desc } />
+                    </section>
+                </Paper>
+            </a>
         </Link>
     );
 }
