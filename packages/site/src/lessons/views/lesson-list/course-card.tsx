@@ -26,7 +26,7 @@ export function CourseCard({ course, baseUrl }: Props) {
     const desc = `${course.lessons.length} lessons - ${ numExamples } examples - ${ numLabs } labs`
 
     return (
-        <Link href={ `${baseUrl}/${course.slug}` } style={{ textDecoration: "none" }}>
+        <Link href={ `${baseUrl}/${course.slug}` } style={{ textDecoration: "none", display: "block" }}>
             <Paper className={classes.card}>
                 <ListItemAvatar>
                     <Avatar color="primary">
