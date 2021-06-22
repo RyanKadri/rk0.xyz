@@ -26,31 +26,31 @@ export function ExploringJSLab({}: Props) {
     return (
         <div className={ classes.container }>
             <Typography variant="h1">Lab 4: Exploring JavaScript</Typography>
-                <Typography variant="h2">Overview</Typography>
-                <Typography variant="body1">{ overview }</Typography>
+            <Typography variant="h2">Overview</Typography>
+            <Typography variant="body1">{ overview }</Typography>
 
-                <Typography variant="h2">Using This Page</Typography>
-                <Typography variant="body1">{ usingLab }</Typography>
-                <Typography variant="h2">Section 1: JavaScript Syntax</Typography>
-                <div>
-                    { simpleExamples.map(simple => 
-                        <ProblemPlayground key={ simple.savePrefix } def={simple} />
-                    )}
-                </div>
-                <Typography variant="h2">Section 2: Checking Palindromity</Typography>
-                <ProblemPlayground def={ checkPalindromity } />
+            <Typography variant="h2">Using This Page</Typography>
+            <Typography variant="body1">{ usingLab }</Typography>
+            <Typography variant="h2">Section 1: JavaScript Syntax</Typography>
+            <div>
+                { simpleExamples.map(simple => 
+                    <ProblemPlayground key={ simple.savePrefix } def={simple} />
+                )}
+            </div>
+            <Typography variant="h2">Section 2: Checking Palindromity</Typography>
+            <ProblemPlayground def={ checkPalindromity } />
 
-                <Typography variant="h2">Section 3: Create a Calculator</Typography>
-                <ProblemPlayground def={ createCalculator } />
+            <Typography variant="h2">Section 3: Create a Calculator</Typography>
+            <ProblemPlayground def={ createCalculator } />
 
-                <Typography variant="h2">Section 4: Sum of Primes</Typography>
-                <ProblemPlayground def={ sumOfPrimes } />
+            <Typography variant="h2">Section 4: Sum of Primes</Typography>
+            <ProblemPlayground def={ sumOfPrimes } />
 
-                <Typography variant="h2">Submitting this lab</Typography>
-                <Typography variant="body1">{ submitting }</Typography>
-                
-                <Typography variant="h2">Grading</Typography>
-                <Typography variant="body1">{ grading }</Typography>
+            <Typography variant="h2">Submitting this lab</Typography>
+            <Typography variant="body1">{ submitting }</Typography>
+            
+            <Typography variant="h2">Grading</Typography>
+            <Typography variant="body1">{ grading }</Typography>
         </div>
     )
 }

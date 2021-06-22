@@ -1,7 +1,10 @@
-const RemarkHTML = require("remark-html")
-const RemarkPrism = require("remark-prism")
+const RemarkHTML = require("remark-html");
+const RemarkPrism = require("remark-prism");
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+})
 
-module.exports = {
+module.exports = withBundleAnalyzer({
     webpack: (config) => {
         config.module.rules.push(
             {
@@ -47,4 +50,4 @@ module.exports = {
     //     ]
     // },
     target: "serverless"
-}
+})
