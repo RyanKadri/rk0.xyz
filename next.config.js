@@ -43,11 +43,10 @@ module.exports = withBundleAnalyzer({
         )
         return config
     },
-    // TODO - Enable the following if switching to vercel
-    // async redirects() {
-    //     return [
-    //         { source: "/", destination: "/courses", permanent: true }
-    //     ]
-    // },
+    async redirects() {
+        return [
+            { source: "/", destination: "/courses", permanent: true }
+        ]
+    },
     target: "serverless"
 })
