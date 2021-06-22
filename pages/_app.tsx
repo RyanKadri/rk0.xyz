@@ -1,3 +1,4 @@
+import { config } from '@fortawesome/fontawesome-svg-core';
 import { CssBaseline, makeStyles, MuiThemeProvider, Theme } from "@material-ui/core";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -5,7 +6,7 @@ import React from "react";
 import { GAWrapper } from "../packages/site/src/analytics";
 import { RootNav } from "../packages/site/src/root/top-nav";
 import { appTheme } from "../packages/site/src/theme";
-import "../public/prism.css";
+config.autoAddCss = false
 
 const useStyles = makeStyles((_: Theme) => ({
     container: {

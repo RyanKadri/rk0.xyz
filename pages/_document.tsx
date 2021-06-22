@@ -1,3 +1,4 @@
+import { dom } from "@fortawesome/fontawesome-svg-core";
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
@@ -14,6 +15,8 @@ export default class MyDocument extends Document {
                     />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" />
+                    <link rel="stylesheet" href="/prism.css"></link>
+                    <style>{ dom.css() }</style>
                 </Head>
                 <body>
                     <Main />
