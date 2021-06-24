@@ -1,13 +1,19 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import React from "react";
 import { useMarkdownLabStyles } from "../../../../packages/site/src/lessons/shared/lab";
 import { activeCourses } from "../../../../packages/site/src/lessons/views/activeCourses";
 
-export default function LabView({ labContent }: Props) {
+export default function LabView({ labContent, title }: Props) {
     const classes = useMarkdownLabStyles();
 
     return (
+        <>
+        <Head>
+            <title>{title}</title>
+        </Head>
         <div className={ classes.container } dangerouslySetInnerHTML={ { __html: labContent } } />
+        </>
     )
 }
 
@@ -19,7 +25,8 @@ export const getStaticProps: GetStaticProps = async ({ params = {}}) => {
 
     return {
         props: {
-            labContent
+            labContent,
+            title: currLab?.title
         }
     }
 }
@@ -38,4 +45,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 interface Props {
     labContent: string;
+    title: string;
 }

@@ -22,7 +22,6 @@ const styles = createStyles({
     },
     viewport: {
         color: "#444",
-        fontFamily: 'Roboto'
     },
     content: {
         padding: 16

@@ -1,5 +1,6 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import React from "react";
 import { CourseDefinition } from "../../packages/presenter-core/src/services/types";
 import { activeCourses } from "../../packages/site/src/lessons/views/activeCourses";
@@ -17,9 +18,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 export default function LessonListView({ currCourse }: Props) {
     const classes = useStyles();
-
     return (
         <div className={ classes.container }>
+            <Head>
+                <title>{ currCourse?.title ?? "" } - Lessons</title>
+            </Head>
             { currCourse
                 ? <>
                     <Typography variant="h5" className={ classes.title }>

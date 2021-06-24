@@ -26,6 +26,11 @@ const useStyles = makeStyles(createStyles({
         display: "grid",
         gridTemplateColumns: "1fr 1fr 1fr",
         gap: "16px"
+    },
+    headerRow: {
+        "& th, & td": {
+            fontWeight: 700
+        }
     }
 }));
 
@@ -85,7 +90,7 @@ function LessonTableView({ course, baseUrl }: Props) {
             <Paper className={ classes.tablePaper }>
                 <Table>
                     <TableHead>
-                        <TableRow>
+                        <TableRow className={ classes.headerRow }>
                             <TableCell>Class Name</TableCell>
                             <TableCell>Description</TableCell>
                             <TableCell>Slides</TableCell>

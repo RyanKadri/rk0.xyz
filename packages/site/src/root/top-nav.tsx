@@ -53,7 +53,7 @@ export function RootNav() {
     const classes = useStyles()
     return (
         <AppBar position="static" className={ classes.navBar }>
-            <Toolbar>
+            <Toolbar component="nav">
                 <div className={ classes.linkGroup }>
                     { siteLinks.map(link => (
                         <Link href={link.link} key={link.link} passHref>

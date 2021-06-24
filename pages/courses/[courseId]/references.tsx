@@ -1,5 +1,6 @@
 import { Link as MaterialLink, makeStyles, Typography } from "@material-ui/core";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import { CourseDefinition, Presentation } from "../../../packages/presenter-core/src/services/types";
@@ -31,6 +32,9 @@ export default function ConsolidatedReferences({ currCourse }: Props) {
     const classes = useStyles();
     return (
         <div className={ classes.container }>
+            <Head>
+                <title>{currCourse.title} - References</title>
+            </Head>
             <Link href={`/courses/${ currCourse.slug }`} passHref>
                 <MaterialLink>Back to Course</MaterialLink>
             </Link>

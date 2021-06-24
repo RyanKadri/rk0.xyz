@@ -2,6 +2,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons/faChevronUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { createStyles, makeStyles, Typography } from "@material-ui/core";
+import Head from "next/head";
 import React, { useState } from "react";
 import { CourseDefinition } from "../packages/presenter-core/src/services/types";
 import { introToWebProgrammingFall2020 } from "../packages/site/src/lessons/intro-web-programming";
@@ -37,11 +38,14 @@ const courseGroups: CourseGroup[] = [
 export default function CourseSelector() {
     const classes = useStyles();
     return (
-        <div className={ classes.listContainer }>
+        <main className={ classes.listContainer }>
+            <Head>
+                <title>Ryan Kadri - Temple Classes</title>
+            </Head>
             { courseGroups.map((group) => (
                 <CourseGroupAccordion key={ group.name } group={ group } />
             ))}
-        </div>
+        </main>
     );
 }
 

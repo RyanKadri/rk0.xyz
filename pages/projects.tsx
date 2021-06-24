@@ -1,4 +1,5 @@
 import { Card, CardContent, Link, makeStyles, Typography } from "@material-ui/core";
+import Head from "next/head";
 import React from "react";
 import { projects } from "../packages/site/src/projects/projects-config";
 
@@ -33,6 +34,9 @@ export default function ProjectView() {
 
     return (
         <div className={ classes.container }>
+            <Head>
+                <title>My Projects</title>
+            </Head>
             <Typography variant="h4" className={ classes.title }>Personal Projects</Typography>
             { projects.map(project => (
                 <Card key={ project.link } className={ classes.card }>
