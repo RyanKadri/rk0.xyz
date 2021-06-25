@@ -4,13 +4,21 @@ import React from "react";
 import { useMarkdownLabStyles } from "../../../../packages/site/src/lessons/shared/lab";
 import { activeCourses } from "../../../../packages/site/src/lessons/views/activeCourses";
 
-export default function LabView({ labContent, title }: Props) {
+interface Props {
+    labContent: string;
+    title: string;
+    description: string | null;
+}
+export default function LabView({ labContent, title, description }: Props) {
     const classes = useMarkdownLabStyles();
 
     return (
         <>
         <Head>
             <title>{title}</title>
+            { description && (
+                <meta name="description" key="description" content={ description } />
+            )}
         </Head>
         <div className={ classes.container } dangerouslySetInnerHTML={ { __html: labContent } } />
         </>
@@ -26,7 +34,8 @@ export const getStaticProps: GetStaticProps = async ({ params = {}}) => {
     return {
         props: {
             labContent,
-            title: currLab?.title
+            title: currLab?.title,
+            description: currLab?.description ?? null
         }
     }
 }
@@ -41,9 +50,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
         }))).filter(path => path.params.labId),
         fallback: false
     }
-}
-
-interface Props {
-    labContent: string;
-    title: string;
 }

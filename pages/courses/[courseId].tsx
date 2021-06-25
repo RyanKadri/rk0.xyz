@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
 import { CourseDefinition } from "../../packages/presenter-core/src/services/types";
+import { courseToStructuredData } from "../../packages/site/src/analytics";
 import { activeCourses } from "../../packages/site/src/lessons/views/activeCourses";
 import { LessonList } from "../../packages/site/src/lessons/views/lesson-list/lesson-list";
 
@@ -22,6 +23,11 @@ export default function LessonListView({ currCourse }: Props) {
         <div className={ classes.container }>
             <Head>
                 <title>{ currCourse?.title ?? "" } - Lessons</title>
+                <meta name="description" key="description" content={ currCourse?.description } />
+                <script type="application/ld+json" key="course-data"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(
+                        courseToStructuredData(currCourse!)
+                    ) }} />
             </Head>
             { currCourse
                 ? <>

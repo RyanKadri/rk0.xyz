@@ -44,7 +44,8 @@ export const lesson3: Presentation = {
     lab: {
         title: "HTML + CSS Basics",
         slug: "html-css-basics",
-        content: labContent
+        content: labContent,
+        description: "Apply CSS to an existing HTML page to recreate an image mockup. How close can you get to the target?"
     },
     recording: {
         link: "https://youtu.be/T91H_N5iuWg"

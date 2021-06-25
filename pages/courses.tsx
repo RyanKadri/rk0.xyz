@@ -5,6 +5,7 @@ import { createStyles, makeStyles, Typography } from "@material-ui/core";
 import Head from "next/head";
 import React, { useState } from "react";
 import { CourseDefinition } from "../packages/presenter-core/src/services/types";
+import { courseToStructuredData } from "../packages/site/src/analytics";
 import { introToWebProgrammingFall2020 } from "../packages/site/src/lessons/intro-web-programming";
 import { practicumInSW2021 } from "../packages/site/src/lessons/sw-construction";
 import { CourseCard } from "../packages/site/src/lessons/views/lesson-list/course-card";
@@ -41,6 +42,11 @@ export default function CourseSelector() {
         <main className={ classes.listContainer }>
             <Head>
                 <title>Ryan Kadri - Temple Classes</title>
+                <script type="application/ld+json" key="course-data"
+                    dangerouslySetInnerHTML={ { __html: JSON.stringify(
+                        courseGroups.flatMap(group => group.courses)
+                            .map(courseToStructuredData) 
+                    )} } />
             </Head>
             { courseGroups.map((group) => (
                 <CourseGroupAccordion key={ group.name } group={ group } />

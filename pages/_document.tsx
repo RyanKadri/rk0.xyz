@@ -8,7 +8,6 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
-                    {/* PWA primary color */}
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" />
                     <style>{ dom.css() }</style>
                 </Head>

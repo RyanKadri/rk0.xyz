@@ -67,6 +67,7 @@ export interface LabDefinition {
     title: string;
     slug: string;
     content?: string;
+    description?: string
 }
 
 export interface Reference {

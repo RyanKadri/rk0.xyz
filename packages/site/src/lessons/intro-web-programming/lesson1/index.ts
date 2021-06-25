@@ -47,7 +47,8 @@ export const lesson1: Presentation = {
     lab: {
         slug: "intro-to-html",
         title: "Intro to HTML",
-        content: labContent
+        content: labContent,
+        description: "Learn the basics of writing HTML by creating a short document with some specific HTML elements"
     },
     recording: {
         link: "https://youtu.be/nBgOvwrMpuU"

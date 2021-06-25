@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React, { ReactNode, useEffect } from "react";
 import ReactGA from "react-ga";
+import { CourseDefinition } from "../../presenter-core/src/services/types";
 
 interface GAProps {
     children?: ReactNode;
@@ -23,4 +24,18 @@ export enum TrackedCategories {
 
 export enum TrackedActions {
     EDITED_PLAYGROUND = "Tweaked Playground Example",
+}
+
+export function courseToStructuredData(course: CourseDefinition) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        name: course.title,
+        description: course.description,
+        provider: {
+            "@type": "Organization",
+            name: "Ryan Kadri - Adjunct Professor"
+        }
+        
+    }
 }
