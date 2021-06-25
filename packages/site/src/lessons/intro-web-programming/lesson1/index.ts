@@ -5,7 +5,6 @@ import lists from "./examples/lists.html";
 import media from "./examples/media.html";
 import tables from "./examples/tables.html";
 import textAndHeadings from "./examples/textAndHeadings.html";
-import labContent from "./lab/intro-to-html-lab.md";
 import { OutlineToHtml } from "./slides/outline-to-html";
 import { SimpleBrowserSlide } from "./slides/simple-browser";
 import { SimpleMonitorSlide } from "./slides/simple-monitor";
@@ -47,7 +46,7 @@ export const lesson1: Presentation = {
     lab: {
         slug: "intro-to-html",
         title: "Intro to HTML",
-        content: labContent,
+        content: import("./lab/intro-to-html-lab.md"),
         description: "Learn the basics of writing HTML by creating a short document with some specific HTML elements"
     },
     recording: {

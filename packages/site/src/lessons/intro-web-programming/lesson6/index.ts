@@ -4,7 +4,6 @@ import { ConditionalsExample } from "../lesson5/slides/conditionals";
 import { ForLoops } from "../lesson5/slides/for-loops";
 import { FunctionsExample } from "../lesson5/slides/functions";
 import { WhileLoops } from "../lesson5/slides/while-loops";
-import labContent from "./lab/lab-writeup.md";
 import { ArraysExample } from "./slides/arrays";
 import { Methods } from "./slides/methods";
 import { Objects } from "./slides/objects";
@@ -50,7 +49,7 @@ export const lesson6: Presentation = {
     lab: {
         title: "String Manipulation and Forms",
         slug: "strings-and-forms",
-        content: labContent
+        content: import("./lab/lab-writeup.md")
     },
     references: simple.references
 }
