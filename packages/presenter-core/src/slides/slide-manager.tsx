@@ -2,8 +2,7 @@ import { createStyles, makeStyles } from "@material-ui/core";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useTitle } from "../../../site/src/common/use-app-bar";
-import { activeCourses } from "../../../site/src/lessons/views/activeCourses";
-import { PresentationContext } from "../services/types";
+import { CourseDefinition, PresentationContext } from "../services/types";
 import { SlideControls } from "./slide-controls";
 import { SlideViewport } from "./slide-viewport";
 
@@ -15,18 +14,19 @@ const useStyles = makeStyles(theme => createStyles({
     }
 }));
 
-export function SlideManager() {
+interface Props {
+    course: CourseDefinition
+}
+export function SlideManager({ course }: Props) {
 
     const classes = useStyles();
     const router = useRouter();
-    const courseSlug = router.query.courseId;
     const lessonSlug = router.query.lessonId;
     const slideNum = parseInt(router.query.slideNum as string, 10);
-    const course = activeCourses.find(course => course.slug === courseSlug);
-    const lesson = course?.lessons.find(lesson => lesson.slug === lessonSlug);
+    const lesson = course.lessons.find(lesson => lesson.slug === lessonSlug);
     const slides = lesson?.slides ?? [];
 
-    const baseUrl = `/courses/${courseSlug}/lessons/${lessonSlug}/slides/`;
+    const baseUrl = `/courses/${course.slug}/lessons/${lessonSlug}/slides/`;
     const nextSlide = slideNum < slides.length - 1 
         ? baseUrl + (slideNum + 1)
         : null;

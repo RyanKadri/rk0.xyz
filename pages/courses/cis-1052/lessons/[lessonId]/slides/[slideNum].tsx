@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { SlideManager } from "../../../../../../packages/presenter-core/src/slides/slide-manager";
-import { activeCourses } from "../../../../../../packages/site/src/lessons/views/activeCourses";
+import { introToWebProgrammingFall2020 } from "../../../../../../packages/site/src/lessons/intro-web-programming";
 
 export default function _SlideManager() {
     return (
-        <SlideManager /> 
+        <SlideManager course={ introToWebProgrammingFall2020 } /> 
     )
 };
 
@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     return {
-        paths: activeCourses.flatMap(course => 
+        paths: [introToWebProgrammingFall2020].flatMap(course => 
             course.lessons.flatMap(lesson => 
                 lesson.slides.flatMap((_, i) => ({ 
                     params: {

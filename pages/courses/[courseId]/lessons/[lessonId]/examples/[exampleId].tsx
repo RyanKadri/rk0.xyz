@@ -23,11 +23,11 @@ export default function _ExampleViewer({ examples, currExample, baseUrl }: Props
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params = {}}) => {
     const currCourse = activeCourses.find(course => course.slug === params.courseId) ?? null;
-    const currLab = currCourse?.lessons.find(lesson => lesson.slug === params.lessonId);
+    const currLesson = currCourse?.lessons.find(lesson => lesson.slug === params.lessonId);
 
     return {
         props: {
-            examples: currLab?.examples ?? [],
+            examples: currLesson?.examples ?? [],
             currExample: parseInt(params.exampleId as string, 10),
             baseUrl: `/courses/${params.courseId}/lessons/${params.lessonId}/examples`
         }

@@ -6,8 +6,10 @@ import React from "react";
 import { CourseDefinition, Presentation } from "../../../packages/presenter-core/src/services/types";
 import { activeCourses } from "../../../packages/site/src/lessons/views/activeCourses";
 
+type ReducedLesson = Pick<Presentation, "title" | "slug" | "references">
+type ReducedCourse = Pick<CourseDefinition, "title" | "slug"> & { lessons: ReducedLesson[] }
 interface Props {
-    currCourse: CourseDefinition;
+    currCourse: ReducedCourse;
 }
 
 const useStyles = makeStyles(() => ({
@@ -51,7 +53,7 @@ export default function ConsolidatedReferences({ currCourse }: Props) {
 }
 
 interface LessonReferencesProps {
-    lesson: Presentation
+    lesson: ReducedLesson
 }
 
 function LessonReferences({ lesson }: LessonReferencesProps) {
@@ -85,11 +87,19 @@ function LessonReferences({ lesson }: LessonReferencesProps) {
     )
 }
 
-export const getStaticProps: GetStaticProps = async ({ params = {}}) => {
-    const currCourse = activeCourses.find(course => course.slug === params.courseId) ?? null;
+export const getStaticProps: GetStaticProps<Props> = async ({ params = {}}) => {
+    const currCourse = activeCourses.find(course => course.slug === params.courseId)!;
     return {
         props: {
-            currCourse: JSON.parse(JSON.stringify(currCourse))
+            currCourse: {
+                title: currCourse.title,
+                slug: currCourse.slug,
+                lessons: currCourse.lessons.map(lesson => ({
+                    slug: lesson.slug,
+                    title: lesson.title,
+                    references: lesson.references ?? null!
+                }))
+            }
         }
     }
 }
