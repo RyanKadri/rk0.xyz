@@ -2,7 +2,7 @@ import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
-import { CourseDefinition } from "../../packages/presenter-core/src/services/types";
+import { CourseDefinition, Presentation } from "../../packages/presenter-core/src/services/types";
 import { courseToStructuredData } from "../../packages/site/src/analytics";
 import { activeCourses } from "../../packages/site/src/lessons/views/activeCourses";
 import { LessonList } from "../../packages/site/src/lessons/views/lesson-list/lesson-list";
@@ -42,11 +42,19 @@ export default function LessonListView({ currCourse }: Props) {
     )
 }
 
-export const getStaticProps: GetStaticProps = async ({ params = {}}) => {
-    const currCourse = activeCourses.find(course => course.slug === params.courseId) ?? null;
+type ReducedProps = Omit<CourseDefinition, "lessons"> & { lessons: Partial<Presentation> };
+export const getStaticProps: GetStaticProps<{ currCourse: ReducedProps }> = async ({ params = {}}) => {
+    const currCourse = activeCourses.find(course => course.slug === params.courseId)!;
     return {
         props: {
-            currCourse: JSON.parse(JSON.stringify(currCourse))
+            currCourse: JSON.parse(JSON.stringify({
+                ...currCourse,
+                lessons: currCourse.lessons.map(lesson => ({
+                    ...lesson,
+                    examples: lesson.examples.map(example => ({ ...example, code: "" })),
+                    lab: lesson.lab ? { ...lesson.lab, content: "" } : null,
+                }))
+            }))
         }
     }
 }

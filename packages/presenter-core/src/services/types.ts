@@ -66,7 +66,7 @@ export interface RecordingDefinition {
 export interface LabDefinition {
     title: string;
     slug: string;
-    content?: string;
+    content?: string | Promise<typeof import("*.md")>;
     description?: string
 }
 

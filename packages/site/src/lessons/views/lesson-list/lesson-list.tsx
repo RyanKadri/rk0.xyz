@@ -54,7 +54,7 @@ function LessonCardView({ course, baseUrl }: Props) {
                 <CardContent>
                     { lesson.description }
                     { lesson.lab && (
-                        <Link href={`${baseUrl}/labs/${lesson.lab.slug}`} passHref>
+                        <Link href={`${baseUrl}/labs/${lesson.lab.slug}`} passHref prefetch={ false }>
                             <MaterialLink className={ classes.labLink }>
                                 Lab: { lesson.lab.title }
                             </MaterialLink>

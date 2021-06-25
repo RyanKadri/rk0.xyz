@@ -26,10 +26,14 @@ export default function LabView({ labContent, title, description }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params = {}}) => {
-    const currCourse = activeCourses.find(course => course.slug === params.courseId) ?? null;
-    const currLab = currCourse?.lessons.find(lesson => lesson?.lab?.slug === params.labId)?.lab ?? null;
+    const currCourse = activeCourses.find(course => course.slug === params.courseId)!;
+    const currLab = currCourse.lessons.find(lesson => lesson?.lab?.slug === params.labId)!.lab
     
-    const labContent = currLab?.content ?? null;
+    const labContent = !currLab
+        ? null
+        : typeof currLab.content === "string"
+            ? currLab.content
+            : (await currLab.content)?.default
 
     return {
         props: {
