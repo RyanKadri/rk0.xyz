@@ -1,8 +1,8 @@
 import { Link, Typography } from "@material-ui/core";
 import React, { ReactNode } from "react";
-import bingo from "../../../../public/projects/bingo.png";
-import mandelbrot from "../../../../public/projects/mandelbrot.png";
-import resume from "../../../../public/projects/resume.png";
+import bingo from "../../../../public/projects/bingo.webp";
+import mandelbrot from "../../../../public/projects/mandelbrot.webp";
+import resume from "../../../../public/projects/resume.webp";
 
 export interface ProjectConfig {
     name: string;
