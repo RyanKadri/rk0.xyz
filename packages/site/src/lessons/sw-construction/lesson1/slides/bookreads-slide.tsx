@@ -2,7 +2,7 @@ import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import preview from "./bookreads.png";
+import preview from "./bookreads.webp";
 
 const useStyles = makeStyles(createStyles({
     preview: {

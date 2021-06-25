@@ -148,7 +148,7 @@ Sample `layout.css`
 
 BookReads Mockup:
 
-![Bookreads Site](/courses/cis1052/bookreads.png)
+![Bookreads Site](/courses/cis1052/bookreads.webp)
 
 
 To get started, please download and unzip [this file](/courses/cis1052/lab1.zip) You can edit the provided CSS files to make your site look like the mock up above. I would recommend using Visual Studio Code to do this assignment and using the LiveReload plugin to get quick feedback on your work.
