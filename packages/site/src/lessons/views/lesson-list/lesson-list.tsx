@@ -87,12 +87,14 @@ function LessonCardView({ course, baseUrl }: Props) {
                             </MaterialLink>
                         </Link>
                     )}
-                    <Link href={`${baseUrl}/lessons/${lesson.slug}/examples/0`} passHref>
-                        <MaterialLink>
-                            <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
-                            Examples
-                        </MaterialLink>
-                    </Link>
+                    { lesson.examples && lesson.examples.length > 0 && (
+                        <Link href={`${baseUrl}/lessons/${lesson.slug}/examples/0`} passHref>
+                            <MaterialLink>
+                                <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
+                                Examples
+                            </MaterialLink>
+                        </Link>
+                    )}
                     { lesson.recording
                         ? <MaterialLink href={lesson.recording.link} target="_blank" rel="noopener">
                             <FontAwesomeIcon icon={ faVideo } className={ classes.tableIcon } />
@@ -104,7 +106,11 @@ function LessonCardView({ course, baseUrl }: Props) {
             </Card>
         )) }
         { (course.courseExtras || []).map(extra => (
-            <LinkCard baseUrl={ baseUrl } title={ extra.title } relativeLink={ extra.route } key={ extra.route } />
+            <LinkCard baseUrl={ baseUrl } 
+                      title={ extra.title } 
+                      relativeLink={ extra.route } 
+                      key={ extra.route }
+                    />
         ))}
     </>;
 }
@@ -184,8 +190,9 @@ interface LinkCardProps {
 }
 
 function LinkCard({ baseUrl, title, relativeLink }: LinkCardProps) {
+    const classes = useStyles();
     return (
-        <Card>
+        <Card className={ classes.lessonCard }>
             <CardHeader title={ title } />
             <CardContent>
                 <Link href={`${baseUrl}/${ relativeLink }`} passHref>
