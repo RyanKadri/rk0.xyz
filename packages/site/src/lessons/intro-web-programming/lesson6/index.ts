@@ -1,9 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { ConditionalsExample } from "../lesson5/slides/conditionals";
-import { ForLoops } from "../lesson5/slides/for-loops";
-import { FunctionsExample } from "../lesson5/slides/functions";
-import { WhileLoops } from "../lesson5/slides/while-loops";
+import { ConditionalExample, ForLoops, FunctionsExample, WhileLoops } from "../lesson5/slides/simple";
 import { ArraysExample } from "./slides/arrays";
 import { Methods } from "./slides/methods";
 import { Objects } from "./slides/objects";
@@ -22,7 +19,7 @@ export const lesson6: Presentation = {
         simple.DataTypes,
         VariablesRedux,
         OperatorsTable,
-        ConditionalsExample,
+        ConditionalExample,
         ForLoops,
         WhileLoops,
         FunctionsExample,

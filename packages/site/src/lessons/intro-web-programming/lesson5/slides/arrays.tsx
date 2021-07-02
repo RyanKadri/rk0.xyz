@@ -2,21 +2,16 @@
 import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
-import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
-import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
-import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import { CodeSlide } from "../../../../../../presenter-core/src/slides/code-slide";
 import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
-    code: {
-        fontSize: 26,
-        userSelect: "text"
-    },
     arrayExample: {
         fontSize: 32,
         display: "flex",
-        position: "absolute",
         border: "solid 4px black",
+        alignSelf: "flex-start",
+        marginTop: 16,
         "& div": {
             padding: 16,
             "&:not(:last-child)": {
@@ -28,7 +23,6 @@ const useStyles = makeStyles(createStyles({
 
 const slideItems = [
     "Arrays hold ordered lists of values",
-    "Adding elements to an array is easy",
     "Positions start at 0"
 ];
 
@@ -48,15 +42,11 @@ mixed[3] = "something";
 export function ArraysExample({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Arrays" context={context} Content={
-            <>
-                <InfoList items={ slideItems }></InfoList>
-                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
-                <div className={ classes.arrayExample }>
-                    <div>"Alice"</div><div>2</div><div>false</div><div>"something"</div>
-                </div>
-            </>
-        } />
+        <CodeSlide Title="Arrays" bullets={ slideItems } codeBlock={ { code } } context={context}>
+            <div className={ classes.arrayExample }>
+                <div>"Alice"</div><div>2</div><div>false</div><div>"something"</div>
+            </div>
+        </CodeSlide>
     );
 }
 

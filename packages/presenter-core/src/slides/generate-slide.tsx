@@ -1,8 +1,9 @@
 import React, { ReactElement, ReactNode } from "react";
 import { PresentationContext } from "../services/types";
-import { CodeBlock, SyntaxHighlightedBlock } from "../slide-components/code-block";
-import { InfoList, NestedListInfo } from "../slide-components/info-list";
+import { SyntaxHighlightedBlock } from "../slide-components/code-block";
+import { NestedListInfo } from "../slide-components/info-list";
 import { CenterMessageSlide } from "./center-message-slide";
+import { CodeSlide } from "./code-slide";
 import { ContentSlide, ContentSlideOptions } from "./content-slide";
 import { DefinitionSlide } from "./definition-slide";
 import { FullSlide } from "./embed-slide";
@@ -42,27 +43,17 @@ export function generateMediaSlide(
     }
 }
 
-interface SlideCode {
+export interface SlideCode {
     code: SyntaxHighlightedBlock;
 }
 
-interface CodeSlideOptions {
+export interface CodeSlideOptions {
     codeFirst?: boolean;
 }
 
-export function generateCodeSlide(title: string, bullets: (string | NestedListInfo | ReactElement)[], codeBlock: SlideCode, { codeFirst = false }: CodeSlideOptions = {}) {
+export function generateCodeSlide(title: string, bullets: (string | NestedListInfo | ReactElement)[], codeBlock: SlideCode, options?: CodeSlideOptions) {
     return function({ context }: { context: PresentationContext }) {
-        return <ContentSlide Title={ title } context={ context } Content={ 
-            codeFirst
-                ? <>
-                    <CodeBlock code={ codeBlock.code } />
-                    <InfoList items={ bullets } />
-                  </>
-                : <>
-                    <InfoList items={ bullets } />
-                    <CodeBlock code={ codeBlock.code } />
-                  </>
-         } />
+        return <CodeSlide context={ context } Title={ title } bullets={ bullets } codeBlock={ codeBlock } options={ options } />
     }
 }
 

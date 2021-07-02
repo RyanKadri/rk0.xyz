@@ -121,6 +121,119 @@ export const ApiContinued = generateContentSlide("What do server APIs look like?
     "REST is a topic for another day"
 ]);
 
+export const PromiseChaining = generateCodeSlide("Chaining Promises", [
+    <><code>.then</code> callbacks can be synchronous or return another Promise</>,
+    <>If the <code>.then</code> callback returns a Promise, the next <code>.then</code> will wait until the <em>returned promise</em> finishes</>,
+    "This collapsing helps make asynchronous code much easier to follow",
+    "You don't need nested callbacks. Can orchestrate everything in one place"
+], {
+    code: synJS`
+delay(1000)
+    .then(() => console.log("Hi"))
+    .then(() => delay(1000))
+    .then(() => console.log("I'm"))
+    .then(() => delay(1000))
+    .then(() => console.log("Ryan"))
+`
+});
+
+export const PromiseErrorHandling = generateCodeSlide("Promise Error Handling", [
+    "Some asynchronous operations can fail (especially network operations)",
+    <>Promises have a <code>.catch</code> method to handle errors</>,
+    "This cannot be done in a normal try / catch block because the code has moved on"
+], {
+    code: synJS`
+fetch("https://some-site.com")
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+    .catch(e => console.error("Oh no! There was an error!"))
+`
+});
+
+export const PromisesFromScratch = generateCodeSlide("Promises from Scratch", [
+    "You can define your own Promises from scratch",
+    'Can "wrap" asynchronous operations with a Promise',
+    'Call a "resolve" function with the result of your operation (if any)'
+], {
+    code: synJS`
+function delay(nMillis) {
+    return new Promise(function(resolve, reject) {
+        setTimeout(resolve, nMillis)
+    })
+}`
+});
+
+export const Promises = generateCodeSlide("Promises", [
+    "Promises are a way to keep track of an asynchronous operation",
+    'A "promise" that something will happen in the future',
+    "Promises can complete or fail (resolve or reject)",
+    "Promises allow callbacks to be set up for when a promise completes or fails",
+], { code: synJS`
+const myPromise = fetch("https://some-url.com");
+
+myPromise
+    .then(response => { return response.json() })
+    .then(response => { console.log(response) })
+`});
+
+export const TryCatchNoHandling = generateCodeSlide("No Error Handling", [], {
+    code: synJS`
+function generateReport(data) {
+    const report = processData(data);
+    // ...
+}
+
+function processData(data) {
+    const complexReport = calculateReport(data); // Pretend this exists
+    complexReport.addtionalInfo = extractAdditionalInfo(data);
+    return complexReport;
+}
+
+function extractAddtionalInfo(data) {
+    return library.extractAdditionalInfo(data); // What happens if this fails?
+}
+    `
+});
+
+export const TryCatchWithHandling = generateCodeSlide("With Error Handling", [], {
+    code: synJS`
+function generateReport(data) {
+    const report = processData(data);
+    // ...
+}
+
+function processData(data) {
+    const complexReport = calculateReport(data); // Pretend this exists
+    complexReport.addtionalInfo = extractAdditionalInfo(data);
+    return complexReport;
+}
+
+function extractAddtionalInfo(data) {
+    try {
+        return library.extractAdditionalInfo(data); // What if this fails?
+    } catch(e) {
+        return "<unknown>"
+    }
+};`
+});
+
+export const TryCatch = generateCodeSlide("try / catch", [
+    "Sometimes operations fail",
+    "It would be nice to be able to handle errors gracefully",
+    <>Errors immediately exit the current function and keep bubbling up until something <code>catch</code>es them</>,
+    "try / catch in JavaScript lets you do this",
+    <>You can <code>catch</code> an error and handle it</>
+], { 
+    code: synJS`
+try {
+    someSketchyFunction(); // This function might fail
+} catch (e) {
+    console.error(e.message) // What to do with the failure
+}
+`
+});
+
+
 export const references: Reference[] = [
     { 
         label: "Promises",

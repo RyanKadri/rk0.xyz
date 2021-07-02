@@ -1,16 +1,8 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
 import { ArraysExample } from "./slides/arrays";
-import { ConditionalsExample } from "./slides/conditionals";
-import { ForLoops } from "./slides/for-loops";
-import { FunctionsExample } from "./slides/functions";
-import { Objects } from "./slides/objects";
-import { Operators } from "./slides/operators";
 import { OperatorsTable } from "./slides/operators-table";
 import * as simple from "./slides/simple";
-import { StringsPart2 as Strings } from "./slides/strings";
-import { VariablesExamples } from "./slides/variables";
-import { WhileLoops } from "./slides/while-loops";
 
 export const lesson5: Presentation = {
     title: `Two "Truthy"s and a Lie`,
@@ -22,16 +14,16 @@ export const lesson5: Presentation = {
         simple.WhatIsAProgrammingLanguage,
         simple.JavaScriptProgrammingType,
         simple.DataTypes,
-        VariablesExamples,
-        Operators,
+        simple.VariablesExamples,
+        simple.Operators,
         OperatorsTable,
-        ConditionalsExample,
-        WhileLoops,
-        ForLoops,
-        FunctionsExample,
+        simple.ConditionalExample,
+        simple.WhileLoops,
+        simple.ForLoops,
+        simple.FunctionsExample,
         ArraysExample,
-        Objects,
-        Strings,
+        simple.Objects,
+        simple.StringsPart2,
         generateReferencesSlide(simple.references)
     ],
     examples: [
