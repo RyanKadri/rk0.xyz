@@ -39,7 +39,7 @@ const useStyles = makeStyles(createStyles({
     cardActions: {
         display: "flex",
         flexDirection: "column",
-        gap: 8,
+        gap: 16,
         alignItems: "flex-start",
         padding: 16,
         paddingTop: 0,
