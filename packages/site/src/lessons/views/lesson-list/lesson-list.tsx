@@ -1,8 +1,9 @@
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { faDesktop } from "@fortawesome/free-solid-svg-icons/faDesktop";
+import { faFlask } from "@fortawesome/free-solid-svg-icons/faFlask";
 import { faVideo } from "@fortawesome/free-solid-svg-icons/faVideo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Card, CardActions, CardContent, CardHeader, createStyles, Link as MaterialLink, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, useMediaQuery, useTheme } from "@material-ui/core";
+import { Card, CardContent, CardHeader, createStyles, Hidden, Link as MaterialLink, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
@@ -31,17 +32,34 @@ const useStyles = makeStyles(createStyles({
         "& th, & td": {
             fontWeight: 700
         }
+    },
+    cardHeader: {
+        paddingBottom: 0
+    },
+    cardActions: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 8,
+        alignItems: "flex-start",
+        padding: 16,
+        paddingTop: 0,
+        "& a": {
+            display: "block"
+        }
     }
 }));
 
 export function LessonList(props: Props) {
-
-    const theme = useTheme();
-    const isSmall = useMediaQuery(theme.breakpoints.down("md"));
-
-    return isSmall
-        ? <LessonCardView {...props} />
-        : <LessonTableView {...props} />
+    return (
+        <>
+            <Hidden implementation="css" mdUp>
+                <LessonCardView {...props} />
+            </Hidden>
+            <Hidden implementation="css" smDown>
+                <LessonTableView {...props} />
+            </Hidden>
+        </>
+    )
 }
 
 function LessonCardView({ course, baseUrl }: Props) {
@@ -50,31 +68,39 @@ function LessonCardView({ course, baseUrl }: Props) {
     return <>{
         course.lessons.map((lesson) => (
             <Card className={ classes.lessonCard } key={ lesson.title }>
-                <CardHeader title={ lesson.title } />
+                <CardHeader title={ lesson.title } className={ classes.cardHeader } />
                 <CardContent>
                     { lesson.description }
+                </CardContent>
+                <footer className={ classes.cardActions }>
+                    <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>
+                        <MaterialLink>
+                            <FontAwesomeIcon icon={ faDesktop } className={ classes.tableIcon } />
+                            Slides
+                        </MaterialLink>
+                    </Link>
                     { lesson.lab && (
                         <Link href={`${baseUrl}/labs/${lesson.lab.slug}`} passHref prefetch={ false }>
                             <MaterialLink className={ classes.labLink }>
+                                <FontAwesomeIcon icon={ faFlask } className={ classes.tableIcon } />
                                 Lab: { lesson.lab.title }
                             </MaterialLink>
                         </Link>
                     )}
-                </CardContent>
-                <CardActions>
                     <Link href={`${baseUrl}/lessons/${lesson.slug}/examples/0`} passHref>
-                        <MaterialLink>Examples</MaterialLink>
-                    </Link>
-                    <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>
-                        <MaterialLink>Slides</MaterialLink>
+                        <MaterialLink>
+                            <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
+                            Examples
+                        </MaterialLink>
                     </Link>
                     { lesson.recording
                         ? <MaterialLink href={lesson.recording.link} target="_blank" rel="noopener">
+                            <FontAwesomeIcon icon={ faVideo } className={ classes.tableIcon } />
                             Recording
                         </MaterialLink>
                         : null 
                     }
-                </CardActions>
+                </footer>
             </Card>
         )) }
         { (course.courseExtras || []).map(extra => (

@@ -51,7 +51,7 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
     return (
         <div className={ classes.container }>
             <Drawer className={ classes.sidebar } 
-                    variant={ onMobile ? "temporary" : "permanent" }
+                    variant={ (onMobile) ? "temporary" : "permanent" }
                     classes={{ paper: classes.sidebarSurface }}
                     open={ drawerOpen }
                     anchor="left"

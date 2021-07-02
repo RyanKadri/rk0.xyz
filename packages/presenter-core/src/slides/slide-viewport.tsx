@@ -1,5 +1,6 @@
 import { createStyles, makeStyles, Paper, Theme } from "@material-ui/core";
-import React, { ComponentType, useEffect, useRef } from "react";
+import Head from "next/head";
+import React, { ComponentType, useRef } from "react";
 import { PresentationContext } from "../services/types";
 import { useComponentSize } from "../services/use-component-size";
 
@@ -21,10 +22,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#999",
-        "&.fullscreen": {
-            height: "100vh",
-            backgroundColor: "#444"
-        },
     }
 }));
 
@@ -48,13 +45,12 @@ export function SlideViewport({ Slide, context }: Props) {
         transform: `scale(${ scale })`
     };
 
-    useEffect(() => {
-        document.documentElement.style.fontSize = "28px";
-        return () => { document.documentElement.style.fontSize = "" }
-    }, [])
-
     return (
         <div className={ `${classes.viewportContainer}` } ref={viewport}>
+            <Head>
+                {/* Dumb hack for noscript */}
+                <style dangerouslySetInnerHTML={{ __html: "html { font-size: 28px; }"}} />
+            </Head>
             <Paper className={ classes.viewportPaper } elevation={5} style={style}>
                 <Slide context={ context } />
             </Paper>
