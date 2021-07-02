@@ -43,6 +43,7 @@
     "markdown-loader": "^6.0.0",
     "next": "^11.0.0",
     "next-sitemap": "^1.6.124",
+    "prism-js": "^1.0.0",
     "raw-loader": "^4.0.2",
     "react-markdown": "^6.0.2",
     "remark-loader": "^4.0.0",

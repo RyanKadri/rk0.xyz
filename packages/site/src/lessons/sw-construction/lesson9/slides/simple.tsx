@@ -1,6 +1,7 @@
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synJava, synJS } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Security and Data Storage", "Ryan Kadri");
 
@@ -69,7 +70,7 @@ export const SamplePolicy = generateCodeSlide("Sample policy", [
     'AmazonS3ReadOnlyAccess - Allows "read" actions on S3 resources'
 ], {
     
-    code: `
+    code: synJS`
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -197,29 +198,25 @@ export const S3Client = generateCodeSlide("Configuring S3", [
     "Spring Dependency Injection may be a good call here",
 ], {
     
-    code: `
-@Bean
+    code: synJava`@Bean
 public S3Client createS3Client() {
     return S3Client.builder()
         .region(Region.US_EAST_1)
         .build();
-}
-    `
+}`
 });
 
 export const S3PutExample = generateCodeSlide("Writing to S3", [
     "Use the previously client to upload items to S3"
 ], {
     
-    code: `
-PutObjectRequest request = PutObjectRequest.builder()
+    code: synJava`PutObjectRequest request = PutObjectRequest.builder()
     .bucket("rk0")
     .key("hello.txt")
     .build();
 
 var body = RequestBody.fromString(message);
-this.s3Client.putObject(request, body);
-    `
+this.s3Client.putObject(request, body);`
 });
 
 export const S3GetExample = generateCodeSlide("Reading from S3", [
@@ -227,16 +224,14 @@ export const S3GetExample = generateCodeSlide("Reading from S3", [
     "You'll need to read the file as an input stream which may be annoying if you want a String"
 ], {
     
-    code: `
-GetObjectRequest request = GetObjectRequest.builder()
+    code: synJava`GetObjectRequest request = GetObjectRequest.builder()
     .bucket("rk0")
     .key("hello.txt")
     .build();
 var inputStream = this.s3Client.getObject(request);
 Scanner s = new Scanner(inputStream).useDelimiter("\\A");
 String result = s.hasNext() ? s.next() : "";
-return result;
-    `
+return result;`
 });
 
 export const references: Reference[] = [

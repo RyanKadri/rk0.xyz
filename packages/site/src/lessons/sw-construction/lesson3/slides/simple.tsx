@@ -1,6 +1,7 @@
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Java Spring and Networked Services", "Ryan Kadri");
 
@@ -142,8 +143,7 @@ export const StaticMethodApproach = generateCodeSlide("Approach 1: Static method
     "Classes that use the logger call the static method"
 ], {
     
-    code: `
-public class ImportantProcessHandler {
+    code: synJava`public class ImportantProcessHandler {
     public static void handleImportantProcess() {
         // Do something...
         Logger.log("Done!");
@@ -154,8 +154,7 @@ public class Logger {
     public static void log(String message) {
         System.out.println(message)
     }
-}
-    `
+}`
 });
 
 export const StaticMethodApproachProsCons = generateContentSlide("Approach 1: Pros and Cons", [
@@ -173,8 +172,7 @@ export const InstanceMethodApproach = generateCodeSlide("Approach 2: Instance Me
     "Classes that call the logger use an instance method",
 ], {
     
-    code: `
-public class ImportantProcessHandler {
+    code: synJava`public class ImportantProcessHandler {
     private final Logger myLogger;
 
     public void handleImportantProcess() {
@@ -186,8 +184,7 @@ public class Logger {
     public void log(String message) {
         System.out.println(message)
     }
-}
-    `
+}`
 });
 
 export const InstanceMethodProsCons = generateContentSlide("Approach 2: Pros and Cons", [
@@ -212,8 +209,7 @@ export const SpringApproach = generateCodeSlide("Approach 3: Dependency Injectio
     "Spring will pass you an instance of a class",
 ], {
     
-    code: `
-public class ImportantProcessHandler {
+    code: synJava`public class ImportantProcessHandler {
 
     public ImportantProcessHandler(Logger logger) {
         this.myLogger = logger;
@@ -229,9 +225,7 @@ public class StandardOutLogger implements Logger {
     public void log(String message) {
         System.out.println(message)
     }
-}
-    `
-});
+}`});
 
 export const references: Reference[] = [
     { label: "HTTP Basics", url: "https://devqa.io/http-basics/" },

@@ -1,5 +1,6 @@
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide(
     "APIs",
@@ -38,8 +39,7 @@ export const ExampleBadApi = generateCodeSlide("Dangerous API Example", [
     "Opening up too much functionality is a bad idea"
 ], {
     
-    code: `
-public class ExpressionEvaluator {
+    code: synJava`public class ExpressionEvaluator {
 
     private ParsedExpression parsedExpression;
     public double evaluateExpression(String expression) {

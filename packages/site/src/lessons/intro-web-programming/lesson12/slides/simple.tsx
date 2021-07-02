@@ -1,6 +1,7 @@
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synJS, synTS } from "../../../../common/highlighting";
 
 export const TitleSlide = generateTitleSlide("What Comes Next?", "Ryan Kadri");
 
@@ -27,9 +28,7 @@ export const NodeJS = generateCodeSlide("NodeJS", [
     "NodeJS can read files, interact with other programs, and act as a server",
 ], 
 {
-    
-    code: `
-const fs = require("fs");
+    code: synJS`const fs = require("fs");
 fs.readFile("/home/ryan/Documents/hello.txt", "utf-8", (err, data) => {
     console.log(data);
 })`.trim()
@@ -63,14 +62,12 @@ export const TypeScript = generateCodeSlide("Typescript", [
     "Lets IDEs provide suggestions for your code"
 ], {
     
-    code: `
-function addNumbers(a: number, b: number): number {
+    code: synTS`function addNumbers(a: number, b: number): number {
     return a + b;
 }
 
 addNumbers(1,2) // This is allowed
-addNumbers("a", { name: "bob" }) // This does not compile
-`.trim()
+addNumbers("a", { name: "bob" }) // This does not compile`.trim()
 });
 
 export const Imports = generateCodeSlide("Imports and Modules", [
@@ -81,8 +78,7 @@ export const Imports = generateCodeSlide("Imports and Modules", [
     'Let you write bigger projects without worrying about "collisions"'
 ], {
     
-    code: `
-// file a.js
+    code: synJS`// file a.js
 import { addNumbers } from "./b"
 
 console.log(addNumbers(1,2));
@@ -101,8 +97,7 @@ export const Frameworks = generateCodeSlide("Web Frameworks", [
     "... and much more",
 ], {
     
-    code: `
-export function Header({ name }) {
+    code: synJS`export function Header({ name }) {
     return (
         <header>Hello { name }. Welcome to InstaFace</header>
     )

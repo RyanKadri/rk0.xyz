@@ -1,6 +1,7 @@
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synHTML, synJS } from "../../../../common/highlighting";
 
 export const TitleSlide = generateTitleSlide("Using JavaScript Libraries", "Ryan Kadri");
 
@@ -22,7 +23,7 @@ export const HowToUse = generateCodeSlide("How to use libraries", [
     <>You may see some examples online with <code>import</code> but you need some special tools for those</>
 ], { 
         code: 
-`<body>
+synHTML`<body>
     ...
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>`
@@ -74,13 +75,12 @@ export const ModifyingBuiltIns = generateCodeSlide("Modifying Built-In Objects",
     "Originally this was possible / somewhat common",
     "Became less popular. Hurts standards adoption"
 ], {
-        code: `
+        code: synJS`
 "abc".reverse() // Throws error
 String.prototype.reverse = function() { 
     return this.split("").reverse().join("")
 }
-"abc".reverse() // "cba"
-    `.trim()
+"abc".reverse() // "cba"`.trim()
 });
 
 export const JQuery = generateCodeSlide("JQuery", [
@@ -90,7 +90,7 @@ export const JQuery = generateCodeSlide("JQuery", [
     "Popularized using CSS Selectors in JavaScript",
     "Helped browsers unify on standards",
 ], {
-        code: `$("#my-list li")
+        code: synJS`$("#my-list li")
     .css("color", "red")
     .text((i, old) => \`Item \${i + 1}.\${i + 1}\`)
     .append(
@@ -116,7 +116,7 @@ export const ChartJS = generateCodeSlide("Chart.js", [
     "Pretty easy to use but harder to extend",
 ], {
         code: 
-`const chart = new Chart(context, {
+synJS`const chart = new Chart(context, {
     type: "bar",
     data: {
         labels: ["a", "b", "c", "d", "e", "f"],

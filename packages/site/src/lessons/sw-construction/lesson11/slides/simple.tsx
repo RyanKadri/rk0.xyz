@@ -2,6 +2,7 @@ import { Link } from "@material-ui/core";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaAssistSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synHCL } from "../../../../common/highlighting";
 import terraform from "./terraform.png";
 
 export const Title = generateTitleSlide("Infrastructure as Code", "Ryan Kadri");
@@ -108,8 +109,7 @@ export const TerraformExample = generateCodeSlide("Terraform", [
     "HCL is more human readable (but is a new thing to learn)"
 ], {
     
-    code: `
-resource "aws_s3_bucket" "storage-bucket" {
+    code: synHCL`resource "aws_s3_bucket" "storage-bucket" {
     bucket = "xsrt-storage-\${var.env}"
     server_side_encryption_configuration {
         rule {
@@ -139,8 +139,7 @@ export const TerraformReferences = generateCodeSlide("Terraform References", [
     "Terraform uses these references to determine build order"
 ], {
     
-    code: `
-    statement {
+    code: synHCL`statement {
         effect = "Allow"
         actions = [
           "s3:PutObject",
@@ -159,8 +158,7 @@ export const TerraformData = generateCodeSlide("Terraform Data", [
     "Can also be used for importing secrets and dynamic values"
 ], {
     
-    code: `
-resource "aws_rds_cluster" "xsrt-main" {
+    code: synHCL`resource "aws_rds_cluster" "xsrt-main" {
     engine = "aurora-postgresql"
     engine_mode = "serverless"
     engine_version = "10.7"
@@ -175,8 +173,7 @@ export const TerraformProviders = generateCodeSlide("Terraform Providers", [
     "Providers define how Terraform works with a type of infrastructure"
 ], {
     
-    code: `
-provider "aws" {
+    code: synHCL`provider "aws" {
     version = "~> 3.0"
     region = "us-east-1"
     alias = "us-east-1"
@@ -188,8 +185,7 @@ export const TerraformState = generateCodeSlide("Terraform State", [
     "Can be stored on your machine or in a remote (often shared) location"
 ], {
     
-    code: `
-terraform {
+    code: synHCL`terraform {
     backend "s3" {
         bucket = "xsrt-iac"
         key = "terraform/terraform.tfstate"

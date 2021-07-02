@@ -2,6 +2,7 @@ import { Link } from "@material-ui/core";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synGherkin, synHTML, synJava } from "../../../../common/highlighting";
 import testingPyramid from "./testing-pyramid.png";
 
 export const Title = generateTitleSlide("Automated Testing", "Ryan Kadri");
@@ -83,14 +84,12 @@ export const JUnitTesting = generateCodeSlide("JUnit Testing", [
     "Provides assertion functions to verify that your code worked right"
 ], {
     
-    code: `
-@Test
+    code: synJava`@Test
 public void testMyCode() {
     Calculator calc = new Calculator();
     double result = calc.calculate(1, "+", 1);
     assertEquals(2, result)
-}
-    `
+}`
 });
 
 export const JUnitAnnotations = generateContentSlide("JUnit Annotations", [
@@ -141,8 +140,7 @@ export const CucumberTesting = generateContentSlide("Cucumber and Gherkin", [
 
 export const AssignmentTestExample = generateCodeSlide("Example Cucumber Spec", [], {
     
-    code: `
-Feature: Operation history is managed properly
+    code: synGherkin`Feature: Operation history is managed properly
     As operations are calculated, the server will store a record of
     the operation details. There is also an option to clear the operation
     history
@@ -155,14 +153,12 @@ Feature: Operation history is managed properly
     Scenario: Deleting operation history
         Given that I have 3 operations stored in the history
         When I call the delete endpoint
-        Then there should be 0 operations in the history
-    `
+        Then there should be 0 operations in the history`
 });
 
 export const CucumberDependencies = generateCodeSlide("Reference: Cucumber and JUnit Dependencies", [], {
     
-    code: `
-<dependency>
+    code: synHTML`<dependency>
     <groupId>org.junit.jupiter</groupId>
     <artifactId>junit-jupiter-api</artifactId>
     <version>5.7.1</version>
@@ -183,9 +179,7 @@ export const CucumberDependencies = generateCodeSlide("Reference: Cucumber and J
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-junit</artifactId>
     <version>6.9.1</version>
-</dependency>
-    `
-});
+</dependency>`});
 
 export const references: Reference[] = [
     { label: "Kent C Dodds - Testing", url: "https://kentcdodds.com/blog/write-tests" },

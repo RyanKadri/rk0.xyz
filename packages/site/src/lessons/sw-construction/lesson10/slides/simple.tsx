@@ -1,6 +1,7 @@
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaAssistSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synHTML, synJava } from "../../../../common/highlighting";
 import dynamoCreation from "./createDynamo.png";
 
 export const Title = generateTitleSlide("Cloud Data Part 2", "Ryan Kadri");
@@ -122,8 +123,7 @@ export const SettingUpDynamo = generateCodeSlide("Dynamo Dependency", [
     "We're going to use that one"
 ], {
     
-    code: `
-<dependencies>
+    code: synHTML`<dependencies>
     <dependency>
     <groupId>software.amazon.awssdk</groupId>
     <artifactId>dynamodb</artifactId>
@@ -133,8 +133,7 @@ export const SettingUpDynamo = generateCodeSlide("Dynamo Dependency", [
     <groupId>software.amazon.awssdk</groupId>
     <artifactId>dynamodb-enhanced</artifactId>
     <version>2.11.4-PREVIEW</version>
-</dependency>
-    `
+</dependency>`
 });
 
 export const CreatingDynamoClient = generateCodeSlide("Creating Dynamo Client", [
@@ -143,8 +142,7 @@ export const CreatingDynamoClient = generateCodeSlide("Creating Dynamo Client", 
     "Create a Dynamo table object in Java to be able to use your table",
 ], {
     
-    code: `
-DynamoDbClient client = DynamoDbClient.builder()
+    code: synJava`DynamoDbClient client = DynamoDbClient.builder()
     .region(Region.US_EAST_1)
     .build();
 
@@ -153,15 +151,13 @@ DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
     .build();    
 
 DynamoDbTable<UserModel> table = 
-    client.table("practicum-table", TableSchema.fromBean(UserModel.class));
-`});
+    client.table("practicum-table", TableSchema.fromBean(UserModel.class));`});
 
 export const RecordModel = generateCodeSlide("Creating a Record Model", [
     "You can annotate a Java class to let Dynamo work with it easily",
 ], {
     
-    code: `
-private String id;
+    code: synJava`private String id;
 private String name;
 private Integer age;
 private Boolean isProfessor;
@@ -188,11 +184,9 @@ export const CreatingInDynamo = generateCodeSlide("Creating Records", [
     "This is sometimes called an upsert"
 ], {
     
-    code: `
-public void saveUser(UserModel model) {
+    code: synJava`public void saveUser(UserModel model) {
     userTable.putItem(model);
-}
-    `
+}`
 });
 
 export const FetchingInDynamo = generateCodeSlide("Fetching a Record", [
@@ -200,8 +194,7 @@ export const FetchingInDynamo = generateCodeSlide("Fetching a Record", [
     "You should get back an item of the type you defined in Java"
 ], {
     
-    code: `
-public UserModel fetchUser(String userId) {
+    code: synJava`public UserModel fetchUser(String userId) {
     Key key = Key.builder()
         .partitionValue(userId)
         .build();
@@ -233,8 +226,7 @@ export const UsingAnIndex = generateCodeSlide("Using an Index", [
     "You get back a bunch of Pages and you read results from the Pages"
 ], {
     
-    code: `
-QueryConditional query = QueryConditional
+    code: synJava`QueryConditional query = QueryConditional
     .keyEqualTo(Key.builder().partitionValue(name).build());
 
 var iterable = userTable.index("name-index")
@@ -242,8 +234,7 @@ var iterable = userTable.index("name-index")
 List<UserModel> users = new ArrayList<>();
 for(Page<UserModel> user: iterable) {
     users.addAll(user.items());
-}    
-    `
+}`
 });
 
 export const SecretNotesWithDynamo = generateMessageSlide(

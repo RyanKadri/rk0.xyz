@@ -1,6 +1,7 @@
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Resiliency, Logging, and Monitoring", "Deploying Reliable Services");
 
@@ -162,8 +163,7 @@ export const JavaLogging = generateCodeSlide("Logging in Java", [
     "Features include configurable log format, different log levels, and different output strategies"
 ],{
     
-    code: `
-public class SomeClass {
+    code: synJava`public class SomeClass {
 
     private static final Logger logger = LoggerFactory.getLogger(SomeClass.class);
 
@@ -171,8 +171,7 @@ public class SomeClass {
         logger.info("Did a thing");
     }
 
-}
-    `
+}`
 })
 
 export const references: Reference[] = [

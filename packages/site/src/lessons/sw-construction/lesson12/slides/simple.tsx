@@ -2,6 +2,7 @@ import { Link } from "@material-ui/core";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaAssistSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synDocker } from "../../../../common/highlighting";
 import dockerMeme from "./docker-layers.jpg";
 import docker from "./docker.png";
 
@@ -51,14 +52,12 @@ export const Images = generateCodeSlide("Container Images", [
     "Use sequential commands to define the desired environment state"
 ], {
     
-    code: `
-FROM maven:3.8.1-jdk-11 as builder
+    code: synDocker`FROM maven:3.8.1-jdk-11 as builder
 
 WORKDIR /app
 COPY ./pom.xml /app
 COPY src /app/src
-RUN mvn package`
-});
+RUN mvn package`});
 
 export const BuildingImages = generateContentSlide("Building Images", [
     'Docker images will build in the context of the "FROM" environment',

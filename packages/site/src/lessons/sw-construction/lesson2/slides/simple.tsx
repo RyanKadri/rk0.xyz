@@ -1,6 +1,7 @@
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synHTML, synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Project Management and Spring", "Ryan Kadri");
 
@@ -66,8 +67,7 @@ export const MavenDependencies = generateCodeSlide("Maven Example", [
     "Fairly verbose"
 ], {
     
-    code: `
-<!-- omitted -->
+    code: synHTML`<!-- omitted -->
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.15</maven.compiler.source>
@@ -81,8 +81,7 @@ export const MavenDependencies = generateCodeSlide("Maven Example", [
         <version>30.1-jre</version>
     </dependency>
 </dependencies>
-<!-- omitted -->
-    `.trim()
+<!-- omitted -->`.trim()
 })
 
 export const DependencyDive = generateCodeSlide("Maven Dependency", [
@@ -93,14 +92,12 @@ export const DependencyDive = generateCodeSlide("Maven Dependency", [
     "scope: How will it be used?"
 ], {
     
-    code: `
-<dependency>
+    code: synHTML`<dependency>
     <groupId>com.google.guava</groupId>
     <artifactId>guava</artifactId>
     <version>30.1-jre</version>
     <scope>compile</scope>
-</dependency>
-    `.trim()
+</dependency>`.trim()
 });
 
 export const ExampleTime = generateMessageSlide(
@@ -164,8 +161,7 @@ export const SpringCode = generateCodeSlide("Spring Example", [
     "You shouldn't need to know the internals to work with Spring"
 ], {
     
-    code: `
-@RestController
+    code: synJava`@RestController
 public class HelloWorldRestController {
 
     @GetMapping("/hello/{name}")
@@ -173,8 +169,7 @@ public class HelloWorldRestController {
         return new HelloResponse("Ryan", 28, true);
     }
     
-}`
-});
+}`});
 
 export const InversionOfControl = generateDefinitionSlide("Inversion of Control",
     "Rather than writing a lot of custom code that calls into libraries (traditional development), " +

@@ -2,6 +2,7 @@ import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@materi
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide(
     "State Management and Functional Programming",
@@ -44,7 +45,7 @@ export const UseLocals = generateCodeSlide("Use Local Variables", [
     "If data is only needed in a method call, make it local"
 ], {
     
-    code: `
+    code: synJava`
 // Using member variables
 private List<Song> favoriteSongs;
 public void countFavoriteSongs(List<Song> allSongs) {
@@ -56,8 +57,7 @@ public void countFavoriteSongs(List<Song> allSongs) {
 public void countFavoriteSongs(List<Song> allSongs) {
     List<Song> favoriteSongs = this.filterFavorites(allSongs);
     return favoriteSongs.size();
-}    
-    `
+}`
 });
 
 export const CaseStudySetters = generateContentSlide("Setters are Evil?", [
@@ -76,16 +76,14 @@ export const ConstructorsAreBetter = generateCodeSlide("Maybe Constructors are N
     'The object can be built "all at once" using a constructor'
 ], {
     
-    code: `
-// Using setters. Can be modified later
+    code: synJava`// Using setters. Can be modified later
 Employee ryan = new Employee();
 ryan.setName("Ryan Kadri");
 ryan.setAge(28);
 ryan.setJob("Developer");
 
 // Using Constructor. Can be locked down and not modifiable
-Employee ryan = new Employee("Ryan Kadri", 28, "Developer");
-    `
+Employee ryan = new Employee("Ryan Kadri", 28, "Developer");`
 });
 
 export const CaseStudyGetters = generateContentSlide("Getters are Meh?", [
@@ -105,8 +103,7 @@ export const UseDataRightAway = generateCodeSlide("Can you use the data right aw
     "If you need multiple values as a result, maybe an object is helpful?"
 ], { 
     
-    code: `
-// With getters
+    code: synJava`// With getters
 payrollManager.fetchEmployeeInfo(2020);
 double salary = payrollManager.getSalary();
 double bonus = payrollManager.getBonus();
@@ -114,8 +111,7 @@ double bonus = payrollManager.getBonus();
 // With returns / objects
 EmployeeInfo info = payrollManager.fetchEmployeeInfo(2020);
 double salary = info.getSalary();
-double bonus = info.getBonus();
-    `
+double bonus = info.getBonus();`
 });
 
 export const UseDataRightAway2 = generateCodeSlide("How is that any different?", [
@@ -123,8 +119,7 @@ export const UseDataRightAway2 = generateCodeSlide("How is that any different?",
     "PayrollManager does not store any state"
 ], {
     
-    code: `
-// Shared by all classes who need employee info
+    code: synJava`// Shared by all classes who need employee info
 public class PayrollManager {
     public EmployeeInfo fetchEmployeeInfo() {
         // ...
@@ -136,8 +131,7 @@ public class PayrollManager {
 // Immutable
 public class EmployeeInfo {
     public EmployeeInfo() {}
-}
-    `,
+}`,
 }, { codeFirst: true });
 
 export const CarefulWithReferences = generateContentSlide("References are dangerous", [
@@ -153,14 +147,12 @@ export const UnsafeSharing = generateCodeSlide("Unsafe Sharing", [
     "Making copies is sometimes preferable"
 ], {
     
-    code: `
-public void setupEmployees() {
+    code: synJava`public void setupEmployees() {
     List<Product> products = Inventory.fetchProducts();
     ProductDatabase.setProducts(products); // Stores parameter in a member variable
     QualityChecker.identifyDefects(products); // Removes non-defective products
     ReportGenerator.defectiveItemsReport(products); // Stores defective products
-}
-    `
+}`
 })
 
 export const FunctionalProgrammingIntro = generateDefinitionSlide(  
@@ -210,8 +202,7 @@ export const IsAPureFunction = generateCodeSlide("Pure Functions", [
     
 ], {
     
-    code: `
-public int addNumbers(int a, int b) {
+    code: synJava`public int addNumbers(int a, int b) {
     return a + b;
 }
 
@@ -228,16 +219,14 @@ public List<String> filterANames(List<String> names) {
         }
     }
     return result;
-}
-    `
+}`
 });
 
 export const NotAPureFunction = generateCodeSlide("Impure Functions", [
     
 ], {
     
-    code: `
-public void doSomething(int a, int b) { ... } // void methods must have side-effects
+    code: synJava`public void doSomething(int a, int b) { ... } // void methods must have side-effects
 
 public boolean flipACoin() { // A no-argument pure function can be a constant?
     double result = Math.random(); // Produces output based on randomness
@@ -256,9 +245,7 @@ public void filterANames(List<String> names) {
         }
     }
     return result;
-}
-
-    `
+}`
 });
 
 export const JavaAsFunctionalLanguage = generateContentSlide("Functional Java", [
