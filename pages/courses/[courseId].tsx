@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 export default function LessonListView({ currCourse }: Props) {
     const classes = useStyles();
     return (
-        <div className={ classes.container }>
+        <main className={ classes.container }>
             <Head>
                 <title>{ currCourse?.title ?? "" } - Lessons</title>
                 <meta name="description" key="description" content={ currCourse?.description } />
@@ -38,7 +38,7 @@ export default function LessonListView({ currCourse }: Props) {
                   </>
                 : "This course does not seem to exist"
             }
-        </div>
+        </main>
     )
 }
 

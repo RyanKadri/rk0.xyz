@@ -43,13 +43,13 @@ export default function ProjectView() {
     const classes = useStyles();
 
     return (
-        <div className={ classes.container }>
+        <main className={ classes.container }>
             <Head>
                 <title>My Projects</title>
             </Head>
             <Typography variant="h4" className={ classes.title }>Personal Projects</Typography>
             { projects.map(project => (
-                <Card key={ project.link } className={ classes.card }>
+                <Card key={ project.link } className={ classes.card } component="article">
                     <CardContent className={ classes.content }>
                         <Typography variant="h5" className={ classes.cardTitle }>
                             <Link href={ project.link } target="_blank" rel="noopener">
@@ -64,6 +64,6 @@ export default function ProjectView() {
                     </a>
                 </Card>
             ))}
-        </div>
+        </main>
     )
 }

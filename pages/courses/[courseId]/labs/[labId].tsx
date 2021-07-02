@@ -20,7 +20,8 @@ export default function LabView({ labContent, title, description }: Props) {
                 <meta name="description" key="description" content={ description } />
             )}
         </Head>
-        <div className={ classes.container } dangerouslySetInnerHTML={ { __html: labContent } } />
+        <main className={ classes.container } 
+              dangerouslySetInnerHTML={ { __html: labContent } } />
         </>
     )
 }

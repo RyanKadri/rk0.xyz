@@ -47,7 +47,7 @@ const siteLinks = [
 ];
 
 const externalLinks = [
-    { description: "Code", icon: faCode, link: "https://github.com/RyanKadri" }
+    { description: "My GitHub", icon: faCode, link: "https://github.com/RyanKadri" }
 ]
 
 export function RootNav() {

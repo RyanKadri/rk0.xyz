@@ -49,7 +49,7 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
     const onMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [ drawerOpen, setDrawerOpen ] = useState(false);
     return (
-        <div className={ classes.container }>
+        <main className={ classes.container }>
             <Drawer className={ classes.sidebar } 
                     variant={ (onMobile) ? "temporary" : "permanent" }
                     classes={{ paper: classes.sidebarSurface }}
@@ -79,6 +79,6 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
                 </header>
                 <ExamplePlayground example={ examples[currExample ]} highlightedCode={ highlightedCode! } />
             </div>
-        </div>
+        </main>
     )
 }

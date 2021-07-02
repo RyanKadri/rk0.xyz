@@ -24,7 +24,7 @@ This assignment is a bit different from what you have done before in that all an
 export function ExploringJSLab({}: Props) {
     const classes = useMarkdownLabStyles();
     return (
-        <div className={ classes.container }>
+        <main className={ classes.container }>
             <Typography variant="h1">Lab 4: Exploring JavaScript</Typography>
             <Typography variant="h2">Overview</Typography>
             <Typography variant="body1">{ overview }</Typography>
@@ -51,7 +51,7 @@ export function ExploringJSLab({}: Props) {
             
             <Typography variant="h2">Grading</Typography>
             <Typography variant="body1">{ grading }</Typography>
-        </div>
+        </main>
     )
 }
 

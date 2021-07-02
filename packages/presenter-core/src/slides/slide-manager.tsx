@@ -83,12 +83,12 @@ export function SlideManager({ course }: Props) {
     useTitle(course?.title ?? "Unknown")
     
     return (
-        <div>
+        <main>
             <SlideViewport Slide={ slides[slideNum] } 
                            context={ context } />
             <SlideControls previousSlide={ previousSlide } 
                            nextSlide={ nextSlide } 
                            className={ classes.controls } />
-        </div>
+        </main>
     )
 };

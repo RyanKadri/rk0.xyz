@@ -11,11 +11,11 @@ interface Props {
 export function StudyGuide({ content, baseUrl }: Props) {
     const classes = useMarkdownLabStyles();
     return (
-        <div className={ classes.container }>
+        <main className={ classes.container }>
             <Link href={ baseUrl } passHref>
                 <MaterialLink>Back to Course</MaterialLink>
             </Link>
             <div dangerouslySetInnerHTML={{ __html: content }} />
-        </div>
+        </main>
     )
 }

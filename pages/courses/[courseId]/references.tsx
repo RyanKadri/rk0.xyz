@@ -33,7 +33,7 @@ const useStyles = makeStyles(() => ({
 export default function ConsolidatedReferences({ currCourse }: Props) {
     const classes = useStyles();
     return (
-        <div className={ classes.container }>
+        <main className={ classes.container }>
             <Head>
                 <title>{currCourse.title} - References</title>
             </Head>
@@ -48,7 +48,7 @@ export default function ConsolidatedReferences({ currCourse }: Props) {
                     <LessonReferences lesson={ lesson } key={ lesson.slug } />
                 ))}
             </ul>
-        </div>
+        </main>
     )
 }
 
