@@ -59,7 +59,7 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
                 <List>
                     { examples.map((example, i) => (
                         <Link href={`${baseUrl}/${i}`} passHref key={ example.title }>
-                            <ListItem button component="a">
+                            <ListItem button component="a" onClick={ () => setDrawerOpen(false) }>
                                 <ListItemText primary={ example.title }></ListItemText>
                             </ListItem>
                         </Link>
