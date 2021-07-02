@@ -1,6 +1,6 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { createStyles, Drawer, IconButton, List, ListItem, ListItemText, makeStyles, Toolbar, Typography } from "@material-ui/core";
+import { createStyles, Drawer, Hidden, IconButton, List, ListItem, ListItemText, makeStyles, Typography, useMediaQuery, useTheme } from "@material-ui/core";
 import Link from "next/link";
 import React, { useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
@@ -24,6 +24,10 @@ const useStyles = makeStyles(theme => createStyles({
             padding: theme.spacing()
         }
     },
+    exampleHeader: {
+        display: "flex",
+        alignItems: "center"
+    },
     sidebar: {
         minWidth: 240,
     },
@@ -35,22 +39,23 @@ const useStyles = makeStyles(theme => createStyles({
 
 interface Props {
     examples: ExampleDefinition[];
-    currExample: number | null;
+    currExample: number;
     baseUrl: string;
     highlightedCode?: SyntaxHighlightedBlock;
 }
 export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode }: Props) {
     const classes = useStyles();
-    const [ drawerOpen, setDrawerOpen ] = useState(false)
+    const theme = useTheme();
+    const onMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const [ drawerOpen, setDrawerOpen ] = useState(false);
     return (
         <div className={ classes.container }>
             <Drawer className={ classes.sidebar } 
-                    variant="temporary" 
+                    variant={ onMobile ? "temporary" : "permanent" }
                     classes={{ paper: classes.sidebarSurface }}
                     open={ drawerOpen }
                     anchor="left"
-                    onClose={ () => setDrawerOpen(false) }
-                    >
+                    onClose={ () => setDrawerOpen(false) }>
                 <List>
                     { examples.map((example, i) => (
                         <Link href={`${baseUrl}/${i}`} passHref key={ example.title }>
@@ -62,22 +67,17 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
                 </List>
             </Drawer>
             <div className={ classes.codeContainer }>
-                { currExample === null
-                    ? <Typography>Please choose an example</Typography>
-                    : (
-                        <>
-                            <Toolbar>
-                                <IconButton onClick={ () => setDrawerOpen(!drawerOpen) }>
-                                    <FontAwesomeIcon icon={ faBars } />
-                                </IconButton>
-                                <Typography variant="h5">
-                                    { examples[currExample].title }
-                                </Typography>
-                            </Toolbar>
-                            <ExamplePlayground example={ examples[currExample ]} highlightedCode={ highlightedCode! } />
-                        </>
-                    )
-                }
+                <header className={ classes.exampleHeader }>
+                    <Hidden mdUp>
+                        <IconButton onClick={ () => setDrawerOpen(!drawerOpen) }>
+                            <FontAwesomeIcon icon={ faBars } />
+                        </IconButton>
+                    </Hidden>
+                    <Typography variant="h5">
+                        { examples[currExample].title }
+                    </Typography>
+                </header>
+                <ExamplePlayground example={ examples[currExample ]} highlightedCode={ highlightedCode! } />
             </div>
         </div>
     )

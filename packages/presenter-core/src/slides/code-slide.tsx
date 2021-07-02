@@ -13,7 +13,8 @@ const useStyles = makeStyles({
     },
     codeBlock: {
         overflow: "auto",
-        flexShrink: 1
+        flexShrink: 1,
+        fontSize: "26px"
     }
 })
 

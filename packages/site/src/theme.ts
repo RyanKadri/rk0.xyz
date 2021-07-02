@@ -20,13 +20,13 @@ export const appTheme = createMuiTheme({
         '"Segoe UI Symbol"',
       ].join(','),
       h3: {
-        fontWeight: 100
+        fontWeight: 300
       },
       h4: {
-        fontWeight: 100
+        fontWeight: 300
       },
       h5: {
-        fontWeight: 100
+        fontWeight: 300
       }
     }
 });

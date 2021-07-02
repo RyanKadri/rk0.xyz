@@ -62,7 +62,7 @@ function LessonCardView({ course, baseUrl }: Props) {
                     )}
                 </CardContent>
                 <CardActions>
-                    <Link href={`${baseUrl}/lessons/${lesson.slug}/examples`} passHref>
+                    <Link href={`${baseUrl}/lessons/${lesson.slug}/examples/0`} passHref>
                         <MaterialLink>Examples</MaterialLink>
                     </Link>
                     <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>
@@ -114,7 +114,7 @@ function LessonTableView({ course, baseUrl }: Props) {
                                 </TableCell>
                                 <TableCell>
                                     { lesson.examples.length > 0 && (
-                                        <Link href={`${baseUrl}/lessons/${lesson.slug}/examples`} passHref>
+                                        <Link href={`${baseUrl}/lessons/${lesson.slug}/examples/0`} passHref>
                                             <MaterialLink>
                                                 <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
                                                 ({ lesson.examples.length })

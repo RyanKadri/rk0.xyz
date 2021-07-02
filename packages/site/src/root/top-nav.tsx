@@ -23,9 +23,7 @@ const useStyles = makeStyles(theme => createStyles({
     navBar: {
         fontSize: 16,
         overflowX: "auto",
-        [ theme.breakpoints.down("sm") ]: {
-            zIndex: theme.zIndex.drawer + 500
-        }
+        zIndex: theme.zIndex.drawer + 500
     },
     linkGroup: {
         "& a": {
