@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./strings.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -19,6 +19,19 @@ const slideItems = [
     "Cannot be modified directly",
     "Many built-in methods"
 ];
+
+const code = synJS`
+const myName = "Ryan Kadri";
+
+for(const letter of myName) {
+    console.log(letter);
+}
+
+console.log(myName.toLowerCase()) // "ryan kadri";
+console.log(myName.repeat(2)); // "Ryan KadriRyan Kadri"
+console.log(myName.substring(0,4)) // "Ryan";
+console.log(myName.split(" ")) // [ "Ryan", "Kadri" ];
+`
 
 export function StringsPart2({ context }: Props) {
     const classes = useStyles();

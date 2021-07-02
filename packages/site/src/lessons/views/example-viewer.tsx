@@ -1,10 +1,13 @@
-import { createStyles, List, ListItem, ListItemText, makeStyles, Paper, Typography } from "@material-ui/core";
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { createStyles, Drawer, IconButton, List, ListItem, ListItemText, makeStyles, Toolbar, Typography } from "@material-ui/core";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
+import { SyntaxHighlightedBlock } from '../../../../presenter-core/src/slide-components/code-block';
 import { ExamplePlayground } from "../components/example-playground";
 
-const useStyles = makeStyles(createStyles({
+const useStyles = makeStyles(theme => createStyles({
     container: {
         display: "flex",
         minHeight: "calc(100vh - 64px)",
@@ -13,22 +16,41 @@ const useStyles = makeStyles(createStyles({
     codeContainer: {
         display: "flex",
         flexDirection: "column",
-        paddingTop: 16,
-        paddingLeft: 16,
+        padding: "16px 16px 0px 16px",
         boxSizing: "border-box",
         flexGrow: 1,
-        width: "calc(100vw - 256px)"
+        width: "calc(100vw - 256px)",
+        [theme.breakpoints.down("sm")]: {
+            padding: theme.spacing()
+        }
     },
     sidebar: {
-        minWidth: 240
-    }
+        minWidth: 240,
+    },
+    sidebarSurface: {
+        minWidth: 240,
+        paddingTop: theme.spacing(8)
+    },
 }))
 
-export function ExampleViewer({ examples, currExample, baseUrl }: Props) {
+interface Props {
+    examples: ExampleDefinition[];
+    currExample: number | null;
+    baseUrl: string;
+    highlightedCode: SyntaxHighlightedBlock;
+}
+export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode }: Props) {
     const classes = useStyles();
+    const [ drawerOpen, setDrawerOpen ] = useState(false)
     return (
         <div className={ classes.container }>
-            <Paper className={ classes.sidebar }>
+            <Drawer className={ classes.sidebar } 
+                    variant="temporary" 
+                    classes={{ paper: classes.sidebarSurface }}
+                    open={ drawerOpen }
+                    anchor="left"
+                    onClose={ () => setDrawerOpen(false) }
+                    >
                 <List>
                     { examples.map((example, i) => (
                         <Link href={`${baseUrl}/${i}`} passHref key={ example.title }>
@@ -38,24 +60,25 @@ export function ExampleViewer({ examples, currExample, baseUrl }: Props) {
                         </Link>
                     ))}
                 </List>
-            </Paper>
+            </Drawer>
             <div className={ classes.codeContainer }>
                 { currExample === null
                     ? <Typography>Please choose an example</Typography>
                     : (
                         <>
-                            <Typography variant="h4">{ examples[currExample].title }</Typography>
-                            <ExamplePlayground example={ examples[currExample ]} />
+                            <Toolbar>
+                                <IconButton onClick={ () => setDrawerOpen(!drawerOpen) }>
+                                    <FontAwesomeIcon icon={ faBars } />
+                                </IconButton>
+                                <Typography variant="h5">
+                                    { examples[currExample].title }
+                                </Typography>
+                            </Toolbar>
+                            <ExamplePlayground example={ examples[currExample ]} highlightedCode={ highlightedCode } />
                         </>
                     )
                 }
             </div>
         </div>
     )
-}
-
-interface Props {
-    examples: ExampleDefinition[];
-    currExample: number | null;
-    baseUrl: string
 }

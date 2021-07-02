@@ -32,9 +32,6 @@ function extractFunctionInfo(code: string): FunctionInfo[] | null {
 };
 
 const useStyles = makeStyles({
-    container: {
-        padding: 4
-    },
     actionHeader: {
         display: "flex",
         justifyContent: "space-between",
@@ -89,7 +86,7 @@ export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
     }
 
     return (
-        <div className={ classes.container }>
+        <>
             { functions === null
                 ? <p>Error parsing function</p>
                 : (
@@ -125,6 +122,6 @@ export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
                     </>   
                 )
             }
-        </div>
+        </>
     )
 }

@@ -8,8 +8,7 @@ import textAndHeadings from "./examples/textAndHeadings.html";
 import { OutlineToHtml } from "./slides/outline-to-html";
 import { SimpleBrowserSlide } from "./slides/simple-browser";
 import { SimpleMonitorSlide } from "./slides/simple-monitor";
-import { AboutMe, AboutMePicture, CourseNonTopics, CourseTools, CourseTopics, Expectations, HtmlAsStructure, HTMLDef, LetsCode, references, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite } from "./slides/simple-slides";
-import { XMLSlide } from "./slides/xml-slide";
+import { AboutMe, AboutMePicture, CourseNonTopics, CourseTools, CourseTopics, Expectations, HtmlAsStructure, HTMLDef, LetsCode, references, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite, XMLSlide } from "./slides/simple-slides";
 
 export const lesson1: Presentation = {
     title: "Hello World!",

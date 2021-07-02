@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./variables.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -19,6 +19,15 @@ const slideItems = [
     "They label a piece of data",
     'Variables defined with "let" can be reassigned. "const" variables cannot',
 ];
+
+const code = synJS`
+let data = "Ryan";
+data = 123;
+data = false;
+data = null;
+const something = 456;
+something = 123 // TypeError
+`
 
 export function VariablesRedux({ context }: Props) {
     const classes = useStyles();

@@ -1,31 +1,20 @@
-export function synJS(strings: TemplateStringsArray) {
-    return strings.join("")
-}
+import { SyntaxHighlightedBlock } from "../../../presenter-core/src/slide-components/code-block";
 
-export function synHTML(strings: TemplateStringsArray) {
-    return strings.join("")
-}
+export const synJS = makeHighlighter();
+export const synHTML = makeHighlighter();
+export const synCSS = makeHighlighter();
+export const synTS = makeHighlighter();
+export const synJava = makeHighlighter();
+export const synHCL = makeHighlighter();
+export const synDocker = makeHighlighter();
+export const synGherkin = makeHighlighter();
 
-export function synCSS(strings: TemplateStringsArray) {
-    return strings.join("")
-}
-
-export function synTS(strings: TemplateStringsArray) {
-    return strings.join("")
-}
-
-export function synJava(strings: TemplateStringsArray) {
-    return strings.join("")
-}
-
-export function synHCL(strings: TemplateStringsArray) {
-    return strings.join("")
-}
-
-export function synDocker(strings: TemplateStringsArray) {
-    return strings.join("")
-}
-
-export function synGherkin(strings: TemplateStringsArray) {
-    return strings.join("")
+function makeHighlighter() {
+    return function(string: TemplateStringsArray): SyntaxHighlightedBlock {
+        return {
+            html: "",
+            language: "",
+            raw: string.join("")
+        }
+    }
 }

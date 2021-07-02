@@ -34,7 +34,7 @@ export const projects: ProjectConfig[] = [
                 <Link href="https://www.netlify.com/">Netlify</Link>
                 &nbsp;(for free!)
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="h6" style={{ marginTop: 16 }}>
                 Backend
             </Typography>
             <Typography variant="body1">
@@ -58,9 +58,6 @@ export const projects: ProjectConfig[] = [
         imageAlt: "An image of the Mandelbrot set",
         description: (
             <>
-            <Typography variant="h6">
-                Design
-            </Typography>
             <Typography variant="body1">
                 This app was mostly written in plain TypeScript. I used the Canvas
                 API to plot the Mandelbrot set. In order to improve graphing performance, I used
@@ -82,9 +79,6 @@ export const projects: ProjectConfig[] = [
         imageAlt: "My Resume",
         description: (
             <>
-            <Typography variant="h6">
-                Design
-            </Typography>
             <Typography variant="body1">
                 For my resume, I wanted to play around with Server Side Rendering and using JSX outside of a library. I wanted to
                 make my resume so that it ran without any runtime dependencies. Instead, I had fun overloading the project

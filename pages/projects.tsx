@@ -6,13 +6,19 @@ import { projects } from "../packages/site/src/projects/projects-config";
 const useStyles = makeStyles(theme => ({
     container: {
         padding: theme.spacing(2),
-        maxWidth: 1200
+        maxWidth: 1200,
+        [theme.breakpoints.down("sm")]: {
+            padding: theme.spacing()
+        }
     },
     card: {
         display: "flex",
         padding: theme.spacing(2),
         gap: theme.spacing(),
-        marginBottom: theme.spacing()
+        marginBottom: theme.spacing(),
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column"
+        }
     },
     content: {
         padding: 0
@@ -22,7 +28,11 @@ const useStyles = makeStyles(theme => ({
     },
     screenshot: {
         width: 350,
-        height: 250
+        height: 250,
+        [theme.breakpoints.down("sm")]: {
+            width: "100%",
+            height: "initial"
+        }
     },
     title: {
         marginBottom: theme.spacing(2)

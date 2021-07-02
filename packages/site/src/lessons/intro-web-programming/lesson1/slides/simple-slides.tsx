@@ -2,7 +2,8 @@ import { Link as MaterialLink } from "@material-ui/core";
 import React from "react";
 import aboutMe from "../../../../../../../public/images/about-me-picture-web.jpg";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synHTML } from "../../../../common/highlighting";
 
 export const TitleSlide = generateTitleSlide("Course Expectations and Intro to HTML", "Ryan Kadri");
 
@@ -104,6 +105,16 @@ export const HTMLDef = generateContentSlide("HTML", [
     'Based on XML',
     'Not a programming language',
 ]);
+
+export const XMLSlide = generateCodeSlide("XML", [], {
+    code: synHTML`<Book isbn=”9788580410631”>
+    <Title>The Name of the Wind</Title>
+    <Author>
+        <FirstName>Patrick</FirstName>
+        <LastName>Rothfuss</LastName>
+    </Author>
+</Book>`
+})
 
 export const HtmlAsStructure = generateContentSlide("HTML", [
     'HTML is not meant to describe presentation',

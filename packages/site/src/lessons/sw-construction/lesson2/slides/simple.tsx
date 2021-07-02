@@ -67,7 +67,8 @@ export const MavenDependencies = generateCodeSlide("Maven Example", [
     "Fairly verbose"
 ], {
     
-    code: synHTML`<!-- omitted -->
+    code: synHTML`
+<!-- omitted -->
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.15</maven.compiler.source>
@@ -81,7 +82,7 @@ export const MavenDependencies = generateCodeSlide("Maven Example", [
         <version>30.1-jre</version>
     </dependency>
 </dependencies>
-<!-- omitted -->`.trim()
+<!-- omitted -->`
 })
 
 export const DependencyDive = generateCodeSlide("Maven Dependency", [
@@ -97,7 +98,7 @@ export const DependencyDive = generateCodeSlide("Maven Dependency", [
     <artifactId>guava</artifactId>
     <version>30.1-jre</version>
     <scope>compile</scope>
-</dependency>`.trim()
+</dependency>`
 });
 
 export const ExampleTime = generateMessageSlide(

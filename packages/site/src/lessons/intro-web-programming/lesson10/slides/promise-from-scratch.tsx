@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./promise-from-scratch.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -19,6 +19,14 @@ const items = [
     'Can "wrap" asynchronous operations with a Promise',
     'Call a "resolve" function with the result of your operation (if any)'
 ];
+
+const code = synJS`
+function delay(nMillis) {
+    return new Promise(function(resolve, reject) {
+        setTimeout(resolve, nMillis)
+    })
+}
+`
 
 export function PromisesFromScratch({ context }: Props) {
     const classes = useStyles();

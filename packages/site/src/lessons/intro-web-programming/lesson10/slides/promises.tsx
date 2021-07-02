@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./promises.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -20,6 +20,14 @@ const items = [
     "Promises can complete or fail (resolve or reject)",
     "Promises allow callbacks to be set up for when a promise completes or fails",
 ];
+
+const code = synJS`
+const myPromise = fetch("https://some-url.com");
+
+myPromise
+    .then(response => { return response.json() })
+    .then(response => { console.log(response) })
+`;
 
 export function Promises({ context }: Props) {
     const classes = useStyles();

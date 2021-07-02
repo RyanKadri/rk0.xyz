@@ -2,13 +2,23 @@ import React from "react";
 
 export function CodeBlock({ code, className }: Props) {
     return (
-        <div className={className || ""} 
-             dangerouslySetInnerHTML={ { __html: code } } />
+        <pre className={`language-${code.language}`}>
+            <code className={`language-${code.language}`}>
+                <div className={className || ""} 
+                    dangerouslySetInnerHTML={ { __html: code.html } } />
+            </code>
+        </pre>
     )
 }
 
 
 interface Props {
-    code: string;
+    code: SyntaxHighlightedBlock;
     className?: string;
+}
+
+export interface SyntaxHighlightedBlock {
+    raw: string;
+    html: string;
+    language: string;
 }

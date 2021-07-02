@@ -4,7 +4,7 @@ import { AppBar, createStyles, makeStyles, Toolbar } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";
 
-const useStyles = makeStyles(createStyles({
+const useStyles = makeStyles(theme => createStyles({
     title: { 
         marginRight: 16
     },
@@ -23,6 +23,9 @@ const useStyles = makeStyles(createStyles({
     navBar: {
         fontSize: 16,
         overflowX: "auto",
+        [ theme.breakpoints.down("sm") ]: {
+            zIndex: theme.zIndex.drawer + 500
+        }
     },
     linkGroup: {
         "& a": {

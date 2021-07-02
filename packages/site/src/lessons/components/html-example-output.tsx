@@ -7,11 +7,6 @@ const useStyles = makeStyles({
         flexGrow: 1,
         backgroundColor: "white"
     },
-    resultContainer: {
-        padding: 8,
-        display: "flex",
-        flexDirection: "column"
-    },
     saveButton: {
         alignSelf: "flex-end",
         marginBottom: 4,
@@ -26,8 +21,6 @@ export function HTMLExampleOutput({ code }: Props) {
     const classes = useStyles();
 
     return (
-        <div className={ classes.resultContainer }>
-            <iframe className={classes.content} srcDoc={ code } />
-        </div>
+        <iframe className={classes.content} srcDoc={ code } />
     )
 }

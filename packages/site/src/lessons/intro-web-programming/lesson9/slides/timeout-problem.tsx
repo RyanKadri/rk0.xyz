@@ -4,14 +4,26 @@ import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./timeout-problem.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
         fontSize: 28,
         userSelect: "text"
     }
-}))
+}));
+
+const code = synJS`
+function sayHi() {
+    console.log("Hi")
+}
+
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+`
 
 export function NonBlockingExample({ context }: Props) {
     const classes = useStyles();

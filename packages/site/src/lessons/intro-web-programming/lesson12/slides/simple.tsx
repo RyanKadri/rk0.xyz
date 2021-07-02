@@ -28,10 +28,11 @@ export const NodeJS = generateCodeSlide("NodeJS", [
     "NodeJS can read files, interact with other programs, and act as a server",
 ], 
 {
-    code: synJS`const fs = require("fs");
+    code: synJS`
+const fs = require("fs");
 fs.readFile("/home/ryan/Documents/hello.txt", "utf-8", (err, data) => {
     console.log(data);
-})`.trim()
+})`
 });
 
 export const OtherHomes = generateContentSlide("Other JavaScript Homes", [
@@ -62,12 +63,13 @@ export const TypeScript = generateCodeSlide("Typescript", [
     "Lets IDEs provide suggestions for your code"
 ], {
     
-    code: synTS`function addNumbers(a: number, b: number): number {
+    code: synTS
+`function addNumbers(a: number, b: number): number {
     return a + b;
 }
 
 addNumbers(1,2) // This is allowed
-addNumbers("a", { name: "bob" }) // This does not compile`.trim()
+addNumbers("a", { name: "bob" }) // This does not compile`
 });
 
 export const Imports = generateCodeSlide("Imports and Modules", [

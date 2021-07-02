@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./promise-chaining.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -20,6 +20,15 @@ const items = [
     "This collapsing helps make asynchronous code much easier to follow",
     "You don't need nested callbacks. Can orchestrate everything in one place"
 ];
+
+const code = synJS`
+delay(1000)
+    .then(() => console.log("Hi"))
+    .then(() => delay(1000))
+    .then(() => console.log("I'm"))
+    .then(() => delay(1000))
+    .then(() => console.log("Ryan"))
+`
 
 export function PromiseChaining({ context }: Props) {
     const classes = useStyles();

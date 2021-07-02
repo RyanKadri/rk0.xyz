@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./add-event-listener-questions.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -20,6 +20,15 @@ const slideItems = [
     "What just happened there?",
     <>Why not "<code>myPanel.addEventListener("click", <u>changeColor()</u>);</code>"?</>
 ];
+
+const code = synJS`
+const myPanelHeader = document.querySelector(".my-panel header");
+myPanel.addEventListener("click", changeColor);
+
+function changeColor() {
+    myPanelHeader.style.color = "red"
+}
+`
 
 export function AddEventListenerQuestions({ context }: Props) {
     const classes = useStyles();

@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./async-callback-examples.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -18,6 +18,19 @@ const slideItems = [
     "You can use the setTimeout function to do things after a certain delay",
     "Pass a function (for what to do) and a delay time (in ms)"
 ];
+
+const code = synJS`
+function printHello() {
+    console.log("Hello!");
+}
+
+function annoying() {
+    console.log("Is this annoying?");
+}
+
+setTimeout(printHello, 1000);
+setInterval(annoying, 1000);
+`
 
 export function Timeouts({ context }: Props) {
     const classes = useStyles();

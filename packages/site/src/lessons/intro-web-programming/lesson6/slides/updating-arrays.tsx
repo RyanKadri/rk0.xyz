@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./updating-arrays.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -31,6 +31,14 @@ const slideItems = [
     "You can remove items from the middle of the array",
     'You can "push" items into the front or back of the array'
 ];
+
+const code = synJS`
+let evenNumbers = [2, 3, 6, 8];
+evenNumbers[1] = 4 // Oops;
+evenNumbers.push(10); // [2, 4, 6, 8, 10]
+evenNumbers.unshift(0); // [0, 2, 4, 6, 8, 10];
+evenNumbers.splice(2, 1);
+`
 
 export function UpdatingArrays({ context }: Props) {
     const classes = useStyles();

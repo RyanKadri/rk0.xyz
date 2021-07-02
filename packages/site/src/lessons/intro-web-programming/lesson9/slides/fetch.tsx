@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./fetch.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -20,6 +20,12 @@ const items = [
     'Gives back the response in terms of a "Promise"',
     "It is a low-level function so you have to manually parse the request"
 ];
+
+const code = synJS`
+fetch("https://some-url.com")
+    .then(response => { return response.json() })
+    .then(response => { console.log(response) })
+`
 
 export function FetchExample({ context }: Props) {
     const classes = useStyles();

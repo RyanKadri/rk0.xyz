@@ -98,7 +98,7 @@ The main things I am looking for in this lab are:
 
 ## Sample Code
 
-```html
+const myHTML = synHTML`
 <html>
     <head>
         <title>MyFace</title>
@@ -145,4 +145,4 @@ The main things I am looking for in this lab are:
         </div>
     </body>
 </html>
-```
+`

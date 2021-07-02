@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./while-loops.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -17,6 +17,19 @@ const useStyles = makeStyles(createStyles({
 const slideItems = [
     `While loops run as long as something is "truthy"`,
 ];
+
+const code = synJS`
+let counter = 0;
+while(counter < 5) {
+    console.log(counter);
+    counter ++;
+}
+
+let test = "blahh"
+while(test) {
+    // Runs forever
+}
+`;
 
 export function WhileLoops({ context }: Props) {
     const classes = useStyles();

@@ -5,8 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import myHTML from "./selectors-html.md";
-import code from "./selectors.md";
+import { synHTML, synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -24,6 +23,19 @@ const slideItems = [
     "You can overwrite some properties to make changes",
     "You can call methods to get additional info"
 ];
+
+const myHTML = synHTML`
+<div class="my-panel">
+    <header>Panel Title</header>
+</div>
+`;
+
+const code = synJS`
+const myPanelHeader = document.querySelector(".my-panel header");
+const panelTitle = myPanelHeader.innerText;
+myPanelHeader.innerText = panelTitle.toUpperCase();
+myPanelHeader.parentElement.getAttribute("class");
+`;
 
 export function QuerySelector({ context }: Props) {
     const classes = useStyles();

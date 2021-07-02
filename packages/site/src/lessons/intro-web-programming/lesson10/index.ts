@@ -1,7 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { AsyncFunctions } from "./slides/async-functions";
-import { AsyncErrorHandling } from "./slides/async-functions-error-handling";
 import { PromiseChaining } from "./slides/promise-chaining";
 import { PromiseErrorHandling } from "./slides/promise-error-handling";
 import { PromisesFromScratch } from "./slides/promise-from-scratch";
@@ -28,8 +26,8 @@ export const lesson10: Presentation = {
         TryCatchNoHandling,
         TryCatchWithHandling,
         PromiseErrorHandling,
-        AsyncFunctions,
-        AsyncErrorHandling,
+        simple.AsyncFunctions,
+        simple.AsyncErrors,
         RequestTemplate,
         UrlParts,
         simple.RequestMethod,

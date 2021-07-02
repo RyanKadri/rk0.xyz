@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./document.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -21,6 +21,12 @@ const slideItems = [
     'Lets you create new elements "from scratch"',
     "Gives methods to access elements on the page"
 ];
+
+const code = synJS`
+const tabTitle = document.title;
+const currentUrl = document.location.href;
+const newHeading = document.createElement("h1");
+`
 
 export function DocumentObject({ context }: Props) {
     const classes = useStyles();

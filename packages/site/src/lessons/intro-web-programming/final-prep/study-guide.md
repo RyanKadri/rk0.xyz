@@ -100,12 +100,12 @@ This may not be a 100% complete list of topics but it should get you most of the
     - They let you write callbacks quicker but aren't doing anything too crazy. The following 3 snippets are mostly the same (although you can reuse the doubleNum function in the 3rd example if you wanted)
     - `[1,2,3].map(num => 2 * num)`
     - `[1,2,3].map(function(num) { return 2 * num } )`
-    - ```
+    - `
        [1,2,3].map(doubleNum);
        function doubleNum(num) {
            return 2 * num;
        }
-    ```
+    `
 - Understand how to use "basic" Promises
     - fetch is the most obvious place you are going to need them.
 - Understand how to chain Promises. Understand the `.then(AAA).then(BBB).then(CCC)` structure

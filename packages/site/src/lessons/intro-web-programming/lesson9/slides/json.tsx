@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./json.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -21,6 +21,14 @@ const items = [
     "You can create a JavaScript object from JSON easily",
     "Commonly -- Send a request with some JSON data and get JSON data in response"
 ];
+
+const code = synJS`json
+{
+    "name": "Ryan",
+    "age": 28,
+    "isProfessor": true
+}
+`
 
 export function JSONExample({ context }: Props) {
     const classes = useStyles();

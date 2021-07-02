@@ -5,8 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import myHTML from "./reacting-to-input-html.md";
-import code from "./reacting-to-input.md";
+import { synHTML, synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -22,6 +21,18 @@ const slideItems = [
     "onclick, onmouseover, onkeypress, etc.",
     "The function needs to be defined somewhere"
 ];
+
+const code = synJS`
+function detonate() {
+    const paragraph = document.querySelector("#detonate-paragraph");
+    paragraph.innerText = "Boom"
+}
+`
+const myHTML = synHTML`
+<p id="detonate-paragraph">Detonate</p>
+<button onclick="detonate()">Don't click me!</button>
+`
+
 
 export function ReactingToInput({ context }: Props) {
     const classes = useStyles();

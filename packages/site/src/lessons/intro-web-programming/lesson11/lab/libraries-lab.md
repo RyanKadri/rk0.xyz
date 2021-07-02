@@ -20,9 +20,9 @@ You can find documentation on how to use the library on this page: <https://www.
 
 Remember that you should be using the CDN installation method. In other words, you should be including a `<script>` tag on your page. Probably something like:
 
-```
+`
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" crossorigin="anonymous"></script>
-```
+`
 
 It is important that this script tag comes before any script tag where you are trying to use the library.
 

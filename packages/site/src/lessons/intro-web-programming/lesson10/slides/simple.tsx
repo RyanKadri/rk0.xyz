@@ -1,5 +1,6 @@
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synJS } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Promises and the Network", "Ryan Kadri");
 
@@ -10,6 +11,42 @@ export const PromiseErrorQuestion = generateMessageSlide(
 export const Networking = generateMessageSlide(
     "Talking to Servers"
 )
+
+export const AsyncFunctions = generateCodeSlide("Async Functions", [
+    "Recently, JavaScript added support for async functions",
+    "async functions simplify promises even further",
+    <>Allow you to <code>await</code> a Promise and write more synchronous code</>,
+    "Remains non-blocking. Always returns a Promise",
+    <>Other code can run while async function is <code>await</code>ing</>
+], {
+    code: synJS`
+async function printSomeStuff() {
+    await delay(1000);
+    console.log("Hi");
+    await delay(1000);
+    console.log("I'm");
+    await delay(1000);
+    console.log("Ryan")
+}
+    `
+})
+
+export const AsyncErrors = generateCodeSlide("Async Error Handling", [
+    "async functions allow you to use normal try / catch with Promises",
+    "If something throws in a try / catch while awaiting, you can handle it"
+], {
+    code: synJS`
+async function serverCall() {
+    try {
+        const resp = await fetch("https://some-server.com")
+        const data = await resp.json();
+        console.log(data);
+    } catch(e) {
+        console.log("Something went wrong with your request!")
+    }
+}    
+    `
+})
 
 export const RequestMethod = generateContentSlide("Request Method", [
     'Requests have a "method" to define how you want to interact with a resource',

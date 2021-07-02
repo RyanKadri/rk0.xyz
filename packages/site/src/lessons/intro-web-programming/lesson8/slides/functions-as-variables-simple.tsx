@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./functions-as-variables-simple.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -18,6 +18,15 @@ const slideItems = [
     "Functions can be labeled by variables like any other data",
     "Once assigned to a variable, the variable name can be used to call the function",
 ];
+
+const code = synJS`
+function add(a, b) {
+    return a + b;
+}
+
+const myRenamedFunction = add;
+myRenamedFunction(1,2) // Returns 3
+`
 
 export function FunctionsAsVariablesSimple({ context }: Props) {
     const classes = useStyles();

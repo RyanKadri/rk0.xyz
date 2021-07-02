@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./async-callbacks.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -18,6 +18,22 @@ const slideItems = [
     "Functions are just like other data types",
     "They can be assigned, returned, and passed as parameters"
 ];
+
+const code = synJS`
+function add(a, b) {
+    return a+b;
+}
+
+function addOne() {
+    return function(a) {
+        return add(a,1);
+    }
+}
+
+function doSomething(arg) {
+    return arg(2);
+}
+`
 
 export function FunctionsRedux({ context }: Props) {
     const classes = useStyles();

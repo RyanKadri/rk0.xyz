@@ -5,8 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import myHTML from "./inputs-html.md";
-import code from "./inputs.md";
+import { synHTML, synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -22,6 +21,23 @@ const slideItems = [
     "The <input>, <button>, and <select> are probably the most common",
     "JavaScript can read the value of inputs"
 ];
+
+const code = synJS`
+const myTextbox = document.querySelector("#my-textbox");
+const myCheckbox = document.querySelector("#my-checkbox");
+
+const userInputText = myTextbox.value;
+const isCheckboxChecked = myCheckbox.checked;
+
+if(isCheckboxChecked) {
+    // ...
+}
+`;
+
+const myHTML = synHTML`
+<input type="text" id="my-textbox">
+<input type="checkbox" id="my-checkbox">
+`
 
 export function UserInputElements({ context }: Props) {
     const classes = useStyles();

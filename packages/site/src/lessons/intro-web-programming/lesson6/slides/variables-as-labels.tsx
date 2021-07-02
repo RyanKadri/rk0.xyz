@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./variables-as-labels.md";
+import { synJS } from "../../../../common/highlighting";
 import variableDiagram from "./variables.svg";
 
 const useStyles = makeStyles(createStyles({
@@ -25,6 +25,12 @@ const slideItems = [
     "This means that you can update one object using two different variables",
     "JavaScript does not copy values when setting variables"
 ];
+
+const code = synJS`
+const ryan = { name: "Ryan", age: 26, job: "Developer", id: "abc123" };
+const evilTwin = ryan;
+evilTwin.isEvil = true;
+`
 
 export function VariablesAsLabels({ context }: Props) {
     const classes = useStyles();

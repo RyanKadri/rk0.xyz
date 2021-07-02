@@ -28,7 +28,7 @@
             * That is in turn a child of an element with tag "a"
     * (eg) 
 
-    ```html
+    const myHTML = synHTML`
         <a>
             <b class="special">
                 <c class="thingy" id="whatever">
@@ -37,4 +37,4 @@
                 <d>I am not :(</d>
             </b>
         </a>
-    ```
+    `

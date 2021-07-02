@@ -5,8 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import myHTML from "./add-event-listener-html.md";
-import code from "./add-event-listener.md";
+import { synHTML, synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -21,6 +20,21 @@ const slideItems = [
     'You can "listen" for events in JavaScript like you can in HTML',
     "Similar to adding an onclick event handler in HTML"
 ];
+
+const myHTML = synHTML`
+<div class="my-panel">
+    <header>Panel Title</header>
+</div>
+`;
+
+const code = synJS`
+const myPanelHeader = document.querySelector(".my-panel header");
+myPanel.addEventListener("click", changeColor);
+
+function changeColor() {
+    myPanelHeader.style.color = "red"
+}
+`
 
 export function AddEventListener({ context }: Props) {
     const classes = useStyles();

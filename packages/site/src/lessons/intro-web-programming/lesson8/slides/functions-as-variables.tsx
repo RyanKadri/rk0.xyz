@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./functions-as-variables.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -18,6 +18,19 @@ const slideItems = [
     "Whole functions can even be passed as parameters to or returned from other functions",
     "This is what happens in addEventListener"
 ];
+
+const code = synJS`
+function sayHello() {
+    console.log("Hello")
+}
+
+function doSomethingTwice(something) {
+    something();
+    something();
+}
+
+doSomethingTwice(sayHello)
+`
 
 export function FunctionsAsVariablesPart2({ context }: Props) {
     const classes = useStyles();

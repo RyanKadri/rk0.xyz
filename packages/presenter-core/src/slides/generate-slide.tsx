@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from "react";
 import { PresentationContext } from "../services/types";
-import { CodeBlock } from "../slide-components/code-block";
+import { CodeBlock, SyntaxHighlightedBlock } from "../slide-components/code-block";
 import { InfoList, NestedListInfo } from "../slide-components/info-list";
 import { CenterMessageSlide } from "./center-message-slide";
 import { ContentSlide, ContentSlideOptions } from "./content-slide";
@@ -43,7 +43,7 @@ export function generateMediaSlide(
 }
 
 interface SlideCode {
-    code: string;
+    code: SyntaxHighlightedBlock;
 }
 
 interface CodeSlideOptions {

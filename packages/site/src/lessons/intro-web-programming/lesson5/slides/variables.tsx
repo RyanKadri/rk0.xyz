@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./variables.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -21,6 +21,15 @@ const slideItems = [
     'The label can be re-pointed to new data if you use "let"',
     'The label can be re-pointed to different types of data if you use "let"'
 ];
+
+const code = synJS`
+const myName = "Ryan";
+let myAge = 28;
+const isATeacher = true;
+const obj = 
+    { firstName: "Ryan", lastName: "Kadri" };
+const nothing = null;
+`
 
 export function VariablesExamples({ context }: Props) {
     const classes = useStyles();

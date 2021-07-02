@@ -29,13 +29,21 @@ module.exports = function({ types: t }) {
             throw path.buildCodeFrameError("Interpolation expressions are not supported yet");
           }
           const parts = templateExpression.quasis;
-          const content = parts.map(part => part.value.raw).join("")
-          const precomputed = 
-`<pre class="language-${prismConfig.language}"><code class="language-${prismConfig.language}">`
- + prism.highlight(content, prismConfig.grammar, prismConfig.language)
- + `</code></pre>`;
+          const content = parts.map(part => part.value.raw).join("").trim()
+          const precomputed = prism.highlight(content, prismConfig.grammar, prismConfig.language);
           path.replaceWith(
-            t.stringLiteral(precomputed)
+            t.objectExpression([
+              t.objectProperty(
+                t.stringLiteral("html"), t.stringLiteral(precomputed)
+              ),
+              t.objectProperty(
+                t.stringLiteral("language"), t.stringLiteral(prismConfig.language)
+              ),
+              t.objectProperty(
+                t.stringLiteral("raw"),
+                t.stringLiteral(content)
+              )
+            ])
           )
         }
       }

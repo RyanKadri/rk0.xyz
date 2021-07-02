@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
-import code from "./try-catch.md";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -21,6 +21,14 @@ const items = [
     "try / catch in JavaScript lets you do this",
     <>You can <code>catch</code> an error and handle it</>
 ];
+
+const code = synJS`
+try {
+    someSketchyFunction(); // This function might fail
+} catch (e) {
+    console.error(e.message) // What to do with the failure
+}
+`
 
 export function TryCatch({ context }: Props) {
     const classes = useStyles();
