@@ -5,6 +5,7 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({
     code: {
@@ -19,6 +20,14 @@ const items = [
     "Probably the most common server messaging format these days",
     "Send a request with some JSON data and get JSON data in response"
 ];
+
+const code = synJS`
+{
+    "name": "Ryan",
+    "age": 28,
+    "isProfessor": true
+}
+`
 
 export function JSONExample({ context }: Props) {
     const classes = useStyles();

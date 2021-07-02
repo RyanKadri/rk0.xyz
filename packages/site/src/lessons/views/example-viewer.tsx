@@ -37,7 +37,7 @@ interface Props {
     examples: ExampleDefinition[];
     currExample: number | null;
     baseUrl: string;
-    highlightedCode: SyntaxHighlightedBlock;
+    highlightedCode?: SyntaxHighlightedBlock;
 }
 export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode }: Props) {
     const classes = useStyles();
@@ -74,7 +74,7 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
                                     { examples[currExample].title }
                                 </Typography>
                             </Toolbar>
-                            <ExamplePlayground example={ examples[currExample ]} highlightedCode={ highlightedCode } />
+                            <ExamplePlayground example={ examples[currExample ]} highlightedCode={ highlightedCode! } />
                         </>
                     )
                 }

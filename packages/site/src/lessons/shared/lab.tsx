@@ -37,6 +37,10 @@ export const useMarkdownLabStyles = makeStyles((theme: Theme) => createStyles({
             padding: 2,
             borderRadius: 4,
             color: "maroon"
+        },
+        "& .remark-highlight": {
+            maxHeight: 600,
+            overflow: "auto"
         }
     }
 }));
