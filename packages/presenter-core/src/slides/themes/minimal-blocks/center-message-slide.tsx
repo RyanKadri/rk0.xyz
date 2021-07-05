@@ -1,7 +1,7 @@
 import { makeStyles, Typography } from "@material-ui/core";
-import React, { ReactElement } from "react";
-import { PresentationContext } from "../services/types";
-import { PageNumber } from "../slide-components/page-number";
+import React from "react";
+import { PageNumber } from "../../../slide-components/page-number";
+import { CenterMessageSlideProps } from "../../slides";
 
 const useStyles = makeStyles({
     container: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     }
 })
 
-export function CenterMessageSlide({ context, Message }: Props) {
+export function CenterMessageSlide({ context, Message }: CenterMessageSlideProps) {
     const classes = useStyles();
     return (
     <div className={ classes.container }>
@@ -26,9 +26,4 @@ export function CenterMessageSlide({ context, Message }: Props) {
         <PageNumber context={context} />
     </div>
     )
-}
-
-interface Props {
-    context: PresentationContext;
-    Message: string | ReactElement
 }

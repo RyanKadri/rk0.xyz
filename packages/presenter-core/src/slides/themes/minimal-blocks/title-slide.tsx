@@ -1,8 +1,8 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
-import React, { ReactElement } from "react";
-import { titleDecorator } from "../services/style-chunks";
-import { PresentationContext } from "../services/types";
-import { PageNumber } from "../slide-components/page-number";
+import React from "react";
+import { titleDecorator } from "../../../services/style-chunks";
+import { PageNumber } from "../../../slide-components/page-number";
+import { TitleSlideProps } from "../../slides";
 
 const containerPadding = 128;
 const subTitleSpacing = containerPadding / 2;
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
 }))
 
-export function TitleSlide({ Title, Subtitle, context }: Props) {
+export function TitleSlide({ Title, Subtitle, context }: TitleSlideProps) {
     const classes = useStyles();
     return (
         <div className={classes.container}>
@@ -49,10 +49,4 @@ export function TitleSlide({ Title, Subtitle, context }: Props) {
             <PageNumber context={context} />
         </div>
     )
-}
-
-interface Props {
-    Title: string | ReactElement;
-    Subtitle: string | ReactElement;
-    context: PresentationContext
 }

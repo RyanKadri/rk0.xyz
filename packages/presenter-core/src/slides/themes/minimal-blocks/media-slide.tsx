@@ -1,7 +1,7 @@
 import { makeStyles, Typography } from "@material-ui/core";
-import React, { ReactElement } from "react";
-import { PresentationContext } from "../services/types";
-import { PageNumber } from "../slide-components/page-number";
+import React from "react";
+import { PageNumber } from "../../../slide-components/page-number";
+import { MediaSlideProps } from "../../slides";
 
 const useStyles = makeStyles({
     media: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     }
 })
 
-export function MediaSlide({ context, Media, Title, Credit }: Props) {
+export function MediaSlide({ context, Media, Title, Credit }: MediaSlideProps) {
     const classes = useStyles();
     return (
         <div className={ classes.container }>
@@ -51,11 +51,4 @@ export function MediaSlide({ context, Media, Title, Credit }: Props) {
             <PageNumber context={context} />
         </div>
     )
-}
-
-interface Props {
-    context: PresentationContext;
-    Title?: ReactElement | string;
-    Media: ReactElement;
-    Credit?: ReactElement | string;
 }

@@ -2,7 +2,7 @@
 import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
-import { CodeSlide } from "../../../../../../presenter-core/src/slides/code-slide";
+import { CodeSlide } from "../../../../../../presenter-core/src/slides/slides";
 import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({

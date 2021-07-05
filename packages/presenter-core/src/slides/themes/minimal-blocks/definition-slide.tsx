@@ -1,7 +1,7 @@
 import { makeStyles, Typography } from "@material-ui/core";
-import React, { ReactNode } from "react";
-import { PresentationContext } from "../services/types";
-import { PageNumber } from "../slide-components/page-number";
+import React from "react";
+import { PageNumber } from "../../../slide-components/page-number";
+import { DefinitionSlideProps } from "../../slides";
 
 const useStyles = makeStyles({
     container: {
@@ -16,13 +16,7 @@ const useStyles = makeStyles({
     }
 })
 
-
-interface Props {
-    context: PresentationContext;
-    Term: ReactNode;
-    Definition: ReactNode;
-}
-export function DefinitionSlide({ context, Term, Definition }: Props) {
+export function DefinitionSlide({ context, Term, Definition }: DefinitionSlideProps) {
     const classes = useStyles();
     return (
     <div className={ classes.container }>

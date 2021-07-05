@@ -2,14 +2,7 @@ import React, { ReactElement, ReactNode } from "react";
 import { PresentationContext } from "../services/types";
 import { SyntaxHighlightedBlock } from "../slide-components/code-block";
 import { NestedListInfo } from "../slide-components/info-list";
-import { CenterMessageSlide } from "./center-message-slide";
-import { CodeSlide } from "./code-slide";
-import { ContentSlide, ContentSlideOptions } from "./content-slide";
-import { DefinitionSlide } from "./definition-slide";
-import { FullSlide } from "./embed-slide";
-import { MediaAssistSlide } from "./media-assist-slide";
-import { MediaSlide } from "./media-slide";
-import { TitleSlide } from "./title-slide";
+import { CenterMessageSlide, CodeSlide, ContentSlide, ContentSlideOptions, DefinitionSlide, EmbedSlide, MediaAssistSlide, MediaSlide, TitleSlide } from "./slides";
 
 export function generateContentSlide(title: string, points: (string | NestedListInfo | ReactElement)[], options?: ContentSlideOptions) {
     return function({ context }: {context: PresentationContext}) {
@@ -31,7 +24,7 @@ export function generateTitleSlide(title: string, subtitle: string) {
 
 export function generateFullSlide(content: ReactElement) {
     return function({ context }: { context: PresentationContext }) {
-        return <FullSlide context={ context } Content={ content } />
+        return <EmbedSlide context={ context } Content={ content } />
     }
 }
 

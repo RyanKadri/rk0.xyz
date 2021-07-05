@@ -4,7 +4,7 @@ import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
-import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import { synHTML, synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(createStyles({

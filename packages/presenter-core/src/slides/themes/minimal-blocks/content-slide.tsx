@@ -1,9 +1,9 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
-import React, { ReactElement } from "react";
-import { titleDecorator } from "../services/style-chunks";
-import { PresentationContext } from "../services/types";
-import { InfoList, NestedListInfo } from "../slide-components/info-list";
-import { PageNumber } from "../slide-components/page-number";
+import React from "react";
+import { titleDecorator } from "../../../services/style-chunks";
+import { InfoList } from "../../../slide-components/info-list";
+import { PageNumber } from "../../../slide-components/page-number";
+import { ContentSlideProps } from "../../slides";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     container: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
 }))
 
-export function ContentSlide({ Title, Content, context, classes = {}, options = { } }: Props) {
+export function ContentSlide({ Title, Content, context, classes = {}, options = { } }: ContentSlideProps) {
     const ownClasses = useStyles();
     return (
         <div className={ `${ownClasses.container} ${classes.viewport || ""}` }>
@@ -32,18 +32,4 @@ export function ContentSlide({ Title, Content, context, classes = {}, options = 
             <PageNumber context={context} />
         </div>
     )
-}
-
-interface Props {
-    Title: string | ReactElement;
-    Content: (string | NestedListInfo | ReactElement)[] | ReactElement;
-    context: PresentationContext;
-    classes?: {
-        viewport?: string;
-    }
-    options?: ContentSlideOptions;
-}
-
-export interface ContentSlideOptions {
-    useOrderedLists?: boolean;
 }

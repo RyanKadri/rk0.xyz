@@ -1,7 +1,7 @@
 import { createStyles, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
-import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
 const colors = [
     "red",

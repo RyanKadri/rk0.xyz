@@ -2,7 +2,7 @@
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
-import { ContentSlide } from "../../../../../../presenter-core/src/slides/content-slide";
+import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import img from "../assets/box-model-alt-small.png";
 
 const styles = createStyles({

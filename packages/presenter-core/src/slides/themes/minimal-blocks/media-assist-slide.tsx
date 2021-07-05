@@ -1,7 +1,7 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
-import React, { ReactElement } from "react";
-import { PresentationContext } from "../services/types";
-import { InfoList, NestedListInfo } from "../slide-components/info-list";
+import React from "react";
+import { InfoList } from "../../../slide-components/info-list";
+import { MediaAssistSlideProps } from "../../slides";
 import { ContentSlide } from "./content-slide";
 
 const useStyles = makeStyles((_: Theme) => createStyles({
@@ -15,14 +15,7 @@ const useStyles = makeStyles((_: Theme) => createStyles({
     }
 }));
 
-interface Props {
-    Title: string | ReactElement;
-    info: (string | NestedListInfo | ReactElement)[];
-    Media: ReactElement;
-    context: PresentationContext
-}
-
-export function MediaAssistSlide({ Title, info, Media, context }: Props) {
+export function MediaAssistSlide({ Title, info, Media, context }: MediaAssistSlideProps) {
     const classes = useStyles();
     return (
         <ContentSlide Title={ Title } context={ context } Content={
