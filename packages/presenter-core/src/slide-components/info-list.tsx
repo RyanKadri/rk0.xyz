@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }))
 
 export function InfoList({ items, useOrderedLists = false }: Props) {
-    const classes = useStyles()
+    const classes = useStyles();
     return (
         React.createElement(useOrderedLists ? "ol" : "ul", { className: classes.list },
             ...items.map((item, i) => (

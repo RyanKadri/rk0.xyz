@@ -1,9 +1,11 @@
+import { Theme } from "@material-ui/core";
 import React, { createContext } from "react";
 import { CenterMessageSlideProps, CodeSlideProps, ContentSlideProps, DefinitionSlideProps, EmbedSlideProps, MediaAssistSlideProps, MediaSlideProps, TitleSlideProps } from "../slides";
-import { minimalBlocksTheme } from "./minimal-blocks";
+import { blankTheme } from "./blank";
 
 export interface IThemeContext {
-    slides: Slides
+    slides: Slides;
+    theme: Theme;
 }
 
 interface Slides {
@@ -13,8 +15,8 @@ interface Slides {
     DefinitionSlide: React.ComponentType<DefinitionSlideProps>;
     EmbedSlide: React.ComponentType<EmbedSlideProps>;
     MediaAssistSlide: React.ComponentType<MediaAssistSlideProps>;
-    MediaSlide: React.ComponentType<MediaSlideProps>
+    MediaSlide: React.ComponentType<MediaSlideProps>;
     TitleSlide: React.ComponentType<TitleSlideProps>;
 }
 
-export const ThemeContext = createContext<IThemeContext>(minimalBlocksTheme)
+export const ThemeContext = createContext<IThemeContext>(blankTheme)

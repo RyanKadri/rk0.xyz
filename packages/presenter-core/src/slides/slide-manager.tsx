@@ -1,10 +1,12 @@
-import { createStyles, makeStyles } from "@material-ui/core";
+import { createStyles, makeStyles, MuiThemeProvider } from "@material-ui/core";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useTitle } from "../../../site/src/common/use-app-bar";
 import { CourseDefinition, PresentationContext } from "../services/types";
 import { SlideControls } from "./slide-controls";
 import { SlideViewport } from "./slide-viewport";
+import { minimalBlocksTheme } from "./themes/minimal-blocks";
+import { ThemeContext } from "./themes/theme-context";
 
 const useStyles = makeStyles(theme => createStyles({
     controls: {
@@ -23,8 +25,8 @@ export function SlideManager({ course }: Props) {
     const router = useRouter();
     const lessonSlug = router.query.lessonId;
     const slideNum = parseInt(router.query.slideNum as string, 10);
-    const lesson = course.lessons.find(lesson => lesson.slug === lessonSlug);
-    const slides = lesson?.slides ?? [];
+    const lesson = course.lessons.find(lesson => lesson.slug === lessonSlug)!;
+    const slides = lesson.slides;
 
     const baseUrl = `/courses/${course.slug}/lessons/${lessonSlug}/slides/`;
     const nextSlide = slideNum < slides.length - 1 
@@ -80,15 +82,21 @@ export function SlideManager({ course }: Props) {
         return () => document.removeEventListener("keydown", updatePos);
     }, [slideNum]);
 
-    useTitle(course?.title ?? "Unknown")
+    useTitle(course?.title ?? "Unknown");
+
+    const theme = lesson.theme ?? course.theme ?? minimalBlocksTheme;
     
     return (
-        <main>
-            <SlideViewport Slide={ slides[slideNum] } 
-                           context={ context } />
-            <SlideControls previousSlide={ previousSlide } 
-                           nextSlide={ nextSlide } 
-                           className={ classes.controls } />
-        </main>
+        <ThemeContext.Provider value={ theme }> 
+            <MuiThemeProvider theme={ theme.theme }>    
+                <main>
+                    <SlideViewport Slide={ slides[slideNum] } 
+                                context={ context } />
+                    <SlideControls previousSlide={ previousSlide } 
+                                nextSlide={ nextSlide } 
+                                className={ classes.controls } />
+                </main>
+            </MuiThemeProvider> 
+        </ThemeContext.Provider>
     )
 };

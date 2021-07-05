@@ -1,5 +1,6 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { ComponentType } from "react";
+import { IThemeContext } from "../slides/themes/theme-context";
 import { EvalResult, LoggedConsoleMessage } from "./js-execution";
 
 export interface PresentationContext {
@@ -15,7 +16,8 @@ export interface Presentation {
     examples: ExampleDefinition[];
     recording?: RecordingDefinition;
     lab?: LabDefinition;
-    references?: Reference[]
+    references?: Reference[];
+    theme?: IThemeContext;
 }
 
 export interface CourseGroup {
@@ -31,6 +33,7 @@ export interface CourseDefinition {
     slug: string;
     icon?: IconDefinition;
     courseExtras?: CourseExtra[];
+    theme?: IThemeContext;
 }
 
 export type ExampleDefinition = HTMLExample | JSExample;
