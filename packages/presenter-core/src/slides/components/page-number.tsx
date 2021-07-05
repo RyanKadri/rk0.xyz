@@ -1,6 +1,6 @@
 import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import { PresentationContext } from "../services/types";
+import { PresentationContext } from "../../services/types";
 
 const useStyles = makeStyles({
     pageNum: {

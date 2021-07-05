@@ -3,7 +3,7 @@ import Head from "next/head";
 import prism from "prismjs";
 import React from "react";
 import { ExampleDefinition } from "../../../../../../packages/presenter-core/src/services/types";
-import { SyntaxHighlightedBlock } from "../../../../../../packages/presenter-core/src/slide-components/code-block";
+import { SyntaxHighlightedBlock } from "../../../../../../packages/presenter-core/src/slides/components/code-block";
 import { activeCourses } from "../../../../../../packages/site/src/lessons/views/activeCourses";
 import { ExampleViewer } from "../../../../../../packages/site/src/lessons/views/example-viewer";
 

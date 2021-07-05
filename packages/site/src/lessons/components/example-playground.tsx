@@ -2,7 +2,7 @@ import { createStyles, Hidden, makeStyles } from "@material-ui/core";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
-import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slide-components/code-block";
+import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
 import { HTMLExampleOutput } from "./html-example-output";
 import { JSExampleRunner } from "./js-example";
 const CodeEditor = dynamic(() => import("../shared/code-editor"), { ssr: false })

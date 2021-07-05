@@ -1,6 +1,6 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import React from "react";
-import { InfoList } from "../../../slide-components/info-list";
+import { InfoList } from "../../components/info-list";
 import { MediaAssistSlideProps } from "../../slides";
 import { ContentSlide } from "./content-slide";
 

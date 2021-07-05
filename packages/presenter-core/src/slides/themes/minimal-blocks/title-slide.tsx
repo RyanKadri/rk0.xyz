@@ -1,7 +1,7 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import React from "react";
 import { titleDecorator } from "../../../services/style-chunks";
-import { PageNumber } from "../../../slide-components/page-number";
+import { PageNumber } from "../../components/page-number";
 import { TitleSlideProps } from "../../slides";
 
 const containerPadding = 128;

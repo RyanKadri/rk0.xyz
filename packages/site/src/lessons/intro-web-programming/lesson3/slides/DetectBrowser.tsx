@@ -2,7 +2,7 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
-import { InfoList } from "../../../../../../presenter-core/src/slide-components/info-list";
+import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import defaultSite from "./responsive-detect-browser-1.png";
 import mobileSite from "./responsive-detect-browser-2.png";

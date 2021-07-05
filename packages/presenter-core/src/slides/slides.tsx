@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode, useContext } from "react";
 import { PresentationContext } from "../services/types";
-import { NestedListInfo } from "../slide-components/info-list";
+import { NestedListInfo } from "./components/info-list";
 import { CodeSlideOptions, SlideCode } from "./generate-slide";
 import { IThemeContext, ThemeContext } from "./themes/theme-context";
 

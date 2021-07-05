@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import { CodeBlock } from "../../../slide-components/code-block";
-import { InfoList } from "../../../slide-components/info-list";
+import { CodeBlock } from "../../components/code-block";
+import { InfoList } from "../../components/info-list";
 import { CodeSlideProps } from "../../slides";
 import { ContentSlide } from "./content-slide";
 

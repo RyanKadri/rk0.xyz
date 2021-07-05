@@ -2,7 +2,7 @@
 import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
-import { CodeBlock } from "../../../../../../presenter-core/src/slide-components/code-block";
+import { CodeBlock } from "../../../../../../presenter-core/src/slides/components/code-block";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import { synJS } from "../../../../common/highlighting";
 

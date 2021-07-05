@@ -1,7 +1,7 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import React from "react";
-import { InfoList } from "../../../slide-components/info-list";
-import { PageNumber } from "../../../slide-components/page-number";
+import { InfoList } from "../../components/info-list";
+import { PageNumber } from "../../components/page-number";
 import { ContentSlideProps } from "../../slides";
 
 const useStyles = makeStyles((_: Theme) => createStyles({

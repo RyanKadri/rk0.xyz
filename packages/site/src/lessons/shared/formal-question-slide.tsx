@@ -2,7 +2,7 @@ import { createStyles, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import { titleDecorator } from "../../../../presenter-core/src/services/style-chunks";
 import { PresentationContext } from "../../../../presenter-core/src/services/types";
-import { PageNumber } from "../../../../presenter-core/src/slide-components/page-number";
+import { PageNumber } from "../../../../presenter-core/src/slides/components/page-number";
 
 export function generateQuestionSlide(question: string) {
     return function ({ context }: { context: PresentationContext }) {

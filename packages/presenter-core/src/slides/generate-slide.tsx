@@ -1,7 +1,7 @@
 import React, { ReactElement, ReactNode } from "react";
 import { PresentationContext } from "../services/types";
-import { SyntaxHighlightedBlock } from "../slide-components/code-block";
-import { NestedListInfo } from "../slide-components/info-list";
+import { SyntaxHighlightedBlock } from "./components/code-block";
+import { NestedListInfo } from "./components/info-list";
 import { CenterMessageSlide, CodeSlide, ContentSlide, ContentSlideOptions, DefinitionSlide, EmbedSlide, MediaAssistSlide, MediaSlide, TitleSlide } from "./slides";
 
 export function generateContentSlide(title: string, points: (string | NestedListInfo | ReactElement)[], options?: ContentSlideOptions) {

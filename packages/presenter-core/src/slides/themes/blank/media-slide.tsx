@@ -1,6 +1,6 @@
 import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import { PageNumber } from "../../../slide-components/page-number";
+import { PageNumber } from "../../components/page-number";
 import { MediaSlideProps } from "../../slides";
 
 const useStyles = makeStyles({

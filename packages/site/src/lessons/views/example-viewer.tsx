@@ -4,7 +4,7 @@ import { createStyles, Drawer, Hidden, IconButton, List, ListItem, ListItemText,
 import Link from "next/link";
 import React, { useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
-import { SyntaxHighlightedBlock } from '../../../../presenter-core/src/slide-components/code-block';
+import { SyntaxHighlightedBlock } from '../../../../presenter-core/src/slides/components/code-block';
 import { ExamplePlayground } from "../components/example-playground";
 
 const useStyles = makeStyles(theme => createStyles({

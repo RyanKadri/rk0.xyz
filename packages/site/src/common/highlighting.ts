@@ -1,4 +1,4 @@
-import { SyntaxHighlightedBlock } from "../../../presenter-core/src/slide-components/code-block";
+import { SyntaxHighlightedBlock } from "../../../presenter-core/src/slides/components/code-block";
 
 export const synJS = makeHighlighter();
 export const synHTML = makeHighlighter();
