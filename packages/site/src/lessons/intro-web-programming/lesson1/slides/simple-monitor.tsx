@@ -1,10 +1,9 @@
-import { createStyles, WithStyles, withStyles } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
-import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 
-const styles = createStyles({
+const useStyles = makeStyles(theme => createStyles({
     on: {
-        backgroundColor: "black",
+        backgroundColor: "#111",
         color: "white"
     },
     button: {
@@ -16,7 +15,7 @@ const styles = createStyles({
     },
     bezel: {
         flexBasis: 64,
-        backgroundColor: "#444",
+        backgroundColor: "#222",
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end"
@@ -27,7 +26,7 @@ const styles = createStyles({
         flexGrow: 1,
         gridTemplateRows: "repeat(4, 25%)",
         "& div": {
-            border: "solid 1px #ccc",
+            border: `solid 2px ${theme.palette.text.secondary}`,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -38,7 +37,7 @@ const styles = createStyles({
         }
     },
     monitor: {
-        border: "solid 8px #444",
+        border: `solid 8px ${theme.palette.text.secondary}`,
         borderRadius: 2,
         height: "90%",
         width: "90%",
@@ -52,28 +51,25 @@ const styles = createStyles({
         justifyContent: "center",
         alignItems: "center"
     }
-})
+}))
 
-const _SimpleMonitorSlide = ({ classes }: Props) => (
-    <div className={classes.container}>
-        <div className={ classes.monitor }>
-            <div className={ classes.viewport }>
-                <div className={ classes.on }></div><div className={ classes.on }></div><div className={ classes.on }></div><div>           </div>
-                <div className={ classes.on }></div><div>           </div><div className={ classes.on }></div><div>           </div>
-                <div className={ classes.on }></div><div className={ classes.on }></div><div className={ classes.on }></div><div>           </div>
-                <div>           </div><div>           </div><div>           </div><div>           </div>
-            </div>
-            <div className={ classes.bezel }>
-                <div className={ classes.button }></div>
-                <div className={ classes.button }></div>
-                <div className={ classes.button }></div>
+export function SimpleMonitorSlide() {
+    const classes = useStyles();
+    return (
+        <div className={classes.container}>
+            <div className={ classes.monitor }>
+                <div className={ classes.viewport }>
+                    <div className={ classes.on }></div><div className={ classes.on }></div><div className={ classes.on }></div><div>           </div>
+                    <div className={ classes.on }></div><div>           </div><div className={ classes.on }></div><div>           </div>
+                    <div className={ classes.on }></div><div className={ classes.on }></div><div className={ classes.on }></div><div>           </div>
+                    <div>           </div><div>           </div><div>           </div><div>           </div>
+                </div>
+                <div className={ classes.bezel }>
+                    <div className={ classes.button }></div>
+                    <div className={ classes.button }></div>
+                    <div className={ classes.button }></div>
+                </div>
             </div>
         </div>
-    </div>
-)
-
-export const SimpleMonitorSlide = withStyles(styles)(_SimpleMonitorSlide)
-
-interface Props extends WithStyles<typeof styles> {
-    context: PresentationContext
-}
+    )
+} 

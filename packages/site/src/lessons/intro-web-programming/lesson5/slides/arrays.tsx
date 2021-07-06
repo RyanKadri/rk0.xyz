@@ -42,7 +42,7 @@ mixed[3] = "something";
 export function ArraysExample({ context }: Props) {
     const classes = useStyles();
     return (
-        <CodeSlide Title="Arrays" bullets={ slideItems } codeBlock={ { code } } context={context}>
+        <CodeSlide Title="Arrays" bullets={ slideItems } code={ code } context={context}>
             <div className={ classes.arrayExample }>
                 <div>"Alice"</div><div>2</div><div>false</div><div>"something"</div>
             </div>

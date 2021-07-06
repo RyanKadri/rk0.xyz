@@ -28,6 +28,13 @@ export const minimalBlocksTheme: IThemeContext = {
             primary: teal,
             secondary: amber,
             type: "dark"
+        },
+        overrides: {
+            MuiLink: {
+                root: {
+                color: teal["200"]
+                }
+            }
         }
     })
 }

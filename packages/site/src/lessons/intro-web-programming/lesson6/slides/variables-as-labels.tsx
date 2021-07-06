@@ -2,9 +2,7 @@
 import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
-import { CodeBlock } from "../../../../../../presenter-core/src/slides/components/code-block";
-import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
-import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
+import { CodeSlide } from "../../../../../../presenter-core/src/slides/themes/blank/code-slide";
 import { synJS } from "../../../../common/highlighting";
 import variableDiagram from "./variables.svg";
 
@@ -35,13 +33,9 @@ evilTwin.isEvil = true;
 export function VariablesAsLabels({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Variables are Labels" context={context} Content={
-            <>
-                <InfoList items={ slideItems }></InfoList>
-                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
-                <img className={ classes.diagram } src={ variableDiagram.src } />
-            </>
-        } />
+        <CodeSlide Title="Variables are Labels" context={context} bullets={ slideItems } code={ code }>
+            <img className={ classes.diagram } src={ variableDiagram.src } />
+        </CodeSlide>
     );
 }
 

@@ -1,6 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { DocumentObject } from "./slides/document";
 import { UserInputElements } from "./slides/inputs";
 import { ReactingToInput } from "./slides/reacting-to-input";
 import { QuerySelector } from "./slides/selectors";
@@ -17,7 +16,7 @@ export const lesson7: Presentation = {
         simple.HowConnect,
         simple.TheProblem,
         simple.DOM,
-        DocumentObject,
+        simple.DocumentObject,
         QuerySelector,
         UserInputElements,
         simple.HowToInteract,

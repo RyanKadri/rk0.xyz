@@ -1,7 +1,8 @@
 import { ReactElement, ReactNode, useContext } from "react";
 import { PresentationContext } from "../services/types";
+import { SyntaxHighlightedBlock } from "./components/code-block";
 import { NestedListInfo } from "./components/info-list";
-import { CodeSlideOptions, SlideCode } from "./generate-slide";
+import { CodeSlideOptions } from "./generate-slide";
 import { IThemeContext, ThemeContext } from "./themes/theme-context";
 
 function _Slide<P>(themeCb: (theme: IThemeContext) => React.ComponentType<P>) {
@@ -33,7 +34,7 @@ export interface CodeSlideProps {
     context: PresentationContext;
     Title: string | ReactElement;
     bullets: (string | NestedListInfo | ReactElement)[];
-    codeBlock: SlideCode;
+    code: SyntaxHighlightedBlock;
     options?: CodeSlideOptions;
     children?: ReactNode;
 }

@@ -2,16 +2,10 @@
 import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
-import { CodeBlock } from "../../../../../../presenter-core/src/slides/components/code-block";
-import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
-import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
+import { CodeSlide } from "../../../../../../presenter-core/src/slides/themes/blank/code-slide";
 import { synJS } from "../../../../common/highlighting";
 
 const useStyles = makeStyles(theme => createStyles({
-    code: {
-        fontSize: 26,
-        userSelect: "text"
-    },
     arrayExample: {
         display: "flex",
         border: `solid 4px ${theme.palette.text.secondary}`,
@@ -43,17 +37,13 @@ evenNumbers.splice(2, 1);
 export function UpdatingArrays({ context }: Props) {
     const classes = useStyles();
     return (
-        <ContentSlide Title="Updating Arrays" context={context} Content={
-            <>
-                <InfoList items={ slideItems }></InfoList>
-                <CodeBlock code={ code } className={ classes.code }></CodeBlock>
-                <div className={ classes.arrayExample }>
-                    { [0, 2, 6, 8, 10].map(num => (
-                        <div key={num}>{num}</div>
-                    )) }
-                </div>
-            </>
-        } />
+        <CodeSlide Title="Updating Arrays" context={context} bullets={ slideItems } code={ code }>
+            <div className={ classes.arrayExample }>
+                { [0, 2, 6, 8, 10].map(num => (
+                    <div key={num}>{num}</div>
+                )) }
+            </div>
+        </CodeSlide>
     );
 }
 

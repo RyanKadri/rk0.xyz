@@ -35,7 +35,7 @@ export const defaultTheme: ThemeOptions = {
   },
   slides: {
     baseFontSize: "36px"
-  }
+  },
 };
 
 export const darkTheme: ThemeOptions = {
@@ -44,6 +44,13 @@ export const darkTheme: ThemeOptions = {
     primary: teal,
     secondary: amber,
     type: "dark"
+  },
+  overrides: {
+    MuiAppBar: {
+        colorPrimary: {
+          backgroundColor: teal["700"]
+        }
+    }
   }
 }
 

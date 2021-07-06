@@ -10,11 +10,18 @@ import { useBaseStyles } from "../blank/base-styles";
 const useStyles = makeStyles((theme: Theme) => createStyles({
     container: {
         padding: "48px 128px 0px 128px",
-        minHeight: "100%"
+        minHeight: "100%",
+        "& code": {
+            fontFamily: "monospace",
+            backgroundColor: theme.palette.type === "light" ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.15)",
+            padding: "2px 4px",
+            borderRadius: 4,
+            color: theme.palette.secondary.dark
+        }
     },
     titleContainer: {
         ...titleDecorator(theme)
-    }
+    },
 }))
 
 export function ContentSlide({ Title, Content, context, classes = {}, options = { } }: ContentSlideProps) {

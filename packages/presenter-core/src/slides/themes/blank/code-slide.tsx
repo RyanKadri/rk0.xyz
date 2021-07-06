@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     }
 })
 
-export function CodeSlide({ context, Title, bullets, codeBlock, options = {}, children }: CodeSlideProps) {
+export function CodeSlide({ context, Title, bullets, code, options = {}, children }: CodeSlideProps) {
     const { codeFirst = false } = options;
     
     const classes = useStyles();
@@ -26,13 +26,13 @@ export function CodeSlide({ context, Title, bullets, codeBlock, options = {}, ch
             <div className={ classes.contentContainer }>{
             codeFirst
                 ? <>
-                    <CodeBlock code={ codeBlock.code } className={ classes.codeBlock } />
+                    <CodeBlock code={ code } className={ classes.codeBlock } />
                     <InfoList items={ bullets } />
                     { children }
                   </>
                 : <>
                     <InfoList items={ bullets } />
-                    <CodeBlock code={ codeBlock.code } className={ classes.codeBlock } />
+                    <CodeBlock code={ code } className={ classes.codeBlock } />
                     { children }
                   </>
             }</div>

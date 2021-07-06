@@ -46,7 +46,7 @@ export interface CodeSlideOptions {
 
 export function generateCodeSlide(title: string, bullets: (string | NestedListInfo | ReactElement)[], codeBlock: SlideCode, options?: CodeSlideOptions) {
     return function({ context }: { context: PresentationContext }) {
-        return <CodeSlide context={ context } Title={ title } bullets={ bullets } codeBlock={ codeBlock } options={ options } />
+        return <CodeSlide context={ context } Title={ title } bullets={ bullets } code={ codeBlock.code } options={ options } />
     }
 }
 

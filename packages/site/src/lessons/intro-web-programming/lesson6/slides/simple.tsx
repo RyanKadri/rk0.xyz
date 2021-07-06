@@ -1,5 +1,6 @@
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synJS } from "../../../../common/highlighting";
 
 export const TitleSlide = generateTitleSlide("JavaScript and the DOM", "Ryan Kadri");
 
@@ -49,6 +50,89 @@ export const WhatCanItDo = generateContentSlide("What can it do?", [
     "Set styles",
     "Add / Remove classes / attributes"
 ]);
+
+export const Methods = generateCodeSlide("Methods", [
+    "Objects can have functions that operate on their data",
+    "These functions are called methods",
+    `Methods use the special keyword "this"`,
+    "Use the dot operator to call them"
+], {
+    code: synJS`
+    const ryan = { 
+        firstName: "Ryan", lastName: "Kadri", age: 26,
+        getFullName() { return this.firstName + " " + this.lastName },
+        birthdayParty() { this.age ++ }
+    };
+    
+    console.log(ryan.getFullName());
+    `
+});
+
+export const Objects = generateCodeSlide("Objects", [
+    "Objects can store related information about a thing",
+    "Properties can be added (and removed) over time",
+    "You can access properties with a dot (.)"
+], {
+    code: synJS`
+const ryan = { name: "Ryan", age: 26, job: "Developer", id: "abc123" };
+person.age ++;
+delete person.name;
+person.firstName = "Ryan";
+person.lastName = "Kadri";
+    `
+});
+
+export const RegularExpressions = generateCodeSlide("Regular Expressions", [
+    "Used for validating strings, extracting values, and more",
+    "Has a weird syntax",
+    "Fairly consistent across languages"
+], { code: synJS`
+const usernameChecker = /^[a-z][a-zA-Z0-9_]*$/;
+usernameChecker.test("rjk123"); // true
+usernameChecker.test("rjk.xyz"); // false
+usernameChecker.test("rjk_xyz"); // true
+usernameChecker.test("") // false
+usernameChecker.test("123") // false
+
+const longString = "My name is Ryan Kadri. Who are you?";
+const matches = longString.match(/My name is (.*?)\./);
+console.log(matches[1]); // Ryan Kadri
+` });
+
+export const StringsPart2 = generateCodeSlide("Strings (Revisited)", [
+    "Strings are like arrays of characters",
+    "Cannot be modified directly",
+    "Many built-in methods"
+], {
+    code: synJS`
+const myName = "Ryan Kadri";
+
+for(const letter of myName) {
+    console.log(letter);
+}
+
+console.log(myName.toLowerCase()) // "ryan kadri";
+console.log(myName.repeat(2)); // "Ryan KadriRyan Kadri"
+console.log(myName.substring(0,4)) // "Ryan";
+console.log(myName.split(" ")) // [ "Ryan", "Kadri" ];
+    `
+});
+
+export const VariablesRedux = generateCodeSlide("Variables", [
+    "Variables are defined with let and const",
+    "They label a piece of data",
+    'Variables defined with "let" can be reassigned. "const" variables cannot',
+], {
+    code: synJS`
+let data = "Ryan";
+data = 123;
+data = false;
+data = null;
+const something = 456;
+something = 123 // TypeError
+    `
+})
+
 
 export const references: Reference[] = [
     { 
