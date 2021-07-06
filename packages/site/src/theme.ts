@@ -1,5 +1,6 @@
 import { red, teal } from "@material-ui/core/colors";
-import { createMuiTheme, ThemeOptions } from "@material-ui/core/styles";
+import { } from "@material-ui/core/styles";
+import createMuiTheme, { ThemeOptions } from "@material-ui/core/styles/createMuiTheme";
 
 export const defaultTheme: ThemeOptions = {
   palette: {
@@ -28,6 +29,9 @@ export const defaultTheme: ThemeOptions = {
     h5: {
       fontWeight: 300
     }
+  },
+  slides: {
+    baseFontSize: "36px"
   }
 }
 

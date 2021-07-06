@@ -10,6 +10,7 @@ const useStyles = makeStyles({
         gridTemplateAreas: "'status' 'header' 'body'",
         gridTemplateColumns: "1fr",
         gridTemplateRows: "70px 175px 420px",
+        fontSize: "0.7rem",
         "& > *": {
             border: "solid 1px grey",
             margin: 0,

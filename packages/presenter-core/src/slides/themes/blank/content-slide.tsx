@@ -1,8 +1,10 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import c from "classnames";
 import React from "react";
 import { InfoList } from "../../components/info-list";
 import { PageNumber } from "../../components/page-number";
 import { ContentSlideProps } from "../../slides";
+import { useBaseStyles } from "./base-styles";
 
 const useStyles = makeStyles((_: Theme) => createStyles({
     container: {
@@ -13,11 +15,15 @@ const useStyles = makeStyles((_: Theme) => createStyles({
 
 export function ContentSlide({ Title, Content, context, classes = {}, options = { } }: ContentSlideProps) {
     const ownClasses = useStyles();
+    const baseClasses = useBaseStyles();
+
     return (
-        <div className={ `${ownClasses.container} ${classes.viewport || ""}` }>
+        <div className={ c(ownClasses.container, classes.viewport, baseClasses.container) }>
             <div>
-                { typeof Title === "string"
-                    ? <Typography variant="h4" component="h1">{Title}</Typography>
+                { typeof Title !== "string"
+                    ? <Typography variant="h4" component="h1" className={ baseClasses.title }>
+                        {Title}
+                    </Typography>
                     : Title
                 }
             </div>

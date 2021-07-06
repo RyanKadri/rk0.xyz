@@ -1,7 +1,9 @@
 import { makeStyles, Typography } from "@material-ui/core";
+import c from "classnames";
 import React from "react";
 import { PageNumber } from "../../components/page-number";
 import { MediaSlideProps } from "../../slides";
+import { useBaseStyles } from "./base-styles";
 
 const useStyles = makeStyles({
     media: {
@@ -17,11 +19,9 @@ const useStyles = makeStyles({
         }
     },
     container: {
-        display: "flex",
-        justifyContent: "center",
         padding: 32,
         background: "#eee",
-        height: "100%"
+        alignItems: "center"
     },
     credit: {
         position: "absolute",
@@ -32,11 +32,15 @@ const useStyles = makeStyles({
 
 export function MediaSlide({ context, Media, Title, Credit }: MediaSlideProps) {
     const classes = useStyles();
+    const baseClasses = useBaseStyles();
+
     return (
-        <div className={ classes.container }>
-            { typeof Title === "string"
-                ? <Typography variant="h4">{ Title }</Typography>
-                : <div>{ Title }</div>
+        <div className={ c(baseClasses.container, classes.container) }>
+            { typeof Title !== "string"
+                ? { Title }
+                : <Typography className={ baseClasses.title }>
+                    { Title }
+                </Typography>
             }
             <div className={ classes.media }>
                 { Media }

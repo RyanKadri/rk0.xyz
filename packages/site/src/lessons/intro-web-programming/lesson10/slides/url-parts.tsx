@@ -21,12 +21,10 @@ const useStyles = makeStyles(createStyles({
         color: "orange"
     },
     url: {
-        fontSize: "1.5rem",
         marginTop: 16,
         display: "inline-block"
     },
     partList: {
-        fontSize: "1.25rem",
     }
 }))
 

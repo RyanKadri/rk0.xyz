@@ -13,10 +13,10 @@ const useStyles = makeStyles(createStyles({
         userSelect: "text"
     },
     arrayExample: {
-        fontSize: 32,
         display: "flex",
-        position: "absolute",
         border: "solid 4px black",
+        marginTop: 16,
+        alignSelf: "flex-start",
         "& div": {
             padding: 16,
             "&:not(:last-child)": {

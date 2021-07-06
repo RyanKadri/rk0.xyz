@@ -2,15 +2,9 @@ import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import { PageNumber } from "../../components/page-number";
 import { DefinitionSlideProps } from "../../slides";
+import { useBaseStyles } from "./base-styles";
 
 const useStyles = makeStyles({
-    container: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        height: "100%"
-    },
     definitionBox: {
         width: "70%"
     }
@@ -18,21 +12,26 @@ const useStyles = makeStyles({
 
 export function DefinitionSlide({ context, Term, Definition }: DefinitionSlideProps) {
     const classes = useStyles();
+    const baseClasses = useBaseStyles();
     return (
-    <div className={ classes.container }>
+    <div className={ baseClasses.centeredContentContainer }>
         <dl className={ classes.definitionBox }>
             <dt>
                 {
-                    typeof Term === "string"
-                        ? <Typography variant="h4">{Term}</Typography>
-                        : Term
+                    typeof Term !== "string"
+                        ? Term
+                        : <Typography variant="h4" className={ baseClasses.title }>
+                            {Term}
+                        </Typography>
                 }
             </dt>
             <dd>
             { 
-                typeof Definition === "string"
-                    ? <Typography variant="body1">{Definition}</Typography>
-                    : Definition
+                typeof Definition !== "string"
+                    ? Definition
+                    : <Typography variant="body1">
+                        {Definition}
+                    </Typography>
             }
             </dd>
         </dl>

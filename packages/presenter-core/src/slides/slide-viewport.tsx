@@ -1,4 +1,4 @@
-import { createStyles, makeStyles, Paper, Theme } from "@material-ui/core";
+import { createStyles, makeStyles, Paper, Theme, useTheme } from "@material-ui/core";
 import Head from "next/head";
 import React, { ComponentType, useRef } from "react";
 import { PresentationContext } from "../services/types";
@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 export function SlideViewport({ Slide, context }: Props) {
     const classes = useStyles();
+    const theme = useTheme();
     const viewport = useRef<HTMLDivElement>(null);
     const viewportSize = useComponentSize(viewport);
 
@@ -49,7 +50,7 @@ export function SlideViewport({ Slide, context }: Props) {
         <div className={ `${classes.viewportContainer}` } ref={viewport}>
             <Head>
                 {/* Dumb hack for noscript */}
-                <style dangerouslySetInnerHTML={{ __html: "html { font-size: 28px; }"}} />
+                <style dangerouslySetInnerHTML={{ __html: `html { font-size: ${theme.slides.baseFontSize}; }`}} />
             </Head>
             <Paper className={ classes.viewportPaper } elevation={5} style={style}>
                 <Slide context={ context } />

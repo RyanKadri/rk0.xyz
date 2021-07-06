@@ -1,27 +1,20 @@
-import { makeStyles, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+import c from "classnames";
 import React from "react";
 import { PageNumber } from "../../components/page-number";
 import { CenterMessageSlideProps } from "../../slides";
-
-const useStyles = makeStyles({
-    container: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-        padding: 96
-    }
-})
+import { useBaseStyles } from "./base-styles";
 
 export function CenterMessageSlide({ context, Message }: CenterMessageSlideProps) {
-    const classes = useStyles();
+    const baseClasses = useBaseStyles();
     return (
-    <div className={ classes.container }>
+    <div className={ c(baseClasses.centeredContentContainer) }>
         { 
-            typeof Message === "string"
-                ? <Typography variant="h4" component="p">{Message}</Typography>
-                : Message
+            typeof Message !== "string"
+                ? Message
+                : <Typography component="p" className={ baseClasses.title }>
+                    {Message}
+                </Typography>
         }
         <PageNumber context={context} />
     </div>

@@ -12,7 +12,7 @@ const useStyles = makeStyles(createStyles({
     },
     colorBlock: {
         borderRadius: 8,
-        fontSize: "2.5rem",
+        fontSize: "1.5rem",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -22,7 +22,7 @@ const useStyles = makeStyles(createStyles({
         width: 720,
         "& input": {
             marginLeft: 16,
-            fontSize: "2rem"
+            fontSize: "1rem"
         }
     }
 }))

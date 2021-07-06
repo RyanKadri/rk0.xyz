@@ -26,19 +26,17 @@ const useStyles = makeStyles(createStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: "1.5rem"
     },
     controlBlock: {
         padding: 16,
         border: "dashed 2px #444",
-        width: 600,
+        width: 640,
         position: "absolute",
         bottom: 16,
         left: 16,
         zIndex: 4,
         backgroundColor: "white",
         "& label": {
-            fontSize: "1.15rem",
             display: "flex"
         },
     },

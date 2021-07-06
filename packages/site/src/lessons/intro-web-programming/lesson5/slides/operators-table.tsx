@@ -12,7 +12,7 @@ const useStyles = makeStyles(createStyles({
         display: "none"
     },
     table: {
-        fontSize: "1rem"
+        fontSize: "0.85rem"
     },
     tabs: {
         marginBottom: 16

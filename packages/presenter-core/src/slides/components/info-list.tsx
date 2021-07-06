@@ -6,8 +6,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         margin: "16px 0"
     },
     item: {
-        fontSize: "1.35rem",
-        fontWeight: 300,
+        fontSize: "1rem",
         position: "relative",
         marginBottom: 16,
         "& code": {

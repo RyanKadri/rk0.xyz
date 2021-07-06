@@ -1,9 +1,11 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import c from "classnames";
 import React from "react";
 import { titleDecorator } from "../../../services/style-chunks";
 import { InfoList } from "../../components/info-list";
 import { PageNumber } from "../../components/page-number";
 import { ContentSlideProps } from "../../slides";
+import { useBaseStyles } from "../blank/base-styles";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     container: {
@@ -17,12 +19,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 export function ContentSlide({ Title, Content, context, classes = {}, options = { } }: ContentSlideProps) {
     const ownClasses = useStyles();
+    const baseClasses = useBaseStyles();
     return (
-        <div className={ `${ownClasses.container} ${classes.viewport || ""}` }>
+        <div className={ c(baseClasses.container, ownClasses.container, classes.viewport) }>
             <div className={ownClasses.titleContainer}>
-                { typeof Title === "string"
-                    ? <Typography variant="h4" component="h1">{Title}</Typography>
-                    : Title
+                { typeof Title !== "string"
+                    ? Title
+                    : <Typography variant="h4" component="h1" className={ baseClasses.title }>
+                        { Title }
+                    </Typography>
                 }
             </div>
             { !Array.isArray(Content) 

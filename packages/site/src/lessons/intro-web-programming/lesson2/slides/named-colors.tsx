@@ -25,7 +25,7 @@ const useStyles = makeStyles(createStyles({
         justifyContent: "center",
         alignItems: "center",
         border: "solid 4px #ccc",
-        fontSize: "2.5rem",
+        fontSize: "1.5rem",
         padding: 16
     },
     colorInput: {

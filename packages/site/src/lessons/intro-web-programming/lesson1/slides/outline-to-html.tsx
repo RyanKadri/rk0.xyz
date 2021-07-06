@@ -6,11 +6,8 @@ import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides
 const useStyles = makeStyles({
     container: {
         display: "flex",
-        position: "relative",
         justifyContent: "space-between",
-        alignItems: "center",
         fontFamily: "'Ubuntu Mono', monospace;",
-        fontSize: "1.25rem",
         paddingTop: 32
     },
     article: {

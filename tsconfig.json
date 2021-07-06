@@ -42,7 +42,8 @@
   "include": [
     "packages",
     "pages",
-    "next-env.d.ts"
+    "next-env.d.ts",
+    "theme.d.ts"
   ],
   "exclude": [
     "node_modules"

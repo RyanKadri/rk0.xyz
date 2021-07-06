@@ -13,10 +13,10 @@ const useStyles = makeStyles(createStyles({
         userSelect: "text"
     },
     arrayExample: {
-        fontSize: 32,
         display: "flex",
-        position: "absolute",
         border: "solid 4px black",
+        marginTop: 16,
+        alignSelf: "flex-start",
         "& div": {
             padding: 16,
             "&:not(:last-child)": {
@@ -28,7 +28,6 @@ const useStyles = makeStyles(createStyles({
 
 const slideItems = [
     "Arrays hold ordered lists of values",
-    "Adding elements to an array is easy",
     "Positions start at 0"
 ];
 

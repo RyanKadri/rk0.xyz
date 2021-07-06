@@ -5,7 +5,10 @@ import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { synHTML } from "../../../../common/highlighting";
 
-export const TitleSlide = generateTitleSlide("Course Expectations and Intro to HTML", "Ryan Kadri");
+export const TitleSlide = generateTitleSlide(
+    "Course Expectations and Intro to HTML", 
+    "Ryan Kadri"
+);
 
 export const AboutMePicture = generateMediaSlide(
     <img src={ aboutMe.src } alt="Me at Smith Rock" />,
@@ -64,7 +67,7 @@ export const Expectations = generateContentSlide("Course Work", [
 ])
 
 export const Syllabus = generateMessageSlide(
-    <MaterialLink variant="h2" href="https://templeu.instructure.com/courses/81125" target="_blank">
+    <MaterialLink variant="h4" href="https://templeu.instructure.com/courses/81125" target="_blank">
         Syllabus
     </MaterialLink>
 )

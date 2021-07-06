@@ -20,7 +20,6 @@ const useStyles = makeStyles(createStyles({
         padding: 24,
         borderRadius: 8,
         border: "solid 2px #ccc",
-        fontSize: "1.5rem",
         marginTop: 24,
         "& input": {
             fontSize: "inherit",
@@ -32,7 +31,7 @@ const useStyles = makeStyles(createStyles({
         }
     },
     comparisonRes: {
-        fontSize: "4rem",
+        fontSize: "2rem",
         margin: "0 16px",
     }
 }))

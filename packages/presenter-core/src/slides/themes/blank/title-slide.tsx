@@ -1,18 +1,16 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import c from "classnames";
 import React from "react";
 import { PageNumber } from "../../components/page-number";
 import { TitleSlideProps } from "../../slides";
+import { useBaseStyles } from "./base-styles";
 
 const containerPadding = 128;
 const subTitleSpacing = containerPadding / 2;
 
 const useStyles = makeStyles((_: Theme) => createStyles({
     container: {
-        height: "100%",
         padding: containerPadding,
-        display: "flex",
-        flexDirection: "column",
-        marginTop: "auto"
     },
     titleContainer: {
         marginTop: "auto",
@@ -20,28 +18,27 @@ const useStyles = makeStyles((_: Theme) => createStyles({
     subtitleContainer: {
         marginTop: subTitleSpacing
     },
-    title: {
-        fontSize: "2.5rem",
-    },
-    subTitle: {
-        fontSize: "2.0rem"
-    }
 }))
 
 export function TitleSlide({ Title, Subtitle, context }: TitleSlideProps) {
     const classes = useStyles();
+    const baseClasses = useBaseStyles();
     return (
-        <div className={classes.container}>
+        <div className={ c(baseClasses.container, classes.container)}>
             <div className={ classes.titleContainer }>
-                { typeof Title === "string"
-                    ? <Typography variant="h3" component="h1" className={ classes.title }>{ Title }</Typography>
-                    : Title
+                { typeof Title !== "string"
+                    ? Title
+                    : <Typography variant="h3" component="h1" className={ baseClasses.title }>
+                        { Title }
+                    </Typography>
                 }
             </div>
             <div className={ classes.subtitleContainer }>
-                { typeof Subtitle === "string"
-                    ? <Typography variant="h4" component="h2" className={ classes.subTitle}>{ Subtitle }</Typography>
-                    : Subtitle
+                { typeof Subtitle !== "string"
+                    ? Subtitle
+                    : <Typography variant="h4" component="h2" className={ baseClasses.subTitle}>
+                        { Subtitle }
+                    </Typography>
                 }
             </div>
             <PageNumber context={context} />
