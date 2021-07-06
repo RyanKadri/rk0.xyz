@@ -54,4 +54,4 @@ export const darkTheme: ThemeOptions = {
   }
 }
 
-export const appTheme = createMuiTheme(darkTheme);
+export const appTheme = createMuiTheme(defaultTheme);
