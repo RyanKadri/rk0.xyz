@@ -20,7 +20,6 @@ const useStyles = makeStyles({
     },
     container: {
         padding: 32,
-        background: "#eee",
         alignItems: "center"
     },
     credit: {

@@ -5,7 +5,7 @@ import { useTitle } from "../../../site/src/common/use-app-bar";
 import { CourseDefinition, PresentationContext } from "../services/types";
 import { SlideControls } from "./slide-controls";
 import { SlideViewport } from "./slide-viewport";
-import { minimalBlocksTheme } from "./themes/minimal-blocks";
+import { blankTheme } from "./themes/blank";
 import { ThemeContext } from "./themes/theme-context";
 
 const useStyles = makeStyles(theme => createStyles({
@@ -84,7 +84,7 @@ export function SlideManager({ course }: Props) {
 
     useTitle(course?.title ?? "Unknown");
 
-    const theme = lesson.theme ?? course.theme ?? minimalBlocksTheme;
+    const theme = lesson.theme ?? course.theme ?? blankTheme;
     
     return (
         <ThemeContext.Provider value={ theme }> 

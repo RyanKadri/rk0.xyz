@@ -1,9 +1,9 @@
-import { makeStyles } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core";
 import { PresentationContext } from "packages/presenter-core/src/services/types";
 import React from "react";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => createStyles({
     container: {
         display: "flex",
         justifyContent: "space-between",
@@ -21,10 +21,10 @@ const useStyles = makeStyles({
         color: "hsla(0, 50%, 50%, 1)"
     },
     section2: {
-        color: "purple"
+        color: theme.palette.type === "dark" ? "yellow" : "purple"
     },
     sectionContent: {
-        color: "black",
+        color: theme.palette.text.primary,
         "& ul": {
             margin: 0
         },
@@ -32,7 +32,7 @@ const useStyles = makeStyles({
             margin: 0
         }
     }
-})
+}))
 
 export function OutlineToHtml({ context }: Props) {
     const classes = useStyles();

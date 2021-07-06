@@ -4,9 +4,9 @@ import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles(createStyles({
+const useStyles = makeStyles(theme => createStyles({
     contentCell: {
-        border: "solid 4px black",
+        border: `solid 4px ${theme.palette.text.secondary}`,
         width: "45%",
         height: "350px",
         verticalAlign: "top",

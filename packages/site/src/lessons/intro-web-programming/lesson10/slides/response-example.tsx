@@ -1,9 +1,11 @@
-import { makeStyles } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
+import { CodeBlock } from "../../../../../../presenter-core/src/slides/components/code-block";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
+import { synJS } from "../../../../common/highlighting";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => createStyles({
     container: {
         display: "grid",
         margin: "32px 0px",
@@ -12,7 +14,7 @@ const useStyles = makeStyles({
         gridTemplateRows: "70px 175px 420px",
         fontSize: "0.7rem",
         "& > *": {
-            border: "solid 1px grey",
+            border: `solid 1px ${ theme.palette.text.secondary }`,
             margin: 0,
             padding: 16,
             display: "flex",
@@ -22,7 +24,7 @@ const useStyles = makeStyles({
             fontWeight: 500
         },
         "& table, & td, & th": {
-            border: "solid 2px black",
+            border: `solid 2px ${ theme.palette.text.secondary }`,
             borderCollapse: "collapse",
             padding: 4
         },
@@ -37,21 +39,25 @@ const useStyles = makeStyles({
         gridArea: "header"
     },
     body: {
-        gridArea: "body"
+        gridArea: "body",
+        display: "block",
+        "& dd": {
+            margin: 0,
+            marginTop: 16
+        }
     }
-});
+}));
 
 export function ResponseTemplate({ context }: Props) {
     const classes = useStyles();
-    const responseBody = `
+    const responseBody = synJS`
 {
     "title": "My Note",
     "note": "This is a note",
     "tags": ["boring", "note"],
     "noteId": "da45f426-3e4e-4faf-95c5-ec02490bbe7d",
     "created": 1605037559804
-}    
-    `.trim();
+}`;
 
     return (
         <ContentSlide Title='HTTP Response' context={context} Content={
@@ -83,11 +89,7 @@ export function ResponseTemplate({ context }: Props) {
                 <dl className={ classes.body }>
                     <dt>Body</dt>
                     <dd>
-                        <pre>
-                            <code>
-                                {responseBody}
-                            </code>
-                        </pre>
+                        <CodeBlock code={ responseBody } />
                     </dd>
                 </dl>
             </div>

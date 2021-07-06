@@ -3,16 +3,16 @@ import React, { useState } from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const colors = [
-    "red",
-    "blue",
-    "green",
-    "aliceblue",
-    "tomato",
-    "rebeccapurple"
-]
+const colors = {
+    "red": "white",
+    "blue": "white",
+    "green": "white",
+    "aliceblue": "black",
+    "tomato": "black",
+    "rebeccapurple": "white"
+}
 
-const useStyles = makeStyles(createStyles({
+const useStyles = makeStyles(theme => createStyles({
     colorContainer: {
         display: "grid",
         gridTemplateColumns: "33% 33% 33%",
@@ -24,7 +24,7 @@ const useStyles = makeStyles(createStyles({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        border: "solid 4px #ccc",
+        border: `solid 4px ${theme.palette.text.secondary}`,
         fontSize: "1.5rem",
         padding: 16
     },
@@ -48,9 +48,9 @@ export function NamedColors({ context }: Props) {
         <ContentSlide Title="Named Colors" context={ context } Content={
             <>
             <div className={ classes.colorContainer}>
-                { colors.map(color => (
-                    <div key={color} style={{ backgroundColor: color }} className={classes.colorBlock}>
-                        { color }
+                { Object.entries(colors).map(([bg, text]) => (
+                    <div key={bg} style={{ backgroundColor: bg, color: text }} className={classes.colorBlock}>
+                        { bg }
                     </div>
                 )) }
             </div>

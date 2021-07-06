@@ -1,3 +1,4 @@
+import { Link } from "@material-ui/core";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import { generateCodeSlide, generateContentSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
@@ -37,8 +38,8 @@ fs.readFile("/home/ryan/Documents/hello.txt", "utf-8", (err, data) => {
 
 export const OtherHomes = generateContentSlide("Other JavaScript Homes", [
     <>JavaScript is one of the most popular programming languages in 2020
-        <sup><a href="https://www.northeastern.edu/graduate/blog/most-popular-programming-languages/">[1]</a></sup>
-        <sup><a href="https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-languages-wanted">[2]</a></sup>
+        <sup><Link href="https://www.northeastern.edu/graduate/blog/most-popular-programming-languages/">[1]</Link></sup>
+        <sup><Link href="https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-languages-wanted">[2]</Link></sup>
     </>,
     <><strong>React Native: </strong>Lets you build Apps in JavaScript using a framework called React</>,
     "Lets you build most parts of an app once and run on IOS / Android",

@@ -1,9 +1,11 @@
-import { makeStyles } from "@material-ui/core";
+import { createStyles, Link, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
+import { CodeBlock } from "../../../../../../presenter-core/src/slides/components/code-block";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
+import { synJS } from "../../../../common/highlighting";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => createStyles({
     container: {
         display: "grid",
         margin: "32px 0px",
@@ -12,7 +14,7 @@ const useStyles = makeStyles({
         gridTemplateRows: "70px 175px 420px",
         fontSize: "0.7rem",
         "& > *": {
-            border: "solid 1px grey",
+            border: `solid 1px ${ theme.palette.text.secondary }`,
             margin: 0,
             padding: 16,
             display: "flex",
@@ -22,7 +24,7 @@ const useStyles = makeStyles({
             fontWeight: 500
         },
         "& table, & td, & th": {
-            border: "solid 2px black",
+            border: `solid 2px ${theme.palette.text.secondary}`,
             borderCollapse: "collapse",
             padding: 4
         },
@@ -40,17 +42,24 @@ const useStyles = makeStyles({
         gridArea: "header"
     },
     body: {
-        gridArea: "body"
+        gridArea: "body",
+        display: "block",
+        "& dd": {
+            margin: 0,
+            marginTop: 16
+        }
     }
-});
+}));
 
 export function RequestTemplate({ context }: Props) {
     const classes = useStyles();
-    const bodyExample = `{
+    const bodyExample = synJS`
+{
     "title": "My Note",
     "note": "This is a note",
     "tags": ["boring", "note"]
 }`;
+
     return (
         <ContentSlide Title='HTTP Request' context={context} Content={
             <div className={ classes.container }>
@@ -61,9 +70,9 @@ export function RequestTemplate({ context }: Props) {
                 <dl className={ classes.url}>
                     <dt>URL</dt>
                     <dd>
-                        <a href="https://spy-notes-api.rk0.xyz/users/3ff1cbc9-e6d3-496b-a696-44c0a2cd9fe1/notes">
+                        <Link href="https://spy-notes-api.rk0.xyz/users/3ff1cbc9-e6d3-496b-a696-44c0a2cd9fe1/notes">
                             https://spy-notes-api.rk0.xyz/users/3ff1cbc9-e6d3-496b-a696-44c0a2cd9fe1/notes
-                        </a>
+                        </Link>
                     </dd>
                 </dl>
                 <dl className={ classes.headers}>
@@ -85,9 +94,7 @@ export function RequestTemplate({ context }: Props) {
                 <dl className={ classes.body }>
                     <dt>Body</dt>
                     <dd>
-                        <code>
-                            <pre>{ bodyExample }</pre>
-                        </code>
+                        <CodeBlock code={ bodyExample } />
                     </dd>
                 </dl>
             </div>

@@ -5,17 +5,17 @@ import { PresentationContext } from "../../../../../../presenter-core/src/servic
 import { CodeSlide } from "../../../../../../presenter-core/src/slides/slides";
 import { synJS } from "../../../../common/highlighting";
 
-const useStyles = makeStyles(createStyles({
+const useStyles = makeStyles(theme => createStyles({
     arrayExample: {
         fontSize: 32,
         display: "flex",
-        border: "solid 4px black",
+        border: `solid 4px ${theme.palette.text.secondary}`,
         alignSelf: "flex-start",
         marginTop: 16,
         "& div": {
             padding: 16,
             "&:not(:last-child)": {
-                borderRight: "solid 4px black"
+                borderRight: `solid 4px ${theme.palette.text.secondary}`
             }
         }
     }

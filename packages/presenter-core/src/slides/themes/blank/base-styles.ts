@@ -16,6 +16,9 @@ export const useBaseStyles = makeStyles(_ => createStyles({
         flexDirection: "column",
         padding: 64
     },
+    titleSlideTitle: {
+        fontSize: "1.75rem"
+    },
     title: {
         fontSize: "1.5rem",
     },

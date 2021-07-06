@@ -14,7 +14,7 @@ const units = [
     "vmax"
 ]
 
-const useStyles = makeStyles(createStyles({
+const useStyles = makeStyles(theme => createStyles({
     sizedBlock: {
         border: "dotted 4px #444",
         position: "absolute",
@@ -29,13 +29,12 @@ const useStyles = makeStyles(createStyles({
     },
     controlBlock: {
         padding: 16,
-        border: "dashed 2px #444",
-        width: 640,
+        border: `dashed 2px ${theme.palette.text.secondary}`,
         position: "absolute",
         bottom: 16,
         left: 16,
         zIndex: 4,
-        backgroundColor: "white",
+        backgroundColor: theme.palette.background.paper,
         "& label": {
             display: "flex"
         },
@@ -46,7 +45,8 @@ const useStyles = makeStyles(createStyles({
         marginLeft: 16,
         borderWidth: 2,
         border: "solid 2px #ccc",
-        flexGrow: 1
+        flexGrow: 1,
+        margin: 4
     },
 }))
 export function Sizes({ context }: Props) {

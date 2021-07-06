@@ -6,15 +6,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         margin: "16px 0"
     },
     item: {
-        fontSize: "1rem",
         position: "relative",
         marginBottom: 16,
         "& code": {
             fontFamily: "monospace",
-            backgroundColor: "rgba(0,0,0,0.08)",
-            padding: 2,
+            backgroundColor: theme.palette.type === "light" ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.15)",
+            padding: "2px 4px",
             borderRadius: 4,
-            color: "maroon"
+            color: theme.palette.secondary.dark
         }
     },
     bulletListItem: {

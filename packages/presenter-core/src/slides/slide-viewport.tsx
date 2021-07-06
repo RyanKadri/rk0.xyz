@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#999",
+        backgroundColor: theme.palette.background.default,
     }
 }));
 

@@ -27,7 +27,7 @@ export const blankTheme: IThemeContext = {
         palette: {
             ...defaultTheme.palette,
             primary: cyan,
-            secondary: purple,
+            secondary: purple
         }
     })
 }

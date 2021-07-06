@@ -1,4 +1,6 @@
-import { appTheme } from "../../../../../site/src/theme";
+import { createMuiTheme } from "@material-ui/core";
+import { amber, teal } from "@material-ui/core/colors";
+import { defaultTheme } from "../../../../../site/src/theme";
 import { CenterMessageSlide } from "../blank/center-message-slide";
 import { DefinitionSlide } from "../blank/definition-slide";
 import { FullSlide } from "../blank/embed-slide";
@@ -20,5 +22,12 @@ export const minimalBlocksTheme: IThemeContext = {
         MediaSlide: MediaSlide,
         TitleSlide: TitleSlide,
     },
-    theme: appTheme
+    theme: createMuiTheme({
+        ...defaultTheme,
+        palette: {
+            primary: teal,
+            secondary: amber,
+            type: "dark"
+        }
+    })
 }

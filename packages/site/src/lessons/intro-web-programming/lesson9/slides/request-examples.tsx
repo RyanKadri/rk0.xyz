@@ -1,16 +1,16 @@
-import { makeStyles } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => createStyles({
     container: {
         display: "grid",
         margin: "32px 0px",
         gridTemplateAreas: "'method url' 'header header' 'body body'",
         gridTemplateColumns: "1fr 3fr",
         "& > *": {
-            border: "solid 1px grey",
+            border: `solid 1px ${theme.palette.text.secondary}`,
             margin: 0,
             padding: 16
         },
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     body: {
         gridArea: "body"
     }
-});
+}));
 
 export function RequestTemplate({ context }: Props) {
     const classes = useStyles();

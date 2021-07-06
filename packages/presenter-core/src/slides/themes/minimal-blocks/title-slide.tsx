@@ -30,7 +30,7 @@ export function TitleSlide({ Title, Subtitle, context }: TitleSlideProps) {
             <div className={ classes.titleContainer }>
                 { typeof Title !== "string"
                     ? Title
-                    : <Typography variant="h3" component="h1" className={ baseClasses.title }>
+                    : <Typography variant="h3" component="h1" className={ baseClasses.titleSlideTitle }>
                         { Title }
                     </Typography>
                 }

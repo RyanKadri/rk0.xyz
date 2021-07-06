@@ -1,4 +1,4 @@
-import { red, teal } from "@material-ui/core/colors";
+import { amber, red, teal } from "@material-ui/core/colors";
 import { } from "@material-ui/core/styles";
 import createMuiTheme, { ThemeOptions } from "@material-ui/core/styles/createMuiTheme";
 
@@ -6,6 +6,9 @@ export const defaultTheme: ThemeOptions = {
   palette: {
     primary: teal,
     secondary: red,
+    background: {
+      default: "#eee"
+    }
   },
   typography: {
     fontFamily: [
@@ -33,6 +36,15 @@ export const defaultTheme: ThemeOptions = {
   slides: {
     baseFontSize: "36px"
   }
+};
+
+export const darkTheme: ThemeOptions = {
+  ...defaultTheme,
+  palette: {
+    primary: teal,
+    secondary: amber,
+    type: "dark"
+  }
 }
 
-export const appTheme = createMuiTheme(defaultTheme);
+export const appTheme = createMuiTheme(darkTheme);

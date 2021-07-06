@@ -22,7 +22,7 @@ const items = [
     "Commonly -- Send a request with some JSON data and get JSON data in response"
 ];
 
-const code = synJS`json
+const code = synJS`
 {
     "name": "Ryan",
     "age": 28,

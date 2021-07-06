@@ -7,20 +7,20 @@ import { InfoList } from "../../../../../../presenter-core/src/slides/components
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import { synJS } from "../../../../common/highlighting";
 
-const useStyles = makeStyles(createStyles({
+const useStyles = makeStyles(theme => createStyles({
     code: {
         fontSize: 26,
         userSelect: "text"
     },
     arrayExample: {
         display: "flex",
-        border: "solid 4px black",
+        border: `solid 4px ${theme.palette.text.secondary}`,
         marginTop: 16,
         alignSelf: "flex-start",
         "& div": {
             padding: 16,
             "&:not(:last-child)": {
-                borderRight: "solid 4px black"
+                borderRight: `solid 4px ${theme.palette.text.secondary}`
             }
         }
     }
