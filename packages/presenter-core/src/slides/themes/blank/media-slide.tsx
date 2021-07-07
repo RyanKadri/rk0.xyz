@@ -36,7 +36,7 @@ export function MediaSlide({ context, Media, Title, Credit }: MediaSlideProps) {
     return (
         <div className={ c(baseClasses.container, classes.container) }>
             { typeof Title !== "string"
-                ? { Title }
+                ? Title ?? null
                 : <Typography className={ baseClasses.title }>
                     { Title }
                 </Typography>
