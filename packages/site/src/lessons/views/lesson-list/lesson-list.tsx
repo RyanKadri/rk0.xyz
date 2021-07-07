@@ -156,7 +156,7 @@ function LessonTableView({ course, baseUrl }: Props) {
                                 </TableCell>
                                 <TableCell>
                                     { lesson.recording
-                                        ? <MaterialLink href={ lesson.recording.link }>
+                                        ? <MaterialLink href={ lesson.recording.link }  aria-label="View Recording">
                                             <FontAwesomeIcon icon={ faVideo } className={ classes.tableIcon } />
                                         </MaterialLink>
                                         : null

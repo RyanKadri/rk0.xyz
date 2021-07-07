@@ -1,6 +1,4 @@
-import { createMuiTheme } from "@material-ui/core";
-import { amber, teal } from "@material-ui/core/colors";
-import { defaultTheme } from "../../../../../site/src/theme";
+import { darkTheme, lightTheme } from "../../../../../site/src/theme";
 import { CenterMessageSlide } from "../blank/center-message-slide";
 import { DefinitionSlide } from "../blank/definition-slide";
 import { FullSlide } from "../blank/embed-slide";
@@ -22,19 +20,19 @@ export const minimalBlocksTheme: IThemeContext = {
         MediaSlide: MediaSlide,
         TitleSlide: TitleSlide,
     },
-    theme: createMuiTheme({
-        ...defaultTheme,
-        palette: {
-            primary: teal,
-            secondary: amber,
-            type: "dark"
-        },
-        overrides: {
-            MuiLink: {
-                root: {
-                color: teal["200"]
-                }
-            }
-        }
-    })
+    theme: lightTheme
+}
+
+export const minimalBlocksDarkTheme: IThemeContext = {
+    slides: {
+        CenterMessageSlide: CenterMessageSlide,
+        CodeSlide: CodeSlide,
+        ContentSlide: ContentSlide,
+        DefinitionSlide: DefinitionSlide,
+        EmbedSlide: FullSlide,
+        MediaAssistSlide: MediaAssistSlide,
+        MediaSlide: MediaSlide,
+        TitleSlide: TitleSlide,
+    },
+    theme: darkTheme
 }

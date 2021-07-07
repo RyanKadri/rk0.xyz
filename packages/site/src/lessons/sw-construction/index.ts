@@ -1,5 +1,6 @@
 import { faHammer } from "@fortawesome/free-solid-svg-icons/faHammer";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
+import { minimalBlocksTheme } from "../../../../presenter-core/src/slides/themes/minimal-blocks";
 import { lesson1 } from "./lesson1";
 import { lesson10 } from "./lesson10";
 import { lesson11 } from "./lesson11";
@@ -36,5 +37,6 @@ export const practicumInSW2021: CourseDefinition = {
         { title: "Consolidated References", route: "references" },
         { title: "Midterm Study Guide", route: "midterm-study-guide" },
         { title: "Final Study Guide", route: "final-study-guide" }
-    ]
+    ],
+    theme: minimalBlocksTheme
 }

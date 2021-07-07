@@ -1,6 +1,6 @@
 import { faNetworkWired } from "@fortawesome/free-solid-svg-icons/faNetworkWired";
 import { CourseDefinition } from "../../../../presenter-core/src/services/types";
-import { minimalBlocksTheme } from "../../../../presenter-core/src/slides/themes/minimal-blocks";
+import { minimalBlocksDarkTheme } from "../../../../presenter-core/src/slides/themes/minimal-blocks";
 import { lesson1 } from "./lesson1";
 import { lesson10 } from "./lesson10";
 import { lesson11 } from "./lesson11";
@@ -40,5 +40,5 @@ export const introToWebProgrammingFall2020: CourseDefinition = {
         { title: "Final Project", route: "final-project" },
         { title: "Final Study Guide", route: "final-study-guide" }
     ],
-    theme: minimalBlocksTheme
+    theme: minimalBlocksDarkTheme
 };

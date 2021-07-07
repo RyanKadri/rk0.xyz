@@ -5,7 +5,7 @@ import Head from "next/head";
 import React from "react";
 import { GAWrapper } from "../packages/site/src/analytics";
 import { RootNav } from "../packages/site/src/root/top-nav";
-import { appTheme } from "../packages/site/src/theme";
+import { lightTheme } from "../packages/site/src/theme";
 config.autoAddCss = false
 
 const useStyles = makeStyles((_: Theme) => ({
@@ -22,7 +22,7 @@ function SiteViewport({ Component, pageProps }: AppProps) {
 
     return (
         <GAWrapper>
-            <MuiThemeProvider theme={ appTheme }>
+            <MuiThemeProvider theme={ lightTheme }>
                 <CssBaseline />
                 <Head>
                     <meta charSet="UTF-8" />

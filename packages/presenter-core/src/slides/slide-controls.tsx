@@ -32,25 +32,25 @@ export function SlideControls({ className, previousSlide, nextSlide }: Props) {
         <Card className={ `${className} ${ classes.controlsContainer }` }>
             { !!previousSlide 
                 ? (
-                    <Link href={ previousSlide } passHref replace shallow>
+                    <Link href={ previousSlide } passHref replace shallow aria-label="Next Slide">
                         <IconButton className={ classes.button }>
                             <FontAwesomeIcon icon={ faChevronLeft } />
                         </IconButton>
                     </Link>
                 ) : (
-                    <IconButton className={ classes.button } disabled>
+                    <IconButton className={ classes.button } disabled aria-label="Next Slide">
                         <FontAwesomeIcon icon={ faChevronLeft } />
                     </IconButton>
             )}
             { !!nextSlide
                 ? (
                     <Link href={ nextSlide } passHref replace shallow>
-                        <IconButton className={ classes.button }>
+                        <IconButton className={ classes.button } aria-label="Previous Slide">
                             <FontAwesomeIcon icon={ faChevronRight } />
                         </IconButton>
                     </Link>
                 ) : (
-                    <IconButton className={ classes.button } disabled>
+                    <IconButton className={ classes.button } disabled aria-label="Previous Slide">
                         <FontAwesomeIcon icon={ faChevronRight } />
                     </IconButton>
                 )}

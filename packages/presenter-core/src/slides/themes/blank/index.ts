@@ -1,6 +1,6 @@
 import { createMuiTheme } from "@material-ui/core";
 import { cyan, purple } from "@material-ui/core/colors";
-import { defaultTheme } from "../../../../../site/src/theme";
+import { lightThemeOptions } from "../../../../../site/src/theme";
 import type { IThemeContext } from "../theme-context";
 import { CenterMessageSlide } from "./center-message-slide";
 import { CodeSlide } from "./code-slide";
@@ -23,9 +23,9 @@ export const blankTheme: IThemeContext = {
         TitleSlide: TitleSlide,
     },
     theme: createMuiTheme({
-        ...defaultTheme,
+        ...lightThemeOptions,
         palette: {
-            ...defaultTheme.palette,
+            ...lightThemeOptions.palette,
             primary: cyan,
             secondary: purple
         }

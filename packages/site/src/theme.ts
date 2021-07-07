@@ -2,7 +2,7 @@ import { amber, red, teal } from "@material-ui/core/colors";
 import { } from "@material-ui/core/styles";
 import createMuiTheme, { ThemeOptions } from "@material-ui/core/styles/createMuiTheme";
 
-export const defaultTheme: ThemeOptions = {
+export const lightThemeOptions: ThemeOptions = {
   palette: {
     primary: teal,
     secondary: red,
@@ -33,13 +33,25 @@ export const defaultTheme: ThemeOptions = {
       fontWeight: 300
     }
   },
+  overrides: {
+    MuiAppBar: {
+        colorPrimary: {
+          backgroundColor: teal["700"]
+        }
+    },
+    MuiLink: {
+      root: {
+        color: teal["700"]
+      }
+    }
+  },
   slides: {
     baseFontSize: "36px"
   },
 };
 
-export const darkTheme: ThemeOptions = {
-  ...defaultTheme,
+export const darkThemeOptions: ThemeOptions = {
+  ...lightThemeOptions,
   palette: {
     primary: teal,
     secondary: amber,
@@ -50,8 +62,14 @@ export const darkTheme: ThemeOptions = {
         colorPrimary: {
           backgroundColor: teal["700"]
         }
+    },
+    MuiLink: {
+      root: {
+        color: teal["200"]
+      }
     }
   }
 }
 
-export const appTheme = createMuiTheme(defaultTheme);
+export const lightTheme = createMuiTheme(lightThemeOptions);
+export const darkTheme = createMuiTheme(darkThemeOptions);
