@@ -1,7 +1,8 @@
 import { Link } from "@material-ui/core";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synJS } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Asynchonous JavaScript", "Ryan Kadri");
 
@@ -118,6 +119,115 @@ export const HttpHeaders = generateContentSlide("HTTP Headers", [
         "Many more"
     ]}
 ]);
+
+export const NonBlockingMoreExamples = generateCodeSlide("More Non-Blocking Code", [], {
+    code: synJS`
+function processFile() {
+    const fileData = readFile("budget.txt", checkExpenses);
+}
+
+function checkExpenses() {
+    const largestExpense = determineLargestExpense(fileData);
+    updateNetwork(largestExpense, printSuccess);
+}
+
+function printSuccess() {
+    console.log("Done processing.")
+}`
+});
+
+export const BlockingCodeExample = generateCodeSlide("Blocking Code", [], {
+    code: synJS`
+function processFile() {
+    const fileData = readFile("budget.txt");
+    const largestExpense = determineLargestExpense(fileData);
+    updateNetwork(largestExpense);
+    console.log("Done processing.")
+}`
+});
+
+export const FetchExample = generateCodeSlide("fetch", [
+    "fetch lets you make requests to a server",
+    "Lets you specify URL, method, request body, headers, etc.",
+    'Gives back the response in terms of a "Promise"',
+    "It is a low-level function so you have to manually parse the request"
+], {
+    code: synJS`
+fetch("https://some-url.com")
+    .then(response => { return response.json() })
+    .then(response => { console.log(response) })
+`
+});
+
+export const PromisesExample = generateCodeSlide("Promises in Action", [], {
+    code: synJS`
+    async function printHello() {
+        console.log("Hello.");
+        // Delay is not a built-in function. But it's one you can write'
+        delay(1000)()
+            .then(() => console.log("My"))
+            .then(delay(1000))
+            .then(() => console.log("name"))
+            .then(delay(1000))
+            .then(() => console.log("is"))
+            .then(delay(1000))
+            .then(() => console.log("Ryan"));
+    }`
+});
+
+export const JSONExample = generateCodeSlide("JSON", [
+    "JSON is another way (along with XML) for formatting data",
+    "JSON is (probably) the most common way to talk to servers these days",
+    "Based on JavaScript object definitions",
+    "You can create a JavaScript object from JSON easily",
+    "Commonly -- Send a request with some JSON data and get JSON data in response"
+], {
+    code: synJS`
+{
+    "name": "Ryan",
+    "age": 28,
+    "isProfessor": true
+}`
+});
+
+export const NestedTimeouts = generateCodeSlide("Nested Timers?", [], {
+    code: synJS`
+function part1() {
+    console.log("Hi.");
+    setTimeout(part2, 1000);
+}
+
+function part2() {
+    console.log("My")
+    setTimeout(part3, 1000);
+}
+
+function part3() {
+    console.log("name")
+    setTimeout(part4, 1000);
+}
+
+function part4() {
+    console.log("is")
+    setTimeout(function() {
+        console.log("Ryan")
+    }, 1000);
+}`
+});
+
+export const NonBlockingExample = generateCodeSlide("Async / Non-Blocking Javascript", [], {
+    code: synJS`
+function sayHi() {
+    console.log("Hi")
+}
+
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+`})
+
 
 export const references: Reference[] = [
     { label: "An interesting blocking vs non-blocking analogy", url: "https://blog.codecentric.de/en/2019/04/explain-non-blocking-i-o-like-im-five/" },

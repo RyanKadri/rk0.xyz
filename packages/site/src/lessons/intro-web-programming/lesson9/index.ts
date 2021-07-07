@@ -1,14 +1,7 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { ActiveWaiting } from "./slides/active-waiting2";
-import { BlockingCodeExample } from "./slides/blocking-code";
-import { FetchExample } from "./slides/fetch";
-import { PromisesExample } from "./slides/introduce-promises";
-import { JSONExample } from "./slides/json";
-import { NestedTimeouts } from "./slides/nested-timers";
-import { NonBlockingMoreExamples } from "./slides/nonblocking-code";
 import { RequestTemplate } from "./slides/request-examples";
 import * as simple from "./slides/simple";
-import { NonBlockingExample } from "./slides/timeout-problem";
 
 export const lesson9: Presentation = {
     title: `Everything but the kitchen async`,
@@ -18,24 +11,24 @@ export const lesson9: Presentation = {
         simple.Title,
         ActiveWaiting,
         simple.WhatIsAsynchronous,
-        NonBlockingExample,
-        NonBlockingMoreExamples,
+        simple.NonBlockingExample,
+        simple.NonBlockingMoreExamples,
         simple.AsyncCallback,
         simple.WhatIsBlocking,
         simple.BlockingCodeCharacteristics,
-        BlockingCodeExample,
+        simple.BlockingCodeExample,
         simple.ConcurrencyModel,
         simple.NotAHugeProblem,
         simple.EventLoop,
         simple.RequestsResponses,
         simple.WhatIsAServer,
         simple.HowDoUseServers,
-        JSONExample,
+        simple.JSONExample,
         simple.ShowExample,
-        FetchExample,
+        simple.FetchExample,
         simple.WhatArePromises,
-        NestedTimeouts,
-        PromisesExample,
+        simple.NestedTimeouts,
+        simple.PromisesExample,
         simple.HttpRequest,
         simple.HttpResponse,
         simple.HttpHeaders,
