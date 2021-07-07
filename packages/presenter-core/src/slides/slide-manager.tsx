@@ -28,7 +28,7 @@ export function SlideManager({ course }: Props) {
     const lesson = course.lessons.find(lesson => lesson.slug === lessonSlug)!;
     const slides = lesson.slides;
 
-    const baseUrl = `/courses/${course.slug}/lessons/${lessonSlug}/slides/`;
+    const baseUrl = `/courses/${course.slug}/lessons/${lesson.slug}/slides/`;
     const nextSlide = slideNum < slides.length - 1 
         ? baseUrl + (slideNum + 1)
         : null;

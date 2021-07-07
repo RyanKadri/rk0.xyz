@@ -1,9 +1,12 @@
 import { RefObject, useEffect, useState } from "react";
 
 export function useComponentSize(componentRef: RefObject<HTMLElement>) {
-    const height = typeof window === "undefined" ? 1000 : window.innerHeight;
-    const width = typeof window === "undefined" ? 1000 : window.innerWidth;
-    const [size, setSize] = useState({ height, width });
+    // This initial setup is for SSR. Going right to the window width screws up rehydration
+    const [size, setSize] = useState({ height: 1000, width: 1000 });
+    useEffect(() => {
+        setSize({ height: window.innerHeight, width: window.innerWidth })
+    }, []);
+
     const cb = () => {
         const bb = componentRef.current
             ? componentRef.current.getBoundingClientRect()

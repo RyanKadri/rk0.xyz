@@ -1,16 +1,7 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
 import { AddEventListener } from "./slides/add-event-listener";
-import { AddEventListenerQuestions } from "./slides/add-event-listener-questions";
-import { Timeouts } from "./slides/async-callback-examples";
-import { FilterThings } from "./slides/filter-a-thing";
-import { FindThing } from "./slides/find-a-thing";
-import { FindAThingGeneric } from "./slides/find-a-thing-generic";
-import { FunctionsAsVariablesPart2 } from "./slides/functions-as-variables";
-import { FunctionsAsVariablesSimple } from "./slides/functions-as-variables-simple";
-import { NestedTimeouts } from "./slides/nested-timers";
 import * as simple from "./slides/simple";
-import { TimeoutWaitWhat } from "./slides/timeout-problem";
 
 export const lesson8: Presentation = {
     title: `Let's get func-y`,
@@ -19,27 +10,27 @@ export const lesson8: Presentation = {
     slides: [
         simple.Title,
         AddEventListener,
-        AddEventListenerQuestions,
+        simple.AddEventListenerQuestions,
         simple.AddEventListenerExplanation,
-        FunctionsAsVariablesSimple,
-        FunctionsAsVariablesPart2,
+        simple.FunctionsAsVariablesSimple,
+        simple.FunctionsAsVariablesPart2,
         simple.ThatsAwful,
         simple.FindThings,
-        FindThing,
+        simple.FindThing,
         simple.FilterThings,
-        FilterThings,
+        simple.FilterThingsImplementation,
         simple.DecisionPoints,
         simple.Callbacks,
-        FindAThingGeneric,
+        simple.FindAThingGeneric,
         
-        Timeouts,
-        TimeoutWaitWhat,
+        simple.Timeouts,
+        simple.TimeoutWaitWhat,
 
         simple.ConcurrencyModel,
         simple.AsyncCallback,
 
         simple.CanWeSolve,
-        NestedTimeouts,
+        simple.NestedTimeouts,
         generateReferencesSlide(simple.references)
     ],
     examples: [

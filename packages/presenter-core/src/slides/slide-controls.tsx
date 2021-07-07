@@ -30,16 +30,30 @@ export function SlideControls({ className, previousSlide, nextSlide }: Props) {
     const classes = useStyles();
     return (
         <Card className={ `${className} ${ classes.controlsContainer }` }>
-            <Link href={ previousSlide ?? "" } passHref replace shallow>
-                <IconButton className={ classes.button } disabled={ previousSlide === null }>
-                    <FontAwesomeIcon icon={ faChevronLeft } />
-                </IconButton>
-            </Link>
-            <Link href={ nextSlide ?? "" } passHref replace shallow>
-                <IconButton className={ classes.button } disabled={ nextSlide === null }>
-                    <FontAwesomeIcon icon={ faChevronRight } />
-                </IconButton>
-            </Link>
+            { !!previousSlide 
+                ? (
+                    <Link href={ previousSlide } passHref replace shallow>
+                        <IconButton className={ classes.button }>
+                            <FontAwesomeIcon icon={ faChevronLeft } />
+                        </IconButton>
+                    </Link>
+                ) : (
+                    <IconButton className={ classes.button } disabled>
+                        <FontAwesomeIcon icon={ faChevronLeft } />
+                    </IconButton>
+            )}
+            { !!nextSlide
+                ? (
+                    <Link href={ nextSlide } passHref replace shallow>
+                        <IconButton className={ classes.button }>
+                            <FontAwesomeIcon icon={ faChevronRight } />
+                        </IconButton>
+                    </Link>
+                ) : (
+                    <IconButton className={ classes.button } disabled>
+                        <FontAwesomeIcon icon={ faChevronRight } />
+                    </IconButton>
+                )}
         </Card>
     )
 }
