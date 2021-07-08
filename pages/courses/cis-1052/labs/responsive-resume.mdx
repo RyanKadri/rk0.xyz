@@ -1,3 +1,6 @@
+import { LabLayout } from '../../../../packages/site/src/lessons/views/lab-view'
+export const description = "Combine HTML and CSS to build yourself a web-based, responsive resume"
+
 # Lab 3: Responsive Resume
 
 ## Overview
@@ -70,3 +73,5 @@ I am not grading this assignment as a work of art. The aesthetics of your resume
 **Hint 4:** This is the first project where you are writing all the code yourself. It can feel a bit intimidating. To get started, I would recommend the following approach: Hand-draw your page for print and mobile. Think about where content will go and what will be grouped. Look at some PDFs of sample resumes for inspiration. Dump most/all the content you have in an HTML file. Don't worry about making it look pretty but think about what gets grouped together. Start styling the page from the "outside" in. Figure out the overall page layout before jumping into the details. Keep your page layout flexible and think about how it will change for the different media. Try adding media queries that get the overall layout to behave the way you want it. Tweak your design over time to get the finishing touches done. Do broad layout-affecting features before small tweaks.
 
 **Hint 5:** This is a suggestion you can take or leave. One way to keep consistency between your printer view and your "desktop" view, is by making your resume look like an 8.5 x 11 sheet of paper centered in the page. It should look exactly the same as it would when printed. Maybe take inspiration from how Google Docs shows you the document you're editing in the middle of the screen, surrounded by a grey background.
+
+export default ({ children }) => <LabLayout description={ description }>{children}</LabLayout>

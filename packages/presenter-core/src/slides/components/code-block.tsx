@@ -23,6 +23,9 @@ const useStyles = makeStyles(theme => createStyles({
         gap: 16,
         padding: "8px 16px",
         borderRadius: 4,
+        "& button": {
+            color: theme.palette.common.white
+        },
         "&:hover": {
             backgroundColor: "rgba(0,0,0,0.5)",
         },
@@ -122,9 +125,9 @@ export function CodeBlock({ code, className, options = {} }: Props) {
                     </IconButton>
                 </Tooltip>
             </div>
-            <pre className={`language-${code.language}`} style={{ margin: 0 }} ref={ codeBlockRef }>
-                <code className={`language-${code.language}`} 
-                      dangerouslySetInnerHTML={{ __html: code.html }} />
+            <pre className={`language-${code?.language}`} style={{ margin: 0 }} ref={ codeBlockRef }>
+                <code className={`language-${code?.language}`} 
+                      dangerouslySetInnerHTML={{ __html: code?.html }} />
             </pre>
         </div>
     )

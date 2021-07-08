@@ -30,18 +30,6 @@ export const useMarkdownLabStyles = makeStyles((theme: Theme) => createStyles({
             maxWidth: 900,
             display: "block"
         },
-        "& code:not([class^=language])": {
-            whiteSpace: "pre-wrap",
-            fontSize: "1.15rem",
-            backgroundColor: theme.palette.type === "light" ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.12)",
-            padding: 2,
-            borderRadius: 4,
-            color: theme.palette.secondary.dark
-        },
-        "& .remark-highlight": {
-            maxHeight: 600,
-            overflow: "auto"
-        },
         "& a": {
             color: theme.palette.primary.light
         }

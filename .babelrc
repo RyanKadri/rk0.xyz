@@ -1,4 +1,9 @@
 {
     "presets": ["next/babel"],
-    "plugins": ["./tooling/highlight-plugin/plugin.js"]
+    "plugins": [
+        "./tooling/highlight-plugin/plugin.js",
+        ["prismjs", {
+            "languages": ["javascript", "css", "markup"]
+        }]
+    ]
 }

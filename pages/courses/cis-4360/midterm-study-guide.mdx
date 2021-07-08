@@ -1,3 +1,5 @@
+import { StudyGuide } from "../../../packages/site/src/lessons/shared/study-guide.tsx"
+
 # Practicum in Software Construction - Midterm Study Guide
 
 ## Midterm Format
@@ -61,3 +63,5 @@ This may not be a 100% complete list of topics but it should get you most of the
 - Get good at setting up a setting up a basic Spring project in your IDE. Maybe set up one ahead of time. Don't waste time futzing with IDE settings.
 - Make sure you know how to start a Spring server how to test your @GetMapping / @PostMapping / etc methods. If you haven't figured out Postman yet, now is the time.
 - Make sure you know how to include a new library in your project from Maven
+
+export default ({ children }) => <StudyGuide>{children}</StudyGuide>

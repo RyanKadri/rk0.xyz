@@ -40,7 +40,6 @@ export const lesson9: Presentation = {
     lab: {
         slug: "using-apis",
         title: "Building a Pokedex",
-        content: import("./lab/pokedex.md")
     },
     recording: {
         link: "https://youtu.be/TrtHIFMIL6M"

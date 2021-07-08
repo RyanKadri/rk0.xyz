@@ -1,3 +1,5 @@
+import { LabLayout } from '../../../../packages/site/src/lessons/views/lab-view'
+
 # Lab 5: String Manipulation and Forms
 
 ## Overview
@@ -98,7 +100,7 @@ The main things I am looking for in this lab are:
 
 ## Sample Code
 
-const myHTML = synHTML`
+```html
 <html>
     <head>
         <title>MyFace</title>
@@ -145,4 +147,6 @@ const myHTML = synHTML`
         </div>
     </body>
 </html>
-`
+```
+
+export default ({ children }) => <LabLayout>{children}</LabLayout>

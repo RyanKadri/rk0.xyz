@@ -46,7 +46,6 @@ export const lesson6: Presentation = {
     lab: {
         title: "String Manipulation and Forms",
         slug: "strings-and-forms",
-        content: import("./lab/lab-writeup.md")
     },
     references: simple.references
 }

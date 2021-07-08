@@ -1,5 +1,6 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
+/// <reference types="@mdx-js/loader" />
 
 declare module "*.html" {
     const content: string;
@@ -9,11 +10,6 @@ declare module "*.html" {
 declare module "*.zip" {
     const content2: string;
     export default content2;
-}
-
-declare module "*.md" {
-    const content3: string;
-    export default content3;
 }
 
 declare module "*.svg" {

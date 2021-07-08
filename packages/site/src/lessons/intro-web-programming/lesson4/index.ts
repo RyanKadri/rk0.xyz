@@ -40,8 +40,6 @@ export const lesson4: Presentation = {
     lab: {
         title: "Responsive Resume",
         slug: "responsive-resume",
-        content: import("./lab/responsive-resume.md"),
-        description: "Combine HTML and CSS to build yourself a web-based, responsive resume"
     },
     recording: {
         link: "https://youtu.be/gUq_lTEMnIQ"

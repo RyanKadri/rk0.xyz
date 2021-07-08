@@ -43,7 +43,6 @@ export const lesson10: Presentation = {
     lab: {
         slug: "network-actions",
         title: "Interacting with the Network",
-        content: import("./lab/async-lab.md")
     },
     references: simple.references
 }

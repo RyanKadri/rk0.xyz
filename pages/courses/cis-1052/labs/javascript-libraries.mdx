@@ -1,3 +1,5 @@
+import { LabLayout } from '../../../../packages/site/src/lessons/views/lab-view'
+
 # Lab 9: Using JavaScript Libraries
 
 ## Overview
@@ -75,3 +77,5 @@ The things I am mainly looking for in this lab are:
     - If you can't get the fetching part working, you can fall back to just showing **some** graph with the requested characteristics (for a few points off)
 - For part 2, does your page show the video that is coming in through my webcam when I test it? Has some of the unnecessary stuff been taken out (no red box, no displaying the QR code value)
 - For part 3, does your page properly read a QR code? Does it redirect the user properly?
+
+export default ({ children }) => <LabLayout>{children}</LabLayout>

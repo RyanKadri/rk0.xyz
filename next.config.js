@@ -1,34 +1,18 @@
-const RemarkHTML = require("remark-html");
-const RemarkPrism = require("remark-prism");
+const withMDX = require("@next/mdx");
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
 })
 
-module.exports = withBundleAnalyzer({
+module.exports = withMDX({
+    extension: /\.mdx$/,
+    options: {
+        remarkPlugins: [
+        ]
+    }
+})(withBundleAnalyzer({
+    pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
     webpack: (config) => {
         config.module.rules.push(
-            {
-                test: /\.md$/,
-                use: [
-                    {
-                        loader: "html-loader",
-                        options: {
-                            esModule: true
-                        }
-                    },
-                    {
-                        loader: "remark-loader",
-                        options: {
-                            remarkOptions: {
-                                plugins: [
-                                    RemarkPrism,
-                                    RemarkHTML, 
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
             {
                 test: /\.(html|txt)$/,
                 exclude: /node_modules/,
@@ -49,4 +33,4 @@ module.exports = withBundleAnalyzer({
         ]
     },
     target: "serverless"
-})
+}))

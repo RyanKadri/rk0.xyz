@@ -1,3 +1,5 @@
+import { StudyGuide } from "../../../packages/site/src/lessons/shared/study-guide.tsx"
+
 # Final Project - Spy Notes
 
 For your final project, you will be creating a privacy-focused note taking web application. The application will most likely be composed of a few separate pages but as long as all of the requirements listed below are met, you are free to approach this problem how you like.
@@ -40,3 +42,5 @@ Finally, users should have an option to delete their notes (you can decide how t
 I wrote a little sample site for this project so that you can see the general flow. It's a rough draft at the moment so some things might break. Also, it is not currently responsive. I plan to polish it up a bit in the next few days. You do not need to make your site look exactly like mine or behave exactly like mine. You can probably simplify the design quite a bit and still meet the requirements above.
 
 **Sample Site:**  <https://spy-notes.rk0.xyz>
+
+export default ({ children }) => <StudyGuide>{children}</StudyGuide>

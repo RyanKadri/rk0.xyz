@@ -1,3 +1,7 @@
+import { LabLayout } from '../../../../packages/site/src/lessons/views/lab-view'
+
+export const description = "Apply CSS to an existing HTML page to recreate an image mockup. How close can you get to the target?";
+
 # Lab 2: Introduction to HTML and CSS
 
 ## Overview
@@ -166,3 +170,5 @@ To submit this assignment, please create a single zip file and upload it to Canv
 ## Grading
 
 Don't stress out too much about writing the perfect CSS for the site. I am not going to get a ruler and measure pixels. Please do make sure to at least target all of the elements that visually have styles applied to them (bold text should be bold, borders should be present, background colors should be set, etc.) The hardest parts of this lab are the column / panel layout and the top nav. If you get stuck on layout, feel free to ask Saman for help or save some questions for class / office hours. The borders, colors, font weights, etc should be doable. Other than the first part, this lab is an individual assignment. Some working together is acceptable but everyone must turn in unique, individual assignments 
+
+export default ({ children }) => <LabLayout description={ description }>{children}</LabLayout>

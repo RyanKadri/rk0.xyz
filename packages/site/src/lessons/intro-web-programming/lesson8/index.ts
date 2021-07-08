@@ -39,7 +39,6 @@ export const lesson8: Presentation = {
     lab: {
         slug: "callbacks",
         title: "Exploring Callbacks",
-        content: import("./lab/lab-writeup.md")
     },
     recording: {
         link: "https://youtu.be/ySD1ynculJ4"

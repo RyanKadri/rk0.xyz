@@ -1,3 +1,5 @@
+import { StudyGuide } from "../../../packages/site/src/lessons/shared/study-guide.tsx"
+
 # Introduction to Web Programming - Final Exam Study Guide
 
 ## Exam Format
@@ -138,3 +140,5 @@ This may not be a 100% complete list of topics but it should get you most of the
 - The exam is 3 hours long. Hopefully it doesn't take that long for everyone to complete. That said, remember to skim over all the problems and make sure you're not spending a huge amount of time on hard problems if you know the answers to easy problems right off the bat.
 - It is not strictly necessary but could be super beneficial to understand how to use the JavaScript debugger in the browser's developer tools (script tag). It will let you step through your code line by line and figure out what's happening if there's an error. We haven't covered this super deeply in class yet so you might need to do a little self-study for that.
 - The examples on GitHub are your friend. Even if you don't 100% know how to do something, maybe the examples can help you get started.
+
+export default ({ children }) => <StudyGuide>{children}</StudyGuide>

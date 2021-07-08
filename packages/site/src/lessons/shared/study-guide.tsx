@@ -4,18 +4,16 @@ import React from "react";
 import { useMarkdownLabStyles } from "./lab";
 
 interface Props {
-    content: string;
-    baseUrl: string
+    children: any[];
 }
-
-export function StudyGuide({ content, baseUrl }: Props) {
+export function StudyGuide({ children }: Props) {
     const classes = useMarkdownLabStyles();
     return (
         <main className={ classes.container }>
-            <Link href={ baseUrl } passHref>
+            <Link href={ "../" } passHref>
                 <MaterialLink>Back to Course</MaterialLink>
             </Link>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+            { children }
         </main>
     )
 }

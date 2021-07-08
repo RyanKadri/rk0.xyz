@@ -42,7 +42,6 @@ export const lesson11: Presentation = {
     lab: {
         slug: "javascript-libraries",
         title: "Using JavaScript Libraries",
-        content: import("./lab/libraries-lab.md")
     },
     references: simple.references
 }
