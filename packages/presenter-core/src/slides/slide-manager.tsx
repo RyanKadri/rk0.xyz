@@ -92,7 +92,8 @@ export function SlideManager({ course }: Props) {
                 <main>
                     <SlideViewport Slide={ slides[slideNum] } 
                                 context={ context } />
-                    <SlideControls previousSlide={ previousSlide } 
+                    <SlideControls courseUrl={ `/courses/${course.slug}` }
+                                previousSlide={ previousSlide } 
                                 nextSlide={ nextSlide } 
                                 className={ classes.controls } />
                 </main>

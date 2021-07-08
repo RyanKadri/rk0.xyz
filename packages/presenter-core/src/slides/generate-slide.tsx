@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from "react";
 import { PresentationContext } from "../services/types";
-import { SyntaxHighlightedBlock } from "./components/code-block";
+import { CodeBlockOptions, SyntaxHighlightedBlock } from "./components/code-block";
 import { NestedListInfo } from "./components/info-list";
 import { CenterMessageSlide, CodeSlide, ContentSlide, ContentSlideOptions, DefinitionSlide, EmbedSlide, MediaAssistSlide, MediaSlide, TitleSlide } from "./slides";
 
@@ -36,15 +36,17 @@ export function generateMediaSlide(
     }
 }
 
-export interface SlideCode {
+interface SlideInfo extends CodeSlideOptions {
     code: SyntaxHighlightedBlock;
 }
 
 export interface CodeSlideOptions {
+    codeBlock?: CodeBlockOptions;
     codeFirst?: boolean;
 }
 
-export function generateCodeSlide(title: string, bullets: (string | NestedListInfo | ReactElement)[], codeBlock: SlideCode, options?: CodeSlideOptions) {
+export function generateCodeSlide(title: string, bullets: (string | NestedListInfo | ReactElement)[], codeBlock: SlideInfo) {
+    const { code, ...options } = codeBlock;
     return function({ context }: { context: PresentationContext }) {
         return <CodeSlide context={ context } Title={ title } bullets={ bullets } code={ codeBlock.code } options={ options } />
     }

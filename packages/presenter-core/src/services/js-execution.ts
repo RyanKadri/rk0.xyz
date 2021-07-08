@@ -26,7 +26,7 @@ function makeInterceptingConsole() {
     const consoleProxy = new Proxy(console, {
         get(target, method) { return (message) => {
             if(typeof method === "string" && typeof target[method] === "function") {
-                loggedCalls.push({ message, type: method, time: new Date() })
+                loggedCalls.push({ message: "" + message, type: method, time: new Date() })
             }
         } }
     })
@@ -50,7 +50,7 @@ function withInterceptingConsole<T>(func: () => T): { result: T, consoleMessages
     finally { window.console = oldConsole }
 }
 
-export function executeFunction(code: string, targetFunction: string, paramString = ""): LoggedExecutionResult {
+export function executeFunction(code: string, targetFunction?: string, paramString = ""): LoggedExecutionResult {
     return withInterceptingConsole(() => (
         (0, eval)(`(function() {
             try {
@@ -58,11 +58,15 @@ export function executeFunction(code: string, targetFunction: string, paramStrin
             } catch(e) {
                 return { status: "parse-error", error: e.message }
             }
-            try {
-                return { status: "success", result: ${targetFunction}(${paramString}) };
-            } catch(e) {
-                return { status: "call-error", error: e.message }
-            }
+            ${ !targetFunction 
+                ? ""
+                : `
+                try {
+                    return { status: "success", result: ${targetFunction}(${paramString}) };
+                } catch(e) {
+                    return { status: "call-error", error: e.message }
+                }
+            `}
         })()`)
     ))
 }

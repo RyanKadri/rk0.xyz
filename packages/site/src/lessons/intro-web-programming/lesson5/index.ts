@@ -1,7 +1,7 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
+import { AssignmentOperators, ComparisonOperators, LogicalOperators, MathOperators } from "../lesson6/slides/operators";
 import { ArraysExample } from "./slides/arrays";
-import { OperatorsTable } from "./slides/operators-table";
 import * as simple from "./slides/simple";
 
 export const lesson5: Presentation = {
@@ -16,7 +16,10 @@ export const lesson5: Presentation = {
         simple.DataTypes,
         simple.VariablesExamples,
         simple.Operators,
-        OperatorsTable,
+        MathOperators,
+        AssignmentOperators,
+        ComparisonOperators,
+        LogicalOperators,
         simple.ConditionalExample,
         simple.WhileLoops,
         simple.ForLoops,

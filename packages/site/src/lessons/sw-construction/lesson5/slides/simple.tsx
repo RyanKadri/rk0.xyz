@@ -118,7 +118,7 @@ export const UseDataRightAway2 = generateCodeSlide("How is that any different?",
     "A new EmployeeInfo is returned for each lookup",
     "PayrollManager does not store any state"
 ], {
-    
+    codeFirst: true,
     code: synJava`// Shared by all classes who need employee info
 public class PayrollManager {
     public EmployeeInfo fetchEmployeeInfo() {
@@ -132,7 +132,7 @@ public class PayrollManager {
 public class EmployeeInfo {
     public EmployeeInfo() {}
 }`,
-}, { codeFirst: true });
+});
 
 export const CarefulWithReferences = generateContentSlide("References are dangerous", [
     "Variables in Java are labels for data that exists in memory",

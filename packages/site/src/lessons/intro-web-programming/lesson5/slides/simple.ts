@@ -62,6 +62,9 @@ export const ArraysExample = generateCodeSlide("Arrays", [
     "Adding elements to an array is easy",
     "Positions start at 0"
 ], { 
+    codeBlock: {
+        canExecuteCode: true
+    },
     code: synJS`
 const myFavoriteNumbers = [1,2,3];
 const names = ["Alice", "Bob", "Eve"];
@@ -73,7 +76,8 @@ for(const element of mixed) {
 
 console.log(mixed[0]);
 mixed[3] = "something";
-    `
+    `,
+    
 });
 
 export const ConditionalExample = generateCodeSlide("Conditionals", [
@@ -121,6 +125,9 @@ export const StringsPart2 = generateCodeSlide("Strings", [
     "Cannot be modified directly",
     "Many built-in methods"
 ], {
+    codeBlock: {
+        canExecuteCode: true
+    },
     code: synJS`
 const myName = "Ryan Kadri";
 
@@ -172,6 +179,9 @@ export const ForLoops = generateCodeSlide("For Loops", [
     '"For-loops" are for iterating a specific number of times',
     "There are a couple syntaxes. One is for iterating over a known set of items. The other is a bit more flexible"
 ], {
+    codeBlock: {
+        canExecuteCode: true
+    },
     code: synJS`
 const myFavoriteNumbers = [1,2,3];
 // Create a variable called "number" for each element in myFavoriteNumbers
