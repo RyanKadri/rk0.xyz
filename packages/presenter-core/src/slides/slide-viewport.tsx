@@ -16,8 +16,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     viewportContainer: {
         width: "100%",
         flexGrow: 1,
-        maxHeight: `calc(100vh - ${theme.spacing(8)}px)`,
-        height: `calc(100vh - ${theme.spacing(8)}px)`,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

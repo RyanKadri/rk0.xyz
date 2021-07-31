@@ -2,7 +2,8 @@ import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AppBar, createStyles, makeStyles, Toolbar } from "@material-ui/core";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext, UserSettings } from "../common/admin";
 
 const useStyles = makeStyles(theme => createStyles({
     title: { 
@@ -43,7 +44,8 @@ const useStyles = makeStyles(theme => createStyles({
 
 const siteLinks = [
     { description: "Courses", link: "/courses" },
-    { description: "Personal Projects", link: "/projects" }
+    { description: "Personal Projects", link: "/projects" },
+    { description: "Instructor", link: "/instructor", shouldShow: (userSettings: UserSettings) => userSettings.isProfessor }
 ];
 
 const externalLinks = [
@@ -51,17 +53,21 @@ const externalLinks = [
 ]
 
 export function RootNav() {
-    const classes = useStyles()
+    const classes = useStyles();
+    const userSettings = useContext(UserContext);
+
     return (
         <AppBar position="static" className={ classes.navBar }>
             <Toolbar component="nav">
                 <div className={ classes.linkGroup }>
-                    { siteLinks.map(link => (
-                        <Link href={link.link} key={link.link} passHref>
-                            <a className={classes.link}>
-                                { link.description }
-                            </a>
-                        </Link>
+                    { siteLinks
+                        .filter(link => !link.shouldShow || link.shouldShow(userSettings))
+                        .map(link => (
+                            <Link href={link.link} key={link.link} passHref>
+                                <a className={classes.link}>
+                                    { link.description }
+                                </a>
+                            </Link>
                     ))}
                 </div>
                 <div className={ `${classes.linkGroup} ${classes.externalLinks}` }>

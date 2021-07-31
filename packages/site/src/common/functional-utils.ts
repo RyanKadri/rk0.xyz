@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export function identity<T>(input: T): T {
     return input;
 }
@@ -29,3 +31,11 @@ export function arrayRemove<T>(arr: T[], i: number): T[] {
     newArray.splice(i, 1);
     return newArray;
 }
+
+export function useClientSideValue<T>(value: () => T, serverSidePlaceholder: T): T {
+    const [ val, setVal ] = useState(serverSidePlaceholder);
+    useEffect(() => {
+        setVal(value());
+    }, []);
+    return val;
+} 

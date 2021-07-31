@@ -9,6 +9,7 @@ import { OutlineToHtml } from "./slides/outline-to-html";
 import { SimpleBrowserSlide } from "./slides/simple-browser";
 import { SimpleMonitorSlide } from "./slides/simple-monitor";
 import { AboutMe, AboutMePicture, CourseNonTopics, CourseTools, CourseTopics, Expectations, HtmlAsStructure, HTMLDef, LetsCode, references, Syllabus, TitleSlide, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite, XMLSlide } from "./slides/simple-slides";
+import timings from "./slides/timings.json";
 
 export const lesson1: Presentation = {
     title: "Hello World!",
@@ -47,7 +48,8 @@ export const lesson1: Presentation = {
         title: "Intro to HTML",
     },
     recording: {
-        link: "https://youtu.be/nBgOvwrMpuU"
+        link: "https://youtu.be/nBgOvwrMpuU",
+        slideTimings: timings 
     },
     references
 }

@@ -43,6 +43,11 @@ export const lightThemeOptions: ThemeOptions = {
       root: {
         color: teal["700"]
       }
+    },
+    MuiButton: {
+      label: {
+        textTransform: "none"
+      }
     }
   },
   slides: {
@@ -58,6 +63,7 @@ export const darkThemeOptions: ThemeOptions = {
     type: "dark"
   },
   overrides: {
+    ...lightThemeOptions.overrides,
     MuiAppBar: {
         colorPrimary: {
           backgroundColor: teal["700"]

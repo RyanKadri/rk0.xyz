@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme => createStyles({
         width: "calc(100vw - 256px)",
         [theme.breakpoints.down("sm")]: {
             padding: theme.spacing()
+        },
+        [theme.breakpoints.up("md")]: {
+            height: "calc(100vh - 88px)",
         }
     },
     exampleHeader: {

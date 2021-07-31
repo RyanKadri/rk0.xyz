@@ -2,17 +2,22 @@ import { createStyles, makeStyles, MuiThemeProvider } from "@material-ui/core";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useTitle } from "../../../site/src/common/use-app-bar";
+import { recorderService } from "../services/slide-recorder";
 import { CourseDefinition, PresentationContext } from "../services/types";
 import { SlideControls } from "./slide-controls";
 import { SlideViewport } from "./slide-viewport";
 import { blankTheme } from "./themes/blank";
 import { ThemeContext } from "./themes/theme-context";
 
-const useStyles = makeStyles(theme => createStyles({
+const controlsHeight = 48;
+const useStyles = makeStyles(_ => createStyles({
+    viewportContainer: {
+        display: "grid",
+        gridTemplateRows: `calc(100vh - 64px - ${controlsHeight}px) ${controlsHeight}px`,
+        gridTemplateColumns: "100%"
+    },
     controls: {
-        position: "absolute",
-        bottom: theme.spacing(2),
-        right: theme.spacing(2)
+
     }
 }));
 
@@ -23,6 +28,7 @@ export function SlideManager({ course }: Props) {
 
     const classes = useStyles();
     const router = useRouter();
+    const recorder = recorderService.useRecorder();
     const lessonSlug = router.query.lessonId;
     const slideNum = parseInt(router.query.slideNum as string, 10);
     const lesson = course.lessons.find(lesson => lesson.slug === lessonSlug)!;
@@ -82,6 +88,10 @@ export function SlideManager({ course }: Props) {
         return () => document.removeEventListener("keydown", updatePos);
     }, [slideNum]);
 
+    useEffect(() => {
+        recorder.slideChanged({ slideNum, time: Date.now() })
+    }, [slideNum])
+
     useTitle(course?.title ?? "Unknown");
 
     const theme = lesson.theme ?? course.theme ?? blankTheme;
@@ -89,13 +99,18 @@ export function SlideManager({ course }: Props) {
     return (
         <ThemeContext.Provider value={ theme }> 
             <MuiThemeProvider theme={ theme.theme }>    
-                <main>
+                <main className={ classes.viewportContainer }>
                     <SlideViewport Slide={ slides[slideNum] } 
                                 context={ context } />
                     <SlideControls courseUrl={ `/courses/${course.slug}` }
-                                previousSlide={ previousSlide } 
-                                nextSlide={ nextSlide } 
-                                className={ classes.controls } />
+                                currSlide={ slideNum }
+                                previousSlideLink={ previousSlide } 
+                                nextSlideLink={ nextSlide } 
+                                className={ classes.controls }
+                                onRecord={ () => recorder.startRecording(course.slug, lesson.slug) }
+                                onStop={ recorder.stop }
+                                lesson={ lesson }
+                                recording={ recorder.currentRecording } />
                 </main>
             </MuiThemeProvider> 
         </ThemeContext.Provider>

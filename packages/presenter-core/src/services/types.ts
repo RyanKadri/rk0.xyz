@@ -2,6 +2,7 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { ComponentType } from "react";
 import { IThemeContext } from "../slides/themes/theme-context";
 import { EvalResult, LoggedConsoleMessage } from "./js-execution";
+import { SlideRecording } from "./slide-recorder";
 
 export interface PresentationContext {
     pageNum: number;
@@ -64,6 +65,7 @@ export interface TestCase {
 export interface RecordingDefinition {
     link: string;
     comment?: string;
+    slideTimings?: SlideRecording;
 }
 
 export interface LabDefinition {
