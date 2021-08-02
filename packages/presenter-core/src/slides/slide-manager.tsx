@@ -10,10 +10,15 @@ import { blankTheme } from "./themes/blank";
 import { ThemeContext } from "./themes/theme-context";
 
 const controlsHeight = 48;
-const useStyles = makeStyles(_ => createStyles({
+const useStyles = makeStyles(theme => createStyles({
     viewportContainer: {
         display: "grid",
-        gridTemplateRows: `calc(100vh - 64px - ${controlsHeight}px) ${controlsHeight}px`,
+        [theme.breakpoints.down('sm')]: {
+            gridTemplateRows: `${controlsHeight}px calc(100vh - 56px - ${controlsHeight}px)`,
+        },
+        [theme.breakpoints.up('md')]: {
+            gridTemplateRows: `${controlsHeight}px calc(100vh - 64px - ${controlsHeight}px)`,
+        },
         gridTemplateColumns: "100%"
     },
     controls: {
@@ -100,8 +105,6 @@ export function SlideManager({ course }: Props) {
         <ThemeContext.Provider value={ theme }> 
             <MuiThemeProvider theme={ theme.theme }>    
                 <main className={ classes.viewportContainer }>
-                    <SlideViewport Slide={ slides[slideNum] } 
-                                context={ context } />
                     <SlideControls courseUrl={ `/courses/${course.slug}` }
                                 currSlide={ slideNum }
                                 previousSlideLink={ previousSlide } 
@@ -111,6 +114,8 @@ export function SlideManager({ course }: Props) {
                                 onStop={ recorder.stop }
                                 lesson={ lesson }
                                 recording={ recorder.currentRecording } />
+                    <SlideViewport Slide={ slides[slideNum] } 
+                                context={ context } />
                 </main>
             </MuiThemeProvider> 
         </ThemeContext.Provider>

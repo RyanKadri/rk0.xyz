@@ -2,10 +2,13 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
 import { faCircle } from "@fortawesome/free-solid-svg-icons/faCircle";
+import { faEllipsisV } from "@fortawesome/free-solid-svg-icons/faEllipsisV";
 import { faSquare } from "@fortawesome/free-solid-svg-icons/faSquare";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { createStyles, IconButton, Link as MaterialLink, makeStyles } from "@material-ui/core";
+import { createStyles, Hidden, IconButton, Link as MaterialLink, makeStyles, Menu, MenuItem } from "@material-ui/core";
+import c from "classnames";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { SlideRecording } from "../services/slide-recorder";
 import { Presentation, RecordingDefinition } from "../services/types";
@@ -16,7 +19,7 @@ const useStyles = makeStyles(theme => createStyles({
         display: "flex",
         justifyContent: "space-between",
         gap: 8,
-        padding: "8px",
+        padding: "8px 16px",
         transition: "opacity 100ms ease-in-out",
         backgroundColor: theme.palette.grey["900"],
         color: theme.palette.text.primary
@@ -24,7 +27,7 @@ const useStyles = makeStyles(theme => createStyles({
     button: {
         fontSize: 20,
         [theme.breakpoints.down("sm")]: {
-            fontSize: 14
+            fontSize: 18
         }
     },
     controlButtonGroup: {
@@ -32,6 +35,12 @@ const useStyles = makeStyles(theme => createStyles({
         alignItems: "center",
         gap: 8
     },
+    textLinkGroup: {
+        gap: 32
+    },
+    menuItem: {
+        fontSize: 16,
+    }
 }));
 
 interface Props {
@@ -49,6 +58,8 @@ interface Props {
 export function SlideControls({ className, currSlide, previousSlideLink, nextSlideLink, courseUrl, onRecord, onStop, lesson, recording }: Props) {
     const classes = useStyles();
     const [_, setVersion] = useState(Date.now());
+    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+    const router = useRouter();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -58,19 +69,47 @@ export function SlideControls({ className, currSlide, previousSlideLink, nextSli
     }, []);
 
     return (
-        <div className={ `${className} ${ classes.controlsContainer }` }>
-            <div className={ classes.controlButtonGroup }>
-                <Link href={ courseUrl } passHref>
-                    <MaterialLink>
-                        Back to Class
-                    </MaterialLink>
-                </Link>
-                { !!lesson.recording && (
-                    <MaterialLink href={ generateRecordingLink(lesson.recording, currSlide) } target="__blank">
-                        View Recording
-                    </MaterialLink>
-                )}
-            </div>
+        <div className={ c(className, classes.controlsContainer) }>
+            <Hidden smDown>
+                <div className={ c(classes.controlButtonGroup, classes.textLinkGroup) }>
+                    <Link href={ courseUrl } passHref>
+                        <MaterialLink>
+                            Back to Class
+                        </MaterialLink>
+                    </Link>
+                    { !!lesson.recording && (
+                        <MaterialLink href={ generateRecordingLink(lesson.recording, currSlide) } target="__blank">
+                            View Recording
+                        </MaterialLink>
+                    )}
+                </div>
+            </Hidden>
+            <Hidden mdUp>
+                <div className={ c(classes.controlButtonGroup, classes.textLinkGroup) }>
+                    <IconButton aria-controls="simple-menu" aria-haspopup="true"
+                                className={ classes.button }
+                                onClick={e => setAnchorEl(e.currentTarget)}>
+                        <FontAwesomeIcon icon={ faEllipsisV } />
+                    </IconButton>
+                    <Menu id="slide-controls"
+                        anchorEl={ anchorEl }
+                        open={ !!anchorEl }
+                        onClose={() => setAnchorEl(null)}
+                        keepMounted>
+                        {/* TODO - Fix styling */}
+                        <MenuItem className={ classes.menuItem }
+                                  onClick={() => { setAnchorEl(null); router.push(courseUrl) }}>
+                            Back to Class
+                        </MenuItem>
+                        { !!lesson.recording && (
+                            <MenuItem className={ classes.menuItem }
+                                    onClick={() => { setAnchorEl(null); window.location.href = generateRecordingLink(lesson.recording!, currSlide) }}>
+                                View Recording
+                            </MenuItem>
+                        )}
+                    </Menu>
+                </div>
+            </Hidden>
             { !lesson.recording?.slideTimings && (
                 <div className={ classes.controlButtonGroup }>
                     { !recording
