@@ -6,7 +6,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 import { CourseDefinition } from "../packages/presenter-core/src/services/types";
 import { courseToStructuredData } from "../packages/site/src/analytics";
-import { introToWebProgrammingFall2020 } from "../packages/site/src/lessons/intro-web-programming";
+import { introToWebProgrammingFall2020 } from "../packages/site/src/lessons/intro-web-programming-f2020";
 import { practicumInSW2021 } from "../packages/site/src/lessons/sw-construction";
 import { CourseCard } from "../packages/site/src/lessons/views/lesson-list/course-card";
 

@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { SlideManager } from "../../../../../../packages/presenter-core/src/slides/slide-manager";
-import { introToWebProgrammingFall2020 } from "../../../../../../packages/site/src/lessons/intro-web-programming";
+import { introToWebProgrammingFall2020 } from "../../../../../../packages/site/src/lessons/intro-web-programming-f2020";
 
 export default function _SlideManager() {
     return (
