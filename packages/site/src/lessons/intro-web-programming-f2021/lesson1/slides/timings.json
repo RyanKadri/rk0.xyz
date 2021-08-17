@@ -1,0 +1,170 @@
+{
+    "id": 1627673684234,
+    "courseName": "cis-1052",
+    "lessonName": "hello-world",
+    "slideChangeEvents": [
+        {
+            "slideNum": 1,
+            "time": 2073
+        },
+        {
+            "slideNum": 2,
+            "time": 4683
+        },
+        {
+            "slideNum": 1,
+            "time": 7606
+        },
+        {
+            "slideNum": 2,
+            "time": 10259
+        },
+        {
+            "slideNum": 3,
+            "time": 12100
+        },
+        {
+            "slideNum": 4,
+            "time": 14139
+        },
+        {
+            "slideNum": 5,
+            "time": 14213
+        },
+        {
+            "slideNum": 6,
+            "time": 15465
+        },
+        {
+            "slideNum": 7,
+            "time": 16949
+        },
+        {
+            "slideNum": 8,
+            "time": 18530
+        },
+        {
+            "slideNum": 9,
+            "time": 20577
+        },
+        {
+            "slideNum": 10,
+            "time": 24291
+        },
+        {
+            "slideNum": 11,
+            "time": 26848
+        },
+        {
+            "slideNum": 12,
+            "time": 27566
+        },
+        {
+            "slideNum": 13,
+            "time": 28261
+        },
+        {
+            "slideNum": 14,
+            "time": 29752
+        },
+        {
+            "slideNum": 15,
+            "time": 29881
+        },
+        {
+            "slideNum": 16,
+            "time": 30075
+        },
+        {
+            "slideNum": 17,
+            "time": 30176
+        },
+        {
+            "slideNum": 16,
+            "time": 32694
+        },
+        {
+            "slideNum": 15,
+            "time": 32951
+        },
+        {
+            "slideNum": 14,
+            "time": 33030
+        },
+        {
+            "slideNum": 13,
+            "time": 33257
+        },
+        {
+            "slideNum": 14,
+            "time": 33764
+        },
+        {
+            "slideNum": 15,
+            "time": 33825
+        },
+        {
+            "slideNum": 16,
+            "time": 33993
+        },
+        {
+            "slideNum": 17,
+            "time": 34099
+        },
+        {
+            "slideNum": 18,
+            "time": 34370
+        },
+        {
+            "slideNum": 17,
+            "time": 34906
+        },
+        {
+            "slideNum": 16,
+            "time": 35429
+        },
+        {
+            "slideNum": 15,
+            "time": 36006
+        },
+        {
+            "slideNum": 16,
+            "time": 59624
+        },
+        {
+            "slideNum": 17,
+            "time": 60005
+        },
+        {
+            "slideNum": 18,
+            "time": 60372
+        },
+        {
+            "slideNum": 17,
+            "time": 60782
+        },
+        {
+            "slideNum": 16,
+            "time": 60884
+        },
+        {
+            "slideNum": 15,
+            "time": 61047
+        },
+        {
+            "slideNum": 16,
+            "time": 65977
+        },
+        {
+            "slideNum": 17,
+            "time": 66270
+        },
+        {
+            "slideNum": 18,
+            "time": 66636
+        }
+    ],
+    "startTime": 1627673684234,
+    "endTime": 1627673752918,
+    "videoOffset": null
+}
