@@ -3,5 +3,12 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
+    "editor.autoClosingBrackets": "languageDefined",
     "liveServer.settings.port": 5501,
+    "[typescriptreact]": {
+        "editor.autoClosingBrackets": "languageDefined"
+    },
+    "[typescript]": {
+        "editor.autoClosingBrackets": "languageDefined"
+    }
 }

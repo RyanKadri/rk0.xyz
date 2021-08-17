@@ -110,7 +110,7 @@ export function SlideManager({ course }: Props) {
                                 previousSlideLink={ previousSlide } 
                                 nextSlideLink={ nextSlide } 
                                 className={ classes.controls }
-                                onRecord={ () => recorder.startRecording(course.slug, lesson.slug) }
+                                onRecord={ () => recorder.startRecording(course.title, lesson.title) }
                                 onStop={ recorder.stop }
                                 lesson={ lesson }
                                 recording={ recorder.currentRecording } />
