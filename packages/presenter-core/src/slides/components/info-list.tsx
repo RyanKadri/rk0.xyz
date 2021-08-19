@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     item: {
         position: "relative",
         marginBottom: 16,
+        "&::marker": {
+            color: theme.palette.secondary.main,
+        }
     },
     bulletListItem: {
         display: "block",
@@ -20,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             width: 12,
             top: 26,
             transform: "translate(-32px, -50%)"
-        }
+        },
     }
 }))
 

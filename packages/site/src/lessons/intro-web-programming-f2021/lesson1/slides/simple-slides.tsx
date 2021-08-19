@@ -17,18 +17,19 @@ export const AboutMePicture = generateMediaSlide(
 )
 
 export const AboutMe = generateContentSlide("About Me", [
-    "Grew up in New Jersey",
-    "I like hiking and coding (not at the same time)",
-    "Studied at Rutgers",
-    "Currently work at Capital One"
+    "I am an adjunct professor",
+    "I currently work at Capital One",
+    "I grew up in New Jersey",
+    "I like rock climbing and coding (not at the same time)",
+    "I studied CS at Rutgers",
 ]);
 
-export const CourseTopics = generateContentSlide("Course Structure", [
-    "Structuring basic HTML websites",
-    "Using CSS to style your page",
-    "Making your static page interactive with JavaScript",
+export const CourseTopics = generateContentSlide("Course Progression", [
+    "Creating basic \"static\" web documents",
+    "Making those pages look good (on all devices)",
+    "Adding functionality to those pages",
     "Hosting your site on the Internet",
-    "Writing server-side code that your site can talk to"
+    "Integrating with other services to make your site more interesting"
 ], { useOrderedLists: true });
 
 export const CourseNonTopics = generateContentSlide("What is this Course NOT?", [
@@ -38,20 +39,24 @@ export const CourseNonTopics = generateContentSlide("What is this Course NOT?", 
 ]);
 
 export const CourseTools = generateContentSlide("Course Tools", [
-    { text: "Visual Studio Code", children: [
-        "My IDE for HTML, CSS and JS"
-    ]},
-    { text: "Slack", children: [
-        "One channel per class",
-        "Use reactions to give feedback"
-    ]},
-    { text: "Email", children: [
-        "For longer discussions / attachments"
-    ]},
-    { text: "GitHub", children: [
-        "For sharing code examples"
-    ]},
+    <>Code Editor:{" "}
+        <MaterialLink href="https://code.visualstudio.com/" target="_blank">
+            Visual Studio Code
+        </MaterialLink>
+    </>,
+    <>Chat App:{" "}
+        <MaterialLink href="https://slack.com/" target="_blank">
+            Slack
+        </MaterialLink>
+    </>,
+    <>Example code repository:{" "}
+        <MaterialLink href="https://github.com/RyanKadri/cis1052-fall-2021-examples" target="_blank">
+            GitHub
+        </MaterialLink>
+    </>,
+    "Email",
     "Zoom",
+    "Google Chrome (recommended)"
 ])
 
 export const Expectations = generateContentSlide("Course Work", [
@@ -67,7 +72,7 @@ export const Expectations = generateContentSlide("Course Work", [
 ])
 
 export const Syllabus = generateMessageSlide(
-    <MaterialLink variant="h4" href="https://templeu.instructure.com/courses/81125" target="_blank">
+    <MaterialLink variant="h4" href="https://templeu.instructure.com/courses/98065" target="_blank">
         Syllabus
     </MaterialLink>
 )
@@ -98,18 +103,59 @@ export const WhatIsBrowserPart2 = generateContentSlide("What is a Browser?", [
     "Network-aware",
     "Based on shared standards",
     "Secure",
-    "Remote Client ",
+    "Remote Client",
 ]);
 
-export const HTMLDef = generateContentSlide("HTML", [
-    '“Structure” of a web site / application',
-    'Hierarchical',
-    'Uses publishing terminology',
-    'Based on XML',
-    'Not a programming language',
+export const TradeoffsOfServerImages = generateContentSlide("Model 1 Pros / Cons", [
+    { text: "Pros", children: [
+        "The browser can be very simple - Just display an image",
+        "A simple browser is a secure browser"
+    ] },
+    { text: "Cons", children: [
+        "Uses tons of data",
+        "Different devices need different images (complex)",
+        "Interactivity is hard"
+    ]}
 ]);
 
-export const XMLSlide = generateCodeSlide("XML", [], {
+export const TradeoffsOfDirections = generateContentSlide("Model 2 Pros / Cons", [
+    { text: "Pros", children: [
+        "Much less data needed than before",
+        <>Can be <em>more</em> adaptive to different devices</>
+    ] },
+    { text: "Cons", children: [
+        "Hard to think about / modify",
+        "Browser needs to understand directions",
+        "Still hard to work with different devices",
+        "Interactivity is still hard",
+    ]}
+]);
+
+export const HTMLDef = generateContentSlide("The Web - HTML", [
+    "Describes the content of the page - not exact layout",
+    "Describes elements on the page by purpose - not shape",
+    "Puts elements in a hierarchy",
+    "Does not always give explicit dimensions",
+]);
+
+export const TradeoffsOfHTML = generateContentSlide("HTML Pros / Cons", [
+    { text: "Pros", children: [
+        "Most adaptable to multiple devices",
+        "Allows for controls and interactivity",
+        "Code makes more sense at a glance"
+    ] },
+    { text: "Cons", children: [
+        "Harder to learn - that's why we need a class!",
+        "Harder to be explicit and precise",
+        "Worse for drawing arbitrary graphics",
+    ]}
+]);
+
+export const XMLSlide = generateCodeSlide("XML", [
+    "HTML is mostly based on XML",
+    "Information in XML is nested/hierarchical",
+    "Documents are self-descriptive"
+], {
     code: synHTML`<Book isbn=”9788580410631”>
     <Title>The Name of the Wind</Title>
     <Author>
@@ -120,10 +166,11 @@ export const XMLSlide = generateCodeSlide("XML", [], {
 })
 
 export const HtmlAsStructure = generateContentSlide("HTML", [
-    'HTML is not meant to describe presentation',
-    'Tags describe the purpose of content',
-    '<strong> means "strong importance". Not bold',
-    '<h1> means "highest level organizational header" not "biggest text"',
+    'HTML is not meant to define the way things look',
+    <>Tags describe the <em>purpose</em> of content</>,
+    "Tags come with default styles but these are override-able",
+    <><code>{"<strong>"}</code> means "strong importance". Not bold</>,
+    <><code>{"<h1>"}</code> means "highest level organizational header" not "biggest text"</>,
     'Each tag can be made to look like any other',
     'Picking the right element is important for accessibility, among other things'
 ]);
