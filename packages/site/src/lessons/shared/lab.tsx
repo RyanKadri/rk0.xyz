@@ -22,9 +22,6 @@ export const useMarkdownLabStyles = makeStyles((theme: Theme) => createStyles({
         "& p+p": {
             marginTop: 8
         },
-        "& section": {
-            marginLeft: 16
-        },
         "& img": {
             width: "100%",
             maxWidth: 900,

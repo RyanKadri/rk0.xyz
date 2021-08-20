@@ -1,6 +1,6 @@
 import { Button, createStyles, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, Typography } from "@material-ui/core";
 import dynamic from "next/dynamic";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 const CodeEditor = dynamic(() => import("./code-editor"), { ssr: false })
 
 interface Props {
@@ -51,15 +51,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 export function CodePlayground(props: Props) {
 
-    const editorRef = useRef<any | null>(null);
     const classes = useStyles();
     const [latestResults, updateResults] = useState<any[] | undefined>();
-    const [globalError, setGlobalError] = useState<string | null>(null)
+    const [globalError, setGlobalError] = useState<string | null>(null);
+    const [currCode, setCurrCode] = useState<string>(props.intialCode)
 
     const runCode = () => {
         setGlobalError(null);
         try {
-            window.eval(editorRef.current!.getValue());
+            window.eval(currCode);
             const fn: Function = window[props.executionParams.functionToCall];
             const results = props.executionParams.expectations.map(exp => {
                 try {
@@ -81,7 +81,7 @@ export function CodePlayground(props: Props) {
                         className={ classes.editor }
                         height={ props.editorHeight }
                         initialCode={ props.intialCode } 
-                        editorRef={ editorRef } 
+                        onCodeChanged={code => setCurrCode(code)}
                         saveKey={ props.savePrefix ? `${props.savePrefix}.code` : undefined } />
             { globalError && 
                 <Typography variant="body2" color="error">{ globalError }</Typography>

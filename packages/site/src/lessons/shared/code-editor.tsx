@@ -14,14 +14,13 @@ interface Props {
     saveKey?: string;
     height?: number | string;
     language: "javascript" | "html" | "css" | "json";
-    path: string;
+    path?: string;
 }
 
 export default function CodeEditor(props: Props) {
     const saveKey = props.saveKey;
-    // const storedCode = saveKey ? localStorage.getItem(saveKey) : null;
-    // const code = storedCode ? JSON.parse(storedCode) : props.initialCode;
-    const code = props.initialCode;
+    const storedCode = saveKey ? localStorage.getItem(saveKey) : null;
+    const code = storedCode ? JSON.parse(storedCode) : props.initialCode;
 
     const onUpdate = (code?: string) => {
         if(code !== undefined && (saveKey || props.onCodeChanged)) {
@@ -33,7 +32,8 @@ export default function CodeEditor(props: Props) {
     }
 
     return (
-            <Editor theme="vs-dark"
+            <Editor theme="light"
+                    height={ props.height || 400}
                     path={ props.path } 
                     key={ props.path }
                     defaultValue={ code }
