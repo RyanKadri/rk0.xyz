@@ -1,11 +1,10 @@
-import { createStyles, Hidden, makeStyles } from "@material-ui/core";
-import dynamic from "next/dynamic";
+import { createStyles, Hidden, makeStyles, NoSsr } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
+import CodeEditor from "../shared/code-editor";
 import { HTMLExampleOutput } from "./html-example-output";
 import { JSExampleRunner } from "./js-example";
-const CodeEditor = dynamic(() => import("../shared/code-editor"), { ssr: false })
 
 const useStyles = makeStyles(theme => createStyles({
     container: {
@@ -60,14 +59,21 @@ export function ExamplePlayground({ example, highlightedCode }: Props) {
         <div className={ classes.container }>
             <div className={ classes.editorContainer }>
                 <Hidden smDown>
-                    <CodeEditor language={example.language} initialCode={ example.code } onCodeChanged={ updated => setCurrCode(updated) } height="100%" />
+                    <CodeEditor 
+                        language={example.language} 
+                        initialCode={ example.code } 
+                        onCodeChanged={ updated => setCurrCode(updated) } 
+                        height="100%"
+                        path={ example.title }/>
                 </Hidden>
                 <Hidden mdUp>
                     <CodeBlock code={ highlightedCode } />
                 </Hidden>
-                <noscript>
-                    <CodeBlock code={ highlightedCode } />
-                </noscript>
+                <NoSsr>
+                    <noscript>
+                        <CodeBlock code={ highlightedCode } />
+                    </noscript>
+                </NoSsr>
             </div>
             <div className={ classes.outputContainer }>
                 { example.language === "html"

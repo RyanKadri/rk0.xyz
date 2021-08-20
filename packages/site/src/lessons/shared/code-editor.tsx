@@ -1,6 +1,5 @@
-import loader from '@monaco-editor/loader';
-import type { editor as mEditor } from 'monaco-editor/esm/vs/editor/editor.api';
-import React, { MutableRefObject, useEffect, useRef } from "react";
+import Editor from '@monaco-editor/react';
+import React from "react";
 
 declare global {
     interface Window {
@@ -11,60 +10,42 @@ declare global {
 interface Props {
     initialCode: string;
     className?: string;
-    editorRef?: MutableRefObject<mEditor.IStandaloneCodeEditor | null>;
     onCodeChanged?: (code: string) => void;
     saveKey?: string;
     height?: number | string;
-    language: "javascript" | "html" | "css" | "json"
+    language: "javascript" | "html" | "css" | "json";
+    path: string;
 }
 
 export default function CodeEditor(props: Props) {
-    const editorContainer = useRef<HTMLDivElement>(null);
-    const internalEditor = useRef<mEditor.IStandaloneCodeEditor>();
+    const saveKey = props.saveKey;
+    // const storedCode = saveKey ? localStorage.getItem(saveKey) : null;
+    // const code = storedCode ? JSON.parse(storedCode) : props.initialCode;
+    const code = props.initialCode;
 
-    useEffect(() => {
-        if(editorContainer.current) {
-            const saveKey = props.saveKey;
-            const storedCode = saveKey ? localStorage.getItem(saveKey) : null;
-
-            if(internalEditor.current) {
-                internalEditor.current.dispose();
+    const onUpdate = (code?: string) => {
+        if(code !== undefined && (saveKey || props.onCodeChanged)) {
+            if(saveKey) {
+                localStorage.setItem(saveKey, JSON.stringify(code));
             }
-
-            const cancellable = loader.init().then(monaco => {
-                return monaco.editor.create(editorContainer.current!, {
-                    value: storedCode ? JSON.parse(storedCode) : props.initialCode,
-                    language: props.language,
-                    scrollBeyondLastLine: false,
-                    codeLens: false,
-                    minimap: {
-                        enabled: false
-                    },
-                    automaticLayout: true
-                })
-            })
-
-            cancellable.then(editor => {
-                internalEditor.current = editor;
-                if(props.editorRef) {
-                    props.editorRef.current = editor;
-                }
-                if(saveKey || props.onCodeChanged) {
-                    editor.getModel()!.onDidChangeContent(() => {
-                        const text = editor.getValue();
-                        if(saveKey) {
-                            localStorage.setItem(saveKey, JSON.stringify(editor.getValue()));
-                        }
-                        props.onCodeChanged?.(text);
-                    })
-                }
-            })
+            props.onCodeChanged?.(code);
         }
-    }, [ props.initialCode, props.language ])
+    }
 
     return (
-        <div className={ props.className || "" } 
-             style={ { height: props.height || 400 }} 
-             ref={ editorContainer } />
+            <Editor theme="vs-dark"
+                    path={ props.path } 
+                    key={ props.path }
+                    defaultValue={ code }
+                    defaultLanguage={ props.language }
+                    onChange={ onUpdate }
+                    options={{
+                        scrollBeyondLastLine: false,
+                        codeLens: false,
+                        minimap: {
+                            enabled: false
+                        },
+                        automaticLayout: true
+                    }} />
     )
 }
