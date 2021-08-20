@@ -5,11 +5,12 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons/faCircle";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons/faEllipsisV";
 import { faSquare } from "@fortawesome/free-solid-svg-icons/faSquare";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { createStyles, Hidden, IconButton, Link as MaterialLink, makeStyles, Menu, MenuItem } from "@material-ui/core";
+import { createStyles, Hidden, IconButton, Link as MaterialLink, makeStyles, Menu, MenuItem, NoSsr } from "@material-ui/core";
 import c from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { isProfessor } from "../../../site/src/common/admin";
 import { SlideRecording } from "../services/slide-recorder";
 import { Presentation, RecordingDefinition } from "../services/types";
 
@@ -110,23 +111,26 @@ export function SlideControls({ className, currSlide, previousSlideLink, nextSli
                     </Menu>
                 </div>
             </Hidden>
-            { !lesson.recording?.slideTimings && (
-                <div className={ classes.controlButtonGroup }>
-                    { !recording
-                        ? (
-                            <IconButton className={ classes.button } color="secondary" onClick={ onRecord }>
-                                <FontAwesomeIcon icon={ faCircle } />
-                            </IconButton>
-                        ) : (
-                            <>
-                                <IconButton className={ classes.button } color="secondary" onClick={ onStop }>
-                                    <FontAwesomeIcon icon={ faSquare } />
+            <NoSsr>
+                
+                { !lesson.recording?.slideTimings && isProfessor() && (
+                    <div className={ classes.controlButtonGroup }>
+                        { !recording
+                            ? (
+                                <IconButton className={ classes.button } color="secondary" onClick={ onRecord }>
+                                    <FontAwesomeIcon icon={ faCircle } />
                                 </IconButton>
-                                <span>{ renderRecordingTime(Date.now() - recording.startTime) }</span>
-                            </>
-                        )}
-                </div>
-            )}
+                            ) : (
+                                <>
+                                    <IconButton className={ classes.button } color="secondary" onClick={ onStop }>
+                                        <FontAwesomeIcon icon={ faSquare } />
+                                    </IconButton>
+                                    <span>{ renderRecordingTime(Date.now() - recording.startTime) }</span>
+                                </>
+                            )}
+                    </div>
+                )}
+            </NoSsr>
             <div className={ classes.controlButtonGroup }>
                 <LinkOrDisabledButton href={ previousSlideLink } icon={ faChevronLeft } label="Previous Slide" />
                 <LinkOrDisabledButton href={ nextSlideLink } icon={ faChevronRight } label="Next Slide" />
