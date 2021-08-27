@@ -59,7 +59,7 @@ export function BrowserServerChat1({ context }: { context: PresentationContext }
             <section className={ c(classes.chatColumn ) }>
                 <div className={ c(classes.message, classes.browserMessage) }>
                     <header>Browser</header>
-                    Hi <MaterialLink href="https://rk0.com">https://rk0.com</MaterialLink>.
+                    Hi <MaterialLink href="https://rk0.xyz">https://rk0.xyz</MaterialLink>.
                     Could you please tell me how to display your web page?
                 </div>
                 <div className={ c(classes.message, classes.serverMessage) }>

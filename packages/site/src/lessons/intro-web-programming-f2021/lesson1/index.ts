@@ -51,5 +51,8 @@ export const lesson1: Presentation = {
         slug: "intro-to-html",
         title: "Intro to HTML",
     },
+    recording: {
+        link: "https://youtu.be/si_2R0K5XkU",
+    },
     references
 }
