@@ -10,6 +10,7 @@ import { BrowserServerChat2 } from "./slides/browser-server-discussion-2";
 import { OutlineToHtml } from "./slides/outline-to-html";
 import { SimpleBrowserSlide } from "./slides/simple-browser";
 import { AboutMe, AboutMePicture, CourseNonTopics, CourseTools, CourseTopics, Expectations, HtmlAsStructure, HTMLDef, LetsCode, references, Syllabus, TitleSlide, TradeoffsOfDirections, TradeoffsOfHTML, TradeoffsOfServerImages, WhatIsBrowser, WhatIsBrowserPart2, WhatIsWebsite, XMLSlide } from "./slides/simple-slides";
+import timings from "./slides/timings.json";
 
 export const lesson1: Presentation = {
     title: "Hello World!",
@@ -53,6 +54,7 @@ export const lesson1: Presentation = {
     },
     recording: {
         link: "https://youtu.be/si_2R0K5XkU",
+        slideTimings: timings
     },
     references
 }

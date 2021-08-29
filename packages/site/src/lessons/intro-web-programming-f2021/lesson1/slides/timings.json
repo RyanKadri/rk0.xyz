@@ -1,170 +1,106 @@
 {
-    "id": 1627673684234,
-    "courseName": "cis-1052",
-    "lessonName": "hello-world",
+    "id": 1629927383811,
+    "courseName": "Introduction to Web Technology and Programming",
+    "lessonName": "Hello World!",
     "slideChangeEvents": [
         {
-            "slideNum": 1,
-            "time": 2073
-        },
-        {
             "slideNum": 2,
-            "time": 4683
-        },
-        {
-            "slideNum": 1,
-            "time": 7606
-        },
-        {
-            "slideNum": 2,
-            "time": 10259
+            "time": 1365
         },
         {
             "slideNum": 3,
-            "time": 12100
+            "time": 31594
         },
         {
             "slideNum": 4,
-            "time": 14139
+            "time": 154305
         },
         {
             "slideNum": 5,
-            "time": 14213
+            "time": 231125
         },
         {
             "slideNum": 6,
-            "time": 15465
+            "time": 402412
         },
         {
             "slideNum": 7,
-            "time": 16949
+            "time": 462000
         },
         {
             "slideNum": 8,
-            "time": 18530
+            "time": 1226751
         },
         {
             "slideNum": 9,
-            "time": 20577
+            "time": 1358388
         },
         {
             "slideNum": 10,
-            "time": 24291
+            "time": 1417495
         },
         {
             "slideNum": 11,
-            "time": 26848
+            "time": 1459400
         },
         {
             "slideNum": 12,
-            "time": 27566
+            "time": 1818922
+        },
+        {
+            "slideNum": 11,
+            "time": 1820473
+        },
+        {
+            "slideNum": 12,
+            "time": 1855931
         },
         {
             "slideNum": 13,
-            "time": 28261
+            "time": 1924091
         },
         {
             "slideNum": 14,
-            "time": 29752
+            "time": 2055602
         },
         {
             "slideNum": 15,
-            "time": 29881
+            "time": 2178738
         },
         {
             "slideNum": 16,
-            "time": 30075
+            "time": 2247341
         },
         {
             "slideNum": 17,
-            "time": 30176
-        },
-        {
-            "slideNum": 16,
-            "time": 32694
-        },
-        {
-            "slideNum": 15,
-            "time": 32951
-        },
-        {
-            "slideNum": 14,
-            "time": 33030
-        },
-        {
-            "slideNum": 13,
-            "time": 33257
-        },
-        {
-            "slideNum": 14,
-            "time": 33764
-        },
-        {
-            "slideNum": 15,
-            "time": 33825
-        },
-        {
-            "slideNum": 16,
-            "time": 33993
-        },
-        {
-            "slideNum": 17,
-            "time": 34099
+            "time": 2389697
         },
         {
             "slideNum": 18,
-            "time": 34370
+            "time": 2484267
         },
         {
-            "slideNum": 17,
-            "time": 34906
+            "slideNum": 19,
+            "time": 2848507
         },
         {
-            "slideNum": 16,
-            "time": 35429
+            "slideNum": 20,
+            "time": 2974120
         },
         {
-            "slideNum": 15,
-            "time": 36006
+            "slideNum": 19,
+            "time": 2996260
         },
         {
-            "slideNum": 16,
-            "time": 59624
+            "slideNum": 20,
+            "time": 3069677
         },
         {
-            "slideNum": 17,
-            "time": 60005
-        },
-        {
-            "slideNum": 18,
-            "time": 60372
-        },
-        {
-            "slideNum": 17,
-            "time": 60782
-        },
-        {
-            "slideNum": 16,
-            "time": 60884
-        },
-        {
-            "slideNum": 15,
-            "time": 61047
-        },
-        {
-            "slideNum": 16,
-            "time": 65977
-        },
-        {
-            "slideNum": 17,
-            "time": 66270
-        },
-        {
-            "slideNum": 18,
-            "time": 66636
+            "slideNum": 21,
+            "time": 3348298
         }
     ],
-    "startTime": 1627673684234,
-    "endTime": 1627673752918,
-    "videoOffset": null
+    "startTime": 1629927383811,
+    "endTime": 1629980776084,
+    "videoOffset": 73000
 }

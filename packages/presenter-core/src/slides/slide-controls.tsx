@@ -182,6 +182,6 @@ function generateRecordingLink(recording: RecordingDefinition, slide: number) {
     } else {
         const startTimeSecs = Math.floor(firstSlideChange.time / 1000);
         const offset = (recording.slideTimings?.videoOffset ?? 0) / 1000;
-        return `${baseUrl}?t=${startTimeSecs + offset}`
+        return `${baseUrl}?t=${Math.round(startTimeSecs + offset)}`
     }
 }
