@@ -26,7 +26,8 @@ const useStyles = makeStyles(createStyles({
     tableViewParent: {
         display: "grid",
         gridTemplateColumns: "1fr 1fr 1fr",
-        gap: "16px"
+        gap: "16px",
+        maxWidth: "1200px"
     },
     headerRow: {
         "& th, & td": {
@@ -34,17 +35,23 @@ const useStyles = makeStyles(createStyles({
         }
     },
     cardHeader: {
-        paddingBottom: 0
+        fontSize: "1.25rem"
     },
     cardActions: {
         display: "flex",
         flexDirection: "column",
-        gap: 16,
         alignItems: "flex-start",
         padding: 16,
         paddingTop: 0,
         "& a": {
-            display: "block"
+            display: "block",
+            padding: "12px 0"
+        },
+        "& a:first-of-type": {
+            paddingTop: 0
+        },
+        "& a:last-of-type": {
+            paddingBottom: 0
         }
     }
 }));
@@ -68,10 +75,7 @@ function LessonCardView({ course, baseUrl }: Props) {
     return <>{
         course.lessons.map((lesson) => (
             <Card className={ classes.lessonCard } key={ lesson.title }>
-                <CardHeader title={ lesson.title } className={ classes.cardHeader } />
-                <CardContent>
-                    { lesson.description }
-                </CardContent>
+                <CardHeader title={ lesson.description } classes={ { title: classes.cardHeader } } />
                 <footer className={ classes.cardActions }>
                     <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>
                         <MaterialLink>
@@ -123,8 +127,8 @@ function LessonTableView({ course, baseUrl }: Props) {
                 <Table>
                     <TableHead>
                         <TableRow className={ classes.headerRow }>
-                            <TableCell>Class Name</TableCell>
-                            <TableCell>Description</TableCell>
+                            <TableCell>#</TableCell>
+                            <TableCell>Course</TableCell>
                             <TableCell>Slides</TableCell>
                             <TableCell>Examples</TableCell>
                             <TableCell>Recording</TableCell>
@@ -132,9 +136,9 @@ function LessonTableView({ course, baseUrl }: Props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        { course.lessons.map((lesson) => (
+                        { course.lessons.map((lesson, lessonNum) => (
                             <TableRow key={ lesson.title }>
-                                <TableCell>{ lesson.title }</TableCell>
+                                <TableCell>{ lessonNum + 1 }</TableCell>
                                 <TableCell>{ lesson.description }</TableCell>
                                 <TableCell>
                                     <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>

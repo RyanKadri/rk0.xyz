@@ -14,7 +14,7 @@ import timings from "./slides/timings.json";
 
 export const lesson1: Presentation = {
     title: "Hello World!",
-    description: "Course Expectations, Web Fundamentals, Developer Tools, HTML Basics",
+    description: "Intro to HTML and Web Concepts",
     slug: "hello-world",
     slides: [
         TitleSlide,

@@ -1,0 +1,14 @@
+p {
+    color: green;
+    font-size: 32px;
+}
+#something {
+    color: purple;
+}
+.special {
+    color: red;
+}
+p {
+    font-weight: bold;
+    color: blue;
+}
