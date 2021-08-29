@@ -1,17 +1,10 @@
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synCSS, synHTML } from "../../../../common/highlighting";
 
 export const MainTitle = generateTitleSlide(`Styling HTML with CSS`, "Ryan Kadri");
 
-export const Agenda = generateContentSlide("Agenda", [
-    "Exploring Styles",
-    "CSS Selectors",
-    "Precedence / Ordering",
-    "Debugging Styles"
-]);
-
 export const RecapSlide = generateContentSlide("Recap", [
-    "Browser Responsibilities",
     { 
         text: "XML",
         children: [
@@ -26,16 +19,60 @@ export const RecapSlide = generateContentSlide("Recap", [
             "Declarative Language - Not a programming language",
             "HTML is for structure not style"
         ]
-    }
+    },
+    "Developer Tools"
 ]);
 
+export const GoalSlide = generateMessageSlide("Goal: Making our websites pretty");
+
 export const StyleConcepts = generateContentSlide("Style Concepts", [
-    "Styles are applied to individual elements",
-    "Some styles can be inherited",
-    "Styles are declarative (like HTML)",
-    "Styles can make (almost) any element look like (almost) any other",
-    'Try to make your HTML as "correct" as possible and then apply styles to achieve your look'
+    "CSS connects styles to HTML",
+    "Styles are applied at the HTML element level",
+    'Styles can be "targeted" to multiple elements',
+    { text: "Remember:", children: [
+        "Styles can make (almost) any element look like (almost) any other",
+        'Use the right HTML elements and style how you want'
+    ]}
 ]);
+
+export const ExampleTargeting = generateCodeSlide("Example CSS", [
+    "To give all paragraphs green text"
+], {
+    code: synCSS`
+p {
+    color: green;
+}`
+})
+
+export const HowCSS = generateContentSlide("How does CSS work?", [
+    "CSS lives separately from the HTML elements",
+    `It uses "selectors" to target elements and apply styles`,
+    `Allows for theming, branding, "skinning"`,
+    { text: "CSS can conflict with itself", children: [
+        'The most "specific" CSS wins',
+        "The last evaluated CSS breaks ties",
+    ]}
+]);
+
+export const LinksAndLoading = generateContentSlide("External Style Sheets", [
+    "<link> tags let you reference external CSS files and fonts",
+    "This is nice for reusing styles and organizing code",
+    "Need to consider document loading order"
+]);
+
+export const Selectors = generateContentSlide("Selectors", [
+    { text: "CSS can target elements based on: ", children: [
+        "tag",
+        "class",
+        "id",
+        "Other attribute(s)",
+        `"Position" in the HTML`,
+        "Pseudo-elements"
+    ]},
+    "Any style can be applied to selected elements",
+]);
+
+export const LetsGetStylish = generateMessageSlide("Let's get stylish!");
 
 export const ColorStyles = generateContentSlide("Styles: Color", [
     "Colors show up everywhere (fonts, borders, backgrounds, outlines, etc)",
@@ -44,55 +81,25 @@ export const ColorStyles = generateContentSlide("Styles: Color", [
     `Uses the concept of "additive colors"`
 ]);
 
-export const CssFundamentalsDisplay = generateContentSlide("CSS Fundamentals: Display", [
-    `The "display" property controls have elements interact`,
-    `First display values were "block" and "inline"`,
-    `They organize the page like an article`,
-    `Elements are in and out of "flow"`,
-    `Later versions of CSS included flex, grid, and others`
-]);
+export const InlineStyles = generateCodeSlide("Inline Styles", [
+    "Inline styles are another way to style elements",
+    "Fast in a pinch but often a bad idea"
+], {
+    code: synHTML`
+<p style="color: red; margin: 16px">
+    This is a paragraph with inline styles
+</p>`
+})
 
-export const LetsGetStylish = generateMessageSlide("Let's get stylish!");
-
-export const WhyCSS = generateMessageSlide("What's wrong with inline styles?");
-
-export const ThinkingCSS = generateContentSlide("Why CSS?", [
+export const DownsidesInline = generateContentSlide("What's wrong with inline styles?", [
     { text: "Inline styles are hard to...", children: [
-        "Maintain",
-        "Compose",
-        "Read",
+        "Maintain - How many places do I need to change this?!",
+        "Compose - Where are these styles coming from?!",
+        "Read - My HTML is so messy!",
     ]},
-    "CSS can be separated from HTML",
-    `Allows for theming, branding, "skinning"`
 ]);
 
-export const HowCSS = generateContentSlide("How CSS?", [
-    "CSS lives separately from the document",
-    `It uses "selectors" to target elements and apply styles`,
-    { text: "CSS can conflict with itself", children: [
-        "The most specific CSS wins",
-        "The last evaluated CSS breaks ties",
-    ]}
-]);
-
-export const Selectors = generateContentSlide("Selectors", [
-    { text: "CSS can target elements based on: ", children: [
-        "Tag",
-        "Attribute",
-        `"Position" in the HTML`,
-        "Pseudo-elements"
-    ]},
-    "Any style can be applied to selected elements",
-    "Selectors should be stable (no infinite loops)"
-]);
-
-export const LetsGetSelective = generateMessageSlide("Let's get selective!");
-
-export const LinksAndLoading = generateContentSlide("External Style Sheets", [
-    "<link> tags let you reference external CSS files and fonts",
-    "This is nice for reusing styles and organizing code",
-    "Need to consider document loading order"
-]);
+export const LetsPractice = generateMessageSlide("Let's practice!");
 
 export const references: Reference[] = [
     { label: "CSS Selector Target Practice", url: "https://flukeout.github.io/" },

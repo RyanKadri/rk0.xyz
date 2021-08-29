@@ -4,19 +4,27 @@
             div { 
                 display: inline-block; 
                 border: solid 1px; 
-            } 
+            }
+            #antisocial {
+                margin: 16px;
+            }
+            #big-yard {
+                padding: 16px;
+            }
+            #stay-away {
+                padding: 16px; 
+                margin: 16px;
+            }
         </style>
     </head>
     <body>
-        <div style="margin: 16px">This element has a margin</div>
+        <div id="antisocial">This element has a margin</div>
         <span>So the next element is pushed away</span>
-        <br />
-        <br />
-        <div style="padding: 16px">This element has padding</div>
+        <hr>
+        <div id="big-yard">This element has padding</div>
         <span>So the next element can be close</span>
-        <br />
-        <br />
-        <div style="padding: 16px; margin: 16px;">This element has margin and padding</div>
+        <hr>
+        <div id="stay-away">This element has margin and padding</div>
         <span>Check it out in the developer tools!</span>
     </body>
 </html>
