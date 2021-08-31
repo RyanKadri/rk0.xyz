@@ -16,7 +16,6 @@ export const RecapSlide = generateContentSlide("Recap", [
         text: "HTML",
         children: [
             "Basic Elements",
-            "Declarative Language - Not a programming language",
             "HTML is for structure not style"
         ]
     },
@@ -25,7 +24,7 @@ export const RecapSlide = generateContentSlide("Recap", [
 
 export const GoalSlide = generateMessageSlide("Goal: Making our websites pretty");
 
-export const StyleConcepts = generateContentSlide("Style Concepts", [
+export const StyleConcepts = generateContentSlide("CSS Concepts", [
     "CSS connects styles to HTML",
     "Styles are applied at the HTML element level",
     'Styles can be "targeted" to multiple elements',
@@ -54,10 +53,12 @@ export const HowCSS = generateContentSlide("How does CSS work?", [
     ]}
 ]);
 
-export const LinksAndLoading = generateContentSlide("External Style Sheets", [
-    "<link> tags let you reference external CSS files and fonts",
+export const LinksAndLoading = generateContentSlide("Where does CSS live?", [
+    <>CSS can live in a special <code>{ "<style>"}</code> element in your HTML file</>,
+    "Nice for small, simple pages",
+    "CSS can also live in a separate file",
+    <><code>{"<link>"}</code> tags let you reference external CSS files and fonts</>,
     "This is nice for reusing styles and organizing code",
-    "Need to consider document loading order"
 ]);
 
 export const Selectors = generateContentSlide("Selectors", [
@@ -68,11 +69,8 @@ export const Selectors = generateContentSlide("Selectors", [
         "Other attribute(s)",
         `"Position" in the HTML`,
         "Pseudo-elements"
-    ]},
-    "Any style can be applied to selected elements",
+    ]}
 ]);
-
-export const LetsGetStylish = generateMessageSlide("Let's get stylish!");
 
 export const ColorStyles = generateContentSlide("Styles: Color", [
     "Colors show up everywhere (fonts, borders, backgrounds, outlines, etc)",

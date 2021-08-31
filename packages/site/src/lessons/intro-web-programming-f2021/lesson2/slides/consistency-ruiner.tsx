@@ -19,10 +19,13 @@ a {
     font-family: monospace !important;
     font-weight: 900 !important;
 }
+nav a:first-of-type {
+    font-size: 26px !important;
+}
 main > div:nth-of-type(2) {
     background-color: #225;
 }
-            `}} />
+`}} />
             </>
         } />
     )

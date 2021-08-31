@@ -12,7 +12,7 @@ import { HexColors } from "./slides/hex-colors";
 import { HslColors } from "./slides/hsl-colors";
 import { NamedColors } from "./slides/named-colors";
 import { RgbaColors } from "./slides/rgba-colors";
-import { ColorStyles, DownsidesInline, ExampleTargeting, GoalSlide, HowCSS, InlineStyles, LetsGetStylish, LetsPractice, LinksAndLoading, MainTitle, RecapSlide, references, Selectors, StyleConcepts } from "./slides/simple-slides";
+import { ColorStyles, DownsidesInline, ExampleTargeting, GoalSlide, HowCSS, InlineStyles, LetsPractice, LinksAndLoading, MainTitle, RecapSlide, references, Selectors, StyleConcepts } from "./slides/simple-slides";
 import { Sizes } from "./slides/sizes";
 
 export const lesson2: Presentation = {
@@ -28,8 +28,6 @@ export const lesson2: Presentation = {
         ExampleTargeting,
         HowCSS,
         LinksAndLoading,
-        Selectors,
-        LetsGetStylish,
         Sizes,
         ColorStyles,
         NamedColors,
@@ -37,6 +35,7 @@ export const lesson2: Presentation = {
         RgbaColors,
         HslColors,
         CssBox,
+        Selectors,
         InlineStyles,
         DownsidesInline,
         LetsPractice,
