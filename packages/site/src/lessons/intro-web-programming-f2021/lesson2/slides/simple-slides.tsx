@@ -4,7 +4,7 @@ import { generateCodeSlide, generateContentSlide, generateMediaSlide, generateMe
 import { synCSS, synHTML } from "../../../../common/highlighting";
 import cssBoxModel from "../assets/box-model-alt-small.png";
 
-export const MainTitle = generateTitleSlide(`Styling HTML with CSS`, "Ryan Kadri");
+export const MainTitle = generateTitleSlide(`Styling Web Sites with CSS`, "Ryan Kadri");
 
 export const RecapSlide = generateContentSlide("Recap", [
     { 
