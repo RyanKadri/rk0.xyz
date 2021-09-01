@@ -1,6 +1,8 @@
+import { Link } from "@material-ui/core";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { synCSS, synHTML } from "../../../../common/highlighting";
+import cssBoxModel from "../assets/box-model-alt-small.png";
 
 export const MainTitle = generateTitleSlide(`Styling HTML with CSS`, "Ryan Kadri");
 
@@ -79,6 +81,29 @@ export const ColorStyles = generateContentSlide("Styles: Color", [
     `Uses the concept of "additive colors"`
 ]);
 
+export const CSSBoxModel = generateMediaSlide(
+    <img src={cssBoxModel.src}/>,
+    undefined,
+    "CSS Fundamentals: Box Model"
+)
+
+export const CSSSpecificity = generateContentSlide("CSS Specificity", [
+    "When two selectors try to apply the same style to an element, the more specific one wins",
+    "Inline styles are the most specific because they are directly tied to an element",
+    "IDs are next because they should only apply to one element",
+    "Classes are next because they indicate a specific category of elements",
+    "Tag selectors are next because they apply to all elements with a tag",
+    "Count the number of each category above in a selector",
+    "Sort according to the number of the most specific category and then break ties with the next"
+]);
+
+export const CSSSpecificityExceptions = generateContentSlide("CSS Specificity (Exceptions)", [
+    "The specificity rules above have a couple additional notes:",
+    "You can use !important on styles to immediately jump to the top of the specificty",
+    'If all of the above tie, use document ordering',
+    "pseudo-classes count as classes (except :not())"
+]);
+
 export const InlineStyles = generateCodeSlide("Inline Styles", [
     "Inline styles are another way to style elements",
     "Fast in a pinch but often a bad idea"
@@ -97,7 +122,9 @@ export const DownsidesInline = generateContentSlide("What's wrong with inline st
     ]},
 ]);
 
-export const LetsPractice = generateMessageSlide("Let's practice!");
+export const LetsPractice = generateMessageSlide(
+    <Link href="https://flukeout.github.io/" target="_blank" variant="h4">Let's practice!</Link>
+);
 
 export const references: Reference[] = [
     { label: "CSS Selector Target Practice", url: "https://flukeout.github.io/" },

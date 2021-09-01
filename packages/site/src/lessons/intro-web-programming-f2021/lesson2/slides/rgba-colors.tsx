@@ -23,7 +23,11 @@ const useStyles = makeStyles(createStyles({
         "& input": {
             marginLeft: 16,
             fontSize: "1rem"
-        }
+        },
+        "& code": {
+            color: "inherit",
+            backgroundColor: "transparent",
+        },
     }
 }))
 
@@ -51,7 +55,7 @@ export function RgbaColors({ context }: Props) {
         <ContentSlide Title="RGB Colors" context={ context } Content={
             <div className={ classes.colorContainer}>
                 <div style={{ backgroundColor: colorStyle, color: inverseColor }} className={classes.colorBlock}>
-                    { colorStyle }
+                    <code>{ colorStyle }</code>
                     <label>Red<input type="number" min="0" max="255" value={color.red} onChange={ onChange("red") } /></label>
                     <label>Green<input type="number" min="0" max="255" value={color.green} onChange={ onChange("green") } /></label>
                     <label>Blue<input type="number" min="0" max="255" value={color.blue} onChange={ onChange("blue") } /></label>

@@ -23,7 +23,11 @@ const useStyles = makeStyles(createStyles({
         "& input": {
             marginLeft: 16,
             fontSize: "1rem"
-        }
+        },
+        "& code": {
+            color: "inherit",
+            backgroundColor: "transparent",
+        },
     }
 }))
 
@@ -52,7 +56,7 @@ export function HslColors({ context }: Props) {
         <ContentSlide Title="HSL Colors" context={ context } Content={
             <div className={ classes.colorContainer}>
                 <div style={{ backgroundColor: colorStyle, color: inverseColor }} className={classes.colorBlock}>
-                    { colorStyle }
+                    <code>{ colorStyle }</code>
                     <label>Hue<input type="number" min="0" max="360" value={color.h} onChange={ onChange("h") } /></label>
                     <label>Saturation<input type="number" min="0" max="100" value={color.s} onChange={ onChange("s") } /></label>
                     <label>Luminance<input type="number" min="0" max="100" value={color.l} onChange={ onChange("l") } /></label>

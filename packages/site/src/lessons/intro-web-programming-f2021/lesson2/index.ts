@@ -1,4 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { SpecificityComparison } from "../../intro-web-programming-f2020/lesson4/slides/specificity-calculator";
 import { generateReferencesSlide } from "../../shared/references-slide";
 import borders from "./examples/borders.html";
 import colors from "./examples/colors.html";
@@ -7,12 +8,11 @@ import position from "./examples/position.html";
 import selectors from "./examples/selectors.html";
 import spacing from "./examples/spacing.html";
 import { Consistency } from "./slides/consistency-ruiner";
-import { CssBox } from "./slides/css-box";
 import { HexColors } from "./slides/hex-colors";
 import { HslColors } from "./slides/hsl-colors";
 import { NamedColors } from "./slides/named-colors";
 import { RgbaColors } from "./slides/rgba-colors";
-import { ColorStyles, DownsidesInline, ExampleTargeting, GoalSlide, HowCSS, InlineStyles, LetsPractice, LinksAndLoading, MainTitle, RecapSlide, references, Selectors, StyleConcepts } from "./slides/simple-slides";
+import { ColorStyles, CSSBoxModel, CSSSpecificity, CSSSpecificityExceptions, DownsidesInline, ExampleTargeting, GoalSlide, HowCSS, InlineStyles, LetsPractice, LinksAndLoading, MainTitle, RecapSlide, references, Selectors, StyleConcepts } from "./slides/simple-slides";
 import { Sizes } from "./slides/sizes";
 
 export const lesson2: Presentation = {
@@ -34,11 +34,14 @@ export const lesson2: Presentation = {
         HexColors,
         RgbaColors,
         HslColors,
-        CssBox,
+        CSSBoxModel,
         Selectors,
         InlineStyles,
         DownsidesInline,
         LetsPractice,
+        CSSSpecificity,
+        CSSSpecificityExceptions,
+        SpecificityComparison,
         generateReferencesSlide(references)
     ],
     examples: [
