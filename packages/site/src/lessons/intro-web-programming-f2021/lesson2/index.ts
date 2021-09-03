@@ -10,6 +10,7 @@ import spacing from "./examples/spacing.html";
 import { Consistency } from "./slides/consistency-ruiner";
 import { HexColors } from "./slides/hex-colors";
 import { HslColors } from "./slides/hsl-colors";
+import timings from "./slides/intro-to-css.json";
 import { NamedColors } from "./slides/named-colors";
 import { RgbaColors } from "./slides/rgba-colors";
 import { ColorStyles, CSSBoxModel, CSSSpecificity, CSSSpecificityExceptions, DownsidesInline, ExampleTargeting, GoalSlide, HowCSS, InlineStyles, LetsPractice, LinksAndLoading, MainTitle, RecapSlide, references, Selectors, StyleConcepts } from "./slides/simple-slides";
@@ -52,5 +53,9 @@ export const lesson2: Presentation = {
         { code: spacing, title: "Spacing", language: "html" },
         { code: position, title: "Position", language: "html" },
     ],
+    recording: {
+        link: "https://youtu.be/qKgxOgAUccU",
+        slideTimings: timings
+    },
     references
 }
