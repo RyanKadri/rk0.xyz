@@ -11,9 +11,14 @@ const useStyles = makeStyles({
     container: {
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
         padding: 16,
-        "& img": {
-            width: "45%"
+        "& a": {
+            display: "inline-block",
+            width: "49%"
+        },
+        "& a img": {
+            width: "100%"
         }
     },
 });
@@ -33,8 +38,12 @@ export function UseMultipleSites({ context }: Props) {
             <>
                 <InfoList items={ bullets } />
                 <div className={ classes.container }>
-                    <img src={ defaultSite.src } />
-                    <img src={ mobileSite.src } />
+                    <a href="https://en.wikipedia.org/wiki/CSS" target="_blank">
+                        <img src={ defaultSite.src } />
+                    </a>
+                    <a href="https://en.m.wikipedia.org/wiki/CSS" target="_blank">
+                        <img src={ mobileSite.src } />
+                    </a>
                 </div>
             </>
         } />

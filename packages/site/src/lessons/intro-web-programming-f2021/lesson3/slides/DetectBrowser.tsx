@@ -4,22 +4,26 @@ import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
-import defaultSite from "./responsive-detect-browser-1.png";
-import mobileSite from "./responsive-detect-browser-2.png";
+import defaultSite from "./desktop-google.png";
+import mobileSite from "./mobile-google.png";
 
 const useStyles = makeStyles({
     container: {
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
         padding: 16,
-        "& img": {
-            width: "45%"
+        "& a": {
+            width: "49%"
+        },
+        "& a img": {
+            width: "100%"
         }
     },
 });
 
 const bullets = [
-    "Uses the same URLs and backend logic but sends back different content",
+    "Uses the same URLs but the server sends different HTML + CSS",
     "Links work again",
     "Features are often still missing",
     "Code and design scheme may became more unified (or may not)"
@@ -32,8 +36,12 @@ export function DetectBrowser({ context }: Props) {
             <>
                 <InfoList items={ bullets } />
                 <div className={ classes.container }>
-                    <img src={ defaultSite.src } />
-                    <img src={ mobileSite.src } />
+                    <a href={ defaultSite.src } target="_blank">
+                        <img src={ defaultSite.src } />
+                    </a>
+                    <a href={ mobileSite.src } target="_blank">
+                        <img src={ mobileSite.src } />
+                    </a>
                 </div>
             </>
         } />

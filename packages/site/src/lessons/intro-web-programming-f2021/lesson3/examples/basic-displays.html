@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <style>
+            .blocky {
+                display: block;
+                margin: 8px;
+            }
+            .inliney {
+                display: inline;
+                margin-top: 24px;
+                margin-bottom: 24px;
+                margin-left: 16px;
+                margin-right: 16px;
+            }
+            .lineblocky {
+                display: inline-block;
+                margin-top: 48px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="blocky">Block content</div>
+        <div class="blocky">takes up its</div>
+        <div class="blocky">own line</div>
+
+        <div class="inliney">Inline content</div>
+        <div class="inliney">shows up</div>
+        <div class="inliney">in one line</div>
+        <div class="inliney">and doesn't get vertical margins</div>
+
+        <div>
+            <div class="lineblocky">inline-block content</div>
+            <div class="lineblocky">shows up on</div>
+            <div class="lineblocky">the same line</div>
+            <div class="lineblocky">but can have vertical margins</div>
+        </div>
+    </body>
+</html>

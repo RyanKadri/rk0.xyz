@@ -4,17 +4,18 @@ import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
-import defaultSite from "./responsive-adapt-css-1.png";
-import mobileSite from "./responsive-adapt-css-2.png";
+import defaultSite from "./anandtech-desktop.png";
+import mobileSite from "./anandtech-mobile.png";
 
 const useStyles = makeStyles({
     container: {
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
+        alignItems: "center",
         padding: 16,
         margin: "0 -80px",
         "& img": {
-            width: "49%"
+            height: "400px"
         }
     },
 });
@@ -34,8 +35,12 @@ export function ResponsiveCSS({ context }: Props) {
             <>
                 <InfoList items={ bullets } />
                 <div className={ classes.container }>
-                    <img src={ defaultSite.src } />
-                    <img src={ mobileSite.src } />
+                    <a href="https://www.anandtech.com/" target="_blank">
+                        <img src={ defaultSite.src } alt="Desktop view of AnandTech homepage" />
+                    </a>
+                    <a href="https://www.anandtech.com/" target="_blank">
+                        <img src={ mobileSite.src } alt="Tablet view of AnandTech homepage" />
+                    </a>
                 </div>
             </>
         } />

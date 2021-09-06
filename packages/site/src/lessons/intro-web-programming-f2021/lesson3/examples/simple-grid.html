@@ -8,23 +8,11 @@
                 display: grid;
                 height: 100%;
             }
-            @media (max-width: 600px) {
-                #outer {
-                    grid-template-columns: 1fr;
-                    grid-template-rows: 64px 32px 1fr;
-                    grid-template-areas: 'header'
-                                        'nav'
-                                        'content';
-                }
-            }
-
-            @media (min-width: 601px) {
-                #outer {
-                    grid-template-columns: 200px 1fr;
-                    grid-template-rows: 64px 1fr;
-                    grid-template-areas: 'header header'
-                                            'nav content';
-                }
+            #outer {
+                grid-template-columns: 200px 1fr;
+                grid-template-rows: 64px 1fr;
+                grid-template-areas: 'header header'
+                                        'nav content';
             }
             header {
                 border: dashed 4px red;

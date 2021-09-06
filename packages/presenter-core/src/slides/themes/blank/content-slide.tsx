@@ -21,10 +21,10 @@ export function ContentSlide({ Title, Content, context, classes = {}, options = 
         <div className={ c(ownClasses.container, classes.viewport, baseClasses.container) }>
             <div>
                 { typeof Title !== "string"
-                    ? <Typography variant="h4" component="h1" className={ baseClasses.title }>
+                    ? Title
+                    : <Typography variant="h4" component="h1" className={ baseClasses.title }>
                         {Title}
                     </Typography>
-                    : Title
                 }
             </div>
             { !Array.isArray(Content) 
