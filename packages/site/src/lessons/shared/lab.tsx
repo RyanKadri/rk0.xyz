@@ -28,7 +28,7 @@ export const useMarkdownLabStyles = makeStyles((theme: Theme) => createStyles({
             display: "block"
         },
         "& a": {
-            color: theme.palette.primary.light
+            color: theme.palette.primary.dark
         }
     }
 }));

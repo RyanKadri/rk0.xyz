@@ -26,7 +26,6 @@ export const lesson3: Presentation = {
         simple.FlexboxOverview,
         simple.FlexboxPractice,
         simple.FlexboxMissing,
-        simple.EnterGrid,
         simple.GridOverview,
         simple.GridPractice,
         simple.CombineItAll,

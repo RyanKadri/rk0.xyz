@@ -59,16 +59,14 @@ export const FlexboxPractice = generateMessageSlide(
 export const FlexboxMissing = generateContentSlide("What is Flexbox Missing?", [
     "Since flexbox is 1 dimensional, overall page layout is still hard",
     "We may need to move elements around in the HTML to achieve an effect",
-    "How do we drastically change the page layout based on the user's browser?"
+    "How do we drastically change the page layout based on the user's browser?",
 ]);
-
-export const EnterGrid = generateMessageSlide("Enter Grid!");
 
 export const GridOverview = generateContentSlide("CSS Grid", [
     "Allows for creating 2 dimensional layouts",
     "Lets you name pieces of your application and position them by name",
     "Easier to rearrange components",
-    "Overall more complex and more work"
+    "Often a but more complex and more work"
 ]);
 
 export const GridPractice = generateMessageSlide(
