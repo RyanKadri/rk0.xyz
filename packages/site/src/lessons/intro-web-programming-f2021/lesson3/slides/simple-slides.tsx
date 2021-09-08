@@ -1,7 +1,8 @@
 import { Link } from "@material-ui/core";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateContentSlide, generateMediaAssistSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateMediaAssistSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synCSS } from "../../../../common/highlighting";
 import flowDiagram from "./mdn-horizontal-flow.png";
 
 export const TitleSlide = generateTitleSlide(`Website Layout`, "Ryan Kadri");
@@ -75,6 +76,8 @@ export const GridPractice = generateMessageSlide(
 
 export const CombineItAll = generateMessageSlide("Let's combine it all together!");
 
+export const ResponsiveDesignTitle = generateTitleSlide("Website Layout - Part 2", "Responsive Design")
+
 export const GoalsOfResponsiveDesign = generateContentSlide("Goals of Responsive Design", [
     "Make the site work on smartphones",
     "Profit?"
@@ -124,6 +127,23 @@ export const MediaQueries = generateContentSlide("Media Queries", [
         "Much more"
     ]}
 ]);
+
+export const MediaQueryExample = generateCodeSlide("Media Queries", [
+    <>Media queries use an <code>@media</code> syntax</>,
+    "Define the conditions which a block of CSS applies",
+    "CSS inside a media query is NOT more specific"
+], {
+    code: synCSS`
+.shy-div {
+    display: none;
+}
+@media (max-width: 550px) {
+    .shy-div {
+        display: block;
+    }
+}
+    `
+})
 
 export const references: Reference[] = [
     { label: "Flexbox Froggy", url: "https://flexboxfroggy.com/" },

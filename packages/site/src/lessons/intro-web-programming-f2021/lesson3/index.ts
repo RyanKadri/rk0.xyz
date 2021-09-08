@@ -29,6 +29,7 @@ export const lesson3: Presentation = {
         simple.GridOverview,
         simple.GridPractice,
         simple.CombineItAll,
+        simple.ResponsiveDesignTitle,
         simple.GoalsOfResponsiveDesign,
         simple.GoalsOfResponsiveDesignMore,
         simple.AccessibilityAndResponsiveness,
@@ -40,6 +41,7 @@ export const lesson3: Presentation = {
         simple.MixMatchApproach,
         simple.EnterMedia,
         simple.MediaQueries,
+        simple.MediaQueryExample,
         generateReferencesSlide(simple.references)
     ],
     examples: [
