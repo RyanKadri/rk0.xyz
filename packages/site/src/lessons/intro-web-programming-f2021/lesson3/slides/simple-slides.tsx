@@ -5,7 +5,7 @@ import { generateCodeSlide, generateContentSlide, generateMediaAssistSlide, gene
 import { synCSS } from "../../../../common/highlighting";
 import flowDiagram from "./mdn-horizontal-flow.png";
 
-export const TitleSlide = generateTitleSlide(`Website Layout`, "Ryan Kadri");
+export const TitleSlide = generateTitleSlide(`Managing Website Layouts with CSS`, "Ryan Kadri");
 
 export const Goal = generateMessageSlide(
     "We've covered colors, border, margins, etc. How do we actually say where things go?"
