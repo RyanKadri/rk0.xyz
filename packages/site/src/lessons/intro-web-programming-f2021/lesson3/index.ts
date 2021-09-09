@@ -57,8 +57,5 @@ export const lesson3: Presentation = {
         title: "HTML + CSS Basics",
         slug: "html-css-basics",
     },
-    recording: {
-        link: "https://youtu.be/T91H_N5iuWg"
-    },
     references: simple.references
 }
