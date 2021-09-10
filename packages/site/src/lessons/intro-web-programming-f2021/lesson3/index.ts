@@ -11,6 +11,7 @@ import { DetectBrowser } from "./slides/DetectBrowser";
 import { ResponsiveCSS } from "./slides/ResponsiveCss";
 import * as simple from "./slides/simple-slides";
 import { UseMultipleSites } from "./slides/UsingMultipleSites";
+import timings from "./slides/website-layouts.json";
 
 export const lesson3: Presentation = {
     title: "The Mainstream Media Queries",
@@ -56,6 +57,10 @@ export const lesson3: Presentation = {
     lab: {
         title: "HTML + CSS Basics",
         slug: "html-css-basics",
+    },
+    recording: {
+        link: "https://youtu.be/xwy5_CEFAU0",
+        slideTimings: timings
     },
     references: simple.references
 }
