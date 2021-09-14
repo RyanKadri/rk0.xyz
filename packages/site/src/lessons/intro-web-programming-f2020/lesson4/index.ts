@@ -1,6 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import simpleJS from "./examples/simple-functions";
 import { BrandingExample, ConsistentStyling, CSSPrecedence, CSSSpecificity, CSSSpecificityExceptions, CssTransition, CssVisibility, EnterCSSFrameworks, PositionStyle, references, TitleSlide, WhatArePseudoClasses, WhatIfYouWantEasyBranding } from "./slides/simple";
 import { SpecificityComparison } from "./slides/specificity-calculator";
 
@@ -25,17 +24,7 @@ export const lesson4: Presentation = {
         generateReferencesSlide(references)
     ],
     examples: [
-        { 
-            code: simpleJS, 
-            title: "Some simple JS", 
-            language: "javascript",
-            testCases: {
-                addNumbers: [
-                    { paramString: "1,2", expectedResult: "3" },
-                    { paramString: "3,4", expectedResult: "7" }
-                ]
-            }
-        }
+        
     ],
     lab: {
         title: "Responsive Resume",

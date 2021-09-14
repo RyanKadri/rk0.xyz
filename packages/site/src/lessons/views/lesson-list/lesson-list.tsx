@@ -3,7 +3,7 @@ import { faDesktop } from "@fortawesome/free-solid-svg-icons/faDesktop";
 import { faFlask } from "@fortawesome/free-solid-svg-icons/faFlask";
 import { faVideo } from "@fortawesome/free-solid-svg-icons/faVideo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Card, CardContent, CardHeader, createStyles, Hidden, Link as MaterialLink, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
+import { Card, CardHeader, createStyles, Hidden, Link as MaterialLink, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
@@ -18,16 +18,21 @@ const useStyles = makeStyles(createStyles({
         marginRight: 8
     },
     lessonCard: {
-        margin: "16px 0"
+        cursor: "pointer",
     },
     labLink: {
         display: "block"
     },
     tableViewParent: {
         display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr",
+        gridTemplateColumns: "1fr 1fr 1fr 1fr",
         gap: "16px",
-        maxWidth: "1200px"
+        maxWidth: "1600px"
+    },
+    cardViewParent: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 16
     },
     headerRow: {
         "& th, & td": {
@@ -53,6 +58,10 @@ const useStyles = makeStyles(createStyles({
         "& a:last-of-type": {
             paddingBottom: 0
         }
+    },
+    extrasColumn: {
+        display: "flex",
+        flexDirection: "column"
     }
 }));
 
@@ -72,7 +81,7 @@ export function LessonList(props: Props) {
 function LessonCardView({ course, baseUrl }: Props) {
     const classes = useStyles();
 
-    return <>{
+    return <div className={ classes.cardViewParent }>{
         course.lessons.map((lesson) => (
             <Card className={ classes.lessonCard } key={ lesson.title }>
                 <CardHeader title={ lesson.description } classes={ { title: classes.cardHeader } } />
@@ -111,12 +120,12 @@ function LessonCardView({ course, baseUrl }: Props) {
         )) }
         { (course.courseExtras || []).map(extra => (
             <LinkCard baseUrl={ baseUrl } 
-                      title={ extra.title } 
-                      relativeLink={ extra.route } 
-                      key={ extra.route }
+                    title={ extra.title }
+                    relativeLink={ extra.route } 
+                    key={ extra.route }
                     />
         ))}
-    </>;
+    </div>;
 }
 
 function LessonTableView({ course, baseUrl }: Props) {
@@ -180,9 +189,11 @@ function LessonTableView({ course, baseUrl }: Props) {
                     </TableBody>
                 </Table>
             </Paper>
-            { (course.courseExtras || []).map(extra => (
-                <LinkCard baseUrl={ baseUrl } title={ extra.title } relativeLink={ extra.route } key={ extra.route } />
-            ))}
+            <div className={ classes.extrasColumn }>
+                { (course.courseExtras || []).map(extra => (
+                    <LinkCard baseUrl={ baseUrl } title={ extra.title } relativeLink={ extra.route } key={ extra.route } />
+                ))}
+            </div>
         </div>
     );
 }
@@ -196,16 +207,13 @@ interface LinkCardProps {
 function LinkCard({ baseUrl, title, relativeLink }: LinkCardProps) {
     const classes = useStyles();
     return (
-        <Card className={ classes.lessonCard }>
-            <CardHeader title={ title } />
-            <CardContent>
-                <Link href={`${baseUrl}/${ relativeLink }`} passHref>
-                    <MaterialLink>
-                        View { title }
-                    </MaterialLink>
-                </Link>
-            </CardContent>
-        </Card>
+        <Link href={`${baseUrl}/${ relativeLink }`} passHref>
+            <a style={ { textDecoration: "none" } }>
+                <Card className={ classes.lessonCard }>
+                    <CardHeader title={ title } />
+                </Card>
+            </a>
+        </Link>
     )
 }
 
