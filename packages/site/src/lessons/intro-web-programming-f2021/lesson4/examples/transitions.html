@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+            .color-box {
+                border: dashed 2px #444;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 400px;
+                width: 400px;
+                background-color: #22aa55;
+                transition: background-color 300ms ease;
+            }
+            .color-box:hover {
+                background-color: #aa4433;
+            }
+            .moving-box {
+                transition: transform 1s ease-in-out;
+            }
+            :checked + .moving-box {
+                transform: translateX(500px);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="color-box">Hover me</div>
+        <input type="checkbox">
+        <div class="moving-box">Check the box</div>
+    </body>
+</html>

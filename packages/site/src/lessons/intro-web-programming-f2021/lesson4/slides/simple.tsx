@@ -84,9 +84,30 @@ export const MediaQueryExample = generateCodeSlide("Media Queries", [
     .shy-div {
         display: block;
     }
-}
-    `
-})
+}`
+});
+
+export const CssFrameworksTitle = generateTitleSlide("Part 2: CSS Frameworks", "Ryan Kadri");
+
+export const ReviewAttributes = generateContentSlide("HTML Attributes", [
+    "HTML Attributes provide metadata about an element",
+    { text: "Some attributes define behavior", children: [
+        <>The <code>src</code> attribute in <code>{ '<img src="abc.png">' }</code></>,
+        <>The <code>href</code> attribute in <code>{ '<a href="my-page.html">' }</code></>,
+        <>The <code>start</code> attribute in <code>{ '<ol start="5">' }</code></>
+    ] },
+    { text: "Others give meaning to elements", children: [
+        <>The <code>id</code> attribute identifies an element to be referenced elsewhere</>,
+        <>The <code>class</code> attribute marks elements as part of a special category</>
+    ]}
+]);
+
+export const ClassAttribute = generateContentSlide('The "class" attribute', [
+    <>The <code>class</code> attribute marks elements as part of a special category</>,
+    "Even though there are a lot of HTML elements, you can't always find what you need",
+    "Classes let you organize your site using terms that you define",
+    "CSS can then target those classes and apply styles",
+]);
 
 export const ConsistentStyling = generateContentSlide("Consistent Styling / Branding", [
     "CSS lets developers consistently style their site",
@@ -108,64 +129,58 @@ export const BrandingExample = generateContentSlide("Branding Example", [
     ]}
 ]);
 
-export const CSSPrecedence = generateContentSlide("CSS Precedence", [
-    "For the most part, CSS all happens at the same time",
-    'All selectors that apply to an element apply their styles',
-    "What happens if two elements try to apply the same style?",
-    "Need to apply specificity rules"
-]);
-
-export const CSSSpecificity = generateContentSlide("CSS Specificity", [
-    "When two selectors try to apply the same style to an element, the more specific one wins",
-    "Inline styles are the most specific because they are directly tied to an element",
-    "IDs are next because they should only apply to one element",
-    "Classes are next because they indicate a specific category of elements",
-    "Tag selectors are next because they apply to all elements with a tag",
-    "Count the number of each category above in a selector",
-    "Sort according to the number of the most specific category and then break ties with the next"
-]);
-
-export const CSSSpecificityExceptions = generateContentSlide("CSS Specificity (Exceptions)", [
-    "The specificity rules above have a couple additional notes:",
-    "You can use !important on styles to immediately jump to the top of the specificty",
-    'If all of the above tie, use document ordering',
-    "pseudo-classes count as classes (except :not())"
-]);
-
-export const WhatArePseudoClasses = generateContentSlide("Wait. Pseudo-Classes?", [
-    "Pseudo classes are like classes that are automatically applied based on certain conditions",
-    <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes</Link>
-])
-
-export const WhatIfYouWantEasyBranding = generateMessageSlide(
-    "What if you don't want to design your own styles?"
-);
-
 export const EnterCSSFrameworks = generateContentSlide("CSS Frameworks", [
     "Groups online maintain free, open-source styles for anyone to use",
-    "Use a <link> tag (or more advanced methods) to include their CSS",
+    <>Use a <code>{"<link>"}</code> tag (or more advanced methods) to include their CSS</>,
     "Use your own stylesheets to override their styles or add your own as needed",
     { text: "Common examples include:", children: [
-        "Bootstrap",
-        "MUI",
         "Water.css",
+        "Bootstrap",
+        "Materialize",
         "Many More"
     ]}
 ]);
 
-export const PositionStyle = generateContentSlide("CSS: Position", [
-    "The position style property lets you detatch elements from the normal page position",
-    "position: absolute - The element should be placed at a specific place on the page",
-    'position: fixed - The element should "float" at a specific spot in the viewport',
-    "position: relative - Position elements relative to this parent",
-    "z-index - If elements overlap, which one is on top?"
-]);
+export const WaterCSS = generateContentSlide("Water.css", [
+    "Water.css is a very minimal CSS framework",
+    "Includes a bunch of default styles for elements",
+    "Include it on your page and make things look better",
+    "Just write normal (correct) HTML",
+    "Not a lot of custom work needed",
+    <><Link href="https://watercss.kognise.dev/">Documentation Site</Link></>
+])
+
+export const Bootstrap = generateContentSlide("Bootstrap", [
+    "Bootstrap is more more customizable but more work to learn",
+    'Provides a number of more complex "components"',
+    "You need to opt into many styles by adding classes",
+    "Bootstrap defines the styles for certain classes and you apply them",
+    "Comes with a customizable layout system",
+    <><Link href="https://getbootstrap.com/">Documentation Site</Link></>
+])
+
+export const MiscCSS = generateTitleSlide("Part 3: Miscellaneous CSS", "Ryan Kadri");
+
+export const WhatArePseudoClasses = generateCodeSlide("Pseudo-Classes", [
+    "Pseudo classes are automatically applied based on certain conditions",
+    <><code>:hover</code> applies when an item is being hovered</>,
+    <><code>:focus</code> applies to inputs when you are using them</>,
+    <><code>:visited</code> applies to links that have been visited</>,
+    "Pseudo classes behave like classes for specificity",
+    <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes</Link>
+], {
+    code: synCSS`
+a:visited {
+    color: green; /* Visited links shall henceforth be green */
+}
+    `
+})
 
 export const CssTransition = generateContentSlide("CSS: Transitions", [
     "CSS transitions let you handle simple animations",
     "Animates changes from one state to another",
     "Many properties can be animated",
-    "transition: <property> <duration> <timing-function> <delay>"
+    <><code>{"transition: <property> <duration> <timing-function> <delay>"}</code></>
 ]);
 
 export const CssVisibility = generateContentSlide("CSS: Visibility", [
