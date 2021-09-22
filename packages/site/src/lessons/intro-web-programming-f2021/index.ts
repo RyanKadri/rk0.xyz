@@ -5,6 +5,7 @@ import { lesson1 } from "./lesson1";
 import { lesson2 } from "./lesson2";
 import { lesson3 } from "./lesson3";
 import { lesson4 } from "./lesson4";
+import { lesson5 } from "./lesson5";
 
 export const introToWebProgrammingFall2021: CourseDefinition = { 
     title: "Introduction to Web Technology and Programming",
@@ -15,7 +16,8 @@ export const introToWebProgrammingFall2021: CourseDefinition = {
         lesson1,
         lesson2,
         lesson3,
-        lesson4
+        lesson4,
+        lesson5
     ],
     icon: faNetworkWired,
     courseExtras: [
