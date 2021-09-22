@@ -48,5 +48,8 @@ export const lesson4: Presentation = {
         title: "Responsive Resume",
         slug: "responsive-resume",
     },
+    recording: {
+        link: "https://youtu.be/tRwVbgdCurc",
+    },
     references
 }
