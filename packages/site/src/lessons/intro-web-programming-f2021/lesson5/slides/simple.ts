@@ -19,16 +19,19 @@ export const WhatIsAProgrammingLanguage = generateContentSlide("What is a Progra
 ]);
 
 export const JavaScriptProgrammingType = generateContentSlide("What is JavaScript?", [
-    "JavaScript is a very flexible language",
-    { text: "JavaScript is (often):", children: [
-        "Imperative: Normal lines of code run in order and loops / conditions give control flow",
-        "High Level: You don't need to know that much about computer internals",
-        "Dynamically Typed: You don't need to think about variable types as much as some other languages",
-    ]}
+    "JavaScript helps you make web pages interactive",
+    "Lets you give the browser instructions about how to behave",
+    "Allows you to respond to user input",
+    "Can do complex operations and calculations",
+    "Can modify your web page structure and content"
 ]);
 
-export const DataTypes = generateContentSlide("Thinking about Data", [
-    { text: 'JavaScript work with different "primitive" types of data', children: [
+export const LongestNameProblem = generateMessageSlide("Given a list of names, which name is the longest?");
+
+export const WhatTypesOfData = generateMessageSlide('What kinds of "data" go into solving that problem?');
+
+export const DataTypes = generateContentSlide("Managing Data in JavaScript", [
+    { text: 'JavaScript works with different types of data', children: [
         "Numbers",
         "Strings",
         '"Booleans"',
@@ -36,6 +39,22 @@ export const DataTypes = generateContentSlide("Thinking about Data", [
         "A few others"
     ] }
 ]);
+
+export const VariablesExamples = generateCodeSlide("Variables", [
+    "Variables give a label for data",
+    'Variables are assigned with "const", "let", or "var"',
+    'var is discouraged (obsolete?)',
+    'The label can be re-pointed to new data if you use "let"',
+    'The label can be re-pointed to different types of data if you use "let"'
+], {
+    code: synJS`
+const myName = "Ryan";
+let myAge = 28;
+const isATeacher = true;
+const nothing = null;
+var isObsolete = true; // Try to avoid this one
+`
+});
 
 export const Operators = generateCodeSlide("Operators", [
     "Operators let you create expressions",
@@ -48,36 +67,8 @@ const b = a + 2;
 let c = a * 3 - b;
 c++;
 const d = "The answer is: " + c;
-const e = true;
-const f = !e;
-const g = f ? a : b
-const h = c > b
-const i = { first: "Bob" };
-const j = "last" in i;
+const f = c > b;
 `
-});
-
-export const ArraysExample = generateCodeSlide("Arrays", [
-    "Arrays hold ordered lists of values",
-    "Adding elements to an array is easy",
-    "Positions start at 0"
-], { 
-    codeBlock: {
-        canExecuteCode: true
-    },
-    code: synJS`
-const myFavoriteNumbers = [1,2,3];
-const names = ["Alice", "Bob", "Eve"];
-const mixed = ["Alice", 2, false];
-
-for(const element of mixed) {
-    console.log(element);
-}
-
-console.log(mixed[0]);
-mixed[3] = "something";
-    `,
-    
 });
 
 export const ConditionalExample = generateCodeSlide("Conditionals", [
@@ -99,64 +90,6 @@ if (a) {
     // Do a thing
 }
     `
-});
-
-export const Objects = generateCodeSlide("Objects", [
-    "Objects can store related information about a thing",
-    "Properties can be added (and removed) over time",
-    "Objects can also be a lookup table",
-    "Be careful with storing in multiple places"
-], {
-    code: synJS`
-const ryan = { name: "Ryan", age: 26, job: "Developer", id: "abc123" };
-person.age ++;
-delete person.name;
-person.firstName = "Ryan";
-person.lastName = "Kadri";
-
-const employees = {};
-employees[ryan.id] = ryan;
-employees["abc123"] === ryan;
-    `
-});
-
-export const StringsPart2 = generateCodeSlide("Strings", [
-    "Strings are like arrays of characters",
-    "Cannot be modified directly",
-    "Many built-in methods"
-], {
-    codeBlock: {
-        canExecuteCode: true
-    },
-    code: synJS`
-const myName = "Ryan Kadri";
-
-for(const letter of myName) {
-    console.log(letter);
-}
-
-console.log(myName.toLowerCase()) // "ryan kadri";
-console.log(myName.repeat(2)); // "Ryan KadriRyan Kadri"
-console.log(myName.substring(0,4)) // "Ryan";
-console.log(myName.split(" ")) // [ "Ryan", "Kadri" ];
-`
-});
-
-export const VariablesExamples = generateCodeSlide("Variables", [
-    "Variables give a label for data",
-    'Variables are assigned with "const", "let", or "var"',
-    'var is discouraged (obsolete?)',
-    'The label can be re-pointed to new data if you use "let"',
-    'The label can be re-pointed to different types of data if you use "let"'
-], {
-    code: synJS`
-const myName = "Ryan";
-let myAge = 28;
-const isATeacher = true;
-const obj = 
-    { firstName: "Ryan", lastName: "Kadri" };
-const nothing = null;
-`
 });
 
 export const WhileLoops = generateCodeSlide("While Loops", [
@@ -214,6 +147,70 @@ function printMath(a,b) {
     console.log(doMath(a,b))
 }`
 })
+
+export const ArraysExample = generateCodeSlide("Arrays", [
+    "Arrays hold ordered lists of values",
+    "Adding elements to an array is easy",
+    "Positions start at 0"
+], { 
+    codeBlock: {
+        canExecuteCode: true
+    },
+    code: synJS`
+const myFavoriteNumbers = [1,2,3];
+const names = ["Alice", "Bob", "Eve"];
+const mixed = ["Alice", 2, false];
+
+for(const element of mixed) {
+    console.log(element);
+}
+
+console.log(mixed[0]);
+mixed[3] = "something";
+    `,
+    
+});
+
+export const Objects = generateCodeSlide("Objects", [
+    "Objects can store related information about a thing",
+    "Properties can be added (and removed) over time",
+    "Objects can also be a lookup table",
+    "Be careful with storing in multiple places"
+], {
+    code: synJS`
+const ryan = { name: "Ryan", age: 26, job: "Developer", id: "abc123" };
+person.age ++;
+delete person.name;
+person.firstName = "Ryan";
+person.lastName = "Kadri";
+
+const employees = {};
+employees[ryan.id] = ryan;
+employees["abc123"] === ryan;
+    `
+});
+
+export const StringsPart2 = generateCodeSlide("Strings", [
+    "Strings are like arrays of characters",
+    "Cannot be modified directly",
+    "Many built-in methods"
+], {
+    codeBlock: {
+        canExecuteCode: true
+    },
+    code: synJS`
+const myName = "Ryan Kadri";
+
+for(const letter of myName) {
+    console.log(letter);
+}
+
+console.log(myName.toLowerCase()) // "ryan kadri";
+console.log(myName.repeat(2)); // "Ryan KadriRyan Kadri"
+console.log(myName.substring(0,4)) // "Ryan";
+console.log(myName.split(" ")) // [ "Ryan", "Kadri" ];
+`
+});
 
 export const LetsGetStarted = generateMessageSlide("Let's Get Started");
 

@@ -13,6 +13,8 @@ export const lesson5: Presentation = {
         simple.JavascriptVsCSS,
         simple.WhatIsAProgrammingLanguage,
         simple.JavaScriptProgrammingType,
+        simple.LongestNameProblem,
+        simple.WhatTypesOfData,
         simple.DataTypes,
         simple.VariablesExamples,
         simple.Operators,
