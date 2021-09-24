@@ -34,5 +34,8 @@ export const lesson5: Presentation = {
     examples: [
         
     ],
-    references: simple.references
+    references: simple.references,
+    recording: {
+        link: "https://youtu.be/YJ7uTWvlzZ8"
+    }
 }
