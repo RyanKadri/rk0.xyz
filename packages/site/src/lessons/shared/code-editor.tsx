@@ -1,5 +1,5 @@
 import Editor from '@monaco-editor/react';
-import React from "react";
+import React, { useEffect } from "react";
 
 declare global {
     interface Window {
@@ -21,6 +21,10 @@ export default function CodeEditor(props: Props) {
     const saveKey = props.saveKey;
     const storedCode = saveKey ? localStorage.getItem(saveKey) : null;
     const code = storedCode ? JSON.parse(storedCode) : props.initialCode;
+
+    useEffect(() => {
+        props.onCodeChanged?.(code);
+    }, [ code ])
 
     const onUpdate = (code?: string) => {
         if(code !== undefined && (saveKey || props.onCodeChanged)) {

@@ -4,22 +4,22 @@ export const simpleExamples: ProblemDefinition[] = [
     { 
         title: "Greeting",
         savePrefix: "exploring-js.greetProfessor",
-        explanation: `Please write a function that returns the string "All hail professor Ryan`,
-        code: `function greetProfessor() {
+        explanation: `Please write a function that returns the string "Welcome to CIS 1052" (Don't overthink this one)`,
+        code: `function greetClass() {
     // Write code here
 }`,
         editorHeight: 100,
         expectations: {
-            functionToCall: "greetProfessor",
+            functionToCall: "greetClass",
             expectations: [
-                { params: [], expectedResults: "All hail professor Ryan" }
+                { params: [], expectedResults: "Welcome to CIS 1052" }
             ]
         }
     },
     {
         title: "Calculate Sum",
         savePrefix: "exploring-js.addNumbers",
-        explanation: `Please write a function that accepts two numbers and returns the sum of them.
+        explanation: `Please write a function that takes two numbers as parameters and returns the sum of them.
         `,
         code: `function addNumbers(a,b) {
     // Return the sum
@@ -40,6 +40,9 @@ export const simpleExamples: ProblemDefinition[] = [
         savePrefix: "exploring-js.returnGrade",
         code: `function calcGrade(score) {
     // Return the grade as a string
+    if(score >= 97) {
+        return "A+"
+    } // else if (...) {
 }`,
         editorHeight: 300,
         expectations: {

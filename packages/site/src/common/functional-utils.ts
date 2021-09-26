@@ -39,3 +39,39 @@ export function useClientSideValue<T>(value: () => T, serverSidePlaceholder: T):
     }, []);
     return val;
 } 
+
+export function deepEquals(a: unknown, b: unknown) {
+    if(a === b) {
+        return true;
+    } else if (Number.isNaN(a) && Number.isNaN(b)) {
+        return true;
+    } else if (typeof a === "object" && typeof b === "object") {
+        if (a === null || b === null) {
+            return false;
+        } else if (Array.isArray(a) || Array.isArray(b)) {
+            if(!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) {
+                return false;
+            } else {
+                for (let i = 0; i < a.length; i ++) {
+                    if (!deepEquals(a[i], b[i])) {
+                        return false
+                    }
+                }
+                return true;
+            }
+        } else {
+            if(!deepEquals(Object.keys(a), Object.keys(b))) {
+                return false;
+            } else {
+                for(const key in a) {
+                    if(!deepEquals(a[key], b[key])) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+    } else {
+        return false;
+    }
+}

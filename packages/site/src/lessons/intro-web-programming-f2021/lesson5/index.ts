@@ -40,5 +40,9 @@ export const lesson5: Presentation = {
     recording: {
         link: "https://youtu.be/YJ7uTWvlzZ8",
         slideTimings: timings as ManualSlideRecording
+    },
+    lab: {
+        slug: "exploring-javascript",
+        title: "Exploring JavaScript"
     }
 }

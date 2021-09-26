@@ -61,7 +61,8 @@ const useStyles = makeStyles(createStyles({
     },
     extrasColumn: {
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        gap: 8
     }
 }));
 

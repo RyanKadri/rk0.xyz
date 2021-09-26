@@ -1,7 +1,9 @@
 import { Button, createStyles, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, Typography } from "@material-ui/core";
+import c from "classnames";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
-const CodeEditor = dynamic(() => import("./code-editor"), { ssr: false })
+import { deepEquals } from "../../common/functional-utils";
+const CodeEditor = dynamic(() => import("./code-editor"), { ssr: false });
 
 interface Props {
     intialCode: string;
@@ -10,7 +12,7 @@ interface Props {
     executionParams: ExecutionParams;
     savePrefix?: string;
     editorHeight?: number;
-    
+    className?: string;
 }
 
 export type ExecutionParams = FunctionExecutionParams;
@@ -38,6 +40,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     container: {
         marginBottom: 32,
         position: "relative",
+        border: "solid 2px #999"
     },
     runButton: {
         position: "absolute",
@@ -45,7 +48,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         right: 8
     },
     resultsTable: {
-        marginTop: 8
+        borderTop: "solid 2px #999",
+        borderRadius: 0
+    },
+    codeVal: {
+        whiteSpace: "pre-wrap"
     }
 }))
 
@@ -61,22 +68,28 @@ export function CodePlayground(props: Props) {
         try {
             window.eval(currCode);
             const fn: Function = window[props.executionParams.functionToCall];
-            const results = props.executionParams.expectations.map(exp => {
-                try {
-                    return fn.apply(null, exp.params)
-                } catch (e) {
-                    return `Error: ${e.message}`
-                }
-            })
-            updateResults(results);
+            if(!fn) {
+                updateResults(props.executionParams.expectations
+                    .map(_ => `Cannot find function ${props.executionParams.functionToCall} in your code.
+Did you change the function name?`))
+            } else {
+                const results = props.executionParams.expectations.map(exp => {
+                    try {
+                        return fn.apply(null, exp.params)
+                    } catch (e) {
+                        return `Error: ${(e as Error).message}`
+                    }
+                })
+                updateResults(results);
+            }
         } catch(e) {
-            setGlobalError(`Error: ${e.message}`);
+            setGlobalError(`Error: ${(e as Error).message}`);
             updateResults(undefined);
         }
     }
 
     return (
-        <div className={ classes.container }>
+        <div className={ c(classes.container, props.className) }>
             <CodeEditor language={ props.language || "javascript"}
                         className={ classes.editor }
                         height={ props.editorHeight }
@@ -95,7 +108,7 @@ export function CodePlayground(props: Props) {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell>Parameters</TableCell><TableCell>Expected Result</TableCell><TableCell>Actual Result</TableCell>
+                                <TableCell>Parameters</TableCell><TableCell>Expected Return Value</TableCell><TableCell>Actual Return Value</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -103,14 +116,28 @@ export function CodePlayground(props: Props) {
                                 const currResult = latestResults ? latestResults[row] : undefined;
                                 const rowClass = latestResults === undefined
                                     ? ""
-                                    : exp.expectedResults === currResult
+                                    : deepEquals(exp.expectedResults, currResult)
                                         ? classes.correct
                                         : classes.wrong;
                                 return (
                                     <TableRow key={ row } className={ rowClass }>
-                                        <TableCell>{ exp.params.map(param => JSON.stringify(param)).join(", ") }</TableCell>
-                                        <TableCell>{ JSON.stringify(exp.expectedResults) }</TableCell>
-                                        <TableCell>{ latestResults ? "" + JSON.stringify(currResult) : undefined }</TableCell>
+                                        <TableCell>
+                                            <code>
+                                            ({ exp.params.map((param, i, a) => <>
+                                                <CodeValue param={ param } key={i} />
+                                                { i === a.length -1 ? "" : ", " }
+                                            </>) })
+                                            </code>
+                                        </TableCell>
+                                        <TableCell>
+                                            <code>
+                                            <CodeValue param={ exp.expectedResults } />
+                                            </code>
+                                        </TableCell>
+                                        <TableCell>{ !!latestResults 
+                                            ? <code><CodeValue param={currResult} /></code>
+                                            : undefined }
+                                        </TableCell>
                                     </TableRow>
                                 )
                             })}
@@ -120,4 +147,17 @@ export function CodePlayground(props: Props) {
             )}
         </div>
     )
+}
+
+interface CodeValueProps {
+    param: any;
+}
+function CodeValue({ param }: CodeValueProps) {
+    const classes = useStyles();
+
+    return (
+        <span className={ classes.codeVal }>
+            {JSON.stringify(param, null, 4)}
+        </span>
+    );
 }
