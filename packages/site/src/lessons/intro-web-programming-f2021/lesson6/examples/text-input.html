@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <style>
+            .box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 200px;
+                height: 200px;
+                border: solid 2px #888;
+                transition: background-color 500ms ease-in;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            Type a color
+        </div>
+        <label>
+            <input type="text" oninput="updateBox(event)">
+        </label>
+
+        <script>
+            const box = document.querySelector(".box");
+            function updateBox(e) {
+                const color = e.target.value;
+                box.textContent = color || "Type a color";
+                box.style.backgroundColor = color;
+            };
+        </script>
+    </body>
+</html>
