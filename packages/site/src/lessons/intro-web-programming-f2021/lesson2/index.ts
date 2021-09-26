@@ -1,3 +1,4 @@
+import { AutomaticSlideRecording } from "../../../../../presenter-core/src/services/slide-recorder";
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { SpecificityComparison } from "../../intro-web-programming-f2020/lesson4/slides/specificity-calculator";
 import { generateReferencesSlide } from "../../shared/references-slide";
@@ -55,7 +56,7 @@ export const lesson2: Presentation = {
     ],
     recording: {
         link: "https://youtu.be/qKgxOgAUccU",
-        slideTimings: timings
+        slideTimings: timings as AutomaticSlideRecording
     },
     references
 }

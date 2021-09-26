@@ -1,3 +1,4 @@
+import { AutomaticSlideRecording } from "../../../../../presenter-core/src/services/slide-recorder";
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
 import controls from "./examples/controls.html";
@@ -54,7 +55,7 @@ export const lesson1: Presentation = {
     },
     recording: {
         link: "https://youtu.be/si_2R0K5XkU",
-        slideTimings: timings
+        slideTimings: timings as AutomaticSlideRecording
     },
     references
 }

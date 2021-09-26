@@ -2,6 +2,7 @@
     "id": 1629927383811,
     "courseName": "Introduction to Web Technology and Programming",
     "lessonName": "Hello World!",
+    "eventTimeSchema": "offset",
     "slideChangeEvents": [
         {
             "slideNum": 2,

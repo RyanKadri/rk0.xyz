@@ -2,6 +2,7 @@
     "id": 1630532226274,
     "courseName": "Introduction to Web Technology and Programming",
     "lessonName": "Keeping it \"classy\"",
+    "eventTimeSchema": "offset",
     "slideChangeEvents": [
         {
             "slideNum": 1,

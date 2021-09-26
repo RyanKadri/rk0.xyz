@@ -1,0 +1,139 @@
+{
+    "id": 1631742271656,
+    "courseName": "Introduction to Web Technology and Programming",
+    "lessonName": "A little help from your friends",
+    "eventTimeSchema": "offset",
+    "slideChangeEvents": [
+        {
+            "slideNum": 1,
+            "time": 162100
+        },
+        {
+            "slideNum": 0,
+            "time": 163666
+        },
+        {
+            "slideNum": 1,
+            "time": 181139
+        },
+        {
+            "slideNum": 2,
+            "time": 238242
+        },
+        {
+            "slideNum": 3,
+            "time": 369479
+        },
+        {
+            "slideNum": 2,
+            "time": 472121
+        },
+        {
+            "slideNum": 3,
+            "time": 474738
+        },
+        {
+            "slideNum": 2,
+            "time": 481942
+        },
+        {
+            "slideNum": 3,
+            "time": 491480
+        },
+        {
+            "slideNum": 4,
+            "time": 587145
+        },
+        {
+            "slideNum": 5,
+            "time": 804400
+        },
+        {
+            "slideNum": 6,
+            "time": 1248222
+        },
+        {
+            "slideNum": 5,
+            "time": 1285648
+        },
+        {
+            "slideNum": 6,
+            "time": 1287733
+        },
+        {
+            "slideNum": 7,
+            "time": 1351474
+        },
+        {
+            "slideNum": 8,
+            "time": 1508122
+        },
+        {
+            "slideNum": 9,
+            "time": 1775068
+        },
+        {
+            "slideNum": 8,
+            "time": 1775948
+        },
+        {
+            "slideNum": 9,
+            "time": 2436646
+        },
+        {
+            "slideNum": 10,
+            "time": 2444145
+        },
+        {
+            "slideNum": 11,
+            "time": 2592767
+        },
+        {
+            "slideNum": 12,
+            "time": 2689072
+        },
+        {
+            "slideNum": 13,
+            "time": 2822417
+        },
+        {
+            "slideNum": 14,
+            "time": 2919398
+        },
+        {
+            "slideNum": 15,
+            "time": 3025381
+        },
+        {
+            "slideNum": 16,
+            "time": 3335988
+        },
+        {
+            "slideNum": 17,
+            "time": 4059539
+        },
+        {
+            "slideNum": 16,
+            "time": 4060343
+        },
+        {
+            "slideNum": 17,
+            "time": 4292522
+        },
+        {
+            "slideNum": 18,
+            "time": 4574074
+        },
+        {
+            "slideNum": 19,
+            "time": 5030114
+        },
+        {
+            "slideNum": 20,
+            "time": 5672694
+        }
+    ],
+    "startTime": 1631742271656,
+    "endTime": 1631758676403,
+    "videoOffset": 797000
+}

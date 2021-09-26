@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 const recordingsKey = "recordings";
 const currRecordingKey = "recordings.current";
 
-export interface SlideRecording {
+export type SlideRecording = AutomaticSlideRecording | ManualSlideRecording;
+
+export interface AutomaticSlideRecording {
     id: number;
     startTime: number;
     endTime: number | null;
@@ -11,6 +13,13 @@ export interface SlideRecording {
     lessonName: string;
     slideChangeEvents: SlideChangeEvent[];
     videoOffset: number | null;
+    eventTimeSchema: "offset"
+}
+
+export interface ManualSlideRecording {
+    id: number;
+    slideChangeEvents: SlideChangeEvent[];
+    eventTimeSchema: "youtube"
 }
 
 interface SlideChangeEvent {
@@ -24,32 +33,33 @@ export class SlideRecorderService {
 
         const loadCurrentRecording = () => {
             const currRecordingStr = localStorage.getItem(currRecordingKey);
-            const storedCurrRecording: SlideRecording | null = !!currRecordingStr 
+            const storedCurrRecording: AutomaticSlideRecording | null = !!currRecordingStr 
                 ? JSON.parse(currRecordingStr) 
                 : null;
             return storedCurrRecording
         }
 
-        const [ currentRecording, setCurrentRecording ] = useState<SlideRecording | null>(null);
+        const [ currentRecording, setCurrentRecording ] = useState<AutomaticSlideRecording | null>(null);
         useEffect(() => {
             setCurrentRecording(loadCurrentRecording())
         }, [])
 
-        const persistCurrentRecording = (recording: SlideRecording) => {
+        const persistCurrentRecording = (recording: AutomaticSlideRecording) => {
             localStorage.setItem(currRecordingKey, JSON.stringify(recording));
             setCurrentRecording(recording)
         }
 
         const startRecording = (courseName: string, lessonName: string) => {
             const startTime = Date.now();
-            const currRecording = {
+            const currRecording: AutomaticSlideRecording = {
                 id: startTime,
                 courseName,
                 lessonName,
                 slideChangeEvents: [],
                 startTime,
                 endTime: null,
-                videoOffset: null
+                videoOffset: null,
+                eventTimeSchema: "offset" as const
             }
             persistCurrentRecording(currRecording);
         }
@@ -83,7 +93,7 @@ export class SlideRecorderService {
         return this.loadSavedRecordings();
     }
     
-    downloadRecording(recording: SlideRecording) {
+    downloadRecording(recording: AutomaticSlideRecording) {
         const downloadLink = document.createElement("a");
         const downloadBlob = new Blob([JSON.stringify(recording, undefined, 4)], {type: "application/json"});
         downloadLink.href = URL.createObjectURL(downloadBlob);
@@ -106,7 +116,7 @@ export class SlideRecorderService {
         return storedHistory
     }
 
-    private saveNewRecording(recording: SlideRecording) {
+    private saveNewRecording(recording: AutomaticSlideRecording) {
         const startTime = recording.startTime;
         const normalizedEvents = recording.slideChangeEvents.map(e => ({
             ...e,

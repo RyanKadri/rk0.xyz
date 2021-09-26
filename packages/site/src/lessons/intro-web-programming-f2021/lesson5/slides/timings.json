@@ -1,0 +1,86 @@
+{
+    "id": 16305322262745,
+    "eventTimeSchema": "youtube",
+    "slideChangeEvents": [
+        {
+            "slideNum": 0,
+            "time": 2
+        },
+        {
+            "slideNum": 1,
+            "time": 1018
+        },
+        {
+            "slideNum": 2,
+            "time": 1119
+        },
+        {
+            "slideNum": 3,
+            "time": 1166
+        },
+        {
+            "slideNum": 4,
+            "time": 1231
+        },
+        {
+            "slideNum": 5,
+            "time": 1615
+        },
+        {
+            "slideNum": 6,
+            "time": 1738
+        },
+        {
+            "slideNum": 7,
+            "time": 1952
+        },
+        {
+            "slideNum": 8,
+            "time": 2271
+        },
+        {
+            "slideNum": 9,
+            "time": 2563
+        },
+        {
+            "slideNum": 10,
+            "time": 2684
+        },
+        {
+            "slideNum": 11,
+            "time": 2727
+        },
+        {
+            "slideNum": 12,
+            "time": 2777
+        },
+        {
+            "slideNum": 13,
+            "time": 2788
+        },
+        {
+            "slideNum": 14,
+            "time": 3129
+        },
+        {
+            "slideNum": 15,
+            "time": 3366
+        },
+        {
+            "slideNum": 16,
+            "time": 3609
+        },
+        {
+            "slideNum": 17,
+            "time": 4316
+        },
+        {
+            "slideNum": 18,
+            "time": 4651
+        },
+        {
+            "slideNum": 19,
+            "time": 4943
+        }
+    ]
+}

@@ -1,3 +1,4 @@
+import { AutomaticSlideRecording } from "../../../../../presenter-core/src/services/slide-recorder";
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
 import basic from "./examples/basic.html";
@@ -7,6 +8,7 @@ import paper from "./examples/paper.html";
 import transitions from "./examples/transitions.html";
 import water from "./examples/water.html";
 import { Bootstrap, BrandingExample, Breakpoints, ClassAttribute, ConsistentStyling, CssFrameworksTitle, CssTransition, CssVisibility, EnterCSSFrameworks, EnterMedia, MediaQueries, MediaQueryExample, MetaTag, MiscCSS, references, ResponsiveGoals, ResponsiveGoalsLarge, ResponsivenessStrategies, ReviewAttributes, TitleSlide, WaterCSS, WhatArePseudoClasses } from "./slides/simple";
+import timings from "./timings.json";
 
 export const lesson4: Presentation = {
     title: "A little help from your friends",
@@ -50,6 +52,7 @@ export const lesson4: Presentation = {
     },
     recording: {
         link: "https://youtu.be/tRwVbgdCurc",
+        slideTimings: timings as AutomaticSlideRecording
     },
     references
 }

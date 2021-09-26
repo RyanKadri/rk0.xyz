@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { isProfessor } from "../../../site/src/common/admin";
-import { SlideRecording } from "../services/slide-recorder";
+import { AutomaticSlideRecording, SlideRecording } from "../services/slide-recorder";
 import { Presentation, RecordingDefinition } from "../services/types";
 
 const useStyles = makeStyles(theme => createStyles({
@@ -125,7 +125,7 @@ export function SlideControls({ className, currSlide, previousSlideLink, nextSli
                                     <IconButton className={ classes.button } color="secondary" onClick={ onStop }>
                                         <FontAwesomeIcon icon={ faSquare } />
                                     </IconButton>
-                                    <span>{ renderRecordingTime(Date.now() - recording.startTime) }</span>
+                                    <span>{ renderRecordingTime(Date.now() - (recording as AutomaticSlideRecording).startTime) }</span>
                                 </>
                             )}
                     </div>
@@ -180,8 +180,12 @@ function generateRecordingLink(recording: RecordingDefinition, slide: number) {
     if(!firstSlideChange) {
         return baseUrl;
     } else {
-        const startTimeSecs = Math.floor(firstSlideChange.time / 1000);
-        const offset = (recording.slideTimings?.videoOffset ?? 0) / 1000;
-        return `${baseUrl}?t=${Math.round(startTimeSecs + offset)}`
+        if(recording.slideTimings?.eventTimeSchema === "offset") {
+            const startTimeSecs = Math.floor(firstSlideChange.time / 1000);
+            const offset = (recording.slideTimings?.videoOffset ?? 0) / 1000;
+            return `${baseUrl}?t=${Math.round(startTimeSecs + offset)}`
+        } else {
+            return `${baseUrl}?t=${firstSlideChange.time}`
+        }
     }
 }

@@ -17,7 +17,8 @@ export const introToWebProgrammingFall2021: CourseDefinition = {
         lesson2,
         lesson3,
         lesson4,
-        lesson5
+        lesson5,
+        // lesson6
     ],
     icon: faNetworkWired,
     courseExtras: [

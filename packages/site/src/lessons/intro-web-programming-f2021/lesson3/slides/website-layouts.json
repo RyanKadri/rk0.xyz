@@ -2,6 +2,7 @@
     "id": 1631138729835,
     "courseName": "Introduction to Web Technology and Programming",
     "lessonName": "The Mainstream Media Queries",
+    "eventTimeSchema": "offset",
     "slideChangeEvents": [
         {
             "slideNum": 1,

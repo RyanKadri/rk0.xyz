@@ -1,8 +1,10 @@
+import { ManualSlideRecording } from "../../../../../presenter-core/src/services/slide-recorder";
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
 import { ArraysExample } from "./slides/arrays";
 import { AssignmentOperators, ComparisonOperators, LogicalOperators, MathOperators } from "./slides/operators";
 import * as simple from "./slides/simple";
+import timings from "./slides/timings.json";
 
 export const lesson5: Presentation = {
     title: `Two "Truthy"s and a Lie`,
@@ -36,6 +38,7 @@ export const lesson5: Presentation = {
     ],
     references: simple.references,
     recording: {
-        link: "https://youtu.be/YJ7uTWvlzZ8"
+        link: "https://youtu.be/YJ7uTWvlzZ8",
+        slideTimings: timings as ManualSlideRecording
     }
 }
