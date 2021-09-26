@@ -26,9 +26,9 @@ export const lesson6: Presentation = {
     examples: [
         
     ],
-    lab: {
-        title: "String Manipulation and Forms",
-        slug: "strings-and-forms",
-    },
+    // lab: {
+    //     title: "String Manipulation and Forms",
+    //     slug: "strings-and-forms",
+    // },
     references: simple.references
 }

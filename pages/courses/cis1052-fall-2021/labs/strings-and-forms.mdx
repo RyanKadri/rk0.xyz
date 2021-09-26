@@ -1,5 +1,7 @@
 import { LabLayout } from '../../../../packages/site/src/lessons/views/lab-view'
 
+**Note: This lab is still a draft**
+
 # Lab 5: String Manipulation and Forms
 
 ## Overview
@@ -12,13 +14,13 @@ Form validation was one of the earliest use-cases for having JavaScript in the b
 
 ## Part One - Input Validation
 
-For the first part of the lab, you will be writing a number of Javascript functions that will determine if a given input parameter is "valid". For the questions in this part, you can name your functions whatever you want, but try to pick a name that describes what they do. These functions should all return a boolean value (true if the input is "valid", false otherwise).
+For the first part of the lab, you will be writing a number of Javascript functions that will determine if a given input parameter is "valid". For each field described below, please write a function that determines if the field is valid. Each field lists some of the criteria that makes an input value either valid or invalid. You can name your functions whatever you want, but try to pick a descriptive name. These functions should all return a boolean value (true if the input is "valid", false otherwise).
 
 *Hint: Try skimming through this page: https://www.w3schools.com/js/js_string_methods.asp for an overview of the important methods that exist on strings. These will help a lot with the problems below.* 
 
 ### Age
 
-Please write a function that takes a numeric age as an input and checks if the age is acceptable for a user of your site. An age is acceptable if:
+Please write a function that takes a numeric age as a parameter and checks if the age is acceptable for a user of your site. An age is acceptable if:
 
 - The user is at least 13 years old
 - The user is no older than the oldest human alive today
@@ -47,7 +49,7 @@ Please write a function that takes four parameters:
 - The last name (string)
 - An array of commonly used passwords (array of strings)
 
-Remember that you should not hardcode values for any of these parameters when defining your function. The person who calls your function might call it like ("toaster123", "Bob", "Jones", ["password", "test"]) and you would check that "toaster123" does not include "Bob" or "Jones" and is not "password" or "test"
+Remember that you should not hardcode values for any of these parameters when defining your function. The person who calls your function might call it like `validatePassword("toaster123", "Bob", "Jones", ["password", "test"])` and you would check that "toaster123" does not include "Bob" or "Jones" and is not equal to "password" or "test"
 
 ## Part Two
 
