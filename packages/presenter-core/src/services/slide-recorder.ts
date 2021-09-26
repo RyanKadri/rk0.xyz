@@ -110,7 +110,7 @@ export class SlideRecorderService {
     
     private loadSavedRecordings() {
         const historyStr = localStorage.getItem(recordingsKey);
-        const storedHistory: SlideRecording[] = !!historyStr 
+        const storedHistory: AutomaticSlideRecording[] = !!historyStr 
         ? JSON.parse(historyStr) 
         : [];
         return storedHistory
