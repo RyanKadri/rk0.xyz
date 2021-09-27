@@ -13,8 +13,10 @@ const useStyles = makeStyles(createStyles({
     },
     diagram: {
         width: 425,
-        margin: "0 auto",
-        display: "block"
+        margin: "8px auto",
+        display: "block",
+        padding: 8,
+        backgroundColor: "white"
     }
 }))
 

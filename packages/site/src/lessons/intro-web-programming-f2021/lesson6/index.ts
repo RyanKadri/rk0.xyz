@@ -1,5 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
+import * as recap from "../lesson5/slides/simple";
 import changingPage from "./examples/change-page.html";
 import counter from "./examples/counter.html";
 import createContent from "./examples/create-content.html";
@@ -7,7 +8,6 @@ import eventInput from "./examples/event-input.html";
 import querySelector from "./examples/query-selector.html";
 import cssAndJs from "./examples/text-input.html";
 import * as simple from "./slides/simple";
-import { UpdatingArrays } from "./slides/updating-arrays";
 import { VariablesAsLabels } from "./slides/variables-as-labels";
 
 export const lesson6: Presentation = {
@@ -16,17 +16,28 @@ export const lesson6: Presentation = {
     slug: "js-and-dom",
     slides: [
         simple.TitleSlide,
+        simple.Recap,
+        recap.DataTypes,
+        recap.VariablesExamples,
         VariablesAsLabels,
-        UpdatingArrays,
-        simple.Objects,
-        simple.Methods,
-        simple.MapArray,
+        recap.Operators,
+        recap.ConditionalExample,
+        recap.WhileLoops,
+        recap.ForLoops,
+        recap.FunctionsExample,
+        recap.ArraysExample,
+        recap.Objects,
         simple.MapArrayImmutable,
-        simple.FizzBuzz,
+        simple.FirstNameAlphabetically,
+        simple.LogVsReturn,
+        simple.LogVsReturnPart2,
         simple.HowConnect,
         simple.TheProblem,
         simple.DOM,
-        simple.WhatCanItDo,
+        simple.DocumentObject,
+        simple.ScriptTag,
+        simple.WaitWhyBodyTag,
+        simple.UserInputIntro,
         generateReferencesSlide(simple.references)
     ],
     examples: [
