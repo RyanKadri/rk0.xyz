@@ -121,7 +121,7 @@ export const UserInputIntro = generateCodeSlide("Reacting to User Input", [
     "To react to user inputs, HTML elements should trigger JavaScript functions",
     "One way to do this is to create a function and reference it in an HTML attribute",
     "Remember that JavaScript has two separate steps - Defining a function and calling it"
-], { code: synJS`
+], { code: synHTML`
 <html>
     <body>
         <button onclick="handleClick()">Click Me</button>

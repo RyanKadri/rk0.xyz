@@ -42,10 +42,10 @@ export const DataTypes = generateContentSlide("Managing Data in JavaScript", [
 
 export const VariablesExamples = generateCodeSlide("Variables", [
     "Variables give a label for data",
+    "Variables can be referenced in other expressions",
     'Variables are assigned with "const", "let", or "var"',
     'var is discouraged (obsolete?)',
-    'The label can be re-pointed to new data if you use "let"',
-    'The label can be re-pointed to different types of data if you use "let"'
+    'The label can be re-pointed to new data if you use "let"'
 ], {
     code: synJS`
 const myName = "Ryan";
@@ -173,13 +173,13 @@ mixed[3] = "something";
 
 export const Objects = generateCodeSlide("Objects", [
     "Objects can store related information about a thing",
+    <>Can later pull out subfields with <code>.something</code> syntax</>,
     "Properties can be added (and removed) over time",
-
 ], {
     code: synJS`
 const ryan = { name: "Ryan", age: 28, job: "Developer", id: "abc123" };
 person.age ++;
-console.log(ryan.name)
+console.log(ryan.name) // Prints "Ryan"
 `
 });
 
