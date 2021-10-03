@@ -1,0 +1,24 @@
+<html>
+    <head></head>
+    <body>
+        <button>
+            I've been clicked 
+            <span id="counter">0</span>
+            times
+        </button>
+        <script>
+            let numClicks = 0;
+            const button = document.querySelector("button");
+            const counter = document.querySelector("#counter");
+
+            // This lets you keep the HTML totally separate from the JS
+            // (that can be good and bad)
+            button.addEventListener("click", incrementCounter);
+
+            function incrementCounter() {
+                numClicks ++;
+                counter.innerText = numClicks;
+            }
+        </script>
+    </body>
+</html>

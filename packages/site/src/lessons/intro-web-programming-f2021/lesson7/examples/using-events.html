@@ -1,0 +1,19 @@
+<html>
+    <head></head>
+    <body>
+        <label>
+            Type something in:
+            <input type="text" onkeydown="handleKey(event)">
+        </label>
+        <h1 id="letter-display">?</h1>
+
+        <script>
+            const letterDisplay = document.getElementById("letter-display");
+
+            function handleKey(event) {
+                letterDisplay.innerText = event.key;
+            }
+        </script>
+
+    </body>
+</html>

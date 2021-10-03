@@ -1,0 +1,30 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Ryan's vet shop</h1>
+        <label>What sound does your pet make?
+            <!--Try changing oninput to onchange-->
+            <input type="text" id="sound-input" oninput="checkSound()">
+        </label>
+        <p id="result-paragraph"></p>
+        <script>
+            const soundInput = document.getElementById("sound-input");
+            const resultParagraph = document.getElementById("result-paragraph");
+            
+            const recognizedSounds = [
+                "moo", "bark", "meow",
+                "hiss", "ribbit"
+            ]
+        
+            function checkSound() {
+                for(const recognizedSound of recognizedSounds) {
+                    if(soundInput.value === recognizedSound) {
+                        resultParagraph.innerText = "Oh I know that one";
+                    } else {
+                        resultParagraph.innerText = "Your pet is broken";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

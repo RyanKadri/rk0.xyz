@@ -1,0 +1,28 @@
+<html>
+    <head></head>
+    <body>
+        <ul id="list">
+
+        </ul>
+        <button onclick="addItem()">Click Me</button>
+        <script>
+            const list = document.getElementById("list");
+            let count = 1;
+
+            function addItem() {
+                const newItem = document.createElement("li");
+                newItem.innerText = "Item #" + count;
+
+                // Creating a new item with an event listener is a good
+                // case for using addEventListener 
+                newItem.addEventListener("click", deleteItem);
+                list.appendChild(newItem);
+                count ++;
+            }
+
+            function deleteItem(event) {
+                list.removeChild(event.target);
+            }
+        </script>
+    </body>
+</html>

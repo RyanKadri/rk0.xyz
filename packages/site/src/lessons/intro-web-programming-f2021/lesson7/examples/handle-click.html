@@ -1,0 +1,14 @@
+<html>
+    <head></head>
+    <body>
+        <h1 id="heading">This is an HTML site</h1>
+        <button onclick="changeTitle()">Click Me</button>
+        <script>
+            const heading = document.getElementById("heading");
+            function changeTitle() {
+                heading.innerText = 
+                    heading.innerText.replace("an HTML", "a JavaScript")
+            }
+        </script>
+    </body>
+</html>

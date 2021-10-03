@@ -1,0 +1,21 @@
+<html>
+    <head></head>
+    <body>
+        <!--Notice that we only have one event listener but-->
+        <!--but still make a change to the right item-->
+        <ul onclick="handleClick(event)">
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+            <li>Fourth item</li>
+        </ul>
+
+        <script>
+            function handleClick(event) {
+                const item = event.target;
+                item.style.color = "red";
+            }
+        </script>
+
+    </body>
+</html>
