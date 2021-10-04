@@ -48,9 +48,12 @@ export const lesson6: Presentation = {
         { title: "Counter", language: "html", code: counter },
         { title: "CSS + JS", language: "html", code: cssAndJs }
     ],
-    // lab: {
-    //     title: "String Manipulation and Forms",
-    //     slug: "strings-and-forms",
-    // },
+    recording: {
+        link: "https://youtu.be/lZBes_p8Q5M"
+    },
+    lab: {
+        title: "String Manipulation and Forms",
+        slug: "strings-and-forms",
+    },
     references: simple.references
 }

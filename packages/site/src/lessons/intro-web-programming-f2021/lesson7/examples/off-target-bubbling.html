@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <style>
+            div:first-of-type {
+                width: 200px;
+                height: 200px;
+                border: dashed 2px #777;
+            }
+            button {
+                position: absolute; 
+                bottom: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div onclick="console.log('div')">
+            <!--Notice that even though the button is not physically overlapping the div, it still-->
+            <!--triggers both click handlers. This is event bubbling in action-->
+            <button onclick="console.log('button')">Click me</button>
+        </div>
+        <div onclick="console.log('div-2')">
+        </div>
+    </body>
+</html>
