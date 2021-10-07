@@ -41,6 +41,9 @@ export const lesson7: Presentation = {
         { title: "addEventListener", language: "html", code: addEventListenerExample },
         { title: "Creating Items with JS", language: "html", code: createElements },
     ],
+    recording: {
+        link: "https://youtu.be/hNQwKyjfcZs"
+    },
     // lab: {
     //     title: "String Manipulation and Forms",
     //     slug: "strings-and-forms",
