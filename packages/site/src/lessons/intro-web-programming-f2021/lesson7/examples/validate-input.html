@@ -20,10 +20,10 @@
                 for(const recognizedSound of recognizedSounds) {
                     if(soundInput.value === recognizedSound) {
                         resultParagraph.innerText = "Oh I know that one";
-                    } else {
-                        resultParagraph.innerText = "Your pet is broken";
+                        return;
                     }
                 }
+                resultParagraph.innerText = "Your pet is broken";
             }
         </script>
     </body>
