@@ -96,7 +96,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params = {}}) => {
                 slug: currCourse.slug,
                 lessons: currCourse.lessons.map(lesson => ({
                     slug: lesson.slug,
-                    title: lesson.title,
+                    title: lesson.description,
                     references: lesson.references ?? null!
                 }))
             }

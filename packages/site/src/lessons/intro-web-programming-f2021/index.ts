@@ -21,11 +21,14 @@ export const introToWebProgrammingFall2021: CourseDefinition = {
         lesson4,
         lesson5,
         lesson6,
-        lesson7
+        lesson7,
+        // lesson8
     ],
     icon: faNetworkWired,
     courseExtras: [
-        { route: "./glossary", title: "Glossary of Terms", description: "Some of the important terms we cover in class" }
+        { route: "./glossary", title: "Glossary of Terms", description: "Some of the important terms we cover in class" },
+        { route: "./references", title: "Consolidated References", description: "The references from all slides, in one place" },
+        { route: "./midterm-study-guide", title: "Midterm Study Guide" }
     ],
     theme: minimalBlocksDarkTheme
 };

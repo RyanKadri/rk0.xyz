@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         padding: 16
     },
     title: {
-        marginBottom: theme.spacing(2)
+        marginBottom: theme.spacing(2),
+        fontSize: "1.75rem"
     }
 }));
 
