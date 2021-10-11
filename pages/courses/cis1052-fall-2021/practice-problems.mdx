@@ -1,0 +1,61 @@
+import { LabLayout } from '../../../packages/site/src/lessons/views/lab-view'
+
+# Practice Problems
+
+## HTML + CSS
+
+1. Please create an HTML page with a table, an ordered list, 2 images that act as links, and a couple headings of different levels of importance
+1. Please use CSS Grid to make an image gallery with 3 columns and as many rows as needed. Please include both "internal" and "external" images and use the `gap` property to put spacing between images
+    - Please include a heading for the overall page as well
+    - Please use a media query so that the grid is only 1 image wide on small screens
+    - For a challenge, please make an animated effect to show users which image is being hovered (there is no need to make the images do anything when clicked but that's why you might do something like that)
+1. Please use CSS Grid to create a page with a horizontal header at the top of the page, a sidebar underneath the header on the left, and content on the right. This is a super standard layout on many sites
+    - Please use media queries to adjust this layout to have the sidebar content display under the header
+1. Please use the browser's developer tools to examine [example.com](https://example.com). How wide is the white box that holds the content? How much margin and padding does it have? What font does it use? What color is the background?
+1. Please use HTML and CSS to recreate the black footer at the bottom of [this site](https://developer.mozilla.org/en-US/). There are a number of ways to do this but potentially try using a combination of CSS Grid and Flexbox
+    - If you get stuck, try using the developer tools to figure out details of how the component was designed
+
+## JavaScript
+
+1. Please write a function that takes 2 parameters, `a` and `b`. If `a` is greater than `b`, please return the result of dividing `a` by `b`. Otherwise, please return the result of subtracting `a` from `b`
+1. Please write a function that takes an array of names and return the first name with a length greater than 7
+1. Please write a function that takes in an array of numbers and returns `true` if all of them are divisible by 5.
+1. Please write a function that takes an array of strings and returns the sum of their lengths
+
+## JavaScript and the DOM
+
+1. Please create a web page that lets a user click on a button to change the background color of the page. It should cycle through a few pre-defined colors.
+1. Please create a web page with a button that, when the users click it, it adds a new colored square to the page. The colored square should be added to a div with a CSS grid layout that has 4 columns 
+
+### Photo Gallery
+
+*This is more advanced than what will be on the midterm. But it could be some good practice if you're looking to improve your skills*
+
+Please start from the following code and create an image gallery website:
+
+1. For the first step, please write some JavaScript that will create `<img>` elements inside the `cat-gallery` div. You can use `innerHTML` or `document.createElement`
+1. For the next step, can you use CSS to only show one image at a time? Maybe attach a class of `current` to the image you want to show and use CSS to hide the others?
+1. Use JavaScript to make it so that when you press the "Previous" or "Next" buttons, the image cycles to the previous or next image. You can potentially do this by playing around with what image is labeled with the `current` class.
+
+```html
+<html>
+    <head></head>
+    <body>
+        <h1>The gallery of magnificent cats</h1>
+        <div class="cat-gallery">
+
+        </div>
+        <button>Previous</button>
+        <button>Next</button>
+        <script>
+            const cats = [
+                { name: "Gerald", source: "https://i.pinimg.com/736x/33/32/6d/33326dcddbf15c56d631e374b62338dc.jpg" },
+                { name: "Steven", source: "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" },
+                { name: "Margaret", source: "https://i.imgur.com/dc1PU8j.jpeg" }
+            ]
+        </script>
+    </body>
+</html>
+```
+
+export default ({ children }) => <LabLayout>{children}</LabLayout>

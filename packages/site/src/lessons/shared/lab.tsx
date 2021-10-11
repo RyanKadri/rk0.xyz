@@ -29,6 +29,15 @@ export const useMarkdownLabStyles = makeStyles((theme: Theme) => createStyles({
         },
         "& a": {
             color: theme.palette.primary.dark
+        },
+        "& li": {
+            marginTop: 8,
+        },
+        "& li li": {
+            marginTop: 0
+        },
+        "& ::marker": {
+            fontWeight: "bold"
         }
     }
 }));

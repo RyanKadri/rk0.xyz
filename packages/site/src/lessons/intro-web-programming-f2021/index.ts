@@ -28,7 +28,8 @@ export const introToWebProgrammingFall2021: CourseDefinition = {
     courseExtras: [
         { route: "./glossary", title: "Glossary of Terms", description: "Some of the important terms we cover in class" },
         { route: "./references", title: "Consolidated References", description: "The references from all slides, in one place" },
-        { route: "./midterm-study-guide", title: "Midterm Study Guide" }
+        { route: "./midterm-study-guide", title: "Midterm Study Guide" },
+        { route: "./practice-problems", title: "Practice Problems" }
     ],
     theme: minimalBlocksDarkTheme
 };
