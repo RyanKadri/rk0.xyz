@@ -17,22 +17,22 @@ const useStyles = makeStyles(createStyles({
 }))
 
 const slideItems = [
-    'You can "listen" for events in JavaScript like you can in HTML',
-    "Similar to adding an onclick event handler in HTML"
+    <>The <code>element.addEventListener</code> method lets you define event listeners in JS</>,
+    "You can use it to keep HTML clean...",
+    "Or when you want to respond to an event in multiple ways"
 ];
 
 const myHTML = synHTML`
-<div class="my-panel">
-    <header>Panel Title</header>
-</div>
+<h1>My Page</h1>
+<button id="my-button">Click Me</button>
 `;
 
 const code = synJS`
-const myPanelHeader = document.querySelector(".my-panel header");
-myPanel.addEventListener("click", changeColor);
+const myButton = document.getElementById("my-button");
+myButton.addEventListener("click", handleClick);
 
-function changeColor() {
-    myPanelHeader.style.color = "red"
+function handleClick() {
+    myButton.innerText = "Thanks"
 }
 `
 

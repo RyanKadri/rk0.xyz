@@ -4,14 +4,61 @@ import { synJS } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Functions and Callbacks", "Ryan Kadri");
 
-export const AddEventListenerExplanation = generateContentSlide("Functions as parameters", [
-    "Passing the name of a variable into addEventListener tells addEventListener what function to call",
-    "The name of a function is like a variable that labels the function",
-    "JavaScript treats functions a lot like any other data",
-    "This is different from many other programming languages"
+export const AddEventListenerQuestions = generateContentSlide("addEventListener", [
+    "We just used a function in a new way there...",
+    <>Why not <code>myButton.addEventListener("click", <u>handleClick()</u>);</code>?</>,
+    "Usually we want to call a function",
+    "In this case, we want to say what to do when a button is clicked"
 ]);
 
-export const ThatsAwful = generateMessageSlide("That's awful and confusing! Why would you do that?!");
+export const AnotherExample = generateCodeSlide("Another Example", [
+    "What happens in the code below?"
+], {
+    code: synJS`
+function add(a, b) {
+    return a + b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+console.log( multiply(2, add(1,2)) );
+    `
+});
+
+export const FunctionOrders = generateContentSlide("Resolving Unknowns", [
+    "For JavaScript to run a line of code, it needs to resolve unknowns",
+    "Think about arithmetic. How do you solve 2 * (1 + 2)?",
+    "Before JS can run a function, it needs to know the arguments",
+    "Also, when you call a function, JS can use its return value"
+]);
+
+export const AddEventListenerExplanation = generateContentSlide("addEventListener", [
+    <>Why not <code>myButton.addEventListener("click", <u>handleClick()</u>);</code>?</>,
+    "Because to call addEventListener, JavaScript needs to call handleClick first",
+    'That ends up essentially "clicking" the button',
+    <><code>myButton.addEventListener("click", <u>handleClick</u>);</code> does not</>,
+    "It tells addEventListener what function to call when the button is clicked",
+    "... but it does not run the function right away",
+    "Known as a callback function"
+]);
+
+export const OtherUseCases = generateMessageSlide("That seems pretty specific. Does anything else work like that?");
+
+export const SetTimeoutExample = generateCodeSlide("setTimeout", [
+    "How do you make something happen after a specific delay?",
+    "Or maybe make something happen every 5 seconds?",
+], {
+    code: synJS`
+function logHello() {
+    console.log("Hello")
+}
+
+setTimeout(logHello, 3000); // Logs "Hello" in 3000 ms (3 sec)
+setInterval(logHello, 5000); // Logs "Hello" _every_ 5000 ms (5 sec)
+    `, codeBlock: { canExecuteCode: true }
+})
 
 export const FindThings = generateContentSlide("Let's do some problems", [
     "Find the first number greater than 10 in an array",
@@ -26,156 +73,17 @@ export const FilterThings = generateContentSlide("Filter Things", [
 ]);
 
 export const DecisionPoints = generateContentSlide("Callbacks", [
-    "Certain types of problems come up a lot in programming (sort, find, map, etc)",
-    "Solutions usually look the same except for a critical decision point",
-    "Can we find a way to swap out the critical decision point in a function?",
+    "Certain types of problems come up a lot in programming (find, filter, map, etc)",
+    'Solutions usually look the same except for a critical "decision point"',
+    'Can we find a way to swap out just the "decision point" in a function?',
     "We could solve these problems once and only swap out the decision point",
 ]);
 
 export const Callbacks = generateContentSlide("Callbacks", [
-    "We can replace the critical decision point in the function with a function parameter",
+    "We can replace the critical decision with a function",
     "This function parameter is often called a callback",
     'The generic function uses it to "call back" and check on how to do its critical decision point',
 ]);
-
-export const AsyncCallback = generateContentSlide("Asynchronous Callbacks (Preview)", [
-    "Certain operations are asynchronous",
-    'These operations generally leave "JavaScript Land" and come back',
-    "When the operations come back, they run a function",
-    "Timeouts and network calls both follow this pattern"
-]);
-
-export const ConcurrencyModel = generateContentSlide("Can JavaScript Do Two Things at Once?", [
-    "In programming, doing two things at once is called concurrency",
-    "Whether JS can do two things at once depends on where JS starts and ends",
-    "Technically JavaScript cannot but the browser can**",
-    "Concretely, JavaScript will never run two of your functions at the same time",
-    "JavaScript is Single-Threaded",
-]);
-
-export const CanWeSolve = generateMessageSlide("How do we make timeouts run in order?");
-
-export const AddEventListenerQuestions = generateCodeSlide("addEventListener", [
-    "What just happened there?",
-    <>Why not "<code>myPanel.addEventListener("click", <u>changeColor()</u>);</code>"?</>
-], {
-    code: synJS`
-    const myPanelHeader = document.querySelector(".my-panel header");
-    myPanel.addEventListener("click", changeColor);
-    
-    function changeColor() {
-        myPanelHeader.style.color = "red"
-    }
-    `
-});
-
-export const Timeouts = generateCodeSlide("Timers", [
-    "You can use the setTimeout function to do things after a certain delay",
-    "Pass a function (for what to do) and a delay time (in ms)"
-], { 
-    code: synJS`
-function printHello() {
-    console.log("Hello!");
-}
-
-function annoying() {
-    console.log("Is this annoying?");
-}
-
-setTimeout(printHello, 1000);
-setInterval(annoying, 1000);
-`
-});
-
-export const FunctionsRedux = generateCodeSlide("Functions", [
-    "Functions are just like other data types",
-    "They can be assigned, returned, and passed as parameters"
-], {
-    code: synJS`
-function add(a, b) {
-    return a+b;
-}
-
-function addOne() {
-    return function(a) {
-        return add(a,1);
-    }
-}
-
-function doSomething(arg) {
-    return arg(2);
-}`});
-
-export const FilterThingsImplementation = generateCodeSlide("Filter Things", [], {
-    code: synJS`
-function removeEvents(numbers) {
-    const result = [];
-    for(const num of numbers) {
-        if(num % 2 !== 0) {
-            result.push(num);
-        }
-    }
-    return result;
-}
-
-function cancelJanice(people) {
-    const result = [];
-    for(const person of people) {
-        if(person.includes("Janice")) {
-            result.push(person);
-        }
-    }
-    return result;
-}`});
-
-export const FindAThingGeneric = generateCodeSlide("Find a Thing", [], {
-    code: synJS`
-function findAThing(myArray, decisionPoint) {
-    for(const num of numbers) {
-        if(decisionPoint(num)) {
-            return num;
-        }
-    }
-}
-
-function isLessThan10(number) {
-    return number < 10;
-}
-
-function startsWithS(name) {
-    return name.startsWith("S")
-}
-
-findAThing([1,2,5,7,11,14], isLessThan10);
-findAThing(["Adelaide", "Nathan", "Sky", "Sarah"], startsWithS);
-`});
-
-export const FindThing = generateCodeSlide("Find a Thing", [], {
-    code: synJS`
-function findFirstGreaterThan10(numbers) {
-    for(const num of numbers) {
-        if(num > 10) {
-            return num;
-        }
-    }
-}
-
-function findFirstStartsWithS(names) {
-    for(const name of names) {
-        if(name.startsWith("S")) {
-            return name;
-        }
-    }
-}
-
-function findFirstPrime(numbers) {
-    for(const num of numbers) {
-        if(isPrime(num)) {
-            return el;
-        }
-    }
-}`
-});
 
 export const FunctionsAsVariablesSimple = generateCodeSlide("Functions", [
     "Functions can be labeled by variables like any other data",
@@ -209,6 +117,66 @@ doSomethingTwice(sayHello)
 `
 });
 
+export const FindAThingGeneric = generateCodeSlide("Find a Thing", [], {
+    code: synJS`
+function findAThing(myArray, decisionPoint) {
+    for(const num of numbers) {
+        if(decisionPoint(num)) {
+            return num;
+        }
+    }
+}
+
+function isLessThan10(number) {
+    return number < 10;
+}
+
+function startsWithS(name) {
+    return name.startsWith("S")
+}
+
+findAThing([1,2,5,7,11,14], isLessThan10);
+findAThing(["Adelaide", "Nathan", "Sky", "Sarah"], startsWithS);
+`});
+
+export const SetTimeoutPart2 = generateCodeSlide("setTimeout", [
+    "setTimeout takes a function as its first parameter...",
+    "...and a number of milliseconds as its second",
+    "JavaScript schedules the function to run after that many milliseconds"
+], {
+    code: synJS`
+function logHello() {
+    console.log("Hello")
+}
+
+setTimeout(logHello, 3000); // Logs "Hello" in 3000 ms (3 sec)
+    `, codeBlock: { canExecuteCode: true }
+})
+
+export const TimeoutWaitWhat = generateCodeSlide("What Happens?", [], {
+    code: synJS`
+function sayHi() {
+    console.log("Hi")
+}
+
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+setTimeout(sayHi, 1000);
+`
+});
+
+export const WhyTimeoutsWhy = generateContentSlide("setTimeout", [
+    "Why do timeouts work this way?",
+    <><code>setTimeout</code> <strong>schedules</strong> something to happen</>,
+    "JavaScript doesn't wait around until something happens",
+    "Running setTimeout 5 times in a row happens almost instantly",
+    "With no delay between calls, the scheduled functions trigger at almost the same time"
+])
+
+export const CanWeSolve = generateMessageSlide("How do we make timeouts run in order?");
+
 export const NestedTimeouts = generateCodeSlide("Nested Timers?", [], {
     code: synJS`
 function part1() {
@@ -234,20 +202,6 @@ function part4() {
 }
 `
 });
-
-export const TimeoutWaitWhat = generateCodeSlide("What Happens?", [], {
-    code: synJS`
-function sayHi() {
-    console.log("Hi")
-}
-
-setTimeout(sayHi, 1000);
-setTimeout(sayHi, 1000);
-setTimeout(sayHi, 1000);
-setTimeout(sayHi, 1000);
-setTimeout(sayHi, 1000);
-`
-})
 
 export const references: Reference[] = [
     { label: "A short callback summary", url: "https://developer.mozilla.org/en-US/docs/Glossary/Callback_function" },
