@@ -44,9 +44,9 @@ export const lesson7: Presentation = {
     recording: {
         link: "https://youtu.be/hNQwKyjfcZs"
     },
-    // lab: {
-    //     title: "String Manipulation and Forms",
-    //     slug: "strings-and-forms",
-    // },
+    lab: {
+        slug: "callbacks",
+        title: "Exploring Callbacks",
+    },
     references: simple.references
 }

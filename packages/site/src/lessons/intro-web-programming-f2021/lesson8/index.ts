@@ -36,8 +36,8 @@ export const lesson8: Presentation = {
         
     ],
     lab: {
-        slug: "callbacks",
-        title: "Exploring Callbacks",
+        slug: "using-apis",
+        title: "The Pokedex",
     },
     references: simple.references
 }

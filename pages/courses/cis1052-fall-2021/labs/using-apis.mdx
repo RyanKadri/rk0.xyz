@@ -1,14 +1,14 @@
 import { LabLayout } from '../../../../packages/site/src/lessons/views/lab-view'
 
-# Lab 7: Using APIs
+# Lab 7: The One Where You Make a Pokedex
 
 ## Overview
 
-In this lab, you will be learning about asynchronous JavaScript and how to call APIs. To practice this skill, you will be making a web application that fetches and displays information about Pokémen based on user input. The user will have an option to search for a Pokéman by name and then, based on the information that shows up, will have the option to dig further into specifics about their attacks / stats.
+In this lab, you will be making a web application that fetches and displays information about Pokémen based on user input. The user will have an option to search for a Pokéman by name and then, based on the information that shows up, will have the option to dig further into specifics about their attacks / stats. This will give you a chance to build an HTML page with a common template but whose data changes based on user input. For the last part of the lab, you will also make your first request to an external API for data about any pokemon
 
-## The Pokédex - Basic Information
+## Part 1: Displaying Data
 
-For the first part of the lab, you will be making a page that displays information based on a public API. The first API you will be using is described here: <https://pokeapi.co/docs/v2.html#pokemon>. You can call it to get general information about a specific Pokemon. What I would like you to build is a simple site with an input box that accepts the name of a Pokemon and a submit button. When the user types the Pokemon name and hits submit, the page should be updated to contain the following information with appropriate labels:
+For the first part of this lab, you will be building a web page that displays information about the Pokemon "Charmander". The page should show the following information about Charmander with the appropriate labels:
 
 - Name
 - An image of the Pokemon
@@ -17,36 +17,173 @@ For the first part of the lab, you will be making a page that displays informati
 - Type(s)
 - Starting Stats (in a table)
 
-After the user searches for their first Pokemon, they should still be able to search for other Pokemon and have their following searches overwrite the data from the original on the screen. Please use the documentation on the API's site to figure out how to call it. There is a URL you can use to directly look up information about a Pokemon based on its exact name. You should make sure that searching with different capitalizations also works for the user of your site.
+Rather than hardcoding this information into a static website though, the data about Charmander will be provided in a JavaScript object (actually an array of objects but we'll get to that). It will be your job to use JavaScript to take each of the data fields from the Charmander object and display it on the page.
 
-## The Pokedex - Attack Drilldown
+Here's the JavaScript that defines a few different Pokemon as objects in an array. Please copy this code exactly into a `.js` file and use it as a starting point for your project.
 
-For this part of the lab, you will be using another ajax call to fetch additional information about an attack that the user selects. Among the list of attacks for the Pokemon, a user should be able to click a "show details" link / button to get more information about the specific attack. This additional information should include: 
+```js
+const pokemon = [
+    { 
+        name: "charmander", 
+        height: 6, 
+        weight: 85, 
+        sprites: {
+            front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+        },
+        stats: [
+            {
+                base_stat: 39,
+                effort: 0,
+                stat: {
+                    name: "hp",
+                    url: "https://pokeapi.co/api/v2/stat/1/"
+                }
+            },
+                {
+                base_stat: 52,
+                effort: 0,
+                stat: {
+                    name: "attack",
+                    url: "https://pokeapi.co/api/v2/stat/2/"
+                }
+            },
+                {
+                base_stat: 43,
+                effort: 0,
+                stat: {
+                    name: "defense",
+                    url: "https://pokeapi.co/api/v2/stat/3/"
+                }
+            },
+            {
+                base_stat: 60,
+                effort: 0,
+                stat: {
+                    name: "special-attack",
+                    url: "https://pokeapi.co/api/v2/stat/4/"
+                }
+            },
+            {
+                base_stat: 50,
+                effort: 0,
+                stat: {
+                    name: "special-defense",
+                    url: "https://pokeapi.co/api/v2/stat/5/"
+                }
+            },
+            {
+                base_stat: 65,
+                effort: 1,
+                stat: {
+                    name: "speed",
+                    url: "https://pokeapi.co/api/v2/stat/6/"
+                }
+            }
+        ],
+        types: [
+            {
+                slot: 1,
+                type: {
+                    name: "fire"
+                }
+            }
+        ]
+    },
+    {
+        name: "squirtle",
+        height: 5,
+        weight: 90,
+        sprites: {
+            front_default:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+        },
+        stats: [
+            {
+                base_stat: 44,
+                effort: 0,
+                stat: {
+                    name: "hp",
+                    url: "https://pokeapi.co/api/v2/stat/1/"
+                }
+            },
+            {
+                base_stat: 48,
+                effort: 0,
+                stat: {
+                    name: "attack",
+                    url: "https://pokeapi.co/api/v2/stat/2/"
+                }
+            },
+            {
+                base_stat: 65,
+                effort: 1,
+                stat: {
+                    name: "defense",
+                    url: "https://pokeapi.co/api/v2/stat/3/"
+                }
+            },
+            {
+                base_stat: 50,
+                effort: 0,
+                stat: {
+                    name: "special-attack",
+                    url: "https://pokeapi.co/api/v2/stat/4/"
+                }
+            },
+            {
+                base_stat: 64,
+                effort: 0,
+                stat: {
+                    name: "special-defense",
+                    url: "https://pokeapi.co/api/v2/stat/5/"
+                }
+            },
+            {
+                base_stat: 43,
+                effort: 0,
+                stat: {
+                    name: "speed",
+                    url: "https://pokeapi.co/api/v2/stat/6/"
+                }
+            }
+        ],
+        types: [
+            {
+                slot: 1,
+                type: {
+                    name: "water"
+                }
+            }
+        ]
+    }
+]
+```
 
-- Attack name
-- The "flavor text"
-- Accuracy
-- PP
-- Power
-- Type
+This code creates a single variable that holds data about 2 pokemon. If you had to store all of the information about all pokemon, you could probably guess that this variable declaration would be pretty big! For now, I'd suggest putting the pokemon data in a separate file on its own. Your code for this part of the lab can live in its own file. Remember to put the data definition file first so that your other site code can read the data.
 
-Please display this information somewhere on your page when the user clicks the show details link. After clicking this link, your user should still be able to click into other attacks and see those details in place of the curent ones.
+Your job for this part of the lab will be to read the first pokemon object (charmander) out of the data array and displaying the data fields mentioned above.
+
+## Part 2: Searching for a Pokemon
+
+For this part of the lab, please create a text box and a button at the top of your page. Users should be able to enter a pokemon's name and click the button to search for information about that pokemon. When they click the button, please use a JavaScript function to figure out which pokemon from the data array in part 1 they are searching for. Right now there are only 3 options but in Part 3 we will extend that to include **all** of the pokemon.
+
+When you figure out which JavaScript object they searched for from the data array, please display the corresponding information about **that** Pokemon instead of the Pokemon that had been displaying. You might want to update your code from Part 1 so that you can use the same code to display information about any pokemon in the data array instead of only working for Charmander. 
+
+If the user looks up a Pokemon that does not exist in the data array from Part 1, please display an error message to say that the Pokemon the user searched did not exist in the database.
+
+## Part 3: Looking up Pokemon with an API
+
+*If you've gotten to this point in the lab before class on 11/3, you will run into some concepts that we haven't covered yet. Feel free to give this part a try but if you have trouble, you may want to wait until the 3rd*
+
+In this part of the lab, you will be setting up your page to ask an external server for information about the pokemon that the user searched for. This is nice because your webpage code does not need to have hardcoded information about every Pokemon in it. To request this information from the server, you should use the `fetch` function. The API that you should request information from is located at <https://pokeapi.co/>. On the main landing page, there is an example of the kind of request you should make. For instance, if the user searches for Charmander, you would make a GET request for the URL <https://pokeapi.co/api/v2/pokemon/charmander>
+
+That request will return way more information about Charmander than we had hardcoded into the data array. That's not a problem though. All of the information that we hardcoded in the data array is still there in the API response in exactly the same format. That means if you can take the response from the API and pass it into your code that displays the Pokemon data, your site should just work.
+
+In other words, for this part of the lab, you should update your page so that when a user searches for a Pokemon, the page calls the Pokedex API with a URL based on what pokemon was searched. The response from the API should contain all of the same data that was previously hardcoded so you should be able to just use THAT data to update your page instead of what was in the data array.
+
+Congrats! When this part is done, you will have created a Pokedex webpage that can look up information about any Pokemon. And you didn't even need to research any Pokemon data yourself.
 
 ## Submitting
 
 As usual, please upload your submission to the appropriate Canvas assignment as a zip file. Your zip file should include any HTML, CSS and JavaScript you wrote to complete the lab
-
-## Grading
-I am not too picky about the appearance of your site. I am more concerned that it meets all of the requirements listed above and behaves properly.
-
-The main things I am looking for in this lab are: 
-
-- Do you fetch and display all of the appropriate data from the Pokemon API
-- Can the user enter different capitalizations of a pokemon name?
-- Can they enter spaces before and after the name?
-- Does the site display reasonable error messages if something goes wrong with the API request?
-
-## Hints
-For this lab, you should be using the fetch API. Here are some instructions on how to use it: <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch>. Fetch can handle a number of complex request scenarios but you should only need the basic functionality. The simple example at the top of the page should get you where you need to be.
 
 export default ({ children }) => <LabLayout>{children}</LabLayout>
