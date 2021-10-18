@@ -35,6 +35,9 @@ export const lesson8: Presentation = {
     examples: [
         
     ],
+    recording: {
+        link: "https://youtu.be/PKDOoXkLPvs"
+    },
     lab: {
         slug: "using-apis",
         title: "The Pokedex",
