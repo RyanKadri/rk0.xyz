@@ -1,0 +1,18 @@
+<html>
+    <head></head>
+    <body>
+        <label>Type something in:
+            <input id="input-box">
+        </label>
+        <button onclick="copyInput()">Copy</button>
+        <p id="copied-text"></p>
+        <script>
+            const resultParagraph = document.getElementById("copied-text");
+            const inputBox = document.getElementById("input-box");
+
+            function copyInput() {
+                resultParagraph.innerText = inputBox.value;
+            }
+        </script>
+    </body>
+</html>

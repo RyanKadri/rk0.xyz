@@ -5,6 +5,7 @@ import createElements from "./examples/create-elements.html";
 import eventBubbling from "./examples/event-bubbling.html";
 import clickButton from "./examples/handle-click.html";
 import weirdBubbling from "./examples/off-target-bubbling.html";
+import readingInput from "./examples/reading-input.html";
 import usingEvents from "./examples/using-events.html";
 import validateInput from "./examples/validate-input.html";
 import * as simple from "./slides/simple";
@@ -34,6 +35,7 @@ export const lesson7: Presentation = {
     ],
     examples: [
         { title: "Simple Click Handler", language: "html", code: clickButton },
+        { title: "Reading an Input", language: "html", code: readingInput },
         { title: "Validate Input", language: "html", code: validateInput },
         { title: "Using Events", language: "html", code: usingEvents },
         { title: "Event Bubbling", language: "html", code: eventBubbling },
