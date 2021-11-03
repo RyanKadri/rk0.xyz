@@ -1,0 +1,17 @@
+<html>
+    <head></head>
+    <body>
+        <p>It has been <span id="counter">0</span> seconds since you loaded this page</p>
+        <script>
+            let timeSinceLoad = 0;
+            const counterSpan = document.getElementById("counter");
+            
+            function updateTime() {
+                timeSinceLoad += 1;
+                counterSpan.innerText = timeSinceLoad;
+            }
+
+            setInterval(updateTime, 1000);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+    <head></head>
+    <body>
+        <button onclick="freeze()">Freeze for 10 seconds</button>
+        <button onclick="increaseCounter()">Increase Counter</button>
+        <p>The button has been clicked <span id="counter">0</span> times</p>
+        <script>
+            const freezeTime = 10000;
+            const counter = document.getElementById("counter");
+            let clickCount = 0;
+
+            function freeze() {
+                const end = Date.now() + (freezeTime);
+                let curr = Date.now();
+                while(curr < end) {
+                    curr = Date.now()
+                }
+            }
+
+            function increaseCounter() {
+                clickCount ++;
+                counter.innerText = clickCount;
+            }
+        </script>
+    </body>
+</html>

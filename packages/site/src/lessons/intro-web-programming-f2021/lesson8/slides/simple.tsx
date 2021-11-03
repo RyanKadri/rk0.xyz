@@ -120,22 +120,22 @@ doSomethingTwice(sayHello)
 export const FindAThingGeneric = generateCodeSlide("Find a Thing", [], {
     code: synJS`
 function findAThing(myArray, decisionPoint) {
-    for(const num of numbers) {
-        if(decisionPoint(num)) {
-            return num;
+    for(const element of myArray) {
+        if(decisionPoint(element)) {
+            return element;
         }
     }
 }
 
-function isLessThan10(number) {
-    return number < 10;
+function isGreaterThan10(number) {
+    return number > 10;
 }
 
 function startsWithS(name) {
     return name.startsWith("S")
 }
 
-findAThing([1,2,5,7,11,14], isLessThan10);
+findAThing([1,2,5,7,11,14], isGreaterThan10);
 findAThing(["Adelaide", "Nathan", "Sky", "Sarah"], startsWithS);
 `});
 
@@ -198,7 +198,7 @@ function part4() {
     console.log("is")
     setTimeout(function() {
         console.log("Ryan")
-    }, 1000);
+    }, 1000);   
 }
 `
 });

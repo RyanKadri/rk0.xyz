@@ -1,0 +1,21 @@
+<html>
+    <head></head>
+    <body>
+        <button onclick="loadJoke()">Load dad joke</button>
+        <p id="joke"></p>
+        <script>
+            const jokeHolder = document.getElementById("joke");
+
+            function loadJoke() {
+                fetch("https://icanhazdadjoke.com/api")
+                    .then(function(resp) { resp.json() })
+                    .then(function(data) {
+                        const jokeText = data.joke;
+                        jokeHolder.innerText = jokeText;
+                    })
+    
+                jokeHolder.innerText = "Loading..."
+            }
+        </script>
+    </body>
+</html>
