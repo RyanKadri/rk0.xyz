@@ -171,7 +171,7 @@ export const FetchExample = generateCodeSlide("fetch", [
     "It is a low-level function so you have to manually parse the request"
 ], {
     code: synJS`
-fetch("https://some-url.com")
+fetch("https://meowfacts.herokuapp.com/")
     .then(function(response) { return response.json() })
     .then(function(response) { console.log(response) })
 `
