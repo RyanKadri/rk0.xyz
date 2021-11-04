@@ -1,0 +1,21 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Cat fact of the day</h1>
+        <p id="fact-placeholder"></p>
+        <script>
+            const factPlaceholder = document.getElementById("fact-placeholder");
+            factPlaceholder.innerText = "Cats are cool";
+
+            setTimeout(function() { console.log("Boom!") }, 1000)
+
+
+            fetch("https://meowfacts.herokuapp.com/")
+                .then(function(response) { return response.json() })
+                .then(function(response) { 
+                    const fact = response.data[0];
+                    factPlaceholder.innerText = fact;
+                })
+        </script>
+    </body>
+</html>

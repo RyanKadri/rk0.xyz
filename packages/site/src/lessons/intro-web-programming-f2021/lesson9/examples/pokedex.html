@@ -1,0 +1,24 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Pikachu</h1>
+        <p>Pikachu weighs
+            <span id="weight-placeholder">0</span>
+            pounds and is
+            <span id="height-placeholder">0</span>
+            feet tall
+        </p>
+        <script>
+            const weightPlaceholder = document.getElementById("weight-placeholder");
+            const heightPlaceholder = document.getElementById("height-placeholder");
+
+            fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+                .then(function(response) { return response.json() })
+                .then(function(response) { 
+                    weightPlaceholder.innerText = response.weight;
+                    heightPlaceholder.innerText = response.height;
+                })
+                
+        </script>
+    </body>
+</html>

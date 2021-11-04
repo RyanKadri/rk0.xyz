@@ -7,8 +7,9 @@
             const jokeHolder = document.getElementById("joke");
 
             function loadJoke() {
-                fetch("https://icanhazdadjoke.com/api")
-                    .then(function(resp) { resp.json() })
+                // The headers part is something we haven't talked about quite yet
+                fetch("https://icanhazdadjoke.com/", { headers: { Accept: "application/json" }})
+                    .then(function(resp) { return resp.json() })
                     .then(function(data) {
                         const jokeText = data.joke;
                         jokeHolder.innerText = jokeText;

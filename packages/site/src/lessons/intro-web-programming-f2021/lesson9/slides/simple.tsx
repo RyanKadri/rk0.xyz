@@ -118,10 +118,10 @@ export const NonBlockingMoreExamples = generateCodeSlide("Non-Blocking Code", [
 ], {
     code: synJS`
 function processFile() {
-    const fileData = readFile("budget.txt", checkExpenses);
+    readFile("budget.txt", checkExpenses);
 }
 
-function checkExpenses() {
+function checkExpenses(fileData) {
     const largestExpense = determineLargestExpense(fileData);
     updateNetwork(largestExpense, printSuccess);
 }
