@@ -76,7 +76,7 @@ export function ResponseVisualizer({ statusCode, headers, body }: Props) {
                     <table>
                         <tbody>
                             { headers.map(header => (
-                                <tr>
+                                <tr key={ header.name + header.value }>
                                     <td>{ header.name }</td>
                                     <td>{ header.value }</td>
                                 </tr>
