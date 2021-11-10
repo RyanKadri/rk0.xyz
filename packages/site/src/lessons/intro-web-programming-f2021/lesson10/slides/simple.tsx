@@ -85,27 +85,26 @@ export const WhatIsApi = generateContentSlide("What is an API?", [
     "The instructions for how to interact with the server define the API"
 ]);
 
-export const ApiContinued = generateContentSlide("What do server APIs look like?", [
-    "Servers can define their own APIs. No hard and fast rules",
-    "REST is a popular design paradigm these days",
-    "URLs should refer to resources (nouns) and request methods refer to actions (verbs)",
-    'Favors calls like "POST /users/abc-123/notes"',
-    'As opposed to calls like "POST /create-note?userId=abc-123"',
-    "REST is a topic for another day"
-]);
-
-export const PromiseErrorHandling = generateCodeSlide("Promise Error Handling", [
-    "Some asynchronous operations can fail (especially network operations)",
-    <>Promises have a <code>.catch</code> method to handle errors</>,
-    "This cannot be done in a normal try / catch block because the code has moved on"
-], {
-    code: synJS`
-fetch("https://some-site.com")
+export const FetchProperties = generateCodeSlide("Advanced Fetch", [
+    <>The <code>fetch</code> function lets you provide all of the request properties mentioned...</>,
+    "Method, Headers, Body, etc",
+    "You can read most of the parts of the response",
+    "This is important for reading from some APIs"
+], { code: synJS`
+fetch("https://icanhazdadjoke.com", { method: "GET", headers: { ["Accept"]: "application/json" } })
     .then(resp => resp.json())
-    .then(data => console.log(data))
-    .catch(e => console.error("Oh no! There was an error!"))
-`
+    .then(console.log)
+    `
 });
+
+export const ObjectSyntax = generateContentSlide("A Bit More Syntax", [
+    "In JavaScript, object properties can have any name",
+    <>ie. <code>{ `{ name: "Ryan" }` }</code> creates an object with a property called name</>,
+    'You can technically have an object with a property of "Blah Blah Blah"',
+    <>You can't type <code>{ `{ Blah Blah Blah: "Ryan" }` }</code> though</>,
+    <>You have to use <code>{ `{ ["Blah Blah Blah"]: "Ryan" }` }</code> if you want complex properties</>,
+    "This is the syntax you have to use for headers"
+])
 
 export const Promises = generateCodeSlide("Promises", [
     "Promises are a way to keep track of an asynchronous operation",
@@ -119,6 +118,48 @@ myPromise
     .then(response => { return response.json() })
     .then(response => { console.log(response) })
 `});
+
+export const MethodChaining = generateCodeSlide(`Method Chaining`, [
+    `Commonly in code, you'll see functions / methods "chained" together`,
+    "This means calling a method on the result of another method",
+    "Remember that methods are like functions that act on a particular piece of data"
+], { code: synJS`
+    const myName = "Ryan";
+    console.log(
+        myName.repeat(3)
+            .toUpperCase()
+            .substring(0,6)
+    )
+`});
+
+export const PromisesAreSimilar = generateCodeSlide("Promises work similarly", [
+    "A Promise is an object (can be stored in a variable)",
+    <><code>.then</code> is a method</>,
+    <>You can chain <code>.then</code>s to do things in order</>,
+    "You don't need to understand this super deeply for now"
+], {
+    code: synJS`
+const myPromise = fetch("https://some-url.com");
+
+myPromise
+    .then(response => { return response.json() }) // Method call
+    .then(response => { console.log(response) }) // Method call
+    `,
+    codeFirst: true
+});
+
+export const PromiseErrorHandling = generateCodeSlide("Promise Error Handling", [
+    "Some asynchronous operations can fail (especially network operations)",
+    <>Promises have a <code>.catch</code> method to handle errors</>,
+    "This cannot be done in a normal try / catch block because the code has moved on"
+], {
+    code: synJS`
+fetch("https://some-site.com")
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+    .catch(e => console.error("Oh no! There was an error!"))
+`
+});
 
 export const references: Reference[] = [
     { label: "A short callback summary", url: "https://developer.mozilla.org/en-US/docs/Glossary/Callback_function" },

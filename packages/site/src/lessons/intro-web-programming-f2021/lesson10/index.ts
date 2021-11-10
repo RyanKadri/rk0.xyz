@@ -28,8 +28,11 @@ export const lesson10: Presentation = {
         ResponseTemplate,
         simple.ApiQuestion,
         simple.WhatIsApi,
-        simple.ApiContinued,
+        simple.FetchProperties,
+        simple.ObjectSyntax,
         simple.Promises,
+        simple.MethodChaining,
+        simple.PromisesAreSimilar,
         simple.PromiseErrorHandling,
         generateReferencesSlide(simple.references)
     ],
