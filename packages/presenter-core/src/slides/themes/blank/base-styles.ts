@@ -14,7 +14,8 @@ export const useBaseStyles = makeStyles(_ => createStyles({
         justifyContent: "center",
         height: "100%",
         flexDirection: "column",
-        padding: 64
+        padding: 64,
+        fontSize: "1.75rem",
     },
     titleSlideTitle: {
         fontSize: "1.75rem"

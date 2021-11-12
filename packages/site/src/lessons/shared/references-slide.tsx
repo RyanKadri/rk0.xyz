@@ -23,8 +23,7 @@ export function ReferencesSlide({ Title = "References", references, context }: P
             <ul className={ classes.referenceList }>{
                 references.map(link => (
                     <li key={link.url}>
-                        <Typography className={ classes.referenceList }>{ link.label } </Typography> 
-                        <Link href={link.url} target="_blank">{ link.url }</Link>
+                        <Link href={link.url} target="_blank">{ link.label }</Link>
                         { link.note && (
                             <Typography variant="caption" 
                                         className={ classes.noteCaption }>

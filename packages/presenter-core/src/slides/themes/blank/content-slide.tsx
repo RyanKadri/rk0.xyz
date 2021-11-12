@@ -8,7 +8,7 @@ import { useBaseStyles } from "./base-styles";
 
 const useStyles = makeStyles((_: Theme) => createStyles({
     container: {
-        padding: "48px 128px 0px 128px",
+        padding: "48px 64px 0px 64px",
         minHeight: "100%"
     },
 }))
