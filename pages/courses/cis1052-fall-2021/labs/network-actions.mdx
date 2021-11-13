@@ -4,7 +4,7 @@ import { LabLayout } from '../../../../packages/site/src/lessons/views/lab-view'
 
 ## Overview
 
-In this lab, you will be continuing to learn about how to interact with servers. In part 1, you will be learning how to extract information about browser requests and responses using the developer tools. In part 2, you will have a chance to build the first part of your final project. This will give you a chance to work with multiple different types of operations on APIs
+In this lab, you will be continuing to learn about how to interact with servers. In part 1, you will be learning how to extract information about HTTP requests and responses using the developer tools. In part 2, you will have a chance to build the first section of your final project. This will give you a chance to work with multiple different types of operations on APIs
 
 ## Part 1: Using the Developer Tools' Network Tab
 
@@ -46,9 +46,7 @@ For all of this to work, you will need to create a user. To do that, you should 
     - No request body is needed
     - No headers are needed
 
-To build this user, you can build a small UI for user registration. Alternatively, you can manually make this call and keep track of your user ID.
-
-Since your final project will include mulitple pages, I suggest storing the user ID in the query string of your page. If you are using Live Server, that will look like you requesting `http://localhost:5050/index.html?userId=abc-123`. At the top of your JavaScript, while the page is loading, you can read that userId from the URL and store it in a variable for future API calls. Check out the global `location` variable on MDN for an example of how to do that.
+For now, feel free to create this user with a one-off `fetch` call. You just need to generate a valid user ID so that you can make all of the calls described above. You can hardcode this generated user ID into a variable in your page's JavaScript. Once you have your personal user ID, you would substitute it for the `abc-123` portion of the URLs above. Your page should not generate a new user every time somebody loads the page because then they would not be able to see the notes from the last user they were using.
 
 ## Submitting
 

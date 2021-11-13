@@ -41,5 +41,9 @@ export const lesson10: Presentation = {
     recording: {
         link: "https://youtu.be/tNRVu9nsi18"
     },
+    lab: {
+        slug: "network-actions",
+        title: "Storing Data on a Server (Final Project P1)"
+    },
     references: simple.references
 }
