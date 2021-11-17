@@ -7,7 +7,7 @@ import * as simple from "./slides/simple";
 
 export const lesson10: Presentation = {
     title: `Kitchen Async`,
-    description: "Asynchronous JavaScript",
+    description: "JavaScript and the Network",
     slug: "the-network",
     slides: [
         simple.Title,
