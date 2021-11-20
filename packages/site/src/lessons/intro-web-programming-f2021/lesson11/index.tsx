@@ -49,7 +49,7 @@ export const lesson11: Presentation = {
         
     ],
     recording: {
-        link: "https://youtu.be/zAx2rTP5T6E"
+        link: "https://youtu.be/cbT1yjM7Fso"
     },
     lab: {
         slug: "javascript-libraries",
