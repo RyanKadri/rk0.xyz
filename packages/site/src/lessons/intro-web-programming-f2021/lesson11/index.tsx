@@ -53,7 +53,7 @@ export const lesson11: Presentation = {
     },
     lab: {
         slug: "javascript-libraries",
-        title: "Using JavaScript Libraries",
+        title: "Using JavaScript Libraries (Final Project P2)",
     },
     references: simple.references
 }
