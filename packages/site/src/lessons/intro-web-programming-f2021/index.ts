@@ -37,7 +37,8 @@ export const introToWebProgrammingFall2021: CourseDefinition = {
         { route: "./references", title: "Consolidated References", description: "The references from all slides, in one place" },
         { route: "./midterm-study-guide", title: "Midterm Study Guide" },
         { route: "./practice-problems", title: "Practice Problems" },
-        { route: "./final-project", title: "Final Project" }
+        { route: "./final-project", title: "Final Project" },
+        { route: "./final-study-guide", title: "Final Study Guide" },
     ],
     theme: minimalBlocksDarkTheme
 };
