@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => createStyles({
     container: {
         display: "grid",
         height: '100%',
-        gridTemplateColumns: "1fr 1fr",
+        gridTemplateColumns: "50% 50%",
         gap: "4px",
         [ theme.breakpoints.down("sm") ]: {
             gridTemplateColumns: "1fr"
@@ -26,11 +26,7 @@ const useStyles = makeStyles(theme => createStyles({
     },
     editorContainer: {
         padding: 8,
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
         maxWidth: "100%",
-        overflow: "auto"
     },
     outputContainer: {
         padding: theme.spacing(),
