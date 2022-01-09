@@ -8,6 +8,7 @@ import { CourseDefinition } from "../packages/presenter-core/src/services/types"
 import { courseToStructuredData } from "../packages/site/src/analytics";
 import { introToWebProgrammingFall2020 } from "../packages/site/src/lessons/intro-web-programming-f2020";
 import { introToWebProgrammingFall2021 } from "../packages/site/src/lessons/intro-web-programming-f2021";
+import { practicumInSW2022 } from "../packages/site/src/lessons/practicum-s2022";
 import { practicumInSW2021 } from "../packages/site/src/lessons/sw-construction";
 import { CourseCard } from "../packages/site/src/lessons/views/lesson-list/course-card";
 
@@ -32,7 +33,7 @@ const useStyles = makeStyles(theme => createStyles({
 const courseGroups: CourseGroup[] = [
     {
         name: "Fall 2021 - Spring 2021",
-        courses: [introToWebProgrammingFall2021],
+        courses: [introToWebProgrammingFall2021, practicumInSW2022],
         startExpanded: true
     },
     { 
