@@ -20,7 +20,7 @@ export function DefinitionSlide({ context, Term, Definition }: DefinitionSlidePr
                 {
                     typeof Term !== "string"
                         ? Term
-                        : <Typography variant="h4" className={ baseClasses.title }>
+                        : <Typography variant="h4" className={ baseClasses.title } color="secondary">
                             {Term}
                         </Typography>
                 }

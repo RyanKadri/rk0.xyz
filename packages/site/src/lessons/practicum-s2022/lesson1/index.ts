@@ -1,6 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { AboutMe, AboutMePicture, BasicCommands, EnterGit, FairUse, FreeSoftware, GitHub, ImagineAlmostDone, ImagineATeam, ImagineChangingProjects, ItWouldBeNice, Licensing, OpenSourceP1, OpenSourceP2, OpenSourceP3, PlayingWithHistory, references, Syllabus, Terms, Title, VersionControlDef, WhyVersionControl, WorkingWithOthers } from "./slides/simple";
+import { AboutMe, AboutMePicture, BasicCommands, EnterGit, FairUse, FreeSoftware, GitConcepts, GitConcepts2, GitHub, ImagineAlmostDone, ImagineATeam, ImagineChangingProjects, ItWouldBeNice, Licensing, OpenSourceP1, OpenSourceP2, OpenSourceP3, PlayingWithHistory, references, Syllabus, Terms, Title, VersionControlDef, WhyVersionControl, WorkingWithOthers } from "./slides/simple";
 
 export const lesson1: Presentation = {
     title: "Hello World!",
@@ -19,6 +19,8 @@ export const lesson1: Presentation = {
         ItWouldBeNice,
         Terms,
         EnterGit,
+        GitConcepts,
+        GitConcepts2,
         BasicCommands,
         PlayingWithHistory,
         WorkingWithOthers,

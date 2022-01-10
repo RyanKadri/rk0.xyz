@@ -30,14 +30,16 @@ export const VersionControlDef = generateDefinitionSlide("Version Control",
     "A system for managing the evolution of a piece of software over time and across collaborators"
 );
 
-export const WhyVersionControl = generateMessageSlide("Why do we want version control?");
+export const WhyVersionControl = generateMessageSlide(
+    "Why do we want version control?"
+);
 
 export const ImagineAlmostDone = generateMessageSlide(
     "You are 90% done with an assignment. To do the last 10%, you need to change your working code"
 );
 
 export const ImagineChangingProjects = generateMessageSlide(
-    "You are working on a code improvement for a while. Your boss asks you to drop that and start trying to fix a bug"
+    "You are working on a new feature for your product. Your boss asks you to drop that and start trying to fix a bug"
 );
 
 export const ImagineATeam = generateMessageSlide(
@@ -46,32 +48,56 @@ export const ImagineATeam = generateMessageSlide(
 
 export const ItWouldBeNice = generateContentSlide("It would be nice if...", [
     'It were easy to take a "snapshot" of your project to return to if you break things',
-    'You could work on different versions of the code "at once"',
+    'You could easily switch between working on different changes at once',
     "You could merge different team members' work together",
     'You could compare the changes between different versions of your code',
     "You could see who made a specific change and why"
 ]);
 
 export const Terms = generateContentSlide('What is a "version"?', [
-    "A collection of code changes that captures improvements, updates, and/or fixes",
-    'A "version" captures potentially many code changes across a number of files',
+    'An important "checkpoint" in your code',
+    "You create new versions of your code as you build on it over time",
     "Keeping track of versions is more purposeful than tracking every change",
-    'A version can also be a separate "instance" of a codebase'
+    "Versions usually have a name/number",
+    "A version can be released to customers but doesn't need to be",
+    'A version can be a snapshot of a codebase'
 ]);
 
 export const EnterGit = generateContentSlide("Enter git", [
     "Developed by Linus Torvalds (creator of Linux)",
     "One of the most popular version control systems",
-    "A distributed version control system",
-    'Every developers by default sees the whole "history" of a project',
-    "Operations generally add information to git rather than delete",
+    "Operations generally add information to git rather than delete information",
     "That means operations are generally safe",
-    "Clever data organization strikes a nice balance between speed and space efficiency"
+    "GitHub and git are two different things (we'll git into the differences later)"
 ]);
+
+export const GitConcepts = generateContentSlide("Git Concepts", [
+    { text: <><strong>Repository</strong> - A folder / set of files managed by git</>, children: [
+        "Git tracks changes to a repository over time"
+    ] },
+    { text: <><strong>Commit</strong> - A commit in git is a point in time snapshot of the repository folder</>, children: [
+        "A commit keeps track of the state of all files and folders",
+        "A commit is kind of like a version",
+        "A commit comes with a message and knows what commit came before it",
+        'All commits are identified by a special "commit hash"'
+    ] }
+]);
+
+export const GitConcepts2 = generateContentSlide("Git Concepts (continued)", [
+    { text: <><strong>Branch</strong> - A pointer to a commit</>, children: [
+        "You can use a branch to jump around easily between commits",
+        "Branches make it easier to work on multiple changes at once"
+    ] },
+    { text: <><strong>Commit Graph</strong> - As a project grows, you can think of it as a graph of commits</>, children: [
+        "Commits are nodes in the graph",
+        "Branches can be used to make the graph something other than a straight line",
+        "Branches can be merged and separate parts of the graph come together"
+    ] }
+])
 
 export const BasicCommands = generateContentSlide("Basic git Commands", [
     <><code>git config</code> - Get/Set some git configuration parameters (run at installation)</>,
-    <><code>git init</code> - Initialize your repository (run once at the start)</>,
+    <><code>git init</code> - Initialize your repository (run when starting a project)</>,
     <><code>git add/rm/reset/restore</code> - Stage or unstage files</>,
     <><code>git status</code> - List information about your current repository</>,
     <><code>git commit</code> - Take a snapshot of your working directory</>
