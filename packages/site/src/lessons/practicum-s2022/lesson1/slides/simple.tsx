@@ -58,7 +58,7 @@ export const Terms = generateContentSlide('What is a "version"?', [
     'An important "checkpoint" in your code',
     "You create new versions of your code as you build on it over time",
     "Keeping track of versions is more purposeful than tracking every change",
-    "Versions usually have a name/number",
+    "Versions sometimes have a name/number",
     "A version can be released to customers but doesn't need to be",
     'A version can be a snapshot of a codebase'
 ]);
