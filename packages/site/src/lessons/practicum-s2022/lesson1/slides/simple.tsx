@@ -16,8 +16,8 @@ export const AboutMe = generateContentSlide("About Me", [
     "I am an adjunct professor",
     "I currently work at Capital One",
     "I grew up in New Jersey",
-    "I like rock climbing and coding (not at the same time)",
     "I studied CS at Rutgers",
+    "I like rock climbing and being outdoors",
 ]);
 
 export const Syllabus = generateMessageSlide(
