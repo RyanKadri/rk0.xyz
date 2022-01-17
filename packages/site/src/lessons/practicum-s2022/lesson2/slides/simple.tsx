@@ -1,9 +1,62 @@
+import { Link } from "@material-ui/core";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
-import { synHTML, synJava } from "../../../../common/highlighting";
+import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synHTML } from "../../../../common/highlighting";
 
-export const Title = generateTitleSlide("Project Management and Spring", "Ryan Kadri");
+export const Title = generateTitleSlide("Open Source and Project Management", "Ryan Kadri");
+
+export const OpenSourceP1 = generateContentSlide("Free and Open Source Software", [
+    'What is "source"?',
+    'When is it "open"?',
+    'What is "free software"?'
+]);
+
+export const OpenSourceP2 = generateContentSlide("Open Source", [
+    "Users are free to redistribute software",
+    "You must make the source code available",
+    "Users must be allowed to create derivatives",
+    "You may prevent others from using your brand",
+    "You may require users to include original source",
+]);
+
+export const OpenSourceP3 = generateContentSlide("Open Source", [
+    "No discrimination (against people)",
+    "No discrimination (against projects)",
+    "You may require derivatives to include license",
+    "Users can take pieces out of your code",
+    "You can't restrict users' choice of other software",
+    "Users can use your code with whatever tech they want"
+]);
+
+export const OpenSourceProfit = generateContentSlide("Open Source", [
+    { text: "How do Open Source projects make money?", children: [
+        "Donations",
+        "Premium features",
+        "SaaS features",
+        "Support contracts",
+        "Reduced maintenance burden (for company projects)"
+    ]}
+])
+
+export const FreeSoftware = generateContentSlide("Free Software", [
+    "The freedom to run the program as you wish, for any purpose",
+    "The freedom to study how the program works, and change it so it does your computing as you wish. Access to the source code is a precondition for this.",
+    "The freedom to redistribute copies so you can help others",
+    "The freedom to distribute copies of your modified versions to others. By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this."
+]);
+
+export const Licensing = generateContentSlide("Licensing Software", [
+    'Software needs a license to be "free"',
+    "Licenses can be standardized and templated",
+    "Licenses can affect derived software",
+    "Companies care a lot about OSS licensing",
+    <Link href="https://tldrlegal.com/" target="_blank">License tl;dr</Link>
+]);
+
+export const FairUse = generateMessageSlide(
+    "Is it possible to plagiarize Open Source Code?"
+);
 
 export const HowDoOpenSource = generateMessageSlide(
     "How do I use open source code in my projects?"
@@ -114,74 +167,12 @@ export const WhatIsAJavaLibrary = generateContentSlide("What is a Java Library?"
     <>Often installs to <code>~/.m2/</code></>
 ]);
 
-export const PartTwo = generateTitleSlide("Part 2: Distributed Systems",
-    "Less scary than they sound!"
-);
-
-export const DistributedSystems = generateContentSlide("Distributed Systems", [
-    "Distributed Systems are systems that run on multiple machines",
-    "They sound scary but aren't too bad. Come with some new mental models",
-    "Communication protocols become important",
-    "Components can be written in different languages",
-    'Network communication can always fail. No remote operation is totally "safe"'
-]);
-
-export const DistributedSystemsApproaches = generateContentSlide("Messaging Approaches", [
-    "Distributed components need a communication contract",
-    { text: <><b>Approach A:</b> Send standardized, readable messages between systems</>, children: [
-        "Messages are in standard parsable formats",
-        "Somewhat human-readable and language-independent",
-        "HTTP APIs take this approach"
-    ] },
-    { text: <><b>Approach B:</b> Use the programming model to hide messaging details</>, children: [
-        "Fast but harder to debug / inter-operate",
-        "Remote Procedure Calls use this model",
-    ] },
-]);
-
-export const DistributedSystemsInClass = generateContentSlide("Messaging Approaches", [
-    "We're going to use Approach A in class",
-    "We are going to write a number of HTTP services",
-    'These servers are going to "speak" JSON',
-    'At many companies, all internal systems communicate with JSON (over HTTP)',
-    "Sometimes called a Service Oriented Architecture"
-]);
-
-export const Spring = generateContentSlide("Java Spring", [
-    "Java Spring is an open source framework for building Java Apps",
-    "Has tons of sub-projects for different tasks",
-    "Great for building microservices (with Spring Boot)",
-    "Makes it easy to build and package your app",
-    "One of the most popular Java Frameworks around",
-    "The framework on which we will build most of our projects"
-]);
-
-export const SpringCode = generateCodeSlide("Spring Example", [
-    "Spring uses a lot of annotations to define behavior",
-    "Uses Reflection, proxies, and all sorts of magic to make your code work",
-    "You shouldn't need to know the internals to work with Spring"
-], {
-    
-    code: synJava`@RestController
-public class HelloWorldRestController {
-
-    @GetMapping("/hello/{name}")
-    public HelloResponse sayHello(@PathVariable(value = "name") String name) {
-        return new HelloResponse("Ryan", 28, true);
-    }
-    
-}`});
-
-export const InversionOfControl = generateDefinitionSlide("Inversion of Control",
-    "Rather than writing a lot of custom code that calls into libraries (traditional development), " +
-    "Inversion of Control frameworks let you hand control over to the framework and it decides when " +
-    "to call your code"
-)
-
 export const references: Reference[] = [
-    { label: "Maven 30 Minute Guide", url: "https://maven.apache.org/guides/getting-started/index.html" },
-    { label: "Spring Rest Getting Started", url: "https://spring.io/guides/gs/rest-service/" },
+    { label: "Open Source Definition", url: "https://opensource.org/osd" },
+    { label: "Free Software Definition", url: "https://www.gnu.org/philosophy/free-sw.en.html" },
+    { label: "License tl;dr", url: "https://tldrlegal.com/" },
     { label: "Semantic Versioning", url: "https://semver.org/", 
         note:  "The formal definition is a bit stuffy. Points up 8 are important to understand though"
-    }
+    },
+    { label: "Maven 30 Minute Guide", url: "https://maven.apache.org/guides/getting-started/index.html" },
 ]

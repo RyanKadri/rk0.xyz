@@ -10,7 +10,7 @@ export interface PresentationContext {
 }
 
 export interface Presentation {
-    title: string;
+    title?: string;
     description: string;
     slug: string;
     slides: ComponentType<{context: PresentationContext}>[];

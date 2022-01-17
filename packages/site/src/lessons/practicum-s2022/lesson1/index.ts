@@ -1,6 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { AboutMe, AboutMePicture, BasicCommands, EnterGit, FairUse, FreeSoftware, GitConcepts, GitConcepts2, GitHub, ImagineAlmostDone, ImagineATeam, ImagineChangingProjects, ItWouldBeNice, Licensing, OpenSourceP1, OpenSourceP2, OpenSourceP3, PlayingWithHistory, references, Syllabus, Terms, Title, VersionControlDef, WhyVersionControl, WorkingWithOthers } from "./slides/simple";
+import { AboutMe, AboutMePicture, BasicCommands, EnterGit, GitConcepts, GitConcepts2, GitHub, ImagineAlmostDone, ImagineATeam, ImagineChangingProjects, ItWouldBeNice, PlayingWithHistory, references, Syllabus, Terms, Title, VersionControlDef, WhyVersionControl, WorkingWithOthers } from "./slides/simple";
 
 export const lesson1: Presentation = {
     title: "Hello World!",
@@ -25,18 +25,12 @@ export const lesson1: Presentation = {
         PlayingWithHistory,
         WorkingWithOthers,
         GitHub,
-        OpenSourceP1,
-        OpenSourceP2,
-        OpenSourceP3,
-        FreeSoftware,
-        Licensing,
-        FairUse,
         generateReferencesSlide(references),
     ],
     examples: [
     ],
     references: references,
     recording: {
-        link: "https://temple.zoom.us/rec/play/nmCzMeQFXInGhXJjBSL9kXA4z13YzybCBR79bqdb5syz-3SF-K1wHbQJt2laYOGF5MTPZhn_NUZCc44k.yCS1S-a8BCnEhtew?continueMode=true"
+        link: "https://youtu.be/sTpx345-MV8"
     }
 }
