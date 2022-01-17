@@ -43,6 +43,7 @@
     "packages",
     "pages",
     "next-env.d.ts",
+    "additional.d.ts",
     "theme.d.ts"
   ],
   "exclude": [

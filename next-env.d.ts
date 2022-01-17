@@ -1,18 +1,6 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
-/// <reference types="@mdx-js/loader" />
+/// <reference types="next/image-types/global" />
 
-declare module "*.html" {
-    const content: string;
-    export default content;
-}
-
-declare module "*.zip" {
-    const content2: string;
-    export default content2;
-}
-
-declare module "*.svg" {
-    const content1: string;
-    export default content1;
-}
+// NOTE: This file should not be edited
+// see https://nextjs.org/docs/basic-features/typescript for more information.
