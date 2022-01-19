@@ -1,6 +1,5 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { JSONExample } from "./slides/json";
 import { SemanticVersioning } from "./slides/semantic-versioning";
 import { DependencyDive, EnterPackageManagers, ExampleTime, Forks, FreeSoftware, GitHubOssFeatures, HowDoOpenSource, InTheOpen, Licensing, Maven, MavenDependencies, OpenSourcePractical, OpenSourceProfit, OsiDefP1, OsiDefP2, PackageManagementJava, Philosophy, PossibilitiesForOpenSource, ProjectManagement, references, Title, WhatIsAJavaLibrary } from "./slides/simple";
 
@@ -30,7 +29,6 @@ export const lesson2: Presentation = {
         SemanticVersioning,
         ExampleTime,
         WhatIsAJavaLibrary,
-        JSONExample,
         generateReferencesSlide(references)
     ],
     examples: [

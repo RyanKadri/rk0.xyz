@@ -10,9 +10,9 @@ export const OpenSourcePractical = generateContentSlide("Open Source Code", [
     { text: "Open source projects often have a few characteristics", children: [
         "The source code is available to view (pretty much required)",
         "The project is often available for free",
+        "Often but not always, the project is on GitHub (not a requirement for open source)",
         "There is an active community supporting the project",
         'The project evolves "in the open"',
-        "Often but not always, the project is on GitHub (not a requirement for open source)"
     ] }
 ]);
 
