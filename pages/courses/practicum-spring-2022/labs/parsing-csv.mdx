@@ -1,0 +1,31 @@
+import { LabLayout } from '../../../../packages/site/src/lessons/views/lab-view'
+
+# Exercise: Parsing a CSV File
+
+## Background
+In this exercise, I want you to parse a CSV file and extract some useful information. CSV files are pretty simple in theory and sometimes a bit more complicated in practice. The basic idea is that they are a bunch of values separated by commas. If I want to express information about some people, I might create a file that looks like this:
+
+```
+Iroh,42,Chef,Penne Vodka
+Korra,16,Doctor,Salmon
+```
+
+You could imagine having a bunch more rows with additional information. One downside of this way of storing data in text is that it's not totally clear what each column means. Therefore, some CSV files support using the first line in the file as header names. In that case, the file might look like this:
+
+```
+Name,Age,Occupation,Favorite Food
+Iroh,42,Chef,Penne Vodka
+Korra,16,Doctor,Salmon
+```
+
+One other weird thing about CSV files is that they often support including commas in field values. How does this work if commas say where to split values? One way to do this is by allowing quoted values to contain commas. The rules around this can get weird when you get into escape sequences. Did I mention that CSV files don't necessarily have to use commas for a separator value?
+
+**Moral:** CSV files are weirdly complicated sometimes. It'd be nice to use a library to read general CSV files.
+
+## Exercise
+
+Please download [this CSV file](/courses/practicum-spring-2022/exercise2.csv). It has information about a number of random people. Please calculate their average age using Java. For a good CSV reading library, try using Apache Commons CSV. The documentation is not arranged in the clearest way unfortunately (IMO). On the [main page](https://commons.apache.org/proper/commons-csv/), there is a snippet of XML for the dependency you can include in your `pom.xml` file. On the user guide page, the [Header auto detection](https://commons.apache.org/proper/commons-csv/user-guide.html#Header_auto_detection) section might be helpful 
+
+You can use this library to parse the CSV file and scan through it programmatically (maybe in a `for` loop). From there, reading the age from each row and calculating the average should not be too bad.
+
+export default ({ children }) => <LabLayout>{children}</LabLayout>

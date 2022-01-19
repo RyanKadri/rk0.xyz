@@ -12,11 +12,11 @@ const useStyles = makeStyles({
 
 interface Props {
     children: string;
-    className: string;
+    className?: string;
 }
 export function CodeBlockMdxWrapper({ children, className }: Props) {
     const classes = useStyles();
-    const language = className.replace(/language-/, "")
+    const language = className?.replace(/language-/, "") ?? "plain";
     const html = prism.highlight(children, prism.languages[language], language);
     const code: SyntaxHighlightedBlock = {
         language,
