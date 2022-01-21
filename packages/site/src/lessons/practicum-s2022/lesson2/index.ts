@@ -37,5 +37,8 @@ export const lesson2: Presentation = {
         slug: "parsing-csv",
         title: "Parsing CSV Files"
     },
-    references
+    references,
+    recording: {
+        link: "https://youtu.be/0bFTyCnxH4Q"
+    }
 }
