@@ -1,32 +1,31 @@
 
 import { createStyles, makeStyles } from "@material-ui/core";
+import { blue, green, orange, purple, red } from "@material-ui/core/colors";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles(createStyles({
+const useStyles = makeStyles(theme => createStyles({
     protocol: {
-        color: "red"
+        color: red["500"]
     },
     domainName: {
-        color: "blue"
+        color: blue["500"]
     },
     port: {
-        color: "green"
+        color: green["500"]
     },
     path: {
-        color: "purple"
+        color: theme.palette.type === "dark" ? purple["300"] : purple["500"]
     },
     query: {
-        color: "orange"
+        color: orange["500"]
     },
     url: {
-        fontSize: "1.5rem",
         marginTop: 16,
         display: "inline-block"
     },
     partList: {
-        fontSize: "1.25rem",
     }
 }))
 

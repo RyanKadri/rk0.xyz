@@ -1,299 +1,187 @@
+import { Link } from "@material-ui/core";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
-import { synJava } from "../../../../common/highlighting";
+import { generateCodeSlide, generateContentSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { synGherkin, synHTML, synJava } from "../../../../common/highlighting";
+import testingPyramid from "./testing-pyramid.png";
 
-export const Title = generateTitleSlide("Java Spring and Networked Services", "Ryan Kadri");
+export const Title = generateTitleSlide("Automated Testing", "Ryan Kadri");
 
-export const PartTwo = generateTitleSlide("Part 2: Distributed Systems",
-    "Less scary than they sound!"
+export const ClassQuestion = generateMessageSlide(
+    "How do you test software?"
 );
 
-export const DistributedSystems = generateContentSlide("Distributed Systems", [
-    "Distributed Systems are systems that run on multiple machines",
-    "They sound scary but aren't too bad. Come with some new mental models",
-    "Communication protocols become important",
-    "Components can be written in different languages",
-    'Network communication can always fail. No remote operation is totally "safe"'
+export const ManualTestingApproach = generateContentSlide("Testing Software (Manual Approach)", [
+    "While coding, periodically run your code and check if things work",
+    "Right before turning in an assignment, check all of the features",
+    "Use tools like Postman to test endpoints or the command line to test CLI tools",
+    'Try out the "Happy Path" scenarios in your code',
+    "If needed, try out the error cases or weirder inputs",
+    "Make sure that your output is in the right format"
 ]);
 
-export const DistributedSystemsApproaches = generateContentSlide("Messaging Approaches", [
-    "Distributed components need a communication contract",
-    { text: <><b>Approach A:</b> Send standardized, readable messages between systems</>, children: [
-        "Messages are in standard parsable formats",
-        "Somewhat human-readable and language-independent",
-        "HTTP APIs take this approach"
-    ] },
-    { text: <><b>Approach B:</b> Use the programming model to hide messaging details</>, children: [
-        "Fast but harder to debug / inter-operate",
-        "Remote Procedure Calls use this model",
-    ] },
+export const ManualTestingDownsides = generateContentSlide("Manual Testing Downsides", [
+    "You might have to do this process many times as you update code",
+    "It's really easy to skip or misunderstand a step",
+    "Do you write up testing documents?",
+    "In a big codebase, you might end up needing to start a huge application",
+    "If there are a lot of tests, it's easy to miss an error"
 ]);
 
-export const DistributedSystemsInClass = generateContentSlide("Messaging Approaches", [
-    "We're going to use Approach A in class",
-    "We are going to write a number of HTTP services",
-    'These servers are going to "speak" JSON',
-    'At many companies, all internal systems communicate with JSON (over HTTP)',
-    "Sometimes called a Service Oriented Architecture"
+export const TestingPortions = generateContentSlide("Breaking up Testing", [
+    "When working on a big app, you might only develop a small piece",
+    "It would be nice if you could split out just your piece and test",
+    "You could do this with multiple main methods in your codebase",
+    "... or you could use an automated testing framework"
+])
+
+
+export const TypesOfTests = generateContentSlide("Types of Tests", [
+    'Unit Tests: Test a single thing in isolation',
+    'Integration Tests: Test a few components together',
+    'Functional / E2E Tests: Test large portions of your system',
+    "Black Box: Test your system only through defined interface"
 ]);
 
-export const Spring = generateContentSlide("Java Spring", [
-    "Java Spring is an open source framework for building Java Apps",
-    "Has tons of sub-projects for different tasks",
-    "Great for building microservices (with Spring Boot)",
-    "Makes it easy to build and package your app",
-    "One of the most popular Java Frameworks around",
-    "The framework on which we will build most of our projects"
+export const UnitTests = generateContentSlide("Unit Tests", [
+    "Test components in isolation",
+    "Replace dependencies (explicit and implicit)",
+    "Advantage: Runs fast and accurately pinpoints errors",
+    "Disadvantage: Does not guarantee that pieces work together"
 ]);
 
-export const SpringCode = generateCodeSlide("Spring Example", [
-    "Spring uses a lot of annotations to define behavior",
-    "Uses Reflection, proxies, and all sorts of magic to make your code work",
-    "You shouldn't need to know the internals to work with Spring"
+export const BadUnitTestExample = generateMessageSlide(
+    <Link href="https://twitter.com/i/status/1148986961207730176"
+          target="_blank" variant="body1">
+        https://twitter.com/i/status/1148986961207730176
+    </Link>
+)
+
+export const IntegrationTests = generateContentSlide("Integration Tests", [
+    "Work with a couple components together",
+    "Replace some but not all dependencies",
+    "Mock up representative input data",
+    "Advantage: More certainty that things work",
+    "Disadvantage: A bit flakier and harder to set up"
+]);
+
+export const FunctionalTests = generateContentSlide("Functional Tests", [
+    "Test large slices of a system",
+    "May use an automated browser to test app",
+    "Advantage: Uses your app the same way a user would",
+    "Disadvantage: Flaky, slow, and brittle"
+]);
+
+export const TestingPyramid = generateMediaSlide(
+    <img src={ testingPyramid.src } alt="Testing Pyramid" />,
+    "Credit: Martin Fowler - Test Pyramid"
+);
+    
+export const JUnitTesting = generateCodeSlide("JUnit Testing", [
+    "In Java, JUnit is a very popular testing framework",
+    'Allows you to write small snippets of test code that "drive" your real code',
+    "Provides assertion functions to verify that your code worked right"
 ], {
     
-    code: synJava`@RestController
-public class HelloWorldRestController {
-
-    @GetMapping("/hello/{name}")
-    public HelloResponse sayHello(@PathVariable(value = "name") String name) {
-        return new HelloResponse("Ryan", 28, true);
-    }
-    
-}`});
-
-export const InversionOfControl = generateDefinitionSlide("Inversion of Control",
-    "Rather than writing a lot of custom code that calls into libraries (traditional development), " +
-    "Inversion of Control frameworks let you hand control over to the framework and it decides when " +
-    "to call your code"
-)
-
-export const HowDoNetworking = generateMessageSlide(
-    "How do programs communicate across a network?"
-);
-
-export const NetworkingBasics = generateContentSlide("Networking", [
-    "For computers to communicate over networks, they need an identifier",
-    "Across network segments, the standard identifier is an IP address",
-    "IP addresses come in 2 varieties: IPv4 (32 bits) and IPv6 (128 bits)",
-    "IPv4 addresses are often written like: 12.123.14.243",
-    "IP addresses can be public, private, or local",
-    "Public IP addresses should have one owner and identify one logical entity",
-    "Private networks often share one of a few common ranges"
-]);
-
-export const NetworkingPart2 = generateContentSlide("Networking", [
-    "Domain names on the internet point to a public IP address",
-    "For instance, rk0.xyz -> 159.65.216.232",
-    "This uses a system called DNS",
-    'When you buy a domain name and set up servers, somebody needs to "resolve" the domain',
-    "Private networks can still have their own private DNS",
-    "localhost is a domain name that generally points to 127.0.0.1",
-    "It is specific to your machine (loopback)"
-]);
-
-export const HttpBasics = generateContentSlide("HTTP", [
-    "HTTP is a common networking protocol",
-    "HTTP thinks about the world in terms of resources (identified by a URL)",
-    "You interact with resources according to a standard verb (GET, POST, PUT, DELETE, etc)",
-    'Many networked services "speak" HTTP',
-    "Your browser makes HTTP requests to websites",
-    "HTTP is a pretty non-opinionated tool",
-]);
-
-export const RequestMethod = generateContentSlide("Request Method", [
-    'Requests have a "method" to define how you want to interact with a resource',
-    "Common methods include GET, POST, PUT, DELETE",
-    "They correspond (usually) to Read, Create, Update, Delete, respectively",
-    "Server can interpret how it wants",
-    "Browser uses GET by default when you browse to a page",
-    "May also see OPTIONS, PATCH, HEAD and others less frequently",
-]);
-
-export const HttpHeaders = generateContentSlide("HTTP Headers", [
-    "Contain metadata about the request / response",
-    "Uppercase words separated by dashes",
-    { text: "Examples include", children: [
-        "Authorization",
-        "Expires / Age / Cache-Control",
-        "Cookie",
-        "Accept / Content-Type"
-    ]}
-]);
-
-export const HttpBody = generateContentSlide("HTTP Request / Response Body", [
-    "Main request / response data",
-    "In a request, this usually pairs with POST / PUT requests and some user-initiated interaction",
-    "Most (but not all) responses have a body",
-    "Can be HTML, JSON, XML, Text, etc depending on the URL requested (and some headers)"
-]);
-
-export const ResponseCodes = generateContentSlide("HTTP Response Codes", [
-    "A 3 digit numerical value that describes succinctly how the request went",
-    "Somewhat standardized and agreed upon",
-    { text: "200-299 means the request was successful", children: [
-        "200: OK - This is the most common response. Means everything went ok",
-        "201: Created - Something was created on the server"
-    ]},
-    { text: "300-399 means the request is being redirected", children: [
-        "301: Moved Permanently",
-        "302: Found (Moved Temporarily)",
-        "304: Not Modified"
-    ]}
-]);
-
-export const ResponseCodesContinued = generateContentSlide("Response Codes Continued", [
-    { text: "400-499 means the client did something wrong", children: [
-        "400: Bad Request - The server can't understand the request",
-        "404: Not Found - The requested resource does not exist",
-        "418: I'm a teapot - The server refuses the attempt to brew coffee with a teapot."
-    ]},
-    { text: "500-599 means there was an error on the server", children: [
-        "500: Internal Server Error - Something went wrong",
-        "503: The server is not ready to handle the request",
-        "504: Another server behind the one you are talking to timed out"
-    ]}
-]);
-
-export const HttpApis = generateMessageSlide(
-    "Are there standard ways to make an HTTP API?"
-);
-
-export const HttpDesigns = generateContentSlide('"REST" APIs', [
-    "One way to structure HTTP APIs is REST",
-    "REST thinks about the world in terms of resources and nouns",
-    "Tries to enforce proper headers and standard response codes",
-    'REST suggests using URLs in your responses to "link" your data model',
-    "Not always used perfectly but often a good model"
-]);
-
-export const BookstoreModel = generateContentSlide("REST-ish Book Store API", [
-    <><code>GET /books</code> - Get some data about all books in the system</>,
-    <><code>GET /books/abc123</code> - Get details about a book with the ID abc123</>,
-    <><code>POST /books</code> - Create a new book (request body gives details)</>,
-    <><code>PUT /books/abc123</code> - Update book abc123 to a new state (request body defines)</>,
-    <><code>DELETE /books/abc123</code> - Remove the record for book abc123</>
-]);
-
-export const BookstoreBadModel = generateContentSlide("Non-REST Book Store API", [
-    <><code>GET /read-books</code></>,
-    <><code>GET /read-books</code> (book ID defined in headers)</>,
-    <><code>POST /create-book</code> (book details and ID defined in headers)</>,
-    <><code>POST /update-book</code></>,
-    <><code>POST /delete-book</code></>
-]);
-
-export const LetsLookAtApi = generateMessageSlide("Let's review our Spring server");
-
-export const SpringPart = generateTitleSlide("Part 2: Building Spring Apps", 
-    "Dependency Injection and Decoupling"
-)
-
-export const MultiFileProjects = generateContentSlide("Multi-File Projects", [
-    "Beyond very simple projects, it helps to split up your code",
-    "Code is usually split into multiple files and multiple classes",
-    "Files and classes tend to be organized by functionality",
-    "How does code in different files interact?",
-    "In other words, how do classes interact with their dependencies?"
-]);
-
-export const LoggerProblemStatement = generateMessageSlide(
-    "Let's say we have a Logger class and we want to use it in different files"
-)
-
-export const StaticMethodApproach = generateCodeSlide("Approach 1: Static methods", [
-    "The logger has a static method",
-    "Classes that use the logger call the static method"
-], {
-    
-    code: synJava`public class ImportantProcessHandler {
-    public static void handleImportantProcess() {
-        // Do something...
-        Logger.log("Done!");
-    }
-}
-
-public class Logger {
-    public static void log(String message) {
-        System.out.println(message)
-    }
+    code: synJava`@Test
+public void testMyCode() {
+    Calculator calc = new Calculator();
+    double result = calc.calculate(1, "+", 1);
+    assertEquals(2, result)
 }`
 });
 
-export const StaticMethodApproachProsCons = generateContentSlide("Approach 1: Pros and Cons", [
-    "Pro: Super simple and unambiguous",
-    "Con: All callers are tied to this specific logger",
-    "What if logging needs to change across the application?",
-    "You change the logger in one place",
-    "What if the logger needs to behave differently in different circumstances?",
-    "Doable. But requires a bit more work",
-    "This might be a good place for interfaces"
+export const JUnitAnnotations = generateContentSlide("JUnit Annotations", [
+    <><code>@Test</code> - Marks a test method. Will be run by JUnit</>,
+    <><code>@BeforeEach/@BeforeAll</code> - Marks code that should run before each test or before all</>,
+    <><code>@AfterEach/@AfterAll</code> - Marks code that should run before each test or before all</>,
+    <><code>@Disabled</code> - Useful for temporarily stopping a test from running</>,
+    <><code>@Tag</code> - Useful for organizing tests and running subsets</>,
+    "Many more"
 ]);
 
-export const InstanceMethodApproach = generateCodeSlide("Approach 2: Instance Methods", [
-    "The logger can be constructed",
-    "Classes that call the logger use an instance method",
-], {
+export const JUnitAssertions = generateContentSlide("JUnit Assertions", [
+    <><code>assertEquals</code> - Checks that two values are equal. Be careful with objects and doubles</>,
+    <><code>assertTrue/assertFalse</code> - Checks that a value is true or false</>,
+    <><code>assertThrows</code> - Checks that some code throws an exception</>,
+    "... many more",
+    "assertions often take a string argument to give more context for what a failure means"
+]);
+
+export const TddTesting = generateContentSlide("Test Driven Development", [
+    "In Test Driven Development (TDD), tests are as important as the main code",
+    "Write tests first and then write code",
+    "Tests start out failing and eventually pass (red-green)",
+    "Get simple tests to pass. Then more complicated"
+]);
+
+export const WriteAnExpressionEngine = generateMessageSlide(
+    "Let's write an arithmetic evaluator"
+);
+
+export const BddTesting = generateContentSlide("Behavior Driven Development", [
+    "A philosophy that amps up the idea of tests as documentation",
+    "Business people, QA testers, and developers work together on tests",
+    "Tests are written to be as readable as possible",
+    "Tests should also generate descriptive human-readable output where applicable",
+    "Sometimes this involves writing tests in english",
+]);
+
+export const CucumberTesting = generateContentSlide("Cucumber and Gherkin", [
+    "Cucumber is a testing framework that lets you write tests in english",
+    "Tests are readable and verifiable documentation",
+    { text: "Uses a syntax called Gherkin to write tests", children: [
+        "Given... <sets up the initial state before testing>",
+        "When... <trigger some event>",
+        "Then... <test your conditions>"
+    ] },
+]);
+
+export const AssignmentTestExample = generateCodeSlide("Example Cucumber Spec", [], {
     
-    code: synJava`public class ImportantProcessHandler {
-    private final Logger myLogger;
+    code: synGherkin`Feature: Operation history is managed properly
+    As operations are calculated, the server will store a record of
+    the operation details. There is also an option to clear the operation
+    history
 
-    public void handleImportantProcess() {
-        myLogger.log("Done!");
-    }
-}
+    Scenario: Capturing math operation history
+        Given that I have not run any previous operations
+        When I call the endpoint to add 2 and 3
+        Then there should be 1 history item with a first operand of 2 and a second operand of 3
 
-public class Logger {
-    public void log(String message) {
-        System.out.println(message)
-    }
-}`
+    Scenario: Deleting operation history
+        Given that I have 3 operations stored in the history
+        When I call the delete endpoint
+        Then there should be 0 operations in the history`
 });
 
-export const InstanceMethodProsCons = generateContentSlide("Approach 2: Pros and Cons", [
-    "Pro: You could use an interface here",
-    "Con: Where does the logger instance come from?",
-    "You could construct it in ImportantProcessHandler",
-    "... but then you're stuck with a specific type of logger",
-    "You could pass it in via the constructor",
-    "... but then who constructs it?"
-]);
-
-export const DependencyInjection = generateContentSlide("Dependency Injection", [
-    "Spring has another approach to this problem",
-    "Spring encourages approach 2 (to allow for using interfaces)",
-    "Passes dependencies to your class either by the constructor or setters",
-    "Handles constructing dependency classes for you",
-    "If a class is dependent on an interface, figures out which class implements the interface"
-]);
-
-export const SpringApproach = generateCodeSlide("Approach 3: Dependency Injection", [
-    "Use annotations to indicate that a class can be injected",
-    "Spring will pass you an instance of a class",
-], {
+export const CucumberDependencies = generateCodeSlide("Reference: Cucumber and JUnit Dependencies", [], {
     
-    code: synJava`public class ImportantProcessHandler {
-
-    public ImportantProcessHandler(Logger logger) {
-        this.myLogger = logger;
-    }
-
-    public void handleImportantProcess() {
-        myLogger.log("Done!");
-    }
-}
-
-@Component
-public class StandardOutLogger implements Logger {
-    public void log(String message) {
-        System.out.println(message)
-    }
-}`});
+    code: synHTML`<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.7.1</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.junit.vintage</groupId>
+    <artifactId>junit-vintage-engine</artifactId>
+    <version>5.7.1</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>6.9.1</version>
+</dependency>
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>6.9.1</version>
+</dependency>`});
 
 export const references: Reference[] = [
-    { label: "HTTP Basics", url: "https://devqa.io/http-basics/" },
-    { label: "Dependency Injection Approach", url: "https://www.codementor.io/@olotintemitope/dependency-injection-explained-in-plain-english-b24hippx7",
-        note: "I like this explanation but one part it doesn't totally hit is that using a dependency injection like Spring " +
-              "ends up meaning that another system builds your dependencies for you. They build the flashlight and pick the tires for the car" },
-]
+    { label: "Kent C Dodds - Testing", url: "https://kentcdodds.com/blog/write-tests" },
+    { label: "JUnit 5", url: "https://junit.org/junit5/docs/current/user-guide/" },
+    { label: "Cucumber", url: "https://cucumber.io/docs/guides/" },
+];

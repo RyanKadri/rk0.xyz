@@ -84,7 +84,7 @@ function LessonCardView({ course, baseUrl }: Props) {
 
     return <div className={ classes.cardViewParent }>{
         course.lessons.map((lesson) => (
-            <Card className={ classes.lessonCard } key={ lesson.title }>
+            <Card className={ classes.lessonCard } key={ lesson.description }>
                 <CardHeader title={ lesson.description } classes={ { title: classes.cardHeader } } />
                 <footer className={ classes.cardActions }>
                     <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>
@@ -147,7 +147,7 @@ function LessonTableView({ course, baseUrl }: Props) {
                     </TableHead>
                     <TableBody>
                         { course.lessons.map((lesson, lessonNum) => (
-                            <TableRow key={ lesson.title }>
+                            <TableRow key={ lesson.description }>
                                 <TableCell>{ lessonNum + 1 }</TableCell>
                                 <TableCell>{ lesson.description }</TableCell>
                                 <TableCell>

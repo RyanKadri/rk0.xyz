@@ -1,45 +1,34 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
-import { RequestTemplate } from "./slides/request-example";
-import { ResponseTemplate } from "./slides/response-example";
-import { BookstoreBadModel, BookstoreModel, DependencyInjection, HowDoNetworking, HttpApis, HttpBasics, HttpBody, HttpDesigns, HttpHeaders, InstanceMethodApproach, InstanceMethodProsCons, LetsLookAtApi, LoggerProblemStatement, MultiFileProjects, NetworkingBasics, NetworkingPart2, RequestMethod, ResponseCodes, ResponseCodesContinued, SpringApproach, SpringPart, StaticMethodApproach, StaticMethodApproachProsCons, Title } from "./slides/simple";
-import { UrlParts } from "./slides/url-parts";
+import { generateReferencesSlide } from "../../shared/references-slide";
+import { AssignmentTestExample, BadUnitTestExample, BddTesting, ClassQuestion, CucumberDependencies, CucumberTesting, FunctionalTests, IntegrationTests, JUnitAnnotations, JUnitAssertions, JUnitTesting, ManualTestingApproach, ManualTestingDownsides, references, TddTesting, TestingPortions, TestingPyramid, Title, TypesOfTests, UnitTests, WriteAnExpressionEngine } from "./slides/simple";
 
 export const lesson3: Presentation = {
-    title: 'Network Services',
-    description: "Using Java Spring to write HTTP Services",
-    slug: "network-services",
+    description: "Automated Testing",
+    slug: "automated-testing",
     slides: [
         Title,
-        HowDoNetworking,
-        NetworkingBasics,
-        NetworkingPart2,
-        HttpBasics,
-        UrlParts,
-        RequestTemplate,
-        ResponseTemplate,
-        RequestMethod,
-        HttpHeaders,
-        HttpBody,
-        ResponseCodes,
-        ResponseCodesContinued,
-        HttpApis,
-        HttpDesigns,
-        BookstoreModel,
-        BookstoreBadModel,
-        LetsLookAtApi,
-        SpringPart,
-        MultiFileProjects,
-        LoggerProblemStatement,
-        StaticMethodApproach,
-        StaticMethodApproachProsCons,
-        InstanceMethodApproach,
-        InstanceMethodProsCons,
-        DependencyInjection,
-        SpringApproach
+        ClassQuestion,
+        ManualTestingApproach,
+        ManualTestingDownsides,
+        TestingPortions,
+        TypesOfTests,
+        UnitTests,
+        BadUnitTestExample,
+        IntegrationTests,
+        FunctionalTests,
+        TestingPyramid,
+        JUnitTesting,
+        JUnitAnnotations,
+        JUnitAssertions,
+        TddTesting,
+        WriteAnExpressionEngine,
+        BddTesting,
+        CucumberTesting,
+        AssignmentTestExample,
+        CucumberDependencies,
+        generateReferencesSlide(references)
     ],
+    references,
     examples: [
-    ],
-    recording: {
-        link: "https://temple.zoom.us/rec/play/eykQgAlwkwZh48_XbPfCOm-vhWjsJtBxS9TI04-5E69oHK0ZiZVMR9YWBGuvISUcZyPEEw3WVyp4mi6d.pdcUZvjf0aQHPNTb?continueMode=true"
-    }
+    ]
 }
