@@ -7,14 +7,48 @@ import testingPyramid from "./testing-pyramid.png";
 
 export const Title = generateTitleSlide("Automated Testing", "Ryan Kadri");
 
-export const ClassQuestion = generateMessageSlide(
-    "How do you test software?"
-);
+export const JUnitIntro = generateCodeSlide("JUnit 5", [
+    "JUnit is a very popular Java automated testing library",
+    "Allows you to directly run pieces of your code",
+    'Use "assertions" to verify behaviors',
+    "Uses a lot of annotations",
+], { code: synHTML`
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <version>5.8.2</version>
+    <scope>test</scope>
+</dependency>
+`});
+
+export const Annotations = generateCodeSlide("Java Annotations", [
+    "Annotations let you attach metadata to your code",
+    "Has no effect on its own",
+    "Discoverable through a Java API called reflection"
+], {
+    code: synJava`
+@DisplayName("The XYZ Gizmo")
+class XyzGizmoTest {
+
+    @BeforeEach
+    public void setup() { /* ... */ }
+    
+    @Test
+    public void itWorksRight() { /* ... */ }
+}
+    `
+});
+
+export const HowDoesJunitWork = generateContentSlide("How does JUnit work?", [
+    "JUnit seems to magically call your classes for you",
+    "Where is the main method? Doesn't Java need that?",
+    "It comes from the JUnit library itself!",
+    <>JUnit can examine your classes and check which methods have a <code>@Test</code> annotation</>
+])
 
 export const ManualTestingApproach = generateContentSlide("Testing Software (Manual Approach)", [
     "While coding, periodically run your code and check if things work",
     "Right before turning in an assignment, check all of the features",
-    "Use tools like Postman to test endpoints or the command line to test CLI tools",
     'Try out the "Happy Path" scenarios in your code',
     "If needed, try out the error cases or weirder inputs",
     "Make sure that your output is in the right format"
@@ -28,19 +62,21 @@ export const ManualTestingDownsides = generateContentSlide("Manual Testing Downs
     "If there are a lot of tests, it's easy to miss an error"
 ]);
 
-export const TestingPortions = generateContentSlide("Breaking up Testing", [
-    "When working on a big app, you might only develop a small piece",
-    "It would be nice if you could split out just your piece and test",
-    "You could do this with multiple main methods in your codebase",
-    "... or you could use an automated testing framework"
+export const AutomatedLessons = generateContentSlide("Automated Testing Lessons", [
+    "Testing small chunks of our application was easier than testing the whole thing",
+    "Good tests don't need to be updated if methods change but the interface stays the same",
+    'Interacting with the "outside world" makes testing code more complex',
+    "Stand-In (Mock) components can help emulate the outside world",
+    "Testing small pieces of the code in isolation does not always give total confidence",
+    "Perfect total test coverage is hard (and maybe unnecessary?)"
 ])
-
 
 export const TypesOfTests = generateContentSlide("Types of Tests", [
     'Unit Tests: Test a single thing in isolation',
     'Integration Tests: Test a few components together',
     'Functional / E2E Tests: Test large portions of your system',
-    "Black Box: Test your system only through defined interface"
+    "Black Box: Test your system only through defined interface",
+    "White Box: Test your system by fiddling with internal details"
 ]);
 
 export const UnitTests = generateContentSlide("Unit Tests", [
@@ -77,20 +113,6 @@ export const TestingPyramid = generateMediaSlide(
     "Credit: Martin Fowler - Test Pyramid"
 );
     
-export const JUnitTesting = generateCodeSlide("JUnit Testing", [
-    "In Java, JUnit is a very popular testing framework",
-    'Allows you to write small snippets of test code that "drive" your real code',
-    "Provides assertion functions to verify that your code worked right"
-], {
-    
-    code: synJava`@Test
-public void testMyCode() {
-    Calculator calc = new Calculator();
-    double result = calc.calculate(1, "+", 1);
-    assertEquals(2, result)
-}`
-});
-
 export const JUnitAnnotations = generateContentSlide("JUnit Annotations", [
     <><code>@Test</code> - Marks a test method. Will be run by JUnit</>,
     <><code>@BeforeEach/@BeforeAll</code> - Marks code that should run before each test or before all</>,
@@ -115,10 +137,6 @@ export const TddTesting = generateContentSlide("Test Driven Development", [
     "Get simple tests to pass. Then more complicated"
 ]);
 
-export const WriteAnExpressionEngine = generateMessageSlide(
-    "Let's write an arithmetic evaluator"
-);
-
 export const BddTesting = generateContentSlide("Behavior Driven Development", [
     "A philosophy that amps up the idea of tests as documentation",
     "Business people, QA testers, and developers work together on tests",
@@ -139,46 +157,47 @@ export const CucumberTesting = generateContentSlide("Cucumber and Gherkin", [
 
 export const AssignmentTestExample = generateCodeSlide("Example Cucumber Spec", [], {
     
-    code: synGherkin`Feature: Operation history is managed properly
-    As operations are calculated, the server will store a record of
-    the operation details. There is also an option to clear the operation
-    history
+    code: synGherkin`Feature: Checks that the expression parser is working correctly
 
-    Scenario: Capturing math operation history
-        Given that I have not run any previous operations
-        When I call the endpoint to add 2 and 3
-        Then there should be 1 history item with a first operand of 2 and a second operand of 3
+    Scenario: Basic Addition
+        Given that the user has entered "3 + 4"
+        When I evaluate their expression
+        Then I should get a result of 7
 
-    Scenario: Deleting operation history
-        Given that I have 3 operations stored in the history
-        When I call the delete endpoint
-        Then there should be 0 operations in the history`
+    Scenario: Order of operations
+        Given that the user has entered "3 - 9 / 3"
+        When I evaluate their expression
+        Then I should get a result of 0
+    `
 });
 
 export const CucumberDependencies = generateCodeSlide("Reference: Cucumber and JUnit Dependencies", [], {
     
-    code: synHTML`<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-api</artifactId>
-    <version>5.7.1</version>
-    <scope>test</scope>
-</dependency>
-<dependency>
-    <groupId>org.junit.vintage</groupId>
-    <artifactId>junit-vintage-engine</artifactId>
-    <version>5.7.1</version>
-    <scope>test</scope>
-</dependency>
+    code: synHTML`
 <dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-java</artifactId>
-    <version>6.9.1</version>
+    <scope>test</scope>
 </dependency>
+
 <dependency>
     <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-junit</artifactId>
-    <version>6.9.1</version>
-</dependency>`});
+    <artifactId>cucumber-junit-platform-engine</artifactId>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-suite</artifactId>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <scope>test</scope>
+</dependency>
+`});
 
 export const references: Reference[] = [
     { label: "Kent C Dodds - Testing", url: "https://kentcdodds.com/blog/write-tests" },

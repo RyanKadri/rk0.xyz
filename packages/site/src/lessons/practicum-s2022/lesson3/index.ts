@@ -1,27 +1,27 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { AssignmentTestExample, BadUnitTestExample, BddTesting, ClassQuestion, CucumberDependencies, CucumberTesting, FunctionalTests, IntegrationTests, JUnitAnnotations, JUnitAssertions, JUnitTesting, ManualTestingApproach, ManualTestingDownsides, references, TddTesting, TestingPortions, TestingPyramid, Title, TypesOfTests, UnitTests, WriteAnExpressionEngine } from "./slides/simple";
+import { Annotations, AssignmentTestExample, AutomatedLessons, BadUnitTestExample, BddTesting, CucumberDependencies, CucumberTesting, FunctionalTests, HowDoesJunitWork, IntegrationTests, JUnitAnnotations, JUnitAssertions, JUnitIntro, ManualTestingApproach, ManualTestingDownsides, references, TddTesting, TestingPyramid, Title, TypesOfTests, UnitTests } from "./slides/simple";
 
 export const lesson3: Presentation = {
     description: "Automated Testing",
     slug: "automated-testing",
     slides: [
         Title,
-        ClassQuestion,
+        JUnitIntro,
+        Annotations,
+        HowDoesJunitWork,
         ManualTestingApproach,
         ManualTestingDownsides,
-        TestingPortions,
+        AutomatedLessons,
         TypesOfTests,
         UnitTests,
         BadUnitTestExample,
         IntegrationTests,
         FunctionalTests,
         TestingPyramid,
-        JUnitTesting,
         JUnitAnnotations,
         JUnitAssertions,
         TddTesting,
-        WriteAnExpressionEngine,
         BddTesting,
         CucumberTesting,
         AssignmentTestExample,
