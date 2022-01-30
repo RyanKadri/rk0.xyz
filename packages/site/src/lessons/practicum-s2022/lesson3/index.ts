@@ -30,5 +30,8 @@ export const lesson3: Presentation = {
     ],
     references,
     examples: [
+    ],
+    externalExamples: [
+        { url: "https://github.com/RyanKadri/spring-2022-practicum-examples/tree/main/3-automated-testing" }
     ]
 }

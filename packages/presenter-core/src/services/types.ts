@@ -15,6 +15,7 @@ export interface Presentation {
     slug: string;
     slides: ComponentType<{context: PresentationContext}>[];
     examples: ExampleDefinition[];
+    externalExamples?: ExternalExamplesLink[];
     recording?: RecordingDefinition;
     lab?: LabDefinition;
     references?: Reference[];
@@ -50,6 +51,10 @@ interface JSExample {
     title: string;
     language: "javascript";
     testCases: TestCaseMapping;
+}
+
+interface ExternalExamplesLink {
+    url: string
 }
 
 export type TestCaseMapping = { [functionName: string]: TestCase[] }

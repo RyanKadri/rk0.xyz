@@ -101,14 +101,21 @@ function LessonCardView({ course, baseUrl }: Props) {
                             </MaterialLink>
                         </Link>
                     )}
-                    { lesson.examples && lesson.examples.length > 0 && (
-                        <Link href={`${baseUrl}/lessons/${lesson.slug}/examples/0`} passHref>
-                            <MaterialLink>
+                    { (lesson.externalExamples?.length === 1 && lesson.examples.length === 0)
+                        ? (
+                            <MaterialLink href={ lesson.externalExamples[0].url } target="_blank">
                                 <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
                                 Examples
                             </MaterialLink>
-                        </Link>
-                    )}
+                        ) : lesson.examples && lesson.examples.length > 0 && (
+                            <Link href={`${baseUrl}/lessons/${lesson.slug}/examples/0`} passHref>
+                                <MaterialLink>
+                                    <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
+                                    Examples
+                                </MaterialLink>
+                            </Link>
+                        )
+                    }
                     { lesson.recording
                         ? <MaterialLink href={lesson.recording.link} target="_blank" rel="noopener">
                             <FontAwesomeIcon icon={ faVideo } className={ classes.tableIcon } />
@@ -140,7 +147,7 @@ function LessonTableView({ course, baseUrl }: Props) {
                             <TableCell>#</TableCell>
                             <TableCell>Course</TableCell>
                             <TableCell>Slides</TableCell>
-                            <TableCell>Examples</TableCell>
+                            <TableCell align="center">Examples</TableCell>
                             <TableCell>Recording</TableCell>
                             <TableCell>Lab</TableCell>
                         </TableRow>
@@ -158,15 +165,21 @@ function LessonTableView({ course, baseUrl }: Props) {
                                         </MaterialLink>
                                     </Link>
                                 </TableCell>
-                                <TableCell>
-                                    { lesson.examples.length > 0 && (
+                                <TableCell align="center">
+                                    { (lesson.externalExamples?.length === 1 && lesson.examples.length === 0)
+                                        ? (
+                                            <MaterialLink href={ lesson.externalExamples[0].url } target="_blank">
+                                                <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
+                                            </MaterialLink>
+                                        ) : lesson.examples.length > 0 && (
                                         <Link href={`${baseUrl}/lessons/${lesson.slug}/examples/0`} passHref>
                                             <MaterialLink>
                                                 <FontAwesomeIcon icon={ faCode } className={ classes.tableIcon } />
-                                                ({ lesson.examples.length })
+                                                ({ lesson.examples.length + (lesson.externalExamples?.length ?? 0) })
                                             </MaterialLink>
                                         </Link>
-                                    )}
+                                        )
+                                    }
                                 </TableCell>
                                 <TableCell>
                                     { lesson.recording

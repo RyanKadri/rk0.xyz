@@ -33,6 +33,9 @@ export const lesson2: Presentation = {
     ],
     examples: [
     ],
+    externalExamples: [
+        { url: "https://github.com/RyanKadri/spring-2022-practicum-examples/tree/main/2-package-managers" }
+    ],
     lab: {
         slug: "parsing-csv",
         title: "Parsing CSV Files"

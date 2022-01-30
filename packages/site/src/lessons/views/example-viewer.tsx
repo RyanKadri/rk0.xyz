@@ -67,6 +67,7 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
                             </ListItem>
                         </Link>
                     ))}
+                    { /* TODO - Add external examples here */ }
                 </List>
             </Drawer>
             <div className={ classes.codeContainer }>
