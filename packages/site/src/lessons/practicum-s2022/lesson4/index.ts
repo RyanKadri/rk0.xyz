@@ -1,7 +1,8 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
+import { JSONExample } from "./slides/json";
 import { RequestTemplate } from "./slides/request-example";
 import { ResponseTemplate } from "./slides/response-example";
-import { BookstoreBadModel, BookstoreModel, DependencyInjection, HowDoNetworking, HttpApis, HttpBasics, HttpBody, HttpDesigns, HttpHeaders, InstanceMethodApproach, InstanceMethodProsCons, LetsLookAtApi, LoggerProblemStatement, MultiFileProjects, NetworkingBasics, NetworkingPart2, RequestMethod, ResponseCodes, ResponseCodesContinued, SpringApproach, SpringPart, StaticMethodApproach, StaticMethodApproachProsCons, Title } from "./slides/simple";
+import { Apis, BookstoreBadModel, BookstoreModel, HowDoNetworking, HttpBasics, HttpBody, HttpDesigns, HttpHeaders, NetworkAPIs, NetworkingBasics, NetworkingPart2, Postman, RequestMethod, ResponseCodes, ResponseCodesContinued, Spring, SpringCode, SpringInitializer, Title, WhatIsApi } from "./slides/simple";
 import { UrlParts } from "./slides/url-parts";
 
 export const lesson4: Presentation = {
@@ -14,32 +15,30 @@ export const lesson4: Presentation = {
         NetworkingBasics,
         NetworkingPart2,
         HttpBasics,
-        UrlParts,
         RequestTemplate,
         ResponseTemplate,
+        UrlParts,
         RequestMethod,
         HttpHeaders,
         HttpBody,
+        JSONExample,
         ResponseCodes,
         ResponseCodesContinued,
-        HttpApis,
+        WhatIsApi,
+        Apis,
+        NetworkAPIs,
+        Spring,
+        SpringInitializer,
+        SpringCode,
+        Postman,
         HttpDesigns,
         BookstoreModel,
         BookstoreBadModel,
-        LetsLookAtApi,
-        SpringPart,
-        MultiFileProjects,
-        LoggerProblemStatement,
-        StaticMethodApproach,
-        StaticMethodApproachProsCons,
-        InstanceMethodApproach,
-        InstanceMethodProsCons,
-        DependencyInjection,
-        SpringApproach
     ],
     examples: [
     ],
-    recording: {
-        link: "https://temple.zoom.us/rec/play/eykQgAlwkwZh48_XbPfCOm-vhWjsJtBxS9TI04-5E69oHK0ZiZVMR9YWBGuvISUcZyPEEw3WVyp4mi6d.pdcUZvjf0aQHPNTb?continueMode=true"
+    lab: {
+        slug: "guessing-game",
+        title: "Guessing Game"
     }
 }

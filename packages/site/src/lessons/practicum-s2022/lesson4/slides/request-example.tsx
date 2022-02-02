@@ -15,7 +15,7 @@ export function RequestTemplate({ context }: Props) {
     return (
         <ContentSlide Title='HTTP Request' context={context} Content={
             <RequestVisualizer method="POST"
-                               url="https://spy-notes-api.rk0.xyz/users/3ff1cbc9-e6d3-496b-a696-44c0a2cd9fe1/notes"
+                               url="https://notebook.com/notes"
                                headers={[
                                    { name: "Content-Type", value: "application/json" },
                                    { name: "Accept-Encoding", value: "gzip, deflate, br" }

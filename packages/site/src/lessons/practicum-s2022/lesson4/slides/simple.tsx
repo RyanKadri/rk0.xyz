@@ -1,73 +1,10 @@
+import { Link } from "@material-ui/core";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { synJava } from "../../../../common/highlighting";
 
-export const Title = generateTitleSlide("Java Spring and Networked Services", "Ryan Kadri");
-
-export const PartTwo = generateTitleSlide("Part 2: Distributed Systems",
-    "Less scary than they sound!"
-);
-
-export const DistributedSystems = generateContentSlide("Distributed Systems", [
-    "Distributed Systems are systems that run on multiple machines",
-    "They sound scary but aren't too bad. Come with some new mental models",
-    "Communication protocols become important",
-    "Components can be written in different languages",
-    'Network communication can always fail. No remote operation is totally "safe"'
-]);
-
-export const DistributedSystemsApproaches = generateContentSlide("Messaging Approaches", [
-    "Distributed components need a communication contract",
-    { text: <><b>Approach A:</b> Send standardized, readable messages between systems</>, children: [
-        "Messages are in standard parsable formats",
-        "Somewhat human-readable and language-independent",
-        "HTTP APIs take this approach"
-    ] },
-    { text: <><b>Approach B:</b> Use the programming model to hide messaging details</>, children: [
-        "Fast but harder to debug / inter-operate",
-        "Remote Procedure Calls use this model",
-    ] },
-]);
-
-export const DistributedSystemsInClass = generateContentSlide("Messaging Approaches", [
-    "We're going to use Approach A in class",
-    "We are going to write a number of HTTP services",
-    'These servers are going to "speak" JSON',
-    'At many companies, all internal systems communicate with JSON (over HTTP)',
-    "Sometimes called a Service Oriented Architecture"
-]);
-
-export const Spring = generateContentSlide("Java Spring", [
-    "Java Spring is an open source framework for building Java Apps",
-    "Has tons of sub-projects for different tasks",
-    "Great for building microservices (with Spring Boot)",
-    "Makes it easy to build and package your app",
-    "One of the most popular Java Frameworks around",
-    "The framework on which we will build most of our projects"
-]);
-
-export const SpringCode = generateCodeSlide("Spring Example", [
-    "Spring uses a lot of annotations to define behavior",
-    "Uses Reflection, proxies, and all sorts of magic to make your code work",
-    "You shouldn't need to know the internals to work with Spring"
-], {
-    
-    code: synJava`@RestController
-public class HelloWorldRestController {
-
-    @GetMapping("/hello/{name}")
-    public HelloResponse sayHello(@PathVariable(value = "name") String name) {
-        return new HelloResponse("Ryan", 28, true);
-    }
-    
-}`});
-
-export const InversionOfControl = generateDefinitionSlide("Inversion of Control",
-    "Rather than writing a lot of custom code that calls into libraries (traditional development), " +
-    "Inversion of Control frameworks let you hand control over to the framework and it decides when " +
-    "to call your code"
-)
+export const Title = generateTitleSlide("Network APIs and Java Spring", "Ryan Kadri");
 
 export const HowDoNetworking = generateMessageSlide(
     "How do programs communicate across a network?"
@@ -94,26 +31,27 @@ export const NetworkingPart2 = generateContentSlide("Networking", [
 ]);
 
 export const HttpBasics = generateContentSlide("HTTP", [
-    "HTTP is a common networking protocol",
-    "HTTP thinks about the world in terms of resources (identified by a URL)",
-    "You interact with resources according to a standard verb (GET, POST, PUT, DELETE, etc)",
-    'Many networked services "speak" HTTP',
-    "Your browser makes HTTP requests to websites",
-    "HTTP is a pretty non-opinionated tool",
+    "HTTP is a very common networking protocol",
+    'Many networked APIs "speak" HTTP',
+    "HTTP messages can be requests or responses. Each has a slightly different shape",
+    'URLs identify what "resource" you want to interact with',
+    "Requests and responses can store data in a few different places"
 ]);
 
 export const RequestMethod = generateContentSlide("Request Method", [
     'Requests have a "method" to define how you want to interact with a resource',
     "Common methods include GET, POST, PUT, DELETE",
     "They correspond (usually) to Read, Create, Update, Delete, respectively",
-    "Server can interpret how it wants",
-    "Browser uses GET by default when you browse to a page",
-    "May also see OPTIONS, PATCH, HEAD and others less frequently",
+    "Servers can interpret the method how it wants",
+    "Your browser uses GET by default when you browse to a page",
+    "May also see OPTIONS, PATCH, HEAD and other methods less frequently",
 ]);
 
 export const HttpHeaders = generateContentSlide("HTTP Headers", [
     "Contain metadata about the request / response",
-    "Uppercase words separated by dashes",
+    "Headers are key-value pairs",
+    "Header names are capitalized words separated by dashes",
+    "Values are usually short strings",
     { text: "Examples include", children: [
         "Authorization",
         "Expires / Age / Cache-Control",
@@ -124,7 +62,7 @@ export const HttpHeaders = generateContentSlide("HTTP Headers", [
 
 export const HttpBody = generateContentSlide("HTTP Request / Response Body", [
     "Main request / response data",
-    "In a request, this usually pairs with POST / PUT requests and some user-initiated interaction",
+    "Only some HTTP requests have a body (usually with a POST or PUT method)",
     "Most (but not all) responses have a body",
     "Can be HTML, JSON, XML, Text, etc depending on the URL requested (and some headers)"
 ]);
@@ -156,9 +94,69 @@ export const ResponseCodesContinued = generateContentSlide("Response Codes Conti
     ]}
 ]);
 
-export const HttpApis = generateMessageSlide(
-    "Are there standard ways to make an HTTP API?"
+export const WhatIsApi = generateMessageSlide(
+    "What is an API?"
 );
+
+export const Apis = generateContentSlide("APIs", [
+    "API == Application Programming Interface",
+    "APIs are a set of rules for how computers / programs can communicate",
+    'Kind of the "public interface" for the service',
+    { text: "APIs can apply to a lot of different things", children: [
+        "Classes",
+        "Libraries",
+        "Networked Services"
+    ] }
+])
+
+export const NetworkAPIs = generateContentSlide("Network APIs", [
+    "Defining an HTTP API means defining the expected HTTP requests and responses",
+    "What URLs are you using?",
+    "What headers do you require / accept?",
+    "What should the request body look like?",
+    "What will the response look like?",
+    "Needs to be agreed upon by the creator and the consumer"
+]);
+
+export const Spring = generateContentSlide("Java Spring", [
+    "Java Spring is an open source framework for building Java Apps",
+    "Has tons of sub-projects for different tasks",
+    "Great for building HTTP APIs (with Spring Boot)",
+    "Makes it easy to build and package your app",
+    "One of the most popular Java Frameworks around",
+    "The framework on which we will build most of our projects"
+]);
+
+export const SpringInitializer = generateContentSlide("Spring Initializr", [
+    "Spring has a ton of related libraries. It can get really complicated",
+    "There is a tool called Spring Initializr to build a template project",
+    <>You can use <Link href="https://start.spring.io/">the website</Link> to generate a project</>,
+    "Or it's built right into IntelliJ under New Project",
+    "You want to add the Spring Web dependency and select a Maven Project"
+])
+
+export const SpringCode = generateCodeSlide("Spring Example", [
+    "Spring uses a lot of annotations to define behavior",
+    "Uses Reflection, proxies, and all sorts of magic to make your code work",
+    "You shouldn't need to know the internals to work with Spring"
+], {
+    
+    code: synJava`@RestController
+public class HelloWorldRestController {
+
+    @GetMapping("/hello/{name}")
+    public HelloResponse sayHello(@PathVariable(value = "name") String name) {
+        return new HelloResponse("Ryan", 28, true);
+    }
+}`});
+
+export const Postman = generateContentSlide("Postman", [
+    "HTTP requests are a standard way to communicate",
+    "You can make HTTP requests from most major languages",
+    'Making an "ad-hoc" HTTP request is not always straightforward',
+    "For simple GET requests you can use the browser",
+    <>For other things, you might want to use a tool like <Link href="https://www.postman.com/downloads/">Postman</Link></>
+])
 
 export const HttpDesigns = generateContentSlide('"REST" APIs', [
     "One way to structure HTTP APIs is REST",
@@ -183,113 +181,6 @@ export const BookstoreBadModel = generateContentSlide("Non-REST Book Store API",
     <><code>POST /update-book</code></>,
     <><code>POST /delete-book</code></>
 ]);
-
-export const LetsLookAtApi = generateMessageSlide("Let's review our Spring server");
-
-export const SpringPart = generateTitleSlide("Part 2: Building Spring Apps", 
-    "Dependency Injection and Decoupling"
-)
-
-export const MultiFileProjects = generateContentSlide("Multi-File Projects", [
-    "Beyond very simple projects, it helps to split up your code",
-    "Code is usually split into multiple files and multiple classes",
-    "Files and classes tend to be organized by functionality",
-    "How does code in different files interact?",
-    "In other words, how do classes interact with their dependencies?"
-]);
-
-export const LoggerProblemStatement = generateMessageSlide(
-    "Let's say we have a Logger class and we want to use it in different files"
-)
-
-export const StaticMethodApproach = generateCodeSlide("Approach 1: Static methods", [
-    "The logger has a static method",
-    "Classes that use the logger call the static method"
-], {
-    
-    code: synJava`public class ImportantProcessHandler {
-    public static void handleImportantProcess() {
-        // Do something...
-        Logger.log("Done!");
-    }
-}
-
-public class Logger {
-    public static void log(String message) {
-        System.out.println(message)
-    }
-}`
-});
-
-export const StaticMethodApproachProsCons = generateContentSlide("Approach 1: Pros and Cons", [
-    "Pro: Super simple and unambiguous",
-    "Con: All callers are tied to this specific logger",
-    "What if logging needs to change across the application?",
-    "You change the logger in one place",
-    "What if the logger needs to behave differently in different circumstances?",
-    "Doable. But requires a bit more work",
-    "This might be a good place for interfaces"
-]);
-
-export const InstanceMethodApproach = generateCodeSlide("Approach 2: Instance Methods", [
-    "The logger can be constructed",
-    "Classes that call the logger use an instance method",
-], {
-    
-    code: synJava`public class ImportantProcessHandler {
-    private final Logger myLogger;
-
-    public void handleImportantProcess() {
-        myLogger.log("Done!");
-    }
-}
-
-public class Logger {
-    public void log(String message) {
-        System.out.println(message)
-    }
-}`
-});
-
-export const InstanceMethodProsCons = generateContentSlide("Approach 2: Pros and Cons", [
-    "Pro: You could use an interface here",
-    "Con: Where does the logger instance come from?",
-    "You could construct it in ImportantProcessHandler",
-    "... but then you're stuck with a specific type of logger",
-    "You could pass it in via the constructor",
-    "... but then who constructs it?"
-]);
-
-export const DependencyInjection = generateContentSlide("Dependency Injection", [
-    "Spring has another approach to this problem",
-    "Spring encourages approach 2 (to allow for using interfaces)",
-    "Passes dependencies to your class either by the constructor or setters",
-    "Handles constructing dependency classes for you",
-    "If a class is dependent on an interface, figures out which class implements the interface"
-]);
-
-export const SpringApproach = generateCodeSlide("Approach 3: Dependency Injection", [
-    "Use annotations to indicate that a class can be injected",
-    "Spring will pass you an instance of a class",
-], {
-    
-    code: synJava`public class ImportantProcessHandler {
-
-    public ImportantProcessHandler(Logger logger) {
-        this.myLogger = logger;
-    }
-
-    public void handleImportantProcess() {
-        myLogger.log("Done!");
-    }
-}
-
-@Component
-public class StandardOutLogger implements Logger {
-    public void log(String message) {
-        System.out.println(message)
-    }
-}`});
 
 export const references: Reference[] = [
     { label: "HTTP Basics", url: "https://devqa.io/http-basics/" },

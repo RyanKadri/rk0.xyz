@@ -1,0 +1,33 @@
+import { LabLayout } from '../../../../packages/site/src/lessons/views/lab-view'
+
+# Exercise: HTTP Guessing Game
+
+For this exercise, I want you to create a simple HTTP API for a guessing game using Spring. Your API should have two endpoints:
+
+## Setting the Secret Number
+
+If the user makes a POST request to `http://localhost:8080/set`, with a body of:
+```javascript
+{
+    "value": 123
+}
+```
+the server will store 123 as a "secret number"
+
+## Guessing the Secret Number
+
+If the user makes a GET request to `http://localhost:8080/guess/{number}` with `{ number }` replaced by the number they want to guess, the server will let them know if they guessed the secret number correctly.
+
+If the user guessed correctly, the server should respond with:
+
+```javascript
+{
+    "result": "Yay! You win!"
+}
+```
+
+If the user guessed incorrectly, the result message should either say `"Too high :("` or `"Too low :("`.
+
+If the user guesses before the secret number was set, your server should return an error response.
+
+export default ({ children }) => <LabLayout>{children}</LabLayout>
