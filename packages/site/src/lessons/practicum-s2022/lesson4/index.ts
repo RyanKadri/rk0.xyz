@@ -40,5 +40,8 @@ export const lesson4: Presentation = {
     lab: {
         slug: "guessing-game",
         title: "Guessing Game"
-    }
+    },
+    externalExamples: [
+        { url: "https://github.com/RyanKadri/spring-2022-practicum-examples/tree/main/4-networking/spring-example" }
+    ]
 }
