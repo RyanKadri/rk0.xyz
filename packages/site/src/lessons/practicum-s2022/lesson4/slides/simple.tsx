@@ -158,30 +158,6 @@ export const Postman = generateContentSlide("Postman", [
     <>For other things, you might want to use a tool like <Link href="https://www.postman.com/downloads/">Postman</Link></>
 ])
 
-export const HttpDesigns = generateContentSlide('"REST" APIs', [
-    "One way to structure HTTP APIs is REST",
-    "REST thinks about the world in terms of resources and nouns",
-    "Tries to enforce proper headers and standard response codes",
-    'REST suggests using URLs in your responses to "link" your data model',
-    "Not always used perfectly but often a good model"
-]);
-
-export const BookstoreModel = generateContentSlide("REST-ish Book Store API", [
-    <><code>GET /books</code> - Get some data about all books in the system</>,
-    <><code>GET /books/abc123</code> - Get details about a book with the ID abc123</>,
-    <><code>POST /books</code> - Create a new book (request body gives details)</>,
-    <><code>PUT /books/abc123</code> - Update book abc123 to a new state (request body defines)</>,
-    <><code>DELETE /books/abc123</code> - Remove the record for book abc123</>
-]);
-
-export const BookstoreBadModel = generateContentSlide("Non-REST Book Store API", [
-    <><code>GET /read-books</code></>,
-    <><code>GET /read-books</code> (book ID defined in headers)</>,
-    <><code>POST /create-book</code> (book details and ID defined in headers)</>,
-    <><code>POST /update-book</code></>,
-    <><code>POST /delete-book</code></>
-]);
-
 export const references: Reference[] = [
     { label: "HTTP Basics", url: "https://devqa.io/http-basics/" },
     { label: "Dependency Injection Approach", url: "https://www.codementor.io/@olotintemitope/dependency-injection-explained-in-plain-english-b24hippx7",

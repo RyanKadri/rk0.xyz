@@ -1,285 +1,156 @@
-import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
-import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide(
-    "State Management and Functional Programming",
+    "APIs and Spring Part 2",
     "Ryan Kadri"
 );
 
-export const WhereData = generateMessageSlide(
-    "Where does data live in your application?"
+export const ApiDefinition = generateDefinitionSlide(
+    "API",
+    "Application Programming Interface - A specification for how a piece of software can interact with other software"
 );
 
-export const PossibleLocations = generateContentSlide("Possible Homes", [
-    'Data lives "in" variables',
-    "Data can be stored in files",
-    "Data can live on another server (databases for example)",
-    "Data flows through your application",
-    "Data at rest is potentially dangerous!"
+export const WhereApis = generateContentSlide("Where are APIs?", [
+    "APIs can define the communications between entire systems (like networked services)",
+    "APIs can define how to use narrow systems (like how one class uses another)",
+    "APIs can refer to network communication or other kinds of processes",
+    "APIs are often focused on direct interactions",
+    "... but can also be more implicit"
 ]);
 
-export const DataIsDangerous = generateContentSlide("Data is Dangerous", [
-    'Managing "state" in your application can be hard',
-    "Two users (or threads) can modify shared data at the same time",
-    "Data can get lost if your application crashes",
-    "Data that is hanging around can get stale",
-    "Code that you didn't write can change your data",
-    "Storing too much data can crash your application"
+export const ApisAreImportant = generateContentSlide("APIs", [
+    "APIs are the main contact point between your component and the world",
+    "If the API produces the right output for any input, your component probably works",
+    "If the API doesn't change, you can update your component freely",
+    "It is important to pick a narrow API",
 ]);
 
-export const ReducingState = generateContentSlide("Reducing State", [
-    "Data at rest is dangerous. Data in motion is safer",
-    "Wherever possible, avoid storing data yourself",
-    "Limit where in the code your data can be accessed",
-    "Especially limit where data can be written",
-    <>Java access modifiers (<code>public, private, protected</code>) are a good defense</>,
-    "Make data private where possible",
-    "Make member variables final where possible"
+export const PublicApisAreHard = generateContentSlide("Public APIs", [
+    "APIs that are consumed by other people are harder to manage",
+    "Changing your API requires consumers to change their code",
+    "In a single project, that's usually not a big deal",
+    "For networked services, changes get trickier",
+    "For libraries, changes get trickier"
 ]);
 
-export const UseLocals = generateCodeSlide("Use Local Variables", [
-    "Wherever reasonable, try to pick the right scope for your data",
-    "If data is only needed in a method call, make it local"
+export const ApiShape = generateContentSlide("API Shape", [
+    "APIs are consumed by other software",
+    "It is important to get the interface right",
+    "In HTTP, the wrong paths, bodies, headers, etc can break apps",
+    "In Java, the wrong interface means code doesn't compile",
+    "Updating APIs is harder than updating inner details"
+]);
+
+export const HttpApis = generateContentSlide("HTTP APIs", [
+    "HTTP is a de facto standard way for network services to talk",
+    "HTTP is language-agnostic and very simple (just stateless request-response)",
+    "Services that communicate with HTTP can be written in different languages",
+    "Services can use different data storage systems and be built with different tools",
+    "Many different tools can debug HTTP APIs (cURL, Postman, testing frameworks)"
+]);
+
+export const RestAPIs = generateContentSlide('"REST" APIs', [
+    "One way to structure HTTP APIs is REST",
+    "REST thinks about the world in terms of resources and nouns",
+    "Tries to enforce proper headers and standard response codes",
+    'REST suggests using URLs in your responses to "link" your data model',
+    "Not always used perfectly but often a good model"
+]);
+
+export const BookstoreModel = generateContentSlide("REST-ish Book Store API", [
+    <><code>GET /books</code> - Get some data about all books in the system</>,
+    <><code>GET /books/abc123</code> - Get details about a book with the ID abc123</>,
+    <><code>POST /books</code> - Create a new book (request body gives details)</>,
+    <><code>PUT /books/abc123</code> - Update book abc123 to a new state (request body defines)</>,
+    <><code>DELETE /books/abc123</code> - Remove the record for book abc123</>
+]);
+
+export const BookstoreBadModel = generateContentSlide("Non-REST Book Store API", [
+    <><code>GET /read-books</code></>,
+    <><code>GET /read-books</code> (book ID defined in headers)</>,
+    <><code>POST /create-book</code> (book details and ID defined in headers)</>,
+    <><code>POST /update-book</code></>,
+    <><code>POST /delete-book</code></>
+]);
+
+export const SpringApis = generateContentSlide("Spring APIs", [
+    "When making APIs in Spring, you tell Spring what request data you care about",
+    "And what the response should look like",
+    "Spring actually extracts the data from the request and calls the proper methods",
+    "The method return value tells Spring how to respond",
+    "The combination of URL and method tell spring what method to call"
+]);
+
+export const ExampleSpring = generateCodeSlide("Spring Example", [
+    "Spring uses Java Reflection to figure out how to call your methods",
+    "Also uses Reflection to figure out how to structure the HTTP response"
 ], {
-    
     code: synJava`
-// Using member variables
-private List<Song> favoriteSongs;
-public void countFavoriteSongs(List<Song> allSongs) {
-    this.filterFavorites(); // Sets this.favoriteSongs
-    return this.favoriteSongs.size();
-}
-
-// Use locals instead
-public void countFavoriteSongs(List<Song> allSongs) {
-    List<Song> favoriteSongs = this.filterFavorites(allSongs);
-    return favoriteSongs.size();
-}`
-});
-
-export const CaseStudySetters = generateContentSlide("Setters are Evil?", [
-    "In Java, it is common to have a setter method",
-    <><code>public void setSomething(String something) &#123; <br/>
-        &nbsp;&nbsp;this.something = something;<br/>
-    &#125;</code></>,
-    "public setters let any code change your object (or class's data)",
-    "It becomes hard to know where data is changing and when",
-    "Who is responsible for calling the setter? Who is allowed?",
-    "Setters can almost always be avoided (JPA is a good exception)",
-]);
-
-export const ConstructorsAreBetter = generateCodeSlide("Maybe Constructors are Nicer?", [
-    'If you use setters to "set up" an object after creation, constructors may be better',
-    'The object can be built "all at once" using a constructor'
-], {
-    
-    code: synJava`// Using setters. Can be modified later
-Employee ryan = new Employee();
-ryan.setName("Ryan Kadri");
-ryan.setAge(28);
-ryan.setJob("Developer");
-
-// Using Constructor. Can be locked down and not modifiable
-Employee ryan = new Employee("Ryan Kadri", 28, "Developer");`
-});
-
-export const CaseStudyGetters = generateContentSlide("Getters are Meh?", [
-    `"Getter" methods may be bad`,
-    <><code>public void getSomething() &#123; <br/>
-        &nbsp;&nbsp;return this.something;<br/>
-    &#125;</code></>,
-    "Do consumers of your object need to see the data you're storing?",
-    "Can you use the result of a computation right away? Should somebody else store it?",
-    "Getters are ok in data transfer objects in Java",
-    "Occasionally useful elsewhere but can be a crutch"
-]);
-
-export const UseDataRightAway = generateCodeSlide("Can you use the data right away?", [
-    "If you need the result of a method, can you use it right away?",
-    "Maybe return values are a better fit than getters",
-    "If you need multiple values as a result, maybe an object is helpful?"
-], { 
-    
-    code: synJava`// With getters
-payrollManager.fetchEmployeeInfo(2020);
-double salary = payrollManager.getSalary();
-double bonus = payrollManager.getBonus();
-
-// With returns / objects
-EmployeeInfo info = payrollManager.fetchEmployeeInfo(2020);
-double salary = info.getSalary();
-double bonus = info.getBonus();`
-});
-
-export const UseDataRightAway2 = generateCodeSlide("How is that any different?", [
-    "A new EmployeeInfo is returned for each lookup",
-    "PayrollManager does not store any state"
-], {
-    codeFirst: true,
-    code: synJava`// Shared by all classes who need employee info
-public class PayrollManager {
-    public EmployeeInfo fetchEmployeeInfo() {
-        // ...
-        return new EmployeeInfo(...);
+@RestController
+public class EmployeeDB {
+    @GetMapping("/employees/{employeeId}")
+    public Person fetchEmployee(@PathVariable Integer employeeId) { 
+        /* ... */
     }
-}
-
-// ----------
-// Immutable
-public class EmployeeInfo {
-    public EmployeeInfo() {}
-}`,
+}`
 });
 
-export const CarefulWithReferences = generateContentSlide("References are dangerous", [
-    "Variables in Java are labels for data that exists in memory",
-    'Variables do not "store" data. They point to data',
-    "Passing objects as parameters to methods in Java passes a reference",
-    "Those functions can go and modify the underlying data",
-    "It is important who has ownership over data"
+export const Serialization = generateContentSlide("Serialization", [
+    "HTTP requests pass information as text",
+    "HTTP has no concept of Java classes",
+    "It's useful to be able to treat JSON data from a request as an object",
+    "It's also useful to go from an object back to JSON",
+    "Spring does this magically for you (actually using more reflection)",
+    "Going from an object to a text representation is serialization",
+    "Going from text to an object is deserialization"
 ]);
 
-export const UnsafeSharing = generateCodeSlide("Unsafe Sharing", [
-    "Sharing references to data can be dangerous",
-    "Making copies is sometimes preferable"
-], {
-    
-    code: synJava`public void setupEmployees() {
-    List<Product> products = Inventory.fetchProducts();
-    ProductDatabase.setProducts(products); // Stores parameter in a member variable
-    QualityChecker.identifyDefects(products); // Removes non-defective products
-    ReportGenerator.defectiveItemsReport(products); // Stores defective products
-}`
-})
+export const ErrorHandling = generateContentSlide("Error Handling", [
+    <>When your <code>@XMapping</code> method throws an exception, Spring sends back an error HTTP response</>,
+    "You can control what error codes and info get sent back for specific errors",
+    "Sometimes you want to throw specific exceptions when something is unexpected",
+    "There are a number of ways to do this",
+    "Different approaches have different benefits",
+    <>One easy approach is to throw a <code>ResponseStatusException</code></>
+]);
 
-export const FunctionalProgrammingIntro = generateDefinitionSlide(  
-    "Functional Programming",
-    "Thinking about your program in terms of mathematical functions"
+export const Subtitle = generateTitleSlide(
+    "Spring Configuration",
+    "Ryan Kadri"
 );
 
-export const FunctionalProgramming1 = generateMediaSlide(
-    <Paper style={{ width: 1200 }}>
-        <Table>
-            <TableHead>
-                <TableRow>
-                    <TableCell>Mathematical Functions</TableCell>
-                    <TableCell>General Java Methods</TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                <TableRow>
-                    <TableCell>Produce the same output for a given input</TableCell>
-                    <TableCell>Can produce different values on each call (or no value at all)</TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Don't change the outside world</TableCell>
-                    <TableCell>Can have side-effects</TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Have strict inputs and outputs</TableCell>
-                    <TableCell>Can communicate data to caller through inputs</TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
-    </Paper>,
-    undefined,
-    "Functions vs Methods",
+export const WhoBuilds = generateMessageSlide(
+    "How do your RestController classes get constructed? Why aren't the methods static?"
 );
 
-export const PureFunctions = generateContentSlide("A Pure Function", [
-    "Has no side-effects",
-    <>Produces outputs <strong>only</strong> based on inputs (and maybe constants)</>,
-    "Is easy to test",
-    "Easier to reason about",
-    "Can't be interfered with",
-    "Is always thread-safe",
-]);
-
-export const IsAPureFunction = generateCodeSlide("Pure Functions", [
-    
+export const InstanceMethods = generateCodeSlide("Instance Methods", [
+    "In Java, instance methods can only be called on an instance of an object",
+    "static methods do not need an instance"
 ], {
-    
-    code: synJava`public int addNumbers(int a, int b) {
-    return a + b;
+    code: synJava`
+class MyCalculator {
+    public static int add(int a, int b) { return a + b; }
+    public int subtract(int a, int b) { return a - b; }
 }
 
-public int countUnique(List<String> names) {
-    Set<String> nameSet = new HashSet<>(names);
-    return nameSet.size();
-}
-
-public List<String> filterANames(List<String> names) {
-    List<String> result = new ArrayList<>();
-    for(String name : names) {
-        if(name.startsWith("A")) {
-            result.add(name);
-        }
+class App {
+    public static void main(String[] args) {
+        MyCalculator.add(1,2); // All good
+        MyCalculator.subtract(1,2); // no good
+        var calc = new MyCalculator();
+        calc.subtract(1,2); // Good again
     }
-    return result;
 }`
 });
-
-export const NotAPureFunction = generateCodeSlide("Impure Functions", [
-    
-], {
-    
-    code: synJava`public void doSomething(int a, int b) { ... } // void methods must have side-effects
-
-public boolean flipACoin() { // A no-argument pure function can be a constant?
-    double result = Math.random(); // Produces output based on randomness
-}
-
-public int countUnique(List<String> names) {
-    Set<String> nameSet = new HashSet<>(names);
-    this.numUniqueNames = nameSet.size(); // Uh oh. Side effects detected
-    return this.numUniqueNames;
-}
-
-public void filterANames(List<String> names) {
-    for(int i = names.size() - 1; i >= 0; i --) {
-        if(names.get(i).startsWith("A")) {
-            result.remove(i); // This looks dangerous
-        }
-    }
-    return result;
-}`
-});
-
-export const JavaAsFunctionalLanguage = generateContentSlide("Functional Java", [
-    'Java is not a "Functional Programming Language"',
-    "Java gives you freedom to manage state and have side effects",
-    "Java does not really have the concept of Pure Functions",
-    "The fact that everything is a class means that Java does not really have functions either",
-    "static methods come the closest to plain functions"
-]);
-
-export const FunctionalJava = generateContentSlide("Higher Order Functions", [
-    'In functional programming languages, there are "Higher Order Functions"',
-    "Functions that take another function as a parameter",
-    "Functions that return functions",
-    "Higher order functions treat functions like they are normal data types",
-    "But why?!"
-]);
-
-export const FunctionalJava2 = generateContentSlide("Functional Java", [
-    { text: "Java 8 introduced functional-friendly-features", children: [
-        "Streams - A stateless way of processing data as it comes in",
-        "Optionals - A way to reduce Null Pointer Exceptions",
-        "Functional Interfaces - Interfaces with one method are special",
-        "Method References - Shorthand for extracting functional bits",
-        'Built-In Function Types - Most common "function" types'
-    ] }
-]);
 
 export const MultiFileProjects = generateContentSlide("Multi-File Projects", [
     "Beyond very simple projects, it helps to split up your code",
     "Code is usually split into multiple files and multiple classes",
     "Files and classes tend to be organized by functionality",
     "How does code in different files interact?",
-    "In other words, how do classes interact with their dependencies?"
+    "In other words, how do classes interact each other?"
 ]);
 
 export const LoggerProblemStatement = generateMessageSlide(
@@ -376,7 +247,7 @@ public class StandardOutLogger implements Logger {
 }`});
 
 export const references: Reference[] = [
-    { label: "Why Immutability Matters", url: "https://debugged.it/blog/why-immutability-matters/" },
-    { label: "Pure Functions Definition", url: "https://en.wikipedia.org/wiki/Pure_function" },
-    
+    { label: "Example Solution: Assignment 3", url: "https://github.com/RyanKadri/spring2021-practicum-examples/tree/main/6-apis/housing-data-example" },
+    { label: "Jeff Bezos API Mandate", url: "https://nordicapis.com/the-bezos-api-mandate-amazons-manifesto-for-externalization/", note: "You won't be directly tested on this but it's " },
+    { label: "Stevey's Platform Rant", url: "https://gist.github.com/chitchcock/1281611", note: "You also won't be tested on this but it's pretty famous and pretty entertaining"}
 ]
