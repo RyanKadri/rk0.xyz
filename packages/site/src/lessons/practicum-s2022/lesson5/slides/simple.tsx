@@ -121,9 +121,13 @@ export const Subtitle = generateTitleSlide(
     "Ryan Kadri"
 );
 
-export const WhoBuilds = generateMessageSlide(
-    "How do your RestController classes get constructed? Why aren't the methods static?"
-);
+export const MultiFileProjects = generateContentSlide("Multi-File Projects", [
+    "Beyond very simple projects, it helps to split up your code",
+    "Code is usually split into multiple files and multiple classes",
+    "Files and classes tend to be organized by functionality",
+    "How does code in different files interact?",
+    "In other words, how do classes interact each other?"
+]);
 
 export const InstanceMethods = generateCodeSlide("Instance Methods", [
     "In Java, instance methods can only be called on an instance of an object",
@@ -145,109 +149,147 @@ class App {
 }`
 });
 
-export const MultiFileProjects = generateContentSlide("Multi-File Projects", [
-    "Beyond very simple projects, it helps to split up your code",
-    "Code is usually split into multiple files and multiple classes",
-    "Files and classes tend to be organized by functionality",
-    "How does code in different files interact?",
-    "In other words, how do classes interact each other?"
-]);
-
-export const LoggerProblemStatement = generateMessageSlide(
-    "Let's say we have a Logger class and we want to use it in different files"
-)
+export const ProblemStatement = generateContentSlide("Problem Statement: Financial Calculator", [
+    "Imagine a complex stock trading engine that uses the data in your profile to make a trade",
+    { text: "You might want to split this into 2 (or more) parts", children: [
+        "The part that fetches your currently held stocks (ProfileFetcher)",
+        "The part that calculates what trades you should make (TradeCalculator)"
+    ] },
+    "How do these files connect?"
+    
+])
 
 export const StaticMethodApproach = generateCodeSlide("Approach 1: Static methods", [
-    "The logger has a static method",
-    "Classes that use the logger call the static method"
+    "The profile fetcher has a static method",
+    "Before calculating trades, our tool will call the static method to fetch your profile"
 ], {
     
-    code: synJava`public class ImportantProcessHandler {
-    public static void handleImportantProcess() {
-        // Do something...
-        Logger.log("Done!");
+    code: synJava`public class TradeCalculator {
+    public static Something calculateTrades(String userId) {
+        ProfileData data = ProfileFetcher.fetchProfile(userId)
+        // Do math !
     }
 }
 
-public class Logger {
-    public static void log(String message) {
-        System.out.println(message)
+public class ProfileFetcher {
+    public static ProfileData fetchProfile(String userId) {
+        // Complex SQL?
+        return userProfile;
     }
 }`
 });
 
 export const StaticMethodApproachProsCons = generateContentSlide("Approach 1: Pros and Cons", [
-    "Pro: Super simple and unambiguous",
-    "Con: All callers are tied to this specific logger",
-    "What if logging needs to change across the application?",
-    "You change the logger in one place",
-    "What if the logger needs to behave differently in different circumstances?",
-    "Doable. But requires a bit more work",
-    "This might be a good place for interfaces"
+    "Pro: The connection between classes is nice and unambiguous",
+    { text: "Con: The TradeCalculator is totally tied to the ProfileFetcher", children: [
+        "These classes are tightly coupled. TradeCalculator relies on the specific ProfileFetcher",
+        "Yeah? So what?",
+        "It makes unit testing the TradeCalculator difficult"
+    ]},
+    "Con: If you have many static methods, it can be tricky to see how classes are related"
 ]);
 
 export const InstanceMethodApproach = generateCodeSlide("Approach 2: Instance Methods", [
-    "The logger can be constructed",
-    "Classes that call the logger use an instance method",
+    "The ProfileFetcher can be constructed and passed to TradeCalculator",
+    "When calculating trades, our tool calls the instance method",
 ], {
     
-    code: synJava`public class ImportantProcessHandler {
-    private final Logger myLogger;
-
-    public void handleImportantProcess() {
-        myLogger.log("Done!");
+    code: synJava`
+public class TradeCalculator {    
+    // Set this.profileFetcher in TradeCalculator's constructor
+    public Something calculateTrades(String userId) {
+        ProfileData data = this.profileFetcher.fetchProfile(userId)
+        // Do math !
     }
 }
 
-public class Logger {
-    public void log(String message) {
-        System.out.println(message)
+public class ProfileFetcher {
+    public ProfileData fetchProfile(String userId) {
+        // Complex SQL?
+        return userProfile;
     }
 }`
 });
 
 export const InstanceMethodProsCons = generateContentSlide("Approach 2: Pros and Cons", [
-    "Pro: You could use an interface here",
-    "Con: Where does the logger instance come from?",
-    "You could construct it in ImportantProcessHandler",
-    "... but then you're stuck with a specific type of logger",
-    "You could pass it in via the constructor",
+    "Pro: ???",
+    "Con: Who builds the ProfileFetcher?",
+    "You could construct it in TradeCalculator",
+    "... but then you're stuck with a specific ProfileFetcher again",
+    "You could pass it in via the TradeCalculator constructor",
     "... but then who constructs it?"
 ]);
 
-export const DependencyInjection = generateContentSlide("Dependency Injection", [
-    "Spring has another approach to this problem",
-    "Spring encourages approach 2 (to allow for using interfaces)",
-    "Passes dependencies to your class either by the constructor or setters",
-    "Handles constructing dependency classes for you",
-    "If a class is dependent on an interface, figures out which class implements the interface"
+export const UseAnInterface = generateCodeSlide("Approach 2b: Use an Interface", [
+    "Make an interface for ProfileFetcher",
+    "Pass that interface in the constructor for TradeCalculator",
+    "Construct the ProfileFetcher outside of TradeCalculator"
+], {
+    code: synJava`
+public interface ProfileFetcher {
+    public ProfileData fetchProfile(String userId);
+}
+public class SqlProfileFetcher implements ProfileFetcher {
+    // ...
+}
+public class TradeCalculator {    
+    private final ProfileFetcher profileFetcher;
+    public TradeCalculator(ProfileFetcher profileFetcher) {
+        this.profileFetcher = profileFetcher
+    }
+}`
+})
+
+export const InterfaceProsCons = generateContentSlide("Approach 2b: Pros and Cons", [
+    { text: "Pro: Now we can test TradeCalculator without worrying about the database", children: [
+        "... or actually making trades"
+    ] },
+    "Con: Still need to figure out who builds the ProfileFetcher...",
+    "Con: A bit more complex to deal with"
 ]);
 
-export const SpringApproach = generateCodeSlide("Approach 3: Dependency Injection", [
-    "Use annotations to indicate that a class can be injected",
-    "Spring will pass you an instance of a class",
+export const WhySpring = generateMessageSlide(
+    "What does this have to do with Spring?"
+)
+
+export const DependencyInjection = generateContentSlide("Dependency Injection", [
+    "Spring tries to help make  this process simpler",
+    "Handles constructing classes for you",
+    "If a class is dependent on an interface, figures out which class implements the interface",
+    "... and then constructs that class for you"
+]);
+
+export const WhoBuilds = generateMessageSlide(
+    "How do your RestController classes get constructed? Why aren't the methods static?"
+);
+
+export const ConstructingOthers = generateCodeSlide("More Constructors", [
+    "Spring will automatically construct your @RestController classes...",
+    "But it will also construct your other classes too!"
 ], {
-    
-    code: synJava`public class ImportantProcessHandler {
-
-    public ImportantProcessHandler(Logger logger) {
-        this.myLogger = logger;
+    code: synJava`
+@RestController
+class CalculatorController {
+    private final MyCalculator calculator;
+    public CalculatorController(MyCalculator calculator) {
+        this.calculator = calculator;
     }
 
-    public void handleImportantProcess() {
-        myLogger.log("Done!");
+    @GetMapping("/add/{a}/{b}")
+    public double add(double a, double b) {
+        return this.calculator.add(a,b);
     }
-}
+}`
+})
 
-@Component
-public class StandardOutLogger implements Logger {
-    public void log(String message) {
-        System.out.println(message)
-    }
-}`});
+export const SpringApproach = generateContentSlide("Approach 3: Dependency Injection", [
+    'Use annotations to indicate that a class can be "injected" into another',
+    "Spring will pass you an instance of that class in the constructor of a class that depends on it",
+    "This makes testing easier",
+    "And also makes it clear what classes depend on which other classes"
+]);
 
 export const references: Reference[] = [
-    { label: "Example Solution: Assignment 3", url: "https://github.com/RyanKadri/spring2021-practicum-examples/tree/main/6-apis/housing-data-example" },
-    { label: "Jeff Bezos API Mandate", url: "https://nordicapis.com/the-bezos-api-mandate-amazons-manifesto-for-externalization/", note: "You won't be directly tested on this but it's " },
+    { label: "Jeff Bezos API Mandate", url: "https://nordicapis.com/the-bezos-api-mandate-amazons-manifesto-for-externalization/", note: "You won't be directly tested on this but it's interesting" },
     { label: "Stevey's Platform Rant", url: "https://gist.github.com/chitchcock/1281611", note: "You also won't be tested on this but it's pretty famous and pretty entertaining"}
 ]
