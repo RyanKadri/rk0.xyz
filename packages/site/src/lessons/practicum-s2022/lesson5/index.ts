@@ -41,5 +41,8 @@ export const lesson5: Presentation = {
     ],
     examples: [
     ],
+    externalExamples: [
+        { url: "https://github.com/RyanKadri/spring-2022-practicum-examples/tree/main/5-spring-part2/spring-example" }
+    ],
     references
 }

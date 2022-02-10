@@ -12,10 +12,9 @@ export const ApiDefinition = generateDefinitionSlide(
     "Application Programming Interface - A specification for how a piece of software can interact with other software"
 );
 
-export const WhereApis = generateContentSlide("Where are APIs?", [
+export const WhereApis = generateContentSlide("What are APIs?", [
     "APIs can define the communications between entire systems (like networked services)",
-    "APIs can define how to use narrow systems (like how one class uses another)",
-    "APIs can refer to network communication or other kinds of processes",
+    "APIs can define how narrow systems work together (like how one class uses another)",
     "APIs are often focused on direct interactions",
     "... but can also be more implicit"
 ]);
