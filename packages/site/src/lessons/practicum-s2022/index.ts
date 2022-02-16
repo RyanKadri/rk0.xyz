@@ -6,6 +6,7 @@ import { lesson2 } from "./lesson2";
 import { lesson3 } from "./lesson3";
 import { lesson4 } from "./lesson4";
 import { lesson5 } from "./lesson5";
+import { lesson6 } from "./lesson6";
 
 export const practicumInSW2022: CourseDefinition = {
     title: "Practicum in Software Construction",
@@ -16,10 +17,12 @@ export const practicumInSW2022: CourseDefinition = {
         lesson2,
         lesson3,
         lesson4,
-        lesson5
+        lesson5,
+        lesson6
     ],
     icon: faHammer,
     courseExtras: [
+        { title: "Midterm Study Guide", route: "midterm-study-guide" }
     ],
     theme: minimalBlocksDarkTheme
 }

@@ -1,15 +1,24 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import { CarefulWithReferences, CaseStudyGetters, CaseStudySetters, ConstructorsAreBetter, DataIsDangerous, FunctionalJava, FunctionalJava2, FunctionalProgramming1, FunctionalProgrammingIntro, IsAPureFunction, NotAPureFunction, PossibleLocations, PureFunctions, ReducingState, references, Title, UnsafeSharing, UseDataRightAway, UseDataRightAway2, UseLocals, WhereData } from "./slides/simple";
+import { MathCodeFunctions } from "./slides/math-code-functions";
+import { CarefulWithReferences, CaseStudyGetters, CaseStudySetters, ConstructorsAreBetter, DataIsDangerous, FunctionalJava, FunctionalJava2, HowNonPure, IsAPureFunction, JavaAsFunctionalLanguage, MathFunctions, NotAPureFunction, PureFunctionBenefits, PureFunctions, ReducingState, references, Title, UnsafeSharing, UseDataRightAway, UseDataRightAway2, UseLocals } from "./slides/simple";
 import { VariablesAsLabels } from "./slides/variables-as-labels";
 
 export const lesson6: Presentation = {
-    description: "Programming Best Practices: Functional and Immutable Programming",
-    slug: "functional-immutable",
+    description: "Programming Practices",
+    slug: "programming-practices",
     slides: [
         Title,
-        WhereData,
-        PossibleLocations,
+        MathFunctions,
+        MathCodeFunctions,
+        PureFunctions,
+        PureFunctionBenefits,
+        IsAPureFunction,
+        NotAPureFunction,
+        JavaAsFunctionalLanguage,
+        FunctionalJava,
+        FunctionalJava2,
+        HowNonPure,
         DataIsDangerous,
         ReducingState,
         UseLocals,
@@ -21,13 +30,6 @@ export const lesson6: Presentation = {
         CarefulWithReferences,
         VariablesAsLabels,
         UnsafeSharing,
-        FunctionalProgrammingIntro,
-        FunctionalProgramming1,
-        PureFunctions,
-        IsAPureFunction,
-        NotAPureFunction,
-        FunctionalJava,
-        FunctionalJava2,
         generateReferencesSlide(references)
     ],
     examples: [

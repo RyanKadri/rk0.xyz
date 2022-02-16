@@ -1,25 +1,125 @@
-import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
-import { generateCodeSlide, generateContentSlide, generateDefinitionSlide, generateMediaSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
+import { generateCodeSlide, generateContentSlide, generateMessageSlide, generateTitleSlide } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide(
-    "State Management and Functional Programming",
+    "Functional Programming and State Management",
     "Ryan Kadri"
 );
 
-export const WhereData = generateMessageSlide(
-    "Where does data live in your application?"
-);
-
-export const PossibleLocations = generateContentSlide("Possible Homes", [
-    'Data lives "in" variables',
-    "Data can be stored in files",
-    "Data can live on another server (databases for example)",
-    "Data flows through your application",
-    "Data at rest is potentially dangerous!"
+export const MathFunctions = generateContentSlide("Mathematical Functions", [
+    <>Functions in math are often written like <code>f(x) = x<sup>2</sup></code></>,
+    'Functions have parameters and "return" a value',
+    "Functions in programming come from this idea but extend it",
+    "Functions in programming don't need to deal only with numbers",
+    "They have a few other important differences"
 ]);
+
+export const PureFunctions = generateContentSlide('"Pure" Functions', [
+    'Methods that work like mathematical functions are often called "pure functions"',
+    { text: "The method always returns the same output for the same input", children: [
+        "The method can't rely on external sources of information (other than constants)"
+    ] },
+    { text: "The method has no side effects", children: [
+        "The method can't store information elsewhere",
+        "The method doesn't trigger other external processes",
+    ] },
+    "All behavior in the method is captured in parameters and the return value"
+]);
+
+export const PureFunctionBenefits = generateContentSlide("Pure Function Benefits", [
+    { text: "Pure Functions are easy to test", children: [
+        "No need to do a lot of setup and initialization. Just call your method"
+    ] },
+    { text: "Easier to think about", children: [
+        "You only need to look at the body of the function to understand",
+        "No need to think about what data is stored in other places"
+    ] },
+    { text: "Is always thread-safe", children: [
+        "Even if the function is called from 100 threads, they can't affect each other",
+        "Changes to the environment cannot mess with a function while it's running"
+    ] }
+])
+
+export const IsAPureFunction = generateCodeSlide("Pure Functions", [
+    
+], {
+    
+    code: synJava`public int addNumbers(int a, int b) {
+    return a + b;
+}
+
+public int countUnique(List<String> names) {
+    Set<String> nameSet = new HashSet<>(names);
+    return nameSet.size();
+}
+
+public List<String> filterANames(List<String> names) {
+    List<String> result = new ArrayList<>();
+    for(String name : names) {
+        if(name.startsWith("A")) {
+            result.add(name);
+        }
+    }
+    return result;
+}`
+});
+
+export const NotAPureFunction = generateCodeSlide("Impure Functions", [
+    
+], {
+    
+    code: synJava`public void doSomething(int a, int b) { ... } // void methods must have side-effects
+
+public boolean flipACoin() { // A no-argument pure function can be a constant?
+    double result = Math.random(); // Produces output based on randomness
+}
+
+public int countUnique(List<String> names) {
+    Set<String> nameSet = new HashSet<>(names);
+    this.numUniqueNames = nameSet.size(); // Uh oh. Side effects detected
+    return this.numUniqueNames;
+}
+
+public void filterANames(List<String> names) {
+    for(int i = names.size() - 1; i >= 0; i --) {
+        if(names.get(i).startsWith("A")) {
+            result.remove(i); // This looks dangerous
+        }
+    }
+}`
+});
+
+export const JavaAsFunctionalLanguage = generateContentSlide("Functional Java", [
+    <>Some languages are considered "Functional" languages</>,
+    'Java is not a "Functional Programming Language"',
+    "Java gives you freedom to manage state and have side effects",
+    "Java does not really have a core concept of Pure Functions",
+    "The fact that everything is a class means that Java does not really have functions either",
+]);
+
+export const FunctionalJava = generateContentSlide("Higher Order Functions", [
+    'In functional programming languages, there are "Higher Order Functions"',
+    "Functions that take another function as a parameter",
+    "Functions that return functions",
+    "Higher order functions treat functions like they are normal data types",
+    "But why?!"
+]);
+
+export const FunctionalJava2 = generateContentSlide("Functional Java", [
+    { text: "Java 8 introduced functional-friendly-features", children: [
+        "Streams - A stateless way of processing data as it comes in",
+        "Optionals - A way to reduce Null Pointer Exceptions",
+        "Functional Interfaces - Interfaces with one method are special",
+        "Method References - Shorthand for extracting functional bits",
+        'Built-In Function Types - Most common "function" types'
+    ] }
+]);
+
+export const HowNonPure = generateMessageSlide(
+    "Alright so pure functions are nice. But we NEED side effects. So what do we do?"
+);
 
 export const DataIsDangerous = generateContentSlide("Data is Dangerous", [
     'Managing "state" in your application can be hard',
@@ -27,13 +127,14 @@ export const DataIsDangerous = generateContentSlide("Data is Dangerous", [
     "Data can get lost if your application crashes",
     "Data that is hanging around can get stale",
     "Code that you didn't write can change your data",
-    "Storing too much data can crash your application"
+    "Storing too much data can crash your application",
+    "We need to be strategic about how we deal with stored data"
 ]);
 
 export const ReducingState = generateContentSlide("Reducing State", [
     "Data at rest is dangerous. Data in motion is safer",
-    "Wherever possible, avoid storing data yourself",
-    "Limit where in the code your data can be accessed",
+    'A lot of times, you can store your data "somewhere else" (in a database usually)',
+    "When you need to store state, limit how it can be accessed",
     "Especially limit where data can be written",
     <>Java access modifiers (<code>public, private, protected</code>) are a good defense</>,
     "Make data private where possible",
@@ -153,126 +254,7 @@ export const UnsafeSharing = generateCodeSlide("Unsafe Sharing", [
     QualityChecker.identifyDefects(products); // Removes non-defective products
     ReportGenerator.defectiveItemsReport(products); // Stores defective products
 }`
-})
-
-export const FunctionalProgrammingIntro = generateDefinitionSlide(  
-    "Functional Programming",
-    "Thinking about your program in terms of mathematical functions"
-);
-
-export const FunctionalProgramming1 = generateMediaSlide(
-    <Paper style={{ width: 1200 }}>
-        <Table>
-            <TableHead>
-                <TableRow>
-                    <TableCell>Mathematical Functions</TableCell>
-                    <TableCell>General Java Methods</TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                <TableRow>
-                    <TableCell>Produce the same output for a given input</TableCell>
-                    <TableCell>Can produce different values on each call (or no value at all)</TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Don't change the outside world</TableCell>
-                    <TableCell>Can have side-effects</TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Have strict inputs and outputs</TableCell>
-                    <TableCell>Can communicate data to caller through inputs</TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
-    </Paper>,
-    undefined,
-    "Functions vs Methods",
-);
-
-export const PureFunctions = generateContentSlide("A Pure Function", [
-    "Has no side-effects",
-    <>Produces outputs <strong>only</strong> based on inputs (and maybe constants)</>,
-    "Is easy to test",
-    "Easier to reason about",
-    "Can't be interfered with",
-    "Is always thread-safe",
-]);
-
-export const IsAPureFunction = generateCodeSlide("Pure Functions", [
-    
-], {
-    
-    code: synJava`public int addNumbers(int a, int b) {
-    return a + b;
-}
-
-public int countUnique(List<String> names) {
-    Set<String> nameSet = new HashSet<>(names);
-    return nameSet.size();
-}
-
-public List<String> filterANames(List<String> names) {
-    List<String> result = new ArrayList<>();
-    for(String name : names) {
-        if(name.startsWith("A")) {
-            result.add(name);
-        }
-    }
-    return result;
-}`
 });
-
-export const NotAPureFunction = generateCodeSlide("Impure Functions", [
-    
-], {
-    
-    code: synJava`public void doSomething(int a, int b) { ... } // void methods must have side-effects
-
-public boolean flipACoin() { // A no-argument pure function can be a constant?
-    double result = Math.random(); // Produces output based on randomness
-}
-
-public int countUnique(List<String> names) {
-    Set<String> nameSet = new HashSet<>(names);
-    this.numUniqueNames = nameSet.size(); // Uh oh. Side effects detected
-    return this.numUniqueNames;
-}
-
-public void filterANames(List<String> names) {
-    for(int i = names.size() - 1; i >= 0; i --) {
-        if(names.get(i).startsWith("A")) {
-            result.remove(i); // This looks dangerous
-        }
-    }
-    return result;
-}`
-});
-
-export const JavaAsFunctionalLanguage = generateContentSlide("Functional Java", [
-    'Java is not a "Functional Programming Language"',
-    "Java gives you freedom to manage state and have side effects",
-    "Java does not really have the concept of Pure Functions",
-    "The fact that everything is a class means that Java does not really have functions either",
-    "static methods come the closest to plain functions"
-]);
-
-export const FunctionalJava = generateContentSlide("Higher Order Functions", [
-    'In functional programming languages, there are "Higher Order Functions"',
-    "Functions that take another function as a parameter",
-    "Functions that return functions",
-    "Higher order functions treat functions like they are normal data types",
-    "But why?!"
-]);
-
-export const FunctionalJava2 = generateContentSlide("Functional Java", [
-    { text: "Java 8 introduced functional-friendly-features", children: [
-        "Streams - A stateless way of processing data as it comes in",
-        "Optionals - A way to reduce Null Pointer Exceptions",
-        "Functional Interfaces - Interfaces with one method are special",
-        "Method References - Shorthand for extracting functional bits",
-        'Built-In Function Types - Most common "function" types'
-    ] }
-]);
 
 export const references: Reference[] = [
     { label: "Why Immutability Matters", url: "https://debugged.it/blog/why-immutability-matters/" },
