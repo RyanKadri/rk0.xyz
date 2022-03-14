@@ -214,9 +214,7 @@ export const AllowingAccess = generateContentSlide("Allowing Access", [
 ]);
 
 export const S3Client = generateCodeSlide("Using S3 with Java", [
-    <>Import the Java AWS SDK as a 
-        <Link href="https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk">Maven Dependency</Link>
-    </>,
+    <>Import the Java AWS SDK as a <Link href="https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk">Maven Dependency</Link></>,
     <>Check out the <Link href="https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/examples-s3.html">S3 Java documentation</Link></>,
     "You can start by defining an S3Client",
 ], {
