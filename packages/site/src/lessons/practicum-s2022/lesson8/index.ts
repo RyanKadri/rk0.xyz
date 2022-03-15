@@ -37,8 +37,5 @@ export const lesson8: Presentation = {
     ],
     examples: [
     ],
-    recording: {
-        link: "https://temple.zoom.us/rec/play/EdZTGZ9y3ly2YXghriU8pvOE6JmcljucoaJ3PafFvlPr_TQe15OT7vyhuzglFfVHumLVhMocqOTsexPA.rWUmS2s4URkVXswH?continueMode=true"
-    },
     references
 }
