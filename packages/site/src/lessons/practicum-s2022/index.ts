@@ -9,6 +9,7 @@ import { lesson5 } from "./lesson5";
 import { lesson6 } from "./lesson6";
 import { lesson7 } from "./lesson7";
 import { lesson8 } from "./lesson8";
+import { lesson9 } from "./lesson9";
 
 export const practicumInSW2022: CourseDefinition = {
     title: "Practicum in Software Construction",
@@ -22,7 +23,8 @@ export const practicumInSW2022: CourseDefinition = {
         lesson5,
         lesson6,
         lesson7,
-        lesson8
+        lesson8,
+        lesson9
     ],
     icon: faHammer,
     courseExtras: [
