@@ -60,7 +60,7 @@ export const HowDoWeFixIt2 = generateContentSlide("What can we do?", [
     "Use machines in different locations (cabinets and even data centers)",
     "This can get pricey and complex",
     "Virtual machines and the cloud make this much more possible",
-    "Everything can still break. You need to design systems that can fail"
+    "Everything can still break. You need to design systems so that parts can fail"
 ]);
 
 export const SplittingUpAService = generateContentSlide("Splitting Up Services", [
@@ -72,6 +72,8 @@ export const SplittingUpAService = generateContentSlide("Splitting Up Services",
     "Only send traffic to healthy servers",
     "How is the load balancer not a single point of failure?"
 ]);
+
+export const LetsDoLoadBalancer = generateMessageSlide("Let's make a load balancer!")
 
 export const HowDoManage = generateContentSlide("How do I manage that?", [
     "Setting up a server is time-consuming. It's helpful to not need to do that manually",
