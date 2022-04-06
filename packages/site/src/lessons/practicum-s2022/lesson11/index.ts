@@ -25,8 +25,7 @@ import {
 } from "./slides/simple";
 
 export const lesson11: Presentation = {
-  title: "Containers, Functions, and Final Exam Review",
-  description: "Modern application deployment",
+  description: "Deploying applications with containers",
   slug: "containers-and-functions",
   slides: [
     Title,

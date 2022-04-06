@@ -11,7 +11,7 @@ import {
 import { synDocker } from "../../../../common/highlighting";
 import docker from "./docker.png";
 
-export const Title = generateTitleSlide("Containers and Cloud Functions", "Ryan Kadri");
+export const Title = generateTitleSlide("Deploying Applications as Containers", "Ryan Kadri");
 
 export const StartupScriptExample = generateCodeSlide(
   "Example EC2 Startup Script",
