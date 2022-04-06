@@ -14,31 +14,32 @@ import { lesson7 } from "./lesson7";
 import { lesson8 } from "./lesson8";
 import { lesson9 } from "./lesson9";
 
-export const introToWebProgrammingFall2020: CourseDefinition = { 
-    title: "Introduction to Web Technology and Programming",
-    description: "Web Programming for Beginners. Learn HTML, CSS, and JavaScript"
-     + " from the ground up. No experience required",
-    slug: "cis-1052",
-    lessons: [ 
-        lesson1,
-        lesson2,
-        lesson3,
-        lesson4,
-        lesson5,
-        lesson6,
-        lesson7,
-        lesson8,
-        lesson9,
-        lesson10,
-        lesson11,
-        lesson12
-    ],
-    icon: faNetworkWired,
-    courseExtras: [
-        { title: "Consolidated References", route: "references" },
-        { title: "Midterm Study Guide", route: "midterm-study-guide" },
-        { title: "Final Project", route: "final-project" },
-        { title: "Final Study Guide", route: "final-study-guide" }
-    ],
-    theme: minimalBlocksDarkTheme
+export const introToWebProgrammingFall2020: CourseDefinition = {
+  title: "Introduction to Web Technology and Programming",
+  description:
+    "Web Programming for Beginners. Learn HTML, CSS, and JavaScript" +
+    " from the ground up. No experience required",
+  slug: "cis-1052",
+  lessons: [
+    lesson1,
+    lesson2,
+    lesson3,
+    lesson4,
+    lesson5,
+    lesson6,
+    lesson7,
+    lesson8,
+    lesson9,
+    lesson10,
+    lesson11,
+    lesson12,
+  ],
+  icon: faNetworkWired,
+  courseExtras: [
+    { title: "Consolidated References", route: "references" },
+    { title: "Midterm Study Guide", route: "midterm-study-guide" },
+    { title: "Final Project", route: "final-project" },
+    { title: "Final Study Guide", route: "final-study-guide" },
+  ],
+  theme: minimalBlocksDarkTheme,
 };

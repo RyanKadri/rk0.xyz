@@ -3,28 +3,27 @@ import { SlideManager } from "../../../../../../packages/presenter-core/src/slid
 import { miscPresentations } from "../../../../../../packages/site/src/lessons/presentations";
 
 export default function _SlideManager() {
-    return (
-        <SlideManager course={ miscPresentations } /> 
-    )
-};
+  return <SlideManager course={miscPresentations} />;
+}
 
 export const getStaticProps: GetStaticProps = async () => {
-    return {
-        props: {
-        }
-    }
-}
+  return {
+    props: {},
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    return {
-        paths: [miscPresentations].flatMap(course => 
-            course.lessons.flatMap(lesson => 
-                lesson.slides.flatMap((_, i) => ({ 
-                    params: {
-                        lessonId: lesson.slug,
-                        slideNum: "" + i
-                    } 
-        })))),
-        fallback: false
-    }
-}
+  return {
+    paths: [miscPresentations].flatMap(course =>
+      course.lessons.flatMap(lesson =>
+        lesson.slides.flatMap((_, i) => ({
+          params: {
+            lessonId: lesson.slug,
+            slideNum: "" + i,
+          },
+        }))
+      )
+    ),
+    fallback: false,
+  };
+};

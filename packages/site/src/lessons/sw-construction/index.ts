@@ -15,28 +15,28 @@ import { lesson8 } from "./lesson8";
 import { lesson9 } from "./lesson9";
 
 export const practicumInSW2021: CourseDefinition = {
-    title: "Practicum in Software Construction",
-    description: "A practical introduction to some CS topics that you don't normally learn in school",
-    slug: "cis-4360",
-    lessons: [
-        lesson1,
-        lesson2,
-        lesson3,
-        lesson4,
-        lesson5,
-        lesson6,
-        lesson7,
-        lesson8,
-        lesson9,
-        lesson10,
-        lesson11,
-        lesson12
-    ],
-    icon: faHammer,
-    courseExtras: [
-        { title: "Consolidated References", route: "references" },
-        { title: "Midterm Study Guide", route: "midterm-study-guide" },
-        { title: "Final Study Guide", route: "final-study-guide" }
-    ],
-    theme: minimalBlocksTheme
-}
+  title: "Practicum in Software Construction",
+  description: "A practical introduction to some CS topics that you don't normally learn in school",
+  slug: "cis-4360",
+  lessons: [
+    lesson1,
+    lesson2,
+    lesson3,
+    lesson4,
+    lesson5,
+    lesson6,
+    lesson7,
+    lesson8,
+    lesson9,
+    lesson10,
+    lesson11,
+    lesson12,
+  ],
+  icon: faHammer,
+  courseExtras: [
+    { title: "Consolidated References", route: "references" },
+    { title: "Midterm Study Guide", route: "midterm-study-guide" },
+    { title: "Final Study Guide", route: "final-study-guide" },
+  ],
+  theme: minimalBlocksTheme,
+};

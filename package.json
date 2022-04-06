@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "format": "prettier -w \"{packages,pages}/**/*.{tsx,ts}\""
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "acorn": "^8.0.4",
     "classnames": "^2.3.1",
     "monaco-editor": "^0.25.2",
+    "prettier": "^2.6.2",
     "prismjs": "^1.25.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

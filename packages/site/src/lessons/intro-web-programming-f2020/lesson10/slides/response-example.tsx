@@ -5,7 +5,7 @@ import { synJS } from "../../../../common/highlighting";
 import { ResponseVisualizer } from "../../../shared/response-visualizer";
 
 export function ResponseTemplate({ context }: Props) {
-    const responseBody = synJS`
+  const responseBody = synJS`
 {
     "title": "My Note",
     "note": "This is a note",
@@ -14,18 +14,24 @@ export function ResponseTemplate({ context }: Props) {
     "created": 1605037559804
 }`;
 
-    return (
-        <ContentSlide Title='HTTP Response' context={context} Content={
-            <ResponseVisualizer statusCode="200 (OK)"
-                                headers={[
-                                    { name: "Content-Type", value: "application/json; charset=utf-8" },
-                                    { name: "Access-Control-Allow-Origin", value: "*" }
-                                ]}
-                                body={ responseBody } />
-        } />
-    );
+  return (
+    <ContentSlide
+      Title="HTTP Response"
+      context={context}
+      Content={
+        <ResponseVisualizer
+          statusCode="200 (OK)"
+          headers={[
+            { name: "Content-Type", value: "application/json; charset=utf-8" },
+            { name: "Access-Control-Allow-Origin", value: "*" },
+          ]}
+          body={responseBody}
+        />
+      }
+    />
+  );
 }
 
 interface Props {
-    context: PresentationContext
+  context: PresentationContext;
 }

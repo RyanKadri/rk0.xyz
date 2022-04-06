@@ -5,37 +5,39 @@ import { PresentationContext } from "../../../../presenter-core/src/services/typ
 import { PageNumber } from "../../../../presenter-core/src/slides/components/page-number";
 
 export function generateQuestionSlide(question: string) {
-    return function ({ context }: { context: PresentationContext }) {
-        return (
-            <QuestionSlide context={ context } question={ question } />
-        )
-    }
+  return function ({ context }: { context: PresentationContext }) {
+    return <QuestionSlide context={context} question={question} />;
+  };
 }
 
-const useStyles = makeStyles(theme => createStyles({
+const useStyles = makeStyles(theme =>
+  createStyles({
     container: {
-        padding: 48
+      padding: 48,
     },
     titleContainer: {
-        marginTop: "auto",
-        marginLeft: 40,
-        ...titleDecorator(theme)
-    }
-}))
+      marginTop: "auto",
+      marginLeft: 40,
+      ...titleDecorator(theme),
+    },
+  })
+);
 
 export function QuestionSlide({ question, context }: Props) {
-    const classes = useStyles();
-    return ( 
-        <div className={ classes.container }>
-            <div className={ classes.titleContainer }>
-                <Typography variant="h2" color="inherit">{ question }</Typography>
-            </div>
-            <PageNumber context={ context } />
-        </div>
-    )
+  const classes = useStyles();
+  return (
+    <div className={classes.container}>
+      <div className={classes.titleContainer}>
+        <Typography variant="h2" color="inherit">
+          {question}
+        </Typography>
+      </div>
+      <PageNumber context={context} />
+    </div>
+  );
 }
 
 interface Props {
-    question: string;
-    context: PresentationContext
+  question: string;
+  context: PresentationContext;
 }

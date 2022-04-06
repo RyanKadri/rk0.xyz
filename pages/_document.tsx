@@ -1,29 +1,29 @@
 import { dom } from "@fortawesome/fontawesome-svg-core";
-import { ServerStyleSheets } from '@material-ui/core/styles';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
-import React from 'react';
+import { ServerStyleSheets } from "@material-ui/core/styles";
+import Document, { Head, Html, Main, NextScript } from "next/document";
+import React from "react";
 
 export default class MyDocument extends Document {
-    render() {
-        return (
-            <Html lang="en">
-                <Head>
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" />
-                    <style>{ dom.css() }</style>
-                </Head>
-                <body>
-                    <Main />
-                    <NextScript />
-                    <link rel="stylesheet" href="/prism.css" />
-                </body>
-            </Html>
-        );
-    }
+  render() {
+    return (
+      <Html lang="en">
+        <Head>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" />
+          <style>{dom.css()}</style>
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+          <link rel="stylesheet" href="/prism.css" />
+        </body>
+      </Html>
+    );
+  }
 }
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with server-side generation (SSG).
-MyDocument.getInitialProps = async (ctx) => {
+MyDocument.getInitialProps = async ctx => {
   // Resolution order
   //
   // On the server:
@@ -52,7 +52,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+      enhanceApp: App => props => sheets.collect(<App {...props} />),
     });
 
   const initialProps = await Document.getInitialProps(ctx);

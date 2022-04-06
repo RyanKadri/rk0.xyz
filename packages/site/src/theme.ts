@@ -1,5 +1,5 @@
 import { amber, red, teal } from "@material-ui/core/colors";
-import { } from "@material-ui/core/styles";
+import {} from "@material-ui/core/styles";
 import createMuiTheme, { ThemeOptions } from "@material-ui/core/styles/createMuiTheme";
 
 export const lightThemeOptions: ThemeOptions = {
@@ -7,51 +7,51 @@ export const lightThemeOptions: ThemeOptions = {
     primary: teal,
     secondary: red,
     background: {
-      default: "#eee"
-    }
+      default: "#eee",
+    },
   },
   typography: {
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
+      "-apple-system",
+      "BlinkMacSystemFont",
       '"Segoe UI"',
-      'Roboto',
+      "Roboto",
       '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
+      "Arial",
+      "sans-serif",
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
-    ].join(','),
+    ].join(","),
     h3: {
-      fontWeight: 300
+      fontWeight: 300,
     },
     h4: {
-      fontWeight: 300
+      fontWeight: 300,
     },
     h5: {
-      fontWeight: 300
-    }
+      fontWeight: 300,
+    },
   },
   overrides: {
     MuiAppBar: {
-        colorPrimary: {
-          backgroundColor: teal["700"]
-        }
+      colorPrimary: {
+        backgroundColor: teal["700"],
+      },
     },
     MuiLink: {
       root: {
-        color: teal["700"]
-      }
+        color: teal["700"],
+      },
     },
     MuiButton: {
       label: {
-        textTransform: "none"
-      }
-    }
+        textTransform: "none",
+      },
+    },
   },
   slides: {
-    baseFontSize: "36px"
+    baseFontSize: "36px",
   },
 };
 
@@ -60,22 +60,22 @@ export const darkThemeOptions: ThemeOptions = {
   palette: {
     primary: teal,
     secondary: amber,
-    type: "dark"
+    type: "dark",
   },
   overrides: {
     ...lightThemeOptions.overrides,
     MuiAppBar: {
-        colorPrimary: {
-          backgroundColor: teal["700"]
-        }
+      colorPrimary: {
+        backgroundColor: teal["700"],
+      },
     },
     MuiLink: {
       root: {
-        color: teal["200"]
-      }
-    }
-  }
-}
+        color: teal["200"],
+      },
+    },
+  },
+};
 
 export const lightTheme = createMuiTheme(lightThemeOptions);
 export const darkTheme = createMuiTheme(darkThemeOptions);

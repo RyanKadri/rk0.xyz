@@ -10,29 +10,29 @@ import { ContentSlide } from "./content-slide";
 import { TitleSlide } from "./title-slide";
 
 export const minimalBlocksTheme: IThemeContext = {
-    slides: {
-        CenterMessageSlide: CenterMessageSlide,
-        CodeSlide: CodeSlide,
-        ContentSlide: ContentSlide,
-        DefinitionSlide: DefinitionSlide,
-        EmbedSlide: FullSlide,
-        MediaAssistSlide: MediaAssistSlide,
-        MediaSlide: MediaSlide,
-        TitleSlide: TitleSlide,
-    },
-    theme: lightTheme
-}
+  slides: {
+    CenterMessageSlide: CenterMessageSlide,
+    CodeSlide: CodeSlide,
+    ContentSlide: ContentSlide,
+    DefinitionSlide: DefinitionSlide,
+    EmbedSlide: FullSlide,
+    MediaAssistSlide: MediaAssistSlide,
+    MediaSlide: MediaSlide,
+    TitleSlide: TitleSlide,
+  },
+  theme: lightTheme,
+};
 
 export const minimalBlocksDarkTheme: IThemeContext = {
-    slides: {
-        CenterMessageSlide: CenterMessageSlide,
-        CodeSlide: CodeSlide,
-        ContentSlide: ContentSlide,
-        DefinitionSlide: DefinitionSlide,
-        EmbedSlide: FullSlide,
-        MediaAssistSlide: MediaAssistSlide,
-        MediaSlide: MediaSlide,
-        TitleSlide: TitleSlide,
-    },
-    theme: darkTheme
-}
+  slides: {
+    CenterMessageSlide: CenterMessageSlide,
+    CodeSlide: CodeSlide,
+    ContentSlide: ContentSlide,
+    DefinitionSlide: DefinitionSlide,
+    EmbedSlide: FullSlide,
+    MediaAssistSlide: MediaAssistSlide,
+    MediaSlide: MediaSlide,
+    TitleSlide: TitleSlide,
+  },
+  theme: darkTheme,
+};

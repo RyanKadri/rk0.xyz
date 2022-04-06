@@ -10,11 +10,11 @@ export const synDocker = makeHighlighter();
 export const synGherkin = makeHighlighter();
 
 function makeHighlighter() {
-    return function(string: TemplateStringsArray): SyntaxHighlightedBlock {
-        return {
-            html: "",
-            language: "",
-            raw: string.join("")
-        }
-    }
+  return function (string: TemplateStringsArray): SyntaxHighlightedBlock {
+    return {
+      html: "",
+      language: "",
+      raw: string.join(""),
+    };
+  };
 }

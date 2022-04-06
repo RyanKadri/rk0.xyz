@@ -12,22 +12,22 @@ import { MediaSlide } from "./media-slide";
 import { TitleSlide } from "./title-slide";
 
 export const blankTheme: IThemeContext = {
-    slides: {
-        CenterMessageSlide: CenterMessageSlide,
-        CodeSlide: CodeSlide,
-        ContentSlide: ContentSlide,
-        DefinitionSlide: DefinitionSlide,
-        EmbedSlide: FullSlide,
-        MediaAssistSlide: MediaAssistSlide,
-        MediaSlide: MediaSlide,
-        TitleSlide: TitleSlide,
+  slides: {
+    CenterMessageSlide: CenterMessageSlide,
+    CodeSlide: CodeSlide,
+    ContentSlide: ContentSlide,
+    DefinitionSlide: DefinitionSlide,
+    EmbedSlide: FullSlide,
+    MediaAssistSlide: MediaAssistSlide,
+    MediaSlide: MediaSlide,
+    TitleSlide: TitleSlide,
+  },
+  theme: createMuiTheme({
+    ...lightThemeOptions,
+    palette: {
+      ...lightThemeOptions.palette,
+      primary: cyan,
+      secondary: purple,
     },
-    theme: createMuiTheme({
-        ...lightThemeOptions,
-        palette: {
-            ...lightThemeOptions.palette,
-            primary: cyan,
-            secondary: purple
-        }
-    })
-}
+  }),
+};

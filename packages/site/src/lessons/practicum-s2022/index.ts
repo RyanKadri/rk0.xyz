@@ -14,25 +14,23 @@ import { lesson8 } from "./lesson8";
 import { lesson9 } from "./lesson9";
 
 export const practicumInSW2022: CourseDefinition = {
-    title: "Practicum in Software Construction",
-    description: "A practical introduction to some CS topics that you don't normally learn in school",
-    slug: "practicum-spring-2022",
-    lessons: [
-        lesson1,
-        lesson2,
-        lesson3,
-        lesson4,
-        lesson5,
-        lesson6,
-        lesson7,
-        lesson8,
-        lesson9,
-        lesson10,
-        lesson11
-    ],
-    icon: faHammer,
-    courseExtras: [
-        { title: "Midterm Study Guide", route: "midterm-study-guide" }
-    ],
-    theme: minimalBlocksDarkTheme
-}
+  title: "Practicum in Software Construction",
+  description: "A practical introduction to some CS topics that you don't normally learn in school",
+  slug: "practicum-spring-2022",
+  lessons: [
+    lesson1,
+    lesson2,
+    lesson3,
+    lesson4,
+    lesson5,
+    lesson6,
+    lesson7,
+    lesson8,
+    lesson9,
+    lesson10,
+    lesson11,
+  ],
+  icon: faHammer,
+  courseExtras: [{ title: "Midterm Study Guide", route: "midterm-study-guide" }],
+  theme: minimalBlocksDarkTheme,
+};

@@ -3,7 +3,5 @@ import { glossaryTerms } from "../../../packages/site/src/lessons/intro-web-prog
 import GlossaryPage from "../../../packages/site/src/lessons/shared/glossary-page";
 
 export default function Glossary() {
-    return (
-        <GlossaryPage items={ glossaryTerms } />
-    )
+  return <GlossaryPage items={glossaryTerms} />;
 }
