@@ -14,3 +14,4 @@ logs:
 EOT
 nohup java -javaagent:./newrelic-agent.jar -jar data.jar &
 ```
+6QwI2wOH$r8p9%ci

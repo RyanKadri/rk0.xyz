@@ -155,13 +155,13 @@ export const Logging = generateContentSlide("Logging", [
     "This is really helpful for automated app deployments",
     "When an auto-started app fails to load, you want to know why",
     "Reading logs is harder in a cluster without knowing where the issue is",
-    "Centralized logging is a nice solution (for another class)"
+    "Centralized logging is a nice solution"
 ]);
 
 export const JavaLogging = generateCodeSlide("Logging in Java", [
     <>The simplest way to log in Java is <code>System.out.println(...)</code></>,
     "That might not be the best for big apps - You lose context",
-    "A common logging framework built into Spring is SLF4J",
+    "A common logging framework built into Spring is logback",
     "Features include configurable log format, different log levels, and different output strategies"
 ],{
     
