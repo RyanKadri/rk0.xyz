@@ -11,20 +11,15 @@ import { synHTML, synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Project Management and Spring", "Ryan Kadri");
 
-export const HowDoOpenSource = generateMessageSlide(
-  "How do I use open source code in my projects?"
-);
+export const HowDoOpenSource = generateMessageSlide("How do I use open source code in my projects?");
 
-export const PossibilitiesForOpenSource = generateContentSlide(
-  "Using Libraries (Manual Approach)",
-  [
-    "You could copy the code from the open source library into your project",
-    "You'd have to be careful to separate that source code from yours though",
-    "This approach lets you tweak the library but that's dangerous",
-    "If the code is packaged (a JAR file, a DLL), copy that into your project",
-    "You may not want to have that file in version control",
-  ]
-);
+export const PossibilitiesForOpenSource = generateContentSlide("Using Libraries (Manual Approach)", [
+  "You could copy the code from the open source library into your project",
+  "You'd have to be careful to separate that source code from yours though",
+  "This approach lets you tweak the library but that's dangerous",
+  "If the code is packaged (a JAR file, a DLL), copy that into your project",
+  "You may not want to have that file in version control",
+]);
 
 export const NaiveDownsides = generateContentSlide("Manual Approach Downsides", [
   "What if that library depends on other libraries (which depend on others)?",
@@ -123,10 +118,7 @@ export const WhatIsAJavaLibrary = generateContentSlide("What is a Java Library?"
   </>,
 ]);
 
-export const PartTwo = generateTitleSlide(
-  "Part 2: Distributed Systems",
-  "Less scary than they sound!"
-);
+export const PartTwo = generateTitleSlide("Part 2: Distributed Systems", "Less scary than they sound!");
 
 export const DistributedSystems = generateContentSlide("Distributed Systems", [
   "Distributed Systems are systems that run on multiple machines",

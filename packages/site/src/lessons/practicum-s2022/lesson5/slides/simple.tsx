@@ -135,8 +135,7 @@ export const Serialization = generateContentSlide("Serialization", [
 
 export const ErrorHandling = generateContentSlide("Error Handling", [
   <>
-    When your <code>@XMapping</code> method throws an exception, Spring sends back an error HTTP
-    response
+    When your <code>@XMapping</code> method throws an exception, Spring sends back an error HTTP response
   </>,
   "You can control what error codes and info get sent back for specific errors",
   "Sometimes you want to throw specific exceptions when something is unexpected",

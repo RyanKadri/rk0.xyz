@@ -46,9 +46,7 @@ export const ImagineChangingProjects = generateMessageSlide(
   "You are working on a code improvement for a while. Your boss asks you to drop that and start trying to fix a bug"
 );
 
-export const ImagineATeam = generateMessageSlide(
-  "You are working with a team. You need to all merge your work"
-);
+export const ImagineATeam = generateMessageSlide("You are working with a team. You need to all merge your work");
 
 export const ItWouldBeNice = generateContentSlide("It would be nice if...", [
   'It were easy to take a "snapshot" of your project to return to if you break things',
@@ -110,8 +108,7 @@ export const WorkingWithOthers = generateContentSlide("Working with Others", [
     <code>git clone</code> - Copies the files in a project (and the history) to your machine
   </>,
   <>
-    <code>git fetch</code> - Update your git graph based on a remote repo. Does not make changes
-    directly
+    <code>git fetch</code> - Update your git graph based on a remote repo. Does not make changes directly
   </>,
   <>
     <code>git merge</code> - Merges changes from another branch into yours

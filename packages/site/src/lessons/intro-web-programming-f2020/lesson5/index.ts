@@ -1,11 +1,6 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import {
-  AssignmentOperators,
-  ComparisonOperators,
-  LogicalOperators,
-  MathOperators,
-} from "../lesson6/slides/operators";
+import { AssignmentOperators, ComparisonOperators, LogicalOperators, MathOperators } from "../lesson6/slides/operators";
 import { ArraysExample } from "./slides/arrays";
 import * as simple from "./slides/simple";
 

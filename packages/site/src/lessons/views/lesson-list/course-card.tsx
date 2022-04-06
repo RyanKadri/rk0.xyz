@@ -1,12 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  Avatar,
-  createStyles,
-  ListItemAvatar,
-  ListItemText,
-  makeStyles,
-  Paper,
-} from "@material-ui/core";
+import { Avatar, createStyles, ListItemAvatar, ListItemText, makeStyles, Paper } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
@@ -38,9 +31,7 @@ export function CourseCard({ course, baseUrl }: Props) {
       <a style={{ textDecoration: "none", display: "block" }}>
         <Paper className={classes.card}>
           <ListItemAvatar>
-            <Avatar color="primary">
-              {course.icon ? <FontAwesomeIcon icon={course.icon} /> : course.title[0]}
-            </Avatar>
+            <Avatar color="primary">{course.icon ? <FontAwesomeIcon icon={course.icon} /> : course.title[0]}</Avatar>
           </ListItemAvatar>
           <section className={classes.desc}>
             <ListItemText primary={course.title} secondary={course.description} />

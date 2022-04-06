@@ -143,12 +143,7 @@ function LessonCardView({ course, baseUrl }: Props) {
         </Card>
       ))}
       {(course.courseExtras || []).map(extra => (
-        <LinkCard
-          baseUrl={baseUrl}
-          title={extra.title}
-          relativeLink={extra.route}
-          key={extra.route}
-        />
+        <LinkCard baseUrl={baseUrl} title={extra.title} relativeLink={extra.route} key={extra.route} />
       ))}
     </div>
   );
@@ -178,8 +173,7 @@ function LessonTableView({ course, baseUrl }: Props) {
                 <TableCell>
                   <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>
                     <MaterialLink>
-                      <FontAwesomeIcon icon={faDesktop} className={classes.tableIcon} />(
-                      {lesson.slides.length})
+                      <FontAwesomeIcon icon={faDesktop} className={classes.tableIcon} />({lesson.slides.length})
                     </MaterialLink>
                   </Link>
                 </TableCell>
@@ -220,12 +214,7 @@ function LessonTableView({ course, baseUrl }: Props) {
       </Paper>
       <div className={classes.extrasColumn}>
         {(course.courseExtras || []).map(extra => (
-          <LinkCard
-            baseUrl={baseUrl}
-            title={extra.title}
-            relativeLink={extra.route}
-            key={extra.route}
-          />
+          <LinkCard baseUrl={baseUrl} title={extra.title} relativeLink={extra.route} key={extra.route} />
         ))}
       </div>
     </div>

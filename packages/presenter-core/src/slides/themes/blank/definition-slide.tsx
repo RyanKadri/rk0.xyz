@@ -25,13 +25,7 @@ export function DefinitionSlide({ context, Term, Definition }: DefinitionSlidePr
             </Typography>
           )}
         </dt>
-        <dd>
-          {typeof Definition !== "string" ? (
-            Definition
-          ) : (
-            <Typography variant="body1">{Definition}</Typography>
-          )}
-        </dd>
+        <dd>{typeof Definition !== "string" ? Definition : <Typography variant="body1">{Definition}</Typography>}</dd>
       </dl>
       <PageNumber context={context} />
     </div>

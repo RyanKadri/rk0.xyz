@@ -8,9 +8,7 @@ export function useComponentSize(componentRef: RefObject<HTMLElement>) {
   }, []);
 
   const cb = () => {
-    const bb = componentRef.current
-      ? componentRef.current.getBoundingClientRect()
-      : { height: 0, width: 0 };
+    const bb = componentRef.current ? componentRef.current.getBoundingClientRect() : { height: 0, width: 0 };
     setSize({ height: bb.height, width: bb.width });
   };
   useEffect(() => {

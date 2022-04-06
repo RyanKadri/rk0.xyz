@@ -53,20 +53,13 @@ export function NamedColors({ context }: Props) {
         <>
           <div className={classes.colorContainer}>
             {Object.entries(colors).map(([bg, text]) => (
-              <div
-                key={bg}
-                style={{ backgroundColor: bg, color: text }}
-                className={classes.colorBlock}
-              >
+              <div key={bg} style={{ backgroundColor: bg, color: text }} className={classes.colorBlock}>
                 {bg}
               </div>
             ))}
           </div>
           <div className={classes.colorContainer}>
-            <div
-              style={{ backgroundColor: customColor }}
-              className={`${classes.colorBlock} ${classes.customBlock}`}
-            >
+            <div style={{ backgroundColor: customColor }} className={`${classes.colorBlock} ${classes.customBlock}`}>
               <input
                 onChange={e => setCustomColor(e.currentTarget.value)}
                 value={customColor}

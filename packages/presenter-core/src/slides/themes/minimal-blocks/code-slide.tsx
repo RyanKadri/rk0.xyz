@@ -17,14 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export function CodeSlide({
-  context,
-  Title,
-  bullets,
-  code,
-  options = {},
-  children,
-}: CodeSlideProps) {
+export function CodeSlide({ context, Title, bullets, code, options = {}, children }: CodeSlideProps) {
   const { codeFirst = false, codeBlock: codeBlockOptions } = options;
 
   const classes = useStyles();

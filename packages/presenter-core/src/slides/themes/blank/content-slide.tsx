@@ -15,13 +15,7 @@ const useStyles = makeStyles((_: Theme) =>
   })
 );
 
-export function ContentSlide({
-  Title,
-  Content,
-  context,
-  classes = {},
-  options = {},
-}: ContentSlideProps) {
+export function ContentSlide({ Title, Content, context, classes = {}, options = {} }: ContentSlideProps) {
   const ownClasses = useStyles();
   const baseClasses = useBaseStyles();
 

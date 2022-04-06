@@ -8,14 +8,9 @@ import {
 } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { synJava } from "../../../../common/highlighting";
 
-export const Title = generateTitleSlide(
-  "Resiliency, Logging, and Monitoring",
-  "Deploying Reliable Services"
-);
+export const Title = generateTitleSlide("Resiliency, Logging, and Monitoring", "Deploying Reliable Services");
 
-export const WhatCanGoWrongQuestion = generateMessageSlide(
-  "What can go wrong and how can I make it suck less?"
-);
+export const WhatCanGoWrongQuestion = generateMessageSlide("What can go wrong and how can I make it suck less?");
 
 export const Downtime = generateContentSlide("Downtime", [
   "Downtime is time that your server is down (tricky right?)",

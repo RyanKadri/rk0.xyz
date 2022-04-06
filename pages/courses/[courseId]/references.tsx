@@ -3,10 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import {
-  CourseDefinition,
-  Presentation,
-} from "../../../packages/presenter-core/src/services/types";
+import { CourseDefinition, Presentation } from "../../../packages/presenter-core/src/services/types";
 import { activeCourses } from "../../../packages/site/src/lessons/views/activeCourses";
 
 type ReducedLesson = Pick<Presentation, "title" | "slug" | "references">;
@@ -64,10 +61,7 @@ function LessonReferences({ lesson }: LessonReferencesProps) {
       <Typography variant="h5">{lesson.title}</Typography>
       <ul>
         {!lesson.references ? (
-          <li>
-            This course does not currently have any references. Please reach out for more
-            information though!
-          </li>
+          <li>This course does not currently have any references. Please reach out for more information though!</li>
         ) : (
           lesson.references.map(reference => (
             <li key={reference.url}>

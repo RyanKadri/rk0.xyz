@@ -38,8 +38,8 @@ export const projects: ProjectConfig[] = [
         <Typography variant="body1">
           <Link href="https://aws.amazon.com/lambda/">AWS Lambdas</Link>
           &nbsp;backed by&nbsp;
-          <Link href="https://aws.amazon.com/dynamodb/">DynamoDB</Link>. &nbsp;WebSocket persistent
-          connections using&nbsp;
+          <Link href="https://aws.amazon.com/dynamodb/">DynamoDB</Link>. &nbsp;WebSocket persistent connections
+          using&nbsp;
           <Link href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html">
             API Gateway's WebSocket implementation
           </Link>
@@ -59,9 +59,8 @@ export const projects: ProjectConfig[] = [
     description: (
       <>
         <Typography variant="body1">
-          This app was mostly written in plain TypeScript. I used the Canvas API to plot the
-          Mandelbrot set. In order to improve graphing performance, I used WebWorkers (for
-          parallelism) and WebAssembly (compiled from Rust)
+          This app was mostly written in plain TypeScript. I used the Canvas API to plot the Mandelbrot set. In order to
+          improve graphing performance, I used WebWorkers (for parallelism) and WebAssembly (compiled from Rust)
         </Typography>
         <Typography variant="body1">
           I wrote a{" "}
@@ -84,9 +83,9 @@ export const projects: ProjectConfig[] = [
     description: (
       <>
         <Typography variant="body1">
-          For my resume, I wanted to play around with Server Side Rendering and using JSX outside of
-          a library. I wanted to make my resume so that it ran without any runtime dependencies.
-          Instead, I had fun overloading the project with some weird build-time tooling.
+          For my resume, I wanted to play around with Server Side Rendering and using JSX outside of a library. I wanted
+          to make my resume so that it ran without any runtime dependencies. Instead, I had fun overloading the project
+          with some weird build-time tooling.
         </Typography>
         <Typography variant="body1">
           <Link href="https://github.com/RyanKadri/simple-resume-builder">Github</Link>

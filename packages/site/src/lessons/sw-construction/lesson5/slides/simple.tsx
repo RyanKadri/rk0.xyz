@@ -11,10 +11,7 @@ import {
 } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { synJava } from "../../../../common/highlighting";
 
-export const Title = generateTitleSlide(
-  "State Management and Functional Programming",
-  "Ryan Kadri"
-);
+export const Title = generateTitleSlide("State Management and Functional Programming", "Ryan Kadri");
 
 export const WhereData = generateMessageSlide("Where does data live in your application?");
 

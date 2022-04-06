@@ -54,9 +54,7 @@ const siteLinks = [
   },
 ];
 
-const externalLinks = [
-  { description: "My GitHub", icon: faCode, link: "https://github.com/RyanKadri" },
-];
+const externalLinks = [{ description: "My GitHub", icon: faCode, link: "https://github.com/RyanKadri" }];
 
 export function RootNav() {
   const classes = useStyles();
@@ -76,13 +74,7 @@ export function RootNav() {
         </div>
         <div className={`${classes.linkGroup} ${classes.externalLinks}`}>
           {externalLinks.map(link => (
-            <a
-              href={link.link}
-              aria-label={link.description}
-              target="_blank"
-              key={link.link}
-              rel="noopener"
-            >
+            <a href={link.link} aria-label={link.description} target="_blank" key={link.link} rel="noopener">
               <FontAwesomeIcon icon={link.icon} />
             </a>
           ))}

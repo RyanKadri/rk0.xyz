@@ -31,11 +31,7 @@ export const Debugger = generateContentSlide("Using the Debugger", [
 export const AdvancedFeatures = generateContentSlide("Advanced Debugger Features", [
   {
     text: "Some debuggers have a harder time with",
-    children: [
-      "Library code (sometimes precompiled)",
-      "Pausing at the end of a loop",
-      "Debugging a remote system",
-    ],
+    children: ["Library code (sometimes precompiled)", "Pausing at the end of a loop", "Debugging a remote system"],
   },
   {
     text: "Some debuggers will",
@@ -119,9 +115,7 @@ export const ImmutableInfrastructure = generateContentSlide("Immutable Infrastru
   'May be slow to apply "updates"',
 ]);
 
-export const IsThereABetterWay = generateMessageSlide(
-  "Is there a cleaner way to solve these problems?"
-);
+export const IsThereABetterWay = generateMessageSlide("Is there a cleaner way to solve these problems?");
 
 export const EnterTerraform = generateMediaAssistSlide(
   "Enter Terraform",
@@ -131,10 +125,8 @@ export const EnterTerraform = generateMediaAssistSlide(
     "Generates the appropriate changes to get you there",
     <>
       Terraform can work with{" "}
-      <Link href="https://registry.terraform.io/browse/providers">
-        most infrastructure providers
-      </Link>{" "}
-      (Google, Azure, AWS)
+      <Link href="https://registry.terraform.io/browse/providers">most infrastructure providers</Link> (Google, Azure,
+      AWS)
     </>,
     "Manages dependencies between resources",
   ],

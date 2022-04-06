@@ -12,9 +12,7 @@ import { synJava, synJS } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Security and Data Storage", "Ryan Kadri");
 
-export const HowDoSecure = generateMessageSlide(
-  "How do you secure access to components in your cloud environment?"
-);
+export const HowDoSecure = generateMessageSlide("How do you secure access to components in your cloud environment?");
 
 export const NetworkSecurity = generateContentSlide("Network Security", [
   "The first round of defense is often the network",
@@ -261,9 +259,7 @@ export const S3Client = generateCodeSlide(
   [
     <>
       Import the Java AWS SDK as a{" "}
-      <Link href="https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk">
-        Maven Dependency
-      </Link>
+      <Link href="https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk">Maven Dependency</Link>
     </>,
     <>
       Check out the{" "}

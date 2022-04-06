@@ -11,9 +11,7 @@ import { synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Network APIs and Java Spring", "Ryan Kadri");
 
-export const HowDoNetworking = generateMessageSlide(
-  "How do programs communicate across a network?"
-);
+export const HowDoNetworking = generateMessageSlide("How do programs communicate across a network?");
 
 export const NetworkingBasics = generateContentSlide("Networking", [
   "For computers to communicate over networks, they need an identifier",
@@ -170,8 +168,7 @@ export const Postman = generateContentSlide("Postman", [
   'Making an "ad-hoc" HTTP request is not always straightforward',
   "For simple GET requests you can use the browser",
   <>
-    For other things, you might want to use a tool like{" "}
-    <Link href="https://www.postman.com/downloads/">Postman</Link>
+    For other things, you might want to use a tool like <Link href="https://www.postman.com/downloads/">Postman</Link>
   </>,
 ]);
 

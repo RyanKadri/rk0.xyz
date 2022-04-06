@@ -48,9 +48,7 @@ export default function LessonListView({ currCourse }: Props) {
 }
 
 type ReducedProps = Omit<CourseDefinition, "lessons"> & { lessons: Partial<Presentation> };
-export const getStaticProps: GetStaticProps<{ currCourse: ReducedProps }> = async ({
-  params = {},
-}) => {
+export const getStaticProps: GetStaticProps<{ currCourse: ReducedProps }> = async ({ params = {} }) => {
   const currCourse = activeCourses.find(course => course.slug === params.courseId)!;
   return {
     props: {

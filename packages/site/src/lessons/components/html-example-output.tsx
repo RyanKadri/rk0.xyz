@@ -41,13 +41,7 @@ export function HTMLExampleOutput({ code }: Props) {
 
   return (
     <>
-      <Button
-        variant="contained"
-        color="primary"
-        size="small"
-        onClick={toBlobPage}
-        className={classes.newTabButton}
-      >
+      <Button variant="contained" color="primary" size="small" onClick={toBlobPage} className={classes.newTabButton}>
         Open in tab
       </Button>
       <iframe className={classes.content} srcDoc={code} />

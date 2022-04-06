@@ -97,41 +97,20 @@ export function HexColors({ context }: Props) {
             </label>
             <label>
               Green
-              <input
-                type="range"
-                min="0"
-                max="255"
-                value={color.green}
-                onChange={onChange("green")}
-              />
+              <input type="range" min="0" max="255" value={color.green} onChange={onChange("green")} />
             </label>
             <label>
               Blue
-              <input
-                type="range"
-                min="0"
-                max="255"
-                value={color.blue}
-                onChange={onChange("blue")}
-              />
+              <input type="range" min="0" max="255" value={color.blue} onChange={onChange("blue")} />
             </label>
           </div>
           <code>=</code>
           <div className={classes.colorAdditionRow}>
-            <div
-              className={classes.colorAdditionBlock}
-              style={{ backgroundColor: `#${hexRed}0000` }}
-            ></div>
+            <div className={classes.colorAdditionBlock} style={{ backgroundColor: `#${hexRed}0000` }}></div>
             <code>+</code>
-            <div
-              className={classes.colorAdditionBlock}
-              style={{ backgroundColor: `#00${hexGreen}00` }}
-            ></div>
+            <div className={classes.colorAdditionBlock} style={{ backgroundColor: `#00${hexGreen}00` }}></div>
             <code>+</code>
-            <div
-              className={classes.colorAdditionBlock}
-              style={{ backgroundColor: `#0000${hexBlue}` }}
-            ></div>
+            <div className={classes.colorAdditionBlock} style={{ backgroundColor: `#0000${hexBlue}` }}></div>
           </div>
         </div>
       }

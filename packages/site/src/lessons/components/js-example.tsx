@@ -18,11 +18,7 @@ function extractFunctionInfo(code: string): FunctionInfo[] | null {
       console.error("Is this a valid JS snippet?");
       return null;
     } else {
-      return (
-        ast.body.filter(
-          statement => statement.type === "FunctionDeclaration"
-        ) as FunctionDeclaration[]
-      )
+      return (ast.body.filter(statement => statement.type === "FunctionDeclaration") as FunctionDeclaration[])
         .filter(func => func.id !== null)
         .map(func => ({
           name: func.id!.name,
@@ -59,9 +55,7 @@ export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
   const testCases = !!targetFunction ? testCaseMap[targetFunction] ?? [] : [];
 
   const selectedTestCase =
-    selectedTestCaseInd !== null && selectedTestCaseInd < testCases.length
-      ? testCases[selectedTestCaseInd]
-      : null;
+    selectedTestCaseInd !== null && selectedTestCaseInd < testCases.length ? testCases[selectedTestCaseInd] : null;
 
   useEffect(() => {
     if (!(functions ?? []).some(func => func.name === targetFunction)) {
@@ -71,11 +65,7 @@ export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
 
   const onRunTests = () => {
     const completedTests = testCases.map(testCase => {
-      const { result, consoleMessages } = executeFunction(
-        code,
-        selectedFunction!.name,
-        testCase.paramString
-      );
+      const { result, consoleMessages } = executeFunction(code, selectedFunction!.name, testCase.paramString);
       return {
         ...testCase,
         actualResult: result,
@@ -109,12 +99,7 @@ export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
               </select>
             </label>
             {selectedFunction && selectedFunction.parameters.length === 0 && (
-              <Button
-                color="primary"
-                variant="contained"
-                style={{ textTransform: "none" }}
-                onClick={onRunTests}
-              >
+              <Button color="primary" variant="contained" style={{ textTransform: "none" }} onClick={onRunTests}>
                 Run {selectedFunction!.name}
               </Button>
             )}
@@ -123,18 +108,13 @@ export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
             <JSExampleTestCases
               functionInfo={selectedFunction}
               testCases={testCases}
-              onUpdateTestCases={testCases =>
-                setTestCaseMap(old => ({ ...old, [selectedFunction.name]: testCases }))
-              }
+              onUpdateTestCases={testCases => setTestCaseMap(old => ({ ...old, [selectedFunction.name]: testCases }))}
               onRunTests={onRunTests}
               onSelectTestCase={setSelectedTestCaseInd}
             />
           )}
           {!!selectedFunction && (
-            <JSExampleConsole
-              consoleMessages={selectedTestCase?.messages}
-              result={selectedTestCase?.actualResult}
-            />
+            <JSExampleConsole consoleMessages={selectedTestCase?.messages} result={selectedTestCase?.actualResult} />
           )}
         </>
       )}

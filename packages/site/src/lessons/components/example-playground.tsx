@@ -1,10 +1,7 @@
 import { createStyles, Hidden, makeStyles, NoSsr } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
-import {
-  CodeBlock,
-  SyntaxHighlightedBlock,
-} from "../../../../presenter-core/src/slides/components/code-block";
+import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
 import CodeEditor from "../shared/code-editor";
 import { HTMLExampleOutput } from "./html-example-output";
 import { JSExampleRunner } from "./js-example";

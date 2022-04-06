@@ -47,8 +47,7 @@ export const Docker = generateMediaAssistSlide(
 );
 
 export const Disclaimer = generateMessageSlide(
-  "Disclaimer: Containers are a big concept. Docker is very " +
-    "popular but is not the only approach"
+  "Disclaimer: Containers are a big concept. Docker is very " + "popular but is not the only approach"
 );
 
 export const Containers = generateContentSlide("Docker Containers", [
@@ -136,11 +135,7 @@ export const Lambdas = generateContentSlide("AWS Lambdas", [
   "You give AWS a chunk of code",
   {
     text: "Your code is called in response to certain events like...",
-    children: [
-      "A file is uploaded to an S3 bucket",
-      "An item is stored in DynamoDB",
-      "Somebody calls a REST API",
-    ],
+    children: ["A file is uploaded to an S3 bucket", "An item is stored in DynamoDB", "Somebody calls a REST API"],
   },
   "AWS will run as many instances of your code in parallel as needed",
   <>

@@ -36,8 +36,7 @@ export const Credentials = generateContentSlide("Credentials + Access", [
   "Baked into your code (maybe a bad idea)",
   "... and a few others",
   <>
-    <em>Note:</em> Some non-AWS-managed setups allow network connections. You're responsible for
-    controlling that
+    <em>Note:</em> Some non-AWS-managed setups allow network connections. You're responsible for controlling that
   </>,
 ]);
 
@@ -87,10 +86,7 @@ export const TypesOfDatabases = generateContentSlide("Types of Databases", [
   },
   {
     text: "Document Databases - Stores data in documents. No cross-references",
-    children: [
-      "Less flexible but can scale larger in some cases",
-      "Easier for some types of apps. Hard to adapt",
-    ],
+    children: ["Less flexible but can scale larger in some cases", "Easier for some types of apps. Hard to adapt"],
   },
   "Graph Database - Thinks about data in graphs. Good for very connected data",
 ]);
@@ -257,10 +253,7 @@ export const CreatingInDynamo = generateCodeSlide(
 
 export const FetchingInDynamo = generateCodeSlide(
   "Fetching a Record",
-  [
-    "To fetch a record, you need its primary key",
-    "You should get back an item of the type you defined in Java",
-  ],
+  ["To fetch a record, you need its primary key", "You should get back an item of the type you defined in Java"],
   {
     code: synJava`public UserModel fetchUser(String userId) {
     Key key = Key.builder()

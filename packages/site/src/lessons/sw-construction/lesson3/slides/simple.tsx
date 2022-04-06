@@ -10,9 +10,7 @@ import { synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Java Spring and Networked Services", "Ryan Kadri");
 
-export const HowDoNetworking = generateMessageSlide(
-  "How do programs communicate across a network?"
-);
+export const HowDoNetworking = generateMessageSlide("How do programs communicate across a network?");
 
 export const NetworkingBasics = generateContentSlide("Networking", [
   "For computers to communicate over networks, they need an identifier",
@@ -151,10 +149,7 @@ export const BookstoreBadModel = generateContentSlide("Non-REST Book Store API",
 
 export const LetsLookAtApi = generateMessageSlide("Let's review our Spring server");
 
-export const SpringPart = generateTitleSlide(
-  "Part 2: Building Spring Apps",
-  "Dependency Injection and Decoupling"
-);
+export const SpringPart = generateTitleSlide("Part 2: Building Spring Apps", "Dependency Injection and Decoupling");
 
 export const MultiFileProjects = generateContentSlide("Multi-File Projects", [
   "Beyond very simple projects, it helps to split up your code",
@@ -236,10 +231,7 @@ export const DependencyInjection = generateContentSlide("Dependency Injection", 
 
 export const SpringApproach = generateCodeSlide(
   "Approach 3: Dependency Injection",
-  [
-    "Use annotations to indicate that a class can be injected",
-    "Spring will pass you an instance of a class",
-  ],
+  ["Use annotations to indicate that a class can be injected", "Spring will pass you an instance of a class"],
   {
     code: synJava`public class ImportantProcessHandler {
 

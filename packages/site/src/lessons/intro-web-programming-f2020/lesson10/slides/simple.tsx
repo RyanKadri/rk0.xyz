@@ -9,9 +9,7 @@ import { synJS } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Promises and the Network", "Ryan Kadri");
 
-export const PromiseErrorQuestion = generateMessageSlide(
-  "You mentioned that Promises can fail. How does that work?"
-);
+export const PromiseErrorQuestion = generateMessageSlide("You mentioned that Promises can fail. How does that work?");
 
 export const Networking = generateMessageSlide("Talking to Servers");
 
@@ -149,8 +147,8 @@ export const PromiseChaining = generateCodeSlide(
       <code>.then</code> callbacks can be synchronous or return another Promise
     </>,
     <>
-      If the <code>.then</code> callback returns a Promise, the next <code>.then</code> will wait
-      until the <em>returned promise</em> finishes
+      If the <code>.then</code> callback returns a Promise, the next <code>.then</code> will wait until the{" "}
+      <em>returned promise</em> finishes
     </>,
     "This collapsing helps make asynchronous code much easier to follow",
     "You don't need nested callbacks. Can orchestrate everything in one place",
@@ -269,8 +267,7 @@ export const TryCatch = generateCodeSlide(
     "Sometimes operations fail",
     "It would be nice to be able to handle errors gracefully",
     <>
-      Errors immediately exit the current function and keep bubbling up until something{" "}
-      <code>catch</code>es them
+      Errors immediately exit the current function and keep bubbling up until something <code>catch</code>es them
     </>,
     "try / catch in JavaScript lets you do this",
     <>

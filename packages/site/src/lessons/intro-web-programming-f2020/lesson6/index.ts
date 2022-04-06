@@ -1,18 +1,8 @@
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
-import {
-  ConditionalExample,
-  ForLoops,
-  FunctionsExample,
-  WhileLoops,
-} from "../lesson5/slides/simple";
+import { ConditionalExample, ForLoops, FunctionsExample, WhileLoops } from "../lesson5/slides/simple";
 import { ArraysExample } from "./slides/arrays";
-import {
-  AssignmentOperators,
-  ComparisonOperators,
-  LogicalOperators,
-  MathOperators,
-} from "./slides/operators";
+import { AssignmentOperators, ComparisonOperators, LogicalOperators, MathOperators } from "./slides/operators";
 import * as simple from "./slides/simple";
 import { UpdatingArrays } from "./slides/updating-arrays";
 import { VariablesAsLabels } from "./slides/variables-as-labels";

@@ -22,11 +22,8 @@ export const AddEventListenerQuestions = generateContentSlide("addEventListener"
   "In this case, we want to say what to do when a button is clicked",
 ]);
 
-export const AnotherExample = generateCodeSlide(
-  "Another Example",
-  ["What happens in the code below?"],
-  {
-    code: synJS`
+export const AnotherExample = generateCodeSlide("Another Example", ["What happens in the code below?"], {
+  code: synJS`
 function add(a, b) {
     return a + b;
 }
@@ -37,8 +34,7 @@ function multiply(a, b) {
 
 console.log( multiply(2, add(1,2)) );
     `,
-  }
-);
+});
 
 export const FunctionOrders = generateContentSlide("Resolving Unknowns", [
   "For JavaScript to run a line of code, it needs to resolve unknowns",
@@ -68,16 +64,11 @@ export const AddEventListenerExplanation = generateContentSlide("addEventListene
   "Known as a callback function",
 ]);
 
-export const OtherUseCases = generateMessageSlide(
-  "That seems pretty specific. Does anything else work like that?"
-);
+export const OtherUseCases = generateMessageSlide("That seems pretty specific. Does anything else work like that?");
 
 export const SetTimeoutExample = generateCodeSlide(
   "setTimeout",
-  [
-    "How do you make something happen after a specific delay?",
-    "Or maybe make something happen every 5 seconds?",
-  ],
+  ["How do you make something happen after a specific delay?", "Or maybe make something happen every 5 seconds?"],
   {
     code: synJS`
 function logHello() {

@@ -41,8 +41,7 @@ export function UrlParts({ context }: Props) {
         <>
           <span className={classes.url}>
             <span className={classes.protocol}>https</span>://
-            <span className={classes.domainName}>spy-notes-api.rk0.xyz</span>:
-            <span className={classes.port}>443</span>
+            <span className={classes.domainName}>spy-notes-api.rk0.xyz</span>:<span className={classes.port}>443</span>
             <span className={classes.path}>/users/abc123/notes</span>?
             <span className={classes.query}>page=1&amp;limit=10</span>
           </span>

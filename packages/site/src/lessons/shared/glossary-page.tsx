@@ -12,10 +12,7 @@ import {
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { ReactNode } from "react-markdown";
-import {
-  CodeBlock,
-  SyntaxHighlightedBlock,
-} from "../../../../presenter-core/src/slides/components/code-block";
+import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
 import { useMarkdownLabStyles } from "./lab";
 
 const useStyles = makeStyles(theme =>
@@ -90,11 +87,7 @@ function GlossaryCard({ item }: GlossaryCardProps) {
         {showingDetails &&
           !!item.moreInfo &&
           item.moreInfo.map(info =>
-            info.type === "code" ? (
-              <CodeBlock code={info.code} className={classes.codeBlock} />
-            ) : (
-              info.content
-            )
+            info.type === "code" ? <CodeBlock code={info.code} className={classes.codeBlock} /> : info.content
           )}
         {showingDetails && !!item.references && (
           <>
@@ -112,9 +105,7 @@ function GlossaryCard({ item }: GlossaryCardProps) {
         )}
       </CardContent>
       <CardActionArea onClick={() => setShowingDetails(true)}>
-        {!showingDetails && (!!item.moreInfo || !!item.references) && (
-          <Button color="primary">More details</Button>
-        )}
+        {!showingDetails && (!!item.moreInfo || !!item.references) && <Button color="primary">More details</Button>}
       </CardActionArea>
     </Card>
   );

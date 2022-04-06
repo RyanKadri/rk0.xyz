@@ -46,12 +46,7 @@ export function OkayRequest({ context }: Props) {
       Title="Better..."
       context={context}
       Content={
-        <RequestVisualizer
-          method="POST"
-          url="https://www.facebook.com/create-comment"
-          headers={null}
-          body={body}
-        />
+        <RequestVisualizer method="POST" url="https://www.facebook.com/create-comment" headers={null} body={body} />
       }
     />
   );

@@ -10,9 +10,7 @@ export function Consistency({ context }: { context: PresentationContext }) {
       context={context}
       Content={
         <>
-          <Typography style={{ fontFamily: "serif", fontSize: 64, marginTop: 128 }}>
-            Consistency is key
-          </Typography>
+          <Typography style={{ fontFamily: "serif", fontSize: 64, marginTop: 128 }}>Consistency is key</Typography>
           <style
             dangerouslySetInnerHTML={{
               __html: `

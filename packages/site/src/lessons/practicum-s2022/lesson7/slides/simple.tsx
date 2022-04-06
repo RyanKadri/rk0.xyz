@@ -199,8 +199,7 @@ export const SetupCommands = generateContentSlide("VM Setup Commands", [
     <code>yum install</code> - This command will let you install software on your server
   </>,
   <>
-    <code>nohup </code> - Lets you run a command that sticks around longer than the current SSH
-    session
+    <code>nohup </code> - Lets you run a command that sticks around longer than the current SSH session
   </>,
 ]);
 

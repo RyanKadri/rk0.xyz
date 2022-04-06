@@ -29,8 +29,7 @@ export const HowToUse = generateCodeSlide(
     "To use a CSS framework, just link the file with a <link> tag",
     "The easiest way to use a JS library is just linking with a <script> tag",
     <>
-      You may see some examples online with <code>import</code> but you need some special tools for
-      those
+      You may see some examples online with <code>import</code> but you need some special tools for those
     </>,
   ],
   {
@@ -61,10 +60,7 @@ export const ThinkingGlobals = generateContentSlide("Thinking about globals", [
 export const BunchOfFunctions = generateContentSlide("A bunch of functions", [
   {
     text: "Pros",
-    children: [
-      "User does not need to always prefix operations with your library name",
-      "Easier to write the library",
-    ],
+    children: ["User does not need to always prefix operations with your library name", "Easier to write the library"],
   },
   {
     text: "Cons",
@@ -143,11 +139,7 @@ export const MoProblems = generateContentSlide("Mo $ mo problems", [
 
 export const ChartJS = generateCodeSlide(
   "Chart.js",
-  [
-    "Helps create graphs in the browser",
-    "Much narrower goal than JQuery",
-    "Pretty easy to use but harder to extend",
-  ],
+  ["Helps create graphs in the browser", "Much narrower goal than JQuery", "Pretty easy to use but harder to extend"],
   {
     code: synJS`
 const chart = new Chart(context, {

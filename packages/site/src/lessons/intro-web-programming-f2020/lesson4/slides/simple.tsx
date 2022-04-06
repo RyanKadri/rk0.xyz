@@ -63,9 +63,7 @@ export const WhatArePseudoClasses = generateContentSlide("Wait. Pseudo-Classes?"
   </Link>,
 ]);
 
-export const WhatIfYouWantEasyBranding = generateMessageSlide(
-  "What if you don't want to design your own styles?"
-);
+export const WhatIfYouWantEasyBranding = generateMessageSlide("What if you don't want to design your own styles?");
 
 export const EnterCSSFrameworks = generateContentSlide("CSS Frameworks", [
   "Groups online maintain free, open-source styles for anyone to use",

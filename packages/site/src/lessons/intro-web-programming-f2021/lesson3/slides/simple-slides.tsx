@@ -113,10 +113,7 @@ export const GridPractice = generateMessageSlide(
 
 export const CombineItAll = generateMessageSlide("Let's combine it all together!");
 
-export const ResponsiveDesignTitle = generateTitleSlide(
-  "Website Layout - Part 2",
-  "Responsive Design"
-);
+export const ResponsiveDesignTitle = generateTitleSlide("Website Layout - Part 2", "Responsive Design");
 
 export const GoalsOfResponsiveDesign = generateContentSlide("Goals of Responsive Design", [
   "Make the site work on smartphones",
@@ -131,18 +128,13 @@ export const GoalsOfResponsiveDesignMore = generateContentSlide("Goals of Respon
   "Add features progressively",
 ]);
 
-export const AccessibilityAndResponsiveness = generateContentSlide(
-  "Responsiveness and Accessibility",
-  [
-    "Responsiveness helps with accessibility",
-    "Device width is not the only consideration",
-    "Some of the same techniques used in responsive design can enable accessibility improvements",
-  ]
-);
+export const AccessibilityAndResponsiveness = generateContentSlide("Responsiveness and Accessibility", [
+  "Responsiveness helps with accessibility",
+  "Device width is not the only consideration",
+  "Some of the same techniques used in responsive design can enable accessibility improvements",
+]);
 
-export const HowToResponsive = generateMessageSlide(
-  "How do we make a site look good on multiple devices?"
-);
+export const HowToResponsive = generateMessageSlide("How do we make a site look good on multiple devices?");
 
 export const ResponsiveIsHard = generateMessageSlide("But responsive design is hard!");
 

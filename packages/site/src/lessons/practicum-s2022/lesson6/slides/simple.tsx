@@ -8,10 +8,7 @@ import {
 } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { synJava } from "../../../../common/highlighting";
 
-export const Title = generateTitleSlide(
-  "Functional Programming and State Management",
-  "Ryan Kadri"
-);
+export const Title = generateTitleSlide("Functional Programming and State Management", "Ryan Kadri");
 
 export const MathFunctions = generateContentSlide("Mathematical Functions", [
   <>
@@ -34,10 +31,7 @@ export const PureFunctions = generateContentSlide('"Pure" Functions', [
   },
   {
     text: "The method has no side effects",
-    children: [
-      "The method can't store information elsewhere",
-      "The method doesn't trigger other external processes",
-    ],
+    children: ["The method can't store information elsewhere", "The method doesn't trigger other external processes"],
   },
   "All behavior in the method is captured in parameters and the return value",
 ]);

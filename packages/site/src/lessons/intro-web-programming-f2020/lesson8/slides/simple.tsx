@@ -16,9 +16,7 @@ export const AddEventListenerExplanation = generateContentSlide("Functions as pa
   "This is different from many other programming languages",
 ]);
 
-export const ThatsAwful = generateMessageSlide(
-  "That's awful and confusing! Why would you do that?!"
-);
+export const ThatsAwful = generateMessageSlide("That's awful and confusing! Why would you do that?!");
 
 export const FindThings = generateContentSlide("Let's do some problems", [
   "Find the first number greater than 10 in an array",
@@ -110,10 +108,7 @@ setInterval(annoying, 1000);
 
 export const FunctionsRedux = generateCodeSlide(
   "Functions",
-  [
-    "Functions are just like other data types",
-    "They can be assigned, returned, and passed as parameters",
-  ],
+  ["Functions are just like other data types", "They can be assigned, returned, and passed as parameters"],
   {
     code: synJS`
 function add(a, b) {

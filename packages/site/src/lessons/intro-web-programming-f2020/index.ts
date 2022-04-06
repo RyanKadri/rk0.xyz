@@ -17,8 +17,7 @@ import { lesson9 } from "./lesson9";
 export const introToWebProgrammingFall2020: CourseDefinition = {
   title: "Introduction to Web Technology and Programming",
   description:
-    "Web Programming for Beginners. Learn HTML, CSS, and JavaScript" +
-    " from the ground up. No experience required",
+    "Web Programming for Beginners. Learn HTML, CSS, and JavaScript" + " from the ground up. No experience required",
   slug: "cis-1052",
   lessons: [
     lesson1,

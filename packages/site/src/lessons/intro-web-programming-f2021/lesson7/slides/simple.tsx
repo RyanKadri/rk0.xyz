@@ -36,8 +36,7 @@ export const FindingElements = generateContentSlide("Finding Elements", [
     <code>document.querySelector("#a")</code> - Finds a single element using a CSS selector
   </>,
   <>
-    <code>document.querySelectorAll("header div")</code> - Finds all elements matching a CSS
-    selector
+    <code>document.querySelectorAll("header div")</code> - Finds all elements matching a CSS selector
   </>,
 ]);
 
@@ -92,14 +91,11 @@ export const DocumentCreateElement = generateContentSlide("document.createElemen
     <code>element.appendChild(child)</code> - Attach the child as the last child of another element
   </>,
   <>
-    <code>element.insertAdjacentElement('afterend', sibling)</code> - Attach the sibling element
-    next to the element
+    <code>element.insertAdjacentElement('afterend', sibling)</code> - Attach the sibling element next to the element
   </>,
 ]);
 
-export const HowDoMakeInteractive = generateMessageSlide(
-  "How do you make a web page respond to user input?"
-);
+export const HowDoMakeInteractive = generateMessageSlide("How do you make a web page respond to user input?");
 
 export const Events = generateContentSlide("Events", [
   'Browsers represent user inputs as "events"',
@@ -129,8 +125,7 @@ export const MostCommonEvents = generateContentSlide("Common Events", [
     <code>input</code> - Fired each time a user updates an input. Fires immediately
   </>,
   <>
-    <code>submit</code> - Fired when a user submits a form. Dependent on HTML structure but gives
-    nice UI
+    <code>submit</code> - Fired when a user submits a form. Dependent on HTML structure but gives nice UI
   </>,
 ]);
 
@@ -179,10 +174,7 @@ export const EventBubbling = generateCodeSlide(
 export const EventDefaults = generateContentSlide("Event Defaults", [
   {
     text: "Some HTML elements come with baked in behaviors",
-    children: [
-      "Links will navigate the browser to another page",
-      "Submitting forms will sometimes make pages refresh",
-    ],
+    children: ["Links will navigate the browser to another page", "Submitting forms will sometimes make pages refresh"],
   },
   "Sometimes it is helpful to turn those off with event.preventDefault",
   "Forms are the most common case for this IMO",

@@ -2,12 +2,7 @@ import { ManualSlideRecording } from "../../../../../presenter-core/src/services
 import { Presentation } from "../../../../../presenter-core/src/services/types";
 import { generateReferencesSlide } from "../../shared/references-slide";
 import { ArraysExample } from "./slides/arrays";
-import {
-  AssignmentOperators,
-  ComparisonOperators,
-  LogicalOperators,
-  MathOperators,
-} from "./slides/operators";
+import { AssignmentOperators, ComparisonOperators, LogicalOperators, MathOperators } from "./slides/operators";
 import * as simple from "./slides/simple";
 import timings from "./slides/timings.json";
 

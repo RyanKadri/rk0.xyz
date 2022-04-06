@@ -64,17 +64,13 @@ export function BrowserServerChat1({ context }: { context: PresentationContext }
         <section className={c(classes.chatColumn)}>
           <div className={c(classes.message, classes.browserMessage)}>
             <header>Browser</header>
-            Hi <MaterialLink href="https://rk0.xyz">https://rk0.xyz</MaterialLink>. Could you please
-            tell me how to display your web page?
+            Hi <MaterialLink href="https://rk0.xyz">https://rk0.xyz</MaterialLink>. Could you please tell me how to
+            display your web page?
           </div>
           <div className={c(classes.message, classes.serverMessage)}>
             <header>Server</header>
             Display this image:
-            <img
-              src={classSite.src}
-              alt="A screenshot of the class site"
-              className={classes.screenshot}
-            />
+            <img src={classSite.src} alt="A screenshot of the class site" className={classes.screenshot} />
           </div>
           <div className={c(classes.message, classes.serverMessage)}>
             <header>Server</header>

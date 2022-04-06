@@ -8,10 +8,10 @@ export const glossaryTerms: GlossaryItem[] = [
     term: "CSS Selector",
     description: (
       <>
-        The CSS Selector is the term in CSS before the block of styles. Selectors are used to say
-        which element those styles apply to. Selectors use a special syntax to target one or more
-        HTML elements based on some of their characteristics like tag name, class, id, attributes,
-        etc. In the code below, <InlineCode>a .header</InlineCode> is the css selector
+        The CSS Selector is the term in CSS before the block of styles. Selectors are used to say which element those
+        styles apply to. Selectors use a special syntax to target one or more HTML elements based on some of their
+        characteristics like tag name, class, id, attributes, etc. In the code below, <InlineCode>a .header</InlineCode>{" "}
+        is the css selector
       </>
     ),
     moreInfo: [
@@ -29,8 +29,8 @@ a .header { /* <--- This piece is the selector */
     term: "@media queries",
     description: (
       <>
-        Media queries allow you to apply blocks of CSS <em>only if</em> certain conditions are met.
-        This condition can "query" different device characteristics like:
+        Media queries allow you to apply blocks of CSS <em>only if</em> certain conditions are met. This condition can
+        "query" different device characteristics like:
         <ul>
           <li>Device width / height</li>
           <li>Are you trying to print?</li>
@@ -59,9 +59,8 @@ a .header { /* <--- This piece is the selector */
     term: "Flexbox",
     description: (
       <>
-        The name for the CSS "<strong>Flex</strong>ible <strong>Box</strong> Module". Flexbox
-        encompasses a number of CSS properties and styling options that allow users to create
-        powerful one-dimensional layouts
+        The name for the CSS "<strong>Flex</strong>ible <strong>Box</strong> Module". Flexbox encompasses a number of
+        CSS properties and styling options that allow users to create powerful one-dimensional layouts
       </>
     ),
     references: [

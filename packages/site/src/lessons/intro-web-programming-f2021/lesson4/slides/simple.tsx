@@ -13,9 +13,7 @@ import breakpoints from "./common-breakpoints.jpg";
 
 export const TitleSlide = generateTitleSlide("Part 1: Responsive Design", "Ryan Kadri");
 
-export const EnterMedia = generateMessageSlide(
-  "How do we make a web site that looks good on many devices?"
-);
+export const EnterMedia = generateMessageSlide("How do we make a web site that looks good on many devices?");
 
 export const ResponsiveGoals = generateContentSlide("Responsiveness Goals (Small Screen)", [
   "All critical parts of the application should be usable",

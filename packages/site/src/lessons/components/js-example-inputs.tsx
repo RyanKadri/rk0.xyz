@@ -85,9 +85,7 @@ export function JSExampleTestCases({
         <TableBody>
           {testCases.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={5}>
-                It doesn't look like this function has any test cases. Try adding one!
-              </TableCell>
+              <TableCell colSpan={5}>It doesn't look like this function has any test cases. Try adding one!</TableCell>
             </TableRow>
           ) : (
             testCases.map((testCase, i) => (
@@ -106,9 +104,7 @@ export function JSExampleTestCases({
       <CardActions>
         <Button
           variant="outlined"
-          onClick={() =>
-            onUpdateTestCases(testCases.concat({ paramString: "", expectedResult: "" }))
-          }
+          onClick={() => onUpdateTestCases(testCases.concat({ paramString: "", expectedResult: "" }))}
         >
           Add a Test Case
         </Button>
@@ -130,8 +126,7 @@ interface TestCaseLineProps {
 function TestCaseLine({ functionInfo, testCase, onUpdate, onSelect }: TestCaseLineProps) {
   const classes = useStyles();
   const [valid, result] = handledEval(testCase.expectedResult);
-  const resultMatches =
-    testCase.actualResult?.status === "success" && valid && testCase.actualResult.result === result;
+  const resultMatches = testCase.actualResult?.status === "success" && valid && testCase.actualResult.result === result;
 
   const onUpdateExpected = (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
@@ -174,9 +169,7 @@ function TestCaseLine({ functionInfo, testCase, onUpdate, onSelect }: TestCaseLi
       </TableCell>
       <TableCell>
         {testCase.actualResult === undefined ? null : testCase.actualResult.status === "success" ? (
-          <code className={resultMatches ? classes.success : classes.warning}>
-            {testCase.actualResult.result}
-          </code>
+          <code className={resultMatches ? classes.success : classes.warning}>{testCase.actualResult.result}</code>
         ) : (
           <code className={classes.error}>Error: {testCase.actualResult.error}</code>
         )}

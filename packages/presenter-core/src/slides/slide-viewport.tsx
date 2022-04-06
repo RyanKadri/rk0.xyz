@@ -50,9 +50,7 @@ export function SlideViewport({ Slide, context }: Props) {
     <div className={`${classes.viewportContainer}`} ref={viewport}>
       <Head>
         {/* Dumb hack for noscript */}
-        <style
-          dangerouslySetInnerHTML={{ __html: `html { font-size: ${theme.slides.baseFontSize}; }` }}
-        />
+        <style dangerouslySetInnerHTML={{ __html: `html { font-size: ${theme.slides.baseFontSize}; }` }} />
       </Head>
       <Paper className={classes.viewportPaper} elevation={5} style={style}>
         <Slide context={context} />

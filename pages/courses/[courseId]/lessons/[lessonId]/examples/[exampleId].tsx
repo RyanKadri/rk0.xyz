@@ -19,12 +19,7 @@ export default function _ExampleViewer({ examples, currExample, baseUrl, code }:
       <Head>
         <title>Example - {examples?.[currExample]?.title ?? "Unknown"}</title>
       </Head>
-      <ExampleViewer
-        examples={examples}
-        currExample={currExample}
-        baseUrl={baseUrl}
-        highlightedCode={code}
-      />
+      <ExampleViewer examples={examples} currExample={currExample} baseUrl={baseUrl} highlightedCode={code} />
     </>
   );
 }

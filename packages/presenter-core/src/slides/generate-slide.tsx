@@ -42,11 +42,7 @@ export function generateFullSlide(content: ReactElement) {
   };
 }
 
-export function generateMediaSlide(
-  media: ReactElement,
-  credit?: ReactElement | string,
-  title?: ReactElement | string
-) {
+export function generateMediaSlide(media: ReactElement, credit?: ReactElement | string, title?: ReactElement | string) {
   return function ({ context }: { context: PresentationContext }) {
     return <MediaSlide context={context} Media={media} Title={title} Credit={credit} />;
   };
@@ -68,15 +64,7 @@ export function generateCodeSlide(
 ) {
   const { code, ...options } = codeBlock;
   return function ({ context }: { context: PresentationContext }) {
-    return (
-      <CodeSlide
-        context={context}
-        Title={title}
-        bullets={bullets}
-        code={codeBlock.code}
-        options={options}
-      />
-    );
+    return <CodeSlide context={context} Title={title} bullets={bullets} code={codeBlock.code} options={options} />;
   };
 }
 

@@ -22,11 +22,7 @@ export const FutureGoals = generateContentSlide("Class Goal", [
   },
   {
     text: "#FutureGoals",
-    children: [
-      "Storing data over time",
-      "Let users interact with each other",
-      "Providing a centralized trusted party",
-    ],
+    children: ["Storing data over time", "Let users interact with each other", "Providing a centralized trusted party"],
   },
 ]);
 
@@ -173,11 +169,7 @@ export const RequestsResponses = generateContentSlide("Interacting with Servers"
   },
   {
     text: "What else can we use servers for?",
-    children: [
-      "Storing user data",
-      "Running computations",
-      "Providing a centralized trusted party",
-    ],
+    children: ["Storing user data", "Running computations", "Providing a centralized trusted party"],
   },
 ]);
 

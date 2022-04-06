@@ -52,10 +52,7 @@ export function HexColors({ context }: Props) {
       context={context}
       Content={
         <div className={classes.colorContainer}>
-          <div
-            style={{ backgroundColor: hexColor, color: inverseColor }}
-            className={classes.colorBlock}
-          >
+          <div style={{ backgroundColor: hexColor, color: inverseColor }} className={classes.colorBlock}>
             {hexColor}
             <label>
               Red
@@ -63,23 +60,11 @@ export function HexColors({ context }: Props) {
             </label>
             <label>
               Green
-              <input
-                type="range"
-                min="0"
-                max="255"
-                value={color.green}
-                onChange={onChange("green")}
-              />
+              <input type="range" min="0" max="255" value={color.green} onChange={onChange("green")} />
             </label>
             <label>
               Blue
-              <input
-                type="range"
-                min="0"
-                max="255"
-                value={color.blue}
-                onChange={onChange("blue")}
-              />
+              <input type="range" min="0" max="255" value={color.blue} onChange={onChange("blue")} />
             </label>
           </div>
         </div>

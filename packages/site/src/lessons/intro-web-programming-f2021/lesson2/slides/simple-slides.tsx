@@ -39,16 +39,12 @@ export const StyleConcepts = generateContentSlide("CSS Concepts", [
   },
 ]);
 
-export const ExampleTargeting = generateCodeSlide(
-  "Example CSS",
-  ["To give all paragraphs green text"],
-  {
-    code: synCSS`
+export const ExampleTargeting = generateCodeSlide("Example CSS", ["To give all paragraphs green text"], {
+  code: synCSS`
 p {
     color: green;
 }`,
-  }
-);
+});
 
 export const HowCSS = generateContentSlide("How does CSS work?", [
   "CSS lives separately from the HTML elements",
@@ -75,14 +71,7 @@ export const LinksAndLoading = generateContentSlide("Where does CSS live?", [
 export const Selectors = generateContentSlide("Selectors", [
   {
     text: "CSS can target elements based on: ",
-    children: [
-      "tag",
-      "class",
-      "id",
-      "Other attribute(s)",
-      `"Position" in the HTML`,
-      "Pseudo-elements",
-    ],
+    children: ["tag", "class", "id", "Other attribute(s)", `"Position" in the HTML`, "Pseudo-elements"],
   },
 ]);
 
@@ -93,11 +82,7 @@ export const ColorStyles = generateContentSlide("Styles: Color", [
   `Uses the concept of "additive colors"`,
 ]);
 
-export const CSSBoxModel = generateMediaSlide(
-  <img src={cssBoxModel.src} />,
-  undefined,
-  "CSS Fundamentals: Box Model"
-);
+export const CSSBoxModel = generateMediaSlide(<img src={cssBoxModel.src} />, undefined, "CSS Fundamentals: Box Model");
 
 export const CSSSpecificity = generateContentSlide("CSS Specificity", [
   "When two selectors try to apply the same style to an element, the more specific one wins",

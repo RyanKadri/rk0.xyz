@@ -10,9 +10,7 @@ interface Props {
 export function LabLayout({ children, title, description }: Props) {
   const labStyles = useMarkdownLabStyles();
   const derivedTitle =
-    title ??
-    children.find(child => child.props.originalType === "h1")?.props?.children ??
-    "Ryan Kadri";
+    title ?? children.find(child => child.props.originalType === "h1")?.props?.children ?? "Ryan Kadri";
 
   return (
     <main className={labStyles.container}>

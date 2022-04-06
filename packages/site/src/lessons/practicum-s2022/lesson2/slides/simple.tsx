@@ -24,9 +24,7 @@ export const OpenSourcePractical = generateContentSlide("Open Source Code", [
   },
 ]);
 
-export const InTheOpen = generateMessageSlide(
-  "What does it mean for projects to develop in the open?"
-);
+export const InTheOpen = generateMessageSlide("What does it mean for projects to develop in the open?");
 
 export const GitHubOssFeatures = generateContentSlide("Open Development", [
   "Obviously in open source, code is public",
@@ -50,8 +48,8 @@ export const Philosophy = generateMessageSlide("Back to Some Philosophy...");
 
 export const OsiDefP1 = generateContentSlide("OSI Open Source Definition", [
   <>
-    An organization called the <Link href="https://opensource.org/">OSI</Link> defined Open Source
-    software with the following conditions
+    An organization called the <Link href="https://opensource.org/">OSI</Link> defined Open Source software with the
+    following conditions
   </>,
   "Users are free to redistribute software",
   "You must make the source code available",
@@ -99,22 +97,17 @@ export const OpenSourceProfit = generateContentSlide("Open Source for Profit?", 
   },
 ]);
 
-export const HowDoOpenSource = generateMessageSlide(
-  "How do I use open source code in my projects?!"
-);
+export const HowDoOpenSource = generateMessageSlide("How do I use open source code in my projects?!");
 
-export const PossibilitiesForOpenSource = generateContentSlide(
-  "Using Libraries (Manual Approach)",
-  [
-    "You could copy the code from the open source library into your project",
-    "You'd have to be careful to separate that source code from yours though",
-    "How do you know where your code ends and the library starts?",
-    "How do you update the library?",
-    "How do others know which libraries you're using?",
-    "How do others know where the library came from?",
-    "What if that library needs other libraries?",
-  ]
-);
+export const PossibilitiesForOpenSource = generateContentSlide("Using Libraries (Manual Approach)", [
+  "You could copy the code from the open source library into your project",
+  "You'd have to be careful to separate that source code from yours though",
+  "How do you know where your code ends and the library starts?",
+  "How do you update the library?",
+  "How do others know which libraries you're using?",
+  "How do others know where the library came from?",
+  "What if that library needs other libraries?",
+]);
 
 export const ProjectManagement = generateContentSlide("It would be nice if...", [
   "You could list all your dependencies in one place",

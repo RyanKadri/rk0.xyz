@@ -98,10 +98,7 @@ export function SlideControls({
             <MaterialLink>Back to Class</MaterialLink>
           </Link>
           {!!lesson.recording && (
-            <MaterialLink
-              href={generateRecordingLink(lesson.recording, currSlide)}
-              target="__blank"
-            >
+            <MaterialLink href={generateRecordingLink(lesson.recording, currSlide)} target="__blank">
               View Recording
             </MaterialLink>
           )}
@@ -117,13 +114,7 @@ export function SlideControls({
           >
             <FontAwesomeIcon icon={faEllipsisV} />
           </IconButton>
-          <Menu
-            id="slide-controls"
-            anchorEl={anchorEl}
-            open={!!anchorEl}
-            onClose={() => setAnchorEl(null)}
-            keepMounted
-          >
+          <Menu id="slide-controls" anchorEl={anchorEl} open={!!anchorEl} onClose={() => setAnchorEl(null)} keepMounted>
             {/* TODO - Fix styling */}
             <MenuItem
               className={classes.menuItem}
@@ -160,22 +151,14 @@ export function SlideControls({
                 <IconButton className={classes.button} color="secondary" onClick={onStop}>
                   <FontAwesomeIcon icon={faSquare} />
                 </IconButton>
-                <span>
-                  {renderRecordingTime(
-                    Date.now() - (recording as AutomaticSlideRecording).startTime
-                  )}
-                </span>
+                <span>{renderRecordingTime(Date.now() - (recording as AutomaticSlideRecording).startTime)}</span>
               </>
             )}
           </div>
         )}
       </NoSsr>
       <div className={classes.controlButtonGroup}>
-        <LinkOrDisabledButton
-          href={previousSlideLink}
-          icon={faChevronLeft}
-          label="Previous Slide"
-        />
+        <LinkOrDisabledButton href={previousSlideLink} icon={faChevronLeft} label="Previous Slide" />
         <LinkOrDisabledButton href={nextSlideLink} icon={faChevronRight} label="Next Slide" />
       </div>
     </div>
@@ -215,9 +198,7 @@ function renderRecordingTime(timeInMillis) {
 
 function generateRecordingLink(recording: RecordingDefinition, slide: number) {
   const baseUrl = recording.link;
-  const firstSlideChange = (recording.slideTimings?.slideChangeEvents ?? []).find(
-    event => event.slideNum === slide
-  );
+  const firstSlideChange = (recording.slideTimings?.slideChangeEvents ?? []).find(event => event.slideNum === slide);
   if (!firstSlideChange) {
     return baseUrl;
   } else {

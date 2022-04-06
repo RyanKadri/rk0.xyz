@@ -47,9 +47,7 @@ export const ImagineChangingProjects = generateMessageSlide(
   "You are working on a new feature for your product. Your boss asks you to drop that and start trying to fix a bug"
 );
 
-export const ImagineATeam = generateMessageSlide(
-  "You are working with a team. You need to all merge your work"
-);
+export const ImagineATeam = generateMessageSlide("You are working with a team. You need to all merge your work");
 
 export const ItWouldBeNice = generateContentSlide("It would be nice if...", [
   'It were easy to take a "snapshot" of your project to return to if you break things',
@@ -88,8 +86,7 @@ export const GitConcepts = generateContentSlide("Git Concepts", [
   {
     text: (
       <>
-        <strong>Commit</strong> - A commit in git is a point in time snapshot of the repository
-        folder
+        <strong>Commit</strong> - A commit in git is a point in time snapshot of the repository folder
       </>
     ),
     children: [
@@ -116,8 +113,7 @@ export const GitConcepts2 = generateContentSlide("Git Concepts (continued)", [
   {
     text: (
       <>
-        <strong>Commit Graph</strong> - As a project grows, you can think of it as a graph of
-        commits
+        <strong>Commit Graph</strong> - As a project grows, you can think of it as a graph of commits
       </>
     ),
     children: [
@@ -163,8 +159,7 @@ export const WorkingWithOthers = generateContentSlide("Working with Others", [
     <code>git clone</code> - Copies the files in a project (and the history) to your machine
   </>,
   <>
-    <code>git fetch</code> - Update your git graph based on a remote repo. Does not make changes
-    directly
+    <code>git fetch</code> - Update your git graph based on a remote repo. Does not make changes directly
   </>,
   <>
     <code>git merge</code> - Merges changes from another branch into yours
@@ -186,7 +181,9 @@ export const MergeConflict = generateContentSlide("Merge Conflicts", [
 ]);
 
 export const GitHub = generateContentSlide("GitHub", [
-  <>GitHub ≠ git</>,
+  <>
+    <code>Test</code>GitHub ≠ git
+  </>,
   "GitHub is a host for Git repositories",
   "The most popular host for open source projects",
   "... but not the only host",
@@ -195,6 +192,4 @@ export const GitHub = generateContentSlide("GitHub", [
   "Issues and Pull Requests are how work usually gets done",
 ]);
 
-export const references: Reference[] = [
-  { label: "Git Manual", url: "https://git-scm.com/book/en/v2" },
-];
+export const references: Reference[] = [{ label: "Git Manual", url: "https://git-scm.com/book/en/v2" }];

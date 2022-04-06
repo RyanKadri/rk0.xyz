@@ -55,10 +55,7 @@ export function HslColors({ context }: Props) {
       context={context}
       Content={
         <div className={classes.colorContainer}>
-          <div
-            style={{ backgroundColor: colorStyle, color: inverseColor }}
-            className={classes.colorBlock}
-          >
+          <div style={{ backgroundColor: colorStyle, color: inverseColor }} className={classes.colorBlock}>
             {colorStyle}
             <label>
               Hue

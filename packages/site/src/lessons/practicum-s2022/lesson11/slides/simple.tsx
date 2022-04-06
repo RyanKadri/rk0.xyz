@@ -113,8 +113,7 @@ export const DockerContainerCommands = generateContentSlide("Container Commands"
         <code>-p</code> expose/forward network ports
       </>,
       <>
-        <code>-it</code> (technically two options) that let you run an interactive shell in a
-        container
+        <code>-it</code> (technically two options) that let you run an interactive shell in a container
       </>,
       <>
         <code>--rm</code> remove the container after it runs
@@ -248,11 +247,7 @@ export const Lambdas = generateContentSlide("AWS Lambdas", [
   "You give AWS a chunk of code",
   {
     text: "Your code is called in response to certain events like...",
-    children: [
-      "A file is uploaded to an S3 bucket",
-      "An item is stored in DynamoDB",
-      "Somebody calls a REST API",
-    ],
+    children: ["A file is uploaded to an S3 bucket", "An item is stored in DynamoDB", "Somebody calls a REST API"],
   },
   "AWS will run as many instances of your code in parallel as needed",
   <>

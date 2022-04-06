@@ -1,12 +1,4 @@
-import {
-  createStyles,
-  makeStyles,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from "@material-ui/core";
+import { createStyles, makeStyles, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
@@ -69,39 +61,19 @@ interface Props {
 }
 
 export function MathOperators({ context }: Props) {
-  return (
-    <OperatorsTableSlide title="Math Operators" operatorGroup={mathOperators} context={context} />
-  );
+  return <OperatorsTableSlide title="Math Operators" operatorGroup={mathOperators} context={context} />;
 }
 
 export function AssignmentOperators({ context }: Props) {
-  return (
-    <OperatorsTableSlide
-      title="Assignment Operators"
-      operatorGroup={assignmentOperators}
-      context={context}
-    />
-  );
+  return <OperatorsTableSlide title="Assignment Operators" operatorGroup={assignmentOperators} context={context} />;
 }
 
 export function ComparisonOperators({ context }: Props) {
-  return (
-    <OperatorsTableSlide
-      title="Comparison Operators"
-      operatorGroup={comparisonOperators}
-      context={context}
-    />
-  );
+  return <OperatorsTableSlide title="Comparison Operators" operatorGroup={comparisonOperators} context={context} />;
 }
 
 export function LogicalOperators({ context }: Props) {
-  return (
-    <OperatorsTableSlide
-      title="Logical Operators"
-      operatorGroup={logicalOperators}
-      context={context}
-    />
-  );
+  return <OperatorsTableSlide title="Logical Operators" operatorGroup={logicalOperators} context={context} />;
 }
 
 interface OperatorTableProps {
@@ -155,11 +127,6 @@ interface OperatorDefinition {
   result?: string;
 }
 
-function op(
-  symbol: string,
-  description: string,
-  example?: string,
-  result?: string
-): OperatorDefinition {
+function op(symbol: string, description: string, example?: string, result?: string): OperatorDefinition {
   return { symbol, description, example, result };
 }

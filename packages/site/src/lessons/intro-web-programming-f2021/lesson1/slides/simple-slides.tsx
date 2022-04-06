@@ -116,18 +116,11 @@ export const WhatIsBrowserPart2 = generateContentSlide("What is a Browser?", [
 export const TradeoffsOfServerImages = generateContentSlide("Model 1 Pros / Cons", [
   {
     text: "Pros",
-    children: [
-      "The browser can be very simple - Just display an image",
-      "A simple browser is a secure browser",
-    ],
+    children: ["The browser can be very simple - Just display an image", "A simple browser is a secure browser"],
   },
   {
     text: "Cons",
-    children: [
-      "Uses tons of data",
-      "Different devices need different images (complex)",
-      "Interactivity is hard",
-    ],
+    children: ["Uses tons of data", "Different devices need different images (complex)", "Interactivity is hard"],
   },
 ]);
 
@@ -180,11 +173,7 @@ export const TradeoffsOfHTML = generateContentSlide("HTML Pros / Cons", [
 
 export const XMLSlide = generateCodeSlide(
   "XML",
-  [
-    "HTML is mostly based on XML",
-    "Information in XML is nested/hierarchical",
-    "Documents are self-descriptive",
-  ],
+  ["HTML is mostly based on XML", "Information in XML is nested/hierarchical", "Documents are self-descriptive"],
   {
     code: synHTML`<Book isbn=”9788580410631”>
     <Title>The Name of the Wind</Title>

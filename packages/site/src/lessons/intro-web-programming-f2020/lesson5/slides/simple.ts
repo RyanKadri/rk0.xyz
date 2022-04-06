@@ -68,11 +68,7 @@ const j = "last" in i;
 
 export const ArraysExample = generateCodeSlide(
   "Arrays",
-  [
-    "Arrays hold ordered lists of values",
-    "Adding elements to an array is easy",
-    "Positions start at 0",
-  ],
+  ["Arrays hold ordered lists of values", "Adding elements to an array is easy", "Positions start at 0"],
   {
     codeBlock: {
       canExecuteCode: true,
@@ -94,11 +90,7 @@ mixed[3] = "something";
 
 export const ConditionalExample = generateCodeSlide(
   "Conditionals",
-  [
-    "Normal JavaScript runs line-by-line",
-    "Conditionals allow you to make a decision",
-    "Run one code block or another",
-  ],
+  ["Normal JavaScript runs line-by-line", "Conditionals allow you to make a decision", "Run one code block or another"],
   {
     code: synJS`
 if (someNumber < 123) {
@@ -183,11 +175,8 @@ const nothing = null;
   }
 );
 
-export const WhileLoops = generateCodeSlide(
-  "While Loops",
-  [`While loops run as long as something is "truthy"`],
-  {
-    code: synJS`
+export const WhileLoops = generateCodeSlide("While Loops", [`While loops run as long as something is "truthy"`], {
+  code: synJS`
 let counter = 0;
 while(counter < 5) {
     console.log(counter);
@@ -198,8 +187,7 @@ let test = "blahh"
 while(test) {
     // Runs forever
 }`,
-  }
-);
+});
 
 export const ForLoops = generateCodeSlide(
   "For Loops",

@@ -49,9 +49,7 @@ export const OtherHomes = generateContentSlide("Other JavaScript Homes", [
   <>
     JavaScript is one of the most popular programming languages in 2020
     <sup>
-      <Link href="https://www.northeastern.edu/graduate/blog/most-popular-programming-languages/">
-        [1]
-      </Link>
+      <Link href="https://www.northeastern.edu/graduate/blog/most-popular-programming-languages/">[1]</Link>
     </sup>
     <sup>
       <Link href="https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-languages-wanted">

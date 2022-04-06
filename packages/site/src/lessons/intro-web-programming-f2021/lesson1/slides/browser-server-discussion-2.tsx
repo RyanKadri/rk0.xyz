@@ -63,13 +63,13 @@ export function BrowserServerChat2({ context }: { context: PresentationContext }
         <section className={c(classes.chatColumn)}>
           <div className={c(classes.message, classes.browserMessage)}>
             <header>Browser</header>
-            Hi <MaterialLink href="https://rk0.xyz">https://rk0.xyz</MaterialLink>. Could you please
-            tell me how to display your web page?
+            Hi <MaterialLink href="https://rk0.xyz">https://rk0.xyz</MaterialLink>. Could you please tell me how to
+            display your web page?
           </div>
           <div className={c(classes.message, classes.serverMessage)}>
             <header>Server</header>
-            Ok. First draw a rectangle starting at point 0,0. Make it 1600 pixels wide and 64 pixels
-            tall. Color it teal. Now draw the text "Courses" with its top left corner at (32, 16)...
+            Ok. First draw a rectangle starting at point 0,0. Make it 1600 pixels wide and 64 pixels tall. Color it
+            teal. Now draw the text "Courses" with its top left corner at (32, 16)...
           </div>
           <div className={c(classes.message, classes.serverMessage)}>
             <header>Server</header>

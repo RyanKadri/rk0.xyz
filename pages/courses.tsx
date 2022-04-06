@@ -55,9 +55,7 @@ export default function CourseSelector() {
           type="application/ld+json"
           key="course-data"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              courseGroups.flatMap(group => group.courses).map(courseToStructuredData)
-            ),
+            __html: JSON.stringify(courseGroups.flatMap(group => group.courses).map(courseToStructuredData)),
           }}
         />
       </Head>
@@ -80,10 +78,7 @@ export function CourseGroupAccordion({ group }: GroupProps) {
     <section className={classes.groupContainer}>
       <header className={classes.expandHeader} onClick={() => setExpanded(!expanded)}>
         <Typography display="inline">{group.name}</Typography>
-        <FontAwesomeIcon
-          icon={expanded ? faChevronUp : faChevronDown}
-          className={classes.expandIcon}
-        />
+        <FontAwesomeIcon icon={expanded ? faChevronUp : faChevronDown} className={classes.expandIcon} />
       </header>
       {expanded && (
         <div>

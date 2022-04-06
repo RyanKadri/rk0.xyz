@@ -117,8 +117,7 @@ export const JUnitAnnotations = generateContentSlide("JUnit Annotations", [
 
 export const JUnitAssertions = generateContentSlide("JUnit Assertions", [
   <>
-    <code>assertEquals</code> - Checks that two values are equal. Be careful with objects and
-    doubles
+    <code>assertEquals</code> - Checks that two values are equal. Be careful with objects and doubles
   </>,
   <>
     <code>assertTrue/assertFalse</code> - Checks that a value is true or false
@@ -177,11 +176,8 @@ export const AssignmentTestExample = generateCodeSlide("Example Cucumber Spec", 
         Then there should be 0 operations in the history`,
 });
 
-export const CucumberDependencies = generateCodeSlide(
-  "Reference: Cucumber and JUnit Dependencies",
-  [],
-  {
-    code: synHTML`<dependency>
+export const CucumberDependencies = generateCodeSlide("Reference: Cucumber and JUnit Dependencies", [], {
+  code: synHTML`<dependency>
     <groupId>org.junit.jupiter</groupId>
     <artifactId>junit-jupiter-api</artifactId>
     <version>5.7.1</version>
@@ -203,8 +199,7 @@ export const CucumberDependencies = generateCodeSlide(
     <artifactId>cucumber-junit</artifactId>
     <version>6.9.1</version>
 </dependency>`,
-  }
-);
+});
 
 export const references: Reference[] = [
   { label: "Kent C Dodds - Testing", url: "https://kentcdodds.com/blog/write-tests" },

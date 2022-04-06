@@ -57,11 +57,7 @@ function withInterceptingConsole<T>(func: () => T): {
   }
 }
 
-export function executeFunction(
-  code: string,
-  targetFunction?: string,
-  paramString = ""
-): LoggedExecutionResult {
+export function executeFunction(code: string, targetFunction?: string, paramString = ""): LoggedExecutionResult {
   return withInterceptingConsole(() =>
     (0, eval)(`(function() {
             try {

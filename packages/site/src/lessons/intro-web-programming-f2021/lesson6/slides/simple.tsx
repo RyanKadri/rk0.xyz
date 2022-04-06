@@ -93,8 +93,7 @@ export const DocumentObject = generateCodeSlide(
       <code>document.getElementById()</code> - Gets an element with a particular id attribute
     </>,
     <>
-      <code>document.getElementsByClassName()</code> - Gets all elements with a particular class
-      attribute
+      <code>document.getElementsByClassName()</code> - Gets all elements with a particular class attribute
     </>,
     <>
       <code>document.querySelector()</code> - Gets the first element with a CSS selector

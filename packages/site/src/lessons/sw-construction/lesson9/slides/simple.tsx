@@ -10,9 +10,7 @@ import { synJava, synJS } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Security and Data Storage", "Ryan Kadri");
 
-export const HowDoSecure = generateMessageSlide(
-  "How do you secure access to components in your cloud environment?"
-);
+export const HowDoSecure = generateMessageSlide("How do you secure access to components in your cloud environment?");
 
 export const UserSecurity = generateContentSlide("User Security", [
   "One common way to think about security in terms of users is the AAA model",
@@ -219,9 +217,7 @@ export const UsingS3 = generateContentSlide("Using S3 in Java", [
   </>,
   <>
     Generate access keys for the user. Store those in your
-    <a href="https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html">
-      credentials file
-    </a>
+    <a href="https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html">credentials file</a>
   </>,
   <>
     Import the Java AWS SDK as a
@@ -251,19 +247,15 @@ public S3Client createS3Client() {
   }
 );
 
-export const S3PutExample = generateCodeSlide(
-  "Writing to S3",
-  ["Use the previously client to upload items to S3"],
-  {
-    code: synJava`PutObjectRequest request = PutObjectRequest.builder()
+export const S3PutExample = generateCodeSlide("Writing to S3", ["Use the previously client to upload items to S3"], {
+  code: synJava`PutObjectRequest request = PutObjectRequest.builder()
     .bucket("rk0")
     .key("hello.txt")
     .build();
 
 var body = RequestBody.fromString(message);
 this.s3Client.putObject(request, body);`,
-  }
-);
+});
 
 export const S3GetExample = generateCodeSlide(
   "Reading from S3",

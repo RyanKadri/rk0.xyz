@@ -17,9 +17,7 @@ import yourOpinion from "./your-opinion.jpg";
 
 export const TitleSlide = generateTitleSlide("V8 Engine Deoptimizations", "Ryan Kadri");
 
-export const InterpretedOrCompiled = generateMessageSlide(
-  "Is JavaScript an interpreted or compiled language?"
-);
+export const InterpretedOrCompiled = generateMessageSlide("Is JavaScript an interpreted or compiled language?");
 
 export const CompilerPipeline = generateMediaAssistSlide(
   "V8 Compiler Pipeline",
@@ -306,9 +304,7 @@ export const D8Intro = generateContentSlide("D8 - A debugging-friendly version o
 export const RealReactPR = generateMessageSlide(
   <>
     A real React PR:
-    <Link href="https://github.com/facebook/react/pull/14383">
-      https://github.com/facebook/react/pull/14383
-    </Link>
+    <Link href="https://github.com/facebook/react/pull/14383">https://github.com/facebook/react/pull/14383</Link>
   </>
 );
 

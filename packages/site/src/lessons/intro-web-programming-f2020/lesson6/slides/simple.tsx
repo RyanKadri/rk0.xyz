@@ -16,9 +16,7 @@ export const DataTypes = generateContentSlide("Data Types", [
   },
 ]);
 
-export const MapArray = generateMessageSlide(
-  "Write a function that takes in an array and doubles each item"
-);
+export const MapArray = generateMessageSlide("Write a function that takes in an array and doubles each item");
 
 export const MapArrayImmutable = generateMessageSlide(
   "Write a function that takes in an array and returns a new array with each item doubled"

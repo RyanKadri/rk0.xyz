@@ -25,18 +25,11 @@ export const AsyncCallback = generateContentSlide("Async Callbacks", [
   "The first operation decides what parameters (if any) to pass",
   {
     text: "The JavaScript runtime manages waiting for certain operations",
-    children: [
-      "Reading files",
-      "Calling the network",
-      "Waiting for the user to do something",
-      "Timers",
-    ],
+    children: ["Reading files", "Calling the network", "Waiting for the user to do something", "Timers"],
   },
 ]);
 
-export const WhatIsBlocking = generateMessageSlide(
-  "So if that's non-blocking, what's non-non-blocking code?"
-);
+export const WhatIsBlocking = generateMessageSlide("So if that's non-blocking, what's non-non-blocking code?");
 
 export const BlockingCodeCharacteristics = generateContentSlide("Blocking Code", [
   "Blocking code waits for each operation to finish before running the next",
@@ -78,11 +71,7 @@ export const RequestsResponses = generateContentSlide("Interacting with Servers"
   },
   {
     text: "What else can we use servers for?",
-    children: [
-      "Storing user data",
-      "Running computations",
-      "Providing a centralized trusted party",
-    ],
+    children: ["Storing user data", "Running computations", "Providing a centralized trusted party"],
   },
 ]);
 
@@ -131,13 +120,7 @@ export const HttpHeaders = generateContentSlide("HTTP Headers", [
   "Uppercase words separated by dashes",
   {
     text: "Examples include",
-    children: [
-      "Authorization",
-      "Expires / Age / Cache-Control",
-      "Cookie",
-      "Accept / Content-Type",
-      "Many more",
-    ],
+    children: ["Authorization", "Expires / Age / Cache-Control", "Cookie", "Accept / Content-Type", "Many more"],
   },
 ]);
 
