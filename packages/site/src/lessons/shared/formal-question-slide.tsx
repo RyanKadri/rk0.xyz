@@ -5,7 +5,7 @@ import { PresentationContext } from "../../../../presenter-core/src/services/typ
 import { PageNumber } from "../../../../presenter-core/src/slides/components/page-number";
 
 export function generateQuestionSlide(question: string) {
-  return function QuestionSlide({ context }: { context: PresentationContext }) {
+  return function _QuestionSlide({ context }: { context: PresentationContext }) {
     return <QuestionSlide context={context} question={question} />;
   };
 }
