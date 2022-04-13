@@ -183,4 +183,6 @@ export const GithubActions = generateContentSlide("GitHub Actions", [
 export const LetsGoGHA = generateMessageSlide("Let's give it a shot!")
 
 export const references: Reference[] = [
+  { label: "AWS Lambda Java Examples", url: "https://docs.aws.amazon.com/lambda/latest/dg/java-samples.html" },
+  { label: "Lambda HTTPS Endpoints Announcement", url: "https://aws.amazon.com/blogs/aws/announcing-aws-lambda-function-urls-built-in-https-endpoints-for-single-function-microservices/" }
 ];
