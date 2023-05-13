@@ -4,10 +4,12 @@ import {
   generateTitleSlide,
 } from "../../../../../../../presenter-core/src/slides/generate-slide";
 import blending from "./blending.jpg";
+import colorCube from "./colorCube.png";
 import colorWheel from "./colorWheel.jpg";
 import { ColorsOfLight } from "./colorsOfLight";
 import theCouch from "./couch.jpg";
 import fingerPaint from "./fingerPaint.jpg";
+import lab from "./lab.png";
 import pixel from "./pixels.gif";
 import prism from "./prism.jpg";
 import rodsAndCones from "./rodsAndCones.webp";
@@ -45,14 +47,16 @@ export const WhatIf2 = generateDefinitionSlide(
   ""
 );
 export const Pixel = generateMediaSlide(<img src={pixel.src} />);
+export const ColorCube = generateMediaSlide(<img src={colorCube.src} />, "Conclusion 1: Color is not a cube");
+export const Lab = generateMediaSlide(<img src={lab.src} />, "It looks more like this");
 
 export const Conclusion1 = generateMediaSlide(
   <img src={theDress.src} />,
   undefined,
-  "Conclusion 1: The dress is objectively white and gold"
+  "Conclusion 2: The dress is objectively white and gold"
 );
 export const Conclusion2 = generateMediaSlide(
   <img src={theCouch.src} />,
   undefined,
-  "Conclusion 2: This couch is grey (not blue)"
+  "Conclusion 1: This couch is grey (not blue)"
 );
