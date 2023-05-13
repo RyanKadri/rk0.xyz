@@ -58,5 +58,5 @@ export const Conclusion1 = generateMediaSlide(
 export const Conclusion2 = generateMediaSlide(
   <img src={theCouch.src} />,
   undefined,
-  "Conclusion 1: This couch is grey (not blue)"
+  "Conclusion 3: This couch is grey (not blue)"
 );
