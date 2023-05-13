@@ -47,8 +47,12 @@ export const WhatIf2 = generateDefinitionSlide(
   ""
 );
 export const Pixel = generateMediaSlide(<img src={pixel.src} />);
-export const ColorCube = generateMediaSlide(<img src={colorCube.src} />, "Conclusion 1: Color is not a cube");
-export const Lab = generateMediaSlide(<img src={lab.src} />, "It looks more like this");
+export const ColorCube = generateMediaSlide(
+  <img src={colorCube.src} />,
+  undefined,
+  "Conclusion 1: Color is not a cube"
+);
+export const Lab = generateMediaSlide(<img src={lab.src} />, undefined, "It looks more like this");
 
 export const Conclusion1 = generateMediaSlide(
   <img src={theDress.src} />,
