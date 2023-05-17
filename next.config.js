@@ -32,5 +32,4 @@ module.exports = withMDX({
             { source: "/", destination: "/courses", permanent: true }
         ]
     },
-    target: "serverless"
 }))

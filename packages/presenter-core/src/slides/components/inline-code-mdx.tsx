@@ -1,4 +1,6 @@
 import { createStyles, makeStyles } from "@material-ui/core";
+import React from "react";
+import { ReactNode } from "react-markdown";
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -14,7 +16,7 @@ const useStyles = makeStyles(theme =>
 );
 
 interface Props {
-  children: string;
+  children: ReactNode;
 }
 export function InlineCode({ children }: Props) {
   const classes = useStyles();

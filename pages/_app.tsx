@@ -1,31 +1,23 @@
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { CssBaseline, makeStyles, MuiThemeProvider, Theme } from "@material-ui/core";
+import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
+import { Components } from "@mdx-js/react/lib";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
 import { CodeBlockMdxWrapper } from "../packages/presenter-core/src/slides/components/code-block-mdx-wrapper";
 import { InlineCode } from "../packages/presenter-core/src/slides/components/inline-code-mdx";
 import { GAWrapper } from "../packages/site/src/analytics";
-import { isProfessor, UserContext } from "../packages/site/src/common/admin";
+import { UserContext, isProfessor } from "../packages/site/src/common/admin";
 import { useClientSideValue } from "../packages/site/src/common/functional-utils";
 import { RootNav } from "../packages/site/src/root/top-nav";
 import { lightTheme } from "../packages/site/src/theme";
 config.autoAddCss = false;
 
-const useStyles = makeStyles((_: Theme) => ({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh",
-  },
-}));
-
 function SiteViewport({ Component, pageProps }: AppProps) {
-  const classes = useStyles();
-  const mdxComponents = {
-    code: CodeBlockMdxWrapper,
-    inlineCode: InlineCode,
+  const mdxComponents: Components = {
+    code: props => <CodeBlockMdxWrapper className={props.className}>{props.children as string}</CodeBlockMdxWrapper>,
+    inlineCode: props => <InlineCode>{props.children}</InlineCode>,
   };
 
   const userSettings = {
@@ -35,7 +27,7 @@ function SiteViewport({ Component, pageProps }: AppProps) {
   return (
     <GAWrapper>
       <MDXProvider components={mdxComponents}>
-        <MuiThemeProvider theme={lightTheme}>
+        <ThemeProvider theme={lightTheme}>
           <UserContext.Provider value={userSettings}>
             <CssBaseline />
             <Head>
@@ -50,12 +42,12 @@ function SiteViewport({ Component, pageProps }: AppProps) {
               />
               <link rel="icon" href="/favicon.png" />
             </Head>
-            <div className={classes.container}>
+            <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
               <RootNav />
               <Component {...pageProps} />
             </div>
           </UserContext.Provider>
-        </MuiThemeProvider>
+        </ThemeProvider>
       </MDXProvider>
     </GAWrapper>
   );
