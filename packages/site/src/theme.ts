@@ -1,8 +1,7 @@
-import { amber, red, teal } from "@material-ui/core/colors";
-import {} from "@material-ui/core/styles";
-import createMuiTheme, { ThemeOptions } from "@material-ui/core/styles/createMuiTheme";
+import { amber, red, teal } from "@mui/material/colors";
+import { adaptV4Theme, createTheme } from "@mui/material/styles";
 
-export const lightThemeOptions: ThemeOptions = {
+export const lightThemeOptions = adaptV4Theme({
   palette: {
     primary: teal,
     secondary: red,
@@ -48,14 +47,14 @@ export const lightThemeOptions: ThemeOptions = {
       label: {
         textTransform: "none",
       },
-    },
+    } as any,
   },
   slides: {
     baseFontSize: "36px",
   },
-};
+});
 
-export const darkThemeOptions: ThemeOptions = {
+export const darkThemeOptions = {
   ...lightThemeOptions,
   palette: {
     primary: teal,
@@ -77,5 +76,7 @@ export const darkThemeOptions: ThemeOptions = {
   },
 };
 
-export const lightTheme = createMuiTheme(lightThemeOptions);
-export const darkTheme = createMuiTheme(darkThemeOptions);
+export const lightTheme = createTheme(lightThemeOptions);
+export const darkTheme = createTheme(darkThemeOptions);
+
+export type CustomTheme = typeof lightTheme;

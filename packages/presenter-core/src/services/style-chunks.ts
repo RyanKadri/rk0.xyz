@@ -1,4 +1,4 @@
-import { Theme } from "@material-ui/core";
+import { Theme } from "@mui/material";
 
 const decorationHeight = 96;
 export const titleDecorator = (theme: Theme) => ({

@@ -1,7 +1,7 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons/faChevronUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { createStyles, makeStyles, Typography } from "@material-ui/core";
+import { createStyles, makeStyles, Typography } from "@mui/material";
 import Head from "next/head";
 import { useState } from "react";
 import { CourseDefinition } from "../packages/presenter-core/src/services/types";

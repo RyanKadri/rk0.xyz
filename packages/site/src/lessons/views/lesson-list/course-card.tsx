@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Avatar, createStyles, ListItemAvatar, ListItemText, makeStyles, Paper } from "@material-ui/core";
+import { Avatar, createStyles, ListItemAvatar, ListItemText, makeStyles, Paper } from "@mui/material";
 import Link from "next/link";
-import React from "react";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 
 const useStyles = makeStyles(

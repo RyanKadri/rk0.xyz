@@ -1,5 +1,5 @@
 import { dom } from "@fortawesome/fontawesome-svg-core";
-import { ServerStyleSheets } from "@material-ui/core/styles";
+import { ServerStyleSheets } from "@mui/material/styles";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import React from "react";
 

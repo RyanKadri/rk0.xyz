@@ -1,6 +1,6 @@
-import { createStyles, makeStyles, Paper, Theme, useTheme } from "@material-ui/core";
+import { createStyles, makeStyles, Paper, Theme, useTheme } from "@mui/material";
 import Head from "next/head";
-import React, { ComponentType, useRef } from "react";
+import { ComponentType, useRef } from "react";
 import { PresentationContext } from "../services/types";
 import { useComponentSize } from "../services/use-component-size";
 

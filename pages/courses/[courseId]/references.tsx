@@ -1,8 +1,7 @@
-import { Link as MaterialLink, makeStyles, Typography } from "@material-ui/core";
+import { Link as MaterialLink, Typography, makeStyles } from "@mui/material";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
 import { CourseDefinition, Presentation } from "../../../packages/presenter-core/src/services/types";
 import { activeCourses } from "../../../packages/site/src/lessons/views/activeCourses";
 

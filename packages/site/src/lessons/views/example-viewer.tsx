@@ -12,9 +12,9 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
 import { ExamplePlayground } from "../components/example-playground";

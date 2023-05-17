@@ -10,7 +10,7 @@ import {
   TableHead,
   TableRow,
   Tooltip,
-} from "@material-ui/core";
+} from "@mui/material";
 import React from "react";
 import { handledEval } from "../../../../presenter-core/src/services/js-execution";
 import { TestCase } from "../../../../presenter-core/src/services/types";

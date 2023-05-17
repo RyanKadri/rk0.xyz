@@ -1,6 +1,6 @@
-import { createStyles, makeStyles, MuiThemeProvider } from "@material-ui/core";
+import { createStyles, makeStyles, MuiThemeProvider } from "@mui/material";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useTitle } from "../../../site/src/common/use-app-bar";
 import { recorderService } from "../services/slide-recorder";
 import { CourseDefinition, PresentationContext } from "../services/types";

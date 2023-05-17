@@ -1,6 +1,5 @@
-import { Card, CardContent, Link, makeStyles, Typography } from "@material-ui/core";
+import { Card, CardContent, Link, makeStyles, Typography } from "@mui/material";
 import Head from "next/head";
-import React from "react";
 import { projects } from "../packages/site/src/projects/projects-config";
 
 const useStyles = makeStyles(theme => ({

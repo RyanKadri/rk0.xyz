@@ -1,7 +1,6 @@
-import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import { createStyles, makeStyles, Theme, Typography } from "@mui/material";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import React from "react";
 import { CourseDefinition, Presentation } from "../../packages/presenter-core/src/services/types";
 import { courseToStructuredData } from "../../packages/site/src/analytics";
 import { activeCourses } from "../../packages/site/src/lessons/views/activeCourses";

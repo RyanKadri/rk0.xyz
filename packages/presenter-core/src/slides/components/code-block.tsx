@@ -12,9 +12,9 @@ import {
   Paper,
   Popper,
   Tooltip,
-} from "@material-ui/core";
+} from "@mui/material";
 import c from "classnames";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { executeFunction, LoggedConsoleMessage } from "../../services/js-execution";
 
 const useStyles = makeStyles(theme =>

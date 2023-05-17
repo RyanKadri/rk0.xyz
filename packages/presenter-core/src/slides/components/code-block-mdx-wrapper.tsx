@@ -1,6 +1,5 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from "@mui/material";
 import prism from "prismjs";
-import React from "react";
 import { CodeBlock, SyntaxHighlightedBlock } from "./code-block";
 
 const useStyles = makeStyles({

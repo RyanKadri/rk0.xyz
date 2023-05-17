@@ -1,5 +1,4 @@
-import { createStyles, makeStyles } from "@material-ui/core";
-import React from "react";
+import { createStyles, makeStyles } from "@mui/material";
 import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
 
 const useStyles = makeStyles(theme =>

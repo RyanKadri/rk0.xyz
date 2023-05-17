@@ -5,25 +5,17 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons/faCircle";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons/faEllipsisV";
 import { faSquare } from "@fortawesome/free-solid-svg-icons/faSquare";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  createStyles,
-  Hidden,
-  IconButton,
-  Link as MaterialLink,
-  makeStyles,
-  Menu,
-  MenuItem,
-  NoSsr,
-} from "@material-ui/core";
+import { Hidden, IconButton, Link as MaterialLink, Menu, MenuItem, NoSsr, createStyles } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import c from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { isProfessor } from "../../../site/src/common/admin";
 import { AutomaticSlideRecording, SlideRecording } from "../services/slide-recorder";
 import { Presentation, RecordingDefinition } from "../services/types";
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles(theme: V4 =>
   createStyles({
     controlsContainer: {
       fontSize: 16,

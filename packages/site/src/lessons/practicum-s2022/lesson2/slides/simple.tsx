@@ -1,5 +1,4 @@
-import { Link } from "@material-ui/core";
-import React from "react";
+import { Link } from "@mui/material";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import {
   generateCodeSlide,

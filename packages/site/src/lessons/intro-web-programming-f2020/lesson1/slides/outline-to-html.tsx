@@ -1,6 +1,5 @@
-import { createStyles, makeStyles } from "@material-ui/core";
+import { createStyles, makeStyles } from "@mui/material";
 import { PresentationContext } from "packages/presenter-core/src/services/types";
-import React from "react";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
 const useStyles = makeStyles(theme =>

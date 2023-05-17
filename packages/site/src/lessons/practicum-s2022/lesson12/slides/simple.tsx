@@ -1,9 +1,10 @@
-import { Link } from "@material-ui/core";
-import React from "react";
+import { Link } from "@mui/material";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import {
   generateCodeSlide,
-  generateContentSlide, generateMessageSlide, generateTitleSlide
+  generateContentSlide,
+  generateMessageSlide,
+  generateTitleSlide,
 } from "../../../../../../presenter-core/src/slides/generate-slide";
 import { synHTML } from "../../../../common/highlighting";
 
@@ -14,7 +15,7 @@ export const AbstractionJourney = generateContentSlide("Our Abstraction Journey"
   "Running applications on VMs on physical servers",
   "Running apps on VMs on physical servers in somebody else's datacenter",
   "Running apps on containers on VMs on physical servers in somebody else's DC",
-  "Simple right??"
+  "Simple right??",
 ]);
 
 export const AbstractionGeneralizations = generateContentSlide("Abstraction Layers", [
@@ -32,7 +33,7 @@ export const ServerlessServices = generateContentSlide("Managed Services", [
   "These services are very simple but you don't get a ton of control",
   "You don't need to make updates, handle operating system config, etc",
   "You get charged for API usage -- not uptime",
-  "Services where you don't need to think about servers and that charge by usage are called \"serverless\"",
+  'Services where you don\'t need to think about servers and that charge by usage are called "serverless"',
 ]);
 
 export const Serverless = generateContentSlide("Serverless Compute", [
@@ -61,25 +62,28 @@ export const LambdasNotServers = generateContentSlide("Lambdas vs Servers", [
   "Servers run continuously. Lambdas don't",
   "AWS will create and shut down Lambdas when it wants. Lambdas can't be too stateful",
   "Even with scaling, servers may live for hours or days",
-  "Lambdas may live for minutes (or less)"
+  "Lambdas may live for minutes (or less)",
 ]);
 
 export const FunctionInSpace = generateContentSlide("AWS Lambdas", [
   "Lambdas are like a function floating around in space",
-  <>AWS <em>could</em> run your code from scratch every execution</>,
+  <>
+    AWS <em>could</em> run your code from scratch every execution
+  </>,
   "Technically your function gets deployed on a server (that you can't control)",
   "A function may get re-used if AWS wants to reuse it",
   "No strong guarantee of when this happens though",
   "There is a noticeable performance hit when AWS does not reuse your code",
-  'This is a "cold start"'
+  'This is a "cold start"',
 ]);
 
 export const WriteALambda = generateMessageSlide("Let's make a Lambda!");
 
-export const LambdaDependencies = generateCodeSlide("Lambda Dependencies", [
-  "Lambdas have some small dependencies to get started"
-], {
-  code: synHTML`
+export const LambdaDependencies = generateCodeSlide(
+  "Lambda Dependencies",
+  ["Lambdas have some small dependencies to get started"],
+  {
+    code: synHTML`
 <dependencies>
   <dependency>
     <groupId>com.amazonaws</groupId>
@@ -92,14 +96,15 @@ export const LambdaDependencies = generateCodeSlide("Lambda Dependencies", [
     <version>3.11.0</version>
   </dependency>
 </dependencies>  
-  `
-})
+  `,
+  }
+);
 
-export const PackagingPlugin = generateCodeSlide("Packaging Plugin", [
-  "AWS recomends a plugin to package your Lambda as a JAR",
-  "You will upload this JAR to AWS"
-], {
-  code: synHTML`
+export const PackagingPlugin = generateCodeSlide(
+  "Packaging Plugin",
+  ["AWS recomends a plugin to package your Lambda as a JAR", "You will upload this JAR to AWS"],
+  {
+    code: synHTML`
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-shade-plugin</artifactId>
@@ -116,14 +121,15 @@ export const PackagingPlugin = generateCodeSlide("Packaging Plugin", [
     </execution>
   </executions>
 </plugin>
-  `
-});
+  `,
+  }
+);
 
 export const WhyNotSpring = generateContentSlide("Why don't we use Spring?", [
   "Spring is a heavy framework (compared to a pure Java program)",
   "Even small servers take a few seconds to start",
   "Because of cold-starts, that would mean some users get a 4+ second penalty on startup",
-  "Also Lambdas expect specific events. Spring expects an HTTP request"
+  "Also Lambdas expect specific events. Spring expects an HTTP request",
 ]);
 
 export const PipelinesSubtitle = generateTitleSlide("CI / CD Pipelines", "Ryan Kadri");
@@ -133,7 +139,7 @@ export const WhenToRunTests = generateContentSlide("When do we run automated tes
   "They can check edge-cases and hard-to-test error scenarios",
   "Do you always run them before pushing code though?",
   "Can you guarantee that your coworkers do as well?",
-  "For long-running tests, this can really slow you down!"
+  "For long-running tests, this can really slow you down!",
 ]);
 
 export const TestingPRs = generateContentSlide("Running Tests on PRs", [
@@ -141,7 +147,7 @@ export const TestingPRs = generateContentSlide("Running Tests on PRs", [
   "Other people could pull your bad code",
   "What happens if the test fails? Who sees it?",
   "Running tests during PRs might be more convenient",
-  "Can we automate this?"
+  "Can we automate this?",
 ]);
 
 export const DeployingOnMerge = generateContentSlide("How do we deploy code?", [
@@ -150,7 +156,7 @@ export const DeployingOnMerge = generateContentSlide("How do we deploy code?", [
   "Hopefully only a few seconds of downtime right?",
   "... Or you can have a more complicated process",
   "But will a human always do that process right?",
-  "Can we automate this?"
+  "Can we automate this?",
 ]);
 
 export const WhenToDeploy = generateContentSlide("When to deploy code", [
@@ -158,8 +164,8 @@ export const WhenToDeploy = generateContentSlide("When to deploy code", [
   "...and then deploy whenever you want",
   "Maybe you only deploy after lots of testing?",
   'Maybe you have special "release days" when a lot of code is released at once?',
-  "That can be dangerous though. What if something breaks?"
-])
+  "That can be dangerous though. What if something breaks?",
+]);
 
 export const ReleaseOnMerge = generateContentSlide("Deploying on Merge to Main", [
   "What if we deploy much more often?",
@@ -167,22 +173,25 @@ export const ReleaseOnMerge = generateContentSlide("Deploying on Merge to Main",
   "PR checks hopefully show that code is working",
   "A good enough automated process can hopefully deploy without downtime",
   "Changes are released in much smaller chunks. If things break, it should be easier to track down",
-  "Also, you get customer feedback faster"
-])
+  "Also, you get customer feedback faster",
+]);
 
-export const HowDo = generateMessageSlide("So how do we do this?")
+export const HowDo = generateMessageSlide("So how do we do this?");
 
 export const GithubActions = generateContentSlide("GitHub Actions", [
   "GitHub Actions is a pipeline product from GitHub",
   "Free to use for open source projects",
   "Can run builds in response to events (like a PR or a merge to main)",
   "Has a lot of support for Docker, AWS, Java, etc",
-  "Easily extensible"
-])
+  "Easily extensible",
+]);
 
-export const LetsGoGHA = generateMessageSlide("Let's give it a shot!")
+export const LetsGoGHA = generateMessageSlide("Let's give it a shot!");
 
 export const references: Reference[] = [
   { label: "AWS Lambda Java Examples", url: "https://docs.aws.amazon.com/lambda/latest/dg/java-samples.html" },
-  { label: "Lambda HTTPS Endpoints Announcement", url: "https://aws.amazon.com/blogs/aws/announcing-aws-lambda-function-urls-built-in-https-endpoints-for-single-function-microservices/" }
+  {
+    label: "Lambda HTTPS Endpoints Announcement",
+    url: "https://aws.amazon.com/blogs/aws/announcing-aws-lambda-function-urls-built-in-https-endpoints-for-single-function-microservices/",
+  },
 ];

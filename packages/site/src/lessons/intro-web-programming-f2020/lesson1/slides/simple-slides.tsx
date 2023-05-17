@@ -1,5 +1,4 @@
-import { Link as MaterialLink } from "@material-ui/core";
-import React from "react";
+import { Link as MaterialLink } from "@mui/material";
 import aboutMe from "../../../../../../../public/images/about-me-picture-web.jpg";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import {

@@ -9,8 +9,8 @@ import {
   makeStyles,
   TextField,
   Typography,
-} from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+} from "@mui/material";
+import { useEffect, useState } from "react";
 import { ReactNode } from "react-markdown";
 import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
 import { useMarkdownLabStyles } from "./lab";

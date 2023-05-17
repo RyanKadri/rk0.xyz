@@ -1,5 +1,5 @@
-import { Link, makeStyles, Typography } from "@material-ui/core";
-import React, { ReactElement } from "react";
+import { Link, makeStyles, Typography } from "@mui/material";
+import { ReactElement } from "react";
 import { PresentationContext, Reference } from "../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../presenter-core/src/slides/slides";
 

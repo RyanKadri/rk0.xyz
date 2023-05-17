@@ -1,5 +1,5 @@
-import { Link, Typography } from "@material-ui/core";
-import React, { ReactNode } from "react";
+import { Link, Typography } from "@mui/material";
+import { ReactNode } from "react";
 import bingo from "../../../../public/projects/bingo.webp";
 import mandelbrot from "../../../../public/projects/mandelbrot.webp";
 import resume from "../../../../public/projects/resume.webp";

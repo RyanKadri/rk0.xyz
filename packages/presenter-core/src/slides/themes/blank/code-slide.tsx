@@ -1,5 +1,4 @@
-import { makeStyles } from "@material-ui/core";
-import React from "react";
+import { makeStyles } from "@mui/material";
 import { CodeBlock } from "../../components/code-block";
 import { InfoList } from "../../components/info-list";
 import { CodeSlideProps } from "../../slides";

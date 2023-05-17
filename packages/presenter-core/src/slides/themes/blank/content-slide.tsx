@@ -1,6 +1,5 @@
-import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import { createStyles, makeStyles, Theme, Typography } from "@mui/material";
 import c from "classnames";
-import React from "react";
 import { InfoList } from "../../components/info-list";
 import { PageNumber } from "../../components/page-number";
 import { ContentSlideProps } from "../../slides";

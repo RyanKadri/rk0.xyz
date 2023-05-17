@@ -1,5 +1,4 @@
-import { Card, CardHeader, makeStyles } from "@material-ui/core";
-import React from "react";
+import { Card, CardHeader, makeStyles } from "@mui/material";
 import { EvalResult, LoggedConsoleMessage } from "../../../../presenter-core/src/services/js-execution";
 
 const useStyles = makeStyles(theme => ({

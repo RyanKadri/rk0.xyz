@@ -10,10 +10,10 @@ import {
   TableRow,
   Theme,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import c from "classnames";
 import dynamic from "next/dynamic";
-import React, { useState } from "react";
+import { useState } from "react";
 import { deepEquals } from "../../common/functional-utils";
 const CodeEditor = dynamic(() => import("./code-editor"), { ssr: false });
 

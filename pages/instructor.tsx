@@ -10,8 +10,7 @@ import {
   ListItemText,
   makeStyles,
   Typography,
-} from "@material-ui/core";
-import React from "react";
+} from "@mui/material";
 import { recorderService } from "../packages/presenter-core/src/services/slide-recorder";
 import { useClientSideValue } from "../packages/site/src/common/functional-utils";
 

@@ -1,8 +1,8 @@
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AppBar, createStyles, makeStyles, Toolbar } from "@material-ui/core";
+import { AppBar, createStyles, makeStyles, Toolbar } from "@mui/material";
 import Link from "next/link";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { UserContext, UserSettings } from "../common/admin";
 
 const useStyles = makeStyles(theme =>

@@ -1,5 +1,5 @@
-import { createMuiTheme } from "@material-ui/core";
-import { cyan, purple } from "@material-ui/core/colors";
+import { createMuiTheme } from "@mui/material";
+import { cyan, purple } from "@mui/material/colors";
 import { lightThemeOptions } from "../../../../../site/src/theme";
 import type { IThemeContext } from "../theme-context";
 import { CenterMessageSlide } from "./center-message-slide";

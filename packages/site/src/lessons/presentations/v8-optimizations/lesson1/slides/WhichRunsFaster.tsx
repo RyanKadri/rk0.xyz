@@ -1,6 +1,5 @@
-import { createStyles, Link, makeStyles } from "@material-ui/core";
+import { createStyles, Link, makeStyles } from "@mui/material";
 import c from "classnames";
-import React from "react";
 import { PresentationContext } from "../../../../../../../presenter-core/src/services/types";
 import {
   CodeBlock,

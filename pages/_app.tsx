@@ -1,10 +1,9 @@
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
 import { Components } from "@mdx-js/react/lib";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import React from "react";
 import { CodeBlockMdxWrapper } from "../packages/presenter-core/src/slides/components/code-block-mdx-wrapper";
 import { InlineCode } from "../packages/presenter-core/src/slides/components/inline-code-mdx";
 import { GAWrapper } from "../packages/site/src/analytics";

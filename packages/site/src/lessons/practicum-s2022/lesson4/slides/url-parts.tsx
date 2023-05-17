@@ -1,6 +1,5 @@
-import { createStyles, makeStyles } from "@material-ui/core";
-import { blue, green, orange, purple, red } from "@material-ui/core/colors";
-import React from "react";
+import { createStyles, makeStyles } from "@mui/material";
+import { blue, green, orange, purple, red } from "@mui/material/colors";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 

@@ -1,4 +1,4 @@
-import { Button, makeStyles } from "@material-ui/core";
+import { Button, makeStyles } from "@mui/material";
 import { parse } from "acorn";
 import { FunctionDeclaration, Identifier, Node } from "estree";
 import React, { useEffect, useState } from "react";

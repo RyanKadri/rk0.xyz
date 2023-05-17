@@ -1,6 +1,5 @@
-import { makeStyles, Typography } from "@material-ui/core";
+import { makeStyles, Typography } from "@mui/material";
 import c from "classnames";
-import React from "react";
 import { PageNumber } from "../../components/page-number";
 import { MediaSlideProps } from "../../slides";
 import { useBaseStyles } from "./base-styles";

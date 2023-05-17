@@ -1,16 +1,16 @@
-import "@material-ui/core/styles/createMuiTheme";
-import "@material-ui/core/styles/useTheme";
+import "@mui/material/styles/createMuiTheme";
+import "@mui/material/styles/useTheme";
 
-declare module "@material-ui/core/styles/createMuiTheme" {
-    export interface ThemeOptions {
-        slides: {
-            baseFontSize: string;
-        }
-    }
+declare module "@mui/material/styles/createMuiTheme" {
+  export interface ThemeOptions {
+    slides: {
+      baseFontSize: string;
+    };
+  }
 
-    export interface Theme {
-        slides: {
-            baseFontSize: string;
-        }
-    }
+  export interface Theme {
+    slides: {
+      baseFontSize: string;
+    };
+  }
 }

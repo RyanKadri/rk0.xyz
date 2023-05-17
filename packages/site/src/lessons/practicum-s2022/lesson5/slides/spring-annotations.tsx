@@ -1,5 +1,4 @@
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
-import React from "react";
+import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 

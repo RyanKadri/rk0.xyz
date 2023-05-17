@@ -1,6 +1,5 @@
-import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import { createStyles, makeStyles, Theme, Typography } from "@mui/material";
 import c from "classnames";
-import React from "react";
 import { titleDecorator } from "../../../services/style-chunks";
 import { PageNumber } from "../../components/page-number";
 import { TitleSlideProps } from "../../slides";

@@ -1,5 +1,4 @@
-import { Link } from "@material-ui/core";
-import React from "react";
+import { Link } from "@mui/material";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import {
   generateCodeSlide,
@@ -8,7 +7,7 @@ import {
   generateMessageSlide,
   generateTitleSlide,
 } from "../../../../../../presenter-core/src/slides/generate-slide";
-import { synJava, synJS } from "../../../../common/highlighting";
+import { synJS, synJava } from "../../../../common/highlighting";
 
 export const Title = generateTitleSlide("Security and Data Storage", "Ryan Kadri");
 

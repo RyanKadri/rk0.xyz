@@ -1,6 +1,5 @@
-import { createStyles, Link as MaterialLink, makeStyles } from "@material-ui/core";
+import { Link as MaterialLink, createStyles, makeStyles } from "@mui/material";
 import c from "classnames";
-import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import classSite from "./class-site.png";

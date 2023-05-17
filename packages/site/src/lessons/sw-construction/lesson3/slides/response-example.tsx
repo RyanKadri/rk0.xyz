@@ -1,5 +1,4 @@
-import { makeStyles } from "@material-ui/core";
-import React from "react";
+import { makeStyles } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 

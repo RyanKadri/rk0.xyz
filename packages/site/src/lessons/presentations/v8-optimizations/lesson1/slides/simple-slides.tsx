@@ -1,4 +1,4 @@
-import { Link } from "@material-ui/core";
+import { Link } from "@mui/material";
 import { Reference } from "../../../../../../../presenter-core/src/services/types";
 import {
   generateContentSlide,
@@ -9,10 +9,10 @@ import {
   generateTitleSlide,
 } from "../../../../../../../presenter-core/src/slides/generate-slide";
 import { synJS } from "../../../../../common/highlighting";
+import { ComparisonSlide } from "./WhichRunsFaster";
 import hashMap from "./hashMap.jpg";
 import hiddenClasses from "./hiddenClasses.jpg";
 import v8Pipeline from "./ignition-pipeline.png";
-import { ComparisonSlide } from "./WhichRunsFaster";
 import yourOpinion from "./your-opinion.jpg";
 
 export const TitleSlide = generateTitleSlide("V8 Engine Deoptimizations", "Ryan Kadri");

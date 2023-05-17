@@ -1,5 +1,4 @@
-import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
-import React from "react";
+import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import {
   generateCodeSlide,

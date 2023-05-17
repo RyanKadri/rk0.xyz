@@ -1,5 +1,4 @@
-import { createStyles, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
+import { createStyles, makeStyles, Typography } from "@mui/material";
 import { LabDefinition } from "../../../../../../presenter-core/src/services/types";
 import { wrap } from "../../../../common/functional-utils";
 import { CodePlayground, FunctionExecutionParams } from "../../../shared/code-playground";

@@ -6,19 +6,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Card,
   CardHeader,
-  createStyles,
   Hidden,
   Link as MaterialLink,
-  makeStyles,
   Paper,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
-} from "@material-ui/core";
+  createStyles,
+  makeStyles,
+} from "@mui/material";
 import Link from "next/link";
-import React from "react";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 
 const useStyles = makeStyles(
