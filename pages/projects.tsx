@@ -1,4 +1,5 @@
-import { Card, CardContent, Link, makeStyles, Typography } from "@mui/material";
+import { Card, CardContent, Link, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import Head from "next/head";
 import { projects } from "../packages/site/src/projects/projects-config";
 

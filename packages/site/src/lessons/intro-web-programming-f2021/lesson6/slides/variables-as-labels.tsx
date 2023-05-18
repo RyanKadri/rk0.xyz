@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeSlide } from "../../../../../../presenter-core/src/slides/themes/blank/code-slide";
 import { synJS } from "../../../../common/highlighting";

@@ -1,12 +1,14 @@
-import { createStyles, makeStyles, Theme, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { CourseDefinition, Presentation } from "../../packages/presenter-core/src/services/types";
 import { courseToStructuredData } from "../../packages/site/src/analytics";
 import { activeCourses } from "../../packages/site/src/lessons/views/activeCourses";
 import { LessonList } from "../../packages/site/src/lessons/views/lesson-list/lesson-list";
+import { CustomTheme } from "../../packages/site/src/theme";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: CustomTheme) =>
   createStyles({
     container: {
       minHeight: "calc(100vh - 64px)",

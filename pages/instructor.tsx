@@ -1,16 +1,8 @@
 import { faDownload } from "@fortawesome/free-solid-svg-icons/faDownload";
 import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  createStyles,
-  IconButton,
-  List,
-  ListItem,
-  ListItemSecondaryAction,
-  ListItemText,
-  makeStyles,
-  Typography,
-} from "@mui/material";
+import { IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { recorderService } from "../packages/presenter-core/src/services/slide-recorder";
 import { useClientSideValue } from "../packages/site/src/common/functional-utils";
 

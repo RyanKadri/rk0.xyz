@@ -1,4 +1,5 @@
-import { Card, CardHeader, makeStyles } from "@mui/material";
+import { Card, CardHeader } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { EvalResult, LoggedConsoleMessage } from "../../../../presenter-core/src/services/js-execution";
 
 const useStyles = makeStyles(theme => ({

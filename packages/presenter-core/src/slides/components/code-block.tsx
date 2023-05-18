@@ -1,21 +1,11 @@
 import { faCopy } from "@fortawesome/free-solid-svg-icons/faCopy";
 import { faPlay } from "@fortawesome/free-solid-svg-icons/faPlay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  ClickAwayListener,
-  createStyles,
-  Divider,
-  IconButton,
-  List,
-  ListItem,
-  makeStyles,
-  Paper,
-  Popper,
-  Tooltip,
-} from "@mui/material";
+import { ClickAwayListener, Divider, IconButton, List, ListItem, Paper, Popper, Tooltip } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import c from "classnames";
 import { useRef, useState } from "react";
-import { executeFunction, LoggedConsoleMessage } from "../../services/js-execution";
+import { LoggedConsoleMessage, executeFunction } from "../../services/js-execution";
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -53,7 +43,7 @@ const useStyles = makeStyles(theme =>
       maxWidth: "100%",
       overflow: "auto",
       maxHeight: 500,
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down("lg")]: {
         fontSize: 14,
       },
     },

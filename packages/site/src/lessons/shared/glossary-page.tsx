@@ -1,15 +1,6 @@
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardHeader,
-  createStyles,
-  Link,
-  makeStyles,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Button, Card, CardActionArea, CardContent, CardHeader, Link, TextField, Typography } from "@mui/material";
+
+import { createStyles, makeStyles } from "@mui/styles";
 import { useEffect, useState } from "react";
 import { ReactNode } from "react-markdown";
 import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
@@ -18,11 +9,11 @@ import { useMarkdownLabStyles } from "./lab";
 const useStyles = makeStyles(theme =>
   createStyles({
     container: {
-      padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+      padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
       maxWidth: "1200px",
     },
     termList: {
-      margin: `${theme.spacing(2)}px 0`,
+      margin: `${theme.spacing(2)} 0`,
       display: "grid",
       gridTemplateColumns: "1fr",
       gap: theme.spacing(2),

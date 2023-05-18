@@ -1,19 +1,21 @@
-import { createStyles, makeStyles, Theme, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import c from "classnames";
+import { CustomTheme } from "../../../../../site/src/theme";
 import { titleDecorator } from "../../../services/style-chunks";
 import { InfoList } from "../../components/info-list";
 import { PageNumber } from "../../components/page-number";
 import { ContentSlideProps } from "../../slides";
 import { useBaseStyles } from "../blank/base-styles";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: CustomTheme) =>
   createStyles({
     container: {
       padding: "48px 128px 0px 128px",
       minHeight: "100%",
       "& code": {
         fontFamily: "monospace",
-        backgroundColor: theme.palette.type === "light" ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.15)",
+        backgroundColor: theme.palette.mode === "light" ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.15)",
         padding: "2px 4px",
         borderRadius: 4,
         color: theme.palette.secondary.dark,

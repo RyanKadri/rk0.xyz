@@ -1,6 +1,7 @@
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AppBar, createStyles, makeStyles, Toolbar } from "@mui/material";
+import { AppBar, Toolbar } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import Link from "next/link";
 import { useContext } from "react";
 import { UserContext, UserSettings } from "../common/admin";

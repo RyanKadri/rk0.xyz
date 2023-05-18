@@ -1,5 +1,5 @@
-import { createStyles, makeStyles } from "@mui/material";
 import { blue, green, orange, purple, red } from "@mui/material/colors";
+import { createStyles, makeStyles } from "@mui/styles";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme =>
       color: green["500"],
     },
     path: {
-      color: theme.palette.type === "dark" ? purple["300"] : purple["500"],
+      color: theme.palette.mode === "dark" ? purple["300"] : purple["500"],
     },
     query: {
       color: orange["500"],

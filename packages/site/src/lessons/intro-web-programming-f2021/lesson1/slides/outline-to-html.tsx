@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { PresentationContext } from "packages/presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme =>
       color: "hsla(0, 50%, 50%, 1)",
     },
     section2: {
-      color: theme.palette.type === "dark" ? "yellow" : "purple",
+      color: theme.palette.mode === "dark" ? "yellow" : "purple",
     },
     sectionContent: {
       color: theme.palette.text.primary,

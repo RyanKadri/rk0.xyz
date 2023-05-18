@@ -1,4 +1,5 @@
-import { createStyles, Link, makeStyles } from "@mui/material";
+import { Link } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
 
 const useStyles = makeStyles(theme =>

@@ -1,13 +1,15 @@
-import { createStyles, makeStyles, Paper, Theme, useTheme } from "@mui/material";
+import { Paper } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import Head from "next/head";
 import { ComponentType, useRef } from "react";
+import { CustomTheme } from "../../../site/src/theme";
 import { PresentationContext } from "../services/types";
 import { useComponentSize } from "../services/use-component-size";
 
 const canonicalHeight = 918;
 const canonicalWidth = (canonicalHeight * 16) / 9;
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: CustomTheme) =>
   createStyles({
     viewportPaper: {
       borderRadius: 0,
@@ -27,7 +29,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export function SlideViewport({ Slide, context }: Props) {
   const classes = useStyles();
-  const theme = useTheme();
   const viewport = useRef<HTMLDivElement>(null);
   const viewportSize = useComponentSize(viewport);
 
@@ -50,7 +51,7 @@ export function SlideViewport({ Slide, context }: Props) {
     <div className={`${classes.viewportContainer}`} ref={viewport}>
       <Head>
         {/* Dumb hack for noscript */}
-        <style dangerouslySetInnerHTML={{ __html: `html { font-size: ${theme.slides.baseFontSize}; }` }} />
+        <style dangerouslySetInnerHTML={{ __html: `html { font-size: 36px; }` }} />
       </Head>
       <Paper className={classes.viewportPaper} elevation={5} style={style}>
         <Slide context={context} />

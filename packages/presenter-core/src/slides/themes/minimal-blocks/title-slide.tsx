@@ -1,5 +1,7 @@
-import { createStyles, makeStyles, Theme, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import c from "classnames";
+import { CustomTheme } from "../../../../../site/src/theme";
 import { titleDecorator } from "../../../services/style-chunks";
 import { PageNumber } from "../../components/page-number";
 import { TitleSlideProps } from "../../slides";
@@ -8,7 +10,7 @@ import { useBaseStyles } from "../blank/base-styles";
 const containerPadding = 128;
 const subTitleSpacing = containerPadding / 2;
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: CustomTheme) =>
   createStyles({
     container: {
       padding: containerPadding,

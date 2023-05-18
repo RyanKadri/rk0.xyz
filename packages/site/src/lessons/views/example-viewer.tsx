@@ -1,18 +1,17 @@
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  createStyles,
   Drawer,
   Hidden,
   IconButton,
   List,
   ListItem,
   ListItemText,
-  makeStyles,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import Link from "next/link";
 import { useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
@@ -33,7 +32,7 @@ const useStyles = makeStyles(theme =>
       boxSizing: "border-box",
       flexGrow: 1,
       width: "calc(100vw - 256px)",
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down("lg")]: {
         padding: theme.spacing(),
       },
       [theme.breakpoints.up("md")]: {
@@ -63,7 +62,7 @@ interface Props {
 export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode }: Props) {
   const classes = useStyles();
   const theme = useTheme();
-  const onMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const onMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <main className={classes.container}>
@@ -89,7 +88,7 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
       <div className={classes.codeContainer}>
         <header className={classes.exampleHeader}>
           <Hidden mdUp>
-            <IconButton onClick={() => setDrawerOpen(!drawerOpen)}>
+            <IconButton onClick={() => setDrawerOpen(!drawerOpen)} size="large">
               <FontAwesomeIcon icon={faBars} />
             </IconButton>
           </Hidden>

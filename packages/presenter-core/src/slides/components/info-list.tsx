@@ -1,7 +1,8 @@
-import { createStyles, makeStyles, Theme } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import React, { ReactElement } from "react";
+import { CustomTheme } from "../../../../site/src/theme";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: CustomTheme) =>
   createStyles({
     list: {
       margin: "16px 0",

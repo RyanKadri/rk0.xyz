@@ -14,9 +14,8 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  createStyles,
-  makeStyles,
 } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import Link from "next/link";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 
@@ -86,7 +85,7 @@ export function LessonList(props: Props) {
       <Hidden implementation="css" mdUp>
         <LessonCardView {...props} />
       </Hidden>
-      <Hidden implementation="css" smDown>
+      <Hidden implementation="css" lgDown>
         <LessonTableView {...props} />
       </Hidden>
     </>

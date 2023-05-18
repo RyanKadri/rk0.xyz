@@ -1,5 +1,5 @@
-import { createMuiTheme } from "@mui/material";
 import { cyan, purple } from "@mui/material/colors";
+import { createTheme } from "@mui/material/styles";
 import { lightThemeOptions } from "../../../../../site/src/theme";
 import type { IThemeContext } from "../theme-context";
 import { CenterMessageSlide } from "./center-message-slide";
@@ -22,7 +22,7 @@ export const blankTheme: IThemeContext = {
     MediaSlide: MediaSlide,
     TitleSlide: TitleSlide,
   },
-  theme: createMuiTheme({
+  theme: createTheme({
     ...lightThemeOptions,
     palette: {
       ...lightThemeOptions.palette,

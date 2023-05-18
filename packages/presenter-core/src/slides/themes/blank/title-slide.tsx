@@ -1,4 +1,5 @@
-import { createStyles, makeStyles, Theme, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import c from "classnames";
 import { PageNumber } from "../../components/page-number";
 import { TitleSlideProps } from "../../slides";
@@ -7,7 +8,7 @@ import { useBaseStyles } from "./base-styles";
 const containerPadding = 128;
 const subTitleSpacing = containerPadding / 2;
 
-const useStyles = makeStyles((_: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     container: {
       padding: containerPadding,

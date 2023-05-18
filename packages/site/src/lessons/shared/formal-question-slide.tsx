@@ -1,4 +1,5 @@
-import { createStyles, makeStyles, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { titleDecorator } from "../../../../presenter-core/src/services/style-chunks";
 import { PresentationContext } from "../../../../presenter-core/src/services/types";
 import { PageNumber } from "../../../../presenter-core/src/slides/components/page-number";

@@ -9,7 +9,7 @@ function _Slide<P>(themeCb: (theme: IThemeContext) => React.ComponentType<P>) {
   return function (props: P) {
     const themeContext = useContext(ThemeContext);
     const Slide = themeCb(themeContext);
-    return <Slide {...props}></Slide>;
+    return <Slide {...(props as any)}></Slide>;
   };
 }
 

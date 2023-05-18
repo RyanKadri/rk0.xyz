@@ -3,7 +3,6 @@ import {
   Card,
   CardActions,
   CardHeader,
-  makeStyles,
   Table,
   TableBody,
   TableCell,
@@ -11,6 +10,7 @@ import {
   TableRow,
   Tooltip,
 } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import React from "react";
 import { handledEval } from "../../../../presenter-core/src/services/js-execution";
 import { TestCase } from "../../../../presenter-core/src/services/types";

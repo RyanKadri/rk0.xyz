@@ -1,16 +1,5 @@
-import {
-  Button,
-  createStyles,
-  makeStyles,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Theme,
-  Typography,
-} from "@mui/material";
+import { Button, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import c from "classnames";
 import dynamic from "next/dynamic";
 import { useState } from "react";
@@ -161,7 +150,7 @@ Did you change the function name?`
                       </code>
                     </TableCell>
                     <TableCell>
-                      {!!latestResults ? (
+                      {latestResults ? (
                         <code>
                           <CodeValue param={currResult} />
                         </code>

@@ -18,7 +18,7 @@ This bar chart should go into the page of your old Pokedex lab and should update
 
 *Hint: If updating the bar chart in-place is proving tricky, you should be able to clear the old chart by setting its parent's innerHTML to an empty string and then recreating the chart. Maybe make a function that takes a Pokemon's stats data and creates a new Chart*
 
-You can find documentation on how to use the library on this page: <https://www.chartjs.org/docs/latest/getting-started/installation.html>
+You can find documentation on how to use the library on this page: https://www.chartjs.org/docs/latest/getting-started/installation.html
 
 Remember that you should be using the CDN installation method. In other words, you should be including a `<script>` tag on your page. Probably something like:
 
@@ -29,29 +29,29 @@ Remember that you should be using the CDN installation method. In other words, y
 It is important that this script tag comes before any script tag where you are trying to use the library.
 
 The most relevant documentation for how to use this library are on this page:
-<https://www.chartjs.org/docs/latest/getting-started/usage.html>
+https://www.chartjs.org/docs/latest/getting-started/usage.html
 
-and this page: <https://www.chartjs.org/docs/latest/charts/bar.html>
+and this page: https://www.chartjs.org/docs/latest/charts/bar.html
 
 Honestly though, the documentation on the main site is pretty dense (but complete). I'd recommend starting from the "Usage" example, figuring out what you can tweak from the Bar Chart documentation, and then just googling for some Stack Overflow suggestions on how to do anything that you can't figure out. If you really can't find the information there, maybe jump back to their main site 
 
 ## Part 2: Setting up the Webcam QR Code Scanner
 
 For this part of the lab and the next part, you will be working on aspects of your final project. I personally think the best resource for both of these parts is the code from the example page on the QR Code scanning library you will be using. The page for the QR Code library is here:
-<https://github.com/cozmo/jsQR> and the demo page is linked right at the top of the page (or here: <https://cozmo.github.io/jsQR/>).
+https://github.com/cozmo/jsQR and the demo page is linked right at the top of the page (or here: https://cozmo.github.io/jsQR/).
 
 For the first part of the lab, please create a page that prompts the user to allow access to their webcam and then shows them a playback of their webcam's video. You should be able to open up the developer tools and see how the example site linked above does it. All of their code is included in the page in a `<script>` tag at the bottom. Please try to take out the unnecessary parts of their code and create a minimal page for this part. Their example tries to draw a red rectangle around any QR code held up to the webcam and shows the code value in a box below the video. Your site does not need to do that. Please strip those parts out of the code. Experimenting with taking bits out of their code should also give you a better sense for how their library works.
 
 If you have a hard time reading the code on the example site using the developer tools, you can also find it reproduced here:
-<https://github.com/RyanKadri/cis1052-fall2020-examples/blob/master/c11-libraries/qr/index.html>
+https://github.com/RyanKadri/cis1052-fall2020-examples/blob/master/c11-libraries/qr/index.html
 
-One thing you will have to modify is where the QR code library is being read from. You'll want to download the file from here: <https://raw.githubusercontent.com/cozmo/jsQR/8851ab5cc5fecd646be668ccd34612ccc236d9c3/dist/jsQR.js> and place the .js in your web site directory. You can include it with a `<script>` tag in your HTML before any other `<script>` tag that uses it
+One thing you will have to modify is where the QR code library is being read from. You'll want to download the file from here: https://raw.githubusercontent.com/cozmo/jsQR/8851ab5cc5fecd646be668ccd34612ccc236d9c3/dist/jsQR.js and place the .js in your web site directory. You can include it with a `<script>` tag in your HTML before any other `<script>` tag that uses it
 
 ## Part 3: Extracting the QR Code
 
 Please adapt the QR Code scanning logic in the example site above so that instead of displaying the code value on the screen when a QR Code is detected, the site will redirect the user to your note-taking site from the previous lab. For example, if in the previous lab, you generated a user with an id of `abc-123`, when you scan that user's QR Code, your site should redirect the user to your note-taking site with `abc-123` as a query parameter. If your note-taking site is at http://localhost:5500/notes.html when using the Live Server extension, you should redirect the user to http://localhost:550/notes.html?userId=abc-123.
 
-You can get a user's QR code by going to a special URL on the server I created for the final project. For instance, one user I created has an ID of `bf3b1bd5-ceeb-4b0f-b972-9af632972a51`. If you navigate to <https://spy-notes-api.rk0.xyz/users/bf3b1bd5-ceeb-4b0f-b972-9af632972a51/qr>, you should be able to see their QR code. To make this lab work, you can take a picture of that site on your phone and hold the QR code up to your webcam. You can also print the QR code if you prefer. You can use the same process to see the QR code for the user ID you generated in the previous lab.
+You can get a user's QR code by going to a special URL on the server I created for the final project. For instance, one user I created has an ID of `bf3b1bd5-ceeb-4b0f-b972-9af632972a51`. If you navigate to https://spy-notes-api.rk0.xyz/users/bf3b1bd5-ceeb-4b0f-b972-9af632972a51/qr, you should be able to see their QR code. To make this lab work, you can take a picture of that site on your phone and hold the QR code up to your webcam. You can also print the QR code if you prefer. You can use the same process to see the QR code for the user ID you generated in the previous lab.
 
 For this specific lab, you do not have to do anything special on your notes page once you redirect the user. For your final project, your note-taking page should read the user's ID from the URL and use that to load notes (rather than just using a hardcoded value). If you want, now would be a great time to integrate those two pages together and see how they interact. I will not take off points for anything on the note page not working but I'll give you feedback if you try to integrate the two pages.
 

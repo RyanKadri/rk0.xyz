@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { useState } from "react";
 import { calculate, compare } from "specificity";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";

@@ -1,4 +1,5 @@
-import { createStyles, Hidden, makeStyles, NoSsr } from "@mui/material";
+import { Hidden, NoSsr } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { useEffect, useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme =>
       height: "100%",
       gridTemplateColumns: "50% 50%",
       gap: "4px",
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down("lg")]: {
         gridTemplateColumns: "1fr",
       },
     },
@@ -33,7 +34,7 @@ const useStyles = makeStyles(theme =>
       padding: theme.spacing(),
       display: "flex",
       flexDirection: "column",
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down("lg")]: {
         minHeight: 500,
       },
     },
@@ -55,7 +56,7 @@ export function ExamplePlayground({ example, highlightedCode }: Props) {
   return (
     <div className={classes.container}>
       <div className={classes.editorContainer}>
-        <Hidden smDown>
+        <Hidden lgDown>
           <CodeEditor
             language={example.language}
             initialCode={example.code}

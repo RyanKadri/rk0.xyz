@@ -5,17 +5,18 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons/faCircle";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons/faEllipsisV";
 import { faSquare } from "@fortawesome/free-solid-svg-icons/faSquare";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Hidden, IconButton, Link as MaterialLink, Menu, MenuItem, NoSsr, createStyles } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Hidden, IconButton, Link as MaterialLink, Menu, MenuItem, NoSsr } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import c from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { isProfessor } from "../../../site/src/common/admin";
+import { CustomTheme } from "../../../site/src/theme";
 import { AutomaticSlideRecording, SlideRecording } from "../services/slide-recorder";
 import { Presentation, RecordingDefinition } from "../services/types";
 
-const useStyles = makeStyles(theme: V4 =>
+const useStyles = makeStyles((theme: CustomTheme) =>
   createStyles({
     controlsContainer: {
       fontSize: 16,
@@ -29,7 +30,7 @@ const useStyles = makeStyles(theme: V4 =>
     },
     button: {
       fontSize: 20,
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down("md")]: {
         fontSize: 18,
       },
     },
@@ -84,7 +85,7 @@ export function SlideControls({
 
   return (
     <div className={c(className, classes.controlsContainer)}>
-      <Hidden smDown>
+      <Hidden mdDown>
         <div className={c(classes.controlButtonGroup, classes.textLinkGroup)}>
           <Link href={courseUrl} passHref>
             <MaterialLink>Back to Class</MaterialLink>
@@ -103,6 +104,7 @@ export function SlideControls({
             aria-haspopup="true"
             className={classes.button}
             onClick={e => setAnchorEl(e.currentTarget)}
+            size="large"
           >
             <FontAwesomeIcon icon={faEllipsisV} />
           </IconButton>
@@ -135,12 +137,12 @@ export function SlideControls({
         {!lesson.recording?.slideTimings && isProfessor() && (
           <div className={classes.controlButtonGroup}>
             {!recording ? (
-              <IconButton className={classes.button} color="secondary" onClick={onRecord}>
+              <IconButton className={classes.button} color="secondary" onClick={onRecord} size="large">
                 <FontAwesomeIcon icon={faCircle} />
               </IconButton>
             ) : (
               <>
-                <IconButton className={classes.button} color="secondary" onClick={onStop}>
+                <IconButton className={classes.button} color="secondary" onClick={onStop} size="large">
                   <FontAwesomeIcon icon={faSquare} />
                 </IconButton>
                 <span>{renderRecordingTime(Date.now() - (recording as AutomaticSlideRecording).startTime)}</span>
@@ -165,14 +167,14 @@ interface LinkProps {
 function LinkOrDisabledButton({ label, icon, href }: LinkProps) {
   const classes = useStyles();
   /* This next part looks weird because NextJS does not like disabled buttons embedded in a link */
-  return !!href ? (
+  return href ? (
     <Link href={href} passHref replace shallow aria-label={label}>
-      <IconButton className={classes.button}>
+      <IconButton className={classes.button} size="large">
         <FontAwesomeIcon icon={icon} />
       </IconButton>
     </Link>
   ) : (
-    <IconButton className={classes.button} disabled aria-label={label}>
+    <IconButton className={classes.button} disabled aria-label={label} size="large">
       <FontAwesomeIcon icon={icon} />
     </IconButton>
   );

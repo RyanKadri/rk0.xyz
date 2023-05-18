@@ -1,4 +1,5 @@
-import { createStyles, makeStyles, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { LabDefinition } from "../../../../../../presenter-core/src/services/types";
 import { wrap } from "../../../../common/functional-utils";
 import { CodePlayground, FunctionExecutionParams } from "../../../shared/code-playground";

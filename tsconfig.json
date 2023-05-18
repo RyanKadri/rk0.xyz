@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
     /* Basic Options */
-    "target": "es2018",
+    "target": "es2020",
     "module": "esnext",
     "lib": [
       "dom",
-      "es2018",
-      "esnext.array"
+      "es2020",
     ],
     "jsx": "preserve",
     "sourceMap": true,

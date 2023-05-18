@@ -1,4 +1,5 @@
-import { Link as MaterialLink, Typography, makeStyles } from "@mui/material";
+import { Link as MaterialLink, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";

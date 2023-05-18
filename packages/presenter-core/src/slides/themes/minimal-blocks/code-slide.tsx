@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { CodeBlock } from "../../components/code-block";
 import { InfoList } from "../../components/info-list";
 import { CodeSlideProps } from "../../slides";

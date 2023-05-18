@@ -6,11 +6,11 @@ For your final project, you will be creating a privacy-focused note taking web a
 
 The application will most likely be composed of a few separate pages but as long as all of the requirements listed below are met, you are free to approach this problem how you like. We will build toward this final project over the course of the next few labs. You will get a chance to work on this project incrementally rather than as one huge effort.
 
-For an example of a finished version of the kind of thing I'm looking for, check out <https://spy-notes.rk0.xyz/>. This site has a few more bells and whistles than you'll need for your final project but the general idea is captured there.
+For an example of a finished version of the kind of thing I'm looking for, check out https://spy-notes.rk0.xyz/. This site has a few more bells and whistles than you'll need for your final project but the general idea is captured there.
 
 ## Part 1: Registration
 
-Your app should have a page (or a form somewhere) that allows a user to sign up for an account. Because we are building a privacy-focused note-taking app, your site should not collect any information from its users. Instead, the user simply clicks a button and you make an account for them. A server (at <https://spy-notes-api.rk0.xyz>) will generate a unique user code and a QR code to go along with it. When the user signs in in the future, they can either present their QR code or enter the text code on the sign up page.
+Your app should have a page (or a form somewhere) that allows a user to sign up for an account. Because we are building a privacy-focused note-taking app, your site should not collect any information from its users. Instead, the user simply clicks a button and you make an account for them. A server (at https://spy-notes-api.rk0.xyz) will generate a unique user code and a QR code to go along with it. When the user signs in in the future, they can either present their QR code or enter the text code on the sign up page.
 *This is not necessarily super secure but it's kinda fun*
 
 ### Details
@@ -20,7 +20,7 @@ Your job is to create a registration page with a single button. When the user cl
 
 ## Part 2: Sign In
 
-Your secure note-taking app should have a sign-in page. This is the page where the user can either enter their unique user ID from before or present their QR Code (via webcam). To enter their user ID, they should just be able to copy-paste it into a textbox. Presenting the QR Code will be a bit more interesting (but not too hard!). To read a QR code, you should use a JavaScript library. Don't try to do it by hand. In my sample lab, I used <https://github.com/cozmo/jsQR>. There may be an easier QR code reader library out there but I haven't experimented too much. The QR code library should help you extract a a User ID string from the QR Code. This is the same code that the user would be entering manually if they opted for that approach (if the text version is `abc-123`, the QR Code library should also extract the ID `abc-123` from the QR Code).
+Your secure note-taking app should have a sign-in page. This is the page where the user can either enter their unique user ID from before or present their QR Code (via webcam). To enter their user ID, they should just be able to copy-paste it into a textbox. Presenting the QR Code will be a bit more interesting (but not too hard!). To read a QR code, you should use a JavaScript library. Don't try to do it by hand. In my sample lab, I used https://github.com/cozmo/jsQR. There may be an easier QR code reader library out there but I haven't experimented too much. The QR code library should help you extract a a User ID string from the QR Code. This is the same code that the user would be entering manually if they opted for that approach (if the text version is `abc-123`, the QR Code library should also extract the ID `abc-123` from the QR Code).
 
 You can use this code to redirect the user to the final page of your app, where the user will actually enter their notes. Once you have the user code, you should use it to redirect the user to a URL like `/notes.html?userId=abc-123`.
 
@@ -43,6 +43,6 @@ Finally, users should have an option to delete their notes (you can decide how t
 - The QR code reader portion may seem daunting but it actually ends up being ~10 lines of code with the help of a library. You don't necessarily need to understand everything in the example to make it work.
 - You'll need to use Live Server (or some other server) for this assignment. Loading files directly in the browser will not let you make some of the server calls you need for this assignment. Please let me know if you have issues making this work.
 
-**Sample Site:**  <https://spy-notes.rk0.xyz>
+**Sample Site:**  https://spy-notes.rk0.xyz
 
 export default ({ children }) => <StudyGuide>{children}</StudyGuide>

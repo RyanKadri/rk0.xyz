@@ -1,7 +1,7 @@
 import { amber, red, teal } from "@mui/material/colors";
-import { adaptV4Theme, createTheme } from "@mui/material/styles";
+import { ThemeOptions, createTheme } from "@mui/material/styles";
 
-export const lightThemeOptions = adaptV4Theme({
+export const lightThemeOptions: ThemeOptions = {
   palette: {
     primary: teal,
     secondary: red,
@@ -32,45 +32,52 @@ export const lightThemeOptions = adaptV4Theme({
       fontWeight: 300,
     },
   },
-  overrides: {
+  components: {
     MuiAppBar: {
-      colorPrimary: {
-        backgroundColor: teal["700"],
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: teal["700"],
+        },
       },
     },
     MuiLink: {
-      root: {
-        color: teal["700"],
+      styleOverrides: {
+        root: {
+          color: teal["700"],
+        },
       },
     },
     MuiButton: {
-      label: {
-        textTransform: "none",
+      styleOverrides: {
+        text: {
+          textTransform: "none",
+        },
       },
-    } as any,
+    },
   },
-  slides: {
-    baseFontSize: "36px",
-  },
-});
+};
 
-export const darkThemeOptions = {
+export const darkThemeOptions: ThemeOptions = {
   ...lightThemeOptions,
   palette: {
     primary: teal,
     secondary: amber,
-    type: "dark",
+    mode: "dark",
   },
-  overrides: {
-    ...lightThemeOptions.overrides,
+  components: {
+    ...lightThemeOptions.components,
     MuiAppBar: {
-      colorPrimary: {
-        backgroundColor: teal["700"],
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: teal["700"],
+        },
       },
     },
     MuiLink: {
-      root: {
-        color: teal["200"],
+      styleOverrides: {
+        root: {
+          color: teal["200"],
+        },
       },
     },
   },

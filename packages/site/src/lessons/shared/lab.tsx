@@ -1,9 +1,10 @@
-import { createStyles, makeStyles, Theme } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
+import { CustomTheme } from "../../theme";
 
-export const useMarkdownLabStyles = makeStyles((theme: Theme) =>
+export const useMarkdownLabStyles = makeStyles((theme: CustomTheme) =>
   createStyles({
     container: {
-      padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+      padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
       maxWidth: 1200,
       fontSize: "1rem",
       "& h1": theme.typography.h4,

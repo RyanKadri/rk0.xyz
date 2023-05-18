@@ -1,4 +1,5 @@
-import { createStyles, Link, makeStyles } from "@mui/material";
+import { Link } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import c from "classnames";
 import { PresentationContext } from "../../../../../../../presenter-core/src/services/types";
 import {

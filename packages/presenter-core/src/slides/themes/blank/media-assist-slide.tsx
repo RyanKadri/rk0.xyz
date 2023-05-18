@@ -1,9 +1,9 @@
-import { createStyles, makeStyles, Theme } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { InfoList } from "../../components/info-list";
 import { MediaAssistSlideProps } from "../../slides";
 import { ContentSlide } from "./content-slide";
 
-const useStyles = makeStyles((_: Theme) =>
+const useStyles = makeStyles(_ =>
   createStyles({
     mediaContainer: {
       display: "flex",
