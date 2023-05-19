@@ -1,6 +1,7 @@
 import { makeStyles } from "@mui/styles";
-import prism from "prismjs";
+import { ReactNode } from "react";
 import { CodeBlock, SyntaxHighlightedBlock } from "./code-block";
+import { InlineCode } from "./inline-code-mdx";
 
 const useStyles = makeStyles({
   container: {
@@ -10,17 +11,16 @@ const useStyles = makeStyles({
 });
 
 interface Props {
-  children: string;
+  children: ReactNode;
   className?: string;
 }
 export function CodeBlockMdxWrapper({ children, className }: Props) {
   const classes = useStyles();
   const language = className?.replace(/language-/, "") ?? "plain";
-  const html = prism.highlight(children, prism.languages[language], language);
   const code: SyntaxHighlightedBlock = {
     language,
-    raw: children,
-    html,
+    components: children,
   };
-  return <CodeBlock code={code} className={classes.container} />;
+  const isInline = typeof children === "string" && !children.includes("\n");
+  return isInline ? <InlineCode children={children} /> : <CodeBlock code={code} className={classes.container} />;
 }

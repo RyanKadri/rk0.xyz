@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ClickAwayListener, Divider, IconButton, List, ListItem, Paper, Popper, Tooltip } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import c from "classnames";
-import { useRef, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { LoggedConsoleMessage, executeFunction } from "../../services/js-execution";
 
 const useStyles = makeStyles(theme =>
@@ -61,8 +61,7 @@ export interface CodeBlockOptions {
 }
 
 export interface SyntaxHighlightedBlock {
-  raw: string;
-  html: string;
+  components: ReactNode;
   language: string;
 }
 
@@ -85,7 +84,7 @@ export function CodeBlock({ code, className, options = {} }: Props) {
   };
 
   const onRun = () => {
-    const output = executeFunction(code.raw);
+    const output = executeFunction(codeBlockRef.current?.textContent ?? "");
     if (output.consoleMessages.length > 0) {
       setLastOutput(output.consoleMessages);
       setTimeout(() => {
@@ -125,7 +124,7 @@ export function CodeBlock({ code, className, options = {} }: Props) {
         </Tooltip>
       </div>
       <pre className={`language-${code?.language}`} style={{ margin: 0 }} ref={codeBlockRef}>
-        <code className={`language-${code?.language}`} dangerouslySetInnerHTML={{ __html: code?.html }} />
+        <code className={`language-${code?.language}`}>{code.components}</code>
       </pre>
     </div>
   );

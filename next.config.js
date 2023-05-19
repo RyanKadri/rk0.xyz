@@ -7,6 +7,7 @@ module.exports = withMDX({
     extension: /\.mdx$/,
     options: {
         remarkPlugins: [
+          [require("remark-prism"), { transformInlineCode: false }]
         ]
     }
 })(withBundleAnalyzer({

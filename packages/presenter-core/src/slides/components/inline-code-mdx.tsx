@@ -1,5 +1,5 @@
 import { createStyles, makeStyles } from "@mui/styles";
-import { ReactNode } from "react-markdown";
+import { ReactNode } from "react";
 import { CustomTheme } from "../../../../site/src/theme";
 
 const useStyles = makeStyles((theme: CustomTheme) =>

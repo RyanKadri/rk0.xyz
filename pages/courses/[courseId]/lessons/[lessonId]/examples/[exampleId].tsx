@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import prism from "prismjs";
-import React from "react";
 import { ExampleDefinition } from "../../../../../../packages/presenter-core/src/services/types";
 import { SyntaxHighlightedBlock } from "../../../../../../packages/presenter-core/src/slides/components/code-block";
 import { activeCourses } from "../../../../../../packages/site/src/lessons/views/activeCourses";
@@ -41,8 +40,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params = {} }) => 
       currExample: exampleId,
       baseUrl: `/courses/${params.courseId}/lessons/${params.lessonId}/examples`,
       code: {
-        raw: currExample.code,
-        html: highlightedCode,
+        components: highlightedCode,
         language: currExample.language,
       },
     },

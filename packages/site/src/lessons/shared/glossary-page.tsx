@@ -1,8 +1,7 @@
 import { Button, Card, CardActionArea, CardContent, CardHeader, Link, TextField, Typography } from "@mui/material";
 
 import { createStyles, makeStyles } from "@mui/styles";
-import { useEffect, useState } from "react";
-import { ReactNode } from "react-markdown";
+import { ReactNode, useEffect, useState } from "react";
 import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
 import { useMarkdownLabStyles } from "./lab";
 
