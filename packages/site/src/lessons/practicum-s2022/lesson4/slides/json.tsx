@@ -1,18 +1,14 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeBlock } from "../../../../../../presenter-core/src/slides/components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import { synJS } from "../../../../common/highlighting";
 
-const useStyles = makeStyles(
-  createStyles({
-    code: {
-      fontSize: 32,
-      userSelect: "text",
-    },
-  })
-);
+const StyledCodeBlock = styled(CodeBlock)({
+  fontSize: 32,
+  userSelect: "text",
+});
 
 const items = [
   "JSON is a standard way to format data",
@@ -30,7 +26,6 @@ const code = synJS`
 `;
 
 export function JSONExample({ context }: Props) {
-  const classes = useStyles();
   return (
     <ContentSlide
       Title="JSON"
@@ -38,7 +33,7 @@ export function JSONExample({ context }: Props) {
       Content={
         <>
           <InfoList items={items} />
-          <CodeBlock code={code} className={classes.code}></CodeBlock>
+          <StyledCodeBlock code={code} />
         </>
       }
     />

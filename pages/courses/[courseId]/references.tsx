@@ -1,5 +1,4 @@
-import { Link as MaterialLink, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Link as MaterialLink, Typography, styled } from "@mui/material";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -12,28 +11,25 @@ interface Props {
   currCourse: ReducedCourse;
 }
 
-const useStyles = makeStyles(() => ({
-  container: {
-    padding: 16,
-  },
-  courseList: {
+const Container = styled("main")({
+  padding: 16,
+  "& .courseList": {
     listStyle: "none",
     "& > li": {
       marginTop: 16,
     },
   },
-  referenceLink: {
+  "& .referenceLink": {
     marginLeft: 8,
   },
-  referenceNote: {
+  "& .referenceNote": {
     marginLeft: 16,
   },
-}));
+});
 
 export default function ConsolidatedReferences({ currCourse }: Props) {
-  const classes = useStyles();
   return (
-    <main className={classes.container}>
+    <Container>
       <Head>
         <title>{currCourse.title} - References</title>
       </Head>
@@ -41,12 +37,12 @@ export default function ConsolidatedReferences({ currCourse }: Props) {
         <MaterialLink>Back to Course</MaterialLink>
       </Link>
       <Typography variant="h4">Consolidated References: {currCourse.title}</Typography>
-      <ul className={classes.courseList}>
+      <ul className={"courseList"}>
         {currCourse.lessons.map(lesson => (
           <LessonReferences lesson={lesson} key={lesson.slug} />
         ))}
       </ul>
-    </main>
+    </Container>
   );
 }
 
@@ -55,7 +51,6 @@ interface LessonReferencesProps {
 }
 
 function LessonReferences({ lesson }: LessonReferencesProps) {
-  const classes = useStyles();
   return (
     <li key={lesson.slug}>
       <Typography variant="h5">{lesson.title}</Typography>
@@ -68,10 +63,10 @@ function LessonReferences({ lesson }: LessonReferencesProps) {
               <Typography variant="body1" display="inline">
                 {reference.label}:
               </Typography>
-              <MaterialLink href={reference.url} className={classes.referenceLink} target="__blank">
+              <MaterialLink href={reference.url} className={"referenceLink"} target="__blank">
                 {reference.url}
               </MaterialLink>
-              <Typography variant="caption" display="block" className={classes.referenceNote}>
+              <Typography variant="caption" display="block" className={"referenceNote"}>
                 {reference.note}
               </Typography>
             </li>

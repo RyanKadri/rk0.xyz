@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import { LabDefinition } from "../../../../../../presenter-core/src/services/types";
 import { wrap } from "../../../../common/functional-utils";
 import { CodePlayground, FunctionExecutionParams } from "../../../shared/code-playground";
-import { useMarkdownLabStyles } from "../../../shared/lab";
+import { MarkdownLabContainer } from "../../../shared/lab";
 import { createCalculator } from "./create-calculator";
 import { checkPalindromity } from "./isPalindrome";
 import { simpleExamples } from "./simpleExamples";
@@ -21,9 +21,8 @@ const grading = wrap(`
 This assignment is a bit different from what you have done before in that all answers will either be objectively correct or incorrect for each input. I will run each of your functions for the inputs shown in the corresponding table. I will also test your function with a few inputs that are not shown. I will grade this assignment mostly based on the correctness of your responses. As a secondary factor, I will grade based on the quality of your code and your thought process. JavaScript is more picky about syntax so please make sure your code at least does something, even if it is not perfectly correct.`);
 
 export function ExploringJSLab({}: Props) {
-  const classes = useMarkdownLabStyles();
   return (
-    <main className={classes.container}>
+    <MarkdownLabContainer>
       <Typography variant="h1">Lab 4: Exploring JavaScript</Typography>
       <Typography variant="h2">Overview</Typography>
       <Typography variant="body1">{overview}</Typography>
@@ -50,7 +49,7 @@ export function ExploringJSLab({}: Props) {
 
       <Typography variant="h2">Grading</Typography>
       <Typography variant="body1">{grading}</Typography>
-    </main>
+    </MarkdownLabContainer>
   );
 }
 

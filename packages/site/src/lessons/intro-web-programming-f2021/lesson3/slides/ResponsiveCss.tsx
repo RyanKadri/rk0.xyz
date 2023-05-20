@@ -1,20 +1,18 @@
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import defaultSite from "./anandtech-desktop.png";
 import mobileSite from "./anandtech-mobile.png";
 
-const useStyles = makeStyles({
-  container: {
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-    padding: 16,
-    margin: "0 -80px",
-    "& img": {
-      height: "400px",
-    },
+const Container = styled("div")({
+  display: "flex",
+  justifyContent: "space-around",
+  alignItems: "center",
+  padding: 16,
+  margin: "0 -80px",
+  "& img": {
+    height: "400px",
   },
 });
 
@@ -27,7 +25,6 @@ const bullets = [
 ];
 
 export function ResponsiveCSS({ context }: Props) {
-  const classes = useStyles();
   return (
     <ContentSlide
       Title="Approach 3: One Responsive Page"
@@ -35,14 +32,14 @@ export function ResponsiveCSS({ context }: Props) {
       Content={
         <>
           <InfoList items={bullets} />
-          <div className={classes.container}>
+          <Container>
             <a href="https://www.anandtech.com/" target="_blank">
               <img src={defaultSite.src} alt="Desktop view of AnandTech homepage" />
             </a>
             <a href="https://www.anandtech.com/" target="_blank">
               <img src={mobileSite.src} alt="Tablet view of AnandTech homepage" />
             </a>
-          </div>
+          </Container>
         </>
       }
     />

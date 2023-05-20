@@ -1,18 +1,16 @@
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import defaultSite from "./responsive-different-site-1.png";
 import mobileSite from "./responsive-different-site-2.png";
 
-const useStyles = makeStyles({
-  container: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: 16,
-    "& img": {
-      width: "45%",
-    },
+const Container = styled("div")({
+  display: "flex",
+  justifyContent: "space-between",
+  padding: 16,
+  "& img": {
+    width: "45%",
   },
 });
 
@@ -25,7 +23,6 @@ const bullets = [
 ];
 
 export function UseMultipleSites({ context }: Props) {
-  const classes = useStyles();
   return (
     <ContentSlide
       Title="Approach 1: Use Multiple Sites"
@@ -33,10 +30,10 @@ export function UseMultipleSites({ context }: Props) {
       Content={
         <>
           <InfoList items={bullets} />
-          <div className={classes.container}>
+          <Container>
             <img src={defaultSite.src} />
             <img src={mobileSite.src} />
-          </div>
+          </Container>
         </>
       }
     />

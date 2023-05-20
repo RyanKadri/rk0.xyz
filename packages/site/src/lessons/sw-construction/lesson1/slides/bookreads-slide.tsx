@@ -1,25 +1,20 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import preview from "./bookreads.webp";
 
-const useStyles = makeStyles(
-  createStyles({
-    preview: {
-      width: "80%",
-      margin: "0 auto",
-      display: "block",
-    },
-  })
-);
+const Image = styled("img")({
+  width: "80%",
+  margin: "0 auto",
+  display: "block",
+});
 
 export function BookreadsSlide({ context }: Props) {
-  const classes = useStyles();
   return (
     <ContentSlide
       Title="I want it to look like this"
       context={context}
-      Content={<img src={preview.src} alt="Bookreads Preview" className={classes.preview} />}
+      Content={<Image src={preview.src} alt="Bookreads Preview" />}
     />
   );
 }

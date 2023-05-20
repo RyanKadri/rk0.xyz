@@ -1,22 +1,16 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeSlide } from "../../../../../../presenter-core/src/slides/themes/blank/code-slide";
 import { synJS } from "../../../../common/highlighting";
 import variableDiagram from "./variables.svg";
 
-const useStyles = makeStyles(
-  createStyles({
-    code: {
-      fontSize: 26,
-      userSelect: "text",
-    },
-    diagram: {
-      width: 425,
-      margin: "0 auto",
-      display: "block",
-    },
-  })
-);
+const Diagram = styled("img")({
+  diagram: {
+    width: 425,
+    margin: "0 auto",
+    display: "block",
+  },
+});
 
 const slideItems = [
   'Variables "label" a piece of data',
@@ -31,10 +25,9 @@ evilTwin.isEvil = true;
 `;
 
 export function VariablesAsLabels({ context }: Props) {
-  const classes = useStyles();
   return (
     <CodeSlide Title="Variables are Labels" context={context} bullets={slideItems} code={code}>
-      <img className={classes.diagram} src={variableDiagram.src} />
+      <Diagram src={variableDiagram.src} />
     </CodeSlide>
   );
 }

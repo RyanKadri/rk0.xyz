@@ -1,5 +1,4 @@
-import { Hidden, NoSsr } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Hidden, NoSsr, styled } from "@mui/material";
 import { useEffect, useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
@@ -7,46 +6,41 @@ import CodeEditor from "../shared/code-editor";
 import { HTMLExampleOutput } from "./html-example-output";
 import { JSExampleRunner } from "./js-example";
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    container: {
-      display: "grid",
-      height: "100%",
-      gridTemplateColumns: "50% 50%",
-      gap: "4px",
-      [theme.breakpoints.down("lg")]: {
-        gridTemplateColumns: "1fr",
-      },
+const Container = styled("div")(({ theme }) => ({
+  display: "grid",
+  height: "100%",
+  gridTemplateColumns: "50% 50%",
+  gap: "4px",
+  [theme.breakpoints.down("lg")]: {
+    gridTemplateColumns: "1fr",
+  },
+  "& .editor": {
+    border: "none",
+    backgroundColor: "transparent",
+    height: "100%",
+    width: "100%",
+    outline: "none",
+    fontSize: "1.25rem",
+  },
+  "& .editorContainer": {
+    padding: 8,
+    maxWidth: "100%",
+  },
+  "& .outputContainer": {
+    padding: theme.spacing(),
+    display: "flex",
+    flexDirection: "column",
+    [theme.breakpoints.down("lg")]: {
+      minHeight: 500,
     },
-    editor: {
-      border: "none",
-      backgroundColor: "transparent",
-      height: "100%",
-      width: "100%",
-      outline: "none",
-      fontSize: "1.25rem",
-    },
-    editorContainer: {
-      padding: 8,
-      maxWidth: "100%",
-    },
-    outputContainer: {
-      padding: theme.spacing(),
-      display: "flex",
-      flexDirection: "column",
-      [theme.breakpoints.down("lg")]: {
-        minHeight: 500,
-      },
-    },
-  })
-);
+  },
+}));
 
 interface Props {
   example: ExampleDefinition;
   highlightedCode: SyntaxHighlightedBlock;
 }
 export function ExamplePlayground({ example, highlightedCode }: Props) {
-  const classes = useStyles();
   const [currCode, setCurrCode] = useState(example.code);
 
   useEffect(() => {
@@ -54,8 +48,8 @@ export function ExamplePlayground({ example, highlightedCode }: Props) {
   }, [example.code]);
 
   return (
-    <div className={classes.container}>
-      <div className={classes.editorContainer}>
+    <Container>
+      <div className={"editorContainer"}>
         <Hidden lgDown>
           <CodeEditor
             language={example.language}
@@ -74,13 +68,13 @@ export function ExamplePlayground({ example, highlightedCode }: Props) {
           </noscript>
         </NoSsr>
       </div>
-      <div className={classes.outputContainer}>
+      <div className={"outputContainer"}>
         {example.language === "html" ? (
           <HTMLExampleOutput code={currCode} />
         ) : (
           <JSExampleRunner code={currCode} testCases={example.testCases} />
         )}
       </div>
-    </div>
+    </Container>
   );
 }

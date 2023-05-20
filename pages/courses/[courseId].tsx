@@ -1,30 +1,23 @@
-import { Typography } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Typography, styled } from "@mui/material";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { CourseDefinition, Presentation } from "../../packages/presenter-core/src/services/types";
 import { courseToStructuredData } from "../../packages/site/src/analytics";
 import { activeCourses } from "../../packages/site/src/lessons/views/activeCourses";
 import { LessonList } from "../../packages/site/src/lessons/views/lesson-list/lesson-list";
-import { CustomTheme } from "../../packages/site/src/theme";
 
-const useStyles = makeStyles((theme: CustomTheme) =>
-  createStyles({
-    container: {
-      minHeight: "calc(100vh - 64px)",
-      padding: 16,
-    },
-    title: {
-      marginBottom: theme.spacing(2),
-      fontSize: "1.75rem",
-    },
-  })
-);
+const Container = styled("main")(({ theme }) => ({
+  minHeight: "calc(100vh - 64px)",
+  padding: 16,
+  "& .title": {
+    marginBottom: theme.spacing(2),
+    fontSize: "1.75rem",
+  },
+}));
 
 export default function LessonListView({ currCourse }: Props) {
-  const classes = useStyles();
   return (
-    <main className={classes.container}>
+    <Container>
       <Head>
         <title>{currCourse?.title ?? ""} - Lessons</title>
         <meta name="description" key="description" content={currCourse?.description} />
@@ -36,7 +29,7 @@ export default function LessonListView({ currCourse }: Props) {
       </Head>
       {currCourse ? (
         <>
-          <Typography variant="h5" className={classes.title}>
+          <Typography variant="h5" className={"title"}>
             {currCourse.title}
           </Typography>
           <LessonList course={currCourse} baseUrl={`/courses/${currCourse.slug}`} />
@@ -44,7 +37,7 @@ export default function LessonListView({ currCourse }: Props) {
       ) : (
         "This course does not seem to exist"
       )}
-    </main>
+    </Container>
   );
 }
 

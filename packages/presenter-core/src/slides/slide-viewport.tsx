@@ -1,34 +1,27 @@
-import { Paper } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Paper, styled } from "@mui/material";
 import Head from "next/head";
 import { ComponentType, useRef } from "react";
-import { CustomTheme } from "../../../site/src/theme";
 import { PresentationContext } from "../services/types";
 import { useComponentSize } from "../services/use-component-size";
 
 const canonicalHeight = 918;
 const canonicalWidth = (canonicalHeight * 16) / 9;
 
-const useStyles = makeStyles((theme: CustomTheme) =>
-  createStyles({
-    viewportPaper: {
-      borderRadius: 0,
-      transformOrigin: "center",
-      overflow: "hidden",
-    },
-    viewportContainer: {
-      width: "100%",
-      flexGrow: 1,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: theme.palette.background.default,
-    },
-  })
-);
+const ViewportContainer = styled("div")(({ theme }) => ({
+  width: "100%",
+  flexGrow: 1,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: theme.palette.background.default,
+  "& .paper": {
+    borderRadius: 0,
+    transformOrigin: "center",
+    overflow: "hidden",
+  },
+}));
 
 export function SlideViewport({ Slide, context }: Props) {
-  const classes = useStyles();
   const viewport = useRef<HTMLDivElement>(null);
   const viewportSize = useComponentSize(viewport);
 
@@ -48,15 +41,15 @@ export function SlideViewport({ Slide, context }: Props) {
   };
 
   return (
-    <div className={`${classes.viewportContainer}`} ref={viewport}>
+    <ViewportContainer ref={viewport}>
       <Head>
         {/* Dumb hack for noscript */}
         <style dangerouslySetInnerHTML={{ __html: `html { font-size: 36px; }` }} />
       </Head>
-      <Paper className={classes.viewportPaper} elevation={5} style={style}>
+      <Paper className={"paper"} elevation={5} style={style}>
         <Slide context={context} />
       </Paper>
-    </div>
+    </ViewportContainer>
   );
 }
 

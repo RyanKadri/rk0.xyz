@@ -1,11 +1,5 @@
 import Editor from "@monaco-editor/react";
-import React, { useEffect } from "react";
-
-declare global {
-  interface Window {
-    MonacoEnvironment: any;
-  }
-}
+import { useEffect } from "react";
 
 interface Props {
   initialCode: string;

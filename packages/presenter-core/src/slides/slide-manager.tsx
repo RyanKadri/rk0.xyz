@@ -1,5 +1,4 @@
-import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { StyledEngineProvider, ThemeProvider, styled } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useTitle } from "../../../site/src/common/use-app-bar";
@@ -10,38 +9,22 @@ import { SlideViewport } from "./slide-viewport";
 import { blankTheme } from "./themes/blank";
 import { ThemeContext } from "./themes/theme-context";
 
-declare module "@mui/styles/defaultTheme" {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
-
-declare module "@mui/styles/defaultTheme" {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
-
 const controlsHeight = 48;
-const useStyles = makeStyles(theme =>
-  createStyles({
-    viewportContainer: {
-      display: "grid",
-      [theme.breakpoints.down("lg")]: {
-        gridTemplateRows: `${controlsHeight}px calc(100vh - 56px - ${controlsHeight}px)`,
-      },
-      [theme.breakpoints.up("md")]: {
-        gridTemplateRows: `${controlsHeight}px calc(100vh - 64px - ${controlsHeight}px)`,
-      },
-      gridTemplateColumns: "100%",
-    },
-    controls: {},
-  })
-);
+const ViewportContainer = styled("main")(({ theme }) => ({
+  display: "grid",
+  gridTemplateColumns: "100%",
+  [theme.breakpoints.down("lg")]: {
+    gridTemplateRows: `${controlsHeight}px calc(100vh - 56px - ${controlsHeight}px)`,
+  },
+  [theme.breakpoints.up("md")]: {
+    gridTemplateRows: `${controlsHeight}px calc(100vh - 64px - ${controlsHeight}px)`,
+  },
+}));
 
 interface Props {
   course: CourseDefinition;
 }
 export function SlideManager({ course }: Props) {
-  const classes = useStyles();
   const router = useRouter();
   const recorder = recorderService.useRecorder();
   const lessonSlug = router.query.lessonId;
@@ -111,20 +94,20 @@ export function SlideManager({ course }: Props) {
     <ThemeContext.Provider value={theme}>
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme.theme}>
-          <main className={classes.viewportContainer}>
+          <ViewportContainer>
             <SlideControls
               courseUrl={`/courses/${course.slug}`}
               currSlide={slideNum}
               previousSlideLink={previousSlide}
               nextSlideLink={nextSlide}
-              className={classes.controls}
+              className={""}
               onRecord={() => recorder.startRecording(course.title, lesson.title ?? lesson.description)}
               onStop={recorder.stop}
               lesson={lesson}
               recording={recorder.currentRecording}
             />
             <SlideViewport Slide={slides[slideNum]} context={context} />
-          </main>
+          </ViewportContainer>
         </ThemeProvider>
       </StyledEngineProvider>
     </ThemeContext.Provider>

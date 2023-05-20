@@ -1,27 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Avatar, ListItemAvatar, ListItemText, Paper } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Avatar, ListItemAvatar, ListItemText, Paper, styled } from "@mui/material";
 import Link from "next/link";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 
-const useStyles = makeStyles(
-  createStyles({
-    card: {
-      margin: "8px 0",
-      padding: 8,
-      display: "flex",
-      alignItems: "center",
-      "&:hover": {
-        textDecoration: "none",
-      },
-    },
-    desc: {},
-  })
-);
+const StyledCard = styled(Paper)({
+  margin: "8px 0",
+  padding: 8,
+  display: "flex",
+  alignItems: "center",
+  "&:hover": {
+    textDecoration: "none",
+  },
+});
 
 export function CourseCard({ course, baseUrl }: Props) {
-  const classes = useStyles();
-
   const numExamples = course.lessons.reduce((acc, el) => acc + (el.examples || []).length, 0);
   const numLabs = course.lessons.filter(lesson => !!lesson.lab).length;
   const desc = `${course.lessons.length} lessons - ${numExamples} examples - ${numLabs} labs`;
@@ -29,15 +21,15 @@ export function CourseCard({ course, baseUrl }: Props) {
   return (
     <Link href={`${baseUrl}/${course.slug}`} passHref>
       <a style={{ textDecoration: "none", display: "block" }}>
-        <Paper className={classes.card}>
+        <StyledCard>
           <ListItemAvatar>
             <Avatar color="primary">{course.icon ? <FontAwesomeIcon icon={course.icon} /> : course.title[0]}</Avatar>
           </ListItemAvatar>
-          <section className={classes.desc}>
+          <section>
             <ListItemText primary={course.title} secondary={course.description} />
             <ListItemText secondary={desc} />
           </section>
-        </Paper>
+        </StyledCard>
       </a>
     </Link>
   );

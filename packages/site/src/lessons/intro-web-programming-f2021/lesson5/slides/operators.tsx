@@ -1,24 +1,19 @@
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Table, TableBody, TableCell, TableHead, TableRow, styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles(
-  createStyles({
-    container: {
-      padding: "16px 0",
-    },
-    tabIndicator: {
-      display: "none",
-    },
-    table: {
-      fontSize: "1rem",
-    },
-    tabs: {
-      marginBottom: 16,
-    },
-  })
-);
+const Container = styled("div")({
+  padding: "16px 0",
+  "& .tabIndicator": {
+    display: "none",
+  },
+  "& .table": {
+    fontSize: "1rem",
+  },
+  "& .tabs": {
+    marginBottom: 16,
+  },
+});
 
 const mathOperators: OperatorDefinition[] = [
   op("+", "Addition", "1 + 2", "3"),
@@ -82,39 +77,37 @@ interface OperatorTableProps {
   context: PresentationContext;
 }
 function OperatorsTableSlide({ context, operatorGroup, title }: OperatorTableProps) {
-  const classes = useStyles();
-
   return (
     <ContentSlide
       Title={title}
       context={context}
       Content={
-        <div className={classes.container}>
-          <Table className={classes.table}>
+        <Container>
+          <Table className={"table"}>
             <TableHead>
               <TableRow>
-                <TableCell className={classes.table}>Operator</TableCell>
-                <TableCell className={classes.table}>Description</TableCell>
-                <TableCell className={classes.table}>Example</TableCell>
-                <TableCell className={classes.table}>Result</TableCell>
+                <TableCell className={"table"}>Operator</TableCell>
+                <TableCell className={"table"}>Description</TableCell>
+                <TableCell className={"table"}>Example</TableCell>
+                <TableCell className={"table"}>Result</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {operatorGroup.map(op => (
                 <TableRow key={op.symbol}>
-                  <TableCell className={classes.table}>
+                  <TableCell className={"table"}>
                     <code>{op.symbol}</code>
                   </TableCell>
-                  <TableCell className={classes.table}>{op.description}</TableCell>
-                  <TableCell className={classes.table}>
+                  <TableCell className={"table"}>{op.description}</TableCell>
+                  <TableCell className={"table"}>
                     <code>{op.example || ""}</code>
                   </TableCell>
-                  <TableCell className={classes.table}>{op.result || ""}</TableCell>
+                  <TableCell className={"table"}>{op.result || ""}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
-        </div>
+        </Container>
       }
     />
   );

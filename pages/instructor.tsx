@@ -1,25 +1,19 @@
 import { faDownload } from "@fortawesome/free-solid-svg-icons/faDownload";
 import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Typography } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Typography, styled } from "@mui/material";
 import { recorderService } from "../packages/presenter-core/src/services/slide-recorder";
 import { useClientSideValue } from "../packages/site/src/common/functional-utils";
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    container: {
-      padding: theme.spacing(2),
-      maxWidth: 600,
-    },
-  })
-);
+const Container = styled("div")(({ theme }) => ({
+  padding: theme.spacing(2),
+  maxWidth: 600,
+}));
 
 export default function InstructorView() {
-  const classes = useStyles();
   const recordings = useClientSideValue(recorderService.fetchRecordings, []);
   return (
-    <div className={classes.container}>
+    <Container>
       <Typography variant="h4" component="h1">
         Recordings
       </Typography>
@@ -45,6 +39,6 @@ export default function InstructorView() {
           ))}
         </List>
       )}
-    </div>
+    </Container>
   );
 }

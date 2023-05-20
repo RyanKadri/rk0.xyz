@@ -1,33 +1,28 @@
-import { Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Typography, styled } from "@mui/material";
 import { PageNumber } from "../../components/page-number";
 import { DefinitionSlideProps } from "../../slides";
-import { useBaseStyles } from "./base-styles";
+import { BaseTitle, CenteredContentContainer } from "./base-styles";
 
-const useStyles = makeStyles({
-  definitionBox: {
-    width: "70%",
-  },
+const DefinitionBox = styled("dl")({
+  width: "70%",
 });
 
 export function DefinitionSlide({ context, Term, Definition }: DefinitionSlideProps) {
-  const classes = useStyles();
-  const baseClasses = useBaseStyles();
   return (
-    <div className={baseClasses.centeredContentContainer}>
-      <dl className={classes.definitionBox}>
+    <CenteredContentContainer>
+      <DefinitionBox>
         <dt>
           {typeof Term !== "string" ? (
             Term
           ) : (
-            <Typography variant="h4" className={baseClasses.title} color="secondary">
+            <BaseTitle variant="h4" color="secondary">
               {Term}
-            </Typography>
+            </BaseTitle>
           )}
         </dt>
         <dd>{typeof Definition !== "string" ? Definition : <Typography variant="body1">{Definition}</Typography>}</dd>
-      </dl>
+      </DefinitionBox>
       <PageNumber context={context} />
-    </div>
+    </CenteredContentContainer>
   );
 }

@@ -1,24 +1,20 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeSlide } from "../../../../../../presenter-core/src/slides/themes/blank/code-slide";
 import { synJS } from "../../../../common/highlighting";
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    arrayExample: {
-      display: "flex",
-      border: `solid 4px ${theme.palette.text.secondary}`,
-      marginTop: 16,
-      alignSelf: "flex-start",
-      "& div": {
-        padding: 16,
-        "&:not(:last-child)": {
-          borderRight: `solid 4px ${theme.palette.text.secondary}`,
-        },
-      },
+const ArrayExample = styled("div")(({ theme }) => ({
+  display: "flex",
+  border: `solid 4px ${theme.palette.text.secondary}`,
+  marginTop: 16,
+  alignSelf: "flex-start",
+  "& div": {
+    padding: 16,
+    "&:not(:last-child)": {
+      borderRight: `solid 4px ${theme.palette.text.secondary}`,
     },
-  })
-);
+  },
+}));
 
 const slideItems = [
   "You can set individual items in arrays",
@@ -35,14 +31,13 @@ evenNumbers.splice(2, 1);
 `;
 
 export function UpdatingArrays({ context }: Props) {
-  const classes = useStyles();
   return (
     <CodeSlide Title="Updating Arrays" context={context} bullets={slideItems} code={code}>
-      <div className={classes.arrayExample}>
+      <ArrayExample>
         {[0, 2, 6, 8, 10].map(num => (
           <div key={num}>{num}</div>
         ))}
-      </div>
+      </ArrayExample>
     </CodeSlide>
   );
 }

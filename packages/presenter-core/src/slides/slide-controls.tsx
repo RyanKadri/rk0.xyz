@@ -5,48 +5,44 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons/faCircle";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons/faEllipsisV";
 import { faSquare } from "@fortawesome/free-solid-svg-icons/faSquare";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Hidden, IconButton, Link as MaterialLink, Menu, MenuItem, NoSsr } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Hidden, IconButton, Link as MaterialLink, Menu, MenuItem, NoSsr, styled } from "@mui/material";
 import c from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { isProfessor } from "../../../site/src/common/admin";
-import { CustomTheme } from "../../../site/src/theme";
 import { AutomaticSlideRecording, SlideRecording } from "../services/slide-recorder";
 import { Presentation, RecordingDefinition } from "../services/types";
 
-const useStyles = makeStyles((theme: CustomTheme) =>
-  createStyles({
-    controlsContainer: {
-      fontSize: 16,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 8,
-      padding: "8px 16px",
-      transition: "opacity 100ms ease-in-out",
-      backgroundColor: theme.palette.grey["900"],
-      color: theme.palette.text.primary,
+const ControlsContainer = styled("div")(({ theme }) => ({
+  "&.slide-controls-container": {
+    fontSize: 16,
+    display: "flex",
+    justifyContent: "space-between",
+    gap: 8,
+    padding: "8px 16px",
+    transition: "opacity 100ms ease-in-out",
+    backgroundColor: theme.palette.grey["900"],
+    color: theme.palette.text.primary,
+  },
+  "& .button": {
+    fontSize: 20,
+    [theme.breakpoints.down("md")]: {
+      fontSize: 18,
     },
-    button: {
-      fontSize: 20,
-      [theme.breakpoints.down("md")]: {
-        fontSize: 18,
-      },
-    },
-    controlButtonGroup: {
-      display: "flex",
-      alignItems: "center",
-      gap: 8,
-    },
-    textLinkGroup: {
-      gap: 32,
-    },
-    menuItem: {
-      fontSize: 16,
-    },
-  })
-);
+  },
+  "& .controlButtonGroup": {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+  },
+  "& .textLinkGroup": {
+    gap: 32,
+  },
+  "& .menuItem": {
+    fontSize: 16,
+  },
+}));
 
 interface Props {
   className?: string;
@@ -71,7 +67,6 @@ export function SlideControls({
   lesson,
   recording,
 }: Props) {
-  const classes = useStyles();
   const [_, setVersion] = useState(Date.now());
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const router = useRouter();
@@ -84,9 +79,9 @@ export function SlideControls({
   }, []);
 
   return (
-    <div className={c(className, classes.controlsContainer)}>
+    <ControlsContainer className={c("slide-controls-container", className)}>
       <Hidden mdDown>
-        <div className={c(classes.controlButtonGroup, classes.textLinkGroup)}>
+        <div className={c("controlButtonGroup", "textLinkGroup")}>
           <Link href={courseUrl} passHref>
             <MaterialLink>Back to Class</MaterialLink>
           </Link>
@@ -98,11 +93,11 @@ export function SlideControls({
         </div>
       </Hidden>
       <Hidden mdUp>
-        <div className={c(classes.controlButtonGroup, classes.textLinkGroup)}>
+        <div className={c("controlButtonGroup", "textLinkGroup")}>
           <IconButton
             aria-controls="simple-menu"
             aria-haspopup="true"
-            className={classes.button}
+            className={"button"}
             onClick={e => setAnchorEl(e.currentTarget)}
             size="large"
           >
@@ -111,7 +106,7 @@ export function SlideControls({
           <Menu id="slide-controls" anchorEl={anchorEl} open={!!anchorEl} onClose={() => setAnchorEl(null)} keepMounted>
             {/* TODO - Fix styling */}
             <MenuItem
-              className={classes.menuItem}
+              className={"menuItem"}
               onClick={() => {
                 setAnchorEl(null);
                 router.push(courseUrl);
@@ -121,7 +116,7 @@ export function SlideControls({
             </MenuItem>
             {!!lesson.recording && (
               <MenuItem
-                className={classes.menuItem}
+                className={"menuItem"}
                 onClick={() => {
                   setAnchorEl(null);
                   window.location.href = generateRecordingLink(lesson.recording!, currSlide);
@@ -135,14 +130,14 @@ export function SlideControls({
       </Hidden>
       <NoSsr>
         {!lesson.recording?.slideTimings && isProfessor() && (
-          <div className={classes.controlButtonGroup}>
+          <div className={"controlButtonGroup"}>
             {!recording ? (
-              <IconButton className={classes.button} color="secondary" onClick={onRecord} size="large">
+              <IconButton className={"button"} color="secondary" onClick={onRecord} size="large">
                 <FontAwesomeIcon icon={faCircle} />
               </IconButton>
             ) : (
               <>
-                <IconButton className={classes.button} color="secondary" onClick={onStop} size="large">
+                <IconButton className={"button"} color="secondary" onClick={onStop} size="large">
                   <FontAwesomeIcon icon={faSquare} />
                 </IconButton>
                 <span>{renderRecordingTime(Date.now() - (recording as AutomaticSlideRecording).startTime)}</span>
@@ -151,11 +146,11 @@ export function SlideControls({
           </div>
         )}
       </NoSsr>
-      <div className={classes.controlButtonGroup}>
+      <div className={"controlButtonGroup"}>
         <LinkOrDisabledButton href={previousSlideLink} icon={faChevronLeft} label="Previous Slide" />
         <LinkOrDisabledButton href={nextSlideLink} icon={faChevronRight} label="Next Slide" />
       </div>
-    </div>
+    </ControlsContainer>
   );
 }
 
@@ -165,16 +160,15 @@ interface LinkProps {
   href: string | null;
 }
 function LinkOrDisabledButton({ label, icon, href }: LinkProps) {
-  const classes = useStyles();
   /* This next part looks weird because NextJS does not like disabled buttons embedded in a link */
   return href ? (
     <Link href={href} passHref replace shallow aria-label={label}>
-      <IconButton className={classes.button} size="large">
+      <IconButton className={"button"} size="large">
         <FontAwesomeIcon icon={icon} />
       </IconButton>
     </Link>
   ) : (
-    <IconButton className={classes.button} disabled aria-label={label} size="large">
+    <IconButton className={"button"} disabled aria-label={label} size="large">
       <FontAwesomeIcon icon={icon} />
     </IconButton>
   );

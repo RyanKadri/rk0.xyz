@@ -1,20 +1,18 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeBlock } from "../../../../../../presenter-core/src/slides/components/code-block";
 import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import { synHTML, synJS } from "../../../../common/highlighting";
 
-const useStyles = makeStyles(
-  createStyles({
-    code: {
-      fontSize: 26,
-      userSelect: "text",
-      border: "solid #444 2px",
-      marginTop: 16,
-    },
-  })
-);
+const StyledCodeBlock = styled(CodeBlock)({
+  code: {
+    fontSize: 26,
+    userSelect: "text",
+    border: "solid #444 2px",
+    marginTop: 16,
+  },
+});
 
 const slideItems = [
   "HTML elements can reference a function",
@@ -34,7 +32,6 @@ const myHTML = synHTML`
 `;
 
 export function ReactingToInput({ context }: Props) {
-  const classes = useStyles();
   return (
     <ContentSlide
       Title="Reacting to Inputs"
@@ -42,8 +39,8 @@ export function ReactingToInput({ context }: Props) {
       Content={
         <>
           <InfoList items={slideItems}></InfoList>
-          <CodeBlock code={myHTML} className={classes.code}></CodeBlock>
-          <CodeBlock code={code} className={classes.code}></CodeBlock>
+          <StyledCodeBlock code={myHTML} />
+          <StyledCodeBlock code={code} />
         </>
       }
     />

@@ -1,34 +1,29 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { useState } from "react";
 import { PresentationContext } from "../../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../../presenter-core/src/slides/slides";
 
-export const useStyles = makeStyles(_ =>
-  createStyles({
-    container: {
-      display: "flex",
-      flexDirection: "column",
-      marginTop: 16,
-      gap: 32,
-      alignItems: "center",
-    },
-    block: {
-      border: "solid 4px black",
-      borderRadius: 4,
-      width: 400,
-      height: 400,
-    },
-    inputContainer: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 16,
-    },
-  })
-);
+export const Container = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  marginTop: 16,
+  gap: 32,
+  alignItems: "center",
+  "& .block": {
+    border: "solid 4px black",
+    borderRadius: 4,
+    width: 400,
+    height: 400,
+  },
+  "& .inputContainer": {
+    display: "flex",
+    flexDirection: "column",
+    gap: 16,
+  },
+});
 
 export function ColorsOfLight() {
   return function ({ context }: { context: PresentationContext }) {
-    const classes = useStyles();
     const [red, setRed] = useState(0);
     const [green, setGreen] = useState(0);
     const [blue, setBlue] = useState(0);
@@ -38,9 +33,9 @@ export function ColorsOfLight() {
         Title="What happens if you mix colors of light together though?"
         context={context}
         Content={
-          <div className={classes.container}>
-            <div className={classes.block} style={{ backgroundColor: `rgba(${red}, ${green}, ${blue})` }} />
-            <div className={classes.inputContainer}>
+          <Container>
+            <div className={"block"} style={{ backgroundColor: `rgba(${red}, ${green}, ${blue})` }} />
+            <div className={"inputContainer"}>
               <label>
                 Red
                 <input
@@ -75,7 +70,7 @@ export function ColorsOfLight() {
                 />
               </label>
             </div>
-          </div>
+          </Container>
         }
       />
     );

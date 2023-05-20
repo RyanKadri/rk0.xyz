@@ -1,36 +1,40 @@
-import { Button, Card, CardActionArea, CardContent, CardHeader, Link, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardHeader,
+  Link,
+  TextField,
+  Typography,
+  styled,
+} from "@mui/material";
 
-import { createStyles, makeStyles } from "@mui/styles";
 import { ReactNode, useEffect, useState } from "react";
 import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
-import { useMarkdownLabStyles } from "./lab";
+import { MarkdownLabContainer } from "./lab";
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    container: {
-      padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
-      maxWidth: "1200px",
-    },
-    termList: {
-      margin: `${theme.spacing(2)} 0`,
-      display: "grid",
-      gridTemplateColumns: "1fr",
-      gap: theme.spacing(2),
-    },
-    codeBlock: {
-      marginTop: theme.spacing(),
-    },
-    referenceList: {
-      margin: 0,
-    },
-  })
-);
+const Container = styled("div")(({ theme }) => ({
+  padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
+  maxWidth: "1200px",
+  "& .termList": {
+    margin: `${theme.spacing(2)} 0`,
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    gap: theme.spacing(2),
+  },
+  "& .codeBlock": {
+    marginTop: theme.spacing(),
+  },
+  "& .referenceList": {
+    margin: 0,
+  },
+}));
 
 interface Props {
   items: GlossaryItem[];
 }
 export default function GlossaryPage({ items }: Props) {
-  const classes = useStyles();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<GlossaryItem[]>([]);
 
@@ -40,7 +44,7 @@ export default function GlossaryPage({ items }: Props) {
   }, [searchTerm]);
 
   return (
-    <div className={classes.container}>
+    <Container>
       <h1>Glossary</h1>
       <TextField
         type="search"
@@ -52,12 +56,12 @@ export default function GlossaryPage({ items }: Props) {
           setSearchTerm(e.currentTarget.value);
         }}
       />
-      <div className={classes.termList}>
+      <div className={"termList"}>
         {searchResults.map(item => (
           <GlossaryCard item={item} key={item.term} />
         ))}
       </div>
-    </div>
+    </Container>
   );
 }
 
@@ -65,34 +69,34 @@ interface GlossaryCardProps {
   item: GlossaryItem;
 }
 function GlossaryCard({ item }: GlossaryCardProps) {
-  const labStyles = useMarkdownLabStyles();
-  const classes = useStyles();
   const [showingDetails, setShowingDetails] = useState(false);
 
   return (
     <Card>
       <CardHeader title={item.term} />
-      <CardContent className={labStyles.container}>
-        <Typography>{item.description}</Typography>
-        {showingDetails &&
-          !!item.moreInfo &&
-          item.moreInfo.map(info =>
-            info.type === "code" ? <CodeBlock code={info.code} className={classes.codeBlock} /> : info.content
+      <CardContent>
+        <MarkdownLabContainer>
+          <Typography>{item.description}</Typography>
+          {showingDetails &&
+            !!item.moreInfo &&
+            item.moreInfo.map(info =>
+              info.type === "code" ? <CodeBlock code={info.code} className={"codeBlock"} /> : info.content
+            )}
+          {showingDetails && !!item.references && (
+            <>
+              <Typography>References</Typography>
+              <ul className={"referenceList"}>
+                {item.references.map(reference => (
+                  <li key={reference.link}>
+                    <Link href={reference.link} target="_blank">
+                      {reference.display}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
           )}
-        {showingDetails && !!item.references && (
-          <>
-            <Typography>References</Typography>
-            <ul className={classes.referenceList}>
-              {item.references.map(reference => (
-                <li key={reference.link}>
-                  <Link href={reference.link} target="_blank">
-                    {reference.display}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+        </MarkdownLabContainer>
       </CardContent>
       <CardActionArea onClick={() => setShowingDetails(true)}>
         {!showingDetails && (!!item.moreInfo || !!item.references) && <Button color="primary">More details</Button>}

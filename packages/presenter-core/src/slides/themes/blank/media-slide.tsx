@@ -1,12 +1,13 @@
-import { Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import c from "classnames";
+import { Typography, styled } from "@mui/material";
 import { PageNumber } from "../../components/page-number";
 import { MediaSlideProps } from "../../slides";
-import { useBaseStyles } from "./base-styles";
+import { BaseContainer, BaseTitle } from "./base-styles";
 
-const useStyles = makeStyles({
-  media: {
+const Container = styled(BaseContainer)({
+  padding: 32,
+  alignItems: "center",
+
+  "& .media": {
     position: "absolute",
     top: "50%",
     left: "50%",
@@ -18,11 +19,7 @@ const useStyles = makeStyles({
       height: "100%",
     },
   },
-  container: {
-    padding: 32,
-    alignItems: "center",
-  },
-  credit: {
+  "& .credit": {
     position: "absolute",
     bottom: 32,
     left: 32,
@@ -30,21 +27,18 @@ const useStyles = makeStyles({
 });
 
 export function MediaSlide({ context, Media, Title, Credit }: MediaSlideProps) {
-  const classes = useStyles();
-  const baseClasses = useBaseStyles();
-
   return (
-    <div className={c(baseClasses.container, classes.container)}>
-      {typeof Title !== "string" ? Title ?? null : <Typography className={baseClasses.title}>{Title}</Typography>}
-      <div className={classes.media}>{Media}</div>
+    <Container>
+      {typeof Title !== "string" ? Title ?? null : <BaseTitle>{Title}</BaseTitle>}
+      <div className={"media"}>{Media}</div>
       {typeof Credit === "string" ? (
-        <Typography className={classes.credit} variant="caption">
+        <Typography className={"credit"} variant="caption">
           {Credit}
         </Typography>
       ) : (
-        <div className={classes.credit}>{Credit}</div>
+        <div className={"credit"}>{Credit}</div>
       )}
       <PageNumber context={context} />
-    </div>
+    </Container>
   );
 }

@@ -1,31 +1,27 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { Typography, styled } from "@mui/material";
 
-export const useBaseStyles = makeStyles(_ =>
-  createStyles({
-    container: {
-      height: "100%",
-      display: "flex",
-      flexDirection: "column",
-      marginTop: "auto",
-      fontSize: "1rem",
-    },
-    centeredContentContainer: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      height: "100%",
-      flexDirection: "column",
-      padding: 64,
-      fontSize: "1.75rem",
-    },
-    titleSlideTitle: {
-      fontSize: "1.75rem",
-    },
-    title: {
-      fontSize: "1.5rem",
-    },
-    subTitle: {
-      fontSize: "1.25rem",
-    },
-  })
-);
+export const CenteredContentContainer = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100%",
+  flexDirection: "column",
+  padding: 64,
+  fontSize: "1.75rem",
+});
+
+export const BaseContainer = styled("div")({
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  marginTop: "auto",
+  fontSize: "1rem",
+});
+
+export const BaseTitle = styled(Typography)({
+  fontSize: "1.5rem",
+});
+
+export const BaseSubtitle = styled(Typography)({
+  fontSize: "1.25rem",
+});

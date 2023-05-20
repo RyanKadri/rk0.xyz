@@ -1,23 +1,15 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import dnsImage from "../assets/DNS-Server.png";
 
-const useStyles = makeStyles(
-  createStyles({
-    code: {
-      fontSize: 26,
-      userSelect: "text",
-    },
-    image: {
-      width: 650,
-      marginLeft: "auto",
-      marginRight: "auto",
-      display: "block",
-    },
-  })
-);
+const Image = styled("img")({
+  width: 650,
+  marginLeft: "auto",
+  marginRight: "auto",
+  display: "block",
+});
 
 const items = [
   "To send a request to a server, you need its IP address",
@@ -27,7 +19,6 @@ const items = [
 ];
 
 export function DNSLookup({ context }: Props) {
-  const classes = useStyles();
   return (
     <ContentSlide
       Title="Finding a Server"
@@ -35,7 +26,7 @@ export function DNSLookup({ context }: Props) {
       Content={
         <>
           <InfoList items={items} />
-          <img src={dnsImage.src} className={classes.image} />
+          <Image src={dnsImage.src} />
         </>
       }
     />

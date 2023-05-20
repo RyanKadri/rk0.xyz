@@ -1,5 +1,4 @@
-import { Button } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Button, styled } from "@mui/material";
 import { parse } from "acorn";
 import { FunctionDeclaration, Identifier, Node } from "estree";
 import React, { useEffect, useState } from "react";
@@ -31,14 +30,12 @@ function extractFunctionInfo(code: string): FunctionInfo[] | null {
   }
 }
 
-const useStyles = makeStyles({
-  actionHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    "& select": {
-      marginLeft: 8,
-    },
+const ActionHeader = styled("header")({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  "& select": {
+    marginLeft: 8,
   },
 });
 
@@ -47,7 +44,6 @@ interface Props {
   testCases: TestCaseMapping;
 }
 export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
-  const classes = useStyles();
   const functions = extractFunctionInfo(code);
   const [targetFunction, setTargetFunction] = useState<string | null>(functions?.[0].name ?? null);
   const [testCaseMap, setTestCaseMap] = useState<TestCaseMapping>({ ...initTestCases });
@@ -88,7 +84,7 @@ export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
         <p>Error parsing function</p>
       ) : (
         <>
-          <header className={classes.actionHeader}>
+          <ActionHeader>
             <label>
               Please select a function to test:
               <select onChange={onSelectFunction}>
@@ -104,7 +100,7 @@ export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
                 Run {selectedFunction!.name}
               </Button>
             )}
-          </header>
+          </ActionHeader>
           {!!selectedFunction && (
             <JSExampleTestCases
               functionInfo={selectedFunction}

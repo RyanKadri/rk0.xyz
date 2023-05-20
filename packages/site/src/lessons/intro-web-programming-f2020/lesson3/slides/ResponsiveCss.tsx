@@ -1,19 +1,17 @@
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import defaultSite from "./responsive-adapt-css-1.png";
 import mobileSite from "./responsive-adapt-css-2.png";
 
-const useStyles = makeStyles({
-  container: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: 16,
-    margin: "0 -80px",
-    "& img": {
-      width: "49%",
-    },
+const Container = styled("div")({
+  display: "flex",
+  justifyContent: "space-between",
+  padding: 16,
+  margin: "0 -80px",
+  "& img": {
+    width: "49%",
   },
 });
 
@@ -26,7 +24,6 @@ const bullets = [
 ];
 
 export function ResponsiveCSS({ context }: Props) {
-  const classes = useStyles();
   return (
     <ContentSlide
       Title="Approach 3: One Responsive Page"
@@ -34,10 +31,10 @@ export function ResponsiveCSS({ context }: Props) {
       Content={
         <>
           <InfoList items={bullets} />
-          <div className={classes.container}>
+          <Container>
             <img src={defaultSite.src} />
             <img src={mobileSite.src} />
-          </div>
+          </Container>
         </>
       }
     />

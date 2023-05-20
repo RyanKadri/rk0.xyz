@@ -1,51 +1,31 @@
-import { Typography } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
-import c from "classnames";
+import { styled } from "@mui/material";
 import { PageNumber } from "../../components/page-number";
 import { TitleSlideProps } from "../../slides";
-import { useBaseStyles } from "./base-styles";
+import { BaseContainer, BaseSubtitle, BaseTitle } from "./base-styles";
 
 const containerPadding = 128;
 const subTitleSpacing = containerPadding / 2;
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    container: {
-      padding: containerPadding,
-    },
-    titleContainer: {
-      marginTop: "auto",
-    },
-    subtitleContainer: {
-      marginTop: subTitleSpacing,
-    },
-  })
-);
+const Container = styled(BaseContainer)({
+  padding: containerPadding,
+  "& .titleContainer": {
+    marginTop: "auto",
+  },
+  "& .subtitleContainer": {
+    marginTop: subTitleSpacing,
+  },
+});
 
 export function TitleSlide({ Title, Subtitle, context }: TitleSlideProps) {
-  const classes = useStyles();
-  const baseClasses = useBaseStyles();
   return (
-    <div className={c(baseClasses.container, classes.container)}>
-      <div className={classes.titleContainer}>
-        {typeof Title !== "string" ? (
-          Title
-        ) : (
-          <Typography variant="h3" component="h1" className={baseClasses.titleSlideTitle}>
-            {Title}
-          </Typography>
-        )}
+    <Container>
+      <div className={"titleContainer"}>
+        {typeof Title !== "string" ? Title : <BaseTitle variant="h3">{Title}</BaseTitle>}
       </div>
-      <div className={classes.subtitleContainer}>
-        {typeof Subtitle !== "string" ? (
-          Subtitle
-        ) : (
-          <Typography variant="h4" component="h2" className={baseClasses.subTitle}>
-            {Subtitle}
-          </Typography>
-        )}
+      <div className={"subtitleContainer"}>
+        {typeof Subtitle !== "string" ? Subtitle : <BaseSubtitle variant="h4">{Subtitle}</BaseSubtitle>}
       </div>
       <PageNumber context={context} />
-    </div>
+    </Container>
   );
 }

@@ -1,32 +1,25 @@
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Table, TableBody, TableCell, TableHead, TableRow, styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    container: {
-      marginTop: "2rem",
-      "& th": {
-        color: theme.palette.secondary.main,
-        width: "50%",
-      },
-    },
-  })
-);
+const StyledTable = styled(Table)(({ theme }) => ({
+  marginTop: "2rem",
+  "& th": {
+    color: theme.palette.secondary.main,
+    width: "50%",
+  },
+}));
 
 interface Props {
   context: PresentationContext;
 }
 export function MathCodeFunctions({ context }: Props) {
-  const classes = useStyles();
-
   return (
     <ContentSlide
       Title="Functions vs Methods"
       context={context}
       Content={
-        <Table className={classes.container}>
+        <StyledTable>
           <TableHead>
             <TableRow>
               <TableCell>Mathematical Functions</TableCell>
@@ -47,7 +40,7 @@ export function MathCodeFunctions({ context }: Props) {
               <TableCell>Can change their parameters</TableCell>
             </TableRow>
           </TableBody>
-        </Table>
+        </StyledTable>
       }
     />
   );

@@ -14,70 +14,70 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  styled,
 } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
 import Link from "next/link";
 import { CourseDefinition } from "../../../../../presenter-core/src/services/types";
 
-const useStyles = makeStyles(
-  createStyles({
-    tablePaper: {
-      overflowX: "auto",
-      fontSize: 12,
-      gridColumn: "1/4",
+const CardViewParent = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  gap: 16,
+  lessonCard: {
+    cursor: "pointer",
+  },
+  cardHeader: {
+    fontSize: "1.25rem",
+  },
+  cardActions: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    padding: 16,
+    paddingTop: 0,
+    "& a": {
+      display: "block",
+      padding: "12px 0",
+    },
+    "& a:first-of-type": {
+      paddingTop: 0,
+    },
+    "& a:last-of-type": {
+      paddingBottom: 0,
     },
     tableIcon: {
       marginRight: 8,
     },
-    lessonCard: {
-      cursor: "pointer",
-    },
     labLink: {
       display: "block",
     },
-    tableViewParent: {
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr 1fr 1fr",
-      gap: "16px",
-      maxWidth: "1600px",
+  },
+});
+const TableViewParent = styled("div")({
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr 1fr 1fr",
+  gap: "16px",
+  maxWidth: "1600px",
+
+  "& .tablePaper": {
+    overflowX: "auto",
+    fontSize: 12,
+    gridColumn: "1/4",
+  },
+  "& .headerRow": {
+    "& th, & td": {
+      fontWeight: 700,
     },
-    cardViewParent: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 16,
-    },
-    headerRow: {
-      "& th, & td": {
-        fontWeight: 700,
-      },
-    },
-    cardHeader: {
-      fontSize: "1.25rem",
-    },
-    cardActions: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      padding: 16,
-      paddingTop: 0,
-      "& a": {
-        display: "block",
-        padding: "12px 0",
-      },
-      "& a:first-of-type": {
-        paddingTop: 0,
-      },
-      "& a:last-of-type": {
-        paddingBottom: 0,
-      },
-    },
-    extrasColumn: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 8,
-    },
-  })
-);
+  },
+  "& .extrasColumn": {
+    display: "flex",
+    flexDirection: "column",
+    gap: 8,
+  },
+  tableIcon: {
+    marginRight: 8,
+  },
+});
 
 export function LessonList(props: Props) {
   return (
@@ -93,31 +93,29 @@ export function LessonList(props: Props) {
 }
 
 function LessonCardView({ course, baseUrl }: Props) {
-  const classes = useStyles();
-
   return (
-    <div className={classes.cardViewParent}>
+    <CardViewParent className={"cardViewParent"}>
       {course.lessons.map(lesson => (
-        <Card className={classes.lessonCard} key={lesson.description}>
-          <CardHeader title={lesson.description} classes={{ title: classes.cardHeader }} />
-          <footer className={classes.cardActions}>
+        <Card className={"lessonCard"} key={lesson.description}>
+          <CardHeader title={lesson.description} classes={{ title: "cardHeader " }} />
+          <footer className={"cardActions"}>
             <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>
               <MaterialLink>
-                <FontAwesomeIcon icon={faDesktop} className={classes.tableIcon} />
+                <FontAwesomeIcon icon={faDesktop} className={"tableIcon"} />
                 Slides
               </MaterialLink>
             </Link>
             {lesson.lab && (
               <Link href={`${baseUrl}/labs/${lesson.lab.slug}`} passHref prefetch={false}>
-                <MaterialLink className={classes.labLink}>
-                  <FontAwesomeIcon icon={faFlask} className={classes.tableIcon} />
+                <MaterialLink className={"labLink"}>
+                  <FontAwesomeIcon icon={faFlask} className={"tableIcon"} />
                   Lab: {lesson.lab.title}
                 </MaterialLink>
               </Link>
             )}
             {lesson.externalExamples?.length === 1 && lesson.examples.length === 0 ? (
               <MaterialLink href={lesson.externalExamples[0].url} target="_blank">
-                <FontAwesomeIcon icon={faCode} className={classes.tableIcon} />
+                <FontAwesomeIcon icon={faCode} className={"tableIcon"} />
                 Examples
               </MaterialLink>
             ) : (
@@ -125,7 +123,7 @@ function LessonCardView({ course, baseUrl }: Props) {
               lesson.examples.length > 0 && (
                 <Link href={`${baseUrl}/lessons/${lesson.slug}/examples/0`} passHref>
                   <MaterialLink>
-                    <FontAwesomeIcon icon={faCode} className={classes.tableIcon} />
+                    <FontAwesomeIcon icon={faCode} className={"tableIcon"} />
                     Examples
                   </MaterialLink>
                 </Link>
@@ -133,7 +131,7 @@ function LessonCardView({ course, baseUrl }: Props) {
             )}
             {lesson.recording ? (
               <MaterialLink href={lesson.recording.link} target="_blank" rel="noopener">
-                <FontAwesomeIcon icon={faVideo} className={classes.tableIcon} />
+                <FontAwesomeIcon icon={faVideo} className={"tableIcon"} />
                 Recording
               </MaterialLink>
             ) : null}
@@ -143,18 +141,17 @@ function LessonCardView({ course, baseUrl }: Props) {
       {(course.courseExtras || []).map(extra => (
         <LinkCard baseUrl={baseUrl} title={extra.title} relativeLink={extra.route} key={extra.route} />
       ))}
-    </div>
+    </CardViewParent>
   );
 }
 
 function LessonTableView({ course, baseUrl }: Props) {
-  const classes = useStyles();
   return (
-    <div className={classes.tableViewParent}>
-      <Paper className={classes.tablePaper}>
+    <TableViewParent>
+      <Paper className={"tablePaper"}>
         <Table>
           <TableHead>
-            <TableRow className={classes.headerRow}>
+            <TableRow className={"headerRow"}>
               <TableCell>#</TableCell>
               <TableCell>Course</TableCell>
               <TableCell>Slides</TableCell>
@@ -171,20 +168,20 @@ function LessonTableView({ course, baseUrl }: Props) {
                 <TableCell>
                   <Link href={`${baseUrl}/lessons/${lesson.slug}/slides/0`} passHref>
                     <MaterialLink>
-                      <FontAwesomeIcon icon={faDesktop} className={classes.tableIcon} />({lesson.slides.length})
+                      <FontAwesomeIcon icon={faDesktop} className={"tableIcon"} />({lesson.slides.length})
                     </MaterialLink>
                   </Link>
                 </TableCell>
                 <TableCell align="center">
                   {lesson.externalExamples?.length === 1 && lesson.examples.length === 0 ? (
                     <MaterialLink href={lesson.externalExamples[0].url} target="_blank">
-                      <FontAwesomeIcon icon={faCode} className={classes.tableIcon} />
+                      <FontAwesomeIcon icon={faCode} className={"tableIcon"} />
                     </MaterialLink>
                   ) : (
                     lesson.examples.length > 0 && (
                       <Link href={`${baseUrl}/lessons/${lesson.slug}/examples/0`} passHref>
                         <MaterialLink>
-                          <FontAwesomeIcon icon={faCode} className={classes.tableIcon} />(
+                          <FontAwesomeIcon icon={faCode} className={"tableIcon"} />(
                           {lesson.examples.length + (lesson.externalExamples?.length ?? 0)})
                         </MaterialLink>
                       </Link>
@@ -194,7 +191,7 @@ function LessonTableView({ course, baseUrl }: Props) {
                 <TableCell>
                   {lesson.recording ? (
                     <MaterialLink href={lesson.recording.link} aria-label="View Recording">
-                      <FontAwesomeIcon icon={faVideo} className={classes.tableIcon} />
+                      <FontAwesomeIcon icon={faVideo} className={"tableIcon"} />
                     </MaterialLink>
                   ) : null}
                 </TableCell>
@@ -210,12 +207,12 @@ function LessonTableView({ course, baseUrl }: Props) {
           </TableBody>
         </Table>
       </Paper>
-      <div className={classes.extrasColumn}>
+      <div className={"extrasColumn"}>
         {(course.courseExtras || []).map(extra => (
           <LinkCard baseUrl={baseUrl} title={extra.title} relativeLink={extra.route} key={extra.route} />
         ))}
       </div>
-    </div>
+    </TableViewParent>
   );
 }
 
@@ -226,11 +223,10 @@ interface LinkCardProps {
 }
 
 function LinkCard({ baseUrl, title, relativeLink }: LinkCardProps) {
-  const classes = useStyles();
   return (
     <Link href={`${baseUrl}/${relativeLink}`} passHref>
       <a style={{ textDecoration: "none" }}>
-        <Card className={classes.lessonCard}>
+        <Card className={"lessonCard"}>
           <CardHeader title={title} />
         </Card>
       </a>

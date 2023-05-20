@@ -1,76 +1,83 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles(
-  createStyles({
-    major: {
-      color: "blue",
-    },
-    minor: {
-      color: "green",
-    },
-    patch: {
-      color: "red",
-    },
-    versionContainer: {
-      fontSize: "1.5rem",
-      marginTop: 32,
-    },
-    version: {
-      fontFamily: "monospace",
-    },
-    partList: {
-      fontSize: "1.25rem",
-      margin: 0,
-      padding: 0,
-      marginTop: 32,
-      "& > li": {
-        listStyle: "none",
-        marginTop: 16,
-      },
-    },
-  })
-);
+const VersionContainer = styled("div")({
+  fontSize: "1.5rem",
+  marginTop: 32,
+  "& .major": {
+    color: "blue",
+  },
+  "& .minor": {
+    color: "green",
+  },
+  "& .patch": {
+    color: "red",
+  },
+  "& .version": {
+    fontFamily: "monospace",
+  },
+});
+
+const PartList = styled("ul")({
+  fontSize: "1.25rem",
+  margin: 0,
+  padding: 0,
+  marginTop: 32,
+  "& > li": {
+    listStyle: "none",
+    marginTop: 16,
+  },
+  "& .major": {
+    color: "blue",
+  },
+  "& .minor": {
+    color: "green",
+  },
+  "& .patch": {
+    color: "red",
+  },
+  "& .version": {
+    fontFamily: "monospace",
+  },
+});
 
 export function SemanticVersioning({ context }: Props) {
-  const classes = useStyles();
   return (
     <ContentSlide
       Title="Semantic Versioning"
       context={context}
       Content={
         <>
-          <div className={classes.versionContainer}>
+          <VersionContainer>
             Version:{" "}
-            <span className={classes.version}>
-              <span className={classes.major}>7</span>.<span className={classes.minor}>15</span>.
-              <span className={classes.patch}>20</span>
+            <span className={"version"}>
+              <span className={"major"}>7</span>.<span className={"minor"}>15</span>.<span className={"patch"}>20</span>
             </span>
-          </div>
-          <ul className={classes.partList}>
+          </VersionContainer>
+          <PartList className={"partList"}>
             <li>
-              <span className={classes.major}>Major: </span>
+              <span className={"major"}>Major: </span>
               Gets incremented on breaking changes
               <ul>
                 <li>Read the documentation before updating</li>
               </ul>
             </li>
             <li>
-              <span className={classes.minor}>Minor: </span>
+              <span className={"minor"}>Minor: </span>
               Gets incremented for new features
               <ul>
                 <li>Update at some point but test your code</li>
               </ul>
             </li>
             <li>
-              <span className={classes.patch}>Patch: </span>
+              <span className={"patch"}>Patch: </span>
               Gets incremented for bug and security fixes
               <ul>
                 <li>Should be safe (but test your code)</li>
               </ul>
             </li>
-          </ul>
+          </PartList>
         </>
       }
     />

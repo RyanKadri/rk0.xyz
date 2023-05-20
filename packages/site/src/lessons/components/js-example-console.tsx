@@ -1,12 +1,10 @@
-import { Card, CardHeader } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Card, CardHeader, styled } from "@mui/material";
 import { EvalResult, LoggedConsoleMessage } from "../../../../presenter-core/src/services/js-execution";
 
-const useStyles = makeStyles(theme => ({
-  consoleContainer: {
-    marginTop: 8,
-  },
-  messageList: {
+const ConsoleContainer = styled(Card)(({ theme }) => ({
+  marginTop: 8,
+
+  "&. messageList": {
     margin: 0,
     padding: "8px 0px",
     borderTop: "solid 1px #aaa",
@@ -23,7 +21,7 @@ const useStyles = makeStyles(theme => ({
       borderBottom: "solid 1px #ccc",
     },
   },
-  error: {
+  "&. error": {
     color: theme.palette.error.main,
   },
 }));
@@ -33,11 +31,10 @@ interface Props {
   result?: EvalResult;
 }
 export function JSExampleConsole({ consoleMessages, result }: Props) {
-  const classes = useStyles();
   return (
-    <Card className={classes.consoleContainer}>
+    <ConsoleContainer>
       <CardHeader title="Console" />
-      <ul className={classes.messageList}>
+      <ul className={"messageList"}>
         {consoleMessages === undefined ? (
           <li>Listening for console messages</li>
         ) : (
@@ -51,9 +48,9 @@ export function JSExampleConsole({ consoleMessages, result }: Props) {
         {result === undefined ? null : result.status === "success" ? (
           <li>Returned: {"" + JSON.stringify(result.result)}</li>
         ) : (
-          <li className={classes.error}>{result.error}</li>
+          <li className={"error"}>{result.error}</li>
         )}
       </ul>
-    </Card>
+    </ConsoleContainer>
   );
 }

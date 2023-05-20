@@ -1,22 +1,20 @@
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { InfoList } from "../../../../../../presenter-core/src/slides/components/info-list";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import defaultSite from "./desktop-google.png";
 import mobileSite from "./mobile-google.png";
 
-const useStyles = makeStyles({
-  container: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 16,
-    "& a": {
-      width: "49%",
-    },
-    "& a img": {
-      width: "100%",
-    },
+const Container = styled("div")({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  padding: 16,
+  "& a": {
+    width: "49%",
+  },
+  "& a img": {
+    width: "100%",
   },
 });
 
@@ -28,7 +26,6 @@ const bullets = [
 ];
 
 export function DetectBrowser({ context }: Props) {
-  const classes = useStyles();
   return (
     <ContentSlide
       Title="Approach 2: Detect the Browser"
@@ -36,14 +33,14 @@ export function DetectBrowser({ context }: Props) {
       Content={
         <>
           <InfoList items={bullets} />
-          <div className={classes.container}>
+          <Container>
             <a href={defaultSite.src} target="_blank">
               <img src={defaultSite.src} />
             </a>
             <a href={mobileSite.src} target="_blank">
               <img src={mobileSite.src} />
             </a>
-          </div>
+          </Container>
         </>
       }
     />

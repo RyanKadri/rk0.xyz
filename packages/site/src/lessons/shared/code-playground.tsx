@@ -1,6 +1,4 @@
-import { Button, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, Typography } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
-import c from "classnames";
+import { Button, Paper, Table, TableBody, TableCell, TableHead, TableRow, Typography, styled } from "@mui/material";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { deepEquals } from "../../common/functional-utils";
@@ -28,39 +26,35 @@ export interface ExpectedExecution {
   expectedResults: any;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    editor: {
-      border: "solid 1px #ccc",
-    },
-    correct: {
-      backgroundColor: theme.palette.primary.light,
-    },
-    wrong: {
-      backgroundColor: theme.palette.error.light,
-    },
-    container: {
-      marginBottom: 32,
-      position: "relative",
-      border: "solid 2px #999",
-    },
-    runButton: {
-      position: "absolute",
-      top: 8,
-      right: 8,
-    },
-    resultsTable: {
-      borderTop: "solid 2px #999",
-      borderRadius: 0,
-    },
-    codeVal: {
-      whiteSpace: "pre-wrap",
-    },
-  })
-);
+const Container = styled("div")(({ theme }) => ({
+  marginBottom: 32,
+  position: "relative",
+  border: "solid 2px #999",
+
+  "& .editor": {
+    border: "solid 1px #ccc",
+  },
+  "& .correct": {
+    backgroundColor: theme.palette.primary.light,
+  },
+  "& .wrong": {
+    backgroundColor: theme.palette.error.light,
+  },
+  "& .runButton": {
+    position: "absolute",
+    top: 8,
+    right: 8,
+  },
+  "& .resultsTable": {
+    borderTop: "solid 2px #999",
+    borderRadius: 0,
+  },
+  "& .codeVal": {
+    whiteSpace: "pre-wrap",
+  },
+}));
 
 export function CodePlayground(props: Props) {
-  const classes = useStyles();
   const [latestResults, updateResults] = useState<any[] | undefined>();
   const [globalError, setGlobalError] = useState<string | null>(null);
   const [currCode, setCurrCode] = useState<string>(props.intialCode);
@@ -80,7 +74,7 @@ Did you change the function name?`
       } else {
         const results = props.executionParams.expectations.map(exp => {
           try {
-            return fn.apply(null, exp.params);
+            return fn(...exp.params);
           } catch (e) {
             return `Error: ${(e as Error).message}`;
           }
@@ -94,10 +88,10 @@ Did you change the function name?`
   };
 
   return (
-    <div className={c(classes.container, props.className)}>
+    <Container className={props.className}>
       <CodeEditor
         language={props.language || "javascript"}
-        className={classes.editor}
+        className={"editor"}
         height={props.editorHeight}
         initialCode={props.intialCode}
         onCodeChanged={code => setCurrCode(code)}
@@ -108,11 +102,11 @@ Did you change the function name?`
           {globalError}
         </Typography>
       )}
-      <Button variant="contained" color="primary" className={classes.runButton} onClick={runCode}>
+      <Button variant="contained" color="primary" className={"runButton"} onClick={runCode}>
         Run Code
       </Button>
       {props.executionParams.expectations && props.executionParams.expectations.length > 0 && (
-        <Paper className={classes.resultsTable}>
+        <Paper className={"resultsTable"}>
           <Table>
             <TableHead>
               <TableRow>
@@ -125,11 +119,7 @@ Did you change the function name?`
               {props.executionParams.expectations.map((exp, row) => {
                 const currResult = latestResults ? latestResults[row] : undefined;
                 const rowClass =
-                  latestResults === undefined
-                    ? ""
-                    : deepEquals(exp.expectedResults, currResult)
-                    ? classes.correct
-                    : classes.wrong;
+                  latestResults === undefined ? "" : deepEquals(exp.expectedResults, currResult) ? "correct" : "wrong";
                 return (
                   <TableRow key={row} className={rowClass}>
                     <TableCell>
@@ -163,7 +153,7 @@ Did you change the function name?`
           </Table>
         </Paper>
       )}
-    </div>
+    </Container>
   );
 }
 
@@ -171,7 +161,5 @@ interface CodeValueProps {
   param: any;
 }
 function CodeValue({ param }: CodeValueProps) {
-  const classes = useStyles();
-
-  return <span className={classes.codeVal}>{JSON.stringify(param, null, 4)}</span>;
+  return <span className={"codeVal"}>{JSON.stringify(param, null, 4)}</span>;
 }

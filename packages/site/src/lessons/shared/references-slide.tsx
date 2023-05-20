@@ -1,16 +1,13 @@
-import { Link, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Link, Typography, styled } from "@mui/material";
 import { ReactElement } from "react";
 import { PresentationContext, Reference } from "../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles({
-  referenceList: {
-    "& li": {
-      marginBottom: 16,
-    },
+const ReferenceList = styled("ul")({
+  "& li": {
+    marginBottom: 16,
   },
-  noteCaption: {
+  "& .noteCaption": {
     display: "block",
     marginLeft: 64,
     marginTop: 8,
@@ -18,26 +15,25 @@ const useStyles = makeStyles({
 });
 
 export function ReferencesSlide({ Title = "References", references, context }: Props) {
-  const classes = useStyles();
   return (
     <ContentSlide
       Title={Title}
       context={context}
       Content={
-        <ul className={classes.referenceList}>
+        <ReferenceList>
           {references.map(link => (
             <li key={link.url}>
               <Link href={link.url} target="_blank">
                 {link.label}
               </Link>
               {link.note && (
-                <Typography variant="caption" className={classes.noteCaption}>
+                <Typography variant="caption" className={"noteCaption"}>
                   {link.note}
                 </Typography>
               )}
             </li>
           ))}
-        </ul>
+        </ReferenceList>
       }
     />
   );

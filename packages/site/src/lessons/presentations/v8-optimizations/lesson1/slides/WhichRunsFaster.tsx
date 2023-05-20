@@ -1,6 +1,4 @@
-import { Link } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
-import c from "classnames";
+import { Link, styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../../presenter-core/src/services/types";
 import {
   CodeBlock,
@@ -8,26 +6,23 @@ import {
 } from "../../../../../../../presenter-core/src/slides/components/code-block";
 import { ContentSlide } from "../../../../../../../presenter-core/src/slides/themes/blank/content-slide";
 
-export const useStyles = makeStyles(_ =>
-  createStyles({
-    container: {
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: 32,
-      marginTop: 64,
-      marginBottom: "3rem",
-    },
-    denseContainer: {
-      marginTop: "1rem",
-      marginBottom: "1rem",
-      fontSize: "0.65rem",
-    },
-    link: {
-      textAlign: "center",
-      fontSize: "1.15rem",
-    },
-  })
-);
+const StyledLink = styled(Link)({
+  textAlign: "center",
+  fontSize: "1.15rem",
+});
+
+const Container = styled<any>("div", { shouldForwardProp: prop => prop !== "dense" })(({ dense }: any) => ({
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gap: 32,
+  marginTop: 64,
+  marginBottom: "3rem",
+  ...(dense && {
+    marginTop: "1rem",
+    marginBottom: "1rem",
+    fontSize: "0.65rem",
+  }),
+}));
 
 interface Props {
   leftCode: SyntaxHighlightedBlock;
@@ -39,7 +34,6 @@ interface Props {
 }
 export function ComparisonSlide({ leftCode, rightCode, link, options }: Props) {
   return function ({ context }: { context: PresentationContext }) {
-    const classes = useStyles();
     const dense = options?.codeSize === "small";
 
     return (
@@ -48,13 +42,11 @@ export function ComparisonSlide({ leftCode, rightCode, link, options }: Props) {
         context={context}
         Content={
           <>
-            <div className={c(classes.container, { [classes.denseContainer]: dense })}>
+            <Container dense={dense}>
               <CodeBlock code={leftCode} />
               <CodeBlock code={rightCode} />
-            </div>
-            <Link href={link} className={classes.link}>
-              {link}
-            </Link>
+            </Container>
+            <StyledLink href={link}>{link}</StyledLink>
           </>
         }
       />

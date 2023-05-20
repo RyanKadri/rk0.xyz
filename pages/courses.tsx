@@ -1,8 +1,7 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons/faChevronUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Typography } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Typography, styled } from "@mui/material";
 import Head from "next/head";
 import { useState } from "react";
 import { CourseDefinition } from "../packages/presenter-core/src/services/types";
@@ -14,25 +13,22 @@ import { miscPresentations } from "../packages/site/src/lessons/presentations";
 import { practicumInSW2021 } from "../packages/site/src/lessons/sw-construction";
 import { CourseCard } from "../packages/site/src/lessons/views/lesson-list/course-card";
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    listContainer: {
-      padding: theme.spacing(2),
-      flexGrow: 1,
-      width: "100%",
-      maxWidth: "1300px",
-    },
-    groupContainer: {
-      marginBottom: theme.spacing(3),
-    },
-    expandIcon: {
-      marginLeft: theme.spacing(1),
-    },
-    expandHeader: {
-      cursor: "pointer",
-    },
-  })
-);
+const ListContainer = styled("main")(({ theme }) => ({
+  padding: theme.spacing(2),
+  flexGrow: 1,
+  width: "100%",
+  maxWidth: "1300px",
+
+  "& .groupContainer": {
+    marginBottom: theme.spacing(3),
+  },
+  "& .expandIcon": {
+    marginLeft: theme.spacing(1),
+  },
+  "& .expandHeader": {
+    cursor: "pointer",
+  },
+}));
 
 const courseGroups: CourseGroup[] = [
   {
@@ -53,9 +49,8 @@ const courseGroups: CourseGroup[] = [
 ];
 
 export default function CourseSelector() {
-  const classes = useStyles();
   return (
-    <main className={classes.listContainer}>
+    <ListContainer>
       <Head>
         <title>Ryan Kadri - Temple Classes</title>
         <script
@@ -69,7 +64,7 @@ export default function CourseSelector() {
       {courseGroups.map(group => (
         <CourseGroupAccordion key={group.name} group={group} />
       ))}
-    </main>
+    </ListContainer>
   );
 }
 
@@ -79,13 +74,12 @@ interface GroupProps {
 
 export function CourseGroupAccordion({ group }: GroupProps) {
   const [expanded, setExpanded] = useState(group.startExpanded);
-  const classes = useStyles();
 
   return (
-    <section className={classes.groupContainer}>
-      <header className={classes.expandHeader} onClick={() => setExpanded(!expanded)}>
+    <section className={"groupContainer"}>
+      <header className={"expandHeader"} onClick={() => setExpanded(!expanded)}>
         <Typography display="inline">{group.name}</Typography>
-        <FontAwesomeIcon icon={expanded ? faChevronUp : faChevronDown} className={classes.expandIcon} />
+        <FontAwesomeIcon icon={expanded ? faChevronUp : faChevronDown} className={"expandIcon"} />
       </header>
       {expanded && (
         <div>

@@ -1,25 +1,22 @@
-import { Button } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Button, styled } from "@mui/material";
 
-const useStyles = makeStyles(_ => ({
-  content: {
-    border: "dotted 2px #999",
-    flexGrow: 1,
-    backgroundColor: "white",
-  },
-  newTabButton: {
-    position: "absolute",
-    right: 24,
-    transform: "translate(0px, -100%)",
-  },
-}));
+const Content = styled("iframe")({
+  border: "dotted 2px #999",
+  flexGrow: 1,
+  backgroundColor: "white",
+});
+
+const NewTabButton = styled(Button)({
+  position: "absolute",
+  right: 24,
+  transform: "translate(0px, -100%)",
+});
 
 interface Props {
   code: string;
 }
 
 export function HTMLExampleOutput({ code }: Props) {
-  const classes = useStyles();
   const toBlobPage = () => {
     const parser = new DOMParser();
     const pageToLoad = parser.parseFromString(code, "text/html");
@@ -41,10 +38,10 @@ export function HTMLExampleOutput({ code }: Props) {
 
   return (
     <>
-      <Button variant="contained" color="primary" size="small" onClick={toBlobPage} className={classes.newTabButton}>
+      <NewTabButton variant="contained" color="primary" size="small" onClick={toBlobPage}>
         Open in tab
-      </Button>
-      <iframe className={classes.content} srcDoc={code} />
+      </NewTabButton>
+      <Content srcDoc={code} />
     </>
   );
 }

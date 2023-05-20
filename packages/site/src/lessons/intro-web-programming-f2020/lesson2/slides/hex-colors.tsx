@@ -1,38 +1,33 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles(
-  createStyles({
-    colorContainer: {
-      height: "80%",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+const ColorContainer = styled("div")({
+  height: "80%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  "& .colorBlock": {
+    borderRadius: 8,
+    fontSize: "1.5rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    border: "solid 4px #ccc",
+    height: 480,
+    width: 720,
+    "& input": {
+      marginLeft: 16,
     },
-    colorBlock: {
-      borderRadius: 8,
-      fontSize: "1.5rem",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      border: "solid 4px #ccc",
-      height: 480,
-      width: 720,
-      "& input": {
-        marginLeft: 16,
-      },
-    },
-  })
-);
+  },
+});
 
 function toHex(red: number, green: number, blue: number) {
   return "#" + red.toString(16) + green.toString(16) + blue.toString(16);
 }
 export function HexColors({ context }: Props) {
-  const classes = useStyles();
   const [color, setColor] = useState({
     red: 120,
     green: 120,
@@ -51,8 +46,8 @@ export function HexColors({ context }: Props) {
       Title="Hex Colors"
       context={context}
       Content={
-        <div className={classes.colorContainer}>
-          <div style={{ backgroundColor: hexColor, color: inverseColor }} className={classes.colorBlock}>
+        <ColorContainer>
+          <div style={{ backgroundColor: hexColor, color: inverseColor }} className={"colorBlock"}>
             {hexColor}
             <label>
               Red
@@ -67,7 +62,7 @@ export function HexColors({ context }: Props) {
               <input type="range" min="0" max="255" value={color.blue} onChange={onChange("blue")} />
             </label>
           </div>
-        </div>
+        </ColorContainer>
       }
     />
   );

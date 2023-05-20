@@ -9,19 +9,17 @@ import {
   TableHead,
   TableRow,
   Tooltip,
+  styled,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import React from "react";
 import { handledEval } from "../../../../presenter-core/src/services/js-execution";
 import { TestCase } from "../../../../presenter-core/src/services/types";
 import { arrayRemove, arrayReplace } from "../../common/functional-utils";
 import { FunctionInfo } from "./js-example";
 
-const useStyles = makeStyles(theme => ({
-  testCaseContainer: {
-    marginTop: 8,
-  },
-  testCase: {
+const TestCasesContainer = styled(Card)(({ theme }) => ({
+  marginTop: 8,
+  "&. testCase": {
     "& code": {
       fontFamily: "monospace",
       fontSize: "1.25rem",
@@ -34,7 +32,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: "1.15rem",
     },
   },
-  functionName: {
+  "&. functionName": {
     border: "none",
     fontFamily: "monospace",
     backgroundColor: "white",
@@ -43,13 +41,13 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "rgba(0,0,0,0.10)",
     },
   },
-  error: {
+  "&. error": {
     color: theme.palette.error.main,
   },
-  warning: {
+  "&. warning": {
     color: theme.palette.warning.main,
   },
-  success: {
+  "&. success": {
     color: theme.palette.success.main,
   },
 }));
@@ -68,10 +66,8 @@ export function JSExampleTestCases({
   onRunTests,
   onSelectTestCase,
 }: Props) {
-  const classes = useStyles();
-
   return (
-    <Card className={classes.testCaseContainer}>
+    <TestCasesContainer>
       <CardHeader title={"Test Cases"} style={{ paddingBottom: 0 }} />
       <Table size="small">
         <TableHead>
@@ -112,7 +108,7 @@ export function JSExampleTestCases({
           Run Test Cases
         </Button>
       </CardActions>
-    </Card>
+    </TestCasesContainer>
   );
 }
 
@@ -124,7 +120,6 @@ interface TestCaseLineProps {
   onSelect(): void;
 }
 function TestCaseLine({ functionInfo, testCase, onUpdate, onSelect }: TestCaseLineProps) {
-  const classes = useStyles();
   const [valid, result] = handledEval(testCase.expectedResult);
   const resultMatches = testCase.actualResult?.status === "success" && valid && testCase.actualResult.result === result;
 
@@ -138,9 +133,9 @@ function TestCaseLine({ functionInfo, testCase, onUpdate, onSelect }: TestCaseLi
   };
 
   return (
-    <TableRow className={classes.testCase}>
+    <TableRow className={"testCase"}>
       <TableCell>
-        <button className={classes.functionName} onClick={onSelect}>
+        <button className={"functionName"} onClick={onSelect}>
           {functionInfo.name}
         </button>
         (
@@ -159,7 +154,7 @@ function TestCaseLine({ functionInfo, testCase, onUpdate, onSelect }: TestCaseLi
       <TableCell>
         <Tooltip title={testCase.parsingError ? "Sure you typed that right?" : ""}>
           <input
-            className={testCase.parsingError ? classes.warning : ""}
+            className={testCase.parsingError ? "warning" : ""}
             size={(testCase.expectedResult || "").length + 1}
             value={testCase.expectedResult}
             placeholder="Expected return value"
@@ -169,9 +164,9 @@ function TestCaseLine({ functionInfo, testCase, onUpdate, onSelect }: TestCaseLi
       </TableCell>
       <TableCell>
         {testCase.actualResult === undefined ? null : testCase.actualResult.status === "success" ? (
-          <code className={resultMatches ? classes.success : classes.warning}>{testCase.actualResult.result}</code>
+          <code className={resultMatches ? "success" : "warning"}>{testCase.actualResult.result}</code>
         ) : (
-          <code className={classes.error}>Error: {testCase.actualResult.error}</code>
+          <code className={"error"}>Error: {testCase.actualResult.error}</code>
         )}
       </TableCell>
     </TableRow>

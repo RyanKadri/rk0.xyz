@@ -1,5 +1,4 @@
-import { Typography } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Typography, styled } from "@mui/material";
 import { titleDecorator } from "../../../../presenter-core/src/services/style-chunks";
 import { PresentationContext } from "../../../../presenter-core/src/services/types";
 import { PageNumber } from "../../../../presenter-core/src/slides/components/page-number";
@@ -10,30 +9,25 @@ export function generateQuestionSlide(question: string) {
   };
 }
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    container: {
-      padding: 48,
-    },
-    titleContainer: {
-      marginTop: "auto",
-      marginLeft: 40,
-      ...titleDecorator(theme),
-    },
-  })
-);
+const Container = styled("div")(({ theme }) => ({
+  padding: 48,
+  "& .titleContainer": {
+    marginTop: "auto",
+    marginLeft: 40,
+    ...titleDecorator(theme),
+  },
+}));
 
 export function QuestionSlide({ question, context }: Props) {
-  const classes = useStyles();
   return (
-    <div className={classes.container}>
-      <div className={classes.titleContainer}>
+    <Container>
+      <div className={"titleContainer"}>
         <Typography variant="h2" color="inherit">
           {question}
         </Typography>
       </div>
       <PageNumber context={context} />
-    </div>
+    </Container>
   );
 }
 

@@ -1,21 +1,12 @@
-import { Typography } from "@mui/material";
-import c from "classnames";
 import { PageNumber } from "../../components/page-number";
 import { CenterMessageSlideProps } from "../../slides";
-import { useBaseStyles } from "./base-styles";
+import { BaseTitle, CenteredContentContainer } from "./base-styles";
 
 export function CenterMessageSlide({ context, Message }: CenterMessageSlideProps) {
-  const baseClasses = useBaseStyles();
   return (
-    <div className={c(baseClasses.centeredContentContainer)}>
-      {typeof Message !== "string" ? (
-        Message
-      ) : (
-        <Typography component="p" className={baseClasses.title}>
-          {Message}
-        </Typography>
-      )}
+    <CenteredContentContainer>
+      {typeof Message !== "string" ? Message : <BaseTitle>{Message}</BaseTitle>}
       <PageNumber context={context} />
-    </div>
+    </CenteredContentContainer>
   );
 }

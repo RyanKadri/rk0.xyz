@@ -1,46 +1,43 @@
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles({
-  container: {
-    display: "grid",
-    margin: "32px 0px",
-    gridTemplateAreas: "'status' 'header' 'body'",
-    gridTemplateColumns: "1fr",
-    gridTemplateRows: "70px 175px 420px",
-    "& > *": {
-      border: "solid 1px grey",
-      margin: 0,
-      padding: 16,
-      display: "flex",
-      flexDirection: "row",
-    },
-    "& dt": {
-      fontWeight: 500,
-    },
-    "& table, & td, & th": {
-      border: "solid 2px black",
-      borderCollapse: "collapse",
-      padding: 4,
-    },
-    "& pre": {
-      margin: 0,
-    },
+const Container = styled("div")({
+  display: "grid",
+  margin: "32px 0px",
+  gridTemplateAreas: "'status' 'header' 'body'",
+  gridTemplateColumns: "1fr",
+  gridTemplateRows: "70px 175px 420px",
+  "& > *": {
+    border: "solid 1px grey",
+    margin: 0,
+    padding: 16,
+    display: "flex",
+    flexDirection: "row",
   },
-  statusCode: {
+  "& dt": {
+    fontWeight: 500,
+  },
+  "& table, & td, & th": {
+    border: "solid 2px black",
+    borderCollapse: "collapse",
+    padding: 4,
+  },
+  "& pre": {
+    margin: 0,
+  },
+  "& .statusCode": {
     gridArea: "status",
   },
-  headers: {
+  "& .headers": {
     gridArea: "header",
   },
-  body: {
+  "& .body": {
     gridArea: "body",
   },
 });
 
 export function ResponseTemplate({ context }: Props) {
-  const classes = useStyles();
   const responseBody = `
 {
     "title": "My Note",
@@ -56,12 +53,12 @@ export function ResponseTemplate({ context }: Props) {
       Title="HTTP Response"
       context={context}
       Content={
-        <div className={classes.container}>
-          <dl className={classes.statusCode}>
+        <Container className={"container"}>
+          <dl className={"statusCode"}>
             <dt>Status Code</dt>
             <dd>200 (OK)</dd>
           </dl>
-          <dl className={classes.headers}>
+          <dl className={"headers"}>
             <dt>Headers</dt>
             <dd>
               <table>
@@ -84,7 +81,7 @@ export function ResponseTemplate({ context }: Props) {
               </table>
             </dd>
           </dl>
-          <dl className={classes.body}>
+          <dl className={"body"}>
             <dt>Body</dt>
             <dd>
               <pre>
@@ -92,7 +89,7 @@ export function ResponseTemplate({ context }: Props) {
               </pre>
             </dd>
           </dl>
-        </div>
+        </Container>
       }
     />
   );

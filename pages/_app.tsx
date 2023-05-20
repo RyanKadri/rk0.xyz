@@ -1,3 +1,4 @@
+import { CacheProvider } from "@emotion/react";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { MDXProvider } from "@mdx-js/react";
 import { Components } from "@mdx-js/react/lib";
@@ -8,12 +9,19 @@ import { CodeBlockMdxWrapper } from "../packages/presenter-core/src/slides/compo
 import { InlineCode } from "../packages/presenter-core/src/slides/components/inline-code-mdx";
 import { GAWrapper } from "../packages/site/src/analytics";
 import { UserContext, isProfessor } from "../packages/site/src/common/admin";
+import { createEmotionCache } from "../packages/site/src/common/createEmotionCache";
 import { useClientSideValue } from "../packages/site/src/common/functional-utils";
 import { RootNav } from "../packages/site/src/root/top-nav";
 import { lightTheme } from "../packages/site/src/theme";
 config.autoAddCss = false;
 
-function SiteViewport({ Component, pageProps }: AppProps) {
+const clientSideEmotionCache = createEmotionCache();
+
+export default function SiteViewport({
+  Component,
+  pageProps,
+  emotionCache = clientSideEmotionCache,
+}: AppProps & { emotionCache }) {
   const mdxComponents: Components = {
     code: props => <CodeBlockMdxWrapper className={props.className}>{props.children as string}</CodeBlockMdxWrapper>,
     inlineCode: props => <InlineCode>{props.children}</InlineCode>,
@@ -26,30 +34,30 @@ function SiteViewport({ Component, pageProps }: AppProps) {
   return (
     <GAWrapper>
       <MDXProvider components={mdxComponents}>
-        <ThemeProvider theme={lightTheme}>
-          <UserContext.Provider value={userSettings}>
-            <CssBaseline />
-            <Head>
-              <meta charSet="UTF-8" />
-              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-              <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-              <title>Ryan Kadri</title>
-              <meta
-                name="description"
-                key="description"
-                content="A collection of programming classes taught at Temple University by Ryan Kadri. Learn Web Programming and other topics with the help of slides, labs, videos, and interactive examples"
-              />
-              <link rel="icon" href="/favicon.png" />
-            </Head>
-            <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-              <RootNav />
-              <Component {...pageProps} />
-            </div>
-          </UserContext.Provider>
-        </ThemeProvider>
+        <CacheProvider value={emotionCache}>
+          <ThemeProvider theme={lightTheme}>
+            <UserContext.Provider value={userSettings}>
+              <CssBaseline />
+              <Head>
+                <meta charSet="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+                <title>Ryan Kadri</title>
+                <meta
+                  name="description"
+                  key="description"
+                  content="A collection of programming classes taught at Temple University by Ryan Kadri. Learn Web Programming and other topics with the help of slides, labs, videos, and interactive examples"
+                />
+                <link rel="icon" href="/favicon.png" />
+              </Head>
+              <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+                <RootNav />
+                <Component {...pageProps} />
+              </div>
+            </UserContext.Provider>
+          </ThemeProvider>
+        </CacheProvider>
       </MDXProvider>
     </GAWrapper>
   );
 }
-
-export default SiteViewport;

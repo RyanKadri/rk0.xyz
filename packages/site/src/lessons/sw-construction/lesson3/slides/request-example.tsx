@@ -1,49 +1,46 @@
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 
-const useStyles = makeStyles({
-  container: {
-    display: "grid",
-    margin: "32px 0px",
-    gridTemplateAreas: "'method url' 'header header' 'body body'",
-    gridTemplateColumns: "1fr 4fr",
-    gridTemplateRows: "70px 175px 420px",
-    "& > *": {
-      border: "solid 1px grey",
-      margin: 0,
-      padding: 16,
-      display: "flex",
-      flexDirection: "row",
-    },
-    "& dt": {
-      fontWeight: 500,
-    },
-    "& table, & td, & th": {
-      border: "solid 2px black",
-      borderCollapse: "collapse",
-      padding: 4,
-    },
-    "& pre": {
-      margin: 0,
-    },
+const Container = styled("div")({
+  display: "grid",
+  margin: "32px 0px",
+  gridTemplateAreas: "'method url' 'header header' 'body body'",
+  gridTemplateColumns: "1fr 4fr",
+  gridTemplateRows: "70px 175px 420px",
+  "& > *": {
+    border: "solid 1px grey",
+    margin: 0,
+    padding: 16,
+    display: "flex",
+    flexDirection: "row",
   },
-  method: {
+  "& dt": {
+    fontWeight: 500,
+  },
+  "& table, & td, & th": {
+    border: "solid 2px black",
+    borderCollapse: "collapse",
+    padding: 4,
+  },
+  "& pre": {
+    margin: 0,
+  },
+  "& .method": {
     gridArea: "method",
   },
-  url: {
+  "& .url": {
     gridArea: "url",
   },
-  headers: {
+  "& .headers": {
     gridArea: "header",
   },
-  body: {
+  "& .body": {
     gridArea: "body",
   },
 });
 
 export function RequestTemplate({ context }: Props) {
-  const classes = useStyles();
   const bodyExample = `{
     "title": "My Note",
     "note": "This is a note",
@@ -54,12 +51,12 @@ export function RequestTemplate({ context }: Props) {
       Title="HTTP Request"
       context={context}
       Content={
-        <div className={classes.container}>
-          <dl className={classes.method}>
+        <Container>
+          <dl className={"method"}>
             <dt>Method</dt>
             <dd>POST</dd>
           </dl>
-          <dl className={classes.url}>
+          <dl className={"url"}>
             <dt>URL</dt>
             <dd>
               <a href="https://spy-notes-api.rk0.xyz/users/3ff1cbc9-e6d3-496b-a696-44c0a2cd9fe1/notes">
@@ -67,7 +64,7 @@ export function RequestTemplate({ context }: Props) {
               </a>
             </dd>
           </dl>
-          <dl className={classes.headers}>
+          <dl className={"headers"}>
             <dt>Headers</dt>
             <dd>
               <table>
@@ -88,7 +85,7 @@ export function RequestTemplate({ context }: Props) {
               </table>
             </dd>
           </dl>
-          <dl className={classes.body}>
+          <dl className={"body"}>
             <dt>Body</dt>
             <dd>
               <code>
@@ -96,7 +93,7 @@ export function RequestTemplate({ context }: Props) {
               </code>
             </dd>
           </dl>
-        </div>
+        </Container>
       }
     />
   );

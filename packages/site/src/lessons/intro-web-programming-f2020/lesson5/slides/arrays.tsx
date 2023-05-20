@@ -1,25 +1,23 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { CodeSlide } from "../../../../../../presenter-core/src/slides/slides";
 import { synJS } from "../../../../common/highlighting";
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    arrayExample: {
-      fontSize: 32,
-      display: "flex",
-      border: `solid 4px ${theme.palette.text.secondary}`,
-      alignSelf: "flex-start",
-      marginTop: 16,
-      "& div": {
-        padding: 16,
-        "&:not(:last-child)": {
-          borderRight: `solid 4px ${theme.palette.text.secondary}`,
-        },
+const ArrayExample = styled("div")(({ theme }) => ({
+  arrayExample: {
+    fontSize: 32,
+    display: "flex",
+    border: `solid 4px ${theme.palette.text.secondary}`,
+    alignSelf: "flex-start",
+    marginTop: 16,
+    "& div": {
+      padding: 16,
+      "&:not(:last-child)": {
+        borderRight: `solid 4px ${theme.palette.text.secondary}`,
       },
     },
-  })
-);
+  },
+}));
 
 const slideItems = ["Arrays hold ordered lists of values", "Positions start at 0"];
 
@@ -37,7 +35,6 @@ mixed[3] = "something";
 `;
 
 export function ArraysExample({ context }: Props) {
-  const classes = useStyles();
   return (
     <CodeSlide
       Title="Arrays"
@@ -46,12 +43,12 @@ export function ArraysExample({ context }: Props) {
       context={context}
       options={{ codeBlock: { canExecuteCode: true } }}
     >
-      <div className={classes.arrayExample}>
+      <ArrayExample>
         <div>"Alice"</div>
         <div>2</div>
         <div>false</div>
         <div>"something"</div>
-      </div>
+      </ArrayExample>
     </CodeSlide>
   );
 }

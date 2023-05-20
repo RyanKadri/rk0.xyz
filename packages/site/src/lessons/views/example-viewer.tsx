@@ -8,50 +8,46 @@ import {
   ListItem,
   ListItemText,
   Typography,
+  styled,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
 import Link from "next/link";
 import { useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
 import { ExamplePlayground } from "../components/example-playground";
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    container: {
-      display: "flex",
-      minHeight: "calc(100vh - 64px)",
-      maxWidth: "100vw",
+const Container = styled("main")(({ theme }) => ({
+  display: "flex",
+  minHeight: "calc(100vh - 64px)",
+  maxWidth: "100vw",
+  "& .codeContainer": {
+    display: "flex",
+    flexDirection: "column",
+    padding: "16px 16px 0px 16px",
+    boxSizing: "border-box",
+    flexGrow: 1,
+    width: "calc(100vw - 256px)",
+    [theme.breakpoints.down("lg")]: {
+      padding: theme.spacing(),
     },
-    codeContainer: {
-      display: "flex",
-      flexDirection: "column",
-      padding: "16px 16px 0px 16px",
-      boxSizing: "border-box",
-      flexGrow: 1,
-      width: "calc(100vw - 256px)",
-      [theme.breakpoints.down("lg")]: {
-        padding: theme.spacing(),
-      },
-      [theme.breakpoints.up("md")]: {
-        height: "calc(100vh - 88px)",
-      },
+    [theme.breakpoints.up("md")]: {
+      height: "calc(100vh - 88px)",
     },
-    exampleHeader: {
-      display: "flex",
-      alignItems: "center",
-    },
-    sidebar: {
-      minWidth: 240,
-    },
-    sidebarSurface: {
-      minWidth: 240,
-      paddingTop: theme.spacing(8),
-    },
-  })
-);
+  },
+  "& .exampleHeader": {
+    display: "flex",
+    alignItems: "center",
+  },
+  "& .sidebar": {
+    minWidth: 240,
+  },
+  "& .sidebarSurface": {
+    minWidth: 240,
+    paddingTop: theme.spacing(8),
+  },
+}));
 
 interface Props {
   examples: ExampleDefinition[];
@@ -60,16 +56,15 @@ interface Props {
   highlightedCode?: SyntaxHighlightedBlock;
 }
 export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode }: Props) {
-  const classes = useStyles();
   const theme = useTheme();
   const onMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
-    <main className={classes.container}>
+    <Container>
       <Drawer
-        className={classes.sidebar}
+        className={"sidebar"}
         variant={onMobile ? "temporary" : "permanent"}
-        classes={{ paper: classes.sidebarSurface }}
+        classes={{ paper: "sidebarSurface " }}
         open={drawerOpen}
         anchor="left"
         onClose={() => setDrawerOpen(false)}
@@ -85,8 +80,8 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
           {/* TODO - Add external examples here */}
         </List>
       </Drawer>
-      <div className={classes.codeContainer}>
-        <header className={classes.exampleHeader}>
+      <div className={"codeContainer"}>
+        <header className={"exampleHeader"}>
           <Hidden mdUp>
             <IconButton onClick={() => setDrawerOpen(!drawerOpen)} size="large">
               <FontAwesomeIcon icon={faBars} />
@@ -96,6 +91,6 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
         </header>
         <ExamplePlayground example={examples[currExample]} highlightedCode={highlightedCode!} />
       </div>
-    </main>
+    </Container>
   );
 }

@@ -1,54 +1,52 @@
 import { faCopy } from "@fortawesome/free-solid-svg-icons/faCopy";
 import { faPlay } from "@fortawesome/free-solid-svg-icons/faPlay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ClickAwayListener, Divider, IconButton, List, ListItem, Paper, Popper, Tooltip } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
-import c from "classnames";
+import { ClickAwayListener, Divider, IconButton, List, ListItem, Paper, Popper, Tooltip, styled } from "@mui/material";
 import { ReactNode, useRef, useState } from "react";
 import { LoggedConsoleMessage, executeFunction } from "../../services/js-execution";
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    container: {
-      position: "relative",
-      "& ::selection": {
-        backgroundColor: theme.palette.primary["800"],
-      },
+const StyledCodeBlock = styled("div")(({ theme }) => ({
+  position: "relative",
+
+  "& ::selection": {
+    backgroundColor: theme.palette.primary["800"],
+  },
+
+  "& .controls": {
+    position: "absolute",
+    top: 8,
+    right: 8,
+    backgroundColor: "rgba(0,0,0,0.1)",
+    transition: "background-color ease-in-out 100ms",
+    display: "flex",
+    gap: 16,
+    padding: "8px 16px",
+    borderRadius: 4,
+    "& button": {
+      color: theme.palette.common.white,
     },
-    controls: {
-      position: "absolute",
-      top: 8,
-      right: 8,
-      backgroundColor: "rgba(0,0,0,0.1)",
-      transition: "background-color ease-in-out 100ms",
-      display: "flex",
-      gap: 16,
-      padding: "8px 16px",
-      borderRadius: 4,
-      "& button": {
-        color: theme.palette.common.white,
-      },
-      "&:hover": {
-        backgroundColor: "rgba(0,0,0,0.5)",
-      },
+    "&:hover": {
+      backgroundColor: "rgba(0,0,0,0.5)",
     },
-    tooltip: {
-      fontSize: 12,
+  },
+
+  "& .tooltip": {
+    fontSize: 12,
+  },
+
+  "& .consolePopper": {
+    padding: 0,
+    fontSize: 16,
+    backgroundColor: theme.palette.primary[800],
+    minWidth: 300,
+    maxWidth: "100%",
+    overflow: "auto",
+    maxHeight: 500,
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 14,
     },
-    consolePopper: {
-      padding: 0,
-      fontSize: 16,
-      backgroundColor: theme.palette.primary[800],
-      minWidth: 300,
-      maxWidth: "100%",
-      overflow: "auto",
-      maxHeight: 500,
-      [theme.breakpoints.down("lg")]: {
-        fontSize: 14,
-      },
-    },
-  })
-);
+  },
+}));
 
 interface Props {
   code: SyntaxHighlightedBlock;
@@ -66,7 +64,6 @@ export interface SyntaxHighlightedBlock {
 }
 
 export function CodeBlock({ code, className, options = {} }: Props) {
-  const classes = useStyles();
   const { canExecuteCode = false } = options;
 
   const [copyTooltip, setCopyTooltip] = useState(false);
@@ -94,13 +91,13 @@ export function CodeBlock({ code, className, options = {} }: Props) {
   };
 
   return (
-    <div className={c(classes.container, className)}>
-      <div className={classes.controls}>
+    <StyledCodeBlock className={className}>
+      <div className={"controls"}>
         {canExecuteCode && (
           <>
             <ClickAwayListener onClickAway={() => setShowOutput(false)}>
               <Popper open={showOutput} anchorEl={playButtonRef.current!}>
-                <Paper className={classes.consolePopper}>
+                <Paper className={"consolePopper"}>
                   <List dense>
                     {lastOutput.map((message, i) => (
                       <>
@@ -117,7 +114,7 @@ export function CodeBlock({ code, className, options = {} }: Props) {
             </IconButton>
           </>
         )}
-        <Tooltip open={copyTooltip} title="Copied" classes={{ tooltip: classes.tooltip }}>
+        <Tooltip open={copyTooltip} title="Copied" classes={{ tooltip: "tooltip" }}>
           <IconButton onClick={onCopy} size="small" aria-label="Copy">
             <FontAwesomeIcon icon={faCopy} size="xs" />
           </IconButton>
@@ -126,6 +123,6 @@ export function CodeBlock({ code, className, options = {} }: Props) {
       <pre className={`language-${code?.language}`} style={{ margin: 0 }} ref={codeBlockRef}>
         <code className={`language-${code?.language}`}>{code.components}</code>
       </pre>
-    </div>
+    </StyledCodeBlock>
   );
 }

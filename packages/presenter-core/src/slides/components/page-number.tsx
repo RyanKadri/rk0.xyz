@@ -1,24 +1,20 @@
-import { Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Typography, styled } from "@mui/material";
 import { PresentationContext } from "../../services/types";
 
-const useStyles = makeStyles({
-  pageNum: {
-    position: "absolute",
-    bottom: 8,
-    right: 16,
-    color: "#777",
-  },
+const StyledTypography = styled(Typography)({
+  position: "absolute",
+  bottom: 8,
+  right: 16,
+  color: "#777",
 });
 
 interface Props {
   context: PresentationContext;
 }
 export function PageNumber({ context }: Props) {
-  const classes = useStyles();
   return (
-    <Typography variant="body2" className={classes.pageNum}>
+    <StyledTypography variant="body2">
       {context.pageNum} / {context.numPages}
-    </Typography>
+    </StyledTypography>
   );
 }
