@@ -31,11 +31,11 @@ export default function ConsolidatedReferences({ currCourse }: Props) {
   return (
     <Container>
       <Head>
-        <title>{currCourse.title} - References</title>
+        <title>{`${currCourse.title} - References`}</title>
       </Head>
-      <Link href={`/courses/${currCourse.slug}`} passHref>
-        <MaterialLink>Back to Course</MaterialLink>
-      </Link>
+      <MaterialLink component={Link} href={`/courses/${currCourse.slug}`}>
+        Back to Course
+      </MaterialLink>
       <Typography variant="h4">Consolidated References: {currCourse.title}</Typography>
       <ul className={"courseList"}>
         {currCourse.lessons.map(lesson => (

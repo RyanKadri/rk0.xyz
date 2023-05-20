@@ -82,9 +82,9 @@ export function SlideControls({
     <ControlsContainer className={c("slide-controls-container", className)}>
       <Hidden mdDown>
         <div className={c("controlButtonGroup", "textLinkGroup")}>
-          <Link href={courseUrl} passHref>
-            <MaterialLink>Back to Class</MaterialLink>
-          </Link>
+          <MaterialLink component={Link} href={courseUrl}>
+            Back to Class
+          </MaterialLink>
           {!!lesson.recording && (
             <MaterialLink href={generateRecordingLink(lesson.recording, currSlide)} target="__blank">
               View Recording

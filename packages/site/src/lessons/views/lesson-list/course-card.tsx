@@ -19,18 +19,16 @@ export function CourseCard({ course, baseUrl }: Props) {
   const desc = `${course.lessons.length} lessons - ${numExamples} examples - ${numLabs} labs`;
 
   return (
-    <Link href={`${baseUrl}/${course.slug}`} passHref>
-      <a style={{ textDecoration: "none", display: "block" }}>
-        <StyledCard>
-          <ListItemAvatar>
-            <Avatar color="primary">{course.icon ? <FontAwesomeIcon icon={course.icon} /> : course.title[0]}</Avatar>
-          </ListItemAvatar>
-          <section>
-            <ListItemText primary={course.title} secondary={course.description} />
-            <ListItemText secondary={desc} />
-          </section>
-        </StyledCard>
-      </a>
+    <Link href={`${baseUrl}/${course.slug}`} passHref style={{ textDecoration: "none", display: "block" }}>
+      <StyledCard>
+        <ListItemAvatar>
+          <Avatar color="primary">{course.icon ? <FontAwesomeIcon icon={course.icon} /> : course.title[0]}</Avatar>
+        </ListItemAvatar>
+        <section>
+          <ListItemText primary={course.title} secondary={course.description} />
+          <ListItemText secondary={desc} />
+        </section>
+      </StyledCard>
     </Link>
   );
 }

@@ -63,8 +63,8 @@ export function RootNav() {
           {siteLinks
             .filter(link => !link.shouldShow || link.shouldShow(userSettings))
             .map(link => (
-              <Link href={link.link} key={link.link} passHref>
-                <a className={"link"}>{link.description}</a>
+              <Link href={link.link} key={link.link} className={"link"}>
+                {link.description}
               </Link>
             ))}
         </div>

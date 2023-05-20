@@ -19,7 +19,7 @@ export default function LessonListView({ currCourse }: Props) {
   return (
     <Container>
       <Head>
-        <title>{currCourse?.title ?? ""} - Lessons</title>
+        <title>{`${currCourse?.title} Lessons`}</title>
         <meta name="description" key="description" content={currCourse?.description} />
         <script
           type="application/ld+json"
