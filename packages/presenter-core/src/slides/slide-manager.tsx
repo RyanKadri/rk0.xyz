@@ -17,7 +17,7 @@ const ViewportContainer = styled("main")(({ theme }) => ({
     gridTemplateRows: `${controlsHeight}px calc(100vh - 56px - ${controlsHeight}px)`,
   },
   [theme.breakpoints.up("md")]: {
-    gridTemplateRows: `${controlsHeight}px calc(100vh - 64px - ${controlsHeight}px)`,
+    gridTemplateRows: `${controlsHeight}px calc(100vh - var(--nav-height) - ${controlsHeight}px)`,
   },
 }));
 

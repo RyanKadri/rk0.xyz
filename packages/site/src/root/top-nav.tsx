@@ -53,11 +53,14 @@ const siteLinks = [
 
 const externalLinks = [{ description: "My GitHub", icon: faCode, link: "https://github.com/RyanKadri" }];
 
-export function RootNav() {
+interface Props {
+  fullscreen: boolean;
+}
+export function RootNav({ fullscreen }: Props) {
   const userSettings = useContext(UserContext);
 
   return (
-    <NavBar position="static">
+    <NavBar position="static" style={{display: fullscreen ? "none" : undefined}}>
       <Toolbar component="nav">
         <div className={"linkGroup"}>
           {siteLinks

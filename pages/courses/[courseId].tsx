@@ -7,7 +7,7 @@ import { activeCourses } from "../../packages/site/src/lessons/views/activeCours
 import { LessonList } from "../../packages/site/src/lessons/views/lesson-list/lesson-list";
 
 const Container = styled("main")(({ theme }) => ({
-  minHeight: "calc(100vh - 64px)",
+  minHeight: "calc(100vh - var(--nav-height)))",
   padding: 16,
   "& .title": {
     marginBottom: theme.spacing(2),

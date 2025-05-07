@@ -5,6 +5,7 @@ import { Components } from "@mdx-js/react/lib";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import { CodeBlockMdxWrapper } from "../packages/presenter-core/src/slides/components/code-block-mdx-wrapper";
 import { InlineCode } from "../packages/presenter-core/src/slides/components/inline-code-mdx";
 import { GAWrapper } from "../packages/site/src/analytics";
@@ -31,6 +32,19 @@ export default function SiteViewport({
     isProfessor: useClientSideValue(isProfessor, false),
   };
 
+  const [fullscreen, setFullscreen] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if(window.innerHeight === screen.height) {
+        console.log("full screen!")
+        setFullscreen(true);
+      } else {
+        setFullscreen(false);
+      }
+    })
+  }, [])
+
   return (
     <GAWrapper>
       <MDXProvider components={mdxComponents}>
@@ -50,8 +64,8 @@ export default function SiteViewport({
                 />
                 <link rel="icon" href="/favicon.png" />
               </Head>
-              <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-                <RootNav />
+              <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", "--nav-height": "0px" }}>
+                <RootNav fullscreen={fullscreen} />
                 <Component {...pageProps} />
               </div>
             </UserContext.Provider>
