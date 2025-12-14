@@ -1,8 +1,9 @@
 import Head from "next/head";
+import { ReactElement } from "react";
 import { MarkdownLabContainer } from "../../lessons/shared/lab";
 
 interface Props {
-  children: any[];
+  children: ReactElement[];
   description: string;
   title?: string;
 }
