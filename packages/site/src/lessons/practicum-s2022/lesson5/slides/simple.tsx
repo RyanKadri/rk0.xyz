@@ -12,7 +12,7 @@ export const Title = generateTitleSlide("APIs and Spring Part 2", "Ryan Kadri");
 
 export const ApiDefinition = generateDefinitionSlide(
   "API",
-  "Application Programming Interface - A specification for how a piece of software can interact with other software"
+  "Application Programming Interface - A specification for how a piece of software can interact with other software",
 );
 
 export const WhereApis = generateContentSlide("What are APIs?", [
@@ -120,7 +120,7 @@ public class EmployeeDB {
         /* ... */
     }
 }`,
-  }
+  },
 );
 
 export const Serialization = generateContentSlide("Serialization", [
@@ -177,7 +177,7 @@ class App {
         calc.subtract(1,2); // Good again
     }
 }`,
-  }
+  },
 );
 
 export const ProblemStatement = generateContentSlide("Problem Statement: Financial Calculator", [
@@ -212,7 +212,7 @@ public class ProfileFetcher {
         return userProfile;
     }
 }`,
-  }
+  },
 );
 
 export const StaticMethodApproachProsCons = generateContentSlide("Approach 1: Pros and Cons", [
@@ -250,7 +250,7 @@ public class ProfileFetcher {
         return userProfile;
     }
 }`,
-  }
+  },
 );
 
 export const InstanceMethodProsCons = generateContentSlide("Approach 2: Pros and Cons", [
@@ -283,7 +283,7 @@ public class TradeCalculator {
         this.profileFetcher = profileFetcher
     }
 }`,
-  }
+  },
 );
 
 export const InterfaceProsCons = generateContentSlide("Approach 2b: Pros and Cons", [
@@ -305,7 +305,7 @@ export const DependencyInjection = generateContentSlide("Dependency Injection", 
 ]);
 
 export const WhoBuilds = generateMessageSlide(
-  "How do your RestController classes get constructed? Why aren't the methods static?"
+  "How do your RestController classes get constructed? Why aren't the methods static?",
 );
 
 export const ConstructingOthers = generateCodeSlide(
@@ -328,7 +328,7 @@ class CalculatorController {
         return this.calculator.add(a,b);
     }
 }`,
-  }
+  },
 );
 
 export const SpringApproach = generateContentSlide("Approach 3: Dependency Injection", [

@@ -22,8 +22,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
             lessonId: lesson.slug,
             slideNum: "" + i,
           },
-        }))
-      )
+        })),
+      ),
     ),
     fallback: false,
   };

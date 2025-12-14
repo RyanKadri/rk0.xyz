@@ -134,7 +134,7 @@ export const CreatingDynamoTable = generateMediaAssistSlide(
     "And you need to know how the primary key is structured",
     "There are many other optional settings for scaling and things like that",
   ],
-  <img src={dynamoCreation.src} />
+  <img src={dynamoCreation.src} />,
 );
 
 export const SettingUpAwsLibs = generateCodeSlide(
@@ -159,7 +159,7 @@ export const SettingUpAwsLibs = generateCodeSlide(
         </dependency>
     </dependencies>
 </dependencyManagement>`,
-  }
+  },
 );
 
 export const SettingUpDynamo = generateCodeSlide(
@@ -182,7 +182,7 @@ export const SettingUpDynamo = generateCodeSlide(
         <version>2.17.123</version>
     </dependency>
 </dependencies>`,
-  }
+  },
 );
 
 export const CreatingDynamoClient = generateCodeSlide(
@@ -204,7 +204,7 @@ DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
 
 DynamoDbTable<UserModel> table = 
     enhancedClient.table("practicum-table", TableSchema.fromBean(UserModel.class));`,
-  }
+  },
 );
 
 export const RecordModel = generateCodeSlide(
@@ -233,7 +233,7 @@ public void setId(String id) {
 
 // Other getters and setters
 `,
-  }
+  },
 );
 
 export const CreatingInDynamo = generateCodeSlide(
@@ -248,7 +248,7 @@ export const CreatingInDynamo = generateCodeSlide(
     code: synJava`public void saveUser(UserModel model) {
     userTable.putItem(model);
 }`,
-  }
+  },
 );
 
 export const FetchingInDynamo = generateCodeSlide(
@@ -262,7 +262,7 @@ export const FetchingInDynamo = generateCodeSlide(
         
     UserModel model = userTable.getItem(key);
 }`,
-  }
+  },
 );
 
 export const QueryVsScan = generateContentSlide("Searching Fast and Slow", [
@@ -300,7 +300,7 @@ List<UserModel> users = new ArrayList<>();
 for(Page<UserModel> user: iterable) {
     users.addAll(user.items());
 }`,
-  }
+  },
 );
 
 export const references: Reference[] = [

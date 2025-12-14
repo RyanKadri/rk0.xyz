@@ -76,7 +76,7 @@ export function executeFunction(code: string, targetFunction?: string, paramStri
                 }
             `
             }
-        })()`)
+        })()`),
   );
 }
 

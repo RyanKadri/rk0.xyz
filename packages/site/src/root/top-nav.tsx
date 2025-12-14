@@ -60,7 +60,7 @@ export function RootNav({ fullscreen }: Props) {
   const userSettings = useContext(UserContext);
 
   return (
-    <NavBar position="static" style={{display: fullscreen ? "none" : undefined}}>
+    <NavBar position="static" style={{ display: fullscreen ? "none" : undefined }}>
       <Toolbar component="nav">
         <div className={"linkGroup"}>
           {siteLinks

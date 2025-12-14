@@ -109,7 +109,7 @@ export const InlineStyles = generateCodeSlide(
 <p style="color: red; margin: 16px">
     This is a paragraph with inline styles
 </p>`,
-  }
+  },
 );
 
 export const DownsidesInline = generateContentSlide("What's wrong with inline styles?", [
@@ -126,7 +126,7 @@ export const DownsidesInline = generateContentSlide("What's wrong with inline st
 export const LetsPractice = generateMessageSlide(
   <Link href="https://flukeout.github.io/" target="_blank" variant="h4">
     Let's practice!
-  </Link>
+  </Link>,
 );
 
 export const references: Reference[] = [

@@ -68,8 +68,8 @@ export function CodePlayground(props: Props) {
         updateResults(
           props.executionParams.expectations.map(
             _ => `Cannot find function ${props.executionParams.functionToCall} in your code.
-Did you change the function name?`
-          )
+Did you change the function name?`,
+          ),
         );
       } else {
         const results = props.executionParams.expectations.map(exp => {

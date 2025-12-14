@@ -97,7 +97,7 @@ export const LambdaDependencies = generateCodeSlide(
   </dependency>
 </dependencies>  
   `,
-  }
+  },
 );
 
 export const PackagingPlugin = generateCodeSlide(
@@ -122,7 +122,7 @@ export const PackagingPlugin = generateCodeSlide(
   </executions>
 </plugin>
   `,
-  }
+  },
 );
 
 export const WhyNotSpring = generateContentSlide("Why don't we use Spring?", [

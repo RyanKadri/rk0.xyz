@@ -41,7 +41,7 @@ const fs = require("fs");
 fs.readFile("/home/ryan/Documents/hello.txt", "utf-8", (err, data) => {
     console.log(data);
 })`,
-  }
+  },
 );
 
 export const OtherHomes = generateContentSlide("Other JavaScript Homes", [
@@ -95,7 +95,7 @@ export const TypeScript = generateCodeSlide(
 
 addNumbers(1,2) // This is allowed
 addNumbers("a", { name: "bob" }) // This does not compile`,
-  }
+  },
 );
 
 export const Imports = generateCodeSlide(
@@ -118,7 +118,7 @@ console.log(addNumbers(1,2));
 export function addNumbers(a,b) {
     return a + b
 }`,
-  }
+  },
 );
 
 export const Frameworks = generateCodeSlide(
@@ -135,7 +135,7 @@ export const Frameworks = generateCodeSlide(
         <header>Hello { name }. Welcome to InstaFace</header>
     )
 }`,
-  }
+  },
 );
 
 export const references: Reference[] = [

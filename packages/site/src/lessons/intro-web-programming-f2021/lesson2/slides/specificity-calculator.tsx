@@ -83,20 +83,29 @@ function SpecificityBox({ specificity }: { specificity: Specificity | null }) {
 }
 
 function calcOperator(selector1: string, selector2: string) {
-  const res = compare(selector1, selector2);
-
-  return res === -1 ? "<" : res === 1 ? ">" : "=";
+  try {
+    const spec1 = calculate(selector1);
+    const spec2 = calculate(selector2);
+    const res = compare(spec1, spec2);
+    return res === -1 ? "<" : res === 1 ? ">" : "=";
+  } catch {
+    return "=";
+  }
 }
 
 function calcSpecificity(selector: string): Specificity | null {
-  const res = calculate(selector)?.[0]?.specificityArray;
-  return !res
-    ? null
-    : {
-        ids: res[1],
-        classes: res[2],
-        tags: res[3],
-      };
+  try {
+    const res = calculate(selector);
+    return !res
+      ? null
+      : {
+          ids: res.A,
+          classes: res.B,
+          tags: res.C,
+        };
+  } catch {
+    return null;
+  }
 }
 
 interface Specificity {

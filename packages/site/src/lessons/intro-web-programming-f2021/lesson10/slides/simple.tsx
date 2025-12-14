@@ -27,7 +27,7 @@ export const Json = generateCodeSlide(
     "isProfessor": true
 }    
     `,
-  }
+  },
 );
 
 export const RequestMethod = generateContentSlide("Request Method", [
@@ -116,7 +116,7 @@ fetch("https://icanhazdadjoke.com", { method: "GET", headers: { ["Accept"]: "app
     .then(resp => resp.json())
     .then(console.log)
     `,
-  }
+  },
 );
 
 export const ObjectSyntax = generateContentSlide("A Bit More Syntax", [
@@ -150,7 +150,7 @@ myPromise
     .then(response => { return response.json() })
     .then(response => { console.log(response) })
 `,
-  }
+  },
 );
 
 export const MethodChaining = generateCodeSlide(
@@ -169,7 +169,7 @@ export const MethodChaining = generateCodeSlide(
             .substring(0,6)
     )
 `,
-  }
+  },
 );
 
 export const PromisesAreSimilar = generateCodeSlide(
@@ -193,7 +193,7 @@ myPromise
     .then(response => { console.log(response) }) // Method call
     `,
     codeFirst: true,
-  }
+  },
 );
 
 export const PromiseErrorHandling = generateCodeSlide(
@@ -212,7 +212,7 @@ fetch("https://some-site.com")
     .then(data => console.log(data))
     .catch(e => console.error("Oh no! There was an error!"))
 `,
-  }
+  },
 );
 
 export const references: Reference[] = [

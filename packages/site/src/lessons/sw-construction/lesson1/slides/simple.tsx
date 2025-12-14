@@ -14,7 +14,7 @@ export const Title = generateTitleSlide("Practicum in Software Construction", "R
 export const AboutMePicture = generateMediaSlide(
   <img src={myPicture.src} alt="Me at Smith Rock" />,
   "Smith Rock 2019",
-  "About Me"
+  "About Me",
 );
 
 export const AboutMe = generateContentSlide("About Me", [
@@ -27,22 +27,22 @@ export const AboutMe = generateContentSlide("About Me", [
 export const Syllabus = generateMessageSlide(
   <Link href="https://templeu.instructure.com/courses/92392" variant="h2">
     Syllabus
-  </Link>
+  </Link>,
 );
 
 export const VersionControlDef = generateDefinitionSlide(
   "Version Control",
-  "A system for managing the evolution of a piece of software over time and across collaborators"
+  "A system for managing the evolution of a piece of software over time and across collaborators",
 );
 
 export const WhyVersionControl = generateMessageSlide("Why do we want version control?");
 
 export const ImagineAlmostDone = generateMessageSlide(
-  "You are 90% done with an assignment. To do the last 10%, you need to change your working code"
+  "You are 90% done with an assignment. To do the last 10%, you need to change your working code",
 );
 
 export const ImagineChangingProjects = generateMessageSlide(
-  "You are working on a code improvement for a while. Your boss asks you to drop that and start trying to fix a bug"
+  "You are working on a code improvement for a while. Your boss asks you to drop that and start trying to fix a bug",
 );
 
 export const ImagineATeam = generateMessageSlide("You are working with a team. You need to all merge your work");

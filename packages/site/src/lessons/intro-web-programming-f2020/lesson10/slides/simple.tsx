@@ -37,7 +37,7 @@ async function printSomeStuff() {
     console.log("Ryan")
 }
     `,
-  }
+  },
 );
 
 export const AsyncErrors = generateCodeSlide(
@@ -58,7 +58,7 @@ async function serverCall() {
     }
 }    
     `,
-  }
+  },
 );
 
 export const RequestMethod = generateContentSlide("Request Method", [
@@ -162,7 +162,7 @@ delay(1000)
     .then(() => delay(1000))
     .then(() => console.log("Ryan"))
 `,
-  }
+  },
 );
 
 export const PromiseErrorHandling = generateCodeSlide(
@@ -181,7 +181,7 @@ fetch("https://some-site.com")
     .then(data => console.log(data))
     .catch(e => console.error("Oh no! There was an error!"))
 `,
-  }
+  },
 );
 
 export const PromisesFromScratch = generateCodeSlide(
@@ -198,7 +198,7 @@ function delay(nMillis) {
         setTimeout(resolve, nMillis)
     })
 }`,
-  }
+  },
 );
 
 export const Promises = generateCodeSlide(
@@ -217,7 +217,7 @@ myPromise
     .then(response => { return response.json() })
     .then(response => { console.log(response) })
 `,
-  }
+  },
 );
 
 export const TryCatchNoHandling = generateCodeSlide("No Error Handling", [], {
@@ -282,7 +282,7 @@ try {
     console.error(e.message) // What to do with the failure
 }
 `,
-  }
+  },
 );
 
 export const references: Reference[] = [

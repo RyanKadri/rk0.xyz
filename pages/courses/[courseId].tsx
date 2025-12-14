@@ -54,7 +54,7 @@ export const getStaticProps: GetStaticProps<{ currCourse: ReducedProps }> = asyn
             examples: lesson.examples.map(example => ({ ...example, code: "" })),
             lab: lesson.lab ? { ...lesson.lab, content: "" } : null,
           })),
-        })
+        }),
       ),
     },
   };

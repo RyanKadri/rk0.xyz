@@ -160,7 +160,7 @@ export const MultiFileProjects = generateContentSlide("Multi-File Projects", [
 ]);
 
 export const LoggerProblemStatement = generateMessageSlide(
-  "Let's say we have a Logger class and we want to use it in different files"
+  "Let's say we have a Logger class and we want to use it in different files",
 );
 
 export const StaticMethodApproach = generateCodeSlide(
@@ -179,7 +179,7 @@ public class Logger {
         System.out.println(message)
     }
 }`,
-  }
+  },
 );
 
 export const StaticMethodApproachProsCons = generateContentSlide("Approach 1: Pros and Cons", [
@@ -209,7 +209,7 @@ public class Logger {
         System.out.println(message)
     }
 }`,
-  }
+  },
 );
 
 export const InstanceMethodProsCons = generateContentSlide("Approach 2: Pros and Cons", [
@@ -250,7 +250,7 @@ public class StandardOutLogger implements Logger {
         System.out.println(message)
     }
 }`,
-  }
+  },
 );
 
 export const references: Reference[] = [

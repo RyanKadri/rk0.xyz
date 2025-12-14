@@ -129,7 +129,7 @@ export const EnterTerraform = generateMediaAssistSlide(
     </>,
     "Manages dependencies between resources",
   ],
-  <img src={terraform.src} width={512} />
+  <img src={terraform.src} width={512} />,
 );
 
 export const TerraformExample = generateCodeSlide(
@@ -149,7 +149,7 @@ export const TerraformExample = generateCodeSlide(
         }
     }
 }`,
-  }
+  },
 );
 
 export const TerraformResources = generateContentSlide("Terraform Resources", [
@@ -182,7 +182,7 @@ export const TerraformReferences = generateCodeSlide(
           "\${aws_s3_bucket.storage-bucket.arn}/*"
         ]    
     `,
-  }
+  },
 );
 
 export const TerraformData = generateCodeSlide(
@@ -201,7 +201,7 @@ export const TerraformData = generateCodeSlide(
     master_username = "postgres"
     master_password = data.aws_ssm_parameter.db-master-pass.value
 }`,
-  }
+  },
 );
 
 export const TerraformProviders = generateCodeSlide(
@@ -217,7 +217,7 @@ export const TerraformProviders = generateCodeSlide(
     region = "us-east-1"
     alias = "us-east-1"
 }`,
-  }
+  },
 );
 
 export const TerraformState = generateCodeSlide(
@@ -235,7 +235,7 @@ export const TerraformState = generateCodeSlide(
         region = "us-east-2"
     }
 }`,
-  }
+  },
 );
 
 export const references: Reference[] = [

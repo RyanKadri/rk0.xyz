@@ -81,7 +81,7 @@ export const AddEventListenerQuestions = generateCodeSlide(
         myPanelHeader.style.color = "red"
     }
     `,
-  }
+  },
 );
 
 export const Timeouts = generateCodeSlide(
@@ -103,7 +103,7 @@ function annoying() {
 setTimeout(printHello, 1000);
 setInterval(annoying, 1000);
 `,
-  }
+  },
 );
 
 export const FunctionsRedux = generateCodeSlide(
@@ -124,7 +124,7 @@ function addOne() {
 function doSomething(arg) {
     return arg(2);
 }`,
-  }
+  },
 );
 
 export const FilterThingsImplementation = generateCodeSlide("Filter Things", [], {
@@ -215,7 +215,7 @@ function add(a, b) {
 const myRenamedFunction = add;
 myRenamedFunction(1,2) // Returns 3
 `,
-  }
+  },
 );
 
 export const FunctionsAsVariablesPart2 = generateCodeSlide(
@@ -237,7 +237,7 @@ function doSomethingTwice(something) {
 
 doSomethingTwice(sayHello)
 `,
-  }
+  },
 );
 
 export const NestedTimeouts = generateCodeSlide("Nested Timers?", [], {

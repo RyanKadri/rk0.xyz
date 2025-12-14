@@ -130,7 +130,7 @@ export const FunctionalJava2 = generateContentSlide("Functional Java", [
 ]);
 
 export const HowNonPure = generateMessageSlide(
-  "Alright so pure functions are nice. But we NEED side effects. So what do we do?"
+  "Alright so pure functions are nice. But we NEED side effects. So what do we do?",
 );
 
 export const DataIsDangerous = generateContentSlide("Data is Dangerous", [
@@ -175,7 +175,7 @@ public void countFavoriteSongs(List<Song> allSongs) {
     List<Song> favoriteSongs = this.filterFavorites(allSongs);
     return favoriteSongs.size();
 }`,
-  }
+  },
 );
 
 export const CaseStudySetters = generateContentSlide("Setters are Evil?", [
@@ -209,7 +209,7 @@ ryan.setJob("Developer");
 
 // Using Constructor. Can be locked down and not modifiable
 Employee ryan = new Employee("Ryan Kadri", 28, "Developer");`,
-  }
+  },
 );
 
 export const CaseStudyGetters = generateContentSlide("Getters are Meh?", [
@@ -245,7 +245,7 @@ double bonus = payrollManager.getBonus();
 EmployeeInfo info = payrollManager.fetchEmployeeInfo(2020);
 double salary = info.getSalary();
 double bonus = info.getBonus();`,
-  }
+  },
 );
 
 export const UseDataRightAway2 = generateCodeSlide(
@@ -266,7 +266,7 @@ public class PayrollManager {
 public class EmployeeInfo {
     public EmployeeInfo() {}
 }`,
-  }
+  },
 );
 
 export const CarefulWithReferences = generateContentSlide("References are dangerous", [
@@ -287,7 +287,7 @@ export const UnsafeSharing = generateCodeSlide(
     QualityChecker.identifyDefects(products); // Removes non-defective products
     ReportGenerator.defectiveItemsReport(products); // Stores defective products
 }`,
-  }
+  },
 );
 
 export const references: Reference[] = [

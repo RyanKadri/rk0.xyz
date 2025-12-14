@@ -163,7 +163,7 @@ fetch("https://some-url.com")
     .then(response => { return response.json() })
     .then(response => { console.log(response) })
 `,
-  }
+  },
 );
 
 export const PromisesExample = generateCodeSlide("Promises in Action", [], {
@@ -198,7 +198,7 @@ export const JSONExample = generateCodeSlide(
     "age": 28,
     "isProfessor": true
 }`,
-  }
+  },
 );
 
 export const NestedTimeouts = generateCodeSlide("Nested Timers?", [], {

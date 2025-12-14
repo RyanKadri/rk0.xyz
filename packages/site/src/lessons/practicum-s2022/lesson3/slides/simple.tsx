@@ -29,7 +29,7 @@ export const JUnitIntro = generateCodeSlide(
     <scope>test</scope>
 </dependency>
 `,
-  }
+  },
 );
 
 export const Annotations = generateCodeSlide(
@@ -51,7 +51,7 @@ class XyzGizmoTest {
     public void itWorksRight() { /* ... */ }
 }
     `,
-  }
+  },
 );
 
 export const HowDoesJunitWork = generateContentSlide("How does JUnit work?", [
@@ -106,7 +106,7 @@ export const UnitTests = generateContentSlide("Unit Tests", [
 export const BadUnitTestExample = generateMessageSlide(
   <Link href="https://twitter.com/i/status/1148986961207730176" target="_blank" variant="body1">
     https://twitter.com/i/status/1148986961207730176
-  </Link>
+  </Link>,
 );
 
 export const IntegrationTests = generateContentSlide("Integration Tests", [
@@ -126,7 +126,7 @@ export const FunctionalTests = generateContentSlide("Functional Tests", [
 
 export const TestingPyramid = generateMediaSlide(
   <img src={testingPyramid.src} alt="Testing Pyramid" />,
-  "Credit: Martin Fowler - Test Pyramid"
+  "Credit: Martin Fowler - Test Pyramid",
 );
 
 export const JUnitAnnotations = generateContentSlide("JUnit Annotations", [

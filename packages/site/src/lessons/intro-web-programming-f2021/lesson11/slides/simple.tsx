@@ -32,7 +32,7 @@ const test = Math.sin(Math.PI / 6);
 const today = new Date();
 const month = today.getMonth()
 `,
-  }
+  },
 );
 
 export const WhatIsLibrary = generateContentSlide("What is a Library?", [
@@ -61,7 +61,7 @@ export const HowToImport = generateCodeSlide(
     ...
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>`,
-  }
+  },
 );
 
 export const HowToUse = generateContentSlide("How to Use Libraries", [
@@ -138,7 +138,7 @@ $("#my-list li")
                 .hover(e => $(e.currentTarget).css("color", "green"))
         )
     )`,
-  }
+  },
 );
 
 export const MoProblems = generateContentSlide("Mo $ mo problems", [
@@ -164,7 +164,7 @@ const chart = new Chart(context, {
         }]
     }
 });`,
-  }
+  },
 );
 
 export const HowDoesWebsiteWork = generateMessageSlide("How does your browser load websites?");
@@ -231,7 +231,7 @@ export const RecapNecessities = generateContentSlide(
     "Some way to associate your public IP with your machine",
     "Firewall rules that allow traffic in",
   ],
-  { useOrderedLists: true }
+  { useOrderedLists: true },
 );
 
 export const HostingIsHard = generateContentSlide("Self-Hosting is Still Hard", [

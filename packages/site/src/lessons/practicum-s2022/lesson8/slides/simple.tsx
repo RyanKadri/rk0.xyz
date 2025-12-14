@@ -31,7 +31,7 @@ export const Iceberg = generateContentSlide("Private Servers", [
 
 export const PrincipleLeastPriv = generateDefinitionSlide(
   "The Principle of Least Privilege",
-  "A system should be given only the privileges needed to do its job"
+  "A system should be given only the privileges needed to do its job",
 );
 
 export const SecurityGroups = generateContentSlide("Security Groups", [
@@ -58,7 +58,7 @@ export const ApiSecurity = generateContentSlide("API Security", [
 ]);
 
 export const HowDoControlSameApi = generateMessageSlide(
-  "If different things need to be able to access the same API, how do I control what they can do?"
+  "If different things need to be able to access the same API, how do I control what they can do?",
 );
 
 export const UserSecurity = generateContentSlide("User Security", [
@@ -160,7 +160,7 @@ export const SamplePolicy = generateCodeSlide(
         }
     ]
 }`,
-  }
+  },
 );
 
 export const AwsEntities = generateContentSlide("Core AWS Concepts", [
@@ -275,7 +275,7 @@ public S3Client createS3Client() {
         .region(Region.US_EAST_1)
         .build();
 }`,
-  }
+  },
 );
 
 export const S3PutExample = generateCodeSlide(
@@ -289,7 +289,7 @@ export const S3PutExample = generateCodeSlide(
 
 var body = RequestBody.fromString(message);
 this.s3Client.putObject(request, body);`,
-  }
+  },
 );
 
 export const S3GetExample = generateCodeSlide(
@@ -307,7 +307,7 @@ var inputStream = this.s3Client.getObject(request);
 Scanner s = new Scanner(inputStream).useDelimiter("\\A");
 String result = s.hasNext() ? s.next() : "";
 return result;`,
-  }
+  },
 );
 
 export const IamRoles = generateContentSlide("IAM Roles", [

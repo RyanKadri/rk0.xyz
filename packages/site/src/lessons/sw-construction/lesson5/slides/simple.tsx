@@ -63,7 +63,7 @@ public void countFavoriteSongs(List<Song> allSongs) {
     List<Song> favoriteSongs = this.filterFavorites(allSongs);
     return favoriteSongs.size();
 }`,
-  }
+  },
 );
 
 export const CaseStudySetters = generateContentSlide("Setters are Evil?", [
@@ -97,7 +97,7 @@ ryan.setJob("Developer");
 
 // Using Constructor. Can be locked down and not modifiable
 Employee ryan = new Employee("Ryan Kadri", 28, "Developer");`,
-  }
+  },
 );
 
 export const CaseStudyGetters = generateContentSlide("Getters are Meh?", [
@@ -133,7 +133,7 @@ double bonus = payrollManager.getBonus();
 EmployeeInfo info = payrollManager.fetchEmployeeInfo(2020);
 double salary = info.getSalary();
 double bonus = info.getBonus();`,
-  }
+  },
 );
 
 export const UseDataRightAway2 = generateCodeSlide(
@@ -154,7 +154,7 @@ public class PayrollManager {
 public class EmployeeInfo {
     public EmployeeInfo() {}
 }`,
-  }
+  },
 );
 
 export const CarefulWithReferences = generateContentSlide("References are dangerous", [
@@ -175,12 +175,12 @@ export const UnsafeSharing = generateCodeSlide(
     QualityChecker.identifyDefects(products); // Removes non-defective products
     ReportGenerator.defectiveItemsReport(products); // Stores defective products
 }`,
-  }
+  },
 );
 
 export const FunctionalProgrammingIntro = generateDefinitionSlide(
   "Functional Programming",
-  "Thinking about your program in terms of mathematical functions"
+  "Thinking about your program in terms of mathematical functions",
 );
 
 export const FunctionalProgramming1 = generateMediaSlide(
@@ -209,7 +209,7 @@ export const FunctionalProgramming1 = generateMediaSlide(
     </Table>
   </Paper>,
   undefined,
-  "Functions vs Methods"
+  "Functions vs Methods",
 );
 
 export const PureFunctions = generateContentSlide("A Pure Function", [

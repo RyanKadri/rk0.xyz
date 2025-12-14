@@ -80,7 +80,7 @@ function GlossaryCard({ item }: GlossaryCardProps) {
           {showingDetails &&
             !!item.moreInfo &&
             item.moreInfo.map(info =>
-              info.type === "code" ? <CodeBlock code={info.code} className={"codeBlock"} /> : info.content
+              info.type === "code" ? <CodeBlock code={info.code} className={"codeBlock"} /> : info.content,
             )}
           {showingDetails && !!item.references && (
             <>

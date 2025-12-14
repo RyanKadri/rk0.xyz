@@ -127,7 +127,7 @@ export const CreatingDynamoTable = generateMediaAssistSlide(
     "When creating a dynamo table, you need a name and a key",
     "There are other setting for scaling and resources but you can ignore",
   ],
-  <img src={dynamoCreation.src} />
+  <img src={dynamoCreation.src} />,
 );
 
 export const SettingUpDynamo = generateCodeSlide(
@@ -149,7 +149,7 @@ export const SettingUpDynamo = generateCodeSlide(
     <artifactId>dynamodb-enhanced</artifactId>
     <version>2.11.4-PREVIEW</version>
 </dependency>`,
-  }
+  },
 );
 
 export const CreatingDynamoClient = generateCodeSlide(
@@ -170,7 +170,7 @@ DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
 
 DynamoDbTable<UserModel> table = 
     client.table("practicum-table", TableSchema.fromBean(UserModel.class));`,
-  }
+  },
 );
 
 export const RecordModel = generateCodeSlide(
@@ -196,7 +196,7 @@ public String getId() {
 public void setId(String id) {
     this.id = id;
 }`,
-  }
+  },
 );
 
 export const CreatingInDynamo = generateCodeSlide(
@@ -211,7 +211,7 @@ export const CreatingInDynamo = generateCodeSlide(
     code: synJava`public void saveUser(UserModel model) {
     userTable.putItem(model);
 }`,
-  }
+  },
 );
 
 export const FetchingInDynamo = generateCodeSlide(
@@ -225,7 +225,7 @@ export const FetchingInDynamo = generateCodeSlide(
         
     UserModel model = userTable.getItem(key);
 }`,
-  }
+  },
 );
 
 export const QueryVsScan = generateContentSlide("Searching Fast and Slow", [
@@ -263,7 +263,7 @@ List<UserModel> users = new ArrayList<>();
 for(Page<UserModel> user: iterable) {
     users.addAll(user.items());
 }`,
-  }
+  },
 );
 
 export const SecretNotesWithDynamo = generateMessageSlide("Can we set up Secret Notes to use DynamoDB?");

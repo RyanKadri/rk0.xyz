@@ -55,7 +55,7 @@ export const Breakpoints = generateMediaAssistSlide(
     "Often given as a width. Different per site",
     "Between the two sides, elements may appear, disappear, or get moved",
   ],
-  <img src={breakpoints.src} width="1000px" />
+  <img src={breakpoints.src} width="1000px" />,
 );
 
 export const MetaTag = generateCodeSlide(
@@ -77,7 +77,7 @@ export const MetaTag = generateCodeSlide(
     <body>...</body>
 </html>
     `,
-  }
+  },
 );
 
 export const MediaQueries = generateContentSlide("Media Queries", [
@@ -113,7 +113,7 @@ export const MediaQueryExample = generateCodeSlide(
         display: block;
     }
 }`,
-  }
+  },
 );
 
 export const CssFrameworksTitle = generateTitleSlide("Part 2: CSS Frameworks", "Ryan Kadri");
@@ -239,7 +239,7 @@ a:visited {
     color: green; /* Visited links shall henceforth be green */
 }
     `,
-  }
+  },
 );
 
 export const CssTransition = generateContentSlide("CSS: Transitions", [

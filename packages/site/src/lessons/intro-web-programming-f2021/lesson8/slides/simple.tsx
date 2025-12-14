@@ -79,7 +79,7 @@ setTimeout(logHello, 3000); // Logs "Hello" in 3000 ms (3 sec)
 setInterval(logHello, 5000); // Logs "Hello" _every_ 5000 ms (5 sec)
     `,
     codeBlock: { canExecuteCode: true },
-  }
+  },
 );
 
 export const FindThings = generateContentSlide("Let's do some problems", [
@@ -122,7 +122,7 @@ function add(a, b) {
 const myRenamedFunction = add;
 myRenamedFunction(1,2) // Returns 3
 `,
-  }
+  },
 );
 
 export const FunctionsAsVariablesPart2 = generateCodeSlide(
@@ -144,7 +144,7 @@ function doSomethingTwice(something) {
 
 doSomethingTwice(sayHello)
 `,
-  }
+  },
 );
 
 export const FindAThingGeneric = generateCodeSlide("Find a Thing", [], {
@@ -186,7 +186,7 @@ function logHello() {
 setTimeout(logHello, 3000); // Logs "Hello" in 3000 ms (3 sec)
     `,
     codeBlock: { canExecuteCode: true },
-  }
+  },
 );
 
 export const TimeoutWaitWhat = generateCodeSlide("What Happens?", [], {

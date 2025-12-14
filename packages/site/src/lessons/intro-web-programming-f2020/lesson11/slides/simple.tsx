@@ -38,7 +38,7 @@ export const HowToUse = generateCodeSlide(
     ...
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>`,
-  }
+  },
 );
 
 export const HowWriteLibrary = generateMessageSlide("How would you write a library?");
@@ -102,7 +102,7 @@ String.prototype.reverse = function() {
     return this.split("").reverse().join("")
 }
 "abc".reverse() // "cba"`,
-  }
+  },
 );
 
 export const JQuery = generateCodeSlide(
@@ -126,7 +126,7 @@ $("#my-list li")
                 .hover(e => $(e.currentTarget).css("color", "green"))
         )
     )`,
-  }
+  },
 );
 
 export const MoProblems = generateContentSlide("Mo $ mo problems", [
@@ -152,7 +152,7 @@ const chart = new Chart(context, {
         }]
     }
 });`,
-  }
+  },
 );
 
 export const HowDoesWebsiteWork = generateMessageSlide("How does your browser request sites?");
@@ -196,7 +196,7 @@ export const Firewalls = generateMediaSlide(
     allowFullScreen
   />,
   "Arrow Season 4 Episode 22",
-  "Firewalls"
+  "Firewalls",
 );
 
 export const FirewallsNoReally = generateContentSlide("Firewalls", [
@@ -219,7 +219,7 @@ export const RecapNecessities = generateContentSlide(
     "Some way to associate your public IP with your machine",
     "Firewall rules that allow traffic in",
   ],
-  { useOrderedLists: true }
+  { useOrderedLists: true },
 );
 
 export const HostingIsHard = generateContentSlide("Self-Hosting is Still Hard", [

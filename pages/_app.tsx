@@ -36,14 +36,14 @@ export default function SiteViewport({
 
   useEffect(() => {
     window.addEventListener("resize", () => {
-      if(window.innerHeight === screen.height) {
-        console.log("full screen!")
+      if (window.innerHeight === screen.height) {
+        console.log("full screen!");
         setFullscreen(true);
       } else {
         setFullscreen(false);
       }
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <GAWrapper>

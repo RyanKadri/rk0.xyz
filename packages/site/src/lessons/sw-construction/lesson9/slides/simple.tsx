@@ -111,7 +111,7 @@ export const SamplePolicy = generateCodeSlide(
         }
     ]
 }`,
-  }
+  },
 );
 
 export const AwsEntities = generateContentSlide("Core AWS Concepts", [
@@ -244,7 +244,7 @@ public S3Client createS3Client() {
         .region(Region.US_EAST_1)
         .build();
 }`,
-  }
+  },
 );
 
 export const S3PutExample = generateCodeSlide("Writing to S3", ["Use the previously client to upload items to S3"], {
@@ -272,7 +272,7 @@ var inputStream = this.s3Client.getObject(request);
 Scanner s = new Scanner(inputStream).useDelimiter("\\A");
 String result = s.hasNext() ? s.next() : "";
 return result;`,
-  }
+  },
 );
 
 export const references: Reference[] = [

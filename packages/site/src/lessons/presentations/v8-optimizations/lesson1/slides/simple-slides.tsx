@@ -22,32 +22,32 @@ export const InterpretedOrCompiled = generateMessageSlide("Is JavaScript an inte
 export const CompilerPipeline = generateMediaAssistSlide(
   "V8 Compiler Pipeline",
   [],
-  <img src={v8Pipeline.src} style={{ height: "auto", width: 1400 }} />
+  <img src={v8Pipeline.src} style={{ height: "auto", width: 1400 }} />,
 );
 
 export const DeoptDefinition = generateDefinitionSlide(
   "V8 Deoptimizations",
-  "When V8 needs to roll back from its optimized code to an un-optimized state"
+  "When V8 needs to roll back from its optimized code to an un-optimized state",
 );
 
 export const Disclaimer1 = generateDefinitionSlide(
   "Disclaimer 1: Don't lose sleep over any of this",
-  "We're going to get into the nitty-gritty of JavaScript optimization. 99.9% of the time you just want to write clean code"
+  "We're going to get into the nitty-gritty of JavaScript optimization. 99.9% of the time you just want to write clean code",
 );
 
 export const Disclaimer2 = generateDefinitionSlide(
   "Disclaimer 2: I am not a V8 Developer",
-  "The following examples get under the hood in V8. I have not pored over the V8 source code. This info is mainly from talks and blogs"
+  "The following examples get under the hood in V8. I have not pored over the V8 source code. This info is mainly from talks and blogs",
 );
 
 export const Disclaimer3 = generateDefinitionSlide(
   "Disclaimer 3: This stuff changes fast",
-  "V8 is aggressively optimized. Any of these principles can change without notice"
+  "V8 is aggressively optimized. Any of these principles can change without notice",
 );
 
 export const WhyHaveTalk = generateDefinitionSlide(
   "So why have this talk?",
-  "It's really interesting to know a bit more about how the browser works. Deoptimizations are surprising and unexpected"
+  "It's really interesting to know a bit more about how the browser works. Deoptimizations are surprising and unexpected",
 );
 
 const intIterate = synJS`
@@ -159,13 +159,13 @@ export const WaitButWhyFastProps = generateMediaAssistSlide(
     'HashMap lookups are slower than "class" property lookups',
     'Classes "know" what properties they have and where they are in memory',
   ],
-  <img src={hashMap.src} />
+  <img src={hashMap.src} />,
 );
 
 export const HiddenClasses = generateMediaAssistSlide(
   "Hidden Classes",
   [],
-  <img src={hiddenClasses.src} style={{ transform: "translate(80px, -100px)" }} height={800} />
+  <img src={hiddenClasses.src} style={{ transform: "translate(80px, -100px)" }} height={800} />,
 );
 
 const randomVals = synJS`
@@ -305,7 +305,7 @@ export const RealReactPR = generateMessageSlide(
   <>
     A real React PR:
     <Link href="https://github.com/facebook/react/pull/14383">https://github.com/facebook/react/pull/14383</Link>
-  </>
+  </>,
 );
 
 export const references: Reference[] = [

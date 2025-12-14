@@ -161,7 +161,7 @@ export const MavenDependencies = generateCodeSlide(
     </dependency>
 </dependencies>
 <!-- omitted -->`,
-  }
+  },
 );
 
 export const DependencyDive = generateCodeSlide(
@@ -180,7 +180,7 @@ export const DependencyDive = generateCodeSlide(
     <version>30.1-jre</version>
     <scope>compile</scope>
 </dependency>`,
-  }
+  },
 );
 
 export const ExampleTime = generateMessageSlide("Example Time!");

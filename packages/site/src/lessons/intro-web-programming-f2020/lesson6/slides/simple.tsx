@@ -19,12 +19,12 @@ export const DataTypes = generateContentSlide("Data Types", [
 export const MapArray = generateMessageSlide("Write a function that takes in an array and doubles each item");
 
 export const MapArrayImmutable = generateMessageSlide(
-  "Write a function that takes in an array and returns a new array with each item doubled"
+  "Write a function that takes in an array and returns a new array with each item doubled",
 );
 
 export const FizzBuzz = generateMessageSlide(
   "Write a function that prints every number from 1 to 100 but replace every number divisible " +
-    "by 3 with Fizz, every number divisible by 5 with Buzz and every number divisible by both with FizzBuzz"
+    "by 3 with Fizz, every number divisible by 5 with Buzz and every number divisible by both with FizzBuzz",
 );
 
 export const HowConnect = generateMessageSlide("So how does JavaScript connect to HTML?");
@@ -68,7 +68,7 @@ export const Methods = generateCodeSlide(
     
     console.log(ryan.getFullName());
     `,
-  }
+  },
 );
 
 export const Objects = generateCodeSlide(
@@ -86,7 +86,7 @@ delete person.name;
 person.firstName = "Ryan";
 person.lastName = "Kadri";
     `,
-  }
+  },
 );
 
 export const RegularExpressions = generateCodeSlide(
@@ -109,7 +109,7 @@ const longString = "My name is Ryan Kadri. Who are you?";
 const matches = longString.match(/My name is (.*?)\./);
 console.log(matches[1]); // Ryan Kadri
 `,
-  }
+  },
 );
 
 export const StringsPart2 = generateCodeSlide(
@@ -128,7 +128,7 @@ console.log(myName.repeat(2)); // "Ryan KadriRyan Kadri"
 console.log(myName.substring(0,4)) // "Ryan";
 console.log(myName.split(" ")) // [ "Ryan", "Kadri" ];
     `,
-  }
+  },
 );
 
 export const VariablesRedux = generateCodeSlide(
@@ -147,7 +147,7 @@ data = null;
 const something = 456;
 something = 123 // TypeError
     `,
-  }
+  },
 );
 
 export const references: Reference[] = [

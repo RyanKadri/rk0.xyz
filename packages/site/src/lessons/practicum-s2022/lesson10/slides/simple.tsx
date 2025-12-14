@@ -182,7 +182,7 @@ export const JavaLogging = generateCodeSlide(
     }
 
 }`,
-  }
+  },
 );
 
 export const references: Reference[] = [];

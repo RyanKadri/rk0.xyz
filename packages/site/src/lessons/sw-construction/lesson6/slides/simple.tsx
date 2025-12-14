@@ -12,7 +12,7 @@ export const Title = generateTitleSlide("APIs", "Ryan Kadri");
 
 export const HowDoTalk = generateDefinitionSlide(
   "API",
-  "Application Programming Interface - A specification for how a piece of software can be used by other external software"
+  "Application Programming Interface - A specification for how a piece of software can be used by other external software",
 );
 
 export const WhereApis = generateContentSlide("Where are APIs?", [
@@ -57,7 +57,7 @@ export const ExampleBadApi = generateCodeSlide(
         return this.parsedExpression;
     }
 }`,
-  }
+  },
 );
 
 export const HttpApis = generateContentSlide("HTTP APIs", [

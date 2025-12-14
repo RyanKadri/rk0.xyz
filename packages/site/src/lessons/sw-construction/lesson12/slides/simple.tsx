@@ -42,11 +42,11 @@ export const Docker = generateMediaAssistSlide(
     'You can manage "images" that act like a template for containers',
     "You can share your images with others",
   ],
-  <img src={docker.src} />
+  <img src={docker.src} />,
 );
 
 export const Disclaimer = generateMessageSlide(
-  "Disclaimer: Containers are a big concept. Docker is very " + "popular but is not the only approach"
+  "Disclaimer: Containers are a big concept. Docker is very " + "popular but is not the only approach",
 );
 
 export const Containers = generateContentSlide("Docker Containers", [
@@ -74,7 +74,7 @@ WORKDIR /app
 COPY ./pom.xml /app
 COPY src /app/src
 RUN mvn package`,
-  }
+  },
 );
 
 export const BuildingImages = generateContentSlide("Building Images", [

@@ -31,7 +31,7 @@ export function HTMLExampleOutput({ code }: Props) {
     const pageBlob = URL.createObjectURL(
       new Blob(["<!DOCTYPE html>\n" + pageToLoad.documentElement.outerHTML], {
         type: "text/html; charset=utf-8",
-      })
+      }),
     );
     window.open(pageBlob, "_blank");
   };

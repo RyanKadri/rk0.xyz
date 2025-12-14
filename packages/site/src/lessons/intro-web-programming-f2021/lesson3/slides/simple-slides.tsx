@@ -13,7 +13,7 @@ import flowDiagram from "./mdn-horizontal-flow.png";
 export const TitleSlide = generateTitleSlide(`Managing Website Layouts with CSS`, "Ryan Kadri");
 
 export const Goal = generateMessageSlide(
-  "We've covered colors, border, margins, etc. How do we actually say where things go?"
+  "We've covered colors, border, margins, etc. How do we actually say where things go?",
 );
 
 export const WhatAboutPosition = generateContentSlide('What about "position"?', [
@@ -51,7 +51,7 @@ export const Flow = generateMediaAssistSlide(
     "Text progresses left to right (in English)",
     "Blocks of content progress top to bottom on separate lines",
   ],
-  <img src={flowDiagram.src} width={700} />
+  <img src={flowDiagram.src} width={700} />,
 );
 
 export const BlockVsInline = generateContentSlide("Display Block / Inline", [
@@ -88,7 +88,7 @@ export const FlexboxOverview = generateContentSlide("Flexbox", [
 export const FlexboxPractice = generateMessageSlide(
   <Link href="https://flexboxfroggy.com/" target="_blank" variant="h4">
     Let's practice!
-  </Link>
+  </Link>,
 );
 
 export const FlexboxMissing = generateContentSlide("What is Flexbox Missing?", [
@@ -107,7 +107,7 @@ export const GridOverview = generateContentSlide("CSS Grid", [
 export const GridPractice = generateMessageSlide(
   <Link href="https://codepip.com/games/grid-garden/" target="_blank" variant="h4">
     Let's practice!
-  </Link>
+  </Link>,
 );
 
 export const CombineItAll = generateMessageSlide("Let's combine it all together!");
@@ -187,7 +187,7 @@ export const MediaQueryExample = generateCodeSlide(
     }
 }
     `,
-  }
+  },
 );
 
 export const references: Reference[] = [

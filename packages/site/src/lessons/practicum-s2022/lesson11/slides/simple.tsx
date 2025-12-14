@@ -30,7 +30,7 @@ aws s3 cp s3://my-pocket/newrelic-agent.jar .
 curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash \
   && sudo NEW_RELIC_API_KEY=FAKE_KEY NEW_RELIC_ACCOUNT_ID=12345 /usr/local/bin/newrelic install
 `,
-  }
+  },
 );
 
 export const RepeatableStartup = generateContentSlide("Repeatable Setup", [
@@ -68,11 +68,11 @@ export const Docker = generateMediaAssistSlide(
     "You can share your images with others",
     "Can be installed on Linux, Mac, and Windows",
   ],
-  <img src={docker.src} />
+  <img src={docker.src} />,
 );
 
 export const Disclaimer = generateMessageSlide(
-  "Disclaimer: Containers are a broader concept than Docker. Docker is probably the most popular approach"
+  "Disclaimer: Containers are a broader concept than Docker. Docker is probably the most popular approach",
 );
 
 export const Containers = generateContentSlide("Docker Containers", [
@@ -149,7 +149,7 @@ COPY ./pom.xml /app
 COPY src /app/src
 RUN mvn package
 CMD java -jar data.jar`,
-  }
+  },
 );
 
 export const DockerfileExplanation = generateContentSlide("Dockerfile Commands", [

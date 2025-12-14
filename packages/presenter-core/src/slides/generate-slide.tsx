@@ -17,7 +17,7 @@ import {
 export function generateContentSlide(
   title: string,
   points: (string | NestedListInfo | ReactElement)[],
-  options?: ContentSlideOptions
+  options?: ContentSlideOptions,
 ) {
   return function ({ context }: { context: PresentationContext }) {
     return <ContentSlide Title={title} Content={points} context={context} options={options} />;
@@ -60,7 +60,7 @@ export interface CodeSlideOptions {
 export function generateCodeSlide(
   title: string,
   bullets: (string | NestedListInfo | ReactElement)[],
-  codeBlock: SlideInfo
+  codeBlock: SlideInfo,
 ) {
   const { code, ...options } = codeBlock;
   return function ({ context }: { context: PresentationContext }) {
@@ -77,7 +77,7 @@ export function generateDefinitionSlide(term: ReactNode, definition: ReactNode) 
 export function generateMediaAssistSlide(
   title: string,
   bullets: (string | NestedListInfo | ReactElement)[],
-  media: ReactElement
+  media: ReactElement,
 ) {
   return function ({ context }: { context: PresentationContext }) {
     return <MediaAssistSlide Title={title} context={context} info={bullets} Media={media} />;

@@ -148,7 +148,7 @@ export const AttachingEvents = generateCodeSlide(
     }
 </script>
     `,
-  }
+  },
 );
 
 export const EventBubbling = generateCodeSlide(
@@ -168,7 +168,7 @@ export const EventBubbling = generateCodeSlide(
     <button onclick="console.log('button')">Click me</button>
 </div>
     `,
-  }
+  },
 );
 
 export const EventDefaults = generateContentSlide("Event Defaults", [
@@ -196,7 +196,7 @@ myButton.addEventListener("click", doSomething);
 function doSomething() {
     console.log("clicked")
 }`,
-  }
+  },
 );
 
 export const CreateTodoList = generateMessageSlide("Let's create a To-Do list");

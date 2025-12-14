@@ -59,7 +59,7 @@ const isATeacher = true;
 const nothing = null;
 var isObsolete = true; // Try to avoid this one
 `,
-  }
+  },
 );
 
 export const Operators = generateCodeSlide(
@@ -78,7 +78,7 @@ c++;
 const d = "The answer is: " + c;
 const f = c > b;
 `,
-  }
+  },
 );
 
 export const ConditionalExample = generateCodeSlide(
@@ -99,7 +99,7 @@ if (a) {
     // Do a thing
 }
     `,
-  }
+  },
 );
 
 export const WhileLoops = generateCodeSlide("While Loops", [`While loops run as long as something is "truthy"`], {
@@ -137,7 +137,7 @@ for(const number of myFavoriteNumbers) {
 for(let i = 0; i < 5; i++) {
     console.log("Here is a number: " + i)
 }`,
-  }
+  },
 );
 
 export const FunctionsExample = generateCodeSlide(
@@ -161,7 +161,7 @@ function doMath(a, b) {
 function printMath(a,b) {
     console.log(doMath(a,b))
 }`,
-  }
+  },
 );
 
 export const ArraysExample = generateCodeSlide(
@@ -183,7 +183,7 @@ for(const element of mixed) {
 console.log(mixed[0]);
 mixed[3] = "something";
     `,
-  }
+  },
 );
 
 export const Objects = generateCodeSlide(
@@ -201,7 +201,7 @@ const ryan = { name: "Ryan", age: 28, job: "Developer", id: "abc123" };
 person.age ++;
 console.log(ryan.name) // Prints "Ryan"
 `,
-  }
+  },
 );
 
 export const StringsPart2 = generateCodeSlide(
@@ -223,7 +223,7 @@ console.log(myName.repeat(2)); // "Ryan KadriRyan Kadri"
 console.log(myName.substring(0,4)) // "Ryan";
 console.log(myName.split(" ")) // [ "Ryan", "Kadri" ];
 `,
-  }
+  },
 );
 
 export const LetsGetStarted = generateMessageSlide("Let's Get Started");

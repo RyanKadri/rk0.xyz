@@ -49,7 +49,7 @@ export function JSExampleRunner({ code, testCases: initTestCases }: Props) {
   const [testCaseMap, setTestCaseMap] = useState<TestCaseMapping>({ ...initTestCases });
   const [selectedTestCaseInd, setSelectedTestCaseInd] = useState<number | null>(null);
   const selectedFunction = functions?.find(func => func.name === targetFunction);
-  const testCases = targetFunction ? testCaseMap[targetFunction] ?? [] : [];
+  const testCases = targetFunction ? (testCaseMap[targetFunction] ?? []) : [];
 
   const selectedTestCase =
     selectedTestCaseInd !== null && selectedTestCaseInd < testCases.length ? testCases[selectedTestCaseInd] : null;

@@ -83,7 +83,7 @@ export const MavenDependencies = generateCodeSlide(
     </dependency>
 </dependencies>
 <!-- omitted -->`,
-  }
+  },
 );
 
 export const DependencyDive = generateCodeSlide(
@@ -102,7 +102,7 @@ export const DependencyDive = generateCodeSlide(
     <version>30.1-jre</version>
     <scope>compile</scope>
 </dependency>`,
-  }
+  },
 );
 
 export const ExampleTime = generateMessageSlide("Example Time!");
@@ -186,14 +186,14 @@ public class HelloWorldRestController {
     }
     
 }`,
-  }
+  },
 );
 
 export const InversionOfControl = generateDefinitionSlide(
   "Inversion of Control",
   "Rather than writing a lot of custom code that calls into libraries (traditional development), " +
     "Inversion of Control frameworks let you hand control over to the framework and it decides when " +
-    "to call your code"
+    "to call your code",
 );
 
 export const references: Reference[] = [

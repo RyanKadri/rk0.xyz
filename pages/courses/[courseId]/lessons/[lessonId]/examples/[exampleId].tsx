@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params = {} }) => 
   const highlightedCode = prism.highlight(
     currExample.code,
     prism.languages[currExample.language],
-    currExample.language
+    currExample.language,
   );
 
   return {
@@ -57,8 +57,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
             lessonId: lesson.slug,
             exampleId: "" + i,
           },
-        }))
-      )
+        })),
+      ),
     ),
     fallback: false,
   };

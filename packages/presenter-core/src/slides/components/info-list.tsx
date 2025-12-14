@@ -39,7 +39,7 @@ export function InfoList({ items, useOrderedLists = false }: Props) {
           item
         )}
       </StyledListItem>
-    ))
+    )),
   );
 }
 

@@ -158,7 +158,7 @@ public class HelloWorldRestController {
         return new HelloResponse("Ryan", 28, true);
     }
 }`,
-  }
+  },
 );
 
 export const Postman = generateContentSlide("Postman", [

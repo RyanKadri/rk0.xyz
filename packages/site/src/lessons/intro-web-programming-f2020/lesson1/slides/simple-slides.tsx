@@ -15,7 +15,7 @@ export const TitleSlide = generateTitleSlide("Course Expectations and Intro to H
 export const AboutMePicture = generateMediaSlide(
   <img src={aboutMe.src} alt="Me at Smith Rock" />,
   "Smith Rock 2019",
-  "About Me"
+  "About Me",
 );
 
 export const AboutMe = generateContentSlide("About Me", [
@@ -34,7 +34,7 @@ export const CourseTopics = generateContentSlide(
     "Hosting your site on the Internet",
     "Writing server-side code that your site can talk to",
   ],
-  { useOrderedLists: true }
+  { useOrderedLists: true },
 );
 
 export const CourseNonTopics = generateContentSlide("What is this Course NOT?", [
@@ -63,7 +63,7 @@ export const Expectations = generateContentSlide("Course Work", [
 export const Syllabus = generateMessageSlide(
   <MaterialLink variant="h4" href="https://templeu.instructure.com/courses/81125" target="_blank">
     Syllabus
-  </MaterialLink>
+  </MaterialLink>,
 );
 
 export const WhatIsWebsite = generateContentSlide("What is a Web Site?", [

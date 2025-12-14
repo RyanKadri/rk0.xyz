@@ -80,7 +80,7 @@ const tabTitle = document.title;
 const currentUrl = document.location.href;
 const newHeading = document.createElement("h1");
     `,
-  }
+  },
 );
 
 export const VariablesRedux = generateCodeSlide(
@@ -99,7 +99,7 @@ data = null;
 const something = 456;
 something = 123 // TypeError
 `,
-  }
+  },
 );
 
 export const references: Reference[] = [

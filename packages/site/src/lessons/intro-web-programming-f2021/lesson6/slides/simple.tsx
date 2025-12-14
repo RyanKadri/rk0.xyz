@@ -12,11 +12,11 @@ export const TitleSlide = generateTitleSlide("JavaScript and the DOM", "Ryan Kad
 export const Recap = generateMessageSlide("Let's Recap...");
 
 export const MapArrayImmutable = generateMessageSlide(
-  "Write a function that takes in an array and returns a new array with each item doubled"
+  "Write a function that takes in an array and returns a new array with each item doubled",
 );
 
 export const FirstNameAlphabetically = generateMessageSlide(
-  "Write a function that finds the object with the first name, alphabetically"
+  "Write a function that finds the object with the first name, alphabetically",
 );
 
 export const LogVsReturn = generateContentSlide("return vs console.log", [
@@ -105,7 +105,7 @@ export const DocumentObject = generateCodeSlide(
 const heading = document.getElementById("my-heading");
 heading.textContent = "New heading text";
     `,
-  }
+  },
 );
 
 export const ScriptTag = generateCodeSlide(
@@ -129,7 +129,7 @@ export const ScriptTag = generateCodeSlide(
     </body>
 </html>
     `,
-  }
+  },
 );
 
 export const WaitWhyBodyTag = generateCodeSlide(
@@ -155,7 +155,7 @@ export const WaitWhyBodyTag = generateCodeSlide(
     </body>
 </html>
     `,
-  }
+  },
 );
 
 export const UserInputIntro = generateCodeSlide(
@@ -178,7 +178,7 @@ export const UserInputIntro = generateCodeSlide(
     </body>
 </html>
 `,
-  }
+  },
 );
 
 export const references: Reference[] = [

@@ -51,7 +51,7 @@ function wait(milliseconds) {
     }
     console.log("Done");
 }`,
-  }
+  },
 );
 
 export const OhNo = generateMessageSlide("Why aren't sites frozen all the time then?");
@@ -95,7 +95,7 @@ function printSomething() {
 }
 
 setTimeout(printSomething, 5000);`,
-  }
+  },
 );
 
 export const AnonymousFunctions = generateCodeSlide(
@@ -111,7 +111,7 @@ setTimeout(function() {
     console.log("Belated Hello")
 }, 5000)
     `,
-  }
+  },
 );
 
 export const BlockingCodeExample = generateCodeSlide(
@@ -129,7 +129,7 @@ function processFile() {
     updateNetwork(largestExpense);
     console.log("Done processing.")
 }`,
-  }
+  },
 );
 
 export const NonBlockingMoreExamples = generateCodeSlide(
@@ -153,7 +153,7 @@ function checkExpenses(fileData) {
 function printSuccess() {
     console.log("Done processing.")
 }`,
-  }
+  },
 );
 
 export const WorkingWithServers = generateTitleSlide("Working with Servers (Part 1)", "Ryan Kadri");
@@ -205,7 +205,7 @@ fetch("https://meowfacts.herokuapp.com/")
     .then(function(response) { return response.json() })
     .then(function(response) { console.log(response) })
 `,
-  }
+  },
 );
 
 export const WhatArePromises = generateContentSlide(".then?", [

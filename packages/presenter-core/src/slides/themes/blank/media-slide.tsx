@@ -29,7 +29,7 @@ const Container = styled(BaseContainer)({
 export function MediaSlide({ context, Media, Title, Credit }: MediaSlideProps) {
   return (
     <Container>
-      {typeof Title !== "string" ? Title ?? null : <BaseTitle>{Title}</BaseTitle>}
+      {typeof Title !== "string" ? (Title ?? null) : <BaseTitle>{Title}</BaseTitle>}
       <div className={"media"}>{Media}</div>
       {typeof Credit === "string" ? (
         <Typography className={"credit"} variant="caption">
