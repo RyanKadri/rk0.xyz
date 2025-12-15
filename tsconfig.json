@@ -5,9 +5,9 @@
     "module": "esnext",
     "lib": [
       "dom",
-      "es2020",
+      "es2020"
     ],
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "sourceMap": true,
     "outDir": "./dist",
     "rootDir": "./",

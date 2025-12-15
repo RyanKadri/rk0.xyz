@@ -9,6 +9,7 @@ export default defineConfig(
     "**/examples/*.js",
     "tooling/**/*",
     ".next/**/*",
+    "./*.js"
   ]),
   eslint.configs.recommended,
   tseslint.configs.recommended,
