@@ -2,10 +2,9 @@ import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Drawer,
-  Hidden,
   IconButton,
   List,
-  ListItem,
+  ListItemButton,
   ListItemText,
   Typography,
   styled,
@@ -71,26 +70,23 @@ export function ExampleViewer({ examples, currExample, baseUrl, highlightedCode 
       >
         <List>
           {examples.map((example, i) => (
-            <ListItem
-              button
+            <ListItemButton
               component={Link}
               href={`${baseUrl}/${i}`}
               key={example.title}
               onClick={() => setDrawerOpen(false)}
             >
               <ListItemText primary={example.title}></ListItemText>
-            </ListItem>
+            </ListItemButton>
           ))}
           {/* TODO - Add external examples here */}
         </List>
       </Drawer>
       <div className={"codeContainer"}>
         <header className={"exampleHeader"}>
-          <Hidden mdUp>
-            <IconButton onClick={() => setDrawerOpen(!drawerOpen)} size="large">
-              <FontAwesomeIcon icon={faBars} />
-            </IconButton>
-          </Hidden>
+          <IconButton sx={{ display: { xs: "none", md: "block" }}} onClick={() => setDrawerOpen(!drawerOpen)} size="large">
+            <FontAwesomeIcon icon={faBars} />
+          </IconButton>
           <Typography variant="h5">{examples[currExample].title}</Typography>
         </header>
         <ExamplePlayground example={examples[currExample]} highlightedCode={highlightedCode!} />

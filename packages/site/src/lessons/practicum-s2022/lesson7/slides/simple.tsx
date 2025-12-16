@@ -1,4 +1,3 @@
-import React from "react";
 import { Reference } from "../../../../../../presenter-core/src/services/types";
 import {
   generateContentSlide,

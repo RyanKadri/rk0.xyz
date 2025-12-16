@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Card,
   CardHeader,
-  Hidden,
   Link as MaterialLink,
   Paper,
   Table,
@@ -82,19 +81,15 @@ const TableViewParent = styled("div")({
 export function LessonList(props: Props) {
   return (
     <>
-      <Hidden implementation="css" mdUp>
-        <LessonCardView {...props} />
-      </Hidden>
-      <Hidden implementation="css" lgDown>
-        <LessonTableView {...props} />
-      </Hidden>
+      <LessonCardView {...props} />
+      <LessonTableView {...props} />
     </>
   );
 }
 
 function LessonCardView({ course, baseUrl }: Props) {
   return (
-    <CardViewParent className={"cardViewParent"}>
+    <CardViewParent sx={{ display: {xs:"block", md: "none"}}} className={"cardViewParent"}>
       {course.lessons.map(lesson => (
         <Card className={"lessonCard"} key={lesson.description}>
           <CardHeader title={lesson.description} classes={{ title: "cardHeader " }} />
@@ -146,7 +141,7 @@ function LessonCardView({ course, baseUrl }: Props) {
 
 function LessonTableView({ course, baseUrl }: Props) {
   return (
-    <TableViewParent>
+    <TableViewParent sx={{ display: { xs:"none", lg: "block"}}}>
       <Paper className={"tablePaper"}>
         <Table>
           <TableHead>

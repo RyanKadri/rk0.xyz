@@ -1,4 +1,3 @@
-import React from "react";
 import { InlineCode } from "../../../../../presenter-core/src/slides/components/inline-code-mdx";
 import { synCSS } from "../../../common/highlighting";
 import { GlossaryItem } from "../../shared/glossary-page";

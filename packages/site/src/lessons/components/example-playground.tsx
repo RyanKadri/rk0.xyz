@@ -1,4 +1,4 @@
-import { Hidden, NoSsr, styled } from "@mui/material";
+import { NoSsr, styled, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
 import { ExampleDefinition } from "../../../../presenter-core/src/services/types";
 import { CodeBlock, SyntaxHighlightedBlock } from "../../../../presenter-core/src/slides/components/code-block";
@@ -42,6 +42,7 @@ interface Props {
 }
 export function ExamplePlayground({ example, highlightedCode }: Props) {
   const [currCode, setCurrCode] = useState(example.code);
+  const lgUp = useMediaQuery(theme => theme.breakpoints.up("lg"));
 
   useEffect(() => {
     setCurrCode(example.code);
@@ -50,7 +51,7 @@ export function ExamplePlayground({ example, highlightedCode }: Props) {
   return (
     <Container>
       <div className={"editorContainer"}>
-        <Hidden lgDown>
+        {lgUp ? (
           <CodeEditor
             language={example.language}
             initialCode={example.code}
@@ -58,10 +59,9 @@ export function ExamplePlayground({ example, highlightedCode }: Props) {
             height="100%"
             path={example.title}
           />
-        </Hidden>
-        <Hidden mdUp>
+        ) : (
           <CodeBlock code={highlightedCode} />
-        </Hidden>
+        )}
         <NoSsr>
           <noscript>
             <CodeBlock code={highlightedCode} />

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import ReactGA from "react-ga";
 import { CourseDefinition } from "../../presenter-core/src/services/types";
 

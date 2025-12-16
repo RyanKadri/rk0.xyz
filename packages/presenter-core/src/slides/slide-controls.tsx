@@ -5,7 +5,7 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons/faCircle";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons/faEllipsisV";
 import { faSquare } from "@fortawesome/free-solid-svg-icons/faSquare";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Hidden, IconButton, Link as MaterialLink, Menu, MenuItem, NoSsr, styled } from "@mui/material";
+import { IconButton, Link as MaterialLink, Menu, MenuItem, NoSsr, styled, useMediaQuery } from "@mui/material";
 import c from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -67,9 +67,11 @@ export function SlideControls({
   lesson,
   recording,
 }: Props) {
-  const [_, setVersion] = useState(Date.now());
+  const [, setVersion] = useState(Date.now());
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const router = useRouter();
+  const mdDown = useMediaQuery(theme => theme.breakpoints.down("md"))
+  const mdUp = useMediaQuery(theme => theme.breakpoints.up("md"))
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,7 +82,7 @@ export function SlideControls({
 
   return (
     <ControlsContainer className={c("slide-controls-container", className)}>
-      <Hidden mdDown>
+      { mdDown ? null : (
         <div className={c("controlButtonGroup", "textLinkGroup")}>
           <MaterialLink component={Link} href={courseUrl}>
             Back to Class
@@ -91,8 +93,9 @@ export function SlideControls({
             </MaterialLink>
           )}
         </div>
-      </Hidden>
-      <Hidden mdUp>
+      )}
+      { mdUp ? null : (
+
         <div className={c("controlButtonGroup", "textLinkGroup")}>
           <IconButton
             aria-controls="simple-menu"
@@ -127,7 +130,7 @@ export function SlideControls({
             )}
           </Menu>
         </div>
-      </Hidden>
+      )}
       <NoSsr>
         {!lesson.recording?.slideTimings && isProfessor() && (
           <div className={"controlButtonGroup"}>

@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useState } from "react";
 
-export function useComponentSize(componentRef: RefObject<HTMLElement>) {
+export function useComponentSize(componentRef: RefObject<HTMLElement | null>) {
   // This initial setup is for SSR. Going right to the window width screws up rehydration
   const [size, setSize] = useState({ height: 1000, width: 1000 });
   useEffect(() => {

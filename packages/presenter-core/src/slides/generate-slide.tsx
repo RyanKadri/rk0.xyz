@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 import { PresentationContext } from "../services/types";
 import { CodeBlockOptions, SyntaxHighlightedBlock } from "./components/code-block";
 import { NestedListInfo } from "./components/info-list";

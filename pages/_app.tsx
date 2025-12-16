@@ -1,4 +1,5 @@
 import { CacheProvider } from "@emotion/react";
+import styled from "@emotion/styled";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { MDXProvider } from "@mdx-js/react";
 import { Components } from "@mdx-js/react/lib";
@@ -17,6 +18,12 @@ import { lightTheme } from "../packages/site/src/theme";
 config.autoAddCss = false;
 
 const clientSideEmotionCache = createEmotionCache();
+const AppContainer = styled("div")({
+  display: "flex", 
+  flexDirection: "column", 
+  minHeight: "100vh", 
+  "--nav-height": "0px"
+})
 
 export default function SiteViewport({
   Component,
@@ -64,10 +71,10 @@ export default function SiteViewport({
                 />
                 <link rel="icon" href="/favicon.png" />
               </Head>
-              <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", "--nav-height": "0px" }}>
+              <AppContainer>
                 <RootNav fullscreen={fullscreen} />
                 <Component {...pageProps} />
-              </div>
+              </AppContainer>
             </UserContext.Provider>
           </ThemeProvider>
         </CacheProvider>

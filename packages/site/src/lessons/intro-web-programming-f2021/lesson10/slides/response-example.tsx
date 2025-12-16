@@ -1,4 +1,3 @@
-import React from "react";
 import { PresentationContext } from "../../../../../../presenter-core/src/services/types";
 import { ContentSlide } from "../../../../../../presenter-core/src/slides/slides";
 import { synJS } from "../../../../common/highlighting";
