@@ -1,14 +1,10 @@
 import { CacheProvider } from "@emotion/react";
 import styled from "@emotion/styled";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { MDXProvider } from "@mdx-js/react";
-import { Components } from "@mdx-js/react/lib";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { CodeBlockMdxWrapper } from "../packages/presenter-core/src/slides/components/code-block-mdx-wrapper";
-import { InlineCode } from "../packages/presenter-core/src/slides/components/inline-code-mdx";
 import { GAWrapper } from "../packages/site/src/analytics";
 import { UserContext, isProfessor } from "../packages/site/src/common/admin";
 import { createEmotionCache } from "../packages/site/src/common/createEmotionCache";
@@ -30,11 +26,6 @@ export default function SiteViewport({
   pageProps,
   emotionCache = clientSideEmotionCache,
 }: AppProps & { emotionCache }) {
-  const mdxComponents: Components = {
-    code: props => <CodeBlockMdxWrapper className={props.className}>{props.children as string}</CodeBlockMdxWrapper>,
-    inlineCode: props => <InlineCode>{props.children}</InlineCode>,
-  };
-
   const userSettings = {
     isProfessor: useClientSideValue(isProfessor, false),
   };
@@ -54,7 +45,6 @@ export default function SiteViewport({
 
   return (
     <GAWrapper>
-      <MDXProvider components={mdxComponents}>
         <CacheProvider value={emotionCache}>
           <ThemeProvider theme={lightTheme}>
             <UserContext.Provider value={userSettings}>
@@ -78,7 +68,6 @@ export default function SiteViewport({
             </UserContext.Provider>
           </ThemeProvider>
         </CacheProvider>
-      </MDXProvider>
     </GAWrapper>
   );
 }

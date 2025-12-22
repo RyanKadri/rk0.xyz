@@ -121,7 +121,7 @@ export function CodeBlock({ code, className, options = {} }: Props) {
         </Tooltip>
       </div>
       <pre className={`language-${code?.language}`} style={{ margin: 0 }} ref={codeBlockRef}>
-        <code className={`language-${code?.language}`} dangerouslySetInnerHTML={{ __html: code.components as string }}></code>
+        <code className={`language-${code?.language}`}>{code.components}</code>
       </pre>
     </StyledCodeBlock>
   );
