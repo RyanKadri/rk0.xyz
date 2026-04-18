@@ -1,6 +1,6 @@
 import { Link, Typography } from "@mui/material";
 import { ReactNode } from "react";
-import bingo from "../../../../public/projects/bingo.webp";
+import utils from "../../../../public/projects/utils.webp";
 import mandelbrot from "../../../../public/projects/mandelbrot.webp";
 import resume from "../../../../public/projects/resume.webp";
 
@@ -14,39 +14,15 @@ export interface ProjectConfig {
 
 export const projects: ProjectConfig[] = [
   {
-    name: "Bing.0",
-    link: "https://bingo.rk0.xyz",
-    image: bingo,
-    imageAlt: "Bing.0 site screenshot",
+    name: "utils.rk0.xyz",
+    link: "https://utils.rk0.xyz",
+    image: utils,
+    imageAlt: "utils.rk0.xyz site screenshot",
     description: (
       <>
-        <Typography variant="h6">Frontend</Typography>
         <Typography variant="body1">
-          A simple&nbsp;
-          <Link href="https://create-react-app.dev/">Create-React-App</Link>
-          &nbsp;built with&nbsp;
-          <Link href="https://react.semantic-ui.com/">Semantic UI</Link>
-          &nbsp;as a component library. Uses plain&nbsp;
-          <Link href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket">WebSockets</Link>
-          &nbsp;for real-time game updates. Hosted with&nbsp;
-          <Link href="https://www.netlify.com/">Netlify</Link>
-          &nbsp;(for free!)
-        </Typography>
-        <Typography variant="h6" style={{ marginTop: 16 }}>
-          Backend
-        </Typography>
-        <Typography variant="body1">
-          <Link href="https://aws.amazon.com/lambda/">AWS Lambdas</Link>
-          &nbsp;backed by&nbsp;
-          <Link href="https://aws.amazon.com/dynamodb/">DynamoDB</Link>. &nbsp;WebSocket persistent connections
-          using&nbsp;
-          <Link href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html">
-            API Gateway's WebSocket implementation
-          </Link>
-          . &nbsp;Deployed with the&nbsp;
-          <Link href="https://www.serverless.com/">Serverless Framework</Link>
-          &nbsp;and&nbsp;
-          <Link href="https://www.terraform.io/">Terraform</Link>
+          A collection of frontend-only calculators and utilities. Everything runs entirely in the browser with no
+          backend — no data ever leaves your device.
         </Typography>
       </>
     ),
